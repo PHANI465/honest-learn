@@ -13,3 +13,6 @@ ios/
 android/
 *.log
 .DS_Store
+
+# agent worktrees (temporary)
+.claude/worktrees/
