@@ -112,6 +112,11 @@ export function friendly(err: unknown): string {
     not_signed_in: "Please sign in again.",
     too_many_children: "You can add up to 8 children.",
     answer_every_question: "Answer every question first.",
+    wrong_code: "That code isn't right. Check the latest email from us.",
+    code_expired: "That code has expired. Ask for a new one.",
+    email_not_verified: "Please verify your email first (check your inbox for a 6-digit code).",
+    wait_a_minute: "We just sent a code. Please wait a minute before asking again.",
+    not_found: "We couldn't find that.",
   };
   return map[err.code] ?? "Something went wrong. Please try again.";
 }

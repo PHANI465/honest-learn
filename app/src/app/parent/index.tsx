@@ -1,7 +1,7 @@
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { Alert, Linking, Platform, Text, View } from "react-native";
-import { Banner, Button, Card, H1, H2, P, Pill, Screen } from "../../components/ui";
+import { Banner, Button, Card, Field, H1, H2, P, Pill, Screen } from "../../components/ui";
 import { friendly, type Child } from "../../lib/api";
 import { useSession } from "../../lib/session";
 import { avatars, bandTheme, colors } from "../../lib/theme";
@@ -27,7 +27,9 @@ function confirm(title: string, message: string): Promise<boolean> {
 }
 
 export default function ParentHome() {
-  const { parentApi, parentEmail, map, lockParent, logout, refreshFamily } = useSession();
+  const { parentApi, parentEmail, emailVerified, verifyEmail, resendVerification, map, lockParent, logout, refreshFamily } = useSession();
+  const [code, setCode] = useState("");
+  const [note, setNote] = useState<string | null>(null);
   const [data, setData] = useState<Overview | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -76,6 +78,27 @@ export default function ParentHome() {
       </View>
       <P muted size={14}>Signed in as {parentEmail}. This area locks itself after 10 minutes.</P>
       {error ? <Banner>{error}</Banner> : null}
+
+      {!emailVerified ? (
+        <Card style={{ borderColor: colors.warn, backgroundColor: colors.warnSoft }}>
+          <Text style={{ fontWeight: "800", color: colors.ink, fontSize: 16 }}>✉️ Please verify your email</Text>
+          <P size={14}>We sent a 6-digit code to {parentEmail}. Verifying lets you reset your password if you forget it.</P>
+          <Field label="Verification code" value={code} onChangeText={(t) => setCode(t.replace(/\D/g, ""))} keyboardType="number-pad" maxLength={6} />
+          {note ? <P size={14} muted>{note}</P> : null}
+          <View style={{ flexDirection: "row", gap: 8 }}>
+            <View style={{ flex: 1 }}>
+              <Button title="Verify" disabled={code.length !== 6} onPress={async () => {
+                try { await verifyEmail(code); setNote(null); } catch (e) { setNote(friendly(e)); }
+              }} />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Button title="Send a new code" kind="secondary" onPress={async () => {
+                try { await resendVerification(); setNote("New code sent. Check your inbox (and spam folder)."); } catch (e) { setNote(friendly(e)); }
+              }} />
+            </View>
+          </View>
+        </Card>
+      ) : null}
 
       <H2>Your children</H2>
       {data?.children.length === 0 ? <Banner tone="info">Add your first child to get started.</Banner> : null}

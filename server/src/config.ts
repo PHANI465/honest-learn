@@ -22,6 +22,12 @@ export const config = {
   /** Show lessons with status "draft". Never enable in production for the public. */
   showDrafts: env("SHOW_DRAFTS", isProd ? "false" : "true") === "true",
   corsOrigins: env("CORS_ORIGINS", "*").split(",").map((s) => s.trim()),
+  /** Parents must verify their email before adding children. On by default in production. */
+  requireEmailVerification: env("REQUIRE_EMAIL_VERIFICATION", isProd ? "true" : "false") === "true",
+  /** Trust X-Forwarded-For (only behind a reverse proxy you control). */
+  trustProxy: env("TRUST_PROXY", "false") === "true",
+  /** Hoot chats are deleted after this many days. */
+  chatRetentionDays: Number(env("CHAT_RETENTION_DAYS", "365")),
 
   tutor: {
     /** "claude" calls the Claude API; "mock" uses the lesson's pre-written hints (for dev/tests). */
@@ -41,5 +47,10 @@ export const config = {
     loginLockMinutes: 15,
     familyTokenDays: 30,
     parentTokenMinutes: 10,
+    codeMinutes: 15,
+    codeMaxAttempts: 5,
+    /** Requests per IP per window on /auth/* routes. */
+    authRateLimit: Number(env("AUTH_RATE_LIMIT", "30")),
+    authRateWindowMinutes: 10,
   },
 };

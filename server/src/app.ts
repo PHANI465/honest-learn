@@ -1,4 +1,6 @@
+import { randomInt } from "node:crypto";
 import { Hono, type Context, type Next } from "hono";
+import { getConnInfo } from "@hono/node-server/conninfo";
 import { cors } from "hono/cors";
 import { z } from "zod";
 import { config } from "./config.ts";
@@ -17,6 +19,7 @@ import {
 } from "./security.ts";
 import { precheck, type TutorProvider, type TutorTurn } from "./tutor.ts";
 import { lessonWikiTitle, WikiClient, wikiHostFor } from "./wiki.ts";
+import { createMailer, type Mailer } from "./mailer.ts";
 
 export const CONSENT_VERSION = "2026-11-v1";
 
@@ -31,6 +34,7 @@ interface ParentRow {
   pin_locked_until: string | null;
   login_failed: number;
   login_locked_until: string | null;
+  email_verified_at: string | null;
   consent_at: string;
   created_at: string;
 }
@@ -104,12 +108,21 @@ export function reviewIntervalDays(score: number, total: number, attempts: numbe
   return Math.min(3 * 2 ** (attempts - 1), 30);
 }
 
-export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorProvider; wiki?: WikiClient }) {
+const Day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "day must be YYYY-MM-DD");
+/** The child's local date may be up to a day either side of UTC. */
+function plausibleDay(day: string): boolean {
+  const diff = Math.abs(Date.parse(day + "T12:00:00Z") - Date.now());
+  return Number.isFinite(diff) && diff <= 1.6 * 86_400_000;
+}
+
+export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorProvider; wiki?: WikiClient; mailer?: Mailer }) {
   const { db, content, tutor } = deps;
   const wiki = deps.wiki ?? new WikiClient();
+  const mailer = deps.mailer ?? createMailer();
   const app = new Hono<Env>();
 
   app.use("*", cors({ origin: config.corsOrigins.includes("*") ? "*" : config.corsOrigins }));
+  app.notFound((c) => c.json({ error: "not_found" }, 404));
   app.onError((err, c) => {
     if (err instanceof z.ZodError) {
       return c.json({ error: "invalid_input", details: err.issues.map((i) => i.message) }, 400);
@@ -160,6 +173,65 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
   const isLocked = (until: string | null) => !!until && new Date(until) > new Date();
   const minutesFromNow = (m: number) => new Date(Date.now() + m * 60_000).toISOString();
 
+  // ---------------------------------------------------------------- rate limiting (auth)
+  const hits = new Map<string, { count: number; resetAt: number }>();
+  function clientIp(c: Context): string {
+    if (config.trustProxy) {
+      const fwd = c.req.header("x-forwarded-for");
+      if (fwd) return fwd.split(",")[0]!.trim();
+    }
+    try {
+      return getConnInfo(c).remote.address ?? "unknown";
+    } catch {
+      return "unknown";
+    }
+  }
+  app.use("/auth/*", async (c, next) => {
+    const ip = clientIp(c);
+    const t = Date.now();
+    const h = hits.get(ip);
+    if (!h || h.resetAt < t) hits.set(ip, { count: 1, resetAt: t + config.security.authRateWindowMinutes * 60_000 });
+    else if (++h.count > config.security.authRateLimit) {
+      c.header("retry-after", String(Math.ceil((h.resetAt - t) / 1000)));
+      return c.json({ error: "too_many_attempts" }, 429);
+    }
+    if (hits.size > 10_000) for (const [k, v] of hits) if (v.resetAt < t) hits.delete(k);
+    await next();
+  });
+
+  // ---------------------------------------------------------------- one-time codes
+  type Purpose = "verify_email" | "reset_password";
+  async function sendCode(p: { id: string; email: string }, purpose: Purpose) {
+    const code = String(randomInt(0, 1_000_000)).padStart(6, "0");
+    db.prepare(
+      `INSERT INTO auth_codes (parent_id, purpose, code_hash, expires_at, attempts, sent_at) VALUES (?,?,?,?,0,?)
+       ON CONFLICT (parent_id, purpose) DO UPDATE SET code_hash = excluded.code_hash, expires_at = excluded.expires_at, attempts = 0, sent_at = excluded.sent_at`,
+    ).run(p.id, purpose, hashSecret(code), minutesFromNow(config.security.codeMinutes), now());
+    const subject = purpose === "verify_email" ? "Your Honest Learn verification code" : "Reset your Honest Learn password";
+    const text =
+      purpose === "verify_email"
+        ? `Welcome to Honest Learn!\n\nYour verification code is: ${code}\n\nIt expires in ${config.security.codeMinutes} minutes.`
+        : `Someone (hopefully you) asked to reset your Honest Learn password.\n\nYour reset code is: ${code}\n\nIt expires in ${config.security.codeMinutes} minutes. If you didn't ask for this, you can ignore this email.`;
+    try {
+      await mailer.send(p.email, subject, text);
+    } catch (e) {
+      console.error("mail failed", e);
+    }
+  }
+  function useCode(parentId: string, purpose: Purpose, code: string): "ok" | "invalid" | "expired" {
+    const row = db.prepare("SELECT * FROM auth_codes WHERE parent_id = ? AND purpose = ?").get(parentId, purpose) as
+      | { code_hash: string; expires_at: string; attempts: number }
+      | undefined;
+    if (!row) return "invalid";
+    if (new Date(row.expires_at) < new Date() || row.attempts >= config.security.codeMaxAttempts) return "expired";
+    if (!verifySecret(code, row.code_hash)) {
+      db.prepare("UPDATE auth_codes SET attempts = attempts + 1 WHERE parent_id = ? AND purpose = ?").run(parentId, purpose);
+      return "invalid";
+    }
+    db.prepare("DELETE FROM auth_codes WHERE parent_id = ? AND purpose = ?").run(parentId, purpose);
+    return "ok";
+  }
+
   // ---------------------------------------------------------------- public
   app.get("/health", (c) => c.json({ ok: true, lessons: content.lessons.size, tutor: config.tutor.mode }));
 
@@ -189,7 +261,60 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     db.prepare(
       "INSERT INTO parents (id, email, password_hash, pin_hash, consent_version, consent_at, created_at) VALUES (?,?,?,?,?,?,?)",
     ).run(id, body.email, hashSecret(body.password), hashSecret(body.pin), body.consentVersion, now(), now());
+    await sendCode({ id, email: body.email }, "verify_email");
     return c.json({ familyToken: await issueToken(id, "family") }, 201);
+  });
+
+  app.post("/auth/verify-email", requireScope("family"), async (c) => {
+    const { code } = z.object({ code: z.string().regex(/^\d{6}$/, "Enter the 6-digit code") }).parse(await c.req.json());
+    const r = useCode(c.get("parentId"), "verify_email", code);
+    if (r !== "ok") return c.json({ error: r === "expired" ? "code_expired" : "wrong_code" }, 400);
+    db.prepare("UPDATE parents SET email_verified_at = ? WHERE id = ?").run(now(), c.get("parentId"));
+    return c.json({ ok: true });
+  });
+
+  app.post("/auth/resend-verification", requireScope("family"), async (c) => {
+    const p = getParent.get(c.get("parentId")) as unknown as ParentRow;
+    if (p.email_verified_at) return c.json({ ok: true, alreadyVerified: true });
+    const last = db.prepare("SELECT sent_at FROM auth_codes WHERE parent_id = ? AND purpose = 'verify_email'").get(p.id) as { sent_at: string } | undefined;
+    if (last && Date.now() - Date.parse(last.sent_at) < 60_000) return c.json({ error: "wait_a_minute" }, 429);
+    await sendCode(p, "verify_email");
+    return c.json({ ok: true });
+  });
+
+  /** Always answers the same way, so it can't be used to discover which emails have accounts. */
+  app.post("/auth/forgot-password", async (c) => {
+    const { email } = z.object({ email: Email }).parse(await c.req.json());
+    const p = getParentByEmail.get(email) as ParentRow | undefined;
+    if (p) await sendCode(p, "reset_password");
+    return c.json({ ok: true });
+  });
+
+  app.post("/auth/reset-password", async (c) => {
+    const body = z.object({ email: Email, code: z.string().regex(/^\d{6}$/, "Enter the 6-digit code"), newPassword: Password }).parse(await c.req.json());
+    const p = getParentByEmail.get(body.email) as ParentRow | undefined;
+    const r = p ? useCode(p.id, "reset_password", body.code) : "invalid";
+    if (!p || r !== "ok") return c.json({ error: r === "expired" ? "code_expired" : "wrong_code" }, 400);
+    // A reset code proves access to the inbox, so it also verifies the email.
+    db.prepare(
+      "UPDATE parents SET password_hash = ?, login_failed = 0, login_locked_until = NULL, email_verified_at = COALESCE(email_verified_at, ?) WHERE id = ?",
+    ).run(hashSecret(body.newPassword), now(), p.id);
+    return c.json({ familyToken: await issueToken(p.id, "family") });
+  });
+
+  /** Forgot the PIN: the account password can set a new one. */
+  app.post("/auth/reset-pin", requireScope("family"), async (c) => {
+    const body = z.object({ password: z.string(), newPin: Pin }).parse(await c.req.json());
+    const p = getParent.get(c.get("parentId")) as unknown as ParentRow;
+    if (isLocked(p.login_locked_until)) return c.json({ error: "too_many_attempts" }, 429);
+    if (!verifySecret(body.password, p.password_hash)) {
+      const failed = p.login_failed + 1;
+      const lock = failed >= config.security.loginMaxAttempts ? minutesFromNow(config.security.loginLockMinutes) : null;
+      db.prepare("UPDATE parents SET login_failed = ?, login_locked_until = ? WHERE id = ?").run(lock ? 0 : failed, lock, p.id);
+      return c.json({ error: "wrong_email_or_password" }, 401);
+    }
+    db.prepare("UPDATE parents SET pin_hash = ?, pin_failed = 0, pin_locked_until = NULL, login_failed = 0 WHERE id = ?").run(hashSecret(body.newPin), p.id);
+    return c.json({ ok: true });
   });
 
   app.post("/auth/login", async (c) => {
@@ -232,7 +357,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
   fam.get("/family", (c) => {
     const p = getParent.get(c.get("parentId")) as unknown as ParentRow;
     const kids = (listChildren.all(p.id) as unknown as ChildRow[]).map(childPublic);
-    return c.json({ parent: { email: p.email }, children: kids });
+    return c.json({ parent: { email: p.email, emailVerified: !!p.email_verified_at }, children: kids });
   });
 
   fam.get("/children/:childId/home", (c) => {
@@ -371,6 +496,40 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     return c.json({ score, total, best, reviewDue: due });
   });
 
+  // ---- screen time (counted on the server so limits apply on every device)
+  function usageFor(childId: string, day: string, dailyMinutes: number) {
+    const u = db.prepare("SELECT minutes, bonus FROM usage WHERE child_id = ? AND day = ?").get(childId, day) as
+      | { minutes: number; bonus: number }
+      | undefined;
+    const minutes = u?.minutes ?? 0;
+    const bonus = u?.bonus ?? 0;
+    return { day, minutes, bonus, limit: dailyMinutes + bonus, remaining: Math.max(0, dailyMinutes + bonus - minutes) };
+  }
+
+  fam.get("/children/:childId/usage", (c) => {
+    const child = loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const day = Day.parse(c.req.query("day"));
+    return c.json(usageFor(child.id, day, child.daily_minutes));
+  });
+
+  /** Called by the app once a minute while a child is actively learning. */
+  fam.post("/children/:childId/usage/tick", async (c) => {
+    const child = loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const { day } = z.object({ day: Day }).parse(await c.req.json());
+    if (!plausibleDay(day)) return c.json({ error: "invalid_input", details: ["day is not today"] }, 400);
+    const row = db.prepare("SELECT last_tick FROM usage WHERE child_id = ? AND day = ?").get(child.id, day) as { last_tick: string | null } | undefined;
+    // At most one minute counted per 50 seconds, even if several devices are open.
+    if (!row?.last_tick || Date.now() - Date.parse(row.last_tick) >= 50_000) {
+      db.prepare(
+        `INSERT INTO usage (child_id, day, minutes, last_tick) VALUES (?,?,1,?)
+         ON CONFLICT (child_id, day) DO UPDATE SET minutes = minutes + 1, last_tick = excluded.last_tick`,
+      ).run(child.id, day, now());
+    }
+    return c.json(usageFor(child.id, day, child.daily_minutes));
+  });
+
   // ---- AI tutor
   const tutorHistory = db.prepare(
     "SELECT id, role, content, flagged, created_at FROM tutor_messages WHERE child_id = ? AND lesson_id = ? ORDER BY created_at, rowid",
@@ -486,6 +645,9 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
 
   par.post("/children", async (c) => {
     const body = ChildCreate.parse(await c.req.json());
+    if (config.requireEmailVerification && !(getParent.get(c.get("parentId")) as unknown as ParentRow).email_verified_at) {
+      return c.json({ error: "email_not_verified" }, 403);
+    }
     const count = (listChildren.all(c.get("parentId")) as unknown[]).length;
     if (count >= 8) return c.json({ error: "too_many_children" }, 400);
     const id = newId();
@@ -518,6 +680,19 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
       child.id,
     );
     return c.json({ child: childPublic(getChild.get(child.id, c.get("parentId")) as unknown as ChildRow) });
+  });
+
+  /** Extra minutes for today, given with the parent PIN. */
+  par.post("/children/:childId/bonus", async (c) => {
+    const child = loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const b = z.object({ day: Day, minutes: z.number().int().min(5).max(120) }).parse(await c.req.json());
+    if (!plausibleDay(b.day)) return c.json({ error: "invalid_input", details: ["day is not today"] }, 400);
+    db.prepare(
+      `INSERT INTO usage (child_id, day, bonus) VALUES (?,?,?)
+       ON CONFLICT (child_id, day) DO UPDATE SET bonus = bonus + excluded.bonus`,
+    ).run(child.id, b.day, b.minutes);
+    return c.json(usageFor(child.id, b.day, child.daily_minutes));
   });
 
   par.delete("/children/:childId", (c) => {

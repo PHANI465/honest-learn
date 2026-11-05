@@ -35,6 +35,7 @@ export default function Login() {
       </Card>
       <View style={{ gap: 10 }}>
         <Button big title="Sign in" onPress={submit} disabled={!email || !password} loading={busy} />
+        <Button title="Forgot password?" kind="ghost" onPress={() => router.push("/forgot")} />
         <Button title="Back" kind="ghost" onPress={() => router.back()} />
       </View>
     </Screen>

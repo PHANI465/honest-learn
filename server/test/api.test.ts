@@ -6,7 +6,8 @@ process.env.TUTOR_MODE = "mock";
 process.env.SHOW_DRAFTS = "true";
 
 const { config } = await import("../src/config.ts");
-const { openDb } = await import("../src/db.ts");
+const { openDb, purgeOld } = await import("../src/db.ts");
+const { MemoryMailer } = await import("../src/mailer.ts");
 const { loadContent } = await import("../src/content.ts");
 const { createApp, CONSENT_VERSION, reviewIntervalDays } = await import("../src/app.ts");
 const { MockTutor, ClaudeTutor, precheck } = await import("../src/tutor.ts");
@@ -29,8 +30,9 @@ function fakeWiki() {
 
 const content = loadContent(config.contentDir);
 
-function makeApp(tutor = new MockTutor(), wiki = fakeWiki().client) {
-  const app = createApp({ db: openDb(":memory:"), content, tutor, wiki });
+function makeApp(tutor = new MockTutor(), wiki = fakeWiki().client, mailer = new MemoryMailer()) {
+  const db = openDb(":memory:");
+  const app = createApp({ db, content, tutor, wiki, mailer });
   const call = async (method: string, path: string, body?: unknown, token?: string) => {
     const res = await app.request(path, {
       method,
@@ -39,7 +41,7 @@ function makeApp(tutor = new MockTutor(), wiki = fakeWiki().client) {
     });
     return { status: res.status, json: (await res.json()) as any };
   };
-  return { app, call };
+  return { app, call, mailer, db };
 }
 
 const year = new Date().getFullYear();
@@ -259,6 +261,114 @@ describe("AI tutor", () => {
     // once solved, a full explanation is allowed
     const solved = await new ClaudeTutor(fake("3/4 = 9/12 > 8/12", { safe_for_age: true, reveals_answer: true, reason: "x" })).reply({ ...req, questionSolved: true });
     assert.equal(solved.flag, null);
+  });
+});
+
+describe("email verification, password and PIN reset", () => {
+  test("signup emails a code; the code verifies the email", async () => {
+    const { call, mailer } = makeApp();
+    const fam = (await call("POST", "/auth/signup", signup)).json.familyToken;
+    assert.equal(mailer.sent.length, 1);
+    assert.equal(mailer.sent[0]!.to, "parent@example.com");
+    assert.equal((await call("GET", "/family", undefined, fam)).json.parent.emailVerified, false);
+    const code = mailer.lastCode("parent@example.com")!;
+    const wrong = code === "000000" ? "111111" : "000000";
+    assert.equal((await call("POST", "/auth/verify-email", { code: wrong }, fam)).json.error, "wrong_code");
+    assert.equal((await call("POST", "/auth/verify-email", { code }, fam)).status, 200);
+    assert.equal((await call("GET", "/family", undefined, fam)).json.parent.emailVerified, true);
+    assert.equal((await call("POST", "/auth/verify-email", { code }, fam)).status, 400, "codes are single-use");
+  });
+
+  test("when required, children can only be added after verification", async () => {
+    const before = config.requireEmailVerification;
+    config.requireEmailVerification = true;
+    try {
+      const { call, mailer } = makeApp();
+      const { fam, par } = await family(call);
+      const r = await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par);
+      assert.equal(r.json.error, "email_not_verified");
+      await call("POST", "/auth/verify-email", { code: mailer.lastCode("parent@example.com") }, fam);
+      assert.equal((await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).status, 201);
+    } finally {
+      config.requireEmailVerification = before;
+    }
+  });
+
+  test("password reset by emailed code; unknown emails look the same", async () => {
+    const { call, mailer } = makeApp();
+    await call("POST", "/auth/signup", signup);
+    const unknown = await call("POST", "/auth/forgot-password", { email: "nobody@example.com" });
+    assert.deepEqual(unknown.json, { ok: true });
+    assert.equal(mailer.sent.length, 1, "no email to unknown addresses");
+    await call("POST", "/auth/forgot-password", { email: "parent@example.com" });
+    const code = mailer.lastCode("parent@example.com")!;
+    assert.equal((await call("POST", "/auth/reset-password", { email: "parent@example.com", code: "999999" === code ? "000000" : "999999", newPassword: "a new password" })).status, 400);
+    const ok = await call("POST", "/auth/reset-password", { email: "parent@example.com", code, newPassword: "a new password" });
+    assert.ok(ok.json.familyToken);
+    assert.equal((await call("POST", "/auth/login", { email: "parent@example.com", password: "correct horse" })).status, 401);
+    assert.equal((await call("POST", "/auth/login", { email: "parent@example.com", password: "a new password" })).status, 200);
+    assert.equal((await call("GET", "/family", undefined, ok.json.familyToken)).json.parent.emailVerified, true);
+  });
+
+  test("reset codes stop working after too many wrong tries", async () => {
+    const { call, mailer } = makeApp();
+    await call("POST", "/auth/signup", signup);
+    await call("POST", "/auth/forgot-password", { email: "parent@example.com" });
+    const code = mailer.lastCode("parent@example.com")!;
+    const wrong = code === "123456" ? "654321" : "123456";
+    for (let i = 0; i < 5; i++) await call("POST", "/auth/reset-password", { email: "parent@example.com", code: wrong, newPassword: "a new password" });
+    const r = await call("POST", "/auth/reset-password", { email: "parent@example.com", code, newPassword: "a new password" });
+    assert.equal(r.json.error, "code_expired");
+  });
+
+  test("forgotten PIN can be reset with the account password", async () => {
+    const { call } = makeApp();
+    const fam = (await call("POST", "/auth/signup", signup)).json.familyToken;
+    assert.equal((await call("POST", "/auth/reset-pin", { password: "nope", newPin: "1357" }, fam)).status, 401);
+    assert.equal((await call("POST", "/auth/reset-pin", { password: "correct horse", newPin: "1357" }, fam)).status, 200);
+    assert.equal((await call("POST", "/auth/parent-unlock", { pin: "2468" }, fam)).status, 401);
+    assert.equal((await call("POST", "/auth/parent-unlock", { pin: "1357" }, fam)).status, 200);
+  });
+
+  test("auth routes are rate limited per IP", async () => {
+    const before = config.security.authRateLimit;
+    config.security.authRateLimit = 3;
+    try {
+      const { call } = makeApp();
+      for (let i = 0; i < 3; i++) assert.equal((await call("POST", "/auth/login", { email: "x@example.com", password: "x" })).status, 401);
+      assert.equal((await call("POST", "/auth/login", { email: "x@example.com", password: "x" })).status, 429);
+    } finally {
+      config.security.authRateLimit = before;
+    }
+  });
+});
+
+describe("screen time and retention", () => {
+  test("minutes are counted on the server, once per minute, with parent bonus", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).json.child.id;
+    const day = new Date().toISOString().slice(0, 10);
+    const a = await call("POST", `/children/${kid}/usage/tick`, { day }, fam);
+    const b = await call("POST", `/children/${kid}/usage/tick`, { day }, fam);
+    assert.equal(a.json.minutes, 1);
+    assert.equal(b.json.minutes, 1, "a second device ticking at the same time doesn't double count");
+    assert.equal(b.json.limit, 30);
+    assert.equal((await call("POST", `/children/${kid}/bonus`, { day, minutes: 15 }, fam)).status, 404, "bonus is parent-only");
+    const bonus = await call("POST", `/parent/children/${kid}/bonus`, { day, minutes: 15 }, par);
+    assert.equal(bonus.json.limit, 45);
+    assert.equal((await call("GET", `/children/${kid}/usage?day=${day}`, undefined, fam)).json.remaining, 44);
+    assert.equal((await call("POST", `/children/${kid}/usage/tick`, { day: "2001-01-01" }, fam)).status, 400);
+  });
+
+  test("old chats are deleted after the retention period", async () => {
+    const { call, db } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).json.child.id;
+    await call("POST", `/children/${kid}/tutor/b3-math-comparing-fractions`, { message: "help" }, fam);
+    assert.equal(purgeOld(db, 365), 0);
+    assert.ok(purgeOld(db, 365, Date.now() + 366 * 86_400_000) >= 2, "both chat messages (and the expired email code) are removed");
+    assert.equal((await call("GET", `/parent/children/${kid}/chats`, undefined, par)).json.messages.length, 0);
   });
 });
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { router } from "expo-router";
 import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { friendly } from "../lib/api";
 import { useSession } from "../lib/session";
@@ -6,7 +7,7 @@ import { colors } from "../lib/theme";
 import { Button, H1, P } from "./ui";
 
 /** Number pad for the parent PIN. Calls unlockParent; onSuccess runs after a correct PIN. */
-export function PinPad({ title = "Grown-ups only", subtitle, onSuccess, onCancel }: { title?: string; subtitle?: string; onSuccess: () => void; onCancel?: () => void }) {
+export function PinPad({ title = "Grown-ups only", subtitle, onSuccess, onCancel }: { title?: string; subtitle?: string; onSuccess: (parentToken: string) => void; onCancel?: () => void }) {
   const { unlockParent } = useSession();
   const [pin, setPin] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -16,9 +17,9 @@ export function PinPad({ title = "Grown-ups only", subtitle, onSuccess, onCancel
     setBusy(true);
     setError(null);
     try {
-      await unlockParent(value);
+      const token = await unlockParent(value);
       setPin("");
-      onSuccess();
+      onSuccess(token);
     } catch (e) {
       setError(friendly(e));
       setPin("");
@@ -59,18 +60,21 @@ export function PinPad({ title = "Grown-ups only", subtitle, onSuccess, onCancel
       <View style={{ width: "100%", maxWidth: 300, gap: 8 }}>
         <Button title="Unlock" onPress={() => submit(pin)} disabled={pin.length < 4} loading={busy} />
         {onCancel ? <Button title="Cancel" kind="ghost" onPress={onCancel} /> : null}
+        <Pressable onPress={() => { onCancel?.(); router.push("/reset-pin"); }} accessibilityRole="link" style={{ alignItems: "center", padding: 6 }}>
+          <Text style={{ color: colors.muted, fontSize: 14, textDecorationLine: "underline" }}>Forgot your PIN?</Text>
+        </Pressable>
       </View>
     </View>
   );
 }
 
 /** A PIN prompt in a modal, for one-off grown-up actions (opening links, extending time). */
-export function PinModal({ visible, onClose, onSuccess, subtitle }: { visible: boolean; onClose: () => void; onSuccess: () => void; subtitle?: string }) {
+export function PinModal({ visible, onClose, onSuccess, subtitle }: { visible: boolean; onClose: () => void; onSuccess: (parentToken: string) => void; subtitle?: string }) {
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose} transparent>
       <View style={s.backdrop}>
         <View style={s.sheet}>
-          <PinPad subtitle={subtitle} onCancel={onClose} onSuccess={() => { onClose(); onSuccess(); }} />
+          <PinPad subtitle={subtitle} onCancel={onClose} onSuccess={(token) => { onClose(); onSuccess(token); }} />
         </View>
       </View>
     </Modal>

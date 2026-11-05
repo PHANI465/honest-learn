@@ -10,12 +10,18 @@ interface Session {
   /** Short-lived token after the parent enters their PIN. Kept in memory only. */
   parentToken: string | null;
   parentEmail: string | null;
+  emailVerified: boolean;
   children: Child[];
   map: ContentMap | null;
   signup(input: { email: string; password: string; pin: string }): Promise<void>;
   login(email: string, password: string): Promise<void>;
   logout(): Promise<void>;
-  unlockParent(pin: string): Promise<void>;
+  /** Sign in with a token from a password reset. */
+  signInWithToken(token: string): Promise<void>;
+  verifyEmail(code: string): Promise<void>;
+  resendVerification(): Promise<void>;
+  /** Returns the short-lived parent token (also kept in state). */
+  unlockParent(pin: string): Promise<string>;
   lockParent(): void;
   refreshFamily(): Promise<void>;
   /** Calls the API with the parent token; if it expired, clears it so the PIN screen shows again. */
@@ -29,13 +35,15 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
   const [familyToken, setFamilyToken] = useState<string | null>(null);
   const [parentToken, setParentToken] = useState<string | null>(null);
   const [parentEmail, setParentEmail] = useState<string | null>(null);
+  const [emailVerified, setEmailVerified] = useState(true);
   const [children, setChildren] = useState<Child[]>([]);
   const [map, setMap] = useState<ContentMap | null>(null);
   const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const loadFamily = useCallback(async (token: string) => {
-    const fam = await api<{ parent: { email: string }; children: Child[] }>("GET", "/family", token);
+    const fam = await api<{ parent: { email: string; emailVerified: boolean }; children: Child[] }>("GET", "/family", token);
     setParentEmail(fam.parent.email);
+    setEmailVerified(fam.parent.emailVerified);
     setChildren(fam.children);
   }, []);
 
@@ -76,6 +84,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
       familyToken,
       parentToken,
       parentEmail,
+      emailVerified,
       children,
       map,
       async signup({ email, password, pin }) {
@@ -102,11 +111,22 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         setChildren([]);
         setParentEmail(null);
       },
+      async signInWithToken(token) {
+        await adopt(token);
+      },
+      async verifyEmail(code) {
+        await api("POST", "/auth/verify-email", familyToken, { code });
+        setEmailVerified(true);
+      },
+      async resendVerification() {
+        await api("POST", "/auth/resend-verification", familyToken, {});
+      },
       async unlockParent(pin) {
         const r = await api<{ parentToken: string; expiresInSec: number }>("POST", "/auth/parent-unlock", familyToken, { pin });
         setParentToken(r.parentToken);
         if (lockTimer.current) clearTimeout(lockTimer.current);
         lockTimer.current = setTimeout(() => setParentToken(null), (r.expiresInSec - 5) * 1000);
+        return r.parentToken;
       },
       lockParent,
       async refreshFamily() {
@@ -121,7 +141,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         }
       },
     }),
-    [ready, familyToken, parentToken, parentEmail, children, map, adopt, lockParent, loadFamily],
+    [ready, familyToken, parentToken, parentEmail, emailVerified, children, map, adopt, lockParent, loadFamily],
   );
 
   return <Ctx.Provider value={value}>{kids}</Ctx.Provider>;
