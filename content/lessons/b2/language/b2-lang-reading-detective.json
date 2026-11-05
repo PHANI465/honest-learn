@@ -75,6 +75,21 @@
         "In 'The freezing water was so cold', the clue 'so cold' tells us what freezing means."
       ],
       "explain": "The clue 'so small' tells us tiny means very small."
+    },
+    {
+      "q": "'Kofi lost his hat at the beach.' WHAT happened?",
+      "options": [
+        "Kofi lost his hat",
+        "At the beach",
+        "Kofi"
+      ],
+      "answer": 0,
+      "hints": [
+        "'What happened' asks about something someone did.",
+        "'Who' is a person. 'Where' is a place. 'What' is the action.",
+        "'Ana kicked a ball in the park.' What happened? Ana kicked a ball."
+      ],
+      "explain": "What happened is that Kofi lost his hat. 'At the beach' tells us where."
     }
   ]
 }

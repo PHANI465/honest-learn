@@ -74,6 +74,21 @@
         "'was' sounds like 'woz', not w-a-s. Find another word like that."
       ],
       "explain": "'said' doesn't follow the sound rules, so we learn it by sight."
+    },
+    {
+      "q": "Which word starts with the 'ch' sound?",
+      "options": [
+        "chip",
+        "ship",
+        "tip"
+      ],
+      "answer": 0,
+      "hints": [
+        "Say each word out loud. Listen to the start.",
+        "'ch' sounds like the end of a sneeze: a-CHOO!",
+        "'shop' starts with 'sh', like 'shh, be quiet'. Now find the 'ch' word."
+      ],
+      "explain": "'chip' starts with 'ch', just like 'chair' and 'cheese'."
     }
   ]
 }

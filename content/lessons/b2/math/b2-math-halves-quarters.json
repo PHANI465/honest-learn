@@ -69,6 +69,21 @@
         "If you cut a cake into a big piece and a tiny piece, is that fair halves?"
       ],
       "explain": "Halves must be 2 equal parts."
+    },
+    {
+      "q": "How many quarters make one whole?",
+      "options": [
+        "4",
+        "2",
+        "3"
+      ],
+      "answer": 0,
+      "hints": [
+        "Picture a pizza cut into quarters.",
+        "Each slice is one quarter. Count all the slices.",
+        "How many halves make a whole? Cut a sandwich in half: one, two. So 2 halves make a whole."
+      ],
+      "explain": "A quarter is one of 4 equal parts. So 4 quarters make one whole."
     }
   ]
 }

@@ -75,6 +75,21 @@
         "If you had 4 coins and spent 1, you'd have 3 left."
       ],
       "explain": "5 − 3 = 2 coins left."
+    },
+    {
+      "q": "When you tie your shoelaces, what do you do FIRST?",
+      "options": [
+        "Cross the laces",
+        "Make bunny ears",
+        "Cross the bunny ears"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the very first step.",
+        "Bunny ears come near the end.",
+        "To pack your bag, first you open it. Then you put things in. What is the first step for laces?"
+      ],
+      "explain": "First cross the laces. Then tuck one under and pull tight. Bunny ears come later!"
     }
   ]
 }

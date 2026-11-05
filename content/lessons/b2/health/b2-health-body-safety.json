@@ -74,6 +74,21 @@
         "A present wrapped for Mum's birthday is opened on her birthday. That's a surprise."
       ],
       "explain": "Surprises are happy and get shared soon. Secrets that feel bad should be told to a trusted adult."
+    },
+    {
+      "q": "Which one is a SAFE touch?",
+      "options": [
+        "A high five you want",
+        "A touch that feels wrong",
+        "A touch that makes you confused"
+      ],
+      "answer": 0,
+      "hints": [
+        "A safe touch feels OK to you.",
+        "Think of a fun way to say 'well done'.",
+        "A hug you don't want does not feel OK. You can say NO. Now find a touch that feels OK."
+      ],
+      "explain": "A high five you want feels OK. It is safe. If a touch feels wrong, say NO. Then tell a trusted adult."
     }
   ]
 }

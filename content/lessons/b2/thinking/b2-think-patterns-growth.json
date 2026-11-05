@@ -76,6 +76,21 @@
         "When learning to ride a bike, you fall but keep practising. Which thought is like that?"
       ],
       "explain": "'I can't do it yet' keeps your brain growing and helps you try new ways."
+    },
+    {
+      "q": "What comes next? 20, 18, 16, 14, …",
+      "options": [
+        "12",
+        "13",
+        "16"
+      ],
+      "answer": 0,
+      "hints": [
+        "Are the numbers getting bigger or smaller?",
+        "How much smaller is each number?",
+        "10, 9, 8, 7 goes down by 1 each time. So next is 6."
+      ],
+      "explain": "Each number goes down by 2. So 14 − 2 = 12."
     }
   ]
 }

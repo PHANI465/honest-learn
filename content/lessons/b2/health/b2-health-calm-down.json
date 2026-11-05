@@ -69,6 +69,21 @@
         "'I'm sad because I lost my ball' tells people what's wrong. Use words the same way."
       ],
       "explain": "Naming the feeling with words helps, and then you can sort it out together."
+    },
+    {
+      "q": "Your drawing went wrong. Which feeling word fits best?",
+      "options": [
+        "Frustrated",
+        "Proud",
+        "Excited"
+      ],
+      "answer": 0,
+      "hints": [
+        "How do you feel when something doesn't work?",
+        "It is a cross, stuck kind of feeling.",
+        "When you finish a hard puzzle, you feel proud. Is a messed-up drawing like that?"
+      ],
+      "explain": "When things go wrong, we often feel frustrated. Naming it helps the feeling shrink."
     }
   ]
 }

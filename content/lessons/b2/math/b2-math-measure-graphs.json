@@ -74,6 +74,21 @@
         "If cats had 4 pictures and dogs had 1, cats have 4 − 1 = 3 more."
       ],
       "explain": "3 − 2 = 1 more child likes apples."
+    },
+    {
+      "q": "What tells you what each picture in a graph means?",
+      "options": [
+        "The key",
+        "The colours",
+        "The biggest picture"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for a small note next to the graph.",
+        "It might say '🍎 = 1 child'.",
+        "The title says what the graph is about. It might say 'Our Pets'. What tells you about one picture?"
+      ],
+      "explain": "The key tells you what each picture means. For example: '🍎 = 1 child'."
     }
   ]
 }

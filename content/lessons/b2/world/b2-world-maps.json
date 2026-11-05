@@ -74,6 +74,21 @@
         "If ✚ is in the key next to 'hospital', what does ✚ on the map mean?"
       ],
       "explain": "The key explains what the symbols on the map mean."
+    },
+    {
+      "q": "North is at the top of a map. Which direction is on the right?",
+      "options": [
+        "East",
+        "West",
+        "South"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the compass on the map.",
+        "'Never Eat Soggy Waffles' goes round like a clock. What comes after North?",
+        "South is at the bottom, opposite North. West is on the left. What is opposite West?"
+      ],
+      "explain": "With North at the top, East is on the right. West is on the left."
     }
   ]
 }

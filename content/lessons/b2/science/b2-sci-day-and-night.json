@@ -74,6 +74,21 @@
         "Mars has two small moons that travel around Mars. Our Moon travels around our own planet. Which planet is ours?"
       ],
       "explain": "The Moon travels around the Earth."
+    },
+    {
+      "q": "How long does the Earth take to spin once?",
+      "options": [
+        "One day (about 24 hours)",
+        "One year",
+        "One hour"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how often the Sun comes up.",
+        "One spin goes from one sunrise to the next.",
+        "One trip around the Sun takes much longer: a year. How long is one spin?"
+      ],
+      "explain": "The Earth spins once in about 24 hours. That gives us one day and one night."
     }
   ]
 }

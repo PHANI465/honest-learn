@@ -75,6 +75,21 @@
         "A calculator is a machine that helps with sums. An AI is a program that helps with words."
       ],
       "explain": "Hoot is a computer program, not a person, and it can make mistakes."
+    },
+    {
+      "q": "Does an AI helper like Hoot have feelings?",
+      "options": [
+        "No, it is a computer program",
+        "Yes, just like people do",
+        "Only when you are kind to it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what Hoot really is.",
+        "Hoot runs on a computer. Is it alive?",
+        "A puppy is alive. It can feel happy or scared. Is Hoot alive like a puppy?"
+      ],
+      "explain": "Hoot is a computer program, not a person. It has no feelings, and it can make mistakes."
     }
   ]
 }

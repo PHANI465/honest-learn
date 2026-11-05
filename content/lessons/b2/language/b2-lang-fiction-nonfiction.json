@@ -74,6 +74,21 @@
         "'A pig who flies a plane' is made up. Find another made-up one."
       ],
       "explain": "Teapots can't talk, so it's a made-up story: fiction."
+    },
+    {
+      "q": "Which clue tells you a book is probably NON-FICTION?",
+      "options": [
+        "It has headings, photos and labels",
+        "It starts 'Once upon a time'",
+        "It has a talking dragon"
+      ],
+      "answer": 0,
+      "hints": [
+        "Non-fiction books help you find facts fast.",
+        "Think about how a fact book looks inside.",
+        "A cat who drives a bus is made up. That is a fiction clue. Find a non-fiction clue."
+      ],
+      "explain": "Headings, photos and labels help you find real facts. They are clues for non-fiction."
     }
   ]
 }

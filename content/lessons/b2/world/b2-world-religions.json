@@ -79,6 +79,21 @@
         "If your friend likes a different football team, you can still be friends. Beliefs are similar."
       ],
       "explain": "Respecting each other's beliefs is kind, and you can still be great friends."
+    },
+    {
+      "q": "Does everyone in the world follow a religion?",
+      "options": [
+        "No, some people are not religious",
+        "Yes, everyone does",
+        "Only grown-ups do"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about all the different people in the world.",
+        "People find meaning in many different ways.",
+        "Do religions have special places? Yes, like churches, mosques and temples. Now: does every person follow a religion?"
+      ],
+      "explain": "Many people follow a religion, and many people don't. Everyone deserves respect."
     }
   ]
 }
