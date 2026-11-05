@@ -4,7 +4,7 @@ import { config } from "./config.ts";
 import { loadContent } from "./content.ts";
 
 try {
-  const { lessons, map } = loadContent(config.contentDir);
+  const { lessons, map, puzzles, resources } = loadContent(config.contentDir);
   const byStatus = { draft: 0, reviewed: 0 };
   for (const l of lessons.values()) byStatus[l.status]++;
   const covered = new Set([...lessons.values()].flatMap((l) => l.outcomes));
@@ -23,7 +23,8 @@ try {
   if (leaks.length) console.log(`⚠️  Check these hints don't give the answer away (may be fine):\n   ${leaks.join("\n   ")}`);
   console.log(
     `OK — ${lessons.size} lessons (${byStatus.reviewed} reviewed, ${byStatus.draft} draft). ` +
-      `Outcomes covered: ${covered.size}/${totalOutcomes}.`,
+      `Outcomes covered: ${covered.size}/${totalOutcomes}. ` +
+      `Puzzles: ${[...puzzles.values()].reduce((n, p) => n + p.puzzles.length, 0)} in ${puzzles.size} sets. Free resources: ${resources.length}.`,
   );
 } catch (e) {
   console.error((e as Error).message);

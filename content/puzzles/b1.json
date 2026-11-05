@@ -1,0 +1,109 @@
+{
+  "band": "b1",
+  "status": "draft",
+  "title": "Brain Puzzles for Little Explorers",
+  "puzzles": [
+    {
+      "id": "b1-p1",
+      "type": "pattern",
+      "q": "What comes next? 🔴 🔵 🔴 🔵 🔴 …",
+      "options": [
+        "🔵",
+        "🔴",
+        "🟢"
+      ],
+      "answer": 0,
+      "hints": [
+        "Say the colours out loud.",
+        "Red, blue, red, blue, red… what did we say after red each time?",
+        "Look: 🐱 🐶 🐱 🐶 🐱 … next is 🐶. Try the same with colours."
+      ],
+      "explain": "The pattern is red, blue, red, blue, so blue 🔵 comes next!"
+    },
+    {
+      "id": "b1-p2",
+      "type": "odd-one-out",
+      "q": "Which one does NOT belong? 🍎 🍌 🍇 🧦",
+      "options": [
+        "🧦",
+        "🍎",
+        "🍇"
+      ],
+      "answer": 0,
+      "hints": [
+        "Three of them are alike.",
+        "Which ones can you eat?",
+        "Look: 🚗 🚌 🚲 🐟. The fish isn't something you ride."
+      ],
+      "explain": "Apple, banana and grapes are fruits. A sock is not! 🧦"
+    },
+    {
+      "id": "b1-p3",
+      "type": "pattern",
+      "q": "What comes next? ⭐ ⭐ 🌙 ⭐ ⭐ 🌙 ⭐ ⭐ …",
+      "options": [
+        "🌙",
+        "⭐",
+        "☀️"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the stars before each moon.",
+        "Two stars, then a…?",
+        "Look: 🍎 🍎 🍌 🍎 🍎 🍌 🍎 🍎 … next is 🍌."
+      ],
+      "explain": "Two stars, then a moon. So the moon 🌙 comes next!"
+    },
+    {
+      "id": "b1-p4",
+      "type": "matching",
+      "q": "A bird lives in a nest. A bee lives in a…",
+      "options": [
+        "Hive 🐝",
+        "Bowl 🥣",
+        "Shoe 👟"
+      ],
+      "answer": 0,
+      "hints": [
+        "Where do bees make honey?",
+        "It starts with 'h'.",
+        "A dog lives in a kennel. A fish lives in a tank. Where does a bee live?"
+      ],
+      "explain": "Bees live in a hive! 🐝"
+    },
+    {
+      "id": "b1-p5",
+      "type": "size",
+      "q": "Which is the BIGGEST? 🐭 🐶 🐘",
+      "options": [
+        "🐘",
+        "🐭",
+        "🐶"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how tall each animal is.",
+        "Which one could you sit on?",
+        "A cat is bigger than a mouse. Which animal is bigger than all of them?"
+      ],
+      "explain": "The elephant 🐘 is the biggest!"
+    },
+    {
+      "id": "b1-p6",
+      "type": "counting",
+      "q": "Which group has MORE? Group A: 🍪🍪🍪  Group B: 🍪",
+      "options": [
+        "Group A",
+        "Group B",
+        "They are the same"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count each group.",
+        "Group A has 3. Group B has…?",
+        "2 balloons 🎈🎈 is more than 1 balloon 🎈."
+      ],
+      "explain": "Group A has 3 cookies. That's more than 1!"
+    }
+  ]
+}

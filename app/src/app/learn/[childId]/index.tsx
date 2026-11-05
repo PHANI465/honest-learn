@@ -51,6 +51,15 @@ export default function ChildHome() {
         </Card>
       ) : null}
 
+      <Card onPress={() => router.push(`/learn/${childId}/puzzles`)} label="Brain puzzles" style={{ borderRadius: t.radius, flexDirection: "row", alignItems: "center", gap: 12, borderColor: t.accent, borderWidth: 2 }}>
+        <Text style={{ fontSize: 36 }}>🧩</Text>
+        <View style={{ flex: 1 }}>
+          <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>Brain puzzles</Text>
+          <Text style={{ color: colors.muted, fontSize: 13 }}>{young ? "Patterns and thinking games" : "Patterns, sequences, analogies and logic"}</Text>
+        </View>
+        <Text style={{ fontSize: 22, color: colors.muted }}>›</Text>
+      </Card>
+
       <H2>{young ? "What do you want to learn? 🌟" : "Subjects"}</H2>
       <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
         {home.subjects.map((s) => {

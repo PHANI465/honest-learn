@@ -41,6 +41,26 @@ export const Resource = z.object({
 });
 export type Resource = z.infer<typeof Resource>;
 
+/** Reasoning puzzles (IQ-style practice). Never turned into an IQ score. */
+export const Puzzle = z
+  .object({
+    id: z.string().regex(/^[a-z0-9-]+$/),
+    type: z.string().min(1),
+    q: z.string().min(1),
+    options: z.array(z.string().min(1)).min(2).max(5),
+    answer: z.number().int().min(0),
+    hints: z.array(z.string().min(1)).length(3),
+    explain: z.string().min(1),
+  })
+  .refine((p) => p.answer < p.options.length, { message: "answer index out of range" });
+export const PuzzleSet = z.object({
+  band: z.enum(["b1", "b2", "b3", "b4", "b5"]),
+  status: z.enum(["draft", "reviewed"]),
+  title: z.string().min(1),
+  puzzles: z.array(Puzzle).min(1),
+});
+export type PuzzleSet = z.infer<typeof PuzzleSet>;
+
 export const Lesson = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   title: z.string().min(1),
@@ -71,6 +91,7 @@ export interface ContentStore {
   map: KnowledgeMap;
   lessons: Map<string, Lesson>;
   resources: Resource[];
+  puzzles: Map<string, PuzzleSet>;
 }
 
 function walk(dir: string): string[] {
@@ -133,8 +154,27 @@ export function loadContent(contentDir: string): ContentStore {
     }
   }
 
+  const puzzles = new Map<string, PuzzleSet>();
+  const puzzleDir = join(contentDir, "puzzles");
+  if (existsSync(puzzleDir)) {
+    for (const file of walk(puzzleDir)) {
+      const parsed = PuzzleSet.safeParse(JSON.parse(readFileSync(file, "utf8")));
+      if (!parsed.success) {
+        problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
+        continue;
+      }
+      if (puzzles.has(parsed.data.band)) problems.push(`${file}: second puzzle set for ${parsed.data.band}`);
+      const ids = new Set<string>();
+      for (const p of parsed.data.puzzles) {
+        if (ids.has(p.id)) problems.push(`${file}: duplicate puzzle id ${p.id}`);
+        ids.add(p.id);
+      }
+      puzzles.set(parsed.data.band, parsed.data);
+    }
+  }
+
   if (problems.length) throw new Error("Content problems:\n- " + problems.join("\n- "));
-  return { map, lessons, resources };
+  return { map, lessons, resources, puzzles };
 }
 
 /**

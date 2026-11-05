@@ -1,0 +1,143 @@
+{
+  "band": "b2",
+  "status": "draft",
+  "title": "Brain Puzzles for Early Learners",
+  "puzzles": [
+    {
+      "id": "b2-p1",
+      "type": "sequence",
+      "q": "What number comes next? 2, 4, 6, 8, …",
+      "options": [
+        "10",
+        "9",
+        "12"
+      ],
+      "answer": 0,
+      "hints": [
+        "How much bigger is each number?",
+        "Count up in 2s.",
+        "5, 10, 15, 20 … goes up by 5, so next is 25."
+      ],
+      "explain": "Each number goes up by 2, so 8 + 2 = 10."
+    },
+    {
+      "id": "b2-p2",
+      "type": "sequence",
+      "q": "What comes next? 1, 3, 5, 7, …",
+      "options": [
+        "9",
+        "8",
+        "10"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it going up or down?",
+        "How much does it go up each time?",
+        "10, 20, 30 … goes up by 10. This one goes up by…?"
+      ],
+      "explain": "These are odd numbers going up by 2, so 7 + 2 = 9."
+    },
+    {
+      "id": "b2-p3",
+      "type": "analogy",
+      "q": "Hot is to cold as up is to…",
+      "options": [
+        "Down",
+        "High",
+        "Sky"
+      ],
+      "answer": 0,
+      "hints": [
+        "Hot and cold are opposites.",
+        "What is the opposite of up?",
+        "Big is to small as fast is to slow. Opposites!"
+      ],
+      "explain": "Hot and cold are opposites, so up goes with its opposite: down."
+    },
+    {
+      "id": "b2-p4",
+      "type": "analogy",
+      "q": "Glove is to hand as sock is to…",
+      "options": [
+        "Foot",
+        "Leg",
+        "Shoe"
+      ],
+      "answer": 0,
+      "hints": [
+        "Where do you wear a glove?",
+        "Where do you wear a sock?",
+        "Hat is to head as scarf is to neck. Match each thing to where it goes."
+      ],
+      "explain": "A glove goes on a hand, and a sock goes on a foot."
+    },
+    {
+      "id": "b2-p5",
+      "type": "logic",
+      "q": "Sam is taller than Mia. Mia is taller than Leo. Who is the shortest?",
+      "options": [
+        "Leo",
+        "Mia",
+        "Sam"
+      ],
+      "answer": 0,
+      "hints": [
+        "Line them up from tallest to shortest.",
+        "Sam is taller than Mia, so Sam goes first. Where does Leo go?",
+        "If a cat is bigger than a mouse and a dog is bigger than the cat, the mouse is smallest."
+      ],
+      "explain": "Sam > Mia > Leo, so Leo is the shortest."
+    },
+    {
+      "id": "b2-p6",
+      "type": "pattern",
+      "q": "What comes next? 🔺 🟦 🟦 🔺 🟦 🟦 🔺 …",
+      "options": [
+        "🟦",
+        "🔺",
+        "⭕"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the part that repeats.",
+        "The repeating part is one triangle, then two squares.",
+        "🍎 🍌 🍌 🍎 🍌 🍌 🍎 … next is 🍌."
+      ],
+      "explain": "The pattern is triangle, square, square. After a triangle comes a square 🟦."
+    },
+    {
+      "id": "b2-p7",
+      "type": "odd-one-out",
+      "q": "Which word is the odd one out? Apple, Carrot, Banana, Mango",
+      "options": [
+        "Carrot",
+        "Apple",
+        "Mango"
+      ],
+      "answer": 0,
+      "hints": [
+        "Three of them are alike.",
+        "Which ones are fruits?",
+        "Car, bus, train, apple: the apple is not a vehicle."
+      ],
+      "explain": "Apple, banana and mango are fruits. A carrot is a vegetable."
+    },
+    {
+      "id": "b2-p8",
+      "type": "counting",
+      "q": "A spider has 8 legs. How many legs do 2 spiders have?",
+      "options": [
+        "16",
+        "10",
+        "8"
+      ],
+      "answer": 0,
+      "hints": [
+        "Two spiders means two lots of 8.",
+        "8 + 8 = ?",
+        "A dog has 4 legs. 2 dogs have 4 + 4 = 8 legs."
+      ],
+      "explain": "8 + 8 = 16 legs."
+    }
+  ]
+}

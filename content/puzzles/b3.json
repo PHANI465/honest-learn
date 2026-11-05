@@ -1,0 +1,177 @@
+{
+  "band": "b3",
+  "status": "draft",
+  "title": "Reasoning Puzzles for Discoverers",
+  "puzzles": [
+    {
+      "id": "b3-p1",
+      "type": "sequence",
+      "q": "What comes next? 3, 6, 12, 24, …",
+      "options": [
+        "48",
+        "30",
+        "36"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the gap the same each time?",
+        "Each number is a multiple of the one before.",
+        "1, 3, 9, 27 … each is ×3, so next is 81."
+      ],
+      "explain": "Each number doubles: 24 × 2 = 48."
+    },
+    {
+      "id": "b3-p2",
+      "type": "sequence",
+      "q": "What comes next? 1, 4, 9, 16, …",
+      "options": [
+        "25",
+        "20",
+        "32"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the gaps: 3, 5, 7…",
+        "These are special numbers: 1×1, 2×2, 3×3…",
+        "Square numbers: 1, 4, 9, 16 are 1², 2², 3², 4². What is 5²?"
+      ],
+      "explain": "These are square numbers. 5 × 5 = 25."
+    },
+    {
+      "id": "b3-p3",
+      "type": "analogy",
+      "q": "Book is to reading as fork is to…",
+      "options": [
+        "Eating",
+        "Kitchen",
+        "Spoon"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do you DO with a book?",
+        "Now, what do you DO with a fork?",
+        "Pen is to writing as brush is to painting: the tool and its action."
+      ],
+      "explain": "You read with a book and eat with a fork."
+    },
+    {
+      "id": "b3-p4",
+      "type": "logic",
+      "q": "All bloops are razzies. All razzies are lazzies. Are all bloops definitely lazzies?",
+      "options": [
+        "Yes",
+        "No",
+        "You can't tell"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw circles: bloops inside razzies.",
+        "Razzies are inside lazzies. Where does that put bloops?",
+        "All cats are mammals and all mammals are animals, so all cats are animals."
+      ],
+      "explain": "Bloops are inside razzies, which are inside lazzies, so every bloop is a lazzie."
+    },
+    {
+      "id": "b3-p5",
+      "type": "code",
+      "q": "If CAT is written as DBU (each letter moved one step forward), how is DOG written?",
+      "options": [
+        "EPH",
+        "CNF",
+        "EOG"
+      ],
+      "answer": 0,
+      "hints": [
+        "Move each letter one step forward in the alphabet.",
+        "D → E. Now do O and G.",
+        "BIG would become CJH: B→C, I→J, G→H."
+      ],
+      "explain": "D→E, O→P, G→H, so DOG becomes EPH."
+    },
+    {
+      "id": "b3-p6",
+      "type": "logic",
+      "q": "Five friends stand in a line. Ana is in the middle. How many people are in front of Ana?",
+      "options": [
+        "2",
+        "3",
+        "1"
+      ],
+      "answer": 0,
+      "hints": [
+        "How many people are not Ana?",
+        "In the middle means the same number on each side.",
+        "With 3 people in a line, the middle person has 1 in front and 1 behind."
+      ],
+      "explain": "4 other people split evenly: 2 in front, 2 behind."
+    },
+    {
+      "id": "b3-p7",
+      "type": "odd-one-out",
+      "q": "Which number is the odd one out? 3, 5, 7, 9, 11",
+      "options": [
+        "9",
+        "3",
+        "11"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about which numbers can only be divided by 1 and themselves.",
+        "3, 5, 7 and 11 are prime numbers. Is 9?",
+        "In 4, 6, 7, 8 the odd one out is 7, the only number that isn't even."
+      ],
+      "explain": "9 = 3 × 3, so it isn't prime. 3, 5, 7 and 11 are all prime numbers."
+    },
+    {
+      "id": "b3-p8",
+      "type": "spatial",
+      "q": "You face north and turn right, then turn right again. Which way are you facing?",
+      "options": [
+        "South",
+        "East",
+        "West"
+      ],
+      "answer": 0,
+      "hints": [
+        "Turning right from north faces east.",
+        "Now turn right again from east.",
+        "Facing east, two right turns make you face west: the opposite way."
+      ],
+      "explain": "North → right → east → right → south. Two right turns = facing the opposite way."
+    },
+    {
+      "id": "b3-p9",
+      "type": "sequence",
+      "q": "What comes next? A, C, E, G, …",
+      "options": [
+        "I",
+        "H",
+        "J"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count how many letters are skipped.",
+        "A (skip B) C (skip D) E…",
+        "In 2, 4, 6, 8 you skip one number each time. Do the same with letters."
+      ],
+      "explain": "Skip one letter each time: G, (skip H), I."
+    },
+    {
+      "id": "b3-p10",
+      "type": "logic",
+      "q": "A clock shows 3:00. What time will it show 5 hours later?",
+      "options": [
+        "8:00",
+        "7:00",
+        "10:00"
+      ],
+      "answer": 0,
+      "hints": [
+        "Add 5 hours to 3.",
+        "3 + 5 = ?",
+        "At 9:00, 2 hours later it's 11:00."
+      ],
+      "explain": "3:00 + 5 hours = 8:00."
+    }
+  ]
+}

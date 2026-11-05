@@ -1,0 +1,177 @@
+{
+  "band": "b5",
+  "status": "draft",
+  "title": "Reasoning Puzzles for Builders",
+  "puzzles": [
+    {
+      "id": "b5-p1",
+      "type": "sequence",
+      "q": "What comes next? 2, 3, 5, 7, 11, 13, …",
+      "options": [
+        "17",
+        "15",
+        "19"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do these numbers have in common?",
+        "Each can only be divided by 1 and itself.",
+        "The primes after 19 are 23 and 29. 21 and 25 aren't prime."
+      ],
+      "explain": "These are prime numbers. After 13, the next prime is 17 (15 = 3 × 5)."
+    },
+    {
+      "id": "b5-p2",
+      "type": "sequence",
+      "q": "What comes next? 1, 8, 27, 64, …",
+      "options": [
+        "125",
+        "100",
+        "81"
+      ],
+      "answer": 0,
+      "hints": [
+        "Try writing each as a power.",
+        "1 = 1³, 8 = 2³, 27 = 3³…",
+        "Square numbers go 1, 4, 9, 16, 25 (n²). These use a different power."
+      ],
+      "explain": "These are cubes: 5³ = 125."
+    },
+    {
+      "id": "b5-p3",
+      "type": "logic",
+      "q": "'All A are B' is true. Which statement MUST also be true?",
+      "options": [
+        "Anything that is not B is not A",
+        "All B are A",
+        "Some B are not A"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw circle A inside circle B.",
+        "If something is outside B, can it be inside A?",
+        "'All dogs are mammals' means anything that isn't a mammal isn't a dog. It does NOT mean all mammals are dogs."
+      ],
+      "explain": "This is the contrapositive: if it's not B, it can't be A. 'All B are A' doesn't follow."
+    },
+    {
+      "id": "b5-p4",
+      "type": "logic",
+      "q": "If 5 machines make 5 widgets in 5 minutes, how long do 100 machines take to make 100 widgets?",
+      "options": [
+        "5 minutes",
+        "100 minutes",
+        "20 minutes"
+      ],
+      "answer": 0,
+      "hints": [
+        "How long does ONE machine take to make ONE widget?",
+        "Each machine makes 1 widget in 5 minutes.",
+        "If 3 bakers bake 3 cakes in 1 hour, 30 bakers bake 30 cakes in… the same 1 hour."
+      ],
+      "explain": "Each machine makes one widget in 5 minutes, so 100 machines make 100 widgets in 5 minutes."
+    },
+    {
+      "id": "b5-p5",
+      "type": "probability",
+      "q": "You flip a fair coin 5 times and get heads every time. What is the chance of heads on the next flip?",
+      "options": [
+        "1/2",
+        "Less than 1/2",
+        "More than 1/2"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does the coin remember past flips?",
+        "Each flip is independent.",
+        "A dice that rolled three 6s in a row still has a 1/6 chance of 6 next time."
+      ],
+      "explain": "Each flip is independent: still 1/2. Believing otherwise is the 'gambler's fallacy'."
+    },
+    {
+      "id": "b5-p6",
+      "type": "analogy",
+      "q": "Thermometer is to temperature as barometer is to…",
+      "options": [
+        "Air pressure",
+        "Rainfall",
+        "Wind speed"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does each instrument measure?",
+        "'Baro' comes from the Greek for weight or pressure.",
+        "Speedometer measures speed. Altimeter measures altitude. Each name hints at what it measures."
+      ],
+      "explain": "A thermometer measures temperature. A barometer measures air pressure."
+    },
+    {
+      "id": "b5-p7",
+      "type": "logic",
+      "q": "In a race you overtake the person in 2nd place. What position are you in now?",
+      "options": [
+        "2nd",
+        "1st",
+        "3rd"
+      ],
+      "answer": 0,
+      "hints": [
+        "Whose place do you take when you overtake someone?",
+        "You were behind 2nd place, and now you're ahead of them…",
+        "If you pass the person in 5th place, you move into 5th place."
+      ],
+      "explain": "You take their position: 2nd. The 1st-place runner is still ahead."
+    },
+    {
+      "id": "b5-p8",
+      "type": "math-reasoning",
+      "q": "A price rises by 10% and then falls by 10%. Compared with the original, it is now…",
+      "options": [
+        "1% lower",
+        "The same",
+        "1% higher"
+      ],
+      "answer": 0,
+      "hints": [
+        "Try it with a price of 100.",
+        "100 + 10% = 110. Now take 10% off 110.",
+        "If 200 rises 50% to 300 and falls 50% to 150, it ends lower, because the fall is on a bigger number."
+      ],
+      "explain": "100 → 110 → 99. The fall is 10% of a bigger number, so it ends 1% lower."
+    },
+    {
+      "id": "b5-p9",
+      "type": "spatial",
+      "q": "A cube painted on every face is cut into 27 equal small cubes. How many small cubes have paint on exactly 3 faces?",
+      "options": [
+        "8",
+        "6",
+        "12"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which small cubes touch three outer faces?",
+        "Think about the corners of the big cube.",
+        "A square cut into 9 smaller squares has 4 corner pieces touching 2 edges each. A cube has corners too."
+      ],
+      "explain": "Only corner cubes have 3 painted faces, and a cube has 8 corners."
+    },
+    {
+      "id": "b5-p10",
+      "type": "logic",
+      "q": "Exactly ONE of these three people tells the truth. A says: 'B is lying.' B says: 'A and C are both lying.' C says: 'A is telling the truth.' Who tells the truth?",
+      "options": [
+        "B",
+        "A",
+        "C"
+      ],
+      "answer": 0,
+      "hints": [
+        "Test each person as the only truth-teller and check for contradictions.",
+        "If A were honest, what would that make C's statement?",
+        "Worked method: assume X is the only honest one, then check every statement is true for X and false for the others. Throw out cases with 0 or 2+ honest people."
+      ],
+      "explain": "If A were honest, C's statement would also be true (two truth-tellers). If C were honest, A would be honest too. If only B is honest: A's claim 'B is lying' is false ✓, C's claim 'A is truthful' is false ✓, and B's claim 'A and C are lying' is true ✓. So B tells the truth."
+    }
+  ]
+}

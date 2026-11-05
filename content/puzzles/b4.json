@@ -1,0 +1,177 @@
+{
+  "band": "b4",
+  "status": "draft",
+  "title": "Reasoning Puzzles for Thinkers",
+  "puzzles": [
+    {
+      "id": "b4-p1",
+      "type": "sequence",
+      "q": "What comes next? 1, 1, 2, 3, 5, 8, …",
+      "options": [
+        "13",
+        "11",
+        "16"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at how each number relates to the two before it.",
+        "1 + 1 = 2, 1 + 2 = 3…",
+        "2, 2, 4, 6, 10 … each is the sum of the previous two, so next is 16."
+      ],
+      "explain": "Each number is the sum of the two before it (the Fibonacci sequence): 5 + 8 = 13."
+    },
+    {
+      "id": "b4-p2",
+      "type": "sequence",
+      "q": "What comes next? 2, 6, 12, 20, 30, …",
+      "options": [
+        "42",
+        "40",
+        "36"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the gaps between numbers.",
+        "The gaps are 4, 6, 8, 10… what's the next gap?",
+        "In 1, 2, 4, 7, 11 the gaps are 1, 2, 3, 4, so next gap is 5 → 16."
+      ],
+      "explain": "The gaps grow by 2 (4, 6, 8, 10, 12), so 30 + 12 = 42."
+    },
+    {
+      "id": "b4-p3",
+      "type": "analogy",
+      "q": "Author is to book as composer is to…",
+      "options": [
+        "Symphony",
+        "Piano",
+        "Orchestra"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does an author create?",
+        "What does a composer create?",
+        "Architect is to building as chef is to meal: the creator and the thing they make."
+      ],
+      "explain": "An author writes a book. A composer writes music, such as a symphony."
+    },
+    {
+      "id": "b4-p4",
+      "type": "logic",
+      "q": "If it rains, the match is cancelled. The match was NOT cancelled. What can you conclude?",
+      "options": [
+        "It did not rain",
+        "It rained",
+        "Nothing at all"
+      ],
+      "answer": 0,
+      "hints": [
+        "If rain always cancels the match…",
+        "…and the match went ahead, could it have rained?",
+        "If you eat peanuts you sneeze. You didn't sneeze, so you didn't eat peanuts."
+      ],
+      "explain": "Rain would have cancelled it. Since it wasn't cancelled, it can't have rained."
+    },
+    {
+      "id": "b4-p5",
+      "type": "logic",
+      "q": "Some students in a class play chess. All chess players are good at puzzles. Which MUST be true?",
+      "options": [
+        "Some students are good at puzzles",
+        "All students are good at puzzles",
+        "No students are good at puzzles"
+      ],
+      "answer": 0,
+      "hints": [
+        "Only SOME students play chess.",
+        "What do we know about those chess-playing students?",
+        "Some fruits are apples; all apples are crunchy. So some fruits are crunchy, not all fruits."
+      ],
+      "explain": "The chess-playing students are good at puzzles, so at least some students are. We can't say anything about the rest."
+    },
+    {
+      "id": "b4-p6",
+      "type": "code",
+      "q": "In a code, 1 = A, 2 = B, 3 = C, and so on. What does 8-9 spell?",
+      "options": [
+        "HI",
+        "GH",
+        "IJ"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count along the alphabet.",
+        "A=1… H is the 8th letter.",
+        "3-1-20 spells CAT (C=3, A=1, T=20)."
+      ],
+      "explain": "8 = H and 9 = I, so it spells HI."
+    },
+    {
+      "id": "b4-p7",
+      "type": "spatial",
+      "q": "How many faces does a cube have?",
+      "options": [
+        "6",
+        "8",
+        "12"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a dice.",
+        "Top, bottom, and the sides…",
+        "A square pyramid has 5 faces: 4 triangles + 1 square base."
+      ],
+      "explain": "A cube has 6 faces: top, bottom, front, back, left and right."
+    },
+    {
+      "id": "b4-p8",
+      "type": "logic",
+      "q": "A bat and a ball cost 1.10 in total. The bat costs 1.00 more than the ball. How much is the ball?",
+      "options": [
+        "0.05",
+        "0.10",
+        "0.01"
+      ],
+      "answer": 0,
+      "hints": [
+        "The quick answer, 0.10, is a trap. Check it.",
+        "If the ball is x, the bat is x + 1.00. Together: 2x + 1.00 = 1.10.",
+        "If the ball were 0.10, the bat would be 1.10 and the total 1.20. Too much!"
+      ],
+      "explain": "Ball = 0.05, bat = 1.05. Total 1.10, and the bat costs exactly 1.00 more."
+    },
+    {
+      "id": "b4-p9",
+      "type": "odd-one-out",
+      "q": "Which is the odd one out? Square, Triangle, Cube, Circle",
+      "options": [
+        "Cube",
+        "Triangle",
+        "Circle"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about flat shapes vs solid shapes.",
+        "Which one is 3D?",
+        "Among 'sphere, cone, cylinder, rectangle', the rectangle is the only flat (2D) shape."
+      ],
+      "explain": "Square, triangle and circle are flat (2D). A cube is solid (3D)."
+    },
+    {
+      "id": "b4-p10",
+      "type": "logic",
+      "q": "Mia is older than Tom. Tom is older than Ravi. Ravi is older than Zoe. Who is the second youngest?",
+      "options": [
+        "Ravi",
+        "Tom",
+        "Zoe"
+      ],
+      "answer": 0,
+      "hints": [
+        "Put them in order from oldest to youngest.",
+        "Mia > Tom > Ravi > Zoe.",
+        "In A > B > C, B is second oldest and also second youngest."
+      ],
+      "explain": "Order: Mia > Tom > Ravi > Zoe. The youngest is Zoe, so the second youngest is Ravi."
+    }
+  ]
+}

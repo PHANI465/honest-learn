@@ -500,6 +500,97 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     return c.json({ score, total, best, reviewDue: due });
   });
 
+  // ---- practice quiz: mixed questions from a subject (retrieval practice, not scored)
+  fam.get("/children/:childId/practice", (c) => {
+    const child = loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const subject = c.req.query("subject");
+    const done = new Set(
+      (db.prepare("SELECT lesson_id FROM progress WHERE child_id = ?").all(child.id) as { lesson_id: string }[]).map((p) => p.lesson_id),
+    );
+    const pool = [...content.lessons.values()]
+      .filter((l) => visibleTo(child, l) && (!subject || l.subject === subject))
+      .flatMap((l) => l.quiz.map((q, i) => ({ l, q, i, done: done.has(l.id) })));
+    // Prefer questions from lessons already finished (that's what makes practice stick), then the rest.
+    const shuffled = pool
+      .map((x) => ({ x, k: (x.done ? 0 : 1) + Math.random() }))
+      .sort((a, b) => a.k - b.k)
+      .slice(0, 5)
+      .map(({ x }) => ({
+        lessonId: x.l.id,
+        lessonTitle: x.l.title,
+        question: x.i,
+        q: x.q.q,
+        options: optionOrder(child.id, x.l.id, x.i, x.q.options.length).map((o) => x.q.options[o]!),
+      }));
+    return c.json({ questions: shuffled });
+  });
+
+  // ---- reasoning puzzles (IQ-style practice — never an IQ score)
+  const puzzleSetFor = (child: ChildRow) => {
+    const set = content.puzzles.get(childBand(child));
+    return set && (set.status === "reviewed" || config.showDrafts) ? set : null;
+  };
+  fam.get("/children/:childId/puzzles", (c) => {
+    const child = loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const set = puzzleSetFor(child);
+    if (!set) return c.json({ available: false });
+    const best = db.prepare("SELECT best_score, total FROM progress WHERE child_id = ? AND lesson_id = ?").get(child.id, `puzzles-${set.band}`) ?? null;
+    return c.json({
+      available: true,
+      title: set.title,
+      status: set.status,
+      best,
+      puzzles: set.puzzles.map((p, i) => ({
+        id: p.id,
+        type: p.type,
+        q: p.q,
+        options: optionOrder(child.id, `puzzles-${set.band}`, i, p.options.length).map((o) => p.options[o]!),
+      })),
+    });
+  });
+  fam.post("/children/:childId/puzzles/hint", async (c) => {
+    const child = loadChild(c);
+    const set = child && puzzleSetFor(child);
+    if (!child || !set) return c.json({ error: "not_found" }, 404);
+    const b = z.object({ question: z.number().int().min(0), level: z.number().int().min(0).max(2) }).parse(await c.req.json());
+    const p = set.puzzles[b.question];
+    if (!p) return c.json({ error: "question_not_found" }, 404);
+    return c.json({ hint: p.hints[b.level], level: b.level, isLast: b.level === 2 });
+  });
+  fam.post("/children/:childId/puzzles/check", async (c) => {
+    const child = loadChild(c);
+    const set = child && puzzleSetFor(child);
+    if (!child || !set) return c.json({ error: "not_found" }, 404);
+    const b = z.object({ question: z.number().int().min(0), choice: z.number().int().min(0), hintsUsed: z.number().int().min(0).max(3) }).parse(await c.req.json());
+    const p = set.puzzles[b.question];
+    if (!p) return c.json({ error: "question_not_found" }, 404);
+    const order = optionOrder(child.id, `puzzles-${set.band}`, b.question, p.options.length);
+    if (b.choice >= order.length) return c.json({ error: "invalid_input", details: ["choice out of range"] }, 400);
+    const correct = order[b.choice] === p.answer;
+    const reveal = correct || b.hintsUsed >= 3;
+    return c.json({ correct, explain: reveal ? p.explain : null, answer: !correct && reveal ? order.indexOf(p.answer) : null });
+  });
+  fam.post("/children/:childId/puzzles/complete", async (c) => {
+    const child = loadChild(c);
+    const set = child && puzzleSetFor(child);
+    if (!child || !set) return c.json({ error: "not_found" }, 404);
+    const { choices } = z.object({ choices: z.array(z.number().int()) }).parse(await c.req.json());
+    if (choices.length !== set.puzzles.length) return c.json({ error: "answer_every_question" }, 400);
+    const key = `puzzles-${set.band}`;
+    const score = set.puzzles.filter((p, i) => optionOrder(child.id, key, i, p.options.length)[choices[i]!] === p.answer).length;
+    const prev = db.prepare("SELECT best_score, attempts FROM progress WHERE child_id = ? AND lesson_id = ?").get(child.id, key) as
+      | { best_score: number; attempts: number }
+      | undefined;
+    const best = Math.max(score, prev?.best_score ?? 0);
+    db.prepare(
+      `INSERT INTO progress (child_id, lesson_id, best_score, total, attempts, completed_at, review_due) VALUES (?,?,?,?,?,?,?)
+       ON CONFLICT (child_id, lesson_id) DO UPDATE SET best_score = excluded.best_score, total = excluded.total, attempts = excluded.attempts, completed_at = excluded.completed_at`,
+    ).run(child.id, key, best, set.puzzles.length, (prev?.attempts ?? 0) + 1, now(), "9999-12-31T00:00:00.000Z");
+    return c.json({ score, total: set.puzzles.length, best });
+  });
+
   // ---- screen time (counted on the server so limits apply on every device)
   function usageFor(childId: string, day: string, dailyMinutes: number) {
     const u = db.prepare("SELECT minutes, bonus FROM usage WHERE child_id = ? AND day = ?").get(childId, day) as
@@ -629,17 +720,26 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     const kids = listChildren.all(c.get("parentId")) as unknown as ChildRow[];
     const stats = db.prepare(
       `SELECT COUNT(*) AS lessons, COALESCE(SUM(best_score),0) AS score, COALESCE(SUM(total),0) AS total,
-              MAX(completed_at) AS lastActive FROM progress WHERE child_id = ?`,
+              MAX(completed_at) AS lastActive FROM progress WHERE child_id = ? AND lesson_id NOT LIKE 'puzzles-%'`,
     );
     const flags = db.prepare("SELECT COUNT(*) AS n FROM tutor_messages WHERE child_id = ? AND flagged IS NOT NULL");
     const recent = db.prepare(
-      "SELECT lesson_id, best_score, total, completed_at FROM progress WHERE child_id = ? ORDER BY completed_at DESC LIMIT 5",
+      "SELECT lesson_id, best_score, total, completed_at FROM progress WHERE child_id = ? AND lesson_id NOT LIKE 'puzzles-%' ORDER BY completed_at DESC LIMIT 5",
     );
+    const weekAgo = new Date(Date.now() - 7 * 86_400_000);
+    const weekLessons = db.prepare("SELECT COUNT(*) AS n FROM progress WHERE child_id = ? AND completed_at >= ? AND lesson_id NOT LIKE 'puzzles-%'");
+    const weekMinutes = db.prepare("SELECT COALESCE(SUM(minutes),0) AS n FROM usage WHERE child_id = ? AND day >= ?");
+    const puzzleBest = db.prepare("SELECT best_score, total FROM progress WHERE child_id = ? AND lesson_id LIKE 'puzzles-%' ORDER BY completed_at DESC LIMIT 1");
     return c.json({
       children: kids.map((k) => ({
         ...childPublic(k),
         stats: stats.get(k.id),
         flaggedMessages: (flags.get(k.id) as { n: number }).n,
+        thisWeek: {
+          lessons: (weekLessons.get(k.id, weekAgo.toISOString()) as { n: number }).n,
+          minutes: (weekMinutes.get(k.id, weekAgo.toISOString().slice(0, 10)) as { n: number }).n,
+        },
+        puzzles: puzzleBest.get(k.id) ?? null,
         recent: (recent.all(k.id) as { lesson_id: string }[]).map((p) => ({
           ...p,
           title: content.lessons.get(p.lesson_id)?.title ?? p.lesson_id,

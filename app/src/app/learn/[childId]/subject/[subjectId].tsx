@@ -61,6 +61,9 @@ export default function SubjectLessons() {
           </Card>
         );
       })}
+      {data && data.lessons.length > 0 ? (
+        <Button title="🎯 Practice quiz (mixed questions)" kind="secondary" color={t.accent} onPress={() => router.push(`/learn/${childId}/practice/${subjectId}`)} />
+      ) : null}
       {data && data.lessons.length === 0 && !data.lockedCount ? <Banner tone="info">More lessons are coming soon!</Banner> : null}
       {data?.lockedCount ? (
         <Banner tone="info">🔒 {data.lockedCount} more lesson{data.lockedCount > 1 ? "s" : ""} here need a parent's permission. Ask your grown-up!</Banner>

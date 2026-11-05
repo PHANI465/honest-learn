@@ -437,6 +437,56 @@ describe("family data rights", () => {
   });
 });
 
+describe("practice quizzes, puzzles and weekly stats", () => {
+  test("practice quiz mixes questions from the subject; answers check through the lesson endpoint", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).json.child.id;
+    const r = await call("GET", `/children/${kid}/practice?subject=math`, undefined, fam);
+    assert.ok(r.json.questions.length >= 1 && r.json.questions.length <= 5);
+    for (const q of r.json.questions) assert.equal(content.lessons.get(q.lessonId)!.subject, "math");
+    assert.ok(!JSON.stringify(r.json).includes('"answer"'));
+    const q = r.json.questions[0];
+    const authored = content.lessons.get(q.lessonId)!.quiz[q.question]!;
+    const right = q.options.indexOf(authored.options[authored.answer]);
+    const ok = await call("POST", `/children/${kid}/lessons/${q.lessonId}/check`, { question: q.question, choice: right, hintsUsed: 0 }, fam);
+    assert.equal(ok.json.correct, true, "practice shows the same per-child order as the lesson");
+  });
+
+  test("puzzle set for the child's age; hints, checks, completion; no IQ score anywhere", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 13 }, par)).json.child.id;
+    const r = await call("GET", `/children/${kid}/puzzles`, undefined, fam);
+    assert.equal(r.json.available, true);
+    const set = content.puzzles.get("b4")!;
+    assert.equal(r.json.puzzles.length, set.puzzles.length);
+    assert.ok(!/\biq\b/i.test(JSON.stringify(r.json)), "never shows an IQ number or label");
+    const hint = await call("POST", `/children/${kid}/puzzles/hint`, { question: 0, level: 0 }, fam);
+    assert.equal(hint.json.hint, set.puzzles[0]!.hints[0]);
+    const choices = r.json.puzzles.map((p: any, i: number) => p.options.indexOf(set.puzzles[i]!.options[set.puzzles[i]!.answer]));
+    assert.equal((await call("POST", `/children/${kid}/puzzles/check`, { question: 0, choice: choices[0], hintsUsed: 0 }, fam)).json.correct, true);
+    const done = await call("POST", `/children/${kid}/puzzles/complete`, { choices }, fam);
+    assert.deepEqual([done.json.score, done.json.total], [set.puzzles.length, set.puzzles.length]);
+    const again = await call("GET", `/children/${kid}/puzzles`, undefined, fam);
+    assert.equal(again.json.best.best_score, set.puzzles.length);
+    const home = await call("GET", `/children/${kid}/home`, undefined, fam);
+    assert.equal(home.json.reviewDue.length, 0, "puzzle sets don't show up as lessons to review");
+  });
+
+  test("parent overview shows this week's lessons and minutes", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).json.child.id;
+    await call("POST", `/children/${kid}/usage/tick`, { day: new Date().toISOString().slice(0, 10) }, fam);
+    const shown = (await call("GET", `/children/${kid}/lessons/b3-sci-water-cycle`, undefined, fam)).json.lesson;
+    await call("POST", `/children/${kid}/lessons/b3-sci-water-cycle/complete`, { choices: shown.quiz.map(() => 0) }, fam);
+    const o = await call("GET", "/parent/overview", undefined, par);
+    assert.deepEqual(o.json.children[0].thisWeek, { lessons: 1, minutes: 1 });
+    assert.equal(o.json.children[0].stats.lessons, 1);
+  });
+});
+
 describe("answer shuffling", () => {
   const { optionOrder } = shuffleModule;
   test("each child gets a stable, child-specific order, and right answers aren't always first", () => {
