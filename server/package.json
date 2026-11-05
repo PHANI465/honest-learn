@@ -1,6 +1,6 @@
 {
   "name": "honest-learn-server",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Honest Learn API: parent accounts, child profiles, PIN-gated parental controls, progress and AI hint tutor",
   "scripts": {
     "dev": "tsx watch src/index.ts",

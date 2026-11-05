@@ -26,6 +26,12 @@ jobs:
         run: |
           node scripts/build-knowledge-doc.mjs
           git diff --exit-code docs/KNOWLEDGE_MAP.md || (echo "Run: node scripts/build-knowledge-doc.mjs" && exit 1)
+      - name: README catalogue and review sheets are up to date
+        working-directory: .
+        run: |
+          node scripts/build-catalogue.mjs
+          node scripts/export-review-sheet.mjs
+          git diff --exit-code README.md docs/review || (echo "Run: node scripts/build-catalogue.mjs && node scripts/export-review-sheet.mjs" && exit 1)
       - run: npm run typecheck
       - run: npm test
 

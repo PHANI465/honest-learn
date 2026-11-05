@@ -1,6 +1,6 @@
 # Launch checklist
 
-Status as of v0.2.0. ✅ = built, ⬜ = still to do.
+Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 
 ## Built so far
 
@@ -17,7 +17,11 @@ Status as of v0.2.0. ✅ = built, ⬜ = still to do.
 - ✅ Parents can read every chat, see flagged messages, export all data and delete the account
 - ✅ Daily time limit with a break screen
 - ✅ Read-aloud for ages 3–8
-- ✅ 51 lessons (all **draft**): at least one for every age group × subject, covering 70 of 220 outcomes
+- ✅ 175 lessons, 391 quiz questions (all **draft**), covering **all 220** knowledge-map outcomes
+- ✅ 44 brain puzzles (IQ-style reasoning practice, honest framing, no IQ score) and mixed practice quizzes per subject
+- ✅ Parent overview shows this week's lessons and minutes
+- ✅ Online research on what parents and kids like and dislike in learning apps (`docs/RESEARCH_USER_FEEDBACK.md`)
+- ✅ Ranked list of everything that needs expert approval (`docs/NEEDS_APPROVAL.md`)
 - ✅ Quiz options shuffled per child (the right answer isn't always first)
 - ✅ Free-resources directory: 27 hand-picked free sites by age and subject (each needs a reviewer check)
 - ✅ Wikipedia "Learn more" (Simple English for ages 9–11, English for 12+), cached, only for titles set in lessons
@@ -31,9 +35,10 @@ Status as of v0.2.0. ✅ = built, ⬜ = still to do.
 ## Content: before public launch
 
 - ⬜ Hire or recruit reviewers (2 per lesson: subject expert + age/safety)
-- ⬜ Review all 51 lessons and mark them `reviewed` (start with `docs/review/*.csv`)
+- ⬜ Work through `docs/NEEDS_APPROVAL.md`: Priority 1 first (medical, safeguarding, sensitive topics, legal)
+- ⬜ Review all 175 lessons and mark them `reviewed` (start with `docs/review/*.csv`)
 - ⬜ **Medical review** of `b5-health-first-aid-cpr` and all health lessons
-- ⬜ Write lessons for the remaining 150 outcomes (target: at least 3 per subject per age group for launch)
+- ⬜ Add a third quiz question to newer lessons where reviewers think it helps
 - ⬜ Check every entry in `content/resources.json` (free, no ads aimed at children, right ages) and set `lastChecked`
 - ⬜ Have someone from each major faith and region review the 🔒 religion and politics lessons
 - ⬜ Pictures and illustrations for ages 3–8 (original or CC-licensed)
