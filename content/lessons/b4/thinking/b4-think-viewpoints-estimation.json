@@ -71,6 +71,21 @@
         "Seconds in an hour = 60 × 60 = 3,600. Use the same multiply-up method."
       ],
       "explain": "60 × 24 × 7 = 10,080, so about 10,000."
+    },
+    {
+      "q": "Your town plans to close a road to cars and turn it into a park. Using the lesson's questions, what is a good first step before you decide your view?",
+      "options": [
+        "List who is affected (drivers, shop owners, families, cyclists) and what each might say",
+        "Decide based only on whether you personally use the road",
+        "Ask only people who already agree with you"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson gives three questions to ask before deciding.",
+        "The first two are about other people, not about you.",
+        "Before a school changes its lunch time, a fair approach asks how it affects students, cooks and teachers, and what each group would say."
+      ],
+      "explain": "The lesson asks: Who is affected? What would they say? What evidence would change my mind? Listing the groups and their views lets you understand all sides before deciding."
     }
   ]
 }

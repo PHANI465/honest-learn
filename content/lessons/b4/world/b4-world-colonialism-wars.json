@@ -84,6 +84,21 @@
         "A school story told only by the head teacher might miss the students' view."
       ],
       "explain": "Different groups experienced empire and independence very differently, so several perspectives give a truer picture."
+    },
+    {
+      "q": "According to the lesson, which country became independent in 1957?",
+      "options": [
+        "Ghana",
+        "Algeria",
+        "India"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson lists independence dates of 1947, 1957 and 1962.",
+        "Put the three dates in order and match each country to its date.",
+        "Using a timeline: Kenya became independent in 1963, so on the lesson's list it would come just after the country that became independent in 1962."
+      ],
+      "explain": "Ghana became independent in 1957. India and Pakistan became independent in 1947, and Algeria in 1962."
     }
   ]
 }

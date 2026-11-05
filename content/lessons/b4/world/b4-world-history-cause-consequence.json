@@ -75,6 +75,21 @@
         "A football team wins because of training, tactics and luck, not just one thing."
       ],
       "explain": "Most historical events have several long- and short-term causes."
+    },
+    {
+      "q": "Factories in the Industrial Revolution brought child labour and pollution, which led to new laws. How do the new laws fit into the history?",
+      "options": [
+        "They were a consequence of problems the Industrial Revolution created",
+        "They were a cause of the Industrial Revolution",
+        "They had nothing to do with the Industrial Revolution"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which came first: the factories, or the new laws?",
+        "Causes come before an event; consequences come after.",
+        "Heavy rain causes a flood. New flood barriers built afterwards are a consequence of that flood."
+      ],
+      "explain": "The problems came first (child labour and pollution in factories), and the new laws came afterwards in response, so the laws were a consequence."
     }
   ]
 }

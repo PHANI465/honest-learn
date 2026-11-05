@@ -66,6 +66,21 @@
         "A lawyer who prepares for the other side's points usually does better. Why?"
       ],
       "explain": "Answering the strongest objection shows fairness and makes your argument more convincing."
+    },
+    {
+      "q": "In the PEE pattern for a body paragraph, what is the job of the Explanation?",
+      "options": [
+        "To show how the evidence supports your point",
+        "To introduce a new point for the next paragraph",
+        "To repeat the quotation word for word"
+      ],
+      "answer": 0,
+      "hints": [
+        "PEE is Point, Evidence, Explanation. What's left to do after giving evidence?",
+        "Evidence on its own doesn't argue anything. Something has to link it back to the point.",
+        "In a science report, the Results section gives the data and the Discussion says what that data means for the hypothesis. Which part of PEE is like the Discussion?"
+      ],
+      "explain": "The Explanation links the evidence back to your point, showing the reader why it proves what you claim."
     }
   ]
 }

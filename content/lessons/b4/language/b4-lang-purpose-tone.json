@@ -66,6 +66,21 @@
         "'She walked home' is third person; 'You walk home' is second person. What's left for 'I'?"
       ],
       "explain": "Narration using 'I' is first person."
+    },
+    {
+      "q": "'Step 1: Unplug the printer. Step 2: Open the lid. Step 3: Gently pull out the jammed paper.' What is this text's main purpose?",
+      "options": [
+        "To instruct",
+        "To persuade",
+        "To entertain"
+      ],
+      "answer": 0,
+      "hints": [
+        "Ask: why was this written? What does the reader do after reading it?",
+        "Numbered steps and command verbs ('Unplug', 'Open', 'pull') are clues.",
+        "'Get the new X200, the fastest printer ever!' is written to persuade, because it wants you to buy something."
+      ],
+      "explain": "Numbered steps and command verbs tell the reader how to do a task, so the purpose is to instruct."
     }
   ]
 }

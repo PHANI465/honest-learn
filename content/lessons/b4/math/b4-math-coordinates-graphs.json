@@ -66,6 +66,21 @@
         "y = 5x − 1 crosses the y-axis at −1."
       ],
       "explain": "When x = 0, y = 2, so it crosses the y-axis at 2."
+    },
+    {
+      "q": "Which of these lines is the steepest?",
+      "options": [
+        "y = 4x + 1",
+        "y = 2x + 7",
+        "y = x + 9"
+      ],
+      "answer": 0,
+      "hints": [
+        "In y = mx + c, which letter tells you the steepness?",
+        "c only tells you where the line crosses the y-axis, so it doesn't change the steepness. Compare the numbers in front of x.",
+        "Between y = 3x + 10 and y = 6x − 2, the second is steeper because its gradient, 6, is bigger than 3."
+      ],
+      "explain": "The gradient m is the number in front of x: 4, 2 and 1. The biggest gradient, 4, gives the steepest line, y = 4x + 1. The +7 and +9 only move a line up."
     }
   ]
 }

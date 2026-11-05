@@ -75,6 +75,21 @@
         "Toys in cereal boxes are aimed at children. Who might sweet vape flavours be aimed at?"
       ],
       "explain": "Sweet flavours appeal to young people and can draw them into nicotine addiction."
+    },
+    {
+      "q": "Which statement about vapes matches the lesson?",
+      "options": [
+        "They can contain nicotine and other chemicals, so they are not harmless",
+        "They're just flavoured water vapour",
+        "They can't be addictive because there's no smoke"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what is inside a vape, not just how it smells or looks.",
+        "Most vapes contain the same addictive substance that is in cigarettes.",
+        "'Sugar-free' sweets can still harm teeth if they are acidic. A nice flavour or a missing ingredient doesn't tell you everything that's inside."
+      ],
+      "explain": "Vapes can contain nicotine, which is highly addictive, and other chemicals. No smoke and a sweet flavour don't make them harmless."
     }
   ]
 }

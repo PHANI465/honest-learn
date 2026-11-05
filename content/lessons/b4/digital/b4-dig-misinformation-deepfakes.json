@@ -70,6 +70,21 @@
         "Before believing a rumour about a classmate, you'd check with others who were there."
       ],
       "explain": "Check whether trusted outlets confirm it. Videos can be deepfakes."
+    },
+    {
+      "q": "Why does the lesson say to pause before sharing a post that makes you angry or shocked?",
+      "options": [
+        "Strong emotions push people to share before checking, which helps fakes spread",
+        "Posts that make people angry are always false",
+        "Platforms automatically delete posts that make people angry"
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens to careful thinking when you're really upset?",
+        "Fakes are often designed to make you react, not think. Is every upsetting post fake, though?",
+        "Adverts that say 'Only 2 left, buy now!' work because people act before comparing prices. Hurry and strong feelings skip the checking step."
+      ],
+      "explain": "Emotions spread fakes fastest because people share before checking. That doesn't mean every upsetting post is false: it means pause and check first."
     }
   ]
 }

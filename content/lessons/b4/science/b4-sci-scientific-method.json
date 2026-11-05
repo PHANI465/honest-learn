@@ -66,6 +66,21 @@
         "Asking 2 people their favourite fruit tells you less than asking 200."
       ],
       "explain": "A larger sample reduces the effect of chance and one-off results."
+    },
+    {
+      "q": "To test 'If plants get more light, then they will grow taller', which should be a CONTROL variable?",
+      "options": [
+        "The amount of water each plant gets",
+        "The amount of light each plant gets",
+        "The height of the plants"
+      ],
+      "answer": 0,
+      "hints": [
+        "Control variables are the things you keep the same.",
+        "Light is what you change and height is what you measure. What else could affect growth?",
+        "In 'Does exercise affect heart rate?', you'd keep things like the room temperature the same for every test."
+      ],
+      "explain": "Light is the independent variable (changed) and height is the dependent variable (measured). Water could also affect growth, so it should be kept the same: a control variable."
     }
   ]
 }

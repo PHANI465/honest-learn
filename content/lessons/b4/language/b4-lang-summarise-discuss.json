@@ -71,6 +71,21 @@
         "'I understand your point, but the evidence shows…' disagrees politely. Which option is like that?"
       ],
       "explain": "'I see it differently because…' disagrees with the idea while respecting the person."
+    },
+    {
+      "q": "In a discussion, why does the lesson suggest saying 'So you're saying…' before you respond?",
+      "options": [
+        "To check you've understood their point before you reply",
+        "To make them repeat their whole argument",
+        "To show you've already decided they're wrong"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson's order is: listen fully, repeat back, then respond.",
+        "What could go wrong if you reply to something they didn't actually mean?",
+        "Pilots read air traffic control's instructions back over the radio, so any misunderstanding is caught before they act."
+      ],
+      "explain": "Repeating back checks that you've understood the other person correctly, so you respond to what they really meant."
     }
   ]
 }

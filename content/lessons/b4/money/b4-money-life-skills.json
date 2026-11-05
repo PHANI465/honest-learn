@@ -70,6 +70,21 @@
         "You unplug a toaster before getting stuck toast out. Light bulbs are similar."
       ],
       "explain": "Always switch the power off first."
+    },
+    {
+      "q": "You have a big project due in two weeks. Which plan follows the lesson's time-management tips?",
+      "options": [
+        "Break it into smaller tasks, write them in a planner, and do the hardest parts when you have most energy",
+        "Wait until the night before, when the pressure will help you focus",
+        "Do only the easiest bits each day and leave the hardest part until the end"
+      ],
+      "answer": 0,
+      "hints": [
+        "Big tasks feel easier when they're…?",
+        "The lesson gives three tips: one about splitting tasks, one about timing the hard ones, and one about a tool to track them.",
+        "Training for a 5 km run, you'd plan shorter runs over several weeks instead of trying the full 5 km for the first time on race day."
+      ],
+      "explain": "The lesson's tips are to break big tasks into smaller ones, tackle the hardest task when you have most energy, and use a planner."
     }
   ]
 }

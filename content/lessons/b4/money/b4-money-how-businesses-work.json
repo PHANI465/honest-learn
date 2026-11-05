@@ -70,6 +70,21 @@
         "If a bake sale spends 40 on ingredients and earns 30, did it profit?"
       ],
       "explain": "A loss is when costs are greater than the money coming in."
+    },
+    {
+      "q": "A business raises its price a lot, and its sales drop sharply. Why can this happen?",
+      "options": [
+        "Fewer people will pay the higher price, and some switch to competitors",
+        "Higher prices always bring in more profit",
+        "Costs automatically go up whenever prices go up"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how customers react when a price goes up.",
+        "The lesson also says businesses compete with each other. Where can customers go instead?",
+        "If one phone-charging stall charges three times as much as the stall next door, most people walk next door."
+      ],
+      "explain": "If the price is too high, fewer people buy, and customers can switch to competitors. That's why a higher price doesn't automatically mean more profit."
     }
   ]
 }

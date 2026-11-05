@@ -66,6 +66,21 @@
         "If you saw someone pushed over in the playground, you'd help them up and tell a teacher."
       ],
       "explain": "Don't spread it, support the person privately, and report it."
+    },
+    {
+      "q": "Which of these fits the lesson's definition of cyberbullying?",
+      "options": [
+        "Someone makes a fake account in a classmate's name and posts embarrassing things for weeks",
+        "A friend disagrees with your opinion once in a group chat",
+        "Someone forgets to reply to your message"
+      ],
+      "answer": 0,
+      "hints": [
+        "The definition has two key words: repeated and deliberate.",
+        "Which option is on purpose, keeps happening, and is cruel?",
+        "Being bumped once in a busy corridor is an accident. Being tripped on purpose every day is bullying."
+      ],
+      "explain": "Cyberbullying is repeated, deliberate online cruelty. Pretending to be someone (impersonation) and posting embarrassing things for weeks is both. A single disagreement or a forgotten reply is neither."
     }
   ]
 }

@@ -70,6 +70,21 @@
         "A teammate encouraging you to practise more is positive. Which option is similar?"
       ],
       "explain": "Being encouraged to study together is positive peer pressure."
+    },
+    {
+      "q": "Your cousin said you could post a photo of them, but the next day they ask you to take it down. What does consent mean here?",
+      "options": [
+        "They can change their mind, so you should take it down",
+        "They already said yes, so the photo can stay up",
+        "You only need to remove it if an adult tells you to"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is consent a one-time, forever answer?",
+        "The lesson says something about WHEN consent can be changed.",
+        "If a friend lends you a book and later asks for it back, you return it, even though they said yes at first."
+      ],
+      "explain": "Consent can be changed at any time. Once your cousin asks, respecting that means taking the photo down."
     }
   ]
 }

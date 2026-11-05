@@ -72,6 +72,21 @@
         "Writers have editors and athletes have coaches. Why?"
       ],
       "explain": "Feedback shows you what works and what to improve."
+    },
+    {
+      "q": "You've finished a creative project. According to the lesson, what should you share with others?",
+      "options": [
+        "Your process: your goal, your drafts and how feedback changed the work",
+        "Only the polished final piece, so nobody sees the mistakes",
+        "Only your first draft, because it's the most original"
+      ],
+      "answer": 0,
+      "hints": [
+        "Re-read the last line of the project section: it says 'not just' one thing.",
+        "Think about everything that happened between setting a goal and finishing.",
+        "At a science fair, a good display shows the method and the failed attempts, not only the result, because visitors learn from how you got there. Apply the same idea to an art project."
+      ],
+      "explain": "The lesson says to share your process, not just the final piece. Drafts and the changes you made after feedback show how the work grew, and others can learn from that."
     }
   ]
 }

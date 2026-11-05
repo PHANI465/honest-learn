@@ -71,6 +71,21 @@
         "Tree rings record past growth. Ice layers record something about the air."
       ],
       "explain": "Air bubbles in ice cores show what the atmosphere (including CO₂) was like long ago."
+    },
+    {
+      "q": "Basalt forms when lava from a volcano cools and hardens. What type of rock is it?",
+      "options": [
+        "Igneous",
+        "Sedimentary",
+        "Metamorphic"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what basalt was before it was rock: melted rock.",
+        "The lesson links one rock type to cooled magma (lava is magma that has reached the surface).",
+        "Marble forms when limestone is changed by heat and pressure, so marble is metamorphic."
+      ],
+      "explain": "Rocks that form from cooled magma or lava are igneous, so basalt is an igneous rock."
     }
   ]
 }

@@ -172,6 +172,91 @@
         "In A > B > C, B is second oldest and also second youngest."
       ],
       "explain": "Order: Mia > Tom > Ravi > Zoe. The youngest is Zoe, so the second youngest is Ravi."
+    },
+    {
+      "id": "b4-p11",
+      "type": "sequence",
+      "q": "What comes next? 3, 5, 9, 17, 33, …",
+      "options": [
+        "65",
+        "49",
+        "66"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the gaps between the numbers.",
+        "The gaps are 2, 4, 8, 16. What happens to each gap?",
+        "In 1, 4, 10, 22, the gaps are 3, 6, 12, so the next gap is 24 and the next number is 46."
+      ],
+      "explain": "The gaps double each time (2, 4, 8, 16, 32), so 33 + 32 = 65. Another way to see it: each number is double the one before, minus 1 (33 × 2 − 1 = 65)."
+    },
+    {
+      "id": "b4-p12",
+      "type": "analogy",
+      "q": "Thermometer is to temperature as barometer is to…",
+      "options": [
+        "Air pressure",
+        "Rainfall",
+        "Wind speed"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does a thermometer measure?",
+        "'Baro-' comes from a Greek word meaning weight. What does the weight of the air above us create?",
+        "Ruler is to length as scales are to mass: each pair is a tool and what it measures."
+      ],
+      "explain": "A thermometer measures temperature, and a barometer measures air pressure. Rainfall is measured with a rain gauge and wind speed with an anemometer."
+    },
+    {
+      "id": "b4-p13",
+      "type": "logic",
+      "q": "Three boxes are labelled 'Apples', 'Oranges' and 'Mixed'. Every label is wrong. You take one fruit from the box labelled 'Mixed' and it's an apple. What is in the box labelled 'Oranges'?",
+      "options": [
+        "Mixed fruit",
+        "Only oranges",
+        "Only apples"
+      ],
+      "answer": 0,
+      "hints": [
+        "Every label is wrong, so the 'Mixed' box can't really be mixed.",
+        "If the 'Mixed' box isn't mixed and gave you an apple, it holds only apples. Now two boxes and two contents are left, and their labels are still wrong.",
+        "Pens example: boxes 'Pens', 'Pencils' and 'Both', all wrongly labelled. A pen comes out of 'Both', so it holds only pens. 'Pencils' can't hold pencils, so it holds both. That leaves pencils in 'Pens'."
+      ],
+      "explain": "The 'Mixed' box must hold only apples. The two remaining boxes hold oranges and mixed fruit. The 'Oranges' box can't hold oranges (its label is wrong), so it holds mixed fruit, and the 'Apples' box holds oranges."
+    },
+    {
+      "id": "b4-p14",
+      "type": "spatial",
+      "q": "A 3 × 3 × 3 cube is painted red on the outside, then cut into 27 small cubes. How many small cubes have exactly two red faces?",
+      "options": [
+        "12",
+        "8",
+        "6"
+      ],
+      "answer": 0,
+      "hints": [
+        "Picture where on the big cube a small cube would need to sit to have exactly two painted faces.",
+        "Corner cubes have three painted faces. Which small cubes touch exactly two outside faces of the big cube?",
+        "For a 2 × 2 × 2 cube cut into 8, every small cube is a corner, so all 8 have three red faces and none have exactly two."
+      ],
+      "explain": "Cubes with exactly two red faces sit in the middle of an edge. A cube has 12 edges, each with 1 middle cube, so 12. (Check: 8 corners + 12 edges + 6 face centres + 1 hidden centre = 27.)"
+    },
+    {
+      "id": "b4-p15",
+      "type": "code",
+      "q": "In a code, each letter is moved 2 places forward in the alphabet (A → C, B → D). A message reads FQI. What was the original word?",
+      "options": [
+        "DOG",
+        "HSK",
+        "EPH"
+      ],
+      "answer": 0,
+      "hints": [
+        "To decode, undo what the code did.",
+        "The code moved letters forward, so move each letter 2 places back.",
+        "Encoding CAT with this code: C → E, A → C, T → V, so CAT becomes ECV."
+      ],
+      "explain": "Moving each letter 2 places back: F → D, Q → O, I → G, so the word was DOG. (HSK comes from moving forward again, and EPH from moving back only 1 place.)"
     }
   ]
 }

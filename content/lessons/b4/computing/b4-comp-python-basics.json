@@ -71,6 +71,21 @@
         "If def triple(x): return x * 3, then triple(5) = 15."
       ],
       "explain": "square(4) returns 4 × 4 = 16."
+    },
+    {
+      "q": "Given def double(n): return n * 2, what is double(3) + double(4)?",
+      "options": [
+        "14",
+        "7",
+        "24"
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out each function call on its own first.",
+        "double(3) gives 3 * 2. Do the same for double(4), then add the two results.",
+        "If def add_one(n): return n + 1, then add_one(2) + add_one(5) = 3 + 6 = 9."
+      ],
+      "explain": "double(3) returns 6 and double(4) returns 8, so 6 + 8 = 14."
     }
   ]
 }
