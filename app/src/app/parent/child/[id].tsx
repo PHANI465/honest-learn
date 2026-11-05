@@ -61,7 +61,7 @@ function SettingsForm({ child }: { child: Child }) {
 
   return (
     <Screen>
-      <Button title="‹ Parent area" kind="ghost" onPress={() => router.replace("/parent")} />
+      <Button title="‹ Parent area" kind="ghost" onPress={() => router.replace("/parent")} label="Back to the parent area" />
       <H1>{draft.nickname}'s settings</H1>
       {error ? <Banner>{error}</Banner> : null}
       {saved ? <Banner tone="good">Saved ✓</Banner> : null}
@@ -77,8 +77,8 @@ function SettingsForm({ child }: { child: Child }) {
           {[{ id: null, name: "Match age" }, ...map.bands].map((b) => {
             const selected = draft.bandOverride === b.id;
             return (
-              <Pressable key={String(b.id)} onPress={() => set({ bandOverride: b.id as BandId | null })} accessibilityRole="button" accessibilityState={{ selected }}
-                style={{ paddingHorizontal: 12, paddingVertical: 8, borderRadius: 999, borderWidth: 2, borderColor: selected ? colors.brand : colors.line, backgroundColor: selected ? colors.brandSoft : "#fff" }}>
+              <Pressable key={String(b.id)} onPress={() => set({ bandOverride: b.id as BandId | null })} accessibilityRole="radio" accessibilityState={{ selected, checked: selected }}
+                style={{ paddingHorizontal: 12, paddingVertical: 8, minHeight: 44, justifyContent: "center", borderRadius: 999, borderWidth: 2, borderColor: selected ? colors.brand : colors.line, backgroundColor: selected ? colors.brandSoft : colors.card }}>
                 <Text style={{ fontWeight: "600", color: colors.ink }}>{b.name}{"ages" in b ? ` (${b.ages.join("–")})` : ""}</Text>
               </Pressable>
             );
@@ -111,8 +111,8 @@ function SettingsForm({ child }: { child: Child }) {
       <Card>
         <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
           {MINUTES.map((m) => (
-            <Pressable key={m} onPress={() => set({ dailyMinutes: m })} accessibilityRole="button" accessibilityState={{ selected: draft.dailyMinutes === m }}
-              style={{ paddingHorizontal: 14, paddingVertical: 8, borderRadius: 999, borderWidth: 2, borderColor: draft.dailyMinutes === m ? colors.brand : colors.line, backgroundColor: draft.dailyMinutes === m ? colors.brandSoft : "#fff" }}>
+            <Pressable key={m} onPress={() => set({ dailyMinutes: m })} accessibilityRole="radio" accessibilityLabel={`${m} minutes a day`} accessibilityState={{ selected: draft.dailyMinutes === m, checked: draft.dailyMinutes === m }}
+              style={{ paddingHorizontal: 14, paddingVertical: 8, minHeight: 44, minWidth: 44, justifyContent: "center", borderRadius: 999, borderWidth: 2, borderColor: draft.dailyMinutes === m ? colors.brand : colors.line, backgroundColor: draft.dailyMinutes === m ? colors.brandSoft : colors.card }}>
               <Text style={{ fontWeight: "600", color: colors.ink }}>{m} min</Text>
             </Pressable>
           ))}

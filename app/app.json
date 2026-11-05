@@ -27,6 +27,14 @@
       "favicon": "./assets/favicon.png",
       "output": "single",
       "name": "Honest Learn",
+      "shortName": "Honest Learn",
+      "description": "Free, safe, age-appropriate learning for ages 3–18. No ads.",
+      "lang": "en",
+      "themeColor": "#2F6B4F",
+      "backgroundColor": "#FBF8F3",
+      "display": "standalone",
+      "startUrl": "/",
+      "orientation": "portrait",
       "bundler": "metro"
     },
     "plugins": [

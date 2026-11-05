@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 import { Banner, Button, Card, H1, P, Pill, Screen } from "../../../components/ui";
 import { friendly, type ChatMessage } from "../../../lib/api";
 import { useChild, useSession } from "../../../lib/session";
-import { colors } from "../../../lib/theme";
+import { colors, surfaces } from "../../../lib/theme";
 
 const FLAG_TEXT: Record<string, string> = {
   personal_info: "Tried to share personal info (removed)",
@@ -32,7 +32,7 @@ export default function Chats() {
 
   return (
     <Screen>
-      <Button title="‹ Back" kind="ghost" onPress={() => router.back()} />
+      <Button title="‹ Back" kind="ghost" onPress={() => router.back()} label="Back" />
       <H1>{child?.nickname}'s chats with Hoot</H1>
       {error ? <Banner>{error}</Banner> : null}
       {messages && messages.length === 0 ? <P muted>No chats yet.</P> : null}
@@ -41,7 +41,7 @@ export default function Chats() {
           <Text style={{ fontWeight: "800", fontSize: 16, color: colors.ink }}>📘 {title}</Text>
           {msgs.map((m) => (
             <View key={m.id} style={{ alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "88%", gap: 4 }}>
-              <View style={{ backgroundColor: m.role === "user" ? colors.brandSoft : "#F4F1EA", padding: 10, borderRadius: 12 }}>
+              <View style={{ backgroundColor: m.role === "user" ? colors.brandSoft : surfaces.pill, padding: 10, borderRadius: 12 }}>
                 <Text style={{ fontSize: 13, color: colors.muted, fontWeight: "700" }}>{m.role === "user" ? child?.nickname : "Hoot 🦉"}</Text>
                 <Text style={{ fontSize: 15, color: colors.ink, lineHeight: 21 }}>{m.content}</Text>
               </View>

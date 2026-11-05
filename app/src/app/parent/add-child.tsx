@@ -52,7 +52,7 @@ export default function AddChild() {
         <Text style={{ fontWeight: "600", fontSize: 15, color: colors.ink }}>Pick an avatar</Text>
         <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
           {Object.entries(avatars).map(([id, emoji]) => (
-            <Pressable key={id} onPress={() => setAvatar(id)} accessibilityRole="button" accessibilityLabel={id} accessibilityState={{ selected: avatar === id }}
+            <Pressable key={id} onPress={() => setAvatar(id)} accessibilityRole="radio" accessibilityLabel={`${id} avatar`} accessibilityState={{ selected: avatar === id, checked: avatar === id }}
               style={{ width: 60, height: 60, borderRadius: 30, alignItems: "center", justifyContent: "center", borderWidth: 3, borderColor: avatar === id ? colors.brand : "transparent", backgroundColor: "#F4F1EA" }}>
               <Text style={{ fontSize: 32 }}>{emoji}</Text>
             </Pressable>

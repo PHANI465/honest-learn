@@ -1,11 +1,13 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
+import { OfflineBanner } from "../../../components/OfflineBanner";
 import { QuizRunner } from "../../../components/QuizRunner";
-import { Banner, Button, Card, H1, Loading, P, Pill, Screen } from "../../../components/ui";
+import { Banner, Button, Card, Emoji, H1, Loading, P, Pill, Screen } from "../../../components/ui";
 import { api, friendly } from "../../../lib/api";
+import { cachedGet, offlineMessage } from "../../../lib/offline";
 import { useChild, useSession } from "../../../lib/session";
-import { bandTheme, colors } from "../../../lib/theme";
+import { bandTheme, colors, surfaces } from "../../../lib/theme";
 
 interface PuzzleSet {
   available: boolean;
@@ -25,24 +27,32 @@ export default function Puzzles() {
   const child = useChild(childId);
   const [set, setSet] = useState<PuzzleSet | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [fromCache, setFromCache] = useState(false);
   const [playing, setPlaying] = useState(false);
   const base = `/children/${childId}/puzzles`;
 
   useEffect(() => {
-    api<PuzzleSet>("GET", base, familyToken).then(setSet).catch((e) => setError(friendly(e)));
-  }, [base, familyToken, playing]);
+    if (!childId) return;
+    cachedGet<PuzzleSet>(childId, base, familyToken)
+      .then((r) => {
+        setSet(r.data);
+        setFromCache(r.fromCache);
+      })
+      .catch((e) => setError(offlineMessage(e, friendly(e))));
+  }, [childId, base, familyToken, playing]);
 
   if (!child) return null;
   const t = bandTheme[child.band];
   const young = child.band === "b1" || child.band === "b2";
 
-  if (error) return <Screen><Banner>{error}</Banner></Screen>;
+  if (error) return <Screen><Banner>{error}</Banner><Button title="Back" onPress={() => router.back()} /></Screen>;
   if (!set) return <Loading />;
 
   if (playing && set.puzzles) {
     return (
       <Screen>
-        <Button title="‹ Stop" kind="ghost" color={t.accent} onPress={() => setPlaying(false)} />
+        <Button title="‹ Stop" kind="ghost" color={t.accent} onPress={() => setPlaying(false)} label="Stop puzzles" />
+        <OfflineBanner />
         <QuizRunner
           band={child.band}
           questions={set.puzzles.map((p) => ({ q: p.q, options: p.options, label: p.type.replace("-", " ") }))}
@@ -58,9 +68,10 @@ export default function Puzzles() {
 
   return (
     <Screen>
-      <Button title="‹ Back" kind="ghost" color={t.accent} onPress={() => router.back()} />
+      <Button title="‹ Back" kind="ghost" color={t.accent} onPress={() => router.back()} label="Back" />
+      <OfflineBanner fromCache={fromCache} />
       <View style={{ alignItems: "center", gap: 6 }}>
-        <Text style={{ fontSize: 60 }}>🧩</Text>
+        <Emoji size={60}>🧩</Emoji>
         <H1 size={young ? 30 : 26}>{set.title ?? "Brain Puzzles"}</H1>
       </View>
       {!set.available ? (
@@ -80,7 +91,7 @@ export default function Puzzles() {
             </View>
           </Card>
           {!young ? (
-            <Card style={{ backgroundColor: "#F7F9FC" }}>
+            <Card style={{ backgroundColor: surfaces.learnMore }}>
               <Text style={{ fontWeight: "800", color: colors.ink }}>Honest note: this is not an IQ test</Text>
               <P size={14} muted>
                 Real IQ tests are standardised and given by trained psychologists. Online "IQ tests" can't measure IQ, and many inflate scores or hide results behind a payment. Here you just see how many puzzles you solved. Practice really does make you better at puzzles like these.

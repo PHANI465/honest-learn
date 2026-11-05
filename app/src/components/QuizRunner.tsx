@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import type { BandId } from "../lib/api";
+import { isOfflineError } from "../lib/offline";
 import { bandTheme, colors } from "../lib/theme";
-import { Banner, Button, Card, H1, P } from "./ui";
+import { Banner, Button, Card, Emoji, H1, P } from "./ui";
+import { OfflineBanner } from "./OfflineBanner";
+
+const offlineNote = (e: unknown, what: string) =>
+  isOfflineError(e) ? `Connect to the internet to ${what}.` : "Something went wrong. Please try again.";
 
 export interface RunnerQuestion {
   q: string;
@@ -54,13 +59,15 @@ export function QuizRunner({
   const [i, setI] = useState(0);
   const [qs, setQs] = useState<QState[]>(() => questions.map(fresh));
   const [result, setResult] = useState<{ score: number; total: number } | null>(null);
+  const [note, setNote] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
   const update = (patch: Partial<QState>) => setQs((all) => all.map((x, j) => (j === i ? { ...x, ...patch } : x)));
 
   if (result) {
     const perfect = result.score === result.total;
     return (
       <View style={{ gap: 14, alignItems: "center", marginTop: 20 }}>
-        <Text style={{ fontSize: 72 }}>{perfect ? "🏆" : "🌱"}</Text>
+        <Emoji size={72}>{perfect ? "🏆" : "🌱"}</Emoji>
         <H1>{perfect ? "Amazing!" : "Nice work!"}</H1>
         <P center size={19}>You got {result.score} out of {result.total} on your first tries.</P>
         {doneNote ? <P center muted>{doneNote}</P> : null}
@@ -76,31 +83,51 @@ export function QuizRunner({
   const last = i === questions.length - 1;
   const locked = !!s.correct || s.revealed !== null;
 
+  // Answers are only on the server, so checking and hints need the internet. Nothing is lost while offline.
   async function choose(choice: number) {
     if (locked) return;
-    const r = await check(i, choice, s.hints.length);
-    update({ picked: choice, correct: r.correct, first: s.first ?? choice, firstCorrect: s.first === null ? r.correct : s.firstCorrect, explain: r.explain, revealed: r.answer });
+    setNote(null);
+    try {
+      const r = await check(i, choice, s.hints.length);
+      update({ picked: choice, correct: r.correct, first: s.first ?? choice, firstCorrect: s.first === null ? r.correct : s.firstCorrect, explain: r.explain, revealed: r.answer });
+    } catch (e) {
+      setNote(offlineNote(e, "check answers"));
+    }
   }
   async function nextHint() {
     const level = s.hints.length;
     if (level > 2) return;
-    const h = await hint(i, level);
-    update({ hints: [...s.hints, h], picked: null, correct: null });
+    setNote(null);
+    try {
+      const h = await hint(i, level);
+      update({ hints: [...s.hints, h], picked: null, correct: null });
+    } catch (e) {
+      setNote(offlineNote(e, "get hints"));
+    }
   }
   async function next() {
+    setNote(null);
     if (!last) return setI(i + 1);
     const firsts = qs.map((x) => x.first ?? -1);
-    if (finish) setResult(await finish(firsts));
-    else setResult({ score: qs.filter((x) => x.firstCorrect).length, total: questions.length });
+    if (!finish) return setResult({ score: qs.filter((x) => x.firstCorrect).length, total: questions.length });
+    setBusy(true);
+    try {
+      setResult(await finish(firsts));
+    } catch (e) {
+      setNote(offlineNote(e, "save your score"));
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
     <View style={{ gap: 12 }}>
+      <OfflineBanner />
       <Text style={{ color: t.accent, fontWeight: "800" }}>
         {i + 1} of {questions.length}{q.label ? ` · ${q.label}` : ""}
       </Text>
       <Card style={{ borderRadius: t.radius }}>
-        <Text style={{ fontSize: t.font + 3, fontWeight: "800", color: colors.ink, lineHeight: (t.font + 3) * 1.35 }}>{q.q}</Text>
+        <Text style={{ fontSize: t.font + 3, fontWeight: "800", color: colors.ink, lineHeight: (t.font + 3) * 1.35 }} accessibilityRole="header">{q.q}</Text>
       </Card>
       <View style={{ gap: 10 }}>
         {q.options.map((opt, k) => {
@@ -113,9 +140,10 @@ export function QuizRunner({
               onPress={() => choose(k)}
               disabled={locked}
               accessibilityRole="button"
-              accessibilityLabel={opt}
+              accessibilityLabel={right ? `${opt}, correct` : wrong ? `${opt}, not quite` : opt}
+              accessibilityState={{ disabled: locked, selected: picked }}
               style={[
-                { padding: young ? 18 : 15, borderRadius: t.radius, borderWidth: 2, backgroundColor: "#fff", borderColor: colors.line },
+                { padding: young ? 18 : 15, minHeight: 56, justifyContent: "center", borderRadius: t.radius, borderWidth: 2, backgroundColor: colors.card, borderColor: colors.line },
                 right && { borderColor: colors.good, backgroundColor: colors.goodSoft },
                 wrong && { borderColor: colors.warn, backgroundColor: colors.warnSoft },
               ]}
@@ -125,6 +153,7 @@ export function QuizRunner({
           );
         })}
       </View>
+      {note ? <Banner tone="info">{note}</Banner> : null}
       {s.correct === false && s.revealed === null ? <Banner>Good try! Not quite. Think again, or take a hint.</Banner> : null}
       {s.hints.map((h, k) => (
         <Card key={k} style={{ backgroundColor: t.soft, borderColor: t.accent }}>
@@ -141,7 +170,7 @@ export function QuizRunner({
       {!locked && s.hints.length < 3 ? (
         <Button title={s.hints.length ? "💭 Another hint" : "💭 I need a hint"} kind="secondary" color={t.accent} onPress={nextHint} />
       ) : null}
-      {locked ? <Button big title={last ? "Finish 🎉" : "Next →"} color={t.accent} onPress={next} /> : null}
+      {locked ? <Button big title={last ? "Finish 🎉" : "Next →"} color={t.accent} onPress={next} loading={busy} /> : null}
     </View>
   );
 }

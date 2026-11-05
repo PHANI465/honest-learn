@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { api, ApiError, type Child, type ContentMap } from "./api";
+import { clearOfflineData, loadSavedFamily, loadSavedMap, saveFamily, saveMap, startOfflineSync } from "./offline";
 import { storage } from "./storage";
 
 const FAMILY_KEY = "hl.familyToken";
@@ -45,11 +46,20 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
     setParentEmail(fam.parent.email);
     setEmailVerified(fam.parent.emailVerified);
     setChildren(fam.children);
+    void saveFamily(fam.children); // so profiles still open offline
   }, []);
 
   useEffect(() => {
     (async () => {
-      api<ContentMap>("GET", "/content/map").then(setMap).catch(() => {});
+      api<ContentMap>("GET", "/content/map")
+        .then((m) => {
+          setMap(m);
+          void saveMap(m);
+        })
+        .catch(async () => {
+          const m = await loadSavedMap();
+          if (m) setMap((current) => current ?? m);
+        });
       const saved = await storage.get(FAMILY_KEY);
       if (saved) {
         try {
@@ -57,12 +67,19 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
           setFamilyToken(saved);
         } catch (e) {
           if (e instanceof ApiError && e.status === 401) await storage.remove(FAMILY_KEY);
-          else setFamilyToken(saved); // offline: keep the session
+          else {
+            // offline: keep the session and use the saved profile list
+            setChildren((await loadSavedFamily()) ?? []);
+            setFamilyToken(saved);
+          }
         }
       }
       setReady(true);
     })();
   }, [loadFamily]);
+
+  // Send lessons finished offline (and learning minutes) when the connection comes back.
+  useEffect(() => (familyToken ? startOfflineSync(familyToken) : undefined), [familyToken]);
 
   const adopt = useCallback(
     async (token: string) => {
@@ -105,6 +122,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         await adopt(r.familyToken);
       },
       async logout() {
+        await clearOfflineData(); // saved lessons and profiles leave the device with the account
         await storage.remove(FAMILY_KEY);
         lockParent();
         setFamilyToken(null);

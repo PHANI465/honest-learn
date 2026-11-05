@@ -3,10 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput, View, type ScrollViewInstance } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ReportSheet } from "../../../../components/ReportSheet";
-import { Banner, Button } from "../../../../components/ui";
+import { Banner, Button, Emoji } from "../../../../components/ui";
 import { api, friendly, type ChatMessage } from "../../../../lib/api";
+import { isOfflineError } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
 import { bandTheme, colors } from "../../../../lib/theme";
+
+/** Hoot chats are never saved on the device, so Hoot needs the internet. */
+const hootError = (e: unknown) => (isOfflineError(e) ? "Hoot needs the internet. You can still read your saved lessons while you're offline." : friendly(e));
 
 export default function Tutor() {
   const { childId, lessonId, question } = useLocalSearchParams<{ childId: string; lessonId: string; question?: string }>();
@@ -22,7 +26,7 @@ export default function Tutor() {
   const qIndex = question !== undefined ? Number(question) : null;
 
   useEffect(() => {
-    api<{ messages: ChatMessage[] }>("GET", path, familyToken).then((r) => setMessages(r.messages)).catch((e) => setError(friendly(e)));
+    api<{ messages: ChatMessage[] }>("GET", path, familyToken).then((r) => setMessages(r.messages)).catch((e) => setError(hootError(e)));
   }, [path, familyToken]);
 
   if (!child) return null;
@@ -44,7 +48,7 @@ export default function Tutor() {
         { id: r.messageId, role: "assistant", content: r.reply, flagged: null, created_at: new Date().toISOString() },
       ]);
     } catch (e) {
-      setError(friendly(e));
+      setError(hootError(e));
       setMessages((m) => m.filter((x) => x.id !== tempId));
       setText(msg);
     } finally {
@@ -59,8 +63,8 @@ export default function Tutor() {
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.bg }} edges={["top", "bottom"]}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
         <View style={{ padding: 12, flexDirection: "row", alignItems: "center", gap: 8, borderBottomWidth: 1, borderColor: colors.line, maxWidth: 720, width: "100%", alignSelf: "center" }}>
-          <Button title="‹" kind="ghost" color={t.accent} onPress={() => router.back()} />
-          <Text style={{ fontSize: 30 }}>🦉</Text>
+          <Button title="‹" kind="ghost" color={t.accent} onPress={() => router.back()} label="Back to the lesson" />
+          <Emoji size={30}>🦉</Emoji>
           <View style={{ flex: 1 }}>
             <Text style={{ fontWeight: "800", fontSize: 18, color: colors.ink }}>Hoot</Text>
             <Text style={{ fontSize: 12, color: colors.muted }}>A computer helper. It can make mistakes, and your grown-up can read this chat.</Text>
@@ -81,8 +85,8 @@ export default function Tutor() {
                 <Text style={{ color: m.role === "user" ? "#fff" : colors.ink, fontSize: t.font - 1, lineHeight: (t.font - 1) * 1.4 }}>{m.content}</Text>
               </View>
               {m.role === "assistant" ? (
-                <Pressable onPress={() => setReportId(m.id)} accessibilityRole="button" accessibilityLabel="Report this reply">
-                  <Text style={{ fontSize: 12, color: colors.muted, paddingHorizontal: 6 }}>⚑ Report</Text>
+                <Pressable onPress={() => setReportId(m.id)} accessibilityRole="button" accessibilityLabel="Report this reply" style={{ minHeight: 44, minWidth: 44, justifyContent: "center" }}>
+                  <Text style={{ fontSize: 13, color: colors.muted, paddingHorizontal: 6 }}>⚑ Report</Text>
                 </Pressable>
               ) : null}
             </View>
@@ -94,7 +98,14 @@ export default function Tutor() {
         <View style={{ padding: 12, gap: 8, borderTopWidth: 1, borderColor: colors.line, maxWidth: 720, width: "100%", alignSelf: "center" }}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
             {starters.map((s) => (
-              <Pressable key={s} onPress={() => setText(s)} style={{ paddingHorizontal: 12, paddingVertical: 8, borderRadius: 999, backgroundColor: t.soft }}>
+              <Pressable
+                key={s}
+                onPress={() => setText(s)}
+                accessibilityRole="button"
+                accessibilityLabel={s}
+                accessibilityHint="Puts this question in the message box"
+                style={{ paddingHorizontal: 14, paddingVertical: 8, minHeight: 44, justifyContent: "center", borderRadius: 999, backgroundColor: t.soft }}
+              >
                 <Text style={{ color: t.accent, fontWeight: "600" }}>{s}</Text>
               </Pressable>
             ))}
@@ -104,11 +115,11 @@ export default function Tutor() {
               value={text}
               onChangeText={setText}
               placeholder="Type your question…"
-              placeholderTextColor="#9AA0AA"
+              placeholderTextColor={colors.placeholder}
               multiline
               maxLength={500}
               accessibilityLabel="Message to Hoot"
-              style={{ flex: 1, borderWidth: 1.5, borderColor: colors.line, borderRadius: 14, padding: 12, fontSize: 16, backgroundColor: "#fff", maxHeight: 120, color: colors.ink }}
+              style={{ flex: 1, borderWidth: 1.5, borderColor: colors.inputLine, borderRadius: 14, padding: 12, fontSize: 16, minHeight: 48, backgroundColor: colors.card, maxHeight: 160, color: colors.ink }}
               onSubmitEditing={send}
             />
             <Button title="Send" color={t.accent} onPress={send} disabled={!text.trim()} loading={busy} />
