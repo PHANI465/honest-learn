@@ -68,7 +68,6 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 
 - ⬜ Deploy the API with HTTPS, a strong `TOKEN_SECRET` and daily database backups
 - ⬜ If running more than one server instance, move rate limits and the Wikipedia cache to a shared store (e.g. Redis)
-- ⬜ Offline mode: cache lessons a child has opened
 - ⬜ Error monitoring that collects no personal data
 - ⬜ Accessibility pass (screen reader, larger text, colour contrast)
 - ⬜ Test on real low-end Android phones
