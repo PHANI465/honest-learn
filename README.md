@@ -156,6 +156,16 @@ Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android an
 | `server/` | API (Node + Hono + SQLite): accounts, PIN, profiles, progress, AI tutor. |
 | `app/` | Expo (React Native) app for iOS, Android and web. |
 
+## How to see the app
+
+| Format | How | Needs |
+|---|---|---|
+| **Website** | Open the Vercel URL in any browser. On a phone, use *Add to Home Screen* to install it like an app (it works offline for lessons already opened). | Vercel project set up once (see `docs/DEPLOYMENT.md` §3) |
+| **Phone app, quick preview** | On your computer: `cd server && npm run dev`, then `cd app && npx expo start`. Install **Expo Go** from the App Store / Play Store and scan the QR code. Set `EXPO_PUBLIC_API_URL` to your computer's LAN address or the Vercel URL + `/api`. | Node 22, the Expo Go app |
+| **Installable Android app (APK)** | `cd app && npx eas-cli@latest build --platform android --profile preview` → a download link for an APK you can install directly. | Free Expo account |
+| **iPhone app** | `npx eas-cli@latest build --platform ios` then TestFlight. | Apple Developer account ($99/year) |
+| **Store releases** | `eas build --profile production` + `eas submit` (Play Store / App Store). | Developer accounts, and expert approval of the content first |
+
 ## Run it locally
 
 You need Node 22+.

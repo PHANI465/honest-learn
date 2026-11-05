@@ -34,6 +34,12 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 - ✅ Offline mode: lessons, lesson lists, puzzles and free resources a child has opened are saved on the device (never answers, parent-area data or Hoot chats) and shown with a "You're offline" notice; lessons finished and minutes learned offline are sent once when back online
 - ✅ Install the website: web app manifest, home-screen icons and a service worker, so the website can be added to a phone's home screen and opens without internet
 
+- ✅ v0.4: third quiz question on every lesson for ages 6–18 (501 questions), 68 brain puzzles
+- ✅ API runs on Postgres (Neon) or SQLite; tests pass on both; Vercel project layout (website + API on one domain) with a demo mode
+- ✅ Verified helplines for 15 countries + fallback; parents can choose a country so Hoot names the right helpline
+- ✅ Stronger safety/personal-info detection with 92 written test cases; `npm run redteam` for live AI testing
+- ✅ Draft privacy notice and terms (in the app at /privacy and /terms), for a lawyer to review
+
 ## Content: before public launch
 
 - ⬜ Hire or recruit reviewers (2 per lesson: subject expert + age/safety)
