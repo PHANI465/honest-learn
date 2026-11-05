@@ -1,5 +1,6 @@
 import { router } from "expo-router";
 import { Text, View } from "react-native";
+import { DemoBanner } from "../components/DemoBanner";
 import { Button, Card, H1, P, Screen } from "../components/ui";
 import { colors } from "../lib/theme";
 
@@ -13,6 +14,7 @@ const PROMISES = [
 export default function Welcome() {
   return (
     <Screen>
+      <DemoBanner />
       <View style={{ alignItems: "center", gap: 8, marginTop: 24 }}>
         <Text style={{ fontSize: 64 }}>🦉</Text>
         <H1 size={34}>Honest Learn</H1>

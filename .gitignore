@@ -16,3 +16,4 @@ android/
 
 # agent worktrees (temporary)
 .claude/worktrees/
+.vercel/

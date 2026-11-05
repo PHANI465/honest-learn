@@ -1,5 +1,6 @@
 import { Redirect, router } from "expo-router";
 import { Text, View } from "react-native";
+import { DemoBanner } from "../components/DemoBanner";
 import { Button, Card, H1, Loading, P, Screen } from "../components/ui";
 import { useSession } from "../lib/session";
 import { avatars, bandTheme, colors } from "../lib/theme";
@@ -11,6 +12,7 @@ export default function Profiles() {
 
   return (
     <Screen>
+      <DemoBanner />
       <View style={{ alignItems: "center", marginTop: 16, gap: 4 }}>
         <Text style={{ fontSize: 48 }}>🦉</Text>
         <H1>Who's learning today?</H1>
