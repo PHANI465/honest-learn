@@ -34,6 +34,8 @@ jobs:
           git diff --exit-code README.md docs/review || (echo "Run: node scripts/build-catalogue.mjs && node scripts/export-review-sheet.mjs" && exit 1)
       - run: npm run typecheck
       - run: npm test
+      - name: Tests on Postgres (PGlite)
+        run: npm run test:pg
 
   app:
     runs-on: ubuntu-latest

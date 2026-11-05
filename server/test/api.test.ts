@@ -7,6 +7,9 @@ process.env.SHOW_DRAFTS = "true";
 
 const { config } = await import("../src/config.ts");
 const { openDb, purgeOld } = await import("../src/db.ts");
+// TEST_DB=pglite runs the whole suite against Postgres (PGlite, in-process) instead of SQLite.
+const usePg = process.env.TEST_DB === "pglite";
+const { openPglite } = usePg ? await import("./pglite.ts") : { openPglite: null };
 const { MemoryMailer } = await import("../src/mailer.ts");
 const { loadContent } = await import("../src/content.ts");
 const { createApp, CONSENT_VERSION, reviewIntervalDays } = await import("../src/app.ts");
@@ -32,7 +35,7 @@ function fakeWiki() {
 const content = loadContent(config.contentDir);
 
 function makeApp(tutor = new MockTutor(), wiki = fakeWiki().client, mailer = new MemoryMailer()) {
-  const db = openDb(":memory:");
+  const db = openPglite ? openPglite() : openDb(":memory:");
   const app = createApp({ db, content, tutor, wiki, mailer });
   const call = async (method: string, path: string, body?: unknown, token?: string) => {
     const res = await app.request(path, {
@@ -377,8 +380,8 @@ describe("screen time and retention", () => {
     const { fam, par } = await family(call);
     const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).json.child.id;
     await call("POST", `/children/${kid}/tutor/b3-math-comparing-fractions`, { message: "help" }, fam);
-    assert.equal(purgeOld(db, 365), 0);
-    assert.ok(purgeOld(db, 365, Date.now() + 366 * 86_400_000) >= 2, "both chat messages (and the expired email code) are removed");
+    assert.equal(await purgeOld(db, 365), 0);
+    assert.ok((await purgeOld(db, 365, Date.now() + 366 * 86_400_000)) >= 2, "both chat messages (and the expired email code) are removed");
     assert.equal((await call("GET", `/parent/children/${kid}/chats`, undefined, par)).json.messages.length, 0);
   });
 });
