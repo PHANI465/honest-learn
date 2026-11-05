@@ -1,0 +1,75 @@
+{
+  "id": "b4-comp-web-page",
+  "title": "Build a Web Page: HTML and CSS",
+  "band": "b4",
+  "subject": "computing",
+  "outcomes": [
+    "b4-comp-4"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: HTML",
+      "url": "https://en.wikipedia.org/wiki/HTML",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: CSS",
+      "url": "https://en.wikipedia.org/wiki/CSS",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "HTML gives a page its STRUCTURE using tags: <h1> for a big heading, <p> for a paragraph, <a> for a link, <img> for an image."
+    },
+    {
+      "type": "text",
+      "body": "CSS controls STYLE: colours, fonts, spacing. Example: h1 { color: green; }"
+    },
+    {
+      "type": "text",
+      "body": "Browsers read HTML and CSS and display the page. Anyone can view a page's code with 'View source'."
+    },
+    {
+      "type": "tryit",
+      "body": "Make a page about your hobby with a heading, a paragraph and a list (<ul><li>…</li></ul>)."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which HTML tag makes a paragraph?",
+      "options": [
+        "<p>",
+        "<h1>",
+        "<img>"
+      ],
+      "answer": 0,
+      "hints": [
+        "Each tag has a job.",
+        "The tag's letter is the first letter of 'paragraph'.",
+        "<h1> is for headings and <img> for images. Which is left for paragraphs?"
+      ],
+      "explain": "<p> marks a paragraph."
+    },
+    {
+      "q": "What does CSS mainly do?",
+      "options": [
+        "Controls how the page looks",
+        "Stores the database",
+        "Makes the page's structure"
+      ],
+      "answer": 0,
+      "hints": [
+        "HTML is structure. CSS is…?",
+        "Colours, fonts and spacing.",
+        "If HTML is a house's walls and rooms, CSS is the paint and decoration."
+      ],
+      "explain": "CSS controls the style: colours, fonts, layout and spacing."
+    }
+  ]
+}

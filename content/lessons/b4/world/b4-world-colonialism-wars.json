@@ -1,0 +1,89 @@
+{
+  "id": "b4-world-colonialism-wars",
+  "title": "Empires, Independence and World Wars",
+  "band": "b4",
+  "subject": "world",
+  "outcomes": [
+    "b4-world-5"
+  ],
+  "sensitive": "politics",
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Colonialism",
+      "url": "https://en.wikipedia.org/wiki/Colonialism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Decolonization",
+      "url": "https://en.wikipedia.org/wiki/Decolonization",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: World War I",
+      "url": "https://en.wikipedia.org/wiki/World_War_I",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: World War II",
+      "url": "https://en.wikipedia.org/wiki/World_War_II",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "From the 1500s to the 1900s, several European powers (and others, like Japan) built EMPIRES by taking control of lands in Africa, Asia, the Americas and Oceania."
+    },
+    {
+      "type": "text",
+      "body": "Colonisers often took resources and land, and imposed their rule on local people. Effects included exploitation, famines, and borders drawn without local consent. Historians also debate long-term effects on infrastructure, languages and institutions."
+    },
+    {
+      "type": "text",
+      "body": "INDEPENDENCE movements, especially after 1945, led to many new nations: India and Pakistan (1947), Ghana (1957), Algeria (1962) and many more. Some were peaceful mass movements; others involved war."
+    },
+    {
+      "type": "text",
+      "body": "World War I (1914–1918) and World War II (1939–1945) killed tens of millions of people worldwide, including the Holocaust, in which Nazi Germany murdered six million Jews and millions of others. After WWII, the United Nations was founded (1945) to try to prevent future wars."
+    },
+    {
+      "type": "text",
+      "body": "People in different countries remember these events differently. Reading sources from several perspectives is essential."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which organisation was founded in 1945 to help prevent future wars?",
+      "options": [
+        "The United Nations",
+        "The Olympic Games",
+        "The Internet"
+      ],
+      "answer": 0,
+      "hints": [
+        "It was founded right after World War II.",
+        "Nearly every country is a member.",
+        "Its headquarters are in New York, and almost every country has a seat in its General Assembly."
+      ],
+      "explain": "The United Nations was founded in 1945."
+    },
+    {
+      "q": "Why is it important to read history from several perspectives, especially about empires?",
+      "options": [
+        "People affected experienced events very differently",
+        "Only one view is ever correct",
+        "It makes history shorter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Did coloniser and colonised experience events the same way?",
+        "Each group has its own sources and memories.",
+        "A school story told only by the head teacher might miss the students' view."
+      ],
+      "explain": "Different groups experienced empire and independence very differently, so several perspectives give a truer picture."
+    }
+  ]
+}

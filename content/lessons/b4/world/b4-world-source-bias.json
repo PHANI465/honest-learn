@@ -1,0 +1,71 @@
+{
+  "id": "b4-world-source-bias",
+  "title": "Evaluating Sources for Bias",
+  "band": "b4",
+  "subject": "world",
+  "outcomes": [
+    "b4-world-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Source criticism",
+      "url": "https://en.wikipedia.org/wiki/Source_criticism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Media bias",
+      "url": "https://en.wikipedia.org/wiki/Media_bias",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Every source is made by someone, for a reason. Ask: Who made it? When? For whom? Why?"
+    },
+    {
+      "type": "text",
+      "body": "BIAS isn't always lying. It can be choosing which facts to include, or using loaded words ('freedom fighters' vs 'rebels')."
+    },
+    {
+      "type": "text",
+      "body": "Compare several sources from different sides or countries. Where they agree, you can be more confident."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Two newspapers describe the same protest: one says 'peaceful demonstrators', one says 'angry mob'. This shows…",
+      "options": [
+        "Word choice can reveal bias",
+        "Both are definitely lying",
+        "Words don't matter"
+      ],
+      "answer": 0,
+      "hints": [
+        "The event is the same.",
+        "Look at the descriptive words chosen.",
+        "'Brave hero' vs 'reckless show-off' can describe the same person. What does word choice show?"
+      ],
+      "explain": "Word choice can reveal each writer's point of view, or bias."
+    },
+    {
+      "q": "What's the best way to get a fair picture of a disputed event?",
+      "options": [
+        "Compare several sources from different perspectives",
+        "Read only one source you like",
+        "Trust whichever is most dramatic"
+      ],
+      "answer": 0,
+      "hints": [
+        "One source shows one view.",
+        "Where do several sources agree?",
+        "Asking several witnesses to an accident gives a fuller picture than asking one."
+      ],
+      "explain": "Comparing several sources from different perspectives gives the fairest picture."
+    }
+  ]
+}

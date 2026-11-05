@@ -1,0 +1,85 @@
+{
+  "id": "b4-sci-cells-genetics-evolution",
+  "title": "Cells, Genes and Evolution",
+  "band": "b4",
+  "subject": "science",
+  "outcomes": [
+    "b4-sci-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Cell (biology)",
+      "url": "https://en.wikipedia.org/wiki/Cell_(biology)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Gene",
+      "url": "https://en.wikipedia.org/wiki/Gene",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Evolution",
+      "url": "https://en.wikipedia.org/wiki/Evolution",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Natural selection",
+      "url": "https://en.wikipedia.org/wiki/Natural_selection",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "All living things are made of CELLS. Animal and plant cells have a nucleus, cytoplasm and a membrane. Plant cells also have a cell wall and chloroplasts."
+    },
+    {
+      "type": "text",
+      "body": "The nucleus holds DNA, which is organised into GENES: instructions for building and running the body. Offspring inherit genes from their parents."
+    },
+    {
+      "type": "text",
+      "body": "EVOLUTION by NATURAL SELECTION: individuals vary; those with traits better suited to their environment tend to survive and reproduce more, so those traits become more common over many generations."
+    },
+    {
+      "type": "text",
+      "body": "Scientists CLASSIFY living things into groups (kingdom → species) based on shared features and DNA."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which structure do plant cells have but animal cells don't?",
+      "options": [
+        "Chloroplasts",
+        "Nucleus",
+        "Cell membrane"
+      ],
+      "answer": 0,
+      "hints": [
+        "Plants make food from sunlight.",
+        "Which part does photosynthesis?",
+        "Both cell types have a nucleus and membrane. The extra part in plants is green…"
+      ],
+      "explain": "Chloroplasts (for photosynthesis) are found in plant cells, not animal cells."
+    },
+    {
+      "q": "In a snowy area, white rabbits are caught less by predators than brown ones. Over many generations, what happens?",
+      "options": [
+        "White fur becomes more common",
+        "Brown fur becomes more common",
+        "Nothing changes"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which rabbits survive to have babies?",
+        "Their genes get passed on more.",
+        "Moths that match tree bark get eaten less, so bark-coloured moths become more common."
+      ],
+      "explain": "White rabbits survive and reproduce more, so white fur becomes more common: natural selection."
+    }
+  ]
+}

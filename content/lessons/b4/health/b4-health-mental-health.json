@@ -1,0 +1,75 @@
+{
+  "id": "b4-health-mental-health",
+  "title": "Looking After Your Mental Health",
+  "band": "b4",
+  "subject": "health",
+  "outcomes": [
+    "b4-health-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Mental health",
+      "url": "https://en.wikipedia.org/wiki/Mental_health",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Self-esteem",
+      "url": "https://en.wikipedia.org/wiki/Self-esteem",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Mental health is how we think, feel and cope. Everyone has mental health, just like physical health. It goes up and down."
+    },
+    {
+      "type": "text",
+      "body": "Anxiety (worry), low mood and stress are common, especially during the teenage years. Signs to take seriously: feelings that last weeks, stop you doing normal things, or change sleep and appetite."
+    },
+    {
+      "type": "text",
+      "body": "Things that help: sleep, exercise, time outdoors, talking to people you trust, limiting doom-scrolling, and being kind to yourself."
+    },
+    {
+      "type": "text",
+      "body": "Getting help is a strength. Talk to a parent, teacher, school counsellor or doctor. If you ever feel unsafe, contact your local emergency number or a youth helpline straight away."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which sign suggests it's time to talk to someone about how you feel?",
+      "options": [
+        "Low mood that lasts weeks and stops you doing normal things",
+        "Feeling nervous before one test",
+        "Being sad when your team loses"
+      ],
+      "answer": 0,
+      "hints": [
+        "Everyone has some bad days.",
+        "Look for feelings that last a long time and affect daily life.",
+        "Being tired after one late night is normal. Being exhausted every day for weeks is worth checking."
+      ],
+      "explain": "Feelings that last weeks and get in the way of daily life are a sign to reach out for help."
+    },
+    {
+      "q": "Which habit supports good mental health?",
+      "options": [
+        "Regular sleep and exercise",
+        "Staying up scrolling every night",
+        "Keeping all worries secret"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what helps your body and mind.",
+        "Sleep and movement are powerful.",
+        "After a walk outside, people often feel calmer. Which option is like that?"
+      ],
+      "explain": "Regular sleep and exercise are proven to support mental health."
+    }
+  ]
+}

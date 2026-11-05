@@ -1,0 +1,75 @@
+{
+  "id": "b4-sci-energy-circuits",
+  "title": "Energy and Electric Circuits",
+  "band": "b4",
+  "subject": "science",
+  "outcomes": [
+    "b4-sci-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Conservation of energy",
+      "url": "https://en.wikipedia.org/wiki/Conservation_of_energy",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Electrical network",
+      "url": "https://en.wikipedia.org/wiki/Electrical_network",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Energy can't be created or destroyed. It changes form: chemical → kinetic (movement) → thermal (heat), and so on."
+    },
+    {
+      "type": "text",
+      "body": "A CIRCUIT needs a complete loop, an energy source (cell/battery) and components (bulbs, motors)."
+    },
+    {
+      "type": "text",
+      "body": "SERIES circuit: one loop. If one bulb breaks, all go out. PARALLEL circuit: several branches. Others stay on if one breaks."
+    },
+    {
+      "type": "fact",
+      "body": "Most homes are wired in parallel, so turning off one light doesn't turn off the others."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Two bulbs are in series and one blows. What happens to the other?",
+      "options": [
+        "It goes out too",
+        "It gets brighter",
+        "Nothing"
+      ],
+      "answer": 0,
+      "hints": [
+        "In series there's only one path.",
+        "If the path breaks…",
+        "Old-style fairy lights in series all went dark when one bulb failed."
+      ],
+      "explain": "In a series circuit the loop is broken, so the other bulb goes out."
+    },
+    {
+      "q": "A battery-powered fan converts energy mainly from…",
+      "options": [
+        "Chemical to kinetic",
+        "Kinetic to chemical",
+        "Heat to light"
+      ],
+      "answer": 0,
+      "hints": [
+        "Where is the energy stored in a battery?",
+        "What does a fan do: move or glow?",
+        "A torch converts chemical energy to light energy. A fan produces movement instead."
+      ],
+      "explain": "The battery's chemical energy becomes kinetic (movement) energy."
+    }
+  ]
+}

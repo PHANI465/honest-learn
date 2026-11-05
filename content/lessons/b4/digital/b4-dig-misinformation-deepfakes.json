@@ -1,0 +1,75 @@
+{
+  "id": "b4-dig-misinformation-deepfakes",
+  "title": "Misinformation and Deepfakes",
+  "band": "b4",
+  "subject": "digital",
+  "outcomes": [
+    "b4-dig-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Misinformation",
+      "url": "https://en.wikipedia.org/wiki/Misinformation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Deepfake",
+      "url": "https://en.wikipedia.org/wiki/Deepfake",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "MISINFORMATION is false information shared by mistake. DISINFORMATION is false information spread on purpose."
+    },
+    {
+      "type": "text",
+      "body": "DEEPFAKES are AI-made videos, images or audio that make it look like someone said or did something they didn't."
+    },
+    {
+      "type": "text",
+      "body": "Check: Is the source reliable? Do other trusted outlets report it? Does the image look odd (hands, shadows, blurry edges)? Try a reverse image search."
+    },
+    {
+      "type": "text",
+      "body": "Pause before sharing, especially if it makes you angry or shocked. Emotions spread fakes fastest."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What's the difference between misinformation and disinformation?",
+      "options": [
+        "Disinformation is spread on purpose",
+        "They're identical",
+        "Misinformation is always true"
+      ],
+      "answer": 0,
+      "hints": [
+        "One is a mistake, one is deliberate.",
+        "'Dis-' here means deliberate deception.",
+        "Accidentally telling someone the wrong time is a mistake; lying about the time to make them late is deliberate."
+      ],
+      "explain": "Disinformation is false information spread on purpose. Misinformation is spread by mistake."
+    },
+    {
+      "q": "You see a shocking video of a politician saying something outrageous. What first?",
+      "options": [
+        "Check if trusted news outlets report it",
+        "Share it immediately",
+        "Assume it's real because it's video"
+      ],
+      "answer": 0,
+      "hints": [
+        "Videos can be faked now.",
+        "Do other reliable sources confirm it?",
+        "Before believing a rumour about a classmate, you'd check with others who were there."
+      ],
+      "explain": "Check whether trusted outlets confirm it. Videos can be deepfakes."
+    }
+  ]
+}

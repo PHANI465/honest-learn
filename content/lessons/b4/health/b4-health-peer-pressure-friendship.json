@@ -1,0 +1,75 @@
+{
+  "id": "b4-health-peer-pressure-friendship",
+  "title": "Peer Pressure, Friendship and Consent",
+  "band": "b4",
+  "subject": "health",
+  "outcomes": [
+    "b4-health-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Peer pressure",
+      "url": "https://en.wikipedia.org/wiki/Peer_pressure",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Consent",
+      "url": "https://en.wikipedia.org/wiki/Consent",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Peer pressure is feeling pushed to do something to fit in. It can be positive (joining a study group) or negative (risky dares, being unkind to someone)."
+    },
+    {
+      "type": "text",
+      "body": "Healthy friends respect your 'no', support you, and don't make you feel bad for being yourself."
+    },
+    {
+      "type": "text",
+      "body": "CONSENT in everyday life means asking and respecting the answer: before borrowing things, sharing someone's photo, or hugging. Consent can be changed at any time."
+    },
+    {
+      "type": "text",
+      "body": "Saying no: be clear and short ('No thanks'), suggest something else, or leave. Real friends will accept it."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A friend wants to post a funny photo of you, and you say no. A good friend will…",
+      "options": [
+        "Respect your answer and not post it",
+        "Post it anyway",
+        "Post it later secretly"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does consent mean?",
+        "'No' should be respected.",
+        "If you ask to borrow a pen and they say no, you don't take it anyway."
+      ],
+      "explain": "A good friend respects your 'no'. That's consent."
+    },
+    {
+      "q": "Which is an example of POSITIVE peer pressure?",
+      "options": [
+        "Friends encouraging you to join a study group",
+        "Friends daring you to skip school",
+        "Friends excluding someone"
+      ],
+      "answer": 0,
+      "hints": [
+        "Positive pressure helps you grow.",
+        "Which choice is good for you?",
+        "A teammate encouraging you to practise more is positive. Which option is similar?"
+      ],
+      "explain": "Being encouraged to study together is positive peer pressure."
+    }
+  ]
+}

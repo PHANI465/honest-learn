@@ -1,0 +1,84 @@
+{
+  "id": "b4-health-puberty-relationships",
+  "title": "Puberty, Reproduction and Relationships",
+  "band": "b4",
+  "subject": "health",
+  "outcomes": [
+    "b4-health-5"
+  ],
+  "sensitive": "body",
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Puberty",
+      "url": "https://en.wikipedia.org/wiki/Puberty",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Human reproduction",
+      "url": "https://en.wikipedia.org/wiki/Human_reproduction",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Healthy relationship",
+      "url": "https://en.wikipedia.org/wiki/Healthy_relationship",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Puberty is driven by hormones (mainly oestrogen and testosterone). These cause growth, body changes and the ability to reproduce."
+    },
+    {
+      "type": "text",
+      "body": "Human reproduction: a sperm cell from a male joins an egg cell from a female (fertilisation). The fertilised egg can grow into a baby in the uterus over about 9 months."
+    },
+    {
+      "type": "text",
+      "body": "The menstrual cycle (periods) is about monthly and is a normal sign that the body is preparing for possible pregnancy."
+    },
+    {
+      "type": "text",
+      "body": "Healthy relationships of any kind are built on respect, trust, honesty and consent. Nobody should pressure you to do anything you're not ready for."
+    },
+    {
+      "type": "text",
+      "body": "Questions are normal. Trusted adults, school nurses, doctors and reliable health websites can help."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is fertilisation?",
+      "options": [
+        "When a sperm cell joins an egg cell",
+        "When a baby is born",
+        "A type of hormone"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's the very first step of reproduction.",
+        "Two cells join.",
+        "Plants are fertilised when pollen reaches the ovule. In humans, which cells join?"
+      ],
+      "explain": "Fertilisation is when a sperm cell and an egg cell join."
+    },
+    {
+      "q": "What are healthy relationships built on?",
+      "options": [
+        "Respect, trust, honesty and consent",
+        "Pressure and secrets",
+        "Doing whatever the other person says"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how good friends treat each other.",
+        "The lesson lists four things.",
+        "A good friendship has trust and respect. Romantic relationships need the same and more."
+      ],
+      "explain": "Healthy relationships are based on respect, trust, honesty and consent."
+    }
+  ]
+}

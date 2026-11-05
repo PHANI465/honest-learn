@@ -1,0 +1,80 @@
+{
+  "id": "b4-math-ratio-percent-negatives",
+  "title": "Negatives, Ratios and Percentages",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Negative number",
+      "url": "https://en.wikipedia.org/wiki/Negative_number",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Ratio",
+      "url": "https://en.wikipedia.org/wiki/Ratio",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Percentage",
+      "url": "https://en.wikipedia.org/wiki/Percentage",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "NEGATIVE numbers are below zero, like −5 °C. Subtracting a negative is like adding: 3 − (−2) = 5."
+    },
+    {
+      "type": "text",
+      "body": "A RATIO compares amounts: 2 cups of flour to 1 cup of sugar is 2:1. Scale it: 4:2, 6:3…"
+    },
+    {
+      "type": "text",
+      "body": "PERCENT means 'out of 100'. 25% = 25/100 = 1/4. To find 20% of 60: 0.2 × 60 = 12."
+    },
+    {
+      "type": "fact",
+      "body": "A RATE compares different units, like km per hour or price per kg."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "The temperature is −3 °C and rises by 7 °C. What is it now?",
+      "options": [
+        "4 °C",
+        "−10 °C",
+        "10 °C"
+      ],
+      "answer": 0,
+      "hints": [
+        "Start at −3 on a number line.",
+        "Count up 7 steps. You'll pass zero.",
+        "From −2, rising 5 steps lands on 3."
+      ],
+      "explain": "−3 + 7 = 4 °C."
+    },
+    {
+      "q": "A recipe uses flour and sugar in the ratio 3:1. With 12 cups of flour, how much sugar?",
+      "options": [
+        "4 cups",
+        "3 cups",
+        "36 cups"
+      ],
+      "answer": 0,
+      "hints": [
+        "How many times bigger is 12 than 3?",
+        "Multiply both parts by the same number.",
+        "In a 2:1 ratio with 10 cups of the first, you'd need 5 of the second."
+      ],
+      "explain": "12 is 4 × 3, so sugar = 4 × 1 = 4 cups."
+    }
+  ]
+}

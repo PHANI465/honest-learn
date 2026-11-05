@@ -1,0 +1,80 @@
+{
+  "id": "b4-world-government",
+  "title": "How Countries Are Governed",
+  "band": "b4",
+  "subject": "world",
+  "outcomes": [
+    "b4-world-4"
+  ],
+  "sensitive": "politics",
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Government",
+      "url": "https://en.wikipedia.org/wiki/Government",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Democracy",
+      "url": "https://en.wikipedia.org/wiki/Democracy",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Separation of powers",
+      "url": "https://en.wikipedia.org/wiki/Separation_of_powers",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Countries are governed in different ways. In a DEMOCRACY, citizens elect leaders. In a MONARCHY, a king or queen is head of state (often with an elected parliament too). In an AUTHORITARIAN system, power is held by one leader or party with limited elections or freedoms."
+    },
+    {
+      "type": "text",
+      "body": "Many countries separate power into 3 branches: LEGISLATIVE (makes laws, such as a parliament), EXECUTIVE (runs the country, such as a president or prime minister) and JUDICIAL (courts that interpret laws)."
+    },
+    {
+      "type": "text",
+      "body": "Laws are usually proposed, debated, voted on, and then signed into law. Courts can check laws against a constitution."
+    },
+    {
+      "type": "text",
+      "body": "People disagree about which policies are best. That's normal in a democracy. Look at the evidence and listen to different views."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which branch of government makes laws?",
+      "options": [
+        "Legislative",
+        "Judicial",
+        "Executive"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Legislation' means laws.",
+        "Parliaments and congresses belong to it.",
+        "Courts are judicial; presidents lead the executive. Who's left to make laws?"
+      ],
+      "explain": "The legislative branch (such as a parliament) makes laws."
+    },
+    {
+      "q": "Why separate power into branches?",
+      "options": [
+        "So no single group has unchecked power",
+        "To make decisions faster",
+        "To avoid having courts"
+      ],
+      "answer": 0,
+      "hints": [
+        "What could go wrong if one person controlled everything?",
+        "Branches can check each other.",
+        "In sport, players play, referees judge, and rule-makers write the rules. Why keep these separate?"
+      ],
+      "explain": "Separating powers lets each branch check the others, so no one has unchecked power."
+    }
+  ]
+}

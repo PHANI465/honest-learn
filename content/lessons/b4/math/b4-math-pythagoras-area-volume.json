@@ -1,0 +1,75 @@
+{
+  "id": "b4-math-pythagoras-area-volume",
+  "title": "Pythagoras, Area and Volume",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Pythagorean theorem",
+      "url": "https://en.wikipedia.org/wiki/Pythagorean_theorem",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Volume",
+      "url": "https://en.wikipedia.org/wiki/Volume",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "In a right-angled triangle, a² + b² = c², where c is the HYPOTENUSE (the longest side, opposite the right angle)."
+    },
+    {
+      "type": "text",
+      "body": "Area of a triangle = ½ × base × height. Area of a circle = πr²."
+    },
+    {
+      "type": "text",
+      "body": "Volume of a cuboid = length × width × height, measured in cubic units (cm³)."
+    },
+    {
+      "type": "fact",
+      "body": "The 3-4-5 triangle is right-angled: 3² + 4² = 9 + 16 = 25 = 5²."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A right-angled triangle has sides 6 and 8. How long is the hypotenuse?",
+      "options": [
+        "10",
+        "14",
+        "48"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use a² + b² = c².",
+        "36 + 64 = 100. Then take the square root.",
+        "With sides 3 and 4: 9 + 16 = 25, √25 = 5."
+      ],
+      "explain": "36 + 64 = 100, and √100 = 10."
+    },
+    {
+      "q": "What is the volume of a box 2 cm × 3 cm × 5 cm?",
+      "options": [
+        "30 cm³",
+        "10 cm³",
+        "30 cm²"
+      ],
+      "answer": 0,
+      "hints": [
+        "Volume = length × width × height.",
+        "2 × 3 = 6, then × 5.",
+        "A 1 × 2 × 4 box has volume 8 cm³."
+      ],
+      "explain": "2 × 3 × 5 = 30 cm³."
+    }
+  ]
+}

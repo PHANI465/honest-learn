@@ -1,0 +1,71 @@
+{
+  "id": "b4-sci-scientific-method",
+  "title": "Hypotheses, Variables and Bias",
+  "band": "b4",
+  "subject": "science",
+  "outcomes": [
+    "b4-sci-5"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Scientific method",
+      "url": "https://en.wikipedia.org/wiki/Scientific_method",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Observer bias",
+      "url": "https://en.wikipedia.org/wiki/Observer_bias",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A HYPOTHESIS is a testable prediction: 'If plants get more light, then they will grow taller.'"
+    },
+    {
+      "type": "text",
+      "body": "INDEPENDENT variable: what you change. DEPENDENT variable: what you measure. CONTROL variables: what you keep the same."
+    },
+    {
+      "type": "text",
+      "body": "Bias can sneak in: small samples, measuring only what you expect, or wanting a certain result. Good scientists repeat tests, use controls and let others check."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "'Does exercise affect heart rate?' What is the dependent variable?",
+      "options": [
+        "Heart rate",
+        "Amount of exercise",
+        "The person's age"
+      ],
+      "answer": 0,
+      "hints": [
+        "The dependent variable is what you MEASURE.",
+        "What number do you record after exercising?",
+        "'Does fertiliser affect plant height?' The plant height is measured: it's dependent."
+      ],
+      "explain": "Heart rate is what you measure, so it's the dependent variable."
+    },
+    {
+      "q": "Why use a large sample in an experiment?",
+      "options": [
+        "Results are less likely to be due to chance",
+        "It's quicker",
+        "It always proves you right"
+      ],
+      "answer": 0,
+      "hints": [
+        "Could a tiny sample be a fluke?",
+        "More data smooths out odd results.",
+        "Asking 2 people their favourite fruit tells you less than asking 200."
+      ],
+      "explain": "A larger sample reduces the effect of chance and one-off results."
+    }
+  ]
+}

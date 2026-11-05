@@ -1,0 +1,75 @@
+{
+  "id": "b4-money-life-skills",
+  "title": "Cooking, Time and Simple Fixes",
+  "band": "b4",
+  "subject": "money",
+  "outcomes": [
+    "b4-money-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Time management",
+      "url": "https://en.wikipedia.org/wiki/Time_management",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Food safety",
+      "url": "https://en.wikipedia.org/wiki/Food_safety",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "COOKING a simple meal: plan, wash hands, prepare ingredients, cook carefully (ask an adult the first times), and clean as you go."
+    },
+    {
+      "type": "text",
+      "body": "FOOD SAFETY: keep raw meat separate from ready-to-eat food, cook food all the way through, and refrigerate leftovers quickly."
+    },
+    {
+      "type": "text",
+      "body": "TIME MANAGEMENT: break big tasks into smaller ones, do the hardest task when you have most energy, and use a planner."
+    },
+    {
+      "type": "text",
+      "body": "SIMPLE FIXES: sewing a button, changing a light bulb (power off!), pumping up a bike tyre. Watch a reliable how-to with an adult."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why keep raw meat separate from salad?",
+      "options": [
+        "To avoid spreading harmful bacteria",
+        "To keep the salad warm",
+        "It doesn't matter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Raw meat can carry germs.",
+        "Salad isn't cooked, so germs wouldn't be killed.",
+        "We wash hands after touching raw chicken for the same reason."
+      ],
+      "explain": "Raw meat can carry bacteria. Salad isn't cooked, so keeping them apart prevents food poisoning."
+    },
+    {
+      "q": "Before changing a light bulb, you should…",
+      "options": [
+        "Turn the power off",
+        "Turn the power on",
+        "Use wet hands"
+      ],
+      "answer": 0,
+      "hints": [
+        "Electricity can be dangerous.",
+        "What stops the current?",
+        "You unplug a toaster before getting stuck toast out. Light bulbs are similar."
+      ],
+      "explain": "Always switch the power off first."
+    }
+  ]
+}

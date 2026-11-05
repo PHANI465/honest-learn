@@ -1,0 +1,76 @@
+{
+  "id": "b4-lang-summarise-discuss",
+  "title": "Summarising and Discussing Respectfully",
+  "band": "b4",
+  "subject": "language",
+  "outcomes": [
+    "b4-lang-4",
+    "b4-lang-5"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Summary",
+      "url": "https://en.wikipedia.org/wiki/Summary",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Active listening",
+      "url": "https://en.wikipedia.org/wiki/Active_listening",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A SUMMARY gives the main points in your own words, much shorter than the original. Leave out minor details and examples."
+    },
+    {
+      "type": "text",
+      "body": "When you make a claim about a text, CITE evidence: quote or refer to the exact part."
+    },
+    {
+      "type": "text",
+      "body": "In discussions: listen fully, repeat back what you heard ('So you're saying…'), then respond to the idea, not the person."
+    },
+    {
+      "type": "text",
+      "body": "Respectful disagreement: 'I see it differently because…' rather than 'That's stupid.'"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What should a summary include?",
+      "options": [
+        "The main points in your own words",
+        "Every detail",
+        "Your opinion only"
+      ],
+      "answer": 0,
+      "hints": [
+        "A summary is short.",
+        "Keep the important ideas and cut the rest.",
+        "Summarising a film for a friend, you'd say the main plot, not every scene."
+      ],
+      "explain": "A summary gives the main points briefly, in your own words."
+    },
+    {
+      "q": "Which is a respectful way to disagree?",
+      "options": [
+        "'I see it differently because…'",
+        "'That's a stupid idea.'",
+        "Ignoring the person"
+      ],
+      "answer": 0,
+      "hints": [
+        "Respond to the idea, not the person.",
+        "Give your reason.",
+        "'I understand your point, but the evidence shows…' disagrees politely. Which option is like that?"
+      ],
+      "explain": "'I see it differently because…' disagrees with the idea while respecting the person."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "b4-sci-earth-climate-evidence",
+  "title": "Plate Tectonics, Rocks and Climate Evidence",
+  "band": "b4",
+  "subject": "science",
+  "outcomes": [
+    "b4-sci-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Plate tectonics",
+      "url": "https://en.wikipedia.org/wiki/Plate_tectonics",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Rock cycle",
+      "url": "https://en.wikipedia.org/wiki/Rock_cycle",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Instrumental temperature record",
+      "url": "https://en.wikipedia.org/wiki/Instrumental_temperature_record",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Earth's crust is split into PLATES that move a few centimetres a year. Where they meet: earthquakes, volcanoes and mountains (the Himalayas formed as the Indian plate pushed into Asia)."
+    },
+    {
+      "type": "text",
+      "body": "The ROCK CYCLE: IGNEOUS rocks form from cooled magma, SEDIMENTARY from layers of sediment, METAMORPHIC from rocks changed by heat and pressure."
+    },
+    {
+      "type": "text",
+      "body": "CLIMATE EVIDENCE: thermometer records since the 1800s, ice cores (trapped air bubbles show past CO₂), shrinking glaciers and rising sea levels. Together, they show recent warming linked to human activity."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How did the Himalayas form?",
+      "options": [
+        "Tectonic plates pushing together",
+        "A meteor strike",
+        "Rivers depositing sand"
+      ],
+      "answer": 0,
+      "hints": [
+        "Mountains form where plates meet.",
+        "Which plate pushed into Asia?",
+        "The Andes formed where an ocean plate pushes under South America. Plate collisions build mountains."
+      ],
+      "explain": "The Indian plate pushing into the Eurasian plate pushed the Himalayas up."
+    },
+    {
+      "q": "Ice cores help scientists by…",
+      "options": [
+        "Trapping air bubbles that show past atmosphere",
+        "Melting into drinking water",
+        "Measuring earthquakes"
+      ],
+      "answer": 0,
+      "hints": [
+        "What's trapped in ancient ice?",
+        "Tiny pockets of very old air.",
+        "Tree rings record past growth. Ice layers record something about the air."
+      ],
+      "explain": "Air bubbles in ice cores show what the atmosphere (including CO₂) was like long ago."
+    }
+  ]
+}

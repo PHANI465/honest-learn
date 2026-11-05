@@ -1,0 +1,75 @@
+{
+  "id": "b4-money-how-businesses-work",
+  "title": "How Businesses Work: Cost, Price, Profit",
+  "band": "b4",
+  "subject": "money",
+  "outcomes": [
+    "b4-money-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Profit (economics)",
+      "url": "https://en.wikipedia.org/wiki/Profit_(economics)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Pricing",
+      "url": "https://en.wikipedia.org/wiki/Pricing",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Businesses have COSTS: materials, wages, rent, energy. They set a PRICE for their product."
+    },
+    {
+      "type": "text",
+      "body": "PROFIT = revenue (money from sales) − costs. If costs are bigger, the business makes a LOSS."
+    },
+    {
+      "type": "text",
+      "body": "Price too high and fewer people buy; too low and you may not cover costs. Businesses also compete with each other."
+    },
+    {
+      "type": "fact",
+      "body": "Example: lemonade costs 0.30 per cup to make and sells for 1.00. Selling 50 cups: revenue 50, costs 15, profit 35."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A business sells 100 items at 5 each. Total costs are 320. What's the profit?",
+      "options": [
+        "180",
+        "500",
+        "320"
+      ],
+      "answer": 0,
+      "hints": [
+        "Revenue first: 100 × 5.",
+        "Profit = revenue − costs.",
+        "Selling 20 cakes at 3 each = 60 revenue; with 25 costs, profit = 35."
+      ],
+      "explain": "Revenue 500 − costs 320 = profit of 180."
+    },
+    {
+      "q": "What is a loss?",
+      "options": [
+        "When costs are greater than revenue",
+        "When revenue is greater than costs",
+        "When prices are low"
+      ],
+      "answer": 0,
+      "hints": [
+        "Profit is revenue minus costs.",
+        "What if the answer is negative?",
+        "If a bake sale spends 40 on ingredients and earns 30, did it profit?"
+      ],
+      "explain": "A loss is when costs are greater than the money coming in."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "b4-lang-purpose-tone",
+  "title": "Purpose, Tone and Point of View",
+  "band": "b4",
+  "subject": "language",
+  "outcomes": [
+    "b4-lang-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Tone (literature)",
+      "url": "https://en.wikipedia.org/wiki/Tone_(literature)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Narration",
+      "url": "https://en.wikipedia.org/wiki/Narration",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Every text has a PURPOSE: to inform, persuade, entertain, instruct or explain. Ask: why was this written?"
+    },
+    {
+      "type": "text",
+      "body": "TONE is the writer's attitude: serious, playful, angry, hopeful, sarcastic. Word choice reveals it: 'a bold plan' vs 'a reckless plan'."
+    },
+    {
+      "type": "text",
+      "body": "POINT OF VIEW: first person ('I'), second person ('you'), third person ('she', 'they'). A first-person narrator only knows what they see and feel, so they can be unreliable."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "'This reckless plan will waste millions.' The writer's tone is…",
+      "options": [
+        "Critical",
+        "Admiring",
+        "Neutral"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the descriptive words.",
+        "Is 'reckless' a positive or negative word?",
+        "'This brilliant plan will save millions' would be admiring. What's the opposite feeling?"
+      ],
+      "explain": "'Reckless' and 'waste' show a critical tone."
+    },
+    {
+      "q": "A story told by 'I' is in which point of view?",
+      "options": [
+        "First person",
+        "Third person",
+        "Second person"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which pronoun does the narrator use about themselves?",
+        "'I' and 'we' belong to one point of view.",
+        "'She walked home' is third person; 'You walk home' is second person. What's left for 'I'?"
+      ],
+      "explain": "Narration using 'I' is first person."
+    }
+  ]
+}

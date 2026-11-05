@@ -1,0 +1,76 @@
+{
+  "id": "b4-think-viewpoints-estimation",
+  "title": "Other Viewpoints and Smart Estimates",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-3",
+    "b4-think-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Perspective-taking",
+      "url": "https://en.wikipedia.org/wiki/Perspective-taking",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Fermi problem",
+      "url": "https://en.wikipedia.org/wiki/Fermi_problem",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Before deciding, try 'steelmanning': state the other side's argument in its strongest form. If you can't, you may not understand it yet."
+    },
+    {
+      "type": "text",
+      "body": "Ask: Who is affected? What would they say? What evidence would change my mind?"
+    },
+    {
+      "type": "text",
+      "body": "ESTIMATION ('back of the envelope'): break a big question into smaller guessable parts."
+    },
+    {
+      "type": "fact",
+      "body": "Example: how many heartbeats in a day? About 70 per minute × 60 minutes × 24 hours ≈ 100,000."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is 'steelmanning' an argument?",
+      "options": [
+        "Stating the other side's best version of their argument",
+        "Making their argument look silly",
+        "Ignoring it"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's the opposite of a 'straw man'.",
+        "Steel is strong; straw is weak.",
+        "A straw man twists an argument to make it weak. A steel man does the opposite."
+      ],
+      "explain": "Steelmanning means presenting the strongest version of the other side's argument."
+    },
+    {
+      "q": "Estimate: about how many minutes are in a week?",
+      "options": [
+        "About 10,000",
+        "About 100",
+        "About 1,000,000"
+      ],
+      "answer": 0,
+      "hints": [
+        "Minutes in an hour × hours in a day × days in a week.",
+        "60 × 24 = 1,440 per day. Now × 7.",
+        "Seconds in an hour = 60 × 60 = 3,600. Use the same multiply-up method."
+      ],
+      "explain": "60 × 24 × 7 = 10,080, so about 10,000."
+    }
+  ]
+}

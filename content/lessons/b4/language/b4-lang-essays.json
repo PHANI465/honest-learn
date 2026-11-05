@@ -1,0 +1,71 @@
+{
+  "id": "b4-lang-essays",
+  "title": "Writing Structured Essays",
+  "band": "b4",
+  "subject": "language",
+  "outcomes": [
+    "b4-lang-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Essay",
+      "url": "https://en.wikipedia.org/wiki/Essay",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Thesis statement",
+      "url": "https://en.wikipedia.org/wiki/Thesis_statement",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "An essay has an INTRODUCTION (hook + thesis: your main claim), BODY paragraphs (one point each, with evidence and explanation) and a CONCLUSION (sum up, don't add new points)."
+    },
+    {
+      "type": "text",
+      "body": "A useful body paragraph pattern is PEE: Point, Evidence, Explanation."
+    },
+    {
+      "type": "text",
+      "body": "Argument essays also answer the strongest counter-argument. This makes your case more convincing, not less."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is a thesis statement?",
+      "options": [
+        "The essay's main claim, usually in the introduction",
+        "The last sentence of every paragraph",
+        "A list of sources"
+      ],
+      "answer": 0,
+      "hints": [
+        "It tells the reader what you'll argue.",
+        "It usually comes early.",
+        "'School uniforms should be optional because they limit self-expression' is one. What job does it do?"
+      ],
+      "explain": "A thesis statement is your main claim, set out in the introduction."
+    },
+    {
+      "q": "Why address a counter-argument in an argument essay?",
+      "options": [
+        "It shows you've considered other views and strengthens your case",
+        "It weakens your argument",
+        "It makes the essay shorter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Readers may already have objections.",
+        "Answering them makes you more convincing.",
+        "A lawyer who prepares for the other side's points usually does better. Why?"
+      ],
+      "explain": "Answering the strongest objection shows fairness and makes your argument more convincing."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "b4-dig-ai-literacy",
+  "title": "AI Literacy: Training, Bias and Honest Use",
+  "band": "b4",
+  "subject": "digital",
+  "outcomes": [
+    "b4-dig-5"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Artificial intelligence",
+      "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Algorithmic bias",
+      "url": "https://en.wikipedia.org/wiki/Algorithmic_bias",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "AI systems learn from huge amounts of data. If the data is unbalanced, the AI can be BIASED. For example, a face-recognition system trained mostly on some groups may work worse for others."
+    },
+    {
+      "type": "text",
+      "body": "AI can generate text, images and code, but it can be confidently wrong and it doesn't understand like a human."
+    },
+    {
+      "type": "text",
+      "body": "Using AI honestly: follow your school's rules, say when you used it, use it to explain and give feedback rather than do your work, and check facts it gives you."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why might an AI system be biased?",
+      "options": [
+        "It learned from unbalanced data",
+        "Computers have opinions",
+        "AI is always fair"
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does AI learn from?",
+        "If the training data leaves people out…",
+        "If you only learned about animals from a book about dogs, you'd know little about cats."
+      ],
+      "explain": "AI can be biased when its training data is unbalanced or unrepresentative."
+    },
+    {
+      "q": "Which is an honest way to use AI for homework (where allowed)?",
+      "options": [
+        "Ask it to explain a concept, then do the work yourself",
+        "Copy its essay and hand it in",
+        "Hide that you used it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which choice still helps you learn?",
+        "Using it as a tutor, not a ghost-writer.",
+        "Asking a friend to explain a math method is fine; copying their answers isn't."
+      ],
+      "explain": "Use AI to understand, then do the work yourself, and be open about using it."
+    }
+  ]
+}

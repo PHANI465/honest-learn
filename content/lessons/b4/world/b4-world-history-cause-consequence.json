@@ -1,0 +1,80 @@
+{
+  "id": "b4-world-history-cause-consequence",
+  "title": "History: Causes and Consequences",
+  "band": "b4",
+  "subject": "world",
+  "outcomes": [
+    "b4-world-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Causality",
+      "url": "https://en.wikipedia.org/wiki/Causality",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Printing press",
+      "url": "https://en.wikipedia.org/wiki/Printing_press",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Industrial Revolution",
+      "url": "https://en.wikipedia.org/wiki/Industrial_Revolution",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Historians ask WHY things happened (causes) and WHAT changed afterwards (consequences). Most events have several causes: long-term and short-term."
+    },
+    {
+      "type": "text",
+      "body": "Example: the printing press (Gutenberg, around 1440, building on earlier Chinese and Korean printing) made books cheaper. Consequences: more people could read, and ideas spread faster."
+    },
+    {
+      "type": "text",
+      "body": "Example: the Industrial Revolution (from the late 1700s, starting in Britain) brought factories and railways, and moved people to cities. It also brought child labour and pollution, which led to new laws."
+    },
+    {
+      "type": "text",
+      "body": "World history happens everywhere at once. The Mali Empire, the Mughal Empire and Ming China were all powerful while Europe changed too."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What was a consequence of the printing press?",
+      "options": [
+        "Books became cheaper and ideas spread faster",
+        "Writing was invented",
+        "Railways were built"
+      ],
+      "answer": 0,
+      "hints": [
+        "What changed AFTER it was invented?",
+        "Think about the cost of books.",
+        "A consequence of cheap smartphones is that more people can access the internet. What happened after cheap printing?"
+      ],
+      "explain": "Printing made books cheaper, so more people could read and ideas spread faster."
+    },
+    {
+      "q": "Why do historians look for several causes of an event?",
+      "options": [
+        "Most events have more than one cause",
+        "Only one cause is ever possible",
+        "Causes don't matter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Was there just one reason the Industrial Revolution happened?",
+        "Think long-term and short-term causes.",
+        "A football team wins because of training, tactics and luck, not just one thing."
+      ],
+      "explain": "Most historical events have several long- and short-term causes."
+    }
+  ]
+}

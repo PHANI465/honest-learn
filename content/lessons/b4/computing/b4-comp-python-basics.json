@@ -1,0 +1,76 @@
+{
+  "id": "b4-comp-python-basics",
+  "title": "Programming in Python: Lists, Loops, Functions",
+  "band": "b4",
+  "subject": "computing",
+  "outcomes": [
+    "b4-comp-1",
+    "b4-comp-2"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Python (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Subroutine",
+      "url": "https://en.wikipedia.org/wiki/Subroutine",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Python is a popular text-based language. print(\"Hello\") shows Hello on the screen."
+    },
+    {
+      "type": "text",
+      "body": "A LIST stores many values: scores = [7, 9, 4]. A FOR loop repeats for each item: for s in scores: print(s)."
+    },
+    {
+      "type": "text",
+      "body": "A FUNCTION is a named block of code you can reuse: def double(n): return n * 2. Then double(5) gives 10."
+    },
+    {
+      "type": "tryit",
+      "body": "Use a free online Python editor to write a function that adds up a list of numbers."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does this print? for n in [1, 2, 3]: print(n * 10)",
+      "options": [
+        "10, 20, 30 (each on a new line)",
+        "60",
+        "123"
+      ],
+      "answer": 0,
+      "hints": [
+        "The loop runs once for each item.",
+        "Each time, it prints n multiplied by 10.",
+        "for x in [2, 4]: print(x + 1) prints 3, then 5."
+      ],
+      "explain": "It prints 10, 20 and 30, one per line."
+    },
+    {
+      "q": "Given def square(x): return x * x, what is square(4)?",
+      "options": [
+        "16",
+        "8",
+        "44"
+      ],
+      "answer": 0,
+      "hints": [
+        "Replace x with 4.",
+        "4 * 4 = ?",
+        "If def triple(x): return x * 3, then triple(5) = 15."
+      ],
+      "explain": "square(4) returns 4 × 4 = 16."
+    }
+  ]
+}

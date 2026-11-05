@@ -1,0 +1,77 @@
+{
+  "id": "b4-arts-movements-project",
+  "title": "Art Movements and Your Own Project",
+  "band": "b4",
+  "subject": "arts",
+  "outcomes": [
+    "b4-arts-1",
+    "b4-arts-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Art movement",
+      "url": "https://en.wikipedia.org/wiki/Art_movement",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Impressionism",
+      "url": "https://en.wikipedia.org/wiki/Impressionism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Cubism",
+      "url": "https://en.wikipedia.org/wiki/Cubism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Art reflects its time and place. IMPRESSIONISM (1870s France) captured light and moments with quick brushstrokes. CUBISM (early 1900s) showed objects from several angles at once."
+    },
+    {
+      "type": "text",
+      "body": "Around the world: Mughal miniature painting (India), Ukiyo-e prints (Japan), the Harlem Renaissance (USA, 1920s) and Mexican muralism (1920s) all responded to their societies."
+    },
+    {
+      "type": "text",
+      "body": "Your project: choose a medium (drawing, music, film, design), set a goal, make drafts, ask for feedback, and improve. Share your process, not just the final piece."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which movement showed objects from several angles at once?",
+      "options": [
+        "Cubism",
+        "Impressionism",
+        "Mexican muralism"
+      ],
+      "answer": 0,
+      "hints": [
+        "The name hints at a geometric shape.",
+        "Picasso helped start it.",
+        "Impressionism was about light and moments. Which name suggests geometric shapes?"
+      ],
+      "explain": "Cubism showed objects from several viewpoints at once."
+    },
+    {
+      "q": "Why ask for feedback on a draft?",
+      "options": [
+        "It helps you see how to improve",
+        "It means your work is bad",
+        "It's a waste of time"
+      ],
+      "answer": 0,
+      "hints": [
+        "Others notice things we miss.",
+        "Drafts are meant to be improved.",
+        "Writers have editors and athletes have coaches. Why?"
+      ],
+      "explain": "Feedback shows you what works and what to improve."
+    }
+  ]
+}

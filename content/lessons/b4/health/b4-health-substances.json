@@ -1,0 +1,80 @@
+{
+  "id": "b4-health-substances",
+  "title": "Tobacco, Vaping, Alcohol and Drugs",
+  "band": "b4",
+  "subject": "health",
+  "outcomes": [
+    "b4-health-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Electronic cigarette",
+      "url": "https://en.wikipedia.org/wiki/Electronic_cigarette",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Nicotine",
+      "url": "https://en.wikipedia.org/wiki/Nicotine",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Adolescence",
+      "url": "https://en.wikipedia.org/wiki/Adolescence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Nicotine (in cigarettes and most vapes) is highly addictive. Teenage brains are still developing, which makes addiction more likely and can affect attention and learning."
+    },
+    {
+      "type": "text",
+      "body": "Vapes are not harmless: they can contain nicotine and other chemicals, and many are marketed with sweet flavours to attract young people."
+    },
+    {
+      "type": "text",
+      "body": "Alcohol and other drugs can affect judgement, memory, mental health and safety, and many are illegal for young people."
+    },
+    {
+      "type": "text",
+      "body": "If you're worried about yourself or a friend, talk to a trusted adult or health professional. In an emergency, call your local emergency number."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why is nicotine especially risky for teenagers?",
+      "options": [
+        "The developing brain becomes addicted more easily",
+        "It makes you taller",
+        "It's only risky for adults"
+      ],
+      "answer": 0,
+      "hints": [
+        "What's still developing during the teenage years?",
+        "Addiction affects the brain.",
+        "Learning new skills is easier for young brains, and unfortunately, so is getting hooked."
+      ],
+      "explain": "Teen brains are still developing, which makes nicotine addiction more likely."
+    },
+    {
+      "q": "Why are sweet-flavoured vapes a concern?",
+      "options": [
+        "They can attract young people to an addictive product",
+        "Flavours make them healthy",
+        "They contain vitamins"
+      ],
+      "answer": 0,
+      "hints": [
+        "Who do candy flavours appeal to?",
+        "Think about marketing.",
+        "Toys in cereal boxes are aimed at children. Who might sweet vape flavours be aimed at?"
+      ],
+      "explain": "Sweet flavours appeal to young people and can draw them into nicotine addiction."
+    }
+  ]
+}

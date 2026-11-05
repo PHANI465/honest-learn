@@ -1,0 +1,71 @@
+{
+  "id": "b4-dig-cyberbullying",
+  "title": "Cyberbullying: Respond, Report, Support",
+  "band": "b4",
+  "subject": "digital",
+  "outcomes": [
+    "b4-dig-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Cyberbullying",
+      "url": "https://en.wikipedia.org/wiki/Cyberbullying",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Bystander effect",
+      "url": "https://en.wikipedia.org/wiki/Bystander_effect",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Cyberbullying is repeated, deliberate online cruelty: mean messages, sharing embarrassing photos, excluding someone, or impersonation."
+    },
+    {
+      "type": "text",
+      "body": "If it happens to you: don't reply in anger. Screenshot evidence, block, report on the platform, and tell a trusted adult."
+    },
+    {
+      "type": "text",
+      "body": "If you see it: don't like or share. Privately check on the person ('Are you OK?') and report it. Bystanders can make a big difference."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Someone keeps sending you mean messages. What should you do?",
+      "options": [
+        "Save evidence, block, report and tell an adult",
+        "Send mean messages back",
+        "Delete everything and say nothing"
+      ],
+      "answer": 0,
+      "hints": [
+        "Replying in anger can make it worse.",
+        "Keeping proof helps adults and platforms act.",
+        "If someone keeps pushing you at school, you'd tell a teacher and explain what happened. Online is similar."
+      ],
+      "explain": "Save evidence, block and report, and tell a trusted adult."
+    },
+    {
+      "q": "You see a cruel post about a classmate. What helps most?",
+      "options": [
+        "Don't share it, check on them privately and report it",
+        "Like it so you fit in",
+        "Comment something funny"
+      ],
+      "answer": 0,
+      "hints": [
+        "What would help the person being targeted?",
+        "Bystanders have power.",
+        "If you saw someone pushed over in the playground, you'd help them up and tell a teacher."
+      ],
+      "explain": "Don't spread it, support the person privately, and report it."
+    }
+  ]
+}

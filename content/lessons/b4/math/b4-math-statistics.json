@@ -1,0 +1,75 @@
+{
+  "id": "b4-math-statistics",
+  "title": "Averages, Spread and Misleading Graphs",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-5"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Average",
+      "url": "https://en.wikipedia.org/wiki/Average",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Misleading graph",
+      "url": "https://en.wikipedia.org/wiki/Misleading_graph",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "MEAN = total ÷ how many. MEDIAN = the middle value when sorted. MODE = the most common. RANGE = biggest − smallest."
+    },
+    {
+      "type": "text",
+      "body": "One extreme value can pull the mean a lot, but barely moves the median."
+    },
+    {
+      "type": "text",
+      "body": "Graphs can mislead: a y-axis that doesn't start at zero can make small differences look huge."
+    },
+    {
+      "type": "fact",
+      "body": "Probability ranges from 0 (impossible) to 1 (certain). A fair coin landing heads has probability ½."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Data: 2, 3, 3, 7, 10. What is the median?",
+      "options": [
+        "3",
+        "5",
+        "7"
+      ],
+      "answer": 0,
+      "hints": [
+        "Sort the numbers (they already are).",
+        "Find the middle one of five values.",
+        "For 1, 4, 6, 8, 9 the median is the 3rd value: 6."
+      ],
+      "explain": "The middle (3rd) value is 3."
+    },
+    {
+      "q": "A bar chart's y-axis starts at 95 instead of 0. Why might it mislead?",
+      "options": [
+        "Small differences look much bigger",
+        "It shows more data",
+        "It's always fine"
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens to the bars' heights?",
+        "A tiny difference fills more of the chart.",
+        "If two scores are 96 and 98 and the axis starts at 95, one bar looks three times the other."
+      ],
+      "explain": "Starting above zero exaggerates small differences."
+    }
+  ]
+}
