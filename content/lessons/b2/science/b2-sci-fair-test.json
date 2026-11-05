@@ -1,0 +1,79 @@
+{
+  "id": "b2-sci-fair-test",
+  "title": "Predict and Test",
+  "band": "b2",
+  "subject": "science",
+  "outcomes": [
+    "b2-sci-5"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Prediction",
+      "url": "https://en.wikipedia.org/wiki/Prediction",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Experiment",
+      "url": "https://en.wikipedia.org/wiki/Experiment",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Scientists PREDICT (make a smart guess), then TEST to find out."
+    },
+    {
+      "type": "text",
+      "body": "A fair test changes only ONE thing. Everything else stays the same."
+    },
+    {
+      "type": "fact",
+      "body": "Example: Which ball bounces highest? Drop each from the SAME height onto the SAME floor. Only the ball changes."
+    },
+    {
+      "type": "tryit",
+      "body": "Predict which paper aeroplane design flies furthest. Throw each the same way and measure!"
+    },
+    {
+      "type": "parent",
+      "body": "Ask 'What do you think will happen?' before every experiment. It's fine to be wrong. That's how science works!"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Testing which ball bounces highest, what should stay the SAME?",
+      "options": [
+        "The height you drop it from",
+        "The ball",
+        "Nothing"
+      ],
+      "answer": 0,
+      "hints": [
+        "We are testing the balls, so the ball changes.",
+        "Everything else should match.",
+        "Racing toy cars fairly, you'd start them on the same slope. What's 'the same' when dropping balls?"
+      ],
+      "explain": "Drop each ball from the same height so the test is fair."
+    },
+    {
+      "q": "What is a prediction?",
+      "options": [
+        "A smart guess before testing",
+        "The final answer",
+        "A kind of ball"
+      ],
+      "answer": 0,
+      "hints": [
+        "It happens before the test.",
+        "It's what you THINK will happen.",
+        "'I think the ice will melt in 10 minutes' is said before watching. What's that called?"
+      ],
+      "explain": "A prediction is a smart guess about what will happen."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "b2-math-measure-graphs",
+  "title": "Measuring and Picture Graphs",
+  "band": "b2",
+  "subject": "math",
+  "outcomes": [
+    "b2-math-5"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Ruler",
+      "url": "https://en.wikipedia.org/wiki/Ruler",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Pictogram",
+      "url": "https://en.wikipedia.org/wiki/Pictogram",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "We measure length with a ruler, starting at 0. Short things in centimetres (cm)."
+    },
+    {
+      "type": "text",
+      "body": "A PICTURE GRAPH uses pictures to show numbers. If each 🍎 means 1 child, 4 🍎 means 4 children."
+    },
+    {
+      "type": "text",
+      "body": "Look at the title and the key to understand a graph."
+    },
+    {
+      "type": "tryit",
+      "body": "Measure your pencil, your hand and a spoon with a ruler. Which is longest?"
+    },
+    {
+      "type": "parent",
+      "body": "Let your child measure real things. Line the object up with 0, not with the end of the ruler!"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Where should you start measuring on a ruler?",
+      "options": [
+        "At 0",
+        "At 5",
+        "Anywhere"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the start of the ruler.",
+        "The first number on the ruler.",
+        "To count your steps you start at zero steps. Measuring starts the same way."
+      ],
+      "explain": "Always line up the object with 0."
+    },
+    {
+      "q": "A picture graph: Apples 🍎🍎🍎, Bananas 🍌🍌. Each picture = 1 child. How many more children like apples?",
+      "options": [
+        "1",
+        "5",
+        "3"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count each row.",
+        "3 apples and 2 bananas. Find the difference.",
+        "If cats had 4 pictures and dogs had 1, cats have 4 − 1 = 3 more."
+      ],
+      "explain": "3 − 2 = 1 more child likes apples."
+    }
+  ]
+}

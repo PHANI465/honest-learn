@@ -1,0 +1,74 @@
+{
+  "id": "b1-money-helping-at-home",
+  "title": "I Can Help at Home",
+  "band": "b1",
+  "subject": "money",
+  "outcomes": [
+    "b1-money-3"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Housekeeping",
+      "url": "https://en.wikipedia.org/wiki/Housekeeping",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Everyone in a family can help! 🏠"
+    },
+    {
+      "type": "text",
+      "body": "You can tidy your toys, put clothes in the basket and help set the table."
+    },
+    {
+      "type": "text",
+      "body": "Helping makes you feel proud and big! 💪"
+    },
+    {
+      "type": "tryit",
+      "body": "Choose one job to do today, like putting your shoes away."
+    },
+    {
+      "type": "parent",
+      "body": "Small, regular jobs build responsibility. Praise effort, not perfection."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Playtime is over. What can you do with your toys?",
+      "options": [
+        "Tidy them away 🧸",
+        "Leave them on the floor",
+        "Throw them outside"
+      ],
+      "answer": 0,
+      "hints": [
+        "Where do toys live?",
+        "Putting things back keeps the room nice.",
+        "After lunch we put our plate away. After playing we put toys…?"
+      ],
+      "explain": "Tidying toys away is a great way to help! 🧸"
+    },
+    {
+      "q": "Which job can a little helper do?",
+      "options": [
+        "Put socks in the laundry basket 🧺",
+        "Drive the car 🚗",
+        "Use the oven 🔥"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which one is safe for a little helper?",
+        "Two of these are only for grown-ups.",
+        "Watering a plant is a good kid job. Which one here is like that?"
+      ],
+      "explain": "Putting socks in the basket is a great job for you! 🧺"
+    }
+  ]
+}

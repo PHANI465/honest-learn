@@ -1,0 +1,79 @@
+{
+  "id": "b2-sci-plants",
+  "title": "How Plants Grow",
+  "band": "b2",
+  "subject": "science",
+  "outcomes": [
+    "b2-sci-1"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Plant",
+      "url": "https://en.wikipedia.org/wiki/Plant",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Photosynthesis",
+      "url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Plants need sunlight ☀️, water 💧, air and soil (or nutrients) to grow."
+    },
+    {
+      "type": "text",
+      "body": "ROOTS take in water. The STEM holds the plant up. LEAVES make food using sunlight. FLOWERS make seeds."
+    },
+    {
+      "type": "fact",
+      "body": "Plants make their own food from sunlight, air and water. This is called photosynthesis."
+    },
+    {
+      "type": "tryit",
+      "body": "Put a bean in a wet tissue in a clear cup. Watch the roots grow over a week!"
+    },
+    {
+      "type": "parent",
+      "body": "A windowsill seed is a great science project. Ask what would happen with no water or no light, then test it."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which part of a plant takes in water from the soil?",
+      "options": [
+        "Roots",
+        "Flowers",
+        "Leaves"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the part under the ground.",
+        "It's like a straw going into the soil.",
+        "Leaves catch sunlight. The part underground that drinks water is…?"
+      ],
+      "explain": "Roots take in water from the soil."
+    },
+    {
+      "q": "What do plants need to make their own food?",
+      "options": [
+        "Sunlight",
+        "Darkness",
+        "Sweets"
+      ],
+      "answer": 0,
+      "hints": [
+        "Leaves make the food.",
+        "What shines on leaves in the day?",
+        "A plant in a dark cupboard turns pale and weak. What is it missing?"
+      ],
+      "explain": "Plants use sunlight (with water and air) to make food."
+    }
+  ]
+}

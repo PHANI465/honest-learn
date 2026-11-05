@@ -1,0 +1,80 @@
+{
+  "id": "b2-dig-online-truth-ai",
+  "title": "Is It True? And What Is AI?",
+  "band": "b2",
+  "subject": "digital",
+  "outcomes": [
+    "b2-dig-3",
+    "b2-dig-4"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Misinformation",
+      "url": "https://en.wikipedia.org/wiki/Misinformation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Chatbot",
+      "url": "https://en.wikipedia.org/wiki/Chatbot",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Not everything online is true. Anyone can post anything!"
+    },
+    {
+      "type": "text",
+      "body": "Ask: Who made this? Does it sound too amazing? Can a grown-up check it in a trusted place?"
+    },
+    {
+      "type": "text",
+      "body": "AI helpers, like Hoot, are computer programs, not people. They don't have feelings, and they can make mistakes."
+    },
+    {
+      "type": "text",
+      "body": "If an AI says something that seems wrong or upsetting, tell a grown-up."
+    },
+    {
+      "type": "parent",
+      "body": "Look at a silly fake photo online together and talk about how you can tell it's not real."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A video says 'Cats can fly!' What should you do?",
+      "options": [
+        "Check with a grown-up or a trusted source",
+        "Believe it",
+        "Try throwing a cat"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does it sound too amazing to be true?",
+        "Who could help you check?",
+        "If someone said 'Fish can climb trees!', you'd check before believing. Do the same here."
+      ],
+      "explain": "Check with a grown-up or trusted source. Not everything online is true!"
+    },
+    {
+      "q": "What is an AI helper like Hoot?",
+      "options": [
+        "A computer program that can make mistakes",
+        "A real person",
+        "A magic owl"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is Hoot alive?",
+        "It runs on a computer.",
+        "A calculator is a machine that helps with sums. An AI is a program that helps with words."
+      ],
+      "explain": "Hoot is a computer program, not a person, and it can make mistakes."
+    }
+  ]
+}

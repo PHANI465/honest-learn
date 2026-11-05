@@ -1,0 +1,80 @@
+{
+  "id": "b2-arts-art-elements-cultures",
+  "title": "Lines, Shapes and Art Around the World",
+  "band": "b2",
+  "subject": "arts",
+  "outcomes": [
+    "b2-arts-1",
+    "b2-arts-3"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Elements of art",
+      "url": "https://en.wikipedia.org/wiki/Elements_of_art",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Folk art",
+      "url": "https://en.wikipedia.org/wiki/Folk_art",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Artists use LINE (straight, wavy, zigzag), SHAPE, COLOUR and TEXTURE (how something feels: rough, smooth, bumpy)."
+    },
+    {
+      "type": "text",
+      "body": "Art from around the world looks different: Aboriginal dot paintings from Australia, Madhubani art from India, Mexican papel picado paper banners."
+    },
+    {
+      "type": "text",
+      "body": "When you look at art, say what you NOTICE: colours, shapes, how it makes you feel."
+    },
+    {
+      "type": "tryit",
+      "body": "Draw a picture using only wavy lines, then one using only dots!"
+    },
+    {
+      "type": "parent",
+      "body": "Look at art from your family's heritage together, and from a culture you don't know yet."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How something feels when you touch it (rough, smooth) is called…",
+      "options": [
+        "Texture",
+        "Colour",
+        "Shape"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about touching sandpaper or silk.",
+        "It starts with 't'.",
+        "Bumpy, fluffy, smooth: these all describe…?"
+      ],
+      "explain": "Texture is how something feels, or looks like it would feel."
+    },
+    {
+      "q": "Dot paintings are a famous art style from which place?",
+      "options": [
+        "Aboriginal Australia",
+        "The Moon",
+        "Antarctica"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson mentions several countries.",
+        "Dot paintings come from a very old culture.",
+        "Madhubani art comes from India. Dot paintings come from…?"
+      ],
+      "explain": "Dot paintings are a famous Aboriginal Australian art style."
+    }
+  ]
+}

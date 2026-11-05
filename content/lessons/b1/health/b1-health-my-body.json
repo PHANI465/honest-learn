@@ -1,0 +1,80 @@
+{
+  "id": "b1-health-my-body",
+  "title": "My Body Belongs to Me",
+  "band": "b1",
+  "subject": "health",
+  "outcomes": [
+    "b1-health-3",
+    "b1-health-4"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Human body",
+      "url": "https://en.wikipedia.org/wiki/Human_body",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Child abuse prevention",
+      "url": "https://en.wikipedia.org/wiki/Child_abuse_prevention",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Let's name body parts: head, shoulders, knees and toes! Eyes, ears, mouth and nose!"
+    },
+    {
+      "type": "text",
+      "body": "Your body belongs to YOU. 💛"
+    },
+    {
+      "type": "text",
+      "body": "If anyone touches you in a way that feels wrong, or asks you to keep a secret that feels bad, tell a grown-up you trust."
+    },
+    {
+      "type": "text",
+      "body": "You will never be in trouble for telling."
+    },
+    {
+      "type": "parent",
+      "body": "Use correct names for all body parts and agree on who your child's trusted adults are. Explain the difference between surprises (fun, shared soon) and secrets (never OK to keep about touching)."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What do we use to see? 👀",
+      "options": [
+        "Eyes",
+        "Knees",
+        "Toes"
+      ],
+      "answer": 0,
+      "hints": [
+        "Point to your face.",
+        "They blink!",
+        "We hear with our ears 👂. We see with our…?"
+      ],
+      "explain": "We see with our eyes! 👀"
+    },
+    {
+      "q": "Someone asks you to keep a secret that makes you feel bad. What do you do?",
+      "options": [
+        "Tell a grown-up you trust",
+        "Keep it forever",
+        "Hide"
+      ],
+      "answer": 0,
+      "hints": [
+        "Bad-feeling secrets shouldn't be kept.",
+        "Who can help you feel safe?",
+        "A surprise party is a fun secret we tell soon. A secret that feels bad is one to tell a grown-up."
+      ],
+      "explain": "Tell a grown-up you trust. You'll never be in trouble for telling. 💛"
+    }
+  ]
+}

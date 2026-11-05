@@ -1,0 +1,84 @@
+{
+  "id": "b2-health-staying-safe",
+  "title": "Staying Safe: Roads, Water, Emergencies",
+  "band": "b2",
+  "subject": "health",
+  "outcomes": [
+    "b2-health-5"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Road safety",
+      "url": "https://en.wikipedia.org/wiki/Road_safety",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Water safety",
+      "url": "https://en.wikipedia.org/wiki/Water_safety",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Emergency telephone number",
+      "url": "https://en.wikipedia.org/wiki/Emergency_telephone_number",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "ROADS: Stop, look both ways, listen, then cross with a grown-up. Use crossings when you can."
+    },
+    {
+      "type": "text",
+      "body": "WATER: Only swim with a grown-up watching. Never go near deep water alone."
+    },
+    {
+      "type": "text",
+      "body": "EMERGENCIES: If someone is badly hurt or there's a fire, get a grown-up. Grown-ups call the emergency number."
+    },
+    {
+      "type": "fact",
+      "body": "Emergency numbers are different in each country, such as 112, 911, 999 or 000. Learn yours with a grown-up!"
+    },
+    {
+      "type": "parent",
+      "body": "Teach your child your local emergency number and their own address. Practise crossing roads together."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Before crossing a road, you should…",
+      "options": [
+        "Stop, look both ways and listen",
+        "Run across fast",
+        "Close your eyes"
+      ],
+      "answer": 0,
+      "hints": [
+        "Cars can come from both sides.",
+        "Use your eyes and ears.",
+        "At a crossing, people stop, look left and right, then cross. What's the first step?"
+      ],
+      "explain": "Stop, look both ways and listen, and cross with a grown-up."
+    },
+    {
+      "q": "Your friend wants to swim in a river with no grown-up around. What should you do?",
+      "options": [
+        "Say no and tell a grown-up",
+        "Jump in first",
+        "Swim far out"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it safe without a grown-up watching?",
+        "Water can be deep and fast.",
+        "We only cross roads with a grown-up. Swimming is the same."
+      ],
+      "explain": "Say no and get a grown-up. Never swim without a grown-up watching."
+    }
+  ]
+}

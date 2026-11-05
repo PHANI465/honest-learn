@@ -1,0 +1,75 @@
+{
+  "id": "b1-math-compare-patterns",
+  "title": "Bigger, Smaller and Patterns",
+  "band": "b1",
+  "subject": "math",
+  "outcomes": [
+    "b1-math-4",
+    "b1-math-5"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Pattern",
+      "url": "https://en.wikipedia.org/wiki/Pattern",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "An elephant is BIGGER than a mouse. A mouse is SMALLER. 🐘🐭"
+    },
+    {
+      "type": "text",
+      "body": "A long snake 🐍 and a short worm 🪱. Long and short!"
+    },
+    {
+      "type": "text",
+      "body": "A PATTERN repeats: 🍎🍌🍎🍌🍎… What comes next? 🍌!"
+    },
+    {
+      "type": "tryit",
+      "body": "Make a pattern with spoons and forks, or two colours of blocks."
+    },
+    {
+      "type": "parent",
+      "body": "Use words like more, fewer, longer and taller in daily life. Clapping patterns (clap, clap, stamp) also count!"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is LONGER? 🐍 snake or 🐜 ant?",
+      "options": [
+        "The snake 🐍",
+        "The ant 🐜",
+        "They are the same"
+      ],
+      "answer": 0,
+      "hints": [
+        "Imagine them lying in a line.",
+        "Which one would stretch further?",
+        "A bus is longer than a car. Which animal here is longer?"
+      ],
+      "explain": "The snake is much longer than the ant! 🐍"
+    },
+    {
+      "q": "What comes next? 🟡 🟢 🟡 🟢 🟡 …",
+      "options": [
+        "🟢",
+        "🟡",
+        "🔴"
+      ],
+      "answer": 0,
+      "hints": [
+        "Say the colours out loud.",
+        "Yellow, green, yellow, green, yellow…",
+        "🐶 🐱 🐶 🐱 🐶 … next is 🐱."
+      ],
+      "explain": "The pattern is yellow, green, so green 🟢 comes next!"
+    }
+  ]
+}

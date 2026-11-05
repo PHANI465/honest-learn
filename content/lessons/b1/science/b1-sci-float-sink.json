@@ -1,0 +1,74 @@
+{
+  "id": "b1-sci-float-sink",
+  "title": "Float or Sink?",
+  "band": "b1",
+  "subject": "science",
+  "outcomes": [
+    "b1-sci-4"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Buoyancy",
+      "url": "https://en.wikipedia.org/wiki/Buoyancy",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Some things FLOAT on water. Some things SINK to the bottom. 💧"
+    },
+    {
+      "type": "text",
+      "body": "A leaf and a plastic duck float. 🦆🍃 A stone and a coin sink. 🪨🪙"
+    },
+    {
+      "type": "text",
+      "body": "We can also sort things: hard or soft, hot or cold."
+    },
+    {
+      "type": "tryit",
+      "body": "With a grown-up, fill a bowl with water. Guess first: float or sink? Then test!"
+    },
+    {
+      "type": "parent",
+      "body": "Always supervise water play. Ask 'What do you think will happen?' before each test. Guessing first is real science!"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What happens to a stone in water?",
+      "options": [
+        "It sinks 🪨⬇️",
+        "It floats",
+        "It flies away"
+      ],
+      "answer": 0,
+      "hints": [
+        "Stones are heavy and hard.",
+        "Does it stay on top or go to the bottom?",
+        "A coin 🪙 sinks to the bottom of a bowl. A stone does the same."
+      ],
+      "explain": "A stone sinks to the bottom!"
+    },
+    {
+      "q": "Which one is SOFT?",
+      "options": [
+        "A pillow 🛏️",
+        "A rock 🪨",
+        "A brick 🧱"
+      ],
+      "answer": 0,
+      "hints": [
+        "Soft things squish when you press them.",
+        "Which one would you lay your head on?",
+        "A teddy bear 🧸 is soft. Find another soft thing."
+      ],
+      "explain": "A pillow is soft and squishy!"
+    }
+  ]
+}

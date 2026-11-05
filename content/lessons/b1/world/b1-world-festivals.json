@@ -1,0 +1,94 @@
+{
+  "id": "b1-world-festivals",
+  "title": "Happy Festivals!",
+  "band": "b1",
+  "subject": "world",
+  "outcomes": [
+    "b1-world-4"
+  ],
+  "sensitive": "religion",
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Festival",
+      "url": "https://en.wikipedia.org/wiki/Festival",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Diwali",
+      "url": "https://en.wikipedia.org/wiki/Diwali",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Eid al-Fitr",
+      "url": "https://en.wikipedia.org/wiki/Eid_al-Fitr",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Christmas",
+      "url": "https://en.wikipedia.org/wiki/Christmas",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Chinese New Year",
+      "url": "https://en.wikipedia.org/wiki/Chinese_New_Year",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "All around the world, families celebrate special days called festivals. 🎉"
+    },
+    {
+      "type": "text",
+      "body": "Diwali has little lamps 🪔. Eid often has new clothes and sharing sweets. Christmas has decorated trees 🎄. Lunar New Year has red lanterns 🏮."
+    },
+    {
+      "type": "text",
+      "body": "Some festivals are religious and some are not. People celebrate in many different ways."
+    },
+    {
+      "type": "text",
+      "body": "When a friend tells you about their festival, listen and say 'That sounds lovely!'"
+    },
+    {
+      "type": "parent",
+      "body": "Share your own family's celebrations, and talk kindly about others'. This lesson is descriptive only and is shown only if you unlock it."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What do people light at Diwali?",
+      "options": [
+        "Little lamps 🪔",
+        "Snowmen ⛄",
+        "Footballs ⚽"
+      ],
+      "answer": 0,
+      "hints": [
+        "Diwali is a festival of light.",
+        "What gives light in a small clay pot?",
+        "At a birthday we light candles on a cake 🎂. At Diwali we light…?"
+      ],
+      "explain": "People light little lamps called diyas at Diwali! 🪔"
+    },
+    {
+      "q": "Your friend tells you about their festival. What can you say?",
+      "options": [
+        "'That sounds lovely!'",
+        "'That's silly.'",
+        "Nothing, walk away"
+      ],
+      "answer": 0,
+      "hints": [
+        "How would you like people to talk about your special days?",
+        "Kind words make friends happy.",
+        "If a friend shows you their drawing, you might say 'I like it!'. Same with festivals."
+      ],
+      "explain": "Kind words show respect: 'That sounds lovely!'"
+    }
+  ]
+}

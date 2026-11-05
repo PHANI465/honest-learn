@@ -1,0 +1,79 @@
+{
+  "id": "b2-sci-day-and-night",
+  "title": "Sun, Earth and Moon",
+  "band": "b2",
+  "subject": "science",
+  "outcomes": [
+    "b2-sci-4"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Earth's rotation",
+      "url": "https://en.wikipedia.org/wiki/Earth's_rotation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Moon",
+      "url": "https://en.wikipedia.org/wiki/Moon",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The Earth spins around like a top. It takes one day (24 hours) to spin once."
+    },
+    {
+      "type": "text",
+      "body": "When your side faces the Sun, it's DAY. When it faces away, it's NIGHT."
+    },
+    {
+      "type": "text",
+      "body": "The Earth travels around the Sun. One trip takes a year. The Moon travels around the Earth."
+    },
+    {
+      "type": "fact",
+      "body": "The Sun is a star, the closest one to us!"
+    },
+    {
+      "type": "parent",
+      "body": "In a dark room, use a torch as the Sun and a ball as the Earth. Spin the ball slowly to show day and night."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why do we have day and night?",
+      "options": [
+        "The Earth spins",
+        "The Sun switches off",
+        "Clouds cover the Sun"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the Sun really turning off?",
+        "Something is turning around.",
+        "When you spin on the spot, sometimes you face a lamp and sometimes you don't."
+      ],
+      "explain": "The Earth spins. Our side faces the Sun (day), then turns away (night)."
+    },
+    {
+      "q": "What does the Moon travel around?",
+      "options": [
+        "The Earth",
+        "The Sun only",
+        "Mars"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which one is the Moon's closest neighbour?",
+        "We see the Moon from our planet every month.",
+        "Mars has two small moons that travel around Mars. Our Moon travels around our own planet. Which planet is ours?"
+      ],
+      "explain": "The Moon travels around the Earth."
+    }
+  ]
+}

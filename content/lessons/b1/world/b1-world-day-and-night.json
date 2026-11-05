@@ -1,0 +1,80 @@
+{
+  "id": "b1-world-day-and-night",
+  "title": "Day, Night and Time",
+  "band": "b1",
+  "subject": "world",
+  "outcomes": [
+    "b1-world-2",
+    "b1-world-3"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Day",
+      "url": "https://en.wikipedia.org/wiki/Day",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Language",
+      "url": "https://en.wikipedia.org/wiki/Language",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "In the DAY the Sun is in the sky. ☀️ At NIGHT it's dark and we can see the Moon and stars. 🌙⭐"
+    },
+    {
+      "type": "text",
+      "body": "Yesterday was before today. Tomorrow comes after today."
+    },
+    {
+      "type": "text",
+      "body": "People around the world speak different languages! 'Hello' can be 'Hola', 'Namaste', 'Bonjour' or 'Ni hao'. 🌍"
+    },
+    {
+      "type": "text",
+      "body": "Different is good. We can learn from each other!"
+    },
+    {
+      "type": "parent",
+      "body": "Use 'yesterday / today / tomorrow' at bedtime. If your family speaks more than one language, celebrate it!"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "When do we usually see the Moon and stars?",
+      "options": [
+        "At night 🌙",
+        "At lunchtime 🍽️",
+        "Never"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about bedtime.",
+        "Is the sky dark or bright then?",
+        "We see the Sun ☀️ in the day. The Moon and stars come out when it's…?"
+      ],
+      "explain": "We see the Moon and stars at night! 🌙⭐"
+    },
+    {
+      "q": "'Hola' means 'hello' in which language?",
+      "options": [
+        "Spanish",
+        "Pizza",
+        "Football"
+      ],
+      "answer": 0,
+      "hints": [
+        "Only one of these is a language.",
+        "Pizza is food and football is a game.",
+        "'Bonjour' is French. 'Hola' is…?"
+      ],
+      "explain": "'Hola' is Spanish for hello!"
+    }
+  ]
+}

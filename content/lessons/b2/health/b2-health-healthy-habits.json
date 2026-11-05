@@ -1,0 +1,84 @@
+{
+  "id": "b2-health-healthy-habits",
+  "title": "Sleep, Move, Brush!",
+  "band": "b2",
+  "subject": "health",
+  "outcomes": [
+    "b2-health-2"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sleep",
+      "url": "https://en.wikipedia.org/wiki/Sleep",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Exercise",
+      "url": "https://en.wikipedia.org/wiki/Exercise",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Tooth brushing",
+      "url": "https://en.wikipedia.org/wiki/Tooth_brushing",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Children your age need about 9 to 12 hours of sleep. Sleep helps you grow and remember what you learned."
+    },
+    {
+      "type": "text",
+      "body": "Moving your body every day keeps your heart and muscles strong. Run, dance, jump, play!"
+    },
+    {
+      "type": "text",
+      "body": "Brush your teeth twice a day, for about 2 minutes, to keep them healthy. 🪥"
+    },
+    {
+      "type": "tryit",
+      "body": "Make a chart: did you sleep well, play actively and brush twice today?"
+    },
+    {
+      "type": "parent",
+      "body": "Experts suggest children aged 6–8 get an hour of active play a day. A regular bedtime routine helps sleep."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How often should you brush your teeth?",
+      "options": [
+        "Twice a day",
+        "Once a month",
+        "Only on birthdays"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think morning and night.",
+        "It's more than once a day.",
+        "We eat breakfast in the morning and brush, and before bed we brush again. How many times is that?"
+      ],
+      "explain": "Brush twice a day: morning and night."
+    },
+    {
+      "q": "Why is sleep important?",
+      "options": [
+        "It helps you grow and remember",
+        "It makes you hungry",
+        "It isn't important"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does your body do while you sleep?",
+        "Your brain is busy at night too.",
+        "After a good sleep, it's easier to learn and play. Why?"
+      ],
+      "explain": "Sleep helps your body grow and your brain remember what you learned."
+    }
+  ]
+}

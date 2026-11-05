@@ -1,0 +1,78 @@
+{
+  "id": "b1-math-shapes",
+  "title": "Shapes Everywhere",
+  "band": "b1",
+  "subject": "math",
+  "outcomes": [
+    "b1-math-3"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Shape",
+      "url": "https://en.wikipedia.org/wiki/Shape",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A CIRCLE is round, like a plate. ⚪"
+    },
+    {
+      "type": "text",
+      "body": "A SQUARE has 4 straight sides, all the same. 🟦"
+    },
+    {
+      "type": "text",
+      "body": "A TRIANGLE has 3 sides and 3 corners. 🔺"
+    },
+    {
+      "type": "text",
+      "body": "A RECTANGLE has 4 sides, two long and two short, like a door. 🚪"
+    },
+    {
+      "type": "tryit",
+      "body": "Go on a shape hunt! Find a circle, a square and a triangle at home."
+    },
+    {
+      "type": "parent",
+      "body": "Name shapes in everyday things: wheels, windows, sandwiches cut in halves. Counting corners together builds early math."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How many sides does a triangle have?",
+      "options": [
+        "3",
+        "4",
+        "0"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the straight edges 🔺.",
+        "Tri- means three, like a tricycle has 3 wheels.",
+        "A square has 4 sides. A triangle has one less."
+      ],
+      "explain": "A triangle has 3 sides! 🔺"
+    },
+    {
+      "q": "Which shape is round like a ball or a plate?",
+      "options": [
+        "Circle ⚪",
+        "Square 🟦",
+        "Triangle 🔺"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does it have corners?",
+        "It has no corners at all.",
+        "A wheel 🛞 is this shape too."
+      ],
+      "explain": "A circle is round and has no corners. ⚪"
+    }
+  ]
+}

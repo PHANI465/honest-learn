@@ -1,0 +1,84 @@
+{
+  "id": "b2-world-religions",
+  "title": "Beliefs Around the World",
+  "band": "b2",
+  "subject": "world",
+  "outcomes": [
+    "b2-world-5"
+  ],
+  "sensitive": "religion",
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Religion",
+      "url": "https://en.wikipedia.org/wiki/Religion",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Major religious groups",
+      "url": "https://en.wikipedia.org/wiki/Major_religious_groups",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Irreligion",
+      "url": "https://en.wikipedia.org/wiki/Irreligion",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "People around the world have different beliefs. Some follow a religion, some don't."
+    },
+    {
+      "type": "text",
+      "body": "Some of the biggest religions are Christianity, Islam, Hinduism and Buddhism. There are many others, like Sikhism and Judaism."
+    },
+    {
+      "type": "text",
+      "body": "Each has special places (churches, mosques, temples, gurdwaras, synagogues), special books and festivals."
+    },
+    {
+      "type": "text",
+      "body": "Many people aren't religious and find meaning in other ways. Everyone deserves respect."
+    },
+    {
+      "type": "parent",
+      "body": "This lesson describes beliefs; it doesn't tell children what to believe. Share your family's own views alongside it."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Where do Muslims often go to pray together?",
+      "options": [
+        "A mosque",
+        "A library",
+        "A stadium"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson lists special places for each religion.",
+        "It's a word starting with 'm'.",
+        "Christians often pray in a church. Muslims often pray in a…?"
+      ],
+      "explain": "Many Muslims pray together in a mosque."
+    },
+    {
+      "q": "Your friend has a different belief from you. What's the kind thing to do?",
+      "options": [
+        "Respect them and stay friends",
+        "Tell them they're wrong",
+        "Stop playing with them"
+      ],
+      "answer": 0,
+      "hints": [
+        "How would you want to be treated?",
+        "Different beliefs can still be friends.",
+        "If your friend likes a different football team, you can still be friends. Beliefs are similar."
+      ],
+      "explain": "Respecting each other's beliefs is kind, and you can still be great friends."
+    }
+  ]
+}

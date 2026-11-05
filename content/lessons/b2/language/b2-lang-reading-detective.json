@@ -1,0 +1,80 @@
+{
+  "id": "b2-lang-reading-detective",
+  "title": "Be a Reading Detective",
+  "band": "b2",
+  "subject": "language",
+  "outcomes": [
+    "b2-lang-2",
+    "b2-lang-4"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Reading comprehension",
+      "url": "https://en.wikipedia.org/wiki/Reading_comprehension",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Context clue",
+      "url": "https://en.wikipedia.org/wiki/Context_clue",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "After reading, ask: WHO is in the story? WHAT happened? WHERE did it happen?"
+    },
+    {
+      "type": "text",
+      "body": "Stuck on a new word? Look for clues in the picture and the sentence around it."
+    },
+    {
+      "type": "fact",
+      "body": "Example: 'The enormous elephant was so big it could hardly fit through the gate.' 'So big' tells you enormous means very big!"
+    },
+    {
+      "type": "tryit",
+      "body": "Read a short story. Tell someone the who, what and where."
+    },
+    {
+      "type": "parent",
+      "body": "Ask open questions after reading ('Why do you think she did that?'), not just yes/no ones."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "'Raj fed his dog at the park.' WHERE did it happen?",
+      "options": [
+        "At the park",
+        "At school",
+        "Raj"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Where' asks about a place.",
+        "Look for a place word in the sentence.",
+        "'Mia swam at the beach': where? The beach. Find the place in Raj's sentence."
+      ],
+      "explain": "It happened at the park."
+    },
+    {
+      "q": "'The tiny mouse was so small it hid in a shoe.' What does 'tiny' mean?",
+      "options": [
+        "Very small",
+        "Very loud",
+        "Very fast"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for a clue in the same sentence.",
+        "What words describe the mouse's size?",
+        "In 'The freezing water was so cold', the clue 'so cold' tells us what freezing means."
+      ],
+      "explain": "The clue 'so small' tells us tiny means very small."
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "b2-math-halves-quarters",
+  "title": "Halves and Quarters",
+  "band": "b2",
+  "subject": "math",
+  "outcomes": [
+    "b2-math-6"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Fraction",
+      "url": "https://en.wikipedia.org/wiki/Fraction",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A HALF means 2 EQUAL parts. We write it ½."
+    },
+    {
+      "type": "text",
+      "body": "A QUARTER means 4 EQUAL parts. We write one quarter ¼."
+    },
+    {
+      "type": "text",
+      "body": "The parts must be the same size. Otherwise they aren't halves or quarters!"
+    },
+    {
+      "type": "tryit",
+      "body": "Fold a paper square in half, then in half again. How many equal parts now?"
+    },
+    {
+      "type": "parent",
+      "body": "Share snacks fairly: 'Let's cut it in half so we each get the same.'"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A pizza is cut into 4 equal slices. Each slice is…",
+      "options": [
+        "A quarter",
+        "A half",
+        "A whole"
+      ],
+      "answer": 0,
+      "hints": [
+        "How many equal parts are there?",
+        "4 equal parts have a special name.",
+        "2 equal parts are halves. 4 equal parts are…?"
+      ],
+      "explain": "4 equal parts are quarters, so each slice is a quarter (¼)."
+    },
+    {
+      "q": "What makes 2 pieces 'halves'?",
+      "options": [
+        "They are exactly the same size",
+        "One is bigger",
+        "They are different colours"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about sharing fairly.",
+        "Halves must be equal.",
+        "If you cut a cake into a big piece and a tiny piece, is that fair halves?"
+      ],
+      "explain": "Halves must be 2 equal parts."
+    }
+  ]
+}

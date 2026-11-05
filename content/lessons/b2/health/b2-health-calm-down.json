@@ -1,0 +1,74 @@
+{
+  "id": "b2-health-calm-down",
+  "title": "Big Feelings, Calm Body",
+  "band": "b2",
+  "subject": "health",
+  "outcomes": [
+    "b2-health-3"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Emotional self-regulation",
+      "url": "https://en.wikipedia.org/wiki/Emotional_self-regulation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Feelings have names: excited, nervous, frustrated, jealous, proud, lonely."
+    },
+    {
+      "type": "text",
+      "body": "Naming a feeling helps it shrink: 'I feel frustrated because my drawing went wrong.'"
+    },
+    {
+      "type": "text",
+      "body": "Calm-down tools: smell the flower, blow the candle (slow breaths), count to 10, squeeze a pillow, ask for a hug."
+    },
+    {
+      "type": "tryit",
+      "body": "Practise 'flower and candle' breathing: breathe in through your nose like smelling a flower, then blow out slowly like a candle."
+    },
+    {
+      "type": "parent",
+      "body": "Practise calm-down tools when your child is calm, so they're easier to use when upset."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You feel nervous before a race. Which tool helps?",
+      "options": [
+        "Slow 'flower and candle' breaths",
+        "Shouting at others",
+        "Hiding all day"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which choice calms your body?",
+        "Slow breathing helps your heart slow down.",
+        "When you feel cross, counting to 10 helps. Which calm-down tool is here?"
+      ],
+      "explain": "Slow breaths calm your body down."
+    },
+    {
+      "q": "Your brother broke your toy. You feel angry. What helps first?",
+      "options": [
+        "Say how you feel: 'I'm angry because…'",
+        "Break his toy",
+        "Pretend you're fine"
+      ],
+      "answer": 0,
+      "hints": [
+        "Naming the feeling helps.",
+        "Using words, not hands.",
+        "'I'm sad because I lost my ball' tells people what's wrong. Use words the same way."
+      ],
+      "explain": "Naming the feeling with words helps, and then you can sort it out together."
+    }
+  ]
+}

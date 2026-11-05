@@ -1,0 +1,79 @@
+{
+  "id": "b2-sci-animal-groups",
+  "title": "Animal Groups and Habitats",
+  "band": "b2",
+  "subject": "science",
+  "outcomes": [
+    "b2-sci-2"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Animal",
+      "url": "https://en.wikipedia.org/wiki/Animal",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Habitat",
+      "url": "https://en.wikipedia.org/wiki/Habitat",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "MAMMALS have hair or fur and feed their babies milk (dogs, whales, humans)."
+    },
+    {
+      "type": "text",
+      "body": "BIRDS have feathers and lay eggs. FISH live in water and breathe with gills. INSECTS have 6 legs."
+    },
+    {
+      "type": "text",
+      "body": "A HABITAT is an animal's home: ocean, desert, forest, polar ice…"
+    },
+    {
+      "type": "fact",
+      "body": "A whale is a mammal, not a fish! It breathes air and feeds its babies milk."
+    },
+    {
+      "type": "parent",
+      "body": "Sort toy animals into groups together, and talk about why. Explaining 'why' matters more than the answer."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How many legs does an insect have?",
+      "options": [
+        "6",
+        "8",
+        "4"
+      ],
+      "answer": 0,
+      "hints": [
+        "Spiders have 8, but spiders aren't insects.",
+        "Count an ant's legs: three on each side.",
+        "A dog has 4 legs. An insect has 2 more than that."
+      ],
+      "explain": "Insects have 6 legs (spiders have 8 and are not insects)."
+    },
+    {
+      "q": "Why is a whale a mammal?",
+      "options": [
+        "It breathes air and feeds babies milk",
+        "It swims",
+        "It lives in water"
+      ],
+      "answer": 0,
+      "hints": [
+        "Fish swim too, so swimming isn't the reason.",
+        "Think about what mammals do for their babies.",
+        "A dog is a mammal because it feeds puppies milk. Does a whale do that?"
+      ],
+      "explain": "Whales breathe air and feed their babies milk, like other mammals."
+    }
+  ]
+}

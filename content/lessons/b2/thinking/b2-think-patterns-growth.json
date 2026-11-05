@@ -1,0 +1,81 @@
+{
+  "id": "b2-think-patterns-growth",
+  "title": "Patterns, Puzzles and Trying Again",
+  "band": "b2",
+  "subject": "thinking",
+  "outcomes": [
+    "b2-think-1",
+    "b2-think-3",
+    "b2-think-4"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Pattern",
+      "url": "https://en.wikipedia.org/wiki/Pattern",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Growth mindset",
+      "url": "https://en.wikipedia.org/wiki/Growth_mindset",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Patterns are everywhere: 2, 4, 6, 8… or ⭐🌙⭐🌙. Find the rule, then continue it."
+    },
+    {
+      "type": "text",
+      "body": "Logic puzzles need careful thinking. Explain HOW you solved it, not just the answer."
+    },
+    {
+      "type": "text",
+      "body": "Mistakes help your brain grow! When something is hard, say 'I can't do it YET.'"
+    },
+    {
+      "type": "tryit",
+      "body": "Try a hard puzzle. If you get stuck, take a break and try again."
+    },
+    {
+      "type": "parent",
+      "body": "Praise effort and strategy ('You kept trying different ways!') rather than 'You're so smart'."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What comes next? 10, 20, 30, 40, …",
+      "options": [
+        "50",
+        "41",
+        "60"
+      ],
+      "answer": 0,
+      "hints": [
+        "How much does each number go up by?",
+        "Count in 10s.",
+        "5, 10, 15, 20 goes up in 5s, so next is 25. This one goes up in…?"
+      ],
+      "explain": "It goes up by 10 each time: 40 + 10 = 50."
+    },
+    {
+      "q": "You can't solve a puzzle. What's a growth-mindset thought?",
+      "options": [
+        "'I can't do it YET, I'll try another way'",
+        "'I'm just bad at this'",
+        "'Puzzles are stupid'"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which thought helps you keep trying?",
+        "Look for the word 'yet'.",
+        "When learning to ride a bike, you fall but keep practising. Which thought is like that?"
+      ],
+      "explain": "'I can't do it yet' keeps your brain growing and helps you try new ways."
+    }
+  ]
+}

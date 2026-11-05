@@ -1,0 +1,79 @@
+{
+  "id": "b2-lang-fiction-nonfiction",
+  "title": "Stories or Facts?",
+  "band": "b2",
+  "subject": "language",
+  "outcomes": [
+    "b2-lang-5"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Fiction",
+      "url": "https://en.wikipedia.org/wiki/Fiction",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Non-fiction",
+      "url": "https://en.wikipedia.org/wiki/Non-fiction",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "FICTION books are made-up stories, like a dragon who bakes cakes. 🐉"
+    },
+    {
+      "type": "text",
+      "body": "NON-FICTION books give real facts, like a book about how volcanoes work. 🌋"
+    },
+    {
+      "type": "text",
+      "body": "Non-fiction often has headings, photos, labels and a contents page."
+    },
+    {
+      "type": "tryit",
+      "body": "Find one fiction and one non-fiction book at home or school. How can you tell?"
+    },
+    {
+      "type": "parent",
+      "body": "Visit a library together and explore both sections. Non-fiction about a child's hobby is a great way into reading."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A book about real sharks and what they eat is…",
+      "options": [
+        "Non-fiction",
+        "Fiction",
+        "A poem"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it real or made up?",
+        "It gives true facts.",
+        "A book called 'How Rain Forms' is real facts. What kind of book is that?"
+      ],
+      "explain": "It gives real facts, so it's non-fiction."
+    },
+    {
+      "q": "Which is most likely FICTION?",
+      "options": [
+        "A talking teapot goes on an adventure",
+        "How bees make honey",
+        "The parts of a plant"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which one couldn't really happen?",
+        "Can teapots talk?",
+        "'A pig who flies a plane' is made up. Find another made-up one."
+      ],
+      "explain": "Teapots can't talk, so it's a made-up story: fiction."
+    }
+  ]
+}

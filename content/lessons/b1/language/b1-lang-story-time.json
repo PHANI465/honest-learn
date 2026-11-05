@@ -1,0 +1,81 @@
+{
+  "id": "b1-lang-story-time",
+  "title": "Story Time!",
+  "band": "b1",
+  "subject": "language",
+  "outcomes": [
+    "b1-lang-1",
+    "b1-lang-4",
+    "b1-lang-5"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Storytelling",
+      "url": "https://en.wikipedia.org/wiki/Storytelling",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Book",
+      "url": "https://en.wikipedia.org/wiki/Book",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "We hold a book the right way up. 📖 We start at the front cover."
+    },
+    {
+      "type": "text",
+      "body": "We read words from left to right ➡️, and turn pages one at a time."
+    },
+    {
+      "type": "text",
+      "body": "After a story, we can tell it again: what happened first, next and at the end?"
+    },
+    {
+      "type": "text",
+      "body": "Stories teach us new words. Try using a new word today!"
+    },
+    {
+      "type": "parent",
+      "body": "Read together daily. Ask 'What happened next?' and 'How did they feel?'. Let your child turn the pages and point to words as you read."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which way do we read words in English?",
+      "options": [
+        "Left to right ➡️",
+        "Right to left ⬅️",
+        "Bottom to top ⬆️"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how your finger moves when you point at words.",
+        "Open a book. Is the first word of each line on the left side or the right side?",
+        "When we count blocks in a row, we start at one side and go across. Reading English starts on the left."
+      ],
+      "explain": "In English, we read from left to right ➡️."
+    },
+    {
+      "q": "In 'The Three Little Pigs', what does the wolf try to do to the houses?",
+      "options": [
+        "Blow them down 💨",
+        "Paint them 🎨",
+        "Eat them 🍽️"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the wolf's big breath.",
+        "'I'll huff and I'll puff and I'll…'",
+        "In 'Goldilocks', she tries the porridge. In 'The Three Little Pigs', the wolf tries to ___ the houses down."
+      ],
+      "explain": "The wolf huffs and puffs to blow the houses down! 💨"
+    }
+  ]
+}

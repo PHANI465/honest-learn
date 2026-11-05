@@ -1,0 +1,79 @@
+{
+  "id": "b2-math-times-tables",
+  "title": "Times Tables: Equal Groups",
+  "band": "b2",
+  "subject": "math",
+  "outcomes": [
+    "b2-math-3"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Multiplication",
+      "url": "https://en.wikipedia.org/wiki/Multiplication",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Multiplication table",
+      "url": "https://en.wikipedia.org/wiki/Multiplication_table",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Multiplication means equal groups. 3 groups of 2 apples = 2 + 2 + 2 = 6. We write 3 × 2 = 6."
+    },
+    {
+      "type": "text",
+      "body": "The 2 times table counts in 2s: 2, 4, 6, 8, 10…"
+    },
+    {
+      "type": "text",
+      "body": "The 5 times table counts in 5s: 5, 10, 15, 20… The 10 times table counts in 10s: 10, 20, 30…"
+    },
+    {
+      "type": "fact",
+      "body": "3 × 2 is the same as 2 × 3. You can swap the numbers!"
+    },
+    {
+      "type": "parent",
+      "body": "Count in 2s, 5s and 10s on walks or stairs. Real objects (coins, socks in pairs) make it concrete."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "4 bags each have 5 sweets. How many sweets?",
+      "options": [
+        "20",
+        "9",
+        "45"
+      ],
+      "answer": 0,
+      "hints": [
+        "4 groups of 5.",
+        "Count in 5s four times: 5, 10, …",
+        "3 bags of 5 = 5, 10, 15. Now add one more bag."
+      ],
+      "explain": "4 × 5 = 20 sweets."
+    },
+    {
+      "q": "What is 6 × 2?",
+      "options": [
+        "12",
+        "8",
+        "62"
+      ],
+      "answer": 0,
+      "hints": [
+        "6 groups of 2.",
+        "Count in 2s six times.",
+        "4 × 2 = 2, 4, 6, 8. Keep going two more."
+      ],
+      "explain": "6 × 2 = 12."
+    }
+  ]
+}

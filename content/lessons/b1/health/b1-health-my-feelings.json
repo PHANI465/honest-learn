@@ -1,0 +1,74 @@
+{
+  "id": "b1-health-my-feelings",
+  "title": "My Feelings",
+  "band": "b1",
+  "subject": "health",
+  "outcomes": [
+    "b1-health-2"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Emotion",
+      "url": "https://en.wikipedia.org/wiki/Emotion",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "We all have feelings. 😊 happy, 😢 sad, 😠 angry, 😨 scared."
+    },
+    {
+      "type": "text",
+      "body": "All feelings are OK. It's what we DO with them that matters."
+    },
+    {
+      "type": "text",
+      "body": "When we feel big feelings, we can take a deep breath and tell a grown-up."
+    },
+    {
+      "type": "tryit",
+      "body": "Make a happy face, a sad face, then a surprised face in the mirror!"
+    },
+    {
+      "type": "parent",
+      "body": "Name feelings out loud ('You look frustrated'). Children learn emotional words by hearing them in real moments."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Your tower falls down and you feel cross. What can you do?",
+      "options": [
+        "Take a big breath 🌬️",
+        "Throw a toy",
+        "Hit someone"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which choice doesn't hurt anyone?",
+        "Breathing slowly helps us calm down.",
+        "When you feel cross about a lost game, a big breath helps. Same here!"
+      ],
+      "explain": "A big breath helps you feel calm again. 🌬️"
+    },
+    {
+      "q": "Which face is HAPPY?",
+      "options": [
+        "😊",
+        "😢",
+        "😠"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the mouth.",
+        "A happy mouth goes up in a smile.",
+        "😢 has a tear. Which one is smiling?"
+      ],
+      "explain": "😊 is a happy, smiling face!"
+    }
+  ]
+}

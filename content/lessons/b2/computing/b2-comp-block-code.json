@@ -1,0 +1,79 @@
+{
+  "id": "b2-comp-block-code",
+  "title": "Make It Move with Blocks",
+  "band": "b2",
+  "subject": "computing",
+  "outcomes": [
+    "b2-comp-2"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Visual programming language",
+      "url": "https://en.wikipedia.org/wiki/Visual_programming_language",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Scratch (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Scratch_(programming_language)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Block code lets you build programs by snapping blocks together, like LEGO for computers. 🧱"
+    },
+    {
+      "type": "text",
+      "body": "A SEQUENCE is blocks in order: 'move 10 steps' → 'turn right' → 'say Hello!'"
+    },
+    {
+      "type": "text",
+      "body": "The computer runs the blocks from top to bottom, one at a time."
+    },
+    {
+      "type": "tryit",
+      "body": "Try a free block-coding app (like ScratchJr) with a grown-up. Make a character walk and wave!"
+    },
+    {
+      "type": "parent",
+      "body": "ScratchJr and Code.org are free. Let your child explain their program to you. That's great learning."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In what order does the computer run blocks?",
+      "options": [
+        "Top to bottom, one at a time",
+        "All at the same time",
+        "Bottom to top"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about reading a list.",
+        "It starts with the first block.",
+        "A recipe is followed step 1, step 2, step 3. Blocks are run the same way."
+      ],
+      "explain": "Blocks run from top to bottom, one at a time."
+    },
+    {
+      "q": "You want a cat to walk, then jump. Which order?",
+      "options": [
+        "Walk block, then jump block",
+        "Jump block, then walk block",
+        "Only a jump block"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which should happen first?",
+        "The order of blocks is the order of actions.",
+        "To wave then smile, put the wave block first. Do the same for walk and jump."
+      ],
+      "explain": "Put the walk block first, then the jump block."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "b1-health-grow-strong",
+  "title": "Food That Helps Us Grow",
+  "band": "b1",
+  "subject": "health",
+  "outcomes": [
+    "b1-health-5"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Fruit",
+      "url": "https://en.wikipedia.org/wiki/Fruit",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Vegetable",
+      "url": "https://en.wikipedia.org/wiki/Vegetable",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Fruit and vegetables help our bodies grow strong and stay well. 🥦🍎"
+    },
+    {
+      "type": "text",
+      "body": "Eat the rainbow! Red tomatoes, orange carrots, green peas, purple grapes. 🌈"
+    },
+    {
+      "type": "text",
+      "body": "Water helps too. 💧"
+    },
+    {
+      "type": "tryit",
+      "body": "How many colours of fruit and vegetables can you eat today?"
+    },
+    {
+      "type": "parent",
+      "body": "Offer new vegetables many times without pressure. Children often need to try a food 10+ times before they like it."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which one is a vegetable?",
+      "options": [
+        "Carrot 🥕",
+        "Cake 🎂",
+        "Lollipop 🍭"
+      ],
+      "answer": 0,
+      "hints": [
+        "Vegetables grow in the ground or on plants.",
+        "It's orange and crunchy.",
+        "Peas and broccoli are vegetables. Which one here grows in the ground?"
+      ],
+      "explain": "A carrot is a vegetable! 🥕"
+    },
+    {
+      "q": "What does 'eat the rainbow' mean?",
+      "options": [
+        "Eat fruit and veg of many colours 🌈",
+        "Eat sweets",
+        "Eat only red food"
+      ],
+      "answer": 0,
+      "hints": [
+        "A rainbow has lots of colours.",
+        "Fruit and vegetables come in many colours.",
+        "Red tomatoes, green peas, orange carrots… that's a rainbow on your plate!"
+      ],
+      "explain": "It means eating fruit and vegetables of many colours. 🌈"
+    }
+  ]
+}

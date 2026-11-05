@@ -1,0 +1,80 @@
+{
+  "id": "b2-world-long-ago-far-away",
+  "title": "Long Ago and Far Away",
+  "band": "b2",
+  "subject": "world",
+  "outcomes": [
+    "b2-world-3",
+    "b2-world-4"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Timeline",
+      "url": "https://en.wikipedia.org/wiki/Timeline",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Childhood",
+      "url": "https://en.wikipedia.org/wiki/Childhood",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A TIMELINE shows events in order, from long ago to now."
+    },
+    {
+      "type": "text",
+      "body": "Long ago, there were no phones or computers. Children wrote letters and played outside with simple toys."
+    },
+    {
+      "type": "text",
+      "body": "Today, children around the world live in many ways: some walk far to school, some live in cities, some on farms, some by the sea."
+    },
+    {
+      "type": "text",
+      "body": "Kids everywhere like to play, learn and spend time with family. We're more alike than different!"
+    },
+    {
+      "type": "parent",
+      "body": "Ask a grandparent what school was like for them, and add it to a family timeline."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does a timeline show?",
+      "options": [
+        "Events in order of time",
+        "How tall people are",
+        "Map directions"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Time' is in the word.",
+        "It goes from earlier to later.",
+        "Your birthday, then starting school, then today: putting them in order makes a…?"
+      ],
+      "explain": "A timeline shows events in the order they happened."
+    },
+    {
+      "q": "What do children all around the world have in common?",
+      "options": [
+        "They like to play and learn",
+        "They all live in cities",
+        "They all speak English"
+      ],
+      "answer": 0,
+      "hints": [
+        "Children live in many different places.",
+        "Think about what all kids enjoy.",
+        "Kids in a village and kids in a city both love games and stories. What's the same?"
+      ],
+      "explain": "Kids everywhere like to play, learn and be with family."
+    }
+  ]
+}

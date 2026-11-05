@@ -1,0 +1,80 @@
+{
+  "id": "b1-arts-beat-and-draw",
+  "title": "Clap a Beat, Draw a Picture",
+  "band": "b1",
+  "subject": "arts",
+  "outcomes": [
+    "b1-arts-2",
+    "b1-arts-3"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Beat (music)",
+      "url": "https://en.wikipedia.org/wiki/Beat_(music)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Drawing",
+      "url": "https://en.wikipedia.org/wiki/Drawing",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Music has a steady BEAT, like your heartbeat: thump, thump, thump. 🥁"
+    },
+    {
+      "type": "text",
+      "body": "Clap along to a song: clap, clap, clap!"
+    },
+    {
+      "type": "text",
+      "body": "Drawing is another way to share ideas. ✏️ There's no wrong way to draw!"
+    },
+    {
+      "type": "tryit",
+      "body": "Draw your favourite animal, then tell a grown-up all about it."
+    },
+    {
+      "type": "parent",
+      "body": "Ask 'Tell me about your picture' instead of 'What is it?'. Your child gets to explain their ideas."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A steady beat in music is like…",
+      "options": [
+        "Your heartbeat 💓",
+        "A whisper",
+        "A sneeze"
+      ],
+      "answer": 0,
+      "hints": [
+        "A beat keeps going, again and again.",
+        "Put your hand on your chest. What do you feel?",
+        "A clock goes tick, tick, tick, steady and even. Which one here is steady like that?"
+      ],
+      "explain": "A steady beat is like your heartbeat: thump, thump, thump! 💓"
+    },
+    {
+      "q": "Is there a wrong way to draw?",
+      "options": [
+        "No! Everyone draws in their own way",
+        "Yes, only one way",
+        "Only grown-ups can draw"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about all the different pictures people make.",
+        "Your picture shows YOUR ideas.",
+        "Your friend draws a purple dog. You draw a blue cat. Are both OK?"
+      ],
+      "explain": "There's no wrong way to draw. Your ideas are special! ✏️"
+    }
+  ]
+}

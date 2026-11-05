@@ -1,0 +1,79 @@
+{
+  "id": "b2-math-time-and-money",
+  "title": "Telling Time and Counting Money",
+  "band": "b2",
+  "subject": "math",
+  "outcomes": [
+    "b2-math-4"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Clock face",
+      "url": "https://en.wikipedia.org/wiki/Clock_face",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Coin",
+      "url": "https://en.wikipedia.org/wiki/Coin",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "On a clock, the short hand shows the hour. The long hand shows the minutes."
+    },
+    {
+      "type": "text",
+      "body": "When the long hand points to 12, it's 'o'clock'. When it points to 6, it's 'half past'."
+    },
+    {
+      "type": "text",
+      "body": "We count money by adding coins and notes. If something costs less than you pay, you get CHANGE back."
+    },
+    {
+      "type": "fact",
+      "body": "Example: a toy costs 7. You pay 10. Your change is 10 − 7 = 3."
+    },
+    {
+      "type": "parent",
+      "body": "Use your local coins for shop role-play. Ask your child to read the clock at key times (lunch, bedtime)."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "The short hand points to 3 and the long hand points to 12. What time is it?",
+      "options": [
+        "3 o'clock",
+        "12 o'clock",
+        "Half past 3"
+      ],
+      "answer": 0,
+      "hints": [
+        "The short hand tells the hour.",
+        "Long hand on 12 means 'o'clock'.",
+        "Short hand on 7, long hand on 12 is 7 o'clock."
+      ],
+      "explain": "Short hand on 3, long hand on 12: it's 3 o'clock."
+    },
+    {
+      "q": "A pencil costs 4. You pay with 10. How much change?",
+      "options": [
+        "6",
+        "14",
+        "4"
+      ],
+      "answer": 0,
+      "hints": [
+        "Change = what you paid − the price.",
+        "10 − 4 = ?",
+        "Pay 10 for something costing 8: change is 10 − 8 = 2."
+      ],
+      "explain": "10 − 4 = 6 change."
+    }
+  ]
+}

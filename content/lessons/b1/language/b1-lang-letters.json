@@ -1,0 +1,79 @@
+{
+  "id": "b1-lang-letters",
+  "title": "Letters All Around",
+  "band": "b1",
+  "subject": "language",
+  "outcomes": [
+    "b1-lang-2"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Alphabet",
+      "url": "https://en.wikipedia.org/wiki/Alphabet",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Letter case",
+      "url": "https://en.wikipedia.org/wiki/Letter_case",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Words are made of letters. There are 26 letters in the English alphabet: A to Z. 🔤"
+    },
+    {
+      "type": "text",
+      "body": "Letters can be BIG (capital) like A, B, C, or small like a, b, c."
+    },
+    {
+      "type": "text",
+      "body": "Your name starts with a capital letter!"
+    },
+    {
+      "type": "tryit",
+      "body": "Find the first letter of your name on a sign, a box or a book."
+    },
+    {
+      "type": "parent",
+      "body": "Magnetic letters, writing in sand or tracing letters with a finger help. Start with the letters in your child's name."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which one is a capital (big) letter?",
+      "options": [
+        "B",
+        "b",
+        "d"
+      ],
+      "answer": 0,
+      "hints": [
+        "Capital letters are big.",
+        "Look for the tallest, biggest shape.",
+        "A is capital and a is small. Find the capital one here."
+      ],
+      "explain": "B is a capital letter. b is the small version."
+    },
+    {
+      "q": "How many letters are in the English alphabet?",
+      "options": [
+        "26",
+        "10",
+        "100"
+      ],
+      "answer": 0,
+      "hints": [
+        "Sing the alphabet song and count!",
+        "It's more than 20 but less than 30.",
+        "There are 7 days in a week. The alphabet has a lot more: twenty-…?"
+      ],
+      "explain": "There are 26 letters, from A to Z."
+    }
+  ]
+}

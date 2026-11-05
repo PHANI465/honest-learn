@@ -1,0 +1,79 @@
+{
+  "id": "b2-health-body-safety",
+  "title": "Safe and Unsafe",
+  "band": "b2",
+  "subject": "health",
+  "outcomes": [
+    "b2-health-4"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Child abuse prevention",
+      "url": "https://en.wikipedia.org/wiki/Child_abuse_prevention",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Personal boundaries",
+      "url": "https://en.wikipedia.org/wiki/Personal_boundaries",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Your body belongs to you. Private parts are the parts covered by a swimsuit."
+    },
+    {
+      "type": "text",
+      "body": "Safe touch feels OK, like a high five or a hug you want. Unsafe touch feels wrong or confusing. You can say NO."
+    },
+    {
+      "type": "text",
+      "body": "SURPRISES are fun and get told soon (a birthday present). SECRETS that make you feel worried should be told to a trusted adult."
+    },
+    {
+      "type": "text",
+      "body": "Make a list of 3 trusted adults you can tell anything. If one doesn't listen, tell another."
+    },
+    {
+      "type": "parent",
+      "body": "Use correct names for body parts. Reassure your child they will never be in trouble for telling you something. Many organisations publish free guides on 'body safety' conversations."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Someone says 'Don't tell anyone' about something that makes you feel worried. What should you do?",
+      "options": [
+        "Tell a trusted adult",
+        "Keep the secret",
+        "Forget about it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it a fun surprise or a worried secret?",
+        "Worried secrets are ones to share.",
+        "A birthday surprise is fun and told soon. A secret that makes your tummy feel bad is different. What do we do?"
+      ],
+      "explain": "Tell a trusted adult. Worried secrets should always be shared, and you won't be in trouble."
+    },
+    {
+      "q": "What's the difference between a surprise and a secret?",
+      "options": [
+        "A surprise is fun and gets told soon",
+        "They're the same",
+        "Secrets are always fun"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a surprise party.",
+        "Does a surprise stay hidden forever?",
+        "A present wrapped for Mum's birthday is opened on her birthday. That's a surprise."
+      ],
+      "explain": "Surprises are happy and get shared soon. Secrets that feel bad should be told to a trusted adult."
+    }
+  ]
+}

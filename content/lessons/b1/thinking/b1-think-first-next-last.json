@@ -1,0 +1,80 @@
+{
+  "id": "b1-think-first-next-last",
+  "title": "First, Next, Last",
+  "band": "b1",
+  "subject": "thinking",
+  "outcomes": [
+    "b1-think-3",
+    "b1-think-4"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sequence",
+      "url": "https://en.wikipedia.org/wiki/Sequence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Curiosity",
+      "url": "https://en.wikipedia.org/wiki/Curiosity",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Stories happen in order: FIRST, NEXT, LAST."
+    },
+    {
+      "type": "text",
+      "body": "Planting a seed: first dig a hole 🕳️, next put in the seed 🌰, last water it 💧."
+    },
+    {
+      "type": "text",
+      "body": "Good thinkers ask 'Why?' and 'What if?' 🤔 Like: Why is the sky blue? What if it rained jelly?"
+    },
+    {
+      "type": "tryit",
+      "body": "Tell someone three things you did today, in order: first, next, last."
+    },
+    {
+      "type": "parent",
+      "body": "Welcome 'why' questions, even the tricky ones. 'I don't know, let's find out together' is a great answer."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Making a sandwich: what happens LAST?",
+      "options": [
+        "Eat it 😋",
+        "Get the bread",
+        "Open the jar"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the very end.",
+        "Getting the bread and opening the jar happen near the start.",
+        "Bath time: first fill the bath, then wash, last dry off. For a sandwich, the last step is…?"
+      ],
+      "explain": "The last thing is eating it! 😋"
+    },
+    {
+      "q": "Which is a 'what if' question?",
+      "options": [
+        "What if dogs could talk?",
+        "The dog is brown.",
+        "I have a dog."
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for the words 'what if'.",
+        "It imagines something new.",
+        "'What if I could fly?' is a what-if question. Find the one like that."
+      ],
+      "explain": "'What if dogs could talk?' uses imagination. Great thinking! 🤔"
+    }
+  ]
+}

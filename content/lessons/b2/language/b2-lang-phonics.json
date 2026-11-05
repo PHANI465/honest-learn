@@ -1,0 +1,79 @@
+{
+  "id": "b2-lang-phonics",
+  "title": "Sounding Out Words",
+  "band": "b2",
+  "subject": "language",
+  "outcomes": [
+    "b2-lang-1"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Phonics",
+      "url": "https://en.wikipedia.org/wiki/Phonics",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Sight word",
+      "url": "https://en.wikipedia.org/wiki/Sight_word",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Letters make sounds. To read a new word, say each sound and blend them: c-a-t → cat!"
+    },
+    {
+      "type": "text",
+      "body": "Some letters team up: 'sh' in ship, 'ch' in chip, 'th' in thin."
+    },
+    {
+      "type": "text",
+      "body": "Some words are tricky and don't follow the rules, like 'the', 'said' and 'was'. We learn these by sight."
+    },
+    {
+      "type": "tryit",
+      "body": "Sound out: d-o-g, f-i-sh, s-u-n. What words did you make?"
+    },
+    {
+      "type": "parent",
+      "body": "Point under each sound as your child blends. Short, daily practice (5–10 minutes) beats long sessions."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Blend the sounds: s-h-i-p. What word is it?",
+      "options": [
+        "ship",
+        "sip",
+        "hip"
+      ],
+      "answer": 0,
+      "hints": [
+        "'s' and 'h' together make one sound.",
+        "'sh' is the sound you make to say 'be quiet'.",
+        "ch-i-p makes 'chip'. Now try sh-i-p."
+      ],
+      "explain": "'sh' + 'i' + 'p' = ship! ⛵"
+    },
+    {
+      "q": "Which word is a 'tricky word' you learn by sight?",
+      "options": [
+        "said",
+        "cat",
+        "sun"
+      ],
+      "answer": 0,
+      "hints": [
+        "Try sounding each word out.",
+        "One of them doesn't sound like its letters (s-a-i-d isn't 'sed').",
+        "'was' sounds like 'woz', not w-a-s. Find another word like that."
+      ],
+      "explain": "'said' doesn't follow the sound rules, so we learn it by sight."
+    }
+  ]
+}

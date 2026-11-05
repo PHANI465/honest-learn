@@ -1,0 +1,80 @@
+{
+  "id": "b2-money-life-skills",
+  "title": "I Can Do It Myself!",
+  "band": "b2",
+  "subject": "money",
+  "outcomes": [
+    "b2-money-4",
+    "b2-money-1"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Self-care",
+      "url": "https://en.wikipedia.org/wiki/Self-care",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Shoelaces",
+      "url": "https://en.wikipedia.org/wiki/Shoelaces",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Growing up means learning to do things yourself: packing your school bag, tying shoelaces, getting dressed."
+    },
+    {
+      "type": "text",
+      "body": "A checklist helps: lunchbox, water bottle, homework, coat. Tick them off! ✅"
+    },
+    {
+      "type": "text",
+      "body": "Shoelaces: cross the laces, tuck one under, pull tight, make 'bunny ears' and cross them over!"
+    },
+    {
+      "type": "tryit",
+      "body": "Make a checklist for your school bag and stick it by the door."
+    },
+    {
+      "type": "parent",
+      "body": "Give extra time in the morning so your child can practise. Doing it themselves, slowly, builds confidence."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What helps you remember everything for school?",
+      "options": [
+        "A checklist",
+        "Guessing",
+        "Leaving early without looking"
+      ],
+      "answer": 0,
+      "hints": [
+        "Something you can tick off.",
+        "A list of things to pack.",
+        "A shopping list helps grown-ups remember everything. What helps for your school bag?"
+      ],
+      "explain": "A checklist helps you remember everything."
+    },
+    {
+      "q": "You have 5 coins and buy a sticker for 3. How many coins are left?",
+      "options": [
+        "2",
+        "8",
+        "3"
+      ],
+      "answer": 0,
+      "hints": [
+        "Take away what you spend.",
+        "5 − 3 = ?",
+        "If you had 4 coins and spent 1, you'd have 3 left."
+      ],
+      "explain": "5 − 3 = 2 coins left."
+    }
+  ]
+}

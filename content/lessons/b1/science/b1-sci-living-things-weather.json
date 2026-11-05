@@ -1,0 +1,80 @@
+{
+  "id": "b1-sci-living-things-weather",
+  "title": "Living Things and Weather",
+  "band": "b1",
+  "subject": "science",
+  "outcomes": [
+    "b1-sci-2",
+    "b1-sci-3"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Life",
+      "url": "https://en.wikipedia.org/wiki/Life",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Season",
+      "url": "https://en.wikipedia.org/wiki/Season",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Living things grow and need food, water and air. 🌱🐶👧"
+    },
+    {
+      "type": "text",
+      "body": "A rock doesn't eat or grow. It is not alive. 🪨"
+    },
+    {
+      "type": "text",
+      "body": "Weather changes: sunny ☀️, rainy 🌧️, windy 💨, snowy ❄️."
+    },
+    {
+      "type": "text",
+      "body": "Many places have four seasons: spring, summer, autumn and winter. Some places have a wet season and a dry season."
+    },
+    {
+      "type": "parent",
+      "body": "Look out of the window each day and name the weather together. Plant a seed in a cup and water it to watch something living grow."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which one is ALIVE?",
+      "options": [
+        "A puppy 🐶",
+        "A rock 🪨",
+        "A spoon 🥄"
+      ],
+      "answer": 0,
+      "hints": [
+        "Living things grow and eat.",
+        "Which one needs food and water?",
+        "A flower 🌸 grows and needs water, so it's alive. Which one here is like that?"
+      ],
+      "explain": "A puppy eats, drinks and grows. It's alive! 🐶"
+    },
+    {
+      "q": "What do we wear on a rainy day? 🌧️",
+      "options": [
+        "A raincoat 🧥",
+        "A swimsuit 🩱",
+        "Sunglasses 🕶️"
+      ],
+      "answer": 0,
+      "hints": [
+        "Rain makes us wet.",
+        "What keeps the rain off?",
+        "On a cold day we wear a warm hat. On a rainy day we wear…?"
+      ],
+      "explain": "A raincoat keeps us dry in the rain! 🧥"
+    }
+  ]
+}
