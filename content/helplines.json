@@ -1,0 +1,479 @@
+{
+  "status": "draft — verify before launch",
+  "checkedOn": "2026-11-05",
+  "about": "Emergency numbers and free child/youth helplines that Hoot names when a child mentions self-harm or abuse. Keys are ISO 3166-1 alpha-2 codes. In each country the helplines are listed in order of preference; Hoot names the first one whose `topics` match what the child said ('self_harm' or 'abuse'), else the first one. Numbers were checked against the source URL shown (the helpline's own site or a government site). A child-safeguarding reviewer must re-check every entry, ideally by calling it, before launch and at least every 6 months. If a number cannot be confirmed, delete it: Hoot then falls back to its generic wording.",
+  "method": "Checked on 2026-11-05 with web searches restricted to the official domain of each source URL (the build environment could not open pages directly), cross-checked against Child Helpline International's member directory where it lists the service.",
+  "countries": {
+    "IN": {
+      "name": "India",
+      "emergency": {
+        "dial": "112",
+        "notes": "Emergency Response Support System (ERSS): police, fire and ambulance. Call, SMS or the 112 India app.",
+        "source": "https://112.gov.in/about",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Child Helpline 1098",
+          "organisation": "Ministry of Women and Child Development (Mission Vatsalya), integrated with ERSS-112",
+          "phone": "1098",
+          "free": true,
+          "hours": "24/7",
+          "ages": "children in distress, or an adult calling for them",
+          "topics": ["abuse", "self_harm", "any"],
+          "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1942873",
+          "checkedOn": "2026-11-05"
+        },
+        {
+          "name": "Tele-MANAS",
+          "organisation": "Ministry of Health and Family Welfare (National Tele Mental Health Programme)",
+          "phone": "14416",
+          "altPhone": "1-800-891-4416",
+          "free": true,
+          "hours": "24/7",
+          "ages": "all ages; choose your language",
+          "topics": ["self_harm"],
+          "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2118790",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "US": {
+      "name": "United States",
+      "emergency": {
+        "dial": "911",
+        "notes": "Police, fire and ambulance. Text-to-911 only works in some areas.",
+        "source": "https://www.911.gov/calling-911/",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "988 Suicide & Crisis Lifeline",
+          "organisation": "988 Lifeline (US Substance Abuse and Mental Health Services Administration)",
+          "phone": "988",
+          "text": "988",
+          "chat": "988lifeline.org",
+          "free": true,
+          "hours": "24/7",
+          "ages": "all ages; you don't have to be suicidal to contact them",
+          "topics": ["self_harm", "any"],
+          "source": "https://988lifeline.org/get-help/",
+          "checkedOn": "2026-11-05"
+        },
+        {
+          "name": "Childhelp National Child Abuse Hotline",
+          "organisation": "Childhelp",
+          "phone": "1-800-422-4453",
+          "text": "1-800-422-4453",
+          "chat": "childhelphotline.org",
+          "free": true,
+          "hours": "24/7",
+          "ages": "children and adults worried about abuse; not a reporting line",
+          "topics": ["abuse"],
+          "source": "https://childhelphotline.org/text/",
+          "crossCheck": "https://childhelplineinternational.org/usa-national-child-abuse-hotline/",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "GB": {
+      "name": "United Kingdom",
+      "emergency": {
+        "dial": "999",
+        "notes": "112 also works. Police, fire, ambulance and coastguard. Deaf people can register for emergency SMS by texting 'register' to 999.",
+        "source": "https://www.london-fire.gov.uk/safety/calling-999/",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Childline",
+          "organisation": "NSPCC",
+          "phone": "0800 1111",
+          "chat": "childline.org.uk",
+          "free": true,
+          "hours": "24/7",
+          "ages": "children and young people; also in Welsh, and BSL via an interpreter",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://www.childline.org.uk/get-support/contacting-childline/",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "CA": {
+      "name": "Canada",
+      "emergency": {
+        "dial": "911",
+        "notes": "Police, fire and ambulance. Some remote areas use local numbers.",
+        "source": "https://www.canada.ca/en/public-health/services/mental-health-services/mental-health-get-help.html",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Kids Help Phone",
+          "organisation": "Kids Help Phone",
+          "phone": "1-800-668-6868",
+          "text": "CONNECT to 686868",
+          "free": true,
+          "hours": "24/7",
+          "ages": "young people; English and French, interpreters for other languages",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://kidshelpphone.ca/text-faq",
+          "checkedOn": "2026-11-05"
+        },
+        {
+          "name": "9-8-8 Suicide Crisis Helpline",
+          "organisation": "Public Health Agency of Canada",
+          "phone": "988",
+          "text": "988",
+          "free": true,
+          "hours": "24/7",
+          "ages": "all ages",
+          "topics": ["self_harm"],
+          "source": "https://988.ca/",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "AU": {
+      "name": "Australia",
+      "emergency": {
+        "dial": "000",
+        "notes": "Triple Zero. 112 also works from mobile phones. You cannot text 000.",
+        "source": "https://www.triplezero.gov.au/triple-zero/other-emergency-numbers",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Kids Helpline",
+          "organisation": "Kids Helpline (yourtown)",
+          "phone": "1800 55 1800",
+          "chat": "kidshelpline.com.au",
+          "free": true,
+          "hours": "24/7",
+          "ages": "5 to 25",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://www.kidshelpline.com.au/get-help/phone-counselling/",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "IE": {
+      "name": "Ireland",
+      "emergency": {
+        "dial": "112 or 999",
+        "notes": "Gardaí, ambulance, fire and coastguard. 112 SMS is available for deaf and speech-impaired people.",
+        "source": "https://www.gov.ie/en/service/89da6-how-to-contact-emergency-services-in-ireland/",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Childline",
+          "organisation": "ISPCC",
+          "phone": "1800 66 66 66",
+          "chat": "childline.ie",
+          "free": true,
+          "hours": "24/7",
+          "ages": "up to and including 18",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://www.childline.ie/childlines-24-hour-support-line-and-other-services-explained",
+          "note": "Two childline.ie pages also offer text to 50101; most pages list only phone and chat, so text is left out until a reviewer confirms it.",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "NZ": {
+      "name": "New Zealand",
+      "emergency": {
+        "dial": "111",
+        "notes": "Police, fire and ambulance. Free, works on a mobile with no credit.",
+        "source": "https://www.police.govt.nz/call-111",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Youthline",
+          "organisation": "Youthline",
+          "phone": "0800 376 633",
+          "text": "234",
+          "chat": "youthline.co.nz",
+          "free": true,
+          "hours": "24/7",
+          "ages": "young people, or anyone supporting one",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://youthline.co.nz/get-help/helpline/",
+          "note": "Older Youthline pages give text hours of 8am to midnight; the current helpline page says 24/7.",
+          "checkedOn": "2026-11-05"
+        },
+        {
+          "name": "What's Up",
+          "organisation": "Barnardos Aotearoa",
+          "phone": "0800 942 8787",
+          "chat": "whatsup.co.nz",
+          "free": true,
+          "hours": "phone 11am–11pm, chat 11am–10:30pm, every day",
+          "hoursShort": "11am–11pm",
+          "ages": "5 to 19",
+          "topics": ["any"],
+          "source": "https://whatsup.co.nz/about-us",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "SG": {
+      "name": "Singapore",
+      "emergency": {
+        "dial": "999 (police) or 995 (ambulance)",
+        "notes": "999 police; 995 SCDF fire and emergency ambulance. SMS 70995 for deaf, hard-of-hearing or speech-impaired people.",
+        "source": "https://www.scdf.gov.sg/home/about-scdf/emergency-medical-services",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "National Mindline 1771",
+          "organisation": "Singapore Ministry of Health",
+          "phone": "1771",
+          "text": "WhatsApp 6669 1771",
+          "chat": "mindline.sg",
+          "free": false,
+          "hours": "24/7",
+          "ages": "all ages",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://www.moh.gov.sg/seeking-healthcare/find-a-facility-or-service/mental-health-services/",
+          "note": "Not toll-free (normal call charges). Chosen first because it is open 24/7; reviewers may prefer Tinkle Friend for primary-school children.",
+          "checkedOn": "2026-11-05"
+        },
+        {
+          "name": "Tinkle Friend",
+          "organisation": "Singapore Children's Society",
+          "phone": "1800 274 4788",
+          "chat": "tinklefriend.sg",
+          "free": true,
+          "hours": "phone Mon–Fri 2.30–5pm; chat Mon–Thu 2.30–7pm, Fri 2.30–5pm; closed weekends and public holidays",
+          "hoursShort": "weekdays from 2.30pm",
+          "ages": "primary-school children (13 and under)",
+          "topics": ["any"],
+          "source": "https://www.tinklefriend.sg/about/contact-us/",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "ZA": {
+      "name": "South Africa",
+      "emergency": {
+        "dial": "10111 (police) or 112 from a mobile",
+        "notes": "Ambulance: 10177. Local emergency numbers vary by municipality.",
+        "source": "https://www.tourism.gov.za/Pages/Safety--Travel-Tips-Info.aspx",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Childline South Africa",
+          "organisation": "Childline South Africa",
+          "phone": "116",
+          "free": true,
+          "hours": "24/7",
+          "ages": "children up to 18, and adults worried about a child",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://www.childlinesa.org.za/about/how-we-help/crisis-line/",
+          "note": "Online chat exists but only on weekdays (11am–1pm, 2pm–6pm), so it is not offered here.",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "PH": {
+      "name": "Philippines",
+      "emergency": {
+        "dial": "911",
+        "notes": "Unified national emergency hotline: police, fire and medical. Toll-free.",
+        "source": "https://pia.gov.ph/news/one-number-for-all-emergencies-unified-911-to-launch-nationwide/",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "MAKABATA Helpline 1383",
+          "organisation": "Council for the Welfare of Children (with DSWD)",
+          "phone": "1383",
+          "free": null,
+          "hours": "24/7",
+          "ages": "children, or anyone reporting abuse, neglect, bullying or mental-health concerns",
+          "topics": ["abuse", "any"],
+          "source": "https://www.dswd.gov.ph/dswd-chief-cites-makabata-helpline-1383-as-lifeline-of-hope-for-children/",
+          "note": "Whether calls are free was not confirmed. Mobile numbers (Smart/Globe) are listed differently across sources, so they are left out.",
+          "checkedOn": "2026-11-05"
+        },
+        {
+          "name": "NCMH Crisis Hotline",
+          "organisation": "National Center for Mental Health (Department of Health)",
+          "phone": "1553",
+          "free": true,
+          "hours": "24/7",
+          "ages": "all ages",
+          "topics": ["self_harm"],
+          "source": "https://ncmh.gov.ph/contact-us/",
+          "note": "Toll-free from landlines; some DOH pages say Luzon-wide only. NCMH also lists mobile numbers, which differ by a digit between sources, so they are left out.",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "NG": {
+      "name": "Nigeria",
+      "emergency": {
+        "dial": "112",
+        "notes": "Toll-free from any network. Emergency centres are still being set up in some states.",
+        "source": "https://ncc.gov.ng/media-centre/press-releases/covid-19-nccs-112-national-emergency-number-offers-succour-nigerians",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Cece Yara Child Helpline",
+          "organisation": "Cece Yara Foundation",
+          "phone": "0800 800 8001",
+          "free": true,
+          "hours": "24/7",
+          "ages": "children (adults can call to report or prevent abuse)",
+          "topics": ["abuse", "self_harm", "any"],
+          "source": "https://ceceyara.org/child-helpline/",
+          "crossCheck": "https://childhelplineinternational.org/nigeria-cece-yara-child-helpline/",
+          "note": "Focus is child sexual abuse; emergency response only in Lagos and Abuja, referrals elsewhere.",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "KE": {
+      "name": "Kenya",
+      "emergency": {
+        "dial": "999 or 112",
+        "notes": "National emergency numbers, answered by the Kenya Police.",
+        "source": "https://www.kenyapolice.go.ke/contact-us.html",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Child Helpline 116",
+          "organisation": "Department of Children Services with Childline Kenya",
+          "phone": "116",
+          "free": true,
+          "hours": "24/7",
+          "ages": "children, and adults reporting violence against children",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://www.childrenservices.go.ke/child-helpline-116",
+          "note": "Childline Kenya also lists WhatsApp and SMS numbers, but they differ between pages, so they are left out.",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "DE": {
+      "name": "Germany",
+      "emergency": {
+        "dial": "112 (or 110 for the police)",
+        "notes": "112 fire and ambulance, 110 police. Free, 24/7.",
+        "source": "https://www.bbk.bund.de/DE/Warnung-Vorsorge/Vorsorge/Gesundheit-und-Hygiene/Erste-Hilfe-und-Notruf/erste-hilfe-und-notruf_node.html",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Nummer gegen Kummer (Kinder- und Jugendtelefon)",
+          "organisation": "Nummer gegen Kummer e.V.",
+          "phone": "116 111",
+          "chat": "nummergegenkummer.de",
+          "free": true,
+          "hours": "phone Mon–Sat 2–8pm; online counselling by email and chat (check the website for chat times)",
+          "hoursShort": "Mon–Sat 2–8pm",
+          "ages": "children and young people; anonymous",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://www.nummergegenkummer.de/leichte-sprache-kinder-und-jugendtelefon/",
+          "note": "Not 24/7. Reviewers may want to add a 24/7 crisis line for older teens.",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "FR": {
+      "name": "France",
+      "emergency": {
+        "dial": "112",
+        "notes": "European emergency number, best from a mobile. Also 15 (SAMU, medical), 17 (police), 18 (fire), 114 (text/chat for deaf and hard-of-hearing people).",
+        "source": "https://www.masecurite.interieur.gouv.fr/fr/fiches-pratiques/famille-et-aides-aux-victimes/numeros-utiles-nationaux",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "119 – Allô Enfance en Danger",
+          "organisation": "Service national d'accueil téléphonique de l'enfance en danger (SNATED)",
+          "phone": "119",
+          "chat": "allo119.gouv.fr",
+          "free": true,
+          "hours": "24/7 (chat has shorter hours)",
+          "ages": "children and young people, or adults worried about a child; calls from children are prioritised",
+          "topics": ["abuse", "any"],
+          "source": "https://www.info.gouv.fr/actualite/enfance-en-danger-en-cas-de-doute-contactez-le-119",
+          "checkedOn": "2026-11-05"
+        },
+        {
+          "name": "3114 – Numéro national de prévention du suicide",
+          "organisation": "Ministère chargé de la santé",
+          "phone": "3114",
+          "free": true,
+          "hours": "24/7",
+          "ages": "all ages",
+          "topics": ["self_harm"],
+          "source": "https://3114.fr/",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    },
+    "ES": {
+      "name": "Spain",
+      "emergency": {
+        "dial": "112",
+        "notes": "Free from any phone, even without a SIM card.",
+        "source": "https://administracion.gob.es/pag_Home/es/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/asistencia-sanitaria/numeros-urgencia",
+        "checkedOn": "2026-11-05"
+      },
+      "helplines": [
+        {
+          "name": "Teléfono ANAR de Ayuda a Niños y Adolescentes",
+          "organisation": "Fundación ANAR",
+          "phone": "900 20 20 10",
+          "chat": "chat.anar.org",
+          "free": true,
+          "hours": "24/7",
+          "ages": "children and teenagers",
+          "topics": ["self_harm", "abuse", "any"],
+          "source": "https://www.anar.org/actualidad/noticias/fundacion-anar-ofrece-el-telefono-de-ayuda-a-ninos-as-y-adolescentes-116-111-y-900-20-20-10-en-la-dificil-situacion-que-esta-viviendo-la-comunitat-valenciana/",
+          "note": "ANAR also answers 116 111 in some regions (e.g. Comunitat Valenciana); 900 20 20 10 works nationwide.",
+          "checkedOn": "2026-11-05"
+        }
+      ]
+    }
+  },
+  "fallback": {
+    "name": "Other countries",
+    "emergency": {
+      "dial": "your local emergency number",
+      "notes": "112 reaches emergency services across the EU. Hoot keeps its generic wording for countries not listed above.",
+      "source": "https://europa.eu/youreurope/citizens/travel/security-and-emergencies/emergency/faq/index_en.htm",
+      "checkedOn": "2026-11-05"
+    },
+    "helplines": [
+      {
+        "name": "Child Helpline International: find a child helpline",
+        "organisation": "Child Helpline International",
+        "chat": "childhelplineinternational.org/helplines",
+        "free": true,
+        "hours": "directory of member helplines by country",
+        "ages": "children and young people",
+        "topics": ["any"],
+        "source": "https://childhelplineinternational.org/helplines/",
+        "note": "A directory, not a helpline. Shown to parents, not used in Hoot's replies.",
+        "checkedOn": "2026-11-05"
+      }
+    ]
+  },
+  "droppedAsUnverified": [
+    { "country": "PH", "name": "Bantay Bata 163 (ABS-CBN Foundation)", "reason": "Became an online-only service on 1 April 2024; its current phone and chat channels could not be confirmed on an official page." },
+    { "country": "IE", "name": "ISPCC Childline text 50101", "reason": "Listed on only two childline.ie pages; most pages list only phone and chat." },
+    { "country": "KE", "name": "Childline Kenya WhatsApp/SMS numbers", "reason": "Different numbers on different pages." },
+    { "country": "PH", "name": "MAKABATA and NCMH mobile numbers", "reason": "Digits differ between official sources." },
+    { "country": "ES", "name": "116 111 nationwide", "reason": "Confirmed only for some regions." }
+  ]
+}

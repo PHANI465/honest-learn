@@ -2,9 +2,11 @@
 // Usage: npm run validate   (exit code 1 on problems)
 import { config } from "./config.ts";
 import { loadContent } from "./content.ts";
+import { loadHelplines } from "./tutor.ts";
 
 try {
   const { lessons, map, puzzles, resources } = loadContent(config.contentDir);
+  const helplines = loadHelplines(config.contentDir);
   const byStatus = { draft: 0, reviewed: 0 };
   for (const l of lessons.values()) byStatus[l.status]++;
   const covered = new Set([...lessons.values()].flatMap((l) => l.outcomes));
@@ -24,7 +26,8 @@ try {
   console.log(
     `OK — ${lessons.size} lessons (${byStatus.reviewed} reviewed, ${byStatus.draft} draft). ` +
       `Outcomes covered: ${covered.size}/${totalOutcomes}. ` +
-      `Puzzles: ${[...puzzles.values()].reduce((n, p) => n + p.puzzles.length, 0)} in ${puzzles.size} sets. Free resources: ${resources.length}.`,
+      `Puzzles: ${[...puzzles.values()].reduce((n, p) => n + p.puzzles.length, 0)} in ${puzzles.size} sets. Free resources: ${resources.length}. ` +
+      `Helplines: ${Object.keys(helplines.countries).length} countries (${helplines.status}).`,
   );
 } catch (e) {
   console.error((e as Error).message);

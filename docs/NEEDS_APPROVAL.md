@@ -29,11 +29,11 @@ Review for accuracy, balance and age-appropriateness. Ideally include reviewers 
 
 ### C. Hoot (the AI helper): safety wording
 - [ ] The tutor's instructions in `server/src/tutor.ts` (`tutorSystemPrompt`)
-- [ ] The automatic replies when a child shares personal info or mentions self-harm or abuse (`precheck` in `server/src/tutor.ts`). A **child-safeguarding professional** should approve this wording, and it should name a helpline for each launch country.
-- [ ] Test Hoot with a real API key against a list of tricky child messages before launch (none of this has run against the live AI yet)
+- [ ] The automatic replies when a child shares personal info or mentions self-harm or abuse (`precheck` and `wellbeingReply` in `server/src/tutor.ts`). A **child-safeguarding professional** should approve this wording. The helplines it names for each launch country are in `content/helplines.json` (15 countries, draft): re-check every number against its source, ideally by calling it, then change its `status`.
+- [ ] Test Hoot with a real API key against the tricky child messages in `docs/HOOT_SAFETY_TESTS.md` (`cd server && ANTHROPIC_API_KEY=… npm run redteam`), and have a person read every reply in the report. None of this has run against the live AI yet.
 
 ### D. Legal (a lawyer familiar with children's privacy law)
-- [ ] Privacy notice and terms (not written yet). Then update `CONSENT_VERSION` in `server/src/app.ts`.
+- [ ] Privacy notice and terms: drafts in `docs/legal/PRIVACY_NOTICE.md` and `docs/legal/TERMS.md` (shown in the app from sign-up). Fill in the [bracketed] placeholders and check them against what the app does. Then run `node scripts/build-legal.mjs` and update `CONSENT_VERSION` in `server/src/app.ts`.
 - [ ] Verifiable parental consent method for COPPA (US) and DPDP (India)
 - [ ] Data retention period (default: chats deleted after 12 months)
 - [ ] Trademark check for "Honest Learn"

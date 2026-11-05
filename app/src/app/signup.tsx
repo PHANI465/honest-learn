@@ -1,9 +1,12 @@
 import { router } from "expo-router";
 import { useState } from "react";
-import { View } from "react-native";
+import { Text, View, type TextStyle } from "react-native";
 import { Banner, Button, Card, Field, H1, H2, P, Screen, Toggle } from "../components/ui";
 import { friendly } from "../lib/api";
 import { useSession } from "../lib/session";
+import { colors } from "../lib/theme";
+
+const linkStyle: TextStyle = { color: colors.brand, fontSize: 15, fontWeight: "600", textDecorationLine: "underline", paddingVertical: 6 };
 
 export default function Signup() {
   const { signup } = useSession();
@@ -50,11 +53,19 @@ export default function Signup() {
       <Card>
         <Toggle label="I am a parent or legal guardian, aged 18 or over" value={adult} onChange={setAdult} />
         <Toggle
-          label="I agree to the privacy notice"
+          label="I agree to the privacy notice and terms"
           value={consent}
           onChange={setConsent}
           description="We store only: your email, your children's nicknames and birth years, learning progress, and Hoot chats (so you can review them). No ads, no tracking, no selling data. You can export or delete everything at any time from the parent area."
         />
+        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 16 }}>
+          <Text accessibilityRole="link" onPress={() => router.push("/privacy")} style={linkStyle}>
+            Read the privacy notice
+          </Text>
+          <Text accessibilityRole="link" onPress={() => router.push("/terms")} style={linkStyle}>
+            Read the terms
+          </Text>
+        </View>
       </Card>
       <View style={{ gap: 10 }}>
         <Button big title="Create account" onPress={submit} disabled={!canSubmit} loading={busy} />
