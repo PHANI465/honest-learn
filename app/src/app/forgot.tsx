@@ -6,7 +6,7 @@ import { api, friendly } from "../lib/api";
 import { useSession } from "../lib/session";
 
 export default function Forgot() {
-  const { signInWithToken } = useSession();
+  const { signInWithToken, map } = useSession();
   const [step, setStep] = useState<"email" | "code">("email");
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -45,6 +45,11 @@ export default function Forgot() {
     <Screen>
       <H1>Reset your password</H1>
       {error ? <Banner>{error}</Banner> : null}
+      {map?.emailSending === false ? (
+        <Banner tone="info">
+          This is a test version of Honest Learn that doesn't send emails yet, so reset codes can't reach your inbox. The site owner can find the code in the server logs, or you can create a new account.
+        </Banner>
+      ) : null}
       {step === "email" ? (
         <>
           <P muted>Enter the parent email you signed up with. If it has an account, we'll email a 6-digit code.</P>

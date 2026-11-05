@@ -73,6 +73,9 @@ export interface ContentMap {
   subjects: { id: string; name: string; icon: string; bands?: string[] }[];
   sensitiveTopics: Record<Topic, string>;
   consentVersion: string;
+  /** false on test sites where emails only go to the server log. */
+  emailSending?: boolean;
+  launched?: boolean;
 }
 
 export interface ChatMessage {

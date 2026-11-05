@@ -444,6 +444,28 @@ describe("family data rights", () => {
   });
 });
 
+describe("child home: keep going, totals and stars", () => {
+  test("suggests the next unfinished lesson and counts finished lessons and stars", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).json.child.id;
+    let home = (await call("GET", `/children/${kid}/home`, undefined, fam)).json;
+    assert.ok(home.next?.id, "a lesson is suggested");
+    assert.deepEqual([home.totals.completed, home.totals.stars], [0, 0]);
+    assert.ok(home.totals.lessons > 10);
+    // finish the water-cycle lesson perfectly → 1 completed, 1 star, and the suggestion moves on within science
+    const shown = (await call("GET", `/children/${kid}/lessons/b3-sci-water-cycle`, undefined, fam)).json.lesson;
+    const authored = content.lessons.get("b3-sci-water-cycle")!.quiz;
+    const choices = authored.map((q, i) => shown.quiz[i].options.indexOf(q.options[q.answer]));
+    await call("POST", `/children/${kid}/lessons/b3-sci-water-cycle/complete`, { choices }, fam);
+    home = (await call("GET", `/children/${kid}/home`, undefined, fam)).json;
+    assert.deepEqual([home.totals.completed, home.totals.stars], [1, 1]);
+    assert.equal(home.next.subject, "science", "keeps going in the subject the child is progressing in");
+    assert.notEqual(home.next.id, "b3-sci-water-cycle");
+    assert.equal((await call("GET", "/content/map")).json.emailSending, true);
+  });
+});
+
 describe("zero-config deploys", () => {
   test("without TOKEN_SECRET a random secret is generated once, stored, and reused", async () => {
     const before = config.tokenSecret;
@@ -534,6 +556,9 @@ describe("practice quizzes, puzzles and weekly stats", () => {
     await call("POST", `/children/${kid}/lessons/b3-sci-water-cycle/complete`, { choices: shown.quiz.map(() => 0) }, fam);
     const o = await call("GET", "/parent/overview", undefined, par);
     assert.deepEqual(o.json.children[0].thisWeek, { lessons: 1, minutes: 1 });
+    const sci = o.json.children[0].subjects.find((x: any) => x.id === "science");
+    assert.equal(sci.completed, 1);
+    assert.ok(sci.total >= 6);
     assert.equal(o.json.children[0].stats.lessons, 1);
   });
 });

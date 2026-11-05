@@ -36,6 +36,7 @@ const SYNC_EVERY_MS = 30_000;
 
 const CACHEABLE: RegExp[] = [
   /^\/children\/[\w-]+\/home$/,
+  /^\/children\/[\w-]+\/lessons$/, // all lessons (titles + progress only), used by lesson search
   /^\/children\/[\w-]+\/lessons\?subject=[\w-]+$/,
   /^\/children\/[\w-]+\/lessons\/[\w.-]+$/,
   /^\/children\/[\w-]+\/lessons\/[\w.-]+\/learn-more$/,

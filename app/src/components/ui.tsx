@@ -13,8 +13,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, surfaces } from "../lib/theme";
 
-export function Screen({ children, scroll = true, style }: { children: ReactNode; scroll?: boolean; style?: ViewStyle }) {
-  const inner = <View style={[styles.inner, style]}>{children}</View>;
+export function Screen({ children, scroll = true, style, wide }: { children: ReactNode; scroll?: boolean; style?: ViewStyle; wide?: boolean }) {
+  const inner = <View style={[styles.inner, wide && { maxWidth: 1080 }, style]}>{children}</View>;
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       {scroll ? <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">{inner}</ScrollView> : inner}
@@ -55,6 +55,21 @@ export function spokenLabel(text: string): string {
   return text.replace(/[\p{Extended_Pictographic}‍️‹›→←↗]/gu, "").replace(/\s+/g, " ").trim() || text;
 }
 
+/** A thin progress bar (value 0–1) with an accessible description. */
+export function ProgressBar({ value, color = colors.brand, label, height = 10 }: { value: number; color?: string; label: string; height?: number }) {
+  const pct = Math.max(0, Math.min(1, value || 0));
+  return (
+    <View
+      accessibilityRole="progressbar"
+      accessibilityLabel={label}
+      accessibilityValue={{ min: 0, max: 100, now: Math.round(pct * 100) }}
+      style={{ height, borderRadius: height, backgroundColor: surfaces.pill, overflow: "hidden" }}
+    >
+      <View style={{ width: `${pct * 100}%`, height: "100%", backgroundColor: color, borderRadius: height }} />
+    </View>
+  );
+}
+
 /** A purely decorative emoji: hidden from screen readers. */
 export function Emoji({ children, size }: { children: ReactNode; size: number }) {
   return (
@@ -87,6 +102,8 @@ export function Button({
   hint?: string;
 }) {
   const bg = kind === "primary" ? color : kind === "danger" ? colors.danger : "transparent";
+  // "‹ Back"-style buttons sit at the top-left, where people look for them.
+  const isBack = kind === "ghost" && title.trim().startsWith("‹");
   const fg = kind === "primary" || kind === "danger" ? "#fff" : color;
   return (
     <Pressable
@@ -98,6 +115,7 @@ export function Button({
       accessibilityState={{ disabled: !!(disabled || loading), busy: !!loading }}
       style={({ pressed }) => [
         styles.btn,
+        isBack && { alignSelf: "flex-start", paddingHorizontal: 8, minWidth: 44 },
         big && { paddingVertical: 18 },
         { backgroundColor: bg, borderColor: kind === "secondary" ? color : "transparent" },
         kind === "secondary" && { borderWidth: 2 },

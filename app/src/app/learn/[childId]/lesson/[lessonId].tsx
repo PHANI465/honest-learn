@@ -6,7 +6,7 @@ import { useExternalLink } from "../../../../components/ExternalLink";
 import { OfflineBanner } from "../../../../components/OfflineBanner";
 import { VideoEmbed } from "../../../../components/VideoEmbed";
 import { ReportSheet } from "../../../../components/ReportSheet";
-import { Banner, Button, Card, Emoji, H1, Loading, P, Pill, Screen } from "../../../../components/ui";
+import { Banner, Button, Card, Emoji, H1, Loading, P, Pill, ProgressBar, Screen } from "../../../../components/ui";
 import { api, friendly, type LearnMore, type Lesson } from "../../../../lib/api";
 import { cachedGet, isOffline, isOfflineError, offlineMessage, queueCompletion } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
@@ -265,6 +265,7 @@ export default function LessonScreen() {
         <View style={{ alignItems: "center", gap: 12, marginTop: 30 }}>
           <Emoji size={80}>{perfect ? "🏆" : "🌱"}</Emoji>
           <H1>{perfect ? "Amazing!" : "Great effort!"}</H1>
+          <Text style={{ fontSize: 34, textAlign: "center" }} accessibilityLabel={`${result.score} out of ${result.total} correct`}>{"⭐".repeat(result.score)}{"☆".repeat(Math.max(0, result.total - result.score))}</Text>
           <P center size={20}>You got {result.score} out of {result.total} on your first tries.</P>
           <P center muted>{perfect ? `This lesson will pop back for a quick review in ${days} days, to help you remember it.` : "We'll bring this lesson back tomorrow so you can practise. Mistakes help your brain grow! 🧠"}</P>
         </View>
@@ -287,6 +288,7 @@ export default function LessonScreen() {
       {header}
       <OfflineBanner />
       <Text style={{ color: t.accent, fontWeight: "800" }}>Question {qi + 1} of {lesson.quiz.length}</Text>
+      <ProgressBar value={(qi + 1) / lesson.quiz.length} color={t.accent} height={8} label={`Question ${qi + 1} of ${lesson.quiz.length}`} />
       <Card style={{ borderRadius: t.radius }}>
         <Text style={{ fontSize: t.font + 4, fontWeight: "800", color: colors.ink, lineHeight: (t.font + 4) * 1.35 }} accessibilityRole="header">{q.q}</Text>
         {young ? <Button title="🔊 Read the question" kind="ghost" color={t.accent} onPress={() => readAloud(`${q.q}. ${q.options.join(". Or, ")}`)} /> : null}

@@ -2,16 +2,17 @@ import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { Alert, Linking, Platform, Share, Text, View } from "react-native";
 import { CountryPicker } from "../../components/CountryPicker";
-import { Banner, Button, Card, Emoji, Field, H1, H2, P, Pill, Screen } from "../../components/ui";
+import { Banner, Button, Card, Emoji, Field, H1, H2, P, Pill, ProgressBar, Screen } from "../../components/ui";
 import { friendly, type Child } from "../../lib/api";
 import { useSession } from "../../lib/session";
-import { avatars, bandTheme, colors } from "../../lib/theme";
+import { avatars, bandTheme, colors, subjectEmoji } from "../../lib/theme";
 
 interface Overview {
   children: (Child & {
     stats: { lessons: number; score: number; total: number; lastActive: string | null };
     thisWeek: { lessons: number; minutes: number };
     puzzles: { best_score: number; total: number } | null;
+    subjects?: { id: string; name: string; total: number; completed: number }[];
     flaggedMessages: number;
     recent: { lesson_id: string; title: string; best_score: number; total: number }[];
   })[];
@@ -83,7 +84,7 @@ export default function ParentHome() {
       <P muted size={14}>Signed in as {parentEmail}. This area locks itself after 10 minutes.</P>
       {error ? <Banner>{error}</Banner> : null}
 
-      {!emailVerified ? (
+      {!emailVerified && map?.emailSending !== false ? (
         <Card style={{ borderColor: colors.warn, backgroundColor: colors.warnSoft }}>
           <Text style={{ fontWeight: "800", color: colors.ink, fontSize: 16 }}>✉️ Please verify your email</Text>
           <P size={14}>We sent a 6-digit code to {parentEmail}. Verifying lets you reset your password if you forget it.</P>
@@ -119,14 +120,26 @@ export default function ParentHome() {
               <Text style={{ fontSize: 22, color: colors.muted }} aria-hidden accessibilityElementsHidden importantForAccessibility="no">›</Text>
             </View>
             <View style={{ flexDirection: "row", gap: 8, flexWrap: "wrap" }}>
-              <Pill text={`This week: ${c.thisWeek.lessons} lessons · ${c.thisWeek.minutes} min`} color={colors.brand} bg={colors.brandSoft} />
-              <Pill text={`${c.stats.lessons} lessons done`} />
+              <Pill text={`This week: ${c.thisWeek.lessons} lesson${c.thisWeek.lessons === 1 ? "" : "s"} · ${c.thisWeek.minutes} min`} color={colors.brand} bg={colors.brandSoft} />
+              <Pill text={`${c.stats.lessons} lesson${c.stats.lessons === 1 ? "" : "s"} done`} />
               {c.puzzles ? <Pill text={`🧩 Puzzles best ${c.puzzles.best_score}/${c.puzzles.total}`} /> : null}
               {c.stats.total ? <Pill text={`${Math.round((100 * c.stats.score) / c.stats.total)}% quiz score`} /> : null}
               <Pill text={c.aiEnabled ? "Hoot on" : "Hoot off"} />
               <Pill text={`${c.dailyMinutes} min/day`} />
               {c.flaggedMessages ? <Pill text={`⚠️ ${c.flaggedMessages} flagged chat${c.flaggedMessages > 1 ? "s" : ""}`} color={colors.warn} bg={colors.warnSoft} /> : null}
             </View>
+            {c.subjects?.length ? (
+              <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }} accessibilityLabel={`Progress by subject: ${c.subjects.map((x) => `${x.name} ${x.completed} of ${x.total}`).join(", ")}`}>
+                {c.subjects.map((x) => (
+                  <View key={x.id} style={{ width: 92, gap: 3 }}>
+                    <Text style={{ fontSize: 12, color: colors.muted }} numberOfLines={1}>
+                      {subjectEmoji[x.id] ?? "📘"} {x.completed}/{x.total}
+                    </Text>
+                    <ProgressBar value={x.total ? x.completed / x.total : 0} color={bandTheme[c.band].accent} height={6} label={`${x.name}: ${x.completed} of ${x.total}`} />
+                  </View>
+                ))}
+              </View>
+            ) : null}
             {c.recent.length ? <P muted size={13}>Recently: {c.recent.map((r) => r.title).join(" · ")}</P> : null}
           </Card>
         );

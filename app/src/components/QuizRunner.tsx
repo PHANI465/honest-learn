@@ -3,7 +3,7 @@ import { Pressable, Text, View } from "react-native";
 import type { BandId } from "../lib/api";
 import { isOfflineError } from "../lib/offline";
 import { bandTheme, colors } from "../lib/theme";
-import { Banner, Button, Card, Emoji, H1, P } from "./ui";
+import { Banner, Button, Card, Emoji, H1, P, ProgressBar } from "./ui";
 import { OfflineBanner } from "./OfflineBanner";
 
 const offlineNote = (e: unknown, what: string) =>
@@ -69,6 +69,7 @@ export function QuizRunner({
       <View style={{ gap: 14, alignItems: "center", marginTop: 20 }}>
         <Emoji size={72}>{perfect ? "🏆" : "🌱"}</Emoji>
         <H1>{perfect ? "Amazing!" : "Nice work!"}</H1>
+        <Text style={{ fontSize: 34, textAlign: "center" }} accessibilityLabel={`${result.score} out of ${result.total} correct`}>{"⭐".repeat(result.score)}{"☆".repeat(Math.max(0, result.total - result.score))}</Text>
         <P center size={19}>You got {result.score} out of {result.total} on your first tries.</P>
         {doneNote ? <P center muted>{doneNote}</P> : null}
         <View style={{ width: "100%", gap: 10 }}>
@@ -126,6 +127,7 @@ export function QuizRunner({
       <Text style={{ color: t.accent, fontWeight: "800" }}>
         {i + 1} of {questions.length}{q.label ? ` · ${q.label}` : ""}
       </Text>
+      <ProgressBar value={(i + 1) / questions.length} color={t.accent} height={8} label={`Question ${i + 1} of ${questions.length}`} />
       <Card style={{ borderRadius: t.radius }}>
         <Text style={{ fontSize: t.font + 3, fontWeight: "800", color: colors.ink, lineHeight: (t.font + 3) * 1.35 }} accessibilityRole="header">{q.q}</Text>
       </Card>

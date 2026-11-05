@@ -1,7 +1,7 @@
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
 import { Text, View } from "react-native";
-import { Banner, Button, Card, Emoji, H1, Loading, Pill, Screen } from "../../../../components/ui";
+import { Banner, Button, Card, Emoji, H1, Loading, Pill, ProgressBar, Screen } from "../../../../components/ui";
 import { useExternalLink } from "../../../../components/ExternalLink";
 import { OfflineBanner } from "../../../../components/OfflineBanner";
 import { friendly, type FreeResource, type LessonSummary } from "../../../../lib/api";
@@ -46,25 +46,37 @@ export default function SubjectLessons() {
   const subject = map?.subjects.find((s) => s.id === subjectId);
 
   return (
-    <Screen>
+    <Screen wide>
       <Button title="‹ Subjects" kind="ghost" color={t.accent} onPress={() => router.back()} label="Back to subjects" />
       <OfflineBanner fromCache={fromCache} />
       <H1>{subjectEmoji[subjectId ?? ""]} {subject?.name}</H1>
       {error ? <Banner>{error}</Banner> : null}
       {!data ? <Loading /> : null}
+      {data && data.lessons.length ? (() => {
+        const doneCount = data.lessons.filter((l) => l.progress).length;
+        const drafts = data.lessons.some((l) => l.status === "draft");
+        return (
+          <View style={{ gap: 6 }}>
+            <ProgressBar value={doneCount / data.lessons.length} color={t.accent} label={`${doneCount} of ${data.lessons.length} lessons done`} />
+            <Text style={{ color: colors.muted, fontSize: 13 }}>
+              {doneCount} of {data.lessons.length} lessons done{drafts ? " · Lessons marked ✏️ are still being checked by teachers" : ""}
+            </Text>
+          </View>
+        );
+      })() : null}
       {data?.lessons.map((l) => {
         const done = !!l.progress;
+        const perfect = done && l.progress!.best_score === l.progress!.total;
         return (
           <Card key={l.id} onPress={() => router.push(`/learn/${childId}/lesson/${l.id}`)} label={`${l.title}, ${l.minutes} minutes${done ? ", done" : ""}`} style={{ borderRadius: t.radius, borderLeftWidth: 6, borderLeftColor: done ? colors.good : t.accent }}>
             <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-              <Emoji size={26}>{done ? "✅" : "▶️"}</Emoji>
+              <Emoji size={26}>{perfect ? "⭐" : done ? "✅" : "▶️"}</Emoji>
               <View style={{ flex: 1, gap: 4 }}>
-                <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>{l.title}</Text>
+                <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>{l.title}{l.status === "draft" ? " ✏️" : ""}</Text>
                 <View style={{ flexDirection: "row", gap: 6, flexWrap: "wrap" }}>
                   <Pill text={`⏱ ${l.minutes} min`} />
                   <Pill text={`${l.questions} questions`} />
                   {done ? <Pill text={`Best: ${l.progress!.best_score}/${l.progress!.total}`} color={colors.good} bg={colors.goodSoft} /> : null}
-                  {l.status === "draft" ? <Pill text="Draft" color={colors.warn} bg={colors.warnSoft} /> : null}
                 </View>
               </View>
             </View>

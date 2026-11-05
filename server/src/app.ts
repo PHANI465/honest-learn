@@ -20,7 +20,7 @@ import {
 import { detectPersonalInfo, loadHelplines, precheck, type TutorProvider, type TutorTurn } from "./tutor.ts";
 import { lessonWikiTitle, WikiClient, wikiHostFor } from "./wiki.ts";
 import { optionOrder } from "./shuffle.ts";
-import { createMailer, type Mailer } from "./mailer.ts";
+import { ConsoleMailer, createMailer, type Mailer } from "./mailer.ts";
 
 export const CONSENT_VERSION = "2026-11-v1";
 
@@ -312,6 +312,9 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
       subjects: content.map.subjects,
       sensitiveTopics: content.map.sensitiveTopics,
       consentVersion: CONSENT_VERSION,
+      // false on test/pre-launch sites where emails are only written to the server log
+      emailSending: !(mailer instanceof ConsoleMailer),
+      launched: config.launched,
     }),
   );
 
@@ -464,7 +467,21 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
       .filter((l) => visibleTo(child, l))
       .map(lessonSummary);
     const bandInfo = content.map.bands.find((b) => b.id === band);
-    return c.json({ child: childPublic(child), band: bandInfo, subjects, reviewDue });
+    // "Keep going": the next unfinished lesson, preferring the subject the child has made most progress in.
+    const bySubjectProgress = [...subjects].sort((a, b) => b.completed - a.completed);
+    let next: Lesson | undefined;
+    for (const s of bySubjectProgress) {
+      next = visible.find((l) => l.subject === s.id && !doneIds.has(l.id));
+      if (next) break;
+    }
+    const finished = done.filter((d) => content.lessons.has(d.lesson_id));
+    const totals = {
+      lessons: visible.length,
+      completed: visible.filter((l) => doneIds.has(l.id)).length,
+      // a star for every lesson finished with every question right
+      stars: finished.filter((d) => d.best_score === d.total && visibleTo(child, content.lessons.get(d.lesson_id)!)).length,
+    };
+    return c.json({ child: childPublic(child), band: bandInfo, subjects, reviewDue, next: next ? lessonSummary(next) : null, totals });
   });
 
   fam.get("/children/:childId/lessons", async (c) => {
@@ -832,6 +849,20 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
             "SELECT best_score, total FROM progress WHERE child_id = ? AND lesson_id LIKE 'puzzles-%' ORDER BY completed_at DESC LIMIT 1",
             [k.id],
           )) ?? null,
+        subjects: await (async () => {
+          const doneIds = new Set(
+            (await db.all<{ lesson_id: string }>("SELECT lesson_id FROM progress WHERE child_id = ?", [k.id])).map((r) => r.lesson_id),
+          );
+          const visible = [...content.lessons.values()].filter((l) => visibleTo(k, l));
+          const band = childBand(k);
+          return content.map.subjects
+            .filter((sub) => !sub.bands || sub.bands.includes(band))
+            .map((sub) => {
+              const ls = visible.filter((l) => l.subject === sub.id);
+              return { id: sub.id, name: sub.name, total: ls.length, completed: ls.filter((l) => doneIds.has(l.id)).length };
+            })
+            .filter((x) => x.total > 0);
+        })(),
         recent: (
           await db.all<{ lesson_id: string }>(
             "SELECT lesson_id, best_score, total, completed_at FROM progress WHERE child_id = ? AND lesson_id NOT LIKE 'puzzles-%' ORDER BY completed_at DESC LIMIT 5",
