@@ -70,6 +70,21 @@
         "Drink X has 10 g sugar per 100 ml; drink Y has 2 g. Y has less."
       ],
       "explain": "Cereal B has much less sugar (5 g vs 30 g per 100 g)."
+    },
+    {
+      "q": "On a traffic-light food label, what does red mean?",
+      "options": [
+        "A high amount",
+        "A low amount",
+        "A medium amount"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what a red traffic light tells drivers to do.",
+        "Green means low and amber means medium.",
+        "Example: a label shows green for fat. That means the food is low in fat."
+      ],
+      "explain": "On these labels, red means high, amber means medium and green means low."
     }
   ]
 }

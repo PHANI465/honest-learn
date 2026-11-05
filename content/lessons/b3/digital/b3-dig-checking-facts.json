@@ -66,6 +66,21 @@
         "Scam messages say 'Act now!' to stop people checking. This uses the same trick."
       ],
       "explain": "Pressure and strong emotion are warning signs. Slow down and check."
+    },
+    {
+      "q": "How can you find out where a picture online really came from?",
+      "options": [
+        "Do a reverse image search with an adult",
+        "See how many people have shared it",
+        "Trust it, because photos can't be edited"
+      ],
+      "answer": 0,
+      "hints": [
+        "Pictures can be edited or taken out of context.",
+        "There is a kind of search that uses a picture instead of words.",
+        "Example: to check a quote, search its words to see who first said it."
+      ],
+      "explain": "A reverse image search can show where a picture first appeared. Lots of shares don't prove it's real."
     }
   ]
 }

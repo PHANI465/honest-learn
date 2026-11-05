@@ -80,6 +80,21 @@
         "Sand on an icy path stops slipping by adding friction. Rubber soles work the same way."
       ],
       "explain": "Rubber soles grip the ground (more friction), so you don't slip."
+    },
+    {
+      "q": "Which object would a magnet attract?",
+      "options": [
+        "An iron nail",
+        "A plastic spoon",
+        "A wooden pencil"
+      ],
+      "answer": 0,
+      "hints": [
+        "Magnets only attract some metals.",
+        "Plastic and wood are not metals.",
+        "Example: a magnet won't pick up a glass marble, because glass is not a metal."
+      ],
+      "explain": "Magnets attract some metals, like iron. Plastic and wood are not attracted."
     }
   ]
 }

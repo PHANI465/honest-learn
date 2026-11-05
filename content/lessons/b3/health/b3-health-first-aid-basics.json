@@ -70,6 +70,21 @@
         "If you order a pizza delivery, they need your address. Emergency helpers need that and more."
       ],
       "explain": "Tell them where you are and what happened, and follow their instructions."
+    },
+    {
+      "q": "An adult is helping with a small cut. Put the steps in order: A) Cover it with a plaster. B) Wash your hands. C) Clean the cut with clean water.",
+      "options": [
+        "B, C, A",
+        "C, B, A",
+        "A, B, C"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about germs. What touches the cut first?",
+        "The plaster goes on once the cut is clean.",
+        "Example: making toast. X) Butter it. Y) Put bread in the toaster. Z) Take it out. Order: Y, Z, X."
+      ],
+      "explain": "Wash your hands first so you don't add germs. Then clean the cut. The plaster goes on last."
     }
   ]
 }

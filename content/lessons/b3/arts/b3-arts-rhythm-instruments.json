@@ -66,6 +66,21 @@
         "Drums are hit to make sound. Which family are drums in?"
       ],
       "explain": "The tabla is played by hitting it, so it's percussion."
+    },
+    {
+      "q": "How many beats do two crotchets and one minim last altogether?",
+      "options": [
+        "4",
+        "3",
+        "6"
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out how long each note lasts, then add them up.",
+        "A crotchet lasts 1 beat. A minim is twice as long as a crotchet.",
+        "Example: two quavers and one minim. Two quavers share 1 beat, so 1 + 2 = 3 beats."
+      ],
+      "explain": "Each crotchet lasts 1 beat and the minim lasts 2 beats. 1 + 1 + 2 = 4 beats."
     }
   ]
 }

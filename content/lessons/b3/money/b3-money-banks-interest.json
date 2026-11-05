@@ -75,6 +75,21 @@
         "If you borrow a bike, you return it. If you borrow money from a bank, you return it plus…?"
       ],
       "explain": "When borrowing, you usually pay back more than you borrowed (interest)."
+    },
+    {
+      "q": "You save 300 at 5% interest a year. How much do you have after one year?",
+      "options": [
+        "315",
+        "15",
+        "305"
+      ],
+      "answer": 0,
+      "hints": [
+        "First find the interest, then add it to what you saved.",
+        "5% means 5 out of every 100. How many 100s are in 300?",
+        "Example: 200 at 5% earns 10 interest. After a year you'd have 210."
+      ],
+      "explain": "5% of 300 is 15. 300 + 15 = 315."
     }
   ]
 }

@@ -70,6 +70,21 @@
         "Building a model: first look at the plan, then build, then fix wobbly parts."
       ],
       "explain": "Plan first, then draft, then edit."
+    },
+    {
+      "q": "Your paragraph has a topic sentence and three supporting sentences. What should come next?",
+      "options": [
+        "A concluding sentence",
+        "Another topic sentence",
+        "A new main idea"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the three parts of a strong paragraph.",
+        "You have the start and the middle. What is still missing?",
+        "Example: a story has a beginning, a middle and an end. After the beginning comes the middle."
+      ],
+      "explain": "A strong paragraph ends with a concluding sentence. A new main idea belongs in a new paragraph."
     }
   ]
 }

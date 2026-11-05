@@ -71,6 +71,21 @@
         "Autocomplete on a phone guesses your next word and is sometimes wrong. AI chatbots are a much bigger version of this idea."
       ],
       "explain": "AI predicts likely words from patterns, so it can sound sure and still be wrong."
+    },
+    {
+      "q": "An AI chatbot tells you a fact for your homework. It sounds very sure. What should you do?",
+      "options": [
+        "Check it in a trusted source",
+        "Believe it, because it sounds confident",
+        "Ask the chatbot if it is sure"
+      ],
+      "answer": 0,
+      "hints": [
+        "Sounding confident is not the same as being right.",
+        "AI predicts likely words, so it can make things up. Can it check itself?",
+        "Example: autocomplete may change 'cat' to 'car'. You still read your message before sending it."
+      ],
+      "explain": "AI can sound sure and still be wrong. Check important facts in a trusted source, like an encyclopedia."
     }
   ]
 }

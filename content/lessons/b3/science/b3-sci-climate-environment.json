@@ -75,6 +75,21 @@
         "Turning off lights you're not using saves energy. Which option is also a clean choice?"
       ],
       "explain": "Solar and wind power make electricity without burning fuel."
+    },
+    {
+      "q": "What is the greenhouse effect?",
+      "options": [
+        "Gases trapping heat around the Earth, like a blanket",
+        "Plants growing faster inside greenhouses",
+        "A hole in the sky letting in more sunlight"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's about gases in the air, like carbon dioxide.",
+        "These gases stop some heat escaping into space.",
+        "Example: a car parked in the sun gets hot inside. The glass lets sunlight in but traps heat."
+      ],
+      "explain": "Gases like carbon dioxide trap heat around the Earth like a blanket. This keeps Earth warm enough to live on."
     }
   ]
 }

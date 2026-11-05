@@ -70,6 +70,21 @@
         "'When space key pressed' starts a script when you press space. Which one starts the game?"
       ],
       "explain": "'When green flag clicked' starts scripts at the beginning of the game."
+    },
+    {
+      "q": "In the apple game, which block checks if the apple is touching the cat?",
+      "options": [
+        "An IF block",
+        "A loop",
+        "A variable"
+      ],
+      "answer": 0,
+      "hints": [
+        "The game needs to ask a yes-or-no question.",
+        "This block only runs its code when something is true.",
+        "Example: which block moves the apple down again and again? A loop, because it repeats."
+      ],
+      "explain": "An IF block checks a condition, like 'touching cat?'. Its code only runs when the answer is yes."
     }
   ]
 }

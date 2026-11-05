@@ -70,6 +70,21 @@
         "If 5 × 4 = 20, then 20 ÷ 4 = 5."
       ],
       "explain": "48 ÷ 6 = 8, because 8 × 6 = 48."
+    },
+    {
+      "q": "Use the digit trick for 9s. Which number is in the 9 times table?",
+      "options": [
+        "72",
+        "74",
+        "62"
+      ],
+      "answer": 0,
+      "hints": [
+        "Add the two digits of each number.",
+        "In the 9 times table up to 9 × 10, the digits always add to 9.",
+        "Example: 81 → 8 + 1 = 9, so it fits. Check: 9 × 9 = 81."
+      ],
+      "explain": "7 + 2 = 9, and 9 × 8 = 72. For 74, 7 + 4 = 11. For 62, 6 + 2 = 8."
     }
   ]
 }

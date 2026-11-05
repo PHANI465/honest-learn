@@ -75,6 +75,21 @@
         "If two angles are 100° and 50°, the third is 180 − 150 = 30°. Try yours."
       ],
       "explain": "180 − (90 + 60) = 30°."
+    },
+    {
+      "q": "A rectangle is 6 cm long and 4 cm wide. What is its PERIMETER?",
+      "options": [
+        "20 cm",
+        "24 cm",
+        "10 cm"
+      ],
+      "answer": 0,
+      "hints": [
+        "Perimeter is the distance all the way around.",
+        "A rectangle has 4 sides: two long ones and two short ones.",
+        "Example: for a 5 cm by 2 cm rectangle, 5 + 2 + 5 + 2 = 14 cm."
+      ],
+      "explain": "6 + 4 + 6 + 4 = 20 cm. 6 × 4 = 24 is the area, not the perimeter."
     }
   ]
 }

@@ -70,6 +70,21 @@
         "If you flip a coin once and get heads, does that prove coins always land heads?"
       ],
       "explain": "Repeating checks your results weren't a one-off fluke."
+    },
+    {
+      "q": "You test which ball bounces highest. What should you change?",
+      "options": [
+        "Only the type of ball",
+        "Only the height you drop it from",
+        "Both the ball and the height"
+      ],
+      "answer": 0,
+      "hints": [
+        "A fair test changes just ONE thing.",
+        "What is your question about: balls or heights?",
+        "Example: do seeds grow faster when warm? Change only the temperature. Keep water and soil the same."
+      ],
+      "explain": "You're testing the balls, so only the ball changes. Drop every ball from the same height."
     }
   ]
 }

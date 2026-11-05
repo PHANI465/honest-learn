@@ -70,6 +70,21 @@
         "In 2, 6, 10, 14 each gap is 4, so the rule is 'add 4'."
       ],
       "explain": "Each number goes up by 3, so the next is 17."
+    },
+    {
+      "q": "Lea, Omar and Kim each do one sport: tennis, swimming or judo. Kim plays tennis. Omar doesn't swim. What does Omar do?",
+      "options": [
+        "Judo",
+        "Swimming",
+        "Tennis"
+      ],
+      "answer": 0,
+      "hints": [
+        "Start with the clue that gives a definite ✓.",
+        "Kim has tennis, so cross out tennis for Lea and Omar.",
+        "Example: in the pets puzzle, Ben's pet barks, so Ben has the dog. Nobody else can have it."
+      ],
+      "explain": "Kim plays tennis. Omar doesn't swim, so Omar does judo. That leaves swimming for Lea."
     }
   ]
 }

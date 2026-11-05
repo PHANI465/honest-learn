@@ -70,6 +70,21 @@
         "If you have the right to be heard, others also have the right to be heard. What does that mean you should do?"
       ],
       "explain": "We should respect other people's rights as well as our own."
+    },
+    {
+      "q": "Who does the UN Convention say has these rights?",
+      "options": [
+        "Every child",
+        "Only children who go to school",
+        "Only children in rich countries"
+      ],
+      "answer": 0,
+      "hints": [
+        "Do these rights depend on where you live?",
+        "Almost all countries signed it, rich and poor.",
+        "Example: a rule that all cyclists must wear helmets covers each cyclist, not just some."
+      ],
+      "explain": "The Convention says every child has rights, wherever they live. Going to school is one of those rights, not a test for getting them."
     }
   ]
 }

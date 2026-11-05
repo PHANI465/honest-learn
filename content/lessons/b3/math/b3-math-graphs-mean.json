@@ -70,6 +70,21 @@
         "Daily temperature across a week is usually shown with a line. Plant growth is similar."
       ],
       "explain": "A line graph shows change over time."
+    },
+    {
+      "q": "Which graph is best for comparing the number of pets in four different classes?",
+      "options": [
+        "A bar chart",
+        "A line graph",
+        "Either: they do the same job"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is this about change over time, or comparing amounts?",
+        "Four classes are separate groups, not points in time.",
+        "Example: a puppy's weight each month changes over time, so use a line graph."
+      ],
+      "explain": "A bar chart compares amounts, like pets in each class. A line graph shows change over time."
     }
   ]
 }

@@ -70,6 +70,21 @@
         "Satellites are used sometimes, but most data uses something laid on the sea floor."
       ],
       "explain": "Most data between continents travels through undersea cables."
+    },
+    {
+      "q": "What is an IP address used for?",
+      "options": [
+        "It tells packets which device to go to",
+        "It is the password for your Wi-Fi",
+        "It measures how fast the internet is"
+      ],
+      "answer": 0,
+      "hints": [
+        "Every device on the internet has one.",
+        "The lesson compares it to a postal address.",
+        "Example: a letter has a house address on it. That tells the post office where to deliver it."
+      ],
+      "explain": "An IP address is like a postal address. It tells packets which device to go to."
     }
   ]
 }
