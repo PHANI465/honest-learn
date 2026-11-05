@@ -75,6 +75,21 @@
         "If you rebuild a LEGO model into a new shape, you still have the same bricks."
       ],
       "explain": "Atoms are only rearranged, so each side must have the same number of each atom."
+    },
+    {
+      "q": "Hydrochloric acid reacts with sodium hydroxide, which is a base. What are the products?",
+      "options": [
+        "A salt and water",
+        "A salt and hydrogen gas",
+        "A salt, water and carbon dioxide"
+      ],
+      "answer": 0,
+      "hints": [
+        "An acid reacting with a base is a neutralisation reaction.",
+        "Recall the general word equation the lesson gives for an acid reacting with a base.",
+        "Worked example: an acid reacting with a metal such as magnesium gives a salt plus hydrogen gas (Mg + 2HCl → MgCl₂ + H₂). Sodium hydroxide is a base, not a metal, so the products are different."
+      ],
+      "explain": "Acid + base → salt + water. Here: HCl + NaOH → NaCl + H₂O, giving sodium chloride (a salt) and water. Hydrogen gas comes from acids reacting with metals, and carbon dioxide from acids reacting with carbonates."
     }
   ]
 }

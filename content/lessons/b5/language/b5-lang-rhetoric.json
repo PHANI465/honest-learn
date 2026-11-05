@@ -66,6 +66,21 @@
         "Charity adverts often show a sad animal's face to move you. That's the same appeal."
       ],
       "explain": "It appeals to emotion: pathos."
+    },
+    {
+      "q": "'Do we really want our children breathing dirty air?' The speaker doesn't expect anyone to answer. Which device is this?",
+      "options": [
+        "A rhetorical question",
+        "The rule of three",
+        "Contrast"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the punctuation, and at whether the speaker wants a reply.",
+        "The speaker asks something but assumes everyone already agrees on the answer.",
+        "Worked example: 'Veni, vidi, vici' (I came, I saw, I conquered) groups three parallel parts, so it uses the rule of three. The sentence in this question works differently."
+      ],
+      "explain": "It's a rhetorical question: asked for effect, to lead the audience to agree, not to get an answer. (It also uses some pathos by mentioning children.)"
     }
   ]
 }

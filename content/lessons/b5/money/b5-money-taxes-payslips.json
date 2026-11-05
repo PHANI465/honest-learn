@@ -70,6 +70,21 @@
         "Income tax is taken from wages. Which tax is taken when you buy things?"
       ],
       "explain": "VAT/GST is a tax on goods and services when you buy them."
+    },
+    {
+      "q": "In a made-up progressive tax system, the first 10,000 of income is taxed at 0% and any income above 10,000 is taxed at 20%. How much income tax does someone earning 25,000 pay?",
+      "options": [
+        "3,000",
+        "5,000",
+        "2,000"
+      ],
+      "answer": 0,
+      "hints": [
+        "Only the part of income ABOVE 10,000 is taxed at 20%.",
+        "Work out how much of the 25,000 is above 10,000, then take 20% of that part only.",
+        "Worked example: if the first 5,000 is taxed at 0% and anything above at 10%, someone earning 12,000 pays 10% of 7,000 = 700."
+      ],
+      "explain": "The first 10,000 is tax-free. The remaining 15,000 is taxed at 20%: 0.2 × 15,000 = 3,000. In a progressive system the higher rate applies only to the portion of income above the threshold, not to all of it (that mistake gives 5,000). Real tax bands differ by country."
     }
   ]
 }

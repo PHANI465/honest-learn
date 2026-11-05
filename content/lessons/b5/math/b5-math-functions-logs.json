@@ -71,6 +71,21 @@
         "log₂(8) = 3 because 2³ = 8."
       ],
       "explain": "10³ = 1000, so log₁₀(1000) = 3."
+    },
+    {
+      "q": "Simplify 2³ × 2⁴.",
+      "options": [
+        "2⁷",
+        "2¹²",
+        "4⁷"
+      ],
+      "answer": 0,
+      "hints": [
+        "Both numbers have the same base, and you're multiplying. Which exponent rule applies?",
+        "aᵐ × aⁿ = aᵐ⁺ⁿ. Do you add or multiply the powers? Does the base change?",
+        "Worked example: 3² × 3⁵ = 3²⁺⁵. Check: 9 × 243 = 2,187, and 3 × 3 × 3 × 3 × 3 × 3 × 3 = 2,187 too."
+      ],
+      "explain": "Same base, so add the powers: 2³ × 2⁴ = 2³⁺⁴ = 2⁷ = 128. Check: 8 × 16 = 128. Multiplying the powers (2¹²) or the bases (4⁷) are common mistakes."
     }
   ]
 }

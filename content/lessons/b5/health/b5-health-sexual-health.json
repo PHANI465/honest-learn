@@ -75,6 +75,21 @@
         "For a broken arm you'd see a doctor, not a random video. Sexual health is the same."
       ],
       "explain": "Doctors, nurses and official health services give accurate, confidential advice."
+    },
+    {
+      "q": "Which method helps prevent pregnancy AND reduces the risk of many STIs?",
+      "options": [
+        "Condoms",
+        "The contraceptive pill",
+        "A contraceptive implant"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson lists several contraception methods, but only one also appears in the section about STIs.",
+        "STIs pass from person to person through sexual contact. Which option is a physical barrier between people, rather than a method that works inside one person's body?",
+        "Worked example: the HPV vaccine protects against certain types of one infection (HPV), but it doesn't prevent pregnancy. Each method protects against different things, so check what each one actually does."
+      ],
+      "explain": "Condoms are a barrier method: they help prevent pregnancy and reduce the risk of many STIs. The pill and implants are effective at preventing pregnancy but don't protect against STIs. A doctor or sexual health clinic can explain the options."
     }
   ]
 }

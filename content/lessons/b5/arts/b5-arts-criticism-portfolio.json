@@ -67,6 +67,21 @@
         "A football highlight reel shows your best plays, not every minute of every game."
       ],
       "explain": "A focused selection of your best work, with notes on your process."
+    },
+    {
+      "q": "A critic writes: 'The low camera angle makes the character look powerful and threatening.' Which stage of a structured critique is this?",
+      "options": [
+        "Analyse",
+        "Describe",
+        "Judge"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the critic only reporting what's on screen, or explaining how a choice works?",
+        "The sentence links a technique (the camera angle) to the effect it has on the viewer.",
+        "Worked example: 'The music gets faster and louder as the chase begins' simply reports what you hear, so it's description. 'This is the best film of the decade' rates the whole film, so it's a judgement. Which kind of sentence explains how a choice creates an effect?"
+      ],
+      "explain": "It explains HOW a technique (a low camera angle) creates an effect (the character seems powerful), which is analysis. Describing would only say where the camera is; judging would decide how well the film achieves its aims overall."
     }
   ]
 }

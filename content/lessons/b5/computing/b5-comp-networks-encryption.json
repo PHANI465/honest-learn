@@ -80,6 +80,21 @@
         "A mailbox slot (public) lets anyone drop letters in; only the owner's key (private) opens it."
       ],
       "explain": "The private key must stay secret; the public key can be shared."
+    },
+    {
+      "q": "A website shows the padlock and its address starts with https://. What does that tell you?",
+      "options": [
+        "Data between your browser and the site is encrypted",
+        "The website is honest and safe to trust",
+        "The website cannot contain malware or scams"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does the 'S' in HTTPS add?",
+        "Encryption protects data while it travels between two points. Does it check who runs the site or what they intend?",
+        "Worked example: a sealed, tamper-proof envelope stops anyone reading your letter on the way. It doesn't prove that the person you're writing to is honest."
+      ],
+      "explain": "HTTPS encrypts the traffic between your browser and the website, so others on the network can't read or alter it. It does NOT prove the site is trustworthy: scam and phishing sites can use HTTPS too, so still check the web address carefully."
     }
   ]
 }

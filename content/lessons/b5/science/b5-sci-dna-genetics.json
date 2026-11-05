@@ -71,6 +71,21 @@
         "The four outcomes are AA, Aa, aA, aa. Only one has two recessive copies."
       ],
       "explain": "Only aa shows the trait: 1 out of 4 outcomes."
+    },
+    {
+      "q": "In pea plants, the allele for purple flowers (P) is dominant over the allele for white flowers (p). What colour are the flowers of a Pp plant?",
+      "options": [
+        "Purple",
+        "White",
+        "Pale, a blend of the two colours"
+      ],
+      "answer": 0,
+      "hints": [
+        "A dominant allele shows its effect even with just one copy.",
+        "This plant has one copy of each allele. Which allele only shows its effect when there are two copies?",
+        "Worked example: in pea plants, the allele for tall stems (T) is dominant over short stems (t). A Tt plant is tall; only a tt plant is short."
+      ],
+      "explain": "P is dominant, so one copy is enough: a Pp plant has purple flowers. White flowers only appear in pp plants, which have two recessive copies. (Gregor Mendel studied exactly this trait in peas.)"
     }
   ]
 }

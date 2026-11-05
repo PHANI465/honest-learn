@@ -66,6 +66,21 @@
         "Athletes practise before matches to feel ready. Speakers can do the same."
       ],
       "explain": "Practice and slow breathing reduce nerves."
+    },
+    {
+      "q": "What does the lesson advise about your speaking pace?",
+      "options": [
+        "Speak slower than feels natural, and pause after key points",
+        "Speak quickly so you don't run out of time",
+        "Keep talking without pauses so the audience stays focused"
+      ],
+      "answer": 0,
+      "hints": [
+        "When people are nervous, which way does their speaking speed usually drift?",
+        "Your audience hears each sentence only once and can't scroll back. What helps them keep up and take in the key points?",
+        "Worked example: a good teacher explaining a tricky maths step often writes it on the board, stops, and looks at the class before moving on. That moment gives students time to process the step."
+      ],
+      "explain": "Nerves usually make people speed up, so deliberately slowing down and pausing after key points gives listeners time to absorb what you've said. It also makes you sound more confident."
     }
   ]
 }

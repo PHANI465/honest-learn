@@ -66,6 +66,21 @@
         "For y = x², the derivative is 2x¹ = 2x."
       ],
       "explain": "Using nxⁿ⁻¹: 3x²."
+    },
+    {
+      "q": "What is the gradient (slope) of y = x⁴ at x = 2?",
+      "options": [
+        "32",
+        "16",
+        "64"
+      ],
+      "answer": 0,
+      "hints": [
+        "First find the derivative, then substitute x = 2.",
+        "Using nxⁿ⁻¹: bring the 4 down in front, and reduce the power by one.",
+        "Worked example: for y = x³, the derivative is 3x², so at x = 4 the gradient is 3 × 4² = 3 × 16 = 48."
+      ],
+      "explain": "The derivative of x⁴ is 4x³. At x = 2: 4 × 2³ = 4 × 8 = 32. (16 is the y-value at x = 2, not the gradient, and 64 comes from forgetting to reduce the power.)"
     }
   ]
 }

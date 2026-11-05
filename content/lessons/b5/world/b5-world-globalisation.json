@@ -72,6 +72,21 @@
         "They aim for development that lasts. Which option fits?"
       ],
       "explain": "The Sustainable Development Goals (SDGs)."
+    },
+    {
+      "q": "Which statement about the effects of globalisation best matches the lesson?",
+      "options": [
+        "It has helped lift many people out of poverty, but has also brought job losses in some places",
+        "It has benefited every country and every worker equally",
+        "It has had no real effect on people's jobs or incomes"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does the lesson describe globalisation as all good, all bad, or mixed?",
+        "Think about who might gain and who might lose when a factory moves from one country to another.",
+        "Worked example: the internet lets students take free courses from anywhere, but it also lets misinformation spread fast. One change can have both upsides and downsides."
+      ],
+      "explain": "The lesson describes mixed effects: globalisation has helped lift many people out of poverty, but some places have lost jobs, and problems like pandemics can spread faster. People still debate how best to share the gains and reduce the harms."
     }
   ]
 }

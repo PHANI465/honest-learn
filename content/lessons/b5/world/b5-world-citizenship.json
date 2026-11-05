@@ -75,6 +75,21 @@
         "In first-past-the-post, the top candidate in each area wins. Proportional systems do something different with the total vote."
       ],
       "explain": "In proportional representation, parties get seats roughly in proportion to their share of the vote."
+    },
+    {
+      "q": "Which of these does the lesson describe as a citizen's RESPONSIBILITY, rather than a right?",
+      "options": [
+        "Following the law",
+        "Having a fair trial",
+        "Speaking freely"
+      ],
+      "answer": 0,
+      "hints": [
+        "A right is something you're entitled to; a responsibility is something you're expected to do.",
+        "Which option is a duty you owe to society, rather than a protection society owes you?",
+        "Worked example: voting in elections is listed in the lesson as a right (though a few countries also make voting compulsory). The question asks for something citizens are expected to do."
+      ],
+      "explain": "Following the law is a responsibility: something citizens are expected to do. A fair trial and free speech are rights that protect citizens. Exactly which rights and responsibilities apply varies by country."
     }
   ]
 }

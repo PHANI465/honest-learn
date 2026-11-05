@@ -75,6 +75,21 @@
         "If a friend agreed to lend you their bike but then changes their mind, you give it back."
       ],
       "explain": "Consent can be withdrawn at any time, and that must be respected immediately."
+    },
+    {
+      "q": "Which of these is consent?",
+      "options": [
+        "A clear, freely given and enthusiastic 'yes'",
+        "Not saying 'no'",
+        "A 'yes' given only after being pressured again and again"
+      ],
+      "answer": 0,
+      "hints": [
+        "Consent is something a person actively gives. It is never assumed.",
+        "For each option, ask: did the person choose freely, and did they say so clearly?",
+        "Worked example: if a friend borrows your phone after you say 'Sure, go ahead!', that's permission. If they took it while you were asleep, or after you said 'fine, whatever' just to stop them nagging, that isn't real permission."
+      ],
+      "explain": "Consent is a clear, freely given, enthusiastic 'yes', and it can be withdrawn at any time. Silence or not saying no is not consent, and a 'yes' produced by pressure is not freely given."
     }
   ]
 }

@@ -66,6 +66,21 @@
         "If you shout something in a crowded room, you can't un-say it even if you leave."
       ],
       "explain": "No. Others may have screenshotted or shared it before you deleted it."
+    },
+    {
+      "q": "How often should you review your social media privacy settings?",
+      "options": [
+        "Regularly, because apps and your audience change over time",
+        "Only once, when you first sign up",
+        "Only if the app sends you a warning"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson gives advice on how often to check.",
+        "Apps update their features and default settings, and the people who can see your posts change as you grow up.",
+        "Worked example: a friend made their account public two years ago for a school project and forgot. Now strangers can see their recent photos and location tags. A setting chosen once didn't fit later."
+      ],
+      "explain": "The lesson says to review privacy settings regularly. Apps change their features and defaults, and what you're comfortable sharing changes too, so a one-time check can leave old choices in place."
     }
   ]
 }

@@ -75,6 +75,21 @@
         "In a taste test where neither the tasters nor the server know which cola is which, nobody's expectations sway results."
       ],
       "explain": "In a double-blind study, neither the participants nor the researchers know who gets which treatment."
+    },
+    {
+      "q": "Which gives the strongest evidence that a treatment works?",
+      "options": [
+        "A systematic review combining many well-designed studies",
+        "One study reported in a newspaper headline",
+        "A single experiment in mice"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson says one study is rarely the final word.",
+        "Which option pools the results of many studies, so one odd or flawed result counts for less?",
+        "Worked example: if one review says a café is awful but 200 reviews average 4.5 stars, you'd trust the combined picture more than the single review."
+      ],
+      "explain": "A systematic review combines many studies, so it's less likely to be misled by one study's flaws or a chance result. A single study, especially in mice or as reported in a headline, is weaker evidence."
     }
   ]
 }

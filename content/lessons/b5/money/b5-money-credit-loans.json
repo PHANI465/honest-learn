@@ -70,6 +70,21 @@
         "A bank doesn't need your photos to give you an account. Why would a loan app need your contacts?"
       ],
       "explain": "It's a red flag. Predatory loan apps have used contacts to harass and shame borrowers."
+    },
+    {
+      "q": "Which type of student funding generally does NOT have to be paid back?",
+      "options": [
+        "A grant",
+        "A student loan",
+        "A 'buy now, pay later' plan"
+      ],
+      "answer": 0,
+      "hints": [
+        "Credit always has to be repaid, often with interest. Is every type of student funding credit?",
+        "The lesson lists three kinds of student finance and says which one you don't repay.",
+        "Worked example: a 'buy now, pay later' deal on a laptop lets you take it home today, but you still owe the full price later, so it's credit."
+      ],
+      "explain": "Grants (like scholarships) generally don't have to be repaid. Student loans and 'buy now, pay later' plans are credit: you pay them back, sometimes with interest. Rules differ by country, so always read the terms."
     }
   ]
 }

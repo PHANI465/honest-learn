@@ -76,6 +76,21 @@
         "Cheap fast fashion saves money (first effect) but creates more waste (a later effect)."
       ],
       "explain": "It's an effect that follows from the first effect, the 'and then what?' outcome."
+    },
+    {
+      "q": "Two people disagree about the trolley problem. One says saving five lives instead of one is clearly better. The other says actively causing someone's death is wrong, whatever the result. What does this disagreement best show?",
+      "options": [
+        "People can reason from different principles, such as consequences or duties",
+        "One of them must have made a logical mistake",
+        "Ethical dilemmas always have one obvious right answer"
+      ],
+      "answer": 0,
+      "hints": [
+        "What is each person paying attention to?",
+        "One person is counting results; the other is focused on what you should never do. Are they using the same yardstick?",
+        "Worked example: in a debate about banning cars from a city centre, one person stresses cleaner air for thousands of residents; another stresses shop owners' right to earn a living. Good reasoning starts by spotting what each side values."
+      ],
+      "explain": "They start from different principles: one judges by consequences, the other by duties. Dilemmas are hard precisely because thoughtful people weigh these differently. Good ethical reasoning means understanding both views and being able to explain your own."
     }
   ]
 }

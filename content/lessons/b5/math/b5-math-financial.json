@@ -70,6 +70,21 @@
         "Comparing cars by total price (not just the deposit) is fairer. Which loan number is like the total?"
       ],
       "explain": "APR includes interest and fees, so it's the fairest comparison."
+    },
+    {
+      "q": "Inflation is 4% a year. A bus pass costs 50 today. If its price rises in line with inflation, what will it cost in one year?",
+      "options": [
+        "52",
+        "54",
+        "46"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find 4% of 50 first.",
+        "4% = 0.04. Multiply by the price, then add the result to the original price.",
+        "Worked example: with 3% inflation, something costing 200 would cost 200 + (0.03 × 200) = 200 + 6 = 206 a year later."
+      ],
+      "explain": "4% of 50 = 0.04 × 50 = 2, so the new price is 50 + 2 = 52. (Or in one step: 50 × 1.04 = 52.) Adding 4 instead of 4% gives 54, and inflation raises prices, so it can't fall to 46."
     }
   ]
 }

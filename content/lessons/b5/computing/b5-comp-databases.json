@@ -70,6 +70,21 @@
         "Every phone has a unique number, even if two owners have the same name."
       ],
       "explain": "A primary key uniquely identifies each record."
+    },
+    {
+      "q": "An orders table has a column called customer_id. Its values match the id column in a separate customers table. What is customer_id in the orders table?",
+      "options": [
+        "A foreign key",
+        "The primary key of the orders table",
+        "A record (row)"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does customer_id identify each ORDER, or does it point to a row in another table?",
+        "One customer can place many orders, so the same customer_id can appear many times in the orders table. A column that must be unique in its own table couldn't repeat like that.",
+        "Worked example: in a school database, every student has a different student_id in the students table, so student_id is that table's primary key. Now think about a column whose job is to link one table to another."
+      ],
+      "explain": "customer_id links each order to a row in the customers table, so it's a foreign key. It can repeat (one customer, many orders), so it can't be the orders table's primary key, which must be unique. A record is a whole row, not a column."
     }
   ]
 }
