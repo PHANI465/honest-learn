@@ -1,0 +1,74 @@
+{
+  "id": "b1-arts-mixing-colours",
+  "title": "Mixing Colours",
+  "band": "b1",
+  "subject": "arts",
+  "outcomes": [
+    "b1-arts-1"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Primary color",
+      "url": "https://en.wikipedia.org/wiki/Primary_color",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Red 🔴, yellow 🟡 and blue 🔵 are special paint colours."
+    },
+    {
+      "type": "text",
+      "body": "Mix them and you make NEW colours! 🎨"
+    },
+    {
+      "type": "text",
+      "body": "Yellow + blue = green 🟢. Red + yellow = orange 🟠. Red + blue = purple 🟣."
+    },
+    {
+      "type": "tryit",
+      "body": "With a grown-up, mix two paint colours on paper. What did you make?"
+    },
+    {
+      "type": "parent",
+      "body": "Washable paints or coloured water in clear cups work well. Let them predict first: 'What do you think will happen?'"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Yellow 🟡 + blue 🔵 makes…",
+      "options": [
+        "Green 🟢",
+        "Red 🔴",
+        "Black ⚫"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of the colour of grass.",
+        "Leaves on trees are this colour too.",
+        "Red + yellow makes orange 🟠, like an orange fruit. What colour are leaves? 🍃"
+      ],
+      "explain": "Yellow and blue make green! 🟢"
+    },
+    {
+      "q": "Red 🔴 + yellow 🟡 makes…",
+      "options": [
+        "Orange 🟠",
+        "Blue 🔵",
+        "White ⚪"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a fruit with the same name as a colour.",
+        "Carrots are this colour too 🥕.",
+        "Yellow + blue makes green, like grass. Red + yellow makes the colour of a carrot!"
+      ],
+      "explain": "Red and yellow make orange! 🟠"
+    }
+  ]
+}

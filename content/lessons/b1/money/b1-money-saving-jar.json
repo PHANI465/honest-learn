@@ -1,0 +1,75 @@
+{
+  "id": "b1-money-saving-jar",
+  "title": "The Saving Jar",
+  "band": "b1",
+  "subject": "money",
+  "outcomes": [
+    "b1-money-1",
+    "b1-money-2"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Saving",
+      "url": "https://en.wikipedia.org/wiki/Saving",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "We use money to buy things. 🪙"
+    },
+    {
+      "type": "text",
+      "body": "Sometimes we don't spend it. We SAVE it in a jar. 🫙"
+    },
+    {
+      "type": "text",
+      "body": "Little by little, the jar fills up. Then we can buy something special! ⭐"
+    },
+    {
+      "type": "tryit",
+      "body": "Find a jar. Draw a picture of something you'd like to save for and stick it on."
+    },
+    {
+      "type": "parent",
+      "body": "A clear jar lets children SEE savings grow. Small coins, regularly, teach patience better than big amounts once."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What do we use to buy things at a shop? 🛒",
+      "options": [
+        "Money 🪙",
+        "Leaves 🍃",
+        "Sand ⛱️"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does a grown-up give the shopkeeper?",
+        "It can be coins or paper notes.",
+        "At a shop, you give something and get your toy. What do you give?"
+      ],
+      "explain": "We use money to buy things! 🪙"
+    },
+    {
+      "q": "Putting coins in a jar for later is called…",
+      "options": [
+        "Saving 🫙",
+        "Eating 🍽️",
+        "Sleeping 😴"
+      ],
+      "answer": 0,
+      "hints": [
+        "You don't spend the coins now.",
+        "You keep them for later.",
+        "When we keep a cookie for tomorrow, we save it. Coins in a jar are…?"
+      ],
+      "explain": "That's saving! 🫙"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "b1-think-odd-one-out",
+  "title": "Odd One Out",
+  "band": "b1",
+  "subject": "thinking",
+  "outcomes": [
+    "b1-think-1",
+    "b1-think-2"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Categorization",
+      "url": "https://en.wikipedia.org/wiki/Categorization",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Let's be detectives! 🔍"
+    },
+    {
+      "type": "text",
+      "body": "Look: 🍎 🍌 🍇 🚗"
+    },
+    {
+      "type": "text",
+      "body": "Three are fruits. The car is different. The car is the ODD ONE OUT! 🚗"
+    },
+    {
+      "type": "tryit",
+      "body": "Put your toys in groups: things that are red, things that are soft, things with wheels."
+    },
+    {
+      "type": "parent",
+      "body": "Ask 'why?' after each answer. There can be more than one good answer, and explaining is the real skill."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is the odd one out? 🐶 🐱 ✏️",
+      "options": [
+        "✏️",
+        "🐶",
+        "🐱"
+      ],
+      "answer": 0,
+      "hints": [
+        "Two of them are alike.",
+        "Which ones are animals?",
+        "Look: ☀️ ⭐ 🍌. Two are in the sky, so the banana is different."
+      ],
+      "explain": "The pencil is not an animal! ✏️"
+    },
+    {
+      "q": "Which is the odd one out? 🔴 🔴 🔵",
+      "options": [
+        "🔵",
+        "The first 🔴",
+        "The second 🔴"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the colours.",
+        "Two are the same colour.",
+        "Look: 🟢 🟡 🟢. The yellow one is different."
+      ],
+      "explain": "The blue circle is a different colour! 🔵"
+    }
+  ]
+}

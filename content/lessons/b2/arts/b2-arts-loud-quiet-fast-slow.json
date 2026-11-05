@@ -1,0 +1,98 @@
+{
+  "id": "b2-arts-loud-quiet-fast-slow",
+  "title": "Music: Loud, Quiet, Fast, Slow",
+  "band": "b2",
+  "subject": "arts",
+  "outcomes": [
+    "b2-arts-2"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Dynamics (music)",
+      "url": "https://en.wikipedia.org/wiki/Dynamics_(music)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Tempo",
+      "url": "https://en.wikipedia.org/wiki/Tempo",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Music can be loud or quiet. How loud music is, is called its DYNAMICS. 🔊🔈"
+    },
+    {
+      "type": "text",
+      "body": "Music can be fast or slow. How fast music is, is called its TEMPO. 🐇🐢"
+    },
+    {
+      "type": "text",
+      "body": "A lullaby is usually quiet and slow. A party song is often loud and fast!"
+    },
+    {
+      "type": "text",
+      "body": "Musicians change dynamics and tempo to show feelings: calm, happy, scary or exciting."
+    },
+    {
+      "type": "tryit",
+      "body": "Clap a beat. Make it slow like a turtle, then fast like a rabbit. Now clap very quietly!"
+    },
+    {
+      "type": "parent",
+      "body": "Free tools like Chrome Music Lab let children play with tempo. Ask how different music makes them feel."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How fast music is played is called its…",
+      "options": [
+        "Tempo",
+        "Colour",
+        "Dynamics"
+      ],
+      "answer": 0,
+      "hints": [
+        "One word is about speed, one about loudness.",
+        "Think 'tempo' and 'tortoise'. Both have to do with speed.",
+        "Dynamics means loud or quiet. Which word is left for fast or slow?"
+      ],
+      "explain": "Tempo is how fast or slow music is."
+    },
+    {
+      "q": "A lullaby to help a baby sleep is usually…",
+      "options": [
+        "Quiet and slow",
+        "Loud and fast",
+        "Loud and slow"
+      ],
+      "answer": 0,
+      "hints": [
+        "What helps a baby feel calm?",
+        "Would shouting help a baby sleep?",
+        "A party song is loud and fast, to make you dance. A sleepy song is the opposite."
+      ],
+      "explain": "Lullabies are quiet and slow to help babies relax."
+    },
+    {
+      "q": "How loud or quiet music is, is called…",
+      "options": [
+        "Dynamics",
+        "Tempo",
+        "Rhythm"
+      ],
+      "answer": 0,
+      "hints": [
+        "You learned two music words.",
+        "Tempo is about speed.",
+        "Speed is tempo. So the word for loudness is the other one."
+      ],
+      "explain": "Dynamics is how loud or quiet music is."
+    }
+  ]
+}

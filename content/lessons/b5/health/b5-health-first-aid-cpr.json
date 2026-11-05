@@ -1,0 +1,103 @@
+{
+  "id": "b5-health-first-aid-cpr",
+  "title": "First Aid and CPR Basics",
+  "band": "b5",
+  "subject": "health",
+  "outcomes": [
+    "b5-health-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Cardiopulmonary resuscitation",
+      "url": "https://en.wikipedia.org/wiki/Cardiopulmonary_resuscitation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: First aid",
+      "url": "https://en.wikipedia.org/wiki/First_aid",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Recovery position",
+      "url": "https://en.wikipedia.org/wiki/Recovery_position",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "This lesson is an introduction, not a certificate. Take a hands-on first-aid course (often free or cheap from Red Cross/Red Crescent and other groups). Practice is what makes you able to help."
+    },
+    {
+      "type": "text",
+      "body": "1. DANGER: check the area is safe for you first. 2. RESPONSE: tap the shoulders and shout 'Are you OK?'. 3. Call your local EMERGENCY NUMBER (or get someone to) and put the phone on speaker."
+    },
+    {
+      "type": "text",
+      "body": "If the person is unresponsive and not breathing normally, start CPR. Push hard and fast in the centre of the chest (about 5–6 cm deep for an adult), 100–120 times a minute, letting the chest come back up between pushes."
+    },
+    {
+      "type": "text",
+      "body": "Hands-only CPR (compressions without rescue breaths) is recommended for untrained bystanders helping an adult who collapsed. Keep going until help or an AED (defibrillator) arrives."
+    },
+    {
+      "type": "text",
+      "body": "An AED gives spoken instructions. Turn it on and follow them. It only shocks if it detects a rhythm that needs it."
+    },
+    {
+      "type": "text",
+      "body": "If someone is unresponsive but breathing normally, put them in the recovery position (on their side) and keep checking their breathing until help arrives."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You find someone collapsed. What is the FIRST thing to check?",
+      "options": [
+        "That the area is safe for you",
+        "Their pulse",
+        "Their phone"
+      ],
+      "answer": 0,
+      "hints": [
+        "You can't help if you get hurt too.",
+        "First step of DRS: D for…?",
+        "Before helping someone who fell on a busy road, you'd make sure traffic isn't coming. That's the first step."
+      ],
+      "explain": "Danger first: make sure the area is safe for you before helping."
+    },
+    {
+      "q": "About how fast should chest compressions be?",
+      "options": [
+        "100–120 per minute",
+        "20–30 per minute",
+        "200–250 per minute"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's roughly 2 per second.",
+        "The lesson gave a range.",
+        "Many trainers use songs at about 100–120 beats per minute to keep the pace."
+      ],
+      "explain": "Push at 100–120 compressions per minute, about 2 per second."
+    },
+    {
+      "q": "Someone is unresponsive but breathing normally. What should you do?",
+      "options": [
+        "Put them in the recovery position and keep checking breathing",
+        "Start chest compressions",
+        "Leave them to rest alone"
+      ],
+      "answer": 0,
+      "hints": [
+        "CPR is for people who are NOT breathing normally.",
+        "How do you protect their airway while you wait?",
+        "If someone fainted but is breathing, you'd keep them safe and watch them, not start CPR."
+      ],
+      "explain": "If they're breathing normally, use the recovery position, call for help and keep monitoring their breathing."
+    }
+  ]
+}

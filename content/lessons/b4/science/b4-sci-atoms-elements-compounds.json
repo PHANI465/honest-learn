@@ -1,0 +1,108 @@
+{
+  "id": "b4-sci-atoms-elements-compounds",
+  "title": "Atoms, Elements and Compounds",
+  "band": "b4",
+  "subject": "science",
+  "outcomes": [
+    "b4-sci-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Atom",
+      "url": "https://en.wikipedia.org/wiki/Atom",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Chemical element",
+      "url": "https://en.wikipedia.org/wiki/Chemical_element",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Chemical compound",
+      "url": "https://en.wikipedia.org/wiki/Chemical_compound",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Chemistry 2e",
+      "url": "https://openstax.org/details/books/chemistry-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Everything is made of tiny particles called ATOMS. An atom has a nucleus (protons and neutrons) with electrons around it."
+    },
+    {
+      "type": "text",
+      "body": "An ELEMENT is a substance made of only one kind of atom, like oxygen (O), gold (Au) or carbon (C). The periodic table lists all 118 known elements."
+    },
+    {
+      "type": "text",
+      "body": "A COMPOUND forms when atoms of two or more DIFFERENT elements are chemically bonded together. Water (H₂O) is 2 hydrogen atoms bonded to 1 oxygen atom."
+    },
+    {
+      "type": "text",
+      "body": "A compound can be very different from its elements. Sodium is a reactive metal and chlorine is a poisonous gas, but together they make table salt (NaCl)."
+    },
+    {
+      "type": "text",
+      "body": "A MIXTURE is different: substances are mixed but not chemically bonded, like sand and water. You can often separate them by filtering."
+    },
+    {
+      "type": "fact",
+      "body": "Hydrogen is the most common element in the universe."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which of these is an ELEMENT?",
+      "options": [
+        "Oxygen (O)",
+        "Water (H₂O)",
+        "Salt (NaCl)"
+      ],
+      "answer": 0,
+      "hints": [
+        "An element has only one kind of atom.",
+        "Look at the chemical symbols. How many different letters (elements) does each have?",
+        "CO₂ has C and O, two elements, so it's a compound. Find the one with just one element."
+      ],
+      "explain": "Oxygen is made of only one kind of atom, so it's an element. Water and salt are compounds."
+    },
+    {
+      "q": "Why is water (H₂O) a compound?",
+      "options": [
+        "It has two different elements chemically bonded",
+        "It is a liquid",
+        "It is found in the ocean"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the definition of a compound.",
+        "What do H and O stand for?",
+        "Carbon dioxide (CO₂) is a compound because carbon and oxygen are bonded. Water is similar."
+      ],
+      "explain": "Water is hydrogen and oxygen atoms chemically bonded together. That makes it a compound."
+    },
+    {
+      "q": "Sand stirred into water is a…",
+      "options": [
+        "Mixture",
+        "Compound",
+        "Element"
+      ],
+      "answer": 0,
+      "hints": [
+        "Are the sand and water chemically bonded?",
+        "Can you separate them easily, for example by filtering?",
+        "Salad is lettuce and tomato mixed together. You can pick them apart. That's a…?"
+      ],
+      "explain": "Sand and water aren't bonded and can be separated by filtering, so it's a mixture."
+    }
+  ]
+}

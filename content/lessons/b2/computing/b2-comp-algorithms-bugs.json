@@ -1,0 +1,99 @@
+{
+  "id": "b2-comp-algorithms-bugs",
+  "title": "Algorithms and Bugs",
+  "band": "b2",
+  "subject": "computing",
+  "outcomes": [
+    "b2-comp-1",
+    "b2-comp-3"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Algorithm",
+      "url": "https://en.wikipedia.org/wiki/Algorithm",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Debugging",
+      "url": "https://en.wikipedia.org/wiki/Debugging",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "An ALGORITHM is a list of steps to do a job, like a recipe."
+    },
+    {
+      "type": "text",
+      "body": "Computers follow algorithms exactly. They can't guess what we mean!"
+    },
+    {
+      "type": "text",
+      "body": "A mistake in the steps is called a BUG. 🐞 Finding and fixing it is called DEBUGGING."
+    },
+    {
+      "type": "text",
+      "body": "Example: 'Brush teeth: 1. Rinse. 2. Brush. 3. Put toothpaste on brush.' The bug: step 3 should come before step 2!"
+    },
+    {
+      "type": "tryit",
+      "body": "Write an algorithm for making a glass of water. Ask someone to follow it exactly. Any bugs?"
+    },
+    {
+      "type": "parent",
+      "body": "Following instructions literally ('you said pick up the cup, not fill it!') makes this lesson memorable and funny."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "An algorithm is…",
+      "options": [
+        "A list of steps to do a job",
+        "A kind of animal",
+        "A computer screen"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a recipe.",
+        "It tells you what to do, in order.",
+        "A recipe for pancakes says: mix, pour, cook. What is a list of steps called?"
+      ],
+      "explain": "An algorithm is a list of steps, like a recipe."
+    },
+    {
+      "q": "A mistake in a program is called a…",
+      "options": [
+        "Bug",
+        "Byte",
+        "Button"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's also the name of a small creature.",
+        "Fixing it is called de-___-ing.",
+        "🐞 Fixing mistakes is called debugging. What's the mistake called?"
+      ],
+      "explain": "A mistake is called a bug. Fixing it is debugging."
+    },
+    {
+      "q": "'Put on shoes. Put on socks. Go outside.' What's the bug?",
+      "options": [
+        "Socks should come before shoes",
+        "Nothing is wrong",
+        "You shouldn't go outside"
+      ],
+      "answer": 0,
+      "hints": [
+        "Try doing the steps in that order.",
+        "Can socks go on over shoes?",
+        "'Eat the cake, then bake the cake' has the order wrong. This one has a similar bug."
+      ],
+      "explain": "The order is wrong: socks go on before shoes."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "b5-sci-newtons-laws",
+  "title": "Newton's Three Laws of Motion",
+  "band": "b5",
+  "subject": "science",
+  "outcomes": [
+    "b5-sci-3"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Newton's laws of motion",
+      "url": "https://en.wikipedia.org/wiki/Newton's_laws_of_motion",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax College Physics 2e",
+      "url": "https://openstax.org/details/books/college-physics-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "FIRST LAW (inertia): an object stays at rest, or keeps moving at a constant velocity, unless a net (unbalanced) force acts on it. That's why you lurch forward when a bus brakes suddenly."
+    },
+    {
+      "type": "text",
+      "body": "SECOND LAW: net force = mass × acceleration (F = ma). The same push accelerates a light object more than a heavy one. Force is measured in newtons (N)."
+    },
+    {
+      "type": "text",
+      "body": "THIRD LAW: for every action force there is an equal and opposite reaction force. When you push on a wall, the wall pushes back on you with the same force. Rockets push gas down, and the gas pushes the rocket up."
+    },
+    {
+      "type": "text",
+      "body": "The two forces in the third law act on DIFFERENT objects, which is why they don't cancel out."
+    },
+    {
+      "type": "fact",
+      "body": "Seatbelts work against the first law: they apply the force that stops your body when the car stops suddenly."
+    },
+    {
+      "type": "tryit",
+      "body": "Push a light box and a heavy box with the same effort. Which speeds up more? Which law explains it?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A net force of 20 N acts on a 4 kg object. What is its acceleration?",
+      "options": [
+        "5 m/s²",
+        "80 m/s²",
+        "0.2 m/s²"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use F = ma.",
+        "Rearrange to a = F ÷ m.",
+        "Example: 30 N on a 6 kg mass → a = 30 ÷ 6 = 5 m/s². Now do 20 N on 4 kg."
+      ],
+      "explain": "a = F ÷ m = 20 ÷ 4 = 5 m/s²."
+    },
+    {
+      "q": "You lurch forward when a bus suddenly brakes. Which law explains this?",
+      "options": [
+        "First law (inertia)",
+        "Second law (F = ma)",
+        "Third law (action–reaction)"
+      ],
+      "answer": 0,
+      "hints": [
+        "Your body was moving with the bus.",
+        "What does an object do if nothing stops it?",
+        "A ball on a smooth floor keeps rolling until friction stops it. Which law is that?"
+      ],
+      "explain": "Your body keeps moving forward (inertia) until a force, like a seatbelt, stops it. That's the first law."
+    },
+    {
+      "q": "A swimmer pushes backward on the water and moves forward. This is an example of…",
+      "options": [
+        "The third law",
+        "The first law",
+        "Gravity only"
+      ],
+      "answer": 0,
+      "hints": [
+        "Two forces, two objects.",
+        "The swimmer pushes on the water. What does the water do?",
+        "When you jump off a small boat, the boat moves backward. Which law pairs forces like that?"
+      ],
+      "explain": "The swimmer pushes the water back, and the water pushes the swimmer forward: equal and opposite forces (third law)."
+    }
+  ]
+}

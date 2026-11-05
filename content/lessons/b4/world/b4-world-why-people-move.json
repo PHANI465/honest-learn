@@ -1,0 +1,98 @@
+{
+  "id": "b4-world-why-people-move",
+  "title": "Why Do People Move? Migration",
+  "band": "b4",
+  "subject": "world",
+  "outcomes": [
+    "b4-world-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Human migration",
+      "url": "https://en.wikipedia.org/wiki/Human_migration",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Urbanization",
+      "url": "https://en.wikipedia.org/wiki/Urbanization",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Migration means people moving from one place to live in another, within a country or to another country. Humans have migrated throughout history."
+    },
+    {
+      "type": "text",
+      "body": "PUSH factors make people want to leave a place: few jobs, conflict, natural disasters, or lack of schools or healthcare."
+    },
+    {
+      "type": "text",
+      "body": "PULL factors attract people to a new place: jobs, safety, family already there, education or a better climate."
+    },
+    {
+      "type": "text",
+      "body": "URBANISATION is people moving from the countryside to cities. Today more than half of the world's people live in cities."
+    },
+    {
+      "type": "text",
+      "body": "Migration affects both places: new skills, cultures and foods arrive, and communities also have to adapt. People have different views about migration policy, and it's worth understanding the evidence behind each view."
+    },
+    {
+      "type": "tryit",
+      "body": "Ask an older relative: did your family ever move? What pushed or pulled them?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A factory opening in a city, offering many jobs, is a…",
+      "options": [
+        "Pull factor",
+        "Push factor",
+        "Neither"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does it make people want to LEAVE or COME?",
+        "Pull factors attract people to a place.",
+        "A drought in a farming village pushes people away. A new university in a town pulls students in."
+      ],
+      "explain": "Jobs attract people to the city, so it's a pull factor."
+    },
+    {
+      "q": "Which is a PUSH factor?",
+      "options": [
+        "A flood destroying homes",
+        "Good schools in a new town",
+        "Family living in another city"
+      ],
+      "answer": 0,
+      "hints": [
+        "Push factors make people leave.",
+        "Which option makes staying hard?",
+        "War in a region pushes people to leave for safety. Find the option that's similar."
+      ],
+      "explain": "A flood destroying homes forces people to leave. That's a push factor."
+    },
+    {
+      "q": "Urbanisation means…",
+      "options": [
+        "People moving from the countryside to cities",
+        "Building more farms",
+        "People moving to the countryside"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Urban' means city.",
+        "Which direction do people move?",
+        "'Rural' means countryside. 'Urban' means…?"
+      ],
+      "explain": "Urbanisation is the growth of cities as people move there from the countryside."
+    }
+  ]
+}

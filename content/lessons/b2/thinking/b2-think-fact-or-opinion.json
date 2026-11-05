@@ -1,0 +1,98 @@
+{
+  "id": "b2-think-fact-or-opinion",
+  "title": "Fact or Opinion?",
+  "band": "b2",
+  "subject": "thinking",
+  "outcomes": [
+    "b2-think-2"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Fact",
+      "url": "https://en.wikipedia.org/wiki/Fact",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Opinion",
+      "url": "https://en.wikipedia.org/wiki/Opinion",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A FACT is something we can check and prove is true. 'A week has seven days.'"
+    },
+    {
+      "type": "text",
+      "body": "An OPINION is what someone thinks or feels. 'Mondays are boring.' Others may disagree!"
+    },
+    {
+      "type": "text",
+      "body": "Clue words for opinions: best, worst, beautiful, boring, I think, I feel."
+    },
+    {
+      "type": "text",
+      "body": "Opinions are fine to have. But it's good to know when something is an opinion."
+    },
+    {
+      "type": "tryit",
+      "body": "Say one fact and one opinion about your favourite animal."
+    },
+    {
+      "type": "parent",
+      "body": "Model it during the day: 'That's my opinion, you might disagree!' This builds respect for different views."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a FACT?",
+      "options": [
+        "Dogs have four legs.",
+        "Dogs are the best pets.",
+        "Dogs are cuter than cats."
+      ],
+      "answer": 0,
+      "hints": [
+        "A fact can be checked.",
+        "Could someone disagree with it?",
+        "'The sun is hot' is a fact. 'Summer is the best season' is an opinion. Find the fact."
+      ],
+      "explain": "You can check that dogs have four legs. It's a fact."
+    },
+    {
+      "q": "Which is an OPINION?",
+      "options": [
+        "Football is the most fun sport.",
+        "A football is round.",
+        "Football is played with a ball."
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for clue words like 'most fun'.",
+        "Could someone disagree?",
+        "'Pizza is yummy' is an opinion. Some people don't like pizza!"
+      ],
+      "explain": "Some people prefer other sports, so 'most fun' is an opinion."
+    },
+    {
+      "q": "'I think spinach is yucky.' This is…",
+      "options": [
+        "An opinion",
+        "A fact",
+        "A question"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the first two words.",
+        "'I think' tells you it's what someone feels.",
+        "'I feel happy today' tells us about a feeling. Is that something we can prove?"
+      ],
+      "explain": "'I think' shows it's an opinion. Other people like spinach!"
+    }
+  ]
+}

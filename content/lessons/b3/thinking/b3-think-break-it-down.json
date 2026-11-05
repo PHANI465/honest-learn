@@ -1,0 +1,94 @@
+{
+  "id": "b3-think-break-it-down",
+  "title": "Break a Big Problem into Small Steps",
+  "band": "b3",
+  "subject": "thinking",
+  "outcomes": [
+    "b3-think-1"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Decomposition (computer science)",
+      "url": "https://en.wikipedia.org/wiki/Decomposition_(computer_science)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Problem solving",
+      "url": "https://en.wikipedia.org/wiki/Problem_solving",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Big problems can feel scary. A powerful trick is to break them into small steps. Programmers call this DECOMPOSITION."
+    },
+    {
+      "type": "text",
+      "body": "Example: 'Plan a class party' becomes: pick a date, make a guest list, choose food, plan games, clean up."
+    },
+    {
+      "type": "text",
+      "body": "Each small step is easier to solve. Then you put the pieces together."
+    },
+    {
+      "type": "text",
+      "body": "In math word problems: 1) What do I know? 2) What am I asked? 3) What steps get me there? 4) Does my answer make sense?"
+    },
+    {
+      "type": "tryit",
+      "body": "Pick a goal (like tidying your room or building a model). Break it into at least 5 small steps."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Breaking a big problem into smaller parts is called…",
+      "options": [
+        "Decomposition",
+        "Decoration",
+        "Delivery"
+      ],
+      "answer": 0,
+      "hints": [
+        "It starts with 'de-', meaning 'take apart'.",
+        "Programmers use this word.",
+        "'Compose' means put together. What word means take apart into pieces?"
+      ],
+      "explain": "Decomposition means breaking a big problem into smaller parts."
+    },
+    {
+      "q": "A shop sells 3 boxes, each with 12 pencils. 7 pencils are sold. How many are left? What's the FIRST step?",
+      "options": [
+        "Find the total: 3 × 12",
+        "Take 7 away from 3",
+        "Add 7 + 12"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do you need to know before you can take any away?",
+        "First work out how many pencils there are in total.",
+        "Example: 2 bags with 10 sweets each, eat 4. Step 1: 2 × 10 = 20. Step 2: 20 − 4."
+      ],
+      "explain": "First find the total (3 × 12 = 36). Then subtract the 7 sold: 29 are left."
+    },
+    {
+      "q": "Which is the best way to start a big school project?",
+      "options": [
+        "List the small tasks and plan when to do each",
+        "Do it all the night before",
+        "Wait until you feel like it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which way makes a big job feel smaller?",
+        "Think about decomposition.",
+        "Building a LEGO castle goes better if you sort the pieces and build one section at a time."
+      ],
+      "explain": "Listing small tasks and planning them makes a big project manageable."
+    }
+  ]
+}

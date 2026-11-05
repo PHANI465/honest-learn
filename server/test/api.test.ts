@@ -12,6 +12,7 @@ const { loadContent } = await import("../src/content.ts");
 const { createApp, CONSENT_VERSION, reviewIntervalDays } = await import("../src/app.ts");
 const { MockTutor, ClaudeTutor, precheck } = await import("../src/tutor.ts");
 const { bandForAge } = await import("../src/security.ts");
+const shuffleModule = await import("../src/shuffle.ts");
 const { WikiClient, lessonWikiTitle } = await import("../src/wiki.ts");
 
 /** Simulated Wikipedia: records requested URLs, knows two articles. */
@@ -152,14 +153,17 @@ describe("child profiles and lessons", () => {
 
   test("hint ladder, then explanation only after success or all hints", async () => {
     const path = `/children/${kid}/lessons/b3-math-comparing-fractions`;
+    const shown = (await call("GET", path, undefined, fam)).json.lesson;
+    const pos = (qi: number, text: string) => shown.quiz[qi].options.indexOf(text);
     const h = await call("POST", `${path}/hint`, { question: 2, level: 0 }, fam);
     assert.match(h.json.hint, /denominators/);
-    const wrong = await call("POST", `${path}/check`, { question: 2, choice: 1, hintsUsed: 1 }, fam);
+    const wrong = await call("POST", `${path}/check`, { question: 2, choice: pos(2, "3/4"), hintsUsed: 1 }, fam);
     assert.deepEqual(wrong.json, { correct: false, explain: null, answer: null });
-    const tried = await call("POST", `${path}/check`, { question: 2, choice: 1, hintsUsed: 3 }, fam);
-    assert.equal(tried.json.answer, 0);
+    const tried = await call("POST", `${path}/check`, { question: 2, choice: pos(2, "3/4"), hintsUsed: 3 }, fam);
+    assert.equal(tried.json.answer, pos(2, "5/6"), "the revealed answer is the on-screen position");
     assert.ok(tried.json.explain);
-    const right = await call("POST", `${path}/check`, { question: 0, choice: 0, hintsUsed: 0 }, fam);
+    assert.equal((await call("POST", `${path}/check`, { question: 0, choice: 9, hintsUsed: 0 }, fam)).status, 400);
+    const right = await call("POST", `${path}/check`, { question: 0, choice: pos(0, "4/5"), hintsUsed: 0 }, fam);
     assert.equal(right.json.correct, true);
     const lesson = await call("GET", path, undefined, fam);
     assert.deepEqual(lesson.json.solved, [0]);
@@ -167,10 +171,13 @@ describe("child profiles and lessons", () => {
 
   test("completing a lesson records the best score and a review date", async () => {
     const path = `/children/${kid}/lessons/b3-sci-water-cycle/complete`;
+    const shown = (await call("GET", `/children/${kid}/lessons/b3-sci-water-cycle`, undefined, fam)).json.lesson;
+    const right = ["Heat from the Sun", "Cools and condenses into droplets", "Precipitation"].map((t, i) => shown.quiz[i].options.indexOf(t));
+    const wrong1 = shown.quiz[1].options.findIndex((o: string) => o !== "Cools and condenses into droplets");
     assert.equal((await call("POST", path, { choices: [0] }, fam)).status, 400);
-    const first = await call("POST", path, { choices: [0, 1, 0] }, fam);
+    const first = await call("POST", path, { choices: [right[0], wrong1, right[2]] }, fam);
     assert.equal(first.json.score, 2);
-    const second = await call("POST", path, { choices: [0, 0, 0] }, fam);
+    const second = await call("POST", path, { choices: right }, fam);
     assert.equal(second.json.best, 3);
     const home = await call("GET", `/children/${kid}/home`, undefined, fam);
     assert.equal(home.json.subjects.find((s: any) => s.id === "science").completed, 1);
@@ -427,6 +434,33 @@ describe("family data rights", () => {
     assert.ok(!JSON.stringify(ex.json).includes("scrypt$"), "hashes are never exported");
     assert.equal((await call("DELETE", "/parent/account", undefined, par)).status, 200);
     assert.equal((await call("GET", "/family", undefined, fam)).status, 401);
+  });
+});
+
+describe("answer shuffling", () => {
+  const { optionOrder } = shuffleModule;
+  test("each child gets a stable, child-specific order, and right answers aren't always first", () => {
+    assert.deepEqual(optionOrder("kid-a", "l1", 0, 3), optionOrder("kid-a", "l1", 0, 3), "stable for the same child");
+    const firstPositions = new Set<number>();
+    let differs = false;
+    for (let i = 0; i < 30; i++) {
+      const a = optionOrder("kid-a", "lesson", i, 3);
+      const b = optionOrder("kid-b", "lesson", i, 3);
+      assert.deepEqual([...a].sort(), [0, 1, 2], "a permutation");
+      firstPositions.add(a.indexOf(0));
+      if (a.join() !== b.join()) differs = true;
+    }
+    assert.equal(firstPositions.size, 3, "the correct answer (original index 0) lands in every position");
+    assert.ok(differs, "different children see different orders");
+  });
+
+  test("shuffled lessons still contain exactly the authored options", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).json.child.id;
+    const shown = (await call("GET", `/children/${kid}/lessons/b3-math-comparing-fractions`, undefined, fam)).json.lesson;
+    const authored = content.lessons.get("b3-math-comparing-fractions")!.quiz;
+    for (let i = 0; i < authored.length; i++) assert.deepEqual([...shown.quiz[i].options].sort(), [...authored[i]!.options].sort());
   });
 });
 

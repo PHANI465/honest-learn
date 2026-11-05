@@ -1,0 +1,103 @@
+{
+  "id": "b5-comp-binary-search",
+  "title": "Searching Smart: Binary Search",
+  "band": "b5",
+  "subject": "computing",
+  "outcomes": [
+    "b5-comp-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Binary search",
+      "url": "https://en.wikipedia.org/wiki/Binary_search",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Linear search",
+      "url": "https://en.wikipedia.org/wiki/Linear_search",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Big O notation",
+      "url": "https://en.wikipedia.org/wiki/Big_O_notation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "LINEAR SEARCH checks items one by one. For a list of n items it may take up to n checks. Fine for small lists, slow for huge ones."
+    },
+    {
+      "type": "text",
+      "body": "BINARY SEARCH works on a SORTED list. Check the middle item. If the target is smaller, discard the right half. If bigger, discard the left half. Repeat."
+    },
+    {
+      "type": "text",
+      "body": "Each step halves the list, so 1,000,000 sorted items need at most about 20 checks (2²⁰ ≈ 1,000,000). Linear search could need a million."
+    },
+    {
+      "type": "text",
+      "body": "Computer scientists describe this with Big-O notation: linear search is O(n); binary search is O(log n)."
+    },
+    {
+      "type": "fact",
+      "body": "You use binary search when you guess a number between 1 and 100 by always guessing the middle: at most 7 guesses."
+    },
+    {
+      "type": "tryit",
+      "body": "Write a binary search in Python or JavaScript. Test it on a sorted list of 20 numbers and count the steps."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What must be true about a list before you can use binary search?",
+      "options": [
+        "It must be sorted",
+        "It must have an even length",
+        "It must contain only numbers"
+      ],
+      "answer": 0,
+      "hints": [
+        "Binary search throws away half the list each step.",
+        "How can you know which half to discard?",
+        "In a dictionary you can jump to the middle and go left or right because words are in alphabetical order. What's the requirement?"
+      ],
+      "explain": "The list must be sorted, otherwise you can't tell which half could contain the target."
+    },
+    {
+      "q": "About how many checks does binary search need at most for 1,000 sorted items?",
+      "options": [
+        "About 10",
+        "About 500",
+        "About 1,000"
+      ],
+      "answer": 0,
+      "hints": [
+        "Each check halves the list.",
+        "How many times can you halve 1,000 before reaching 1?",
+        "For 16 items: 16→8→4→2→1 is 4 halvings. 2¹⁰ = 1,024."
+      ],
+      "explain": "2¹⁰ ≈ 1,000, so about 10 checks."
+    },
+    {
+      "q": "Guessing a number from 1 to 100, which strategy finds it in the fewest guesses?",
+      "options": [
+        "Always guess the middle of the remaining range",
+        "Guess 1, 2, 3… in order",
+        "Guess randomly"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which strategy rules out the most numbers each time?",
+        "Think about halving.",
+        "With 1–8, guessing 4 then 6 then 7 finds any number in 3 guesses. What's the pattern?"
+      ],
+      "explain": "Guessing the middle halves the range every time. That's binary search: at most 7 guesses for 1–100."
+    }
+  ]
+}

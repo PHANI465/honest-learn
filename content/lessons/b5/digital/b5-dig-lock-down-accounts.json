@@ -1,0 +1,99 @@
+{
+  "id": "b5-dig-lock-down-accounts",
+  "title": "Locking Down Your Accounts",
+  "band": "b5",
+  "subject": "digital",
+  "outcomes": [
+    "b5-dig-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Multi-factor authentication",
+      "url": "https://en.wikipedia.org/wiki/Multi-factor_authentication",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Phishing",
+      "url": "https://en.wikipedia.org/wiki/Phishing",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Password manager",
+      "url": "https://en.wikipedia.org/wiki/Password_manager",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Most account hacks don't need genius hackers. They use reused passwords, phishing and missing two-factor authentication."
+    },
+    {
+      "type": "text",
+      "body": "Use a different strong password for every important account. A password manager can create and remember them. A long passphrase (4+ random words) is strong and memorable."
+    },
+    {
+      "type": "text",
+      "body": "TWO-FACTOR AUTHENTICATION (2FA) adds a second step: something you have (an app code or security key) on top of something you know (your password). Even if your password leaks, the attacker usually can't log in."
+    },
+    {
+      "type": "text",
+      "body": "PHISHING: fake messages that trick you into giving passwords or codes. Red flags: urgency, odd sender addresses, links to look-alike sites, requests for codes."
+    },
+    {
+      "type": "text",
+      "body": "NEVER share a 2FA code. No real company will ask you for one. Set up recovery options (backup codes, a recovery email) before you need them."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Someone texts: 'I'm from support, I need the 6-digit code we just sent you to fix your account.' You should…",
+      "options": [
+        "Never share the code",
+        "Share it, they're support",
+        "Share half of it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Who should ever know your 2FA code?",
+        "Why would an attacker want the code?",
+        "A bank never asks for your PIN over the phone. 2FA codes are just as private."
+      ],
+      "explain": "Never share a 2FA code. Real support teams will never ask for it. This is a classic account-takeover trick."
+    },
+    {
+      "q": "Why is reusing one password on many sites risky?",
+      "options": [
+        "If one site leaks it, attackers try it everywhere",
+        "Websites don't allow it",
+        "It makes passwords too long"
+      ],
+      "answer": 0,
+      "hints": [
+        "Data breaches happen often.",
+        "What would an attacker do with a leaked password?",
+        "If one key opened your house, car and locker, losing it once would open everything."
+      ],
+      "explain": "Leaked passwords get tried on other sites ('credential stuffing'). Unique passwords stop one leak spreading."
+    },
+    {
+      "q": "What makes 2FA protective?",
+      "options": [
+        "It needs something you have, not just something you know",
+        "It makes your password longer",
+        "It hides your username"
+      ],
+      "answer": 0,
+      "hints": [
+        "What's the second factor?",
+        "A password is something you know. The code comes from…?",
+        "A cash machine needs your card (have) AND your PIN (know). Why is that safer than a PIN alone?"
+      ],
+      "explain": "2FA needs something you have (a phone or key) as well as your password, so a stolen password alone isn't enough."
+    }
+  ]
+}

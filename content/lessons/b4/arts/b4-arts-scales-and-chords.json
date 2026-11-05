@@ -1,0 +1,103 @@
+{
+  "id": "b4-arts-scales-and-chords",
+  "title": "Scales and Chords",
+  "band": "b4",
+  "subject": "arts",
+  "outcomes": [
+    "b4-arts-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Major scale",
+      "url": "https://en.wikipedia.org/wiki/Major_scale",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Chord (music)",
+      "url": "https://en.wikipedia.org/wiki/Chord_(music)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Triad (music)",
+      "url": "https://en.wikipedia.org/wiki/Triad_(music)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A SCALE is a set of notes in order, going up or down. The C major scale uses only the white keys on a piano: C D E F G A B C."
+    },
+    {
+      "type": "text",
+      "body": "MELODY is a sequence of single notes, the part you can hum. HARMONY is notes played at the same time to support the melody."
+    },
+    {
+      "type": "text",
+      "body": "A CHORD is three or more notes played together. The most common is a triad: the 1st, 3rd and 5th notes of a scale."
+    },
+    {
+      "type": "text",
+      "body": "C major chord = C, E and G (notes 1, 3 and 5 of the C major scale). Major chords often sound bright; minor chords often sound sadder."
+    },
+    {
+      "type": "fact",
+      "body": "Many popular songs use just four chords, repeated in different patterns."
+    },
+    {
+      "type": "tryit",
+      "body": "On a free online piano, play C–E–G together, then A–C–E (A minor). How does each sound?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which notes make a C major chord?",
+      "options": [
+        "C, E, G",
+        "C, D, E",
+        "C, F, B"
+      ],
+      "answer": 0,
+      "hints": [
+        "A triad uses notes 1, 3 and 5 of the scale.",
+        "C major scale: C(1) D(2) E(3) F(4) G(5)…",
+        "G major scale: G A B C D… Notes 1, 3, 5 are G, B, D. Use the same pattern for C."
+      ],
+      "explain": "Notes 1, 3 and 5 of the C major scale are C, E and G."
+    },
+    {
+      "q": "Playing three or more notes at the same time makes a…",
+      "options": [
+        "Chord",
+        "Scale",
+        "Melody"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it notes in order, or at the same time?",
+        "A scale is notes one after another.",
+        "A melody is one note at a time, like singing. Notes together are a…?"
+      ],
+      "explain": "Three or more notes played together make a chord."
+    },
+    {
+      "q": "The part of a song you can hum is the…",
+      "options": [
+        "Melody",
+        "Harmony",
+        "Tempo"
+      ],
+      "answer": 0,
+      "hints": [
+        "Humming is one note at a time.",
+        "Harmony supports it from underneath.",
+        "When you whistle a tune, you're whistling its…?"
+      ],
+      "explain": "The melody is the tune: single notes you can hum or sing."
+    }
+  ]
+}

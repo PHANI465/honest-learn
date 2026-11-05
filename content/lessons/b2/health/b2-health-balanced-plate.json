@@ -1,0 +1,98 @@
+{
+  "id": "b2-health-balanced-plate",
+  "title": "A Balanced Plate",
+  "band": "b2",
+  "subject": "health",
+  "outcomes": [
+    "b2-health-1"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "WHO: Healthy diet fact sheet",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+      "license": "Reference only; text is original"
+    },
+    {
+      "title": "Wikipedia: Healthy diet",
+      "url": "https://en.wikipedia.org/wiki/Healthy_diet",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Food gives your body energy to grow, play and think."
+    },
+    {
+      "type": "text",
+      "body": "A balanced plate has lots of fruit and vegetables. About half the plate! 🥕🍎"
+    },
+    {
+      "type": "text",
+      "body": "It also has grains like rice, bread or roti 🍚, and protein like beans, eggs, fish or meat 🥚."
+    },
+    {
+      "type": "text",
+      "body": "Water is the best drink. Sweets and fizzy drinks are 'sometimes' foods."
+    },
+    {
+      "type": "tryit",
+      "body": "Draw your dinner plate. Is half of it fruit and vegetables?"
+    },
+    {
+      "type": "parent",
+      "body": "Families eat in many ways (vegetarian, halal, kosher and more). Every way can be balanced. Avoid calling foods 'bad'; 'sometimes foods' is kinder and more accurate."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "About how much of a balanced plate should be fruit and vegetables?",
+      "options": [
+        "About half",
+        "None",
+        "Just one pea"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look back at the lesson.",
+        "It's a big part of the plate.",
+        "If a pizza is cut in 2 equal parts, each part is a half. How much plate do fruit and veggies get?"
+      ],
+      "explain": "About half the plate should be fruit and vegetables."
+    },
+    {
+      "q": "What is the best drink for your body?",
+      "options": [
+        "Water",
+        "Fizzy drink",
+        "Milkshake"
+      ],
+      "answer": 0,
+      "hints": [
+        "It has no sugar.",
+        "It comes from the tap or a bottle and is clear.",
+        "Plants need it to grow, and so do you!"
+      ],
+      "explain": "Water is the best drink. It has no sugar."
+    },
+    {
+      "q": "Which food gives protein?",
+      "options": [
+        "Beans",
+        "Lollipop",
+        "Ice lolly"
+      ],
+      "answer": 0,
+      "hints": [
+        "Protein helps your muscles grow.",
+        "Eggs, fish and beans are in this group.",
+        "The lesson lists beans, eggs, fish or meat as protein foods. Which one is here?"
+      ],
+      "explain": "Beans have lots of protein."
+    }
+  ]
+}

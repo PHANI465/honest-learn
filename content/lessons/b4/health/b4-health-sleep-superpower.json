@@ -1,0 +1,98 @@
+{
+  "id": "b4-health-sleep-superpower",
+  "title": "Sleep: Your Brain's Superpower",
+  "band": "b4",
+  "subject": "health",
+  "outcomes": [
+    "b4-health-2"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sleep",
+      "url": "https://en.wikipedia.org/wiki/Sleep",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Sleep hygiene",
+      "url": "https://en.wikipedia.org/wiki/Sleep_hygiene",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "While you sleep, your brain stores what you learned that day, your body repairs itself, and you grow."
+    },
+    {
+      "type": "text",
+      "body": "Sleep experts recommend 9–12 hours a night for ages 6–12, and 8–10 hours for teenagers. Many teens get much less."
+    },
+    {
+      "type": "text",
+      "body": "Too little sleep can make it harder to focus, remember things and control your mood. It can also affect your health."
+    },
+    {
+      "type": "text",
+      "body": "Teen body clocks naturally shift later, so feeling awake at night is normal. Good habits help: a regular bedtime, a dark, cool room, and no screens for 30–60 minutes before bed."
+    },
+    {
+      "type": "fact",
+      "body": "Bright screens late at night can make it harder to fall asleep. Notifications keep your brain alert too."
+    },
+    {
+      "type": "tryit",
+      "body": "Keep a sleep diary for a week: bedtime, wake time and how you feel. Do you see a pattern?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How much sleep do sleep experts recommend for teenagers?",
+      "options": [
+        "8–10 hours a night",
+        "4–5 hours a night",
+        "12–14 hours a night"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look back at the recommendations.",
+        "Ages 6–12 need 9–12 hours. Teens need a bit less, but not much less.",
+        "If younger kids need 9–12 hours, would teens need only half that?"
+      ],
+      "explain": "Sleep experts recommend 8–10 hours a night for teenagers."
+    },
+    {
+      "q": "Which habit helps you fall asleep?",
+      "options": [
+        "Putting screens away before bed",
+        "Scrolling videos in bed",
+        "Energy drinks in the evening"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what keeps your brain alert.",
+        "Screens and caffeine both keep you awake.",
+        "A dark, quiet room helps you sleep. Which choice is similar?"
+      ],
+      "explain": "Putting screens away before bed helps your brain wind down."
+    },
+    {
+      "q": "Why does sleep help learning?",
+      "options": [
+        "Your brain stores what you learned while you sleep",
+        "Sleeping means you don't need to study",
+        "It doesn't help"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does the brain do at night?",
+        "The lesson mentions memory.",
+        "If you practise piano and then sleep well, you often play better the next day. Why?"
+      ],
+      "explain": "During sleep your brain stores and strengthens what you learned."
+    }
+  ]
+}

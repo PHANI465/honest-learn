@@ -1,0 +1,102 @@
+{
+  "id": "b2-world-continents-oceans",
+  "title": "Continents and Oceans",
+  "band": "b2",
+  "subject": "world",
+  "outcomes": [
+    "b2-world-1"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Continent",
+      "url": "https://en.wikipedia.org/wiki/Continent",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Ocean",
+      "url": "https://en.wikipedia.org/wiki/Ocean",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Earth's land is split into big pieces called continents. Most maps show seven."
+    },
+    {
+      "type": "text",
+      "body": "The seven continents are: Africa, Antarctica, Asia, Australia (part of Oceania), Europe, North America and South America."
+    },
+    {
+      "type": "fact",
+      "body": "Some countries teach six continents, joining North and South America, or Europe and Asia. Both ways are OK!"
+    },
+    {
+      "type": "text",
+      "body": "Asia is the biggest continent. Antarctica is the coldest. Almost nobody lives there all year."
+    },
+    {
+      "type": "text",
+      "body": "The five oceans are: Pacific, Atlantic, Indian, Southern and Arctic. The Pacific is the biggest."
+    },
+    {
+      "type": "tryit",
+      "body": "Find your continent on a map or globe. Which ocean is closest to you?"
+    },
+    {
+      "type": "parent",
+      "body": "A cheap globe or a free online map makes this concrete. Find where family or friends live."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is the BIGGEST ocean?",
+      "options": [
+        "Pacific",
+        "Arctic",
+        "Indian"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look back at the ocean paragraph.",
+        "Its name sounds like 'peaceful'.",
+        "Asia is the biggest continent. The lesson also says which ocean is biggest."
+      ],
+      "explain": "The Pacific Ocean is the biggest."
+    },
+    {
+      "q": "Which continent is the coldest?",
+      "options": [
+        "Antarctica",
+        "Africa",
+        "Asia"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's near the South Pole.",
+        "Almost nobody lives there all year.",
+        "Penguins live at the bottom of the world on a continent that is ice. What is it called?"
+      ],
+      "explain": "Antarctica is covered in ice. It's the coldest continent."
+    },
+    {
+      "q": "Which one is a continent, not an ocean?",
+      "options": [
+        "Africa",
+        "Atlantic",
+        "Indian"
+      ],
+      "answer": 0,
+      "hints": [
+        "Two of these are oceans.",
+        "Oceans are water. Continents are land.",
+        "'Arctic' is an ocean, but 'Europe' is land. Which one here is land?"
+      ],
+      "explain": "Africa is a continent, a big piece of land."
+    }
+  ]
+}

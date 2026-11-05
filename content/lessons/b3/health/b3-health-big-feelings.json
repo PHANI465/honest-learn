@@ -1,0 +1,103 @@
+{
+  "id": "b3-health-big-feelings",
+  "title": "Handling Big Feelings and Stress",
+  "band": "b3",
+  "subject": "health",
+  "outcomes": [
+    "b3-health-4",
+    "b3-health-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Stress management",
+      "url": "https://en.wikipedia.org/wiki/Stress_management",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "KidsHealth: Stress",
+      "url": "https://kidshealth.org/en/kids/stress.html",
+      "license": "Reference only; text is original"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Everyone feels stressed, worried or angry sometimes. Feelings aren't bad. They're signals from your body and brain."
+    },
+    {
+      "type": "text",
+      "body": "Stress can show up in your body: a fast heartbeat, a tummy ache, tight shoulders or trouble sleeping."
+    },
+    {
+      "type": "text",
+      "body": "Calm-down tools: slow breathing (in for 4, out for 6), moving your body, drawing or writing, going somewhere quiet, or a hug."
+    },
+    {
+      "type": "text",
+      "body": "Talking helps! Tell a parent, teacher or friend what's on your mind. Big problems feel smaller when you share them."
+    },
+    {
+      "type": "fact",
+      "body": "Breathing out slowly helps your body calm down."
+    },
+    {
+      "type": "text",
+      "body": "If worries don't go away, or you ever feel unsafe, tell a trusted adult. Getting help is brave, not weak."
+    },
+    {
+      "type": "tryit",
+      "body": "Try 'box breathing': breathe in for 4, hold for 4, out for 4, hold for 4. Do it 4 times. How do you feel?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a healthy way to calm down when you're angry?",
+      "options": [
+        "Take slow, deep breaths",
+        "Throw something",
+        "Keep it all inside forever"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which choice doesn't hurt anyone, including you?",
+        "Think about the calm-down tools in the lesson.",
+        "When you're worried about a test, going for a walk can help. That's a healthy tool. Find one like that."
+      ],
+      "explain": "Slow breathing helps your body calm down, and it doesn't hurt anyone."
+    },
+    {
+      "q": "Which can be a sign of stress in your body?",
+      "options": [
+        "A fast heartbeat or tummy ache",
+        "Growing taller",
+        "Feeling hungry at lunchtime"
+      ],
+      "answer": 0,
+      "hints": [
+        "Stress can show up in your body, not just your mind.",
+        "The lesson listed a few body signals.",
+        "Feeling hot when you have a fever is a body signal. Stress has signals too. Which option is one?"
+      ],
+      "explain": "Stress can make your heart beat fast or give you a tummy ache."
+    },
+    {
+      "q": "A worry has been bothering you for weeks. What's the best thing to do?",
+      "options": [
+        "Talk to a trusted adult",
+        "Ignore it and hope it goes away",
+        "Only search online about it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Who can help you with big problems?",
+        "Sharing makes problems feel smaller.",
+        "If your bike had a broken chain for weeks, you'd ask someone who can help fix it. Worries are similar."
+      ],
+      "explain": "Telling a trusted adult is brave and helps. You don't have to handle big worries alone."
+    }
+  ]
+}

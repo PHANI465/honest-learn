@@ -1,0 +1,99 @@
+{
+  "id": "b3-lang-main-idea",
+  "title": "Finding the Main Idea",
+  "band": "b3",
+  "subject": "language",
+  "outcomes": [
+    "b3-lang-1",
+    "b3-lang-2"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Reading comprehension",
+      "url": "https://en.wikipedia.org/wiki/Reading_comprehension",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Topic sentence",
+      "url": "https://en.wikipedia.org/wiki/Topic_sentence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The MAIN IDEA is what a paragraph is mostly about. The other sentences are DETAILS that support it."
+    },
+    {
+      "type": "text",
+      "body": "The main idea is often in the first sentence (the topic sentence), but not always. Sometimes it's at the end, or not written at all."
+    },
+    {
+      "type": "text",
+      "body": "Test: ask 'What is this mostly about?' Then check: do most sentences support your answer?"
+    },
+    {
+      "type": "fact",
+      "body": "Example: 'Octopuses are amazing escape artists. They can squeeze through tiny gaps. They change colour to hide. Some even squirt ink.' Main idea: octopuses are good at escaping. Everything else is a detail."
+    },
+    {
+      "type": "text",
+      "body": "An INFERENCE is working out something the writer doesn't say directly, using clues in the text."
+    },
+    {
+      "type": "tryit",
+      "body": "Pick a paragraph from any book. Write its main idea in 10 words or fewer."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "'Bees are important for farming. They carry pollen between flowers. This helps fruit and vegetables grow. Without bees, many crops would struggle.' What is the main idea?",
+      "options": [
+        "Bees are important for growing food",
+        "Bees carry pollen",
+        "Flowers are colourful"
+      ],
+      "answer": 0,
+      "hints": [
+        "What is the paragraph MOSTLY about?",
+        "One option is just a detail that supports the big idea.",
+        "In the octopus example, 'they change colour' was a detail and 'octopuses are good at escaping' was the main idea."
+      ],
+      "explain": "Every sentence supports one idea: bees matter for growing food. 'Carrying pollen' is a supporting detail."
+    },
+    {
+      "q": "Which sentence is a DETAIL, not a main idea? Paragraph: 'Recycling helps the planet. It saves energy. It reduces rubbish in landfills.'",
+      "options": [
+        "It saves energy.",
+        "Recycling helps the planet.",
+        "None of them"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which sentence do the others support?",
+        "Two sentences give reasons. One sentence is the big claim.",
+        "In 'Exercise is good for you. It makes your heart stronger.', the second sentence is a detail."
+      ],
+      "explain": "'It saves energy' is one reason that supports the main idea: recycling helps the planet."
+    },
+    {
+      "q": "'Maya looked at the dark clouds and grabbed her umbrella.' What can you INFER?",
+      "options": [
+        "Maya thinks it may rain",
+        "Maya is going swimming",
+        "It is sunny"
+      ],
+      "answer": 0,
+      "hints": [
+        "What clue does the writer give?",
+        "Why do people carry umbrellas?",
+        "'Tom yawned and rubbed his eyes.' We can infer Tom is tired, even though it doesn't say so. Use the clues the same way."
+      ],
+      "explain": "Dark clouds plus an umbrella are clues that Maya expects rain, even though the text doesn't say it."
+    }
+  ]
+}

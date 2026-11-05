@@ -1,0 +1,98 @@
+{
+  "id": "b3-arts-warm-cool-colours",
+  "title": "Warm and Cool Colours",
+  "band": "b3",
+  "subject": "arts",
+  "outcomes": [
+    "b3-arts-1"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Color wheel",
+      "url": "https://en.wikipedia.org/wiki/Color_wheel",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Complementary colors",
+      "url": "https://en.wikipedia.org/wiki/Complementary_colors",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Artists arrange colours on a circle called a COLOUR WHEEL."
+    },
+    {
+      "type": "text",
+      "body": "WARM colours are reds, oranges and yellows. They can feel energetic, sunny or fiery."
+    },
+    {
+      "type": "text",
+      "body": "COOL colours are blues, greens and purples. They can feel calm, peaceful or cold."
+    },
+    {
+      "type": "text",
+      "body": "COMPLEMENTARY colours sit opposite each other on the wheel, like blue and orange. Side by side, they make each other 'pop'."
+    },
+    {
+      "type": "fact",
+      "body": "Artists use warm and cool colours to create mood. A painting of a cosy fire uses warm colours. A winter night uses cool ones."
+    },
+    {
+      "type": "tryit",
+      "body": "Draw the same tree twice: once in warm colours and once in cool colours. How does each one feel?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a COOL colour?",
+      "options": [
+        "Blue",
+        "Orange",
+        "Red"
+      ],
+      "answer": 0,
+      "hints": [
+        "Cool colours remind us of water and ice.",
+        "Think of the sea and the sky.",
+        "Warm colours are like fire and the sun. Find the colour that's like water instead."
+      ],
+      "explain": "Blue is a cool colour, like water and ice."
+    },
+    {
+      "q": "What are complementary colours?",
+      "options": [
+        "Colours opposite each other on the colour wheel",
+        "Colours that are exactly the same",
+        "Only black and white"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Complementary' colours make each other stand out.",
+        "Think about where they sit on the wheel.",
+        "Red and green sit opposite each other, and they make each other pop. What's the rule?"
+      ],
+      "explain": "Complementary colours are opposite each other on the colour wheel, like blue and orange."
+    },
+    {
+      "q": "An artist wants a painting to feel calm and peaceful. Which colours fit best?",
+      "options": [
+        "Blues and greens",
+        "Bright reds and oranges",
+        "Only neon yellow"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which colour group feels calm?",
+        "Warm colours feel energetic. Cool colours feel…?",
+        "A sunset scene often uses warm colours to feel glowing. For a peaceful lake, which group?"
+      ],
+      "explain": "Cool colours like blues and greens feel calm and peaceful."
+    }
+  ]
+}

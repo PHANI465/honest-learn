@@ -1,0 +1,76 @@
+{
+  "id": "b1-dig-ask-first",
+  "title": "Ask a Grown-Up First",
+  "band": "b1",
+  "subject": "digital",
+  "outcomes": [
+    "b1-dig-1",
+    "b1-dig-2",
+    "b1-dig-3"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Screen time",
+      "url": "https://en.wikipedia.org/wiki/Screen_time",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Tablets and phones can be fun! 📱"
+    },
+    {
+      "type": "text",
+      "body": "Before you tap something new, ask a grown-up. 🙋"
+    },
+    {
+      "type": "text",
+      "body": "If something makes you scared or sad, tell a grown-up right away. 💛"
+    },
+    {
+      "type": "text",
+      "body": "Screens need a rest too. When time is up, we stop and play! ⚽"
+    },
+    {
+      "type": "parent",
+      "body": "Keep devices in shared spaces and use them together at this age. Praise your child every time they come to you, so telling you becomes a habit."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A new game pops up on the tablet. What do you do?",
+      "options": [
+        "Ask a grown-up 🙋",
+        "Tap it quickly",
+        "Hide the tablet"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is this game new or one you know?",
+        "Who helps you decide what is safe?",
+        "When you want to cross the road, you hold a grown-up's hand. New things on a screen are the same."
+      ],
+      "explain": "Always ask a grown-up first! 🙋"
+    },
+    {
+      "q": "Screen time is over. What do you do?",
+      "options": [
+        "Stop and go play ⚽",
+        "Keep watching",
+        "Cry and shout"
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens when the timer rings?",
+        "Screens need a rest, and so do your eyes.",
+        "When bath time is over, we get out of the bath. When screen time is over…?"
+      ],
+      "explain": "Great choice! Time to play! ⚽"
+    }
+  ]
+}

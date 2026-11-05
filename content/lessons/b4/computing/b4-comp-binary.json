@@ -1,0 +1,98 @@
+{
+  "id": "b4-comp-binary",
+  "title": "Binary: How Computers Count",
+  "band": "b4",
+  "subject": "computing",
+  "outcomes": [
+    "b4-comp-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Binary number",
+      "url": "https://en.wikipedia.org/wiki/Binary_number",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Bit",
+      "url": "https://en.wikipedia.org/wiki/Bit",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Computers store everything (numbers, text, photos, music) using just two digits: 0 and 1. This is BINARY."
+    },
+    {
+      "type": "text",
+      "body": "Each 0 or 1 is a BIT. 8 bits make a BYTE."
+    },
+    {
+      "type": "text",
+      "body": "In our normal (decimal) system, columns are worth 1, 10, 100… In binary, columns are worth 1, 2, 4, 8, 16… (each double the last)."
+    },
+    {
+      "type": "text",
+      "body": "Binary 1011 = 8 + 0 + 2 + 1 = 11. Add up the column values where there's a 1."
+    },
+    {
+      "type": "fact",
+      "body": "With 8 bits you can make 256 different patterns (0 to 255). That's why many old games had limits of 255!"
+    },
+    {
+      "type": "tryit",
+      "body": "Use 4 cards marked 8, 4, 2, 1. Turn cards face up to make every number from 0 to 15."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is binary 110 in decimal?",
+      "options": [
+        "6",
+        "110",
+        "3"
+      ],
+      "answer": 0,
+      "hints": [
+        "Columns from the right are worth 1, 2, 4.",
+        "Add the values where there's a 1.",
+        "Binary 101 = 4 + 0 + 1 = 5. Use the same method for 110."
+      ],
+      "explain": "110 = 4 + 2 + 0 = 6."
+    },
+    {
+      "q": "How many bits are in a byte?",
+      "options": [
+        "8",
+        "2",
+        "10"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's a power of 2.",
+        "It's the number of legs on a spider.",
+        "4 bits is sometimes called a 'nibble' (half a byte). So a byte is…?"
+      ],
+      "explain": "A byte is 8 bits."
+    },
+    {
+      "q": "What is decimal 9 in binary?",
+      "options": [
+        "1001",
+        "1100",
+        "0111"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which column values (8, 4, 2, 1) add up to 9?",
+        "Start with the biggest that fits: 8. What's left?",
+        "Decimal 5 = 4 + 1 → 0101. Do the same for 9."
+      ],
+      "explain": "9 = 8 + 1 → 1001."
+    }
+  ]
+}

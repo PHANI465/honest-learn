@@ -1,0 +1,99 @@
+{
+  "id": "b2-money-needs-wants",
+  "title": "Needs and Wants",
+  "band": "b2",
+  "subject": "money",
+  "outcomes": [
+    "b2-money-2",
+    "b2-money-3"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Need",
+      "url": "https://en.wikipedia.org/wiki/Need",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Saving",
+      "url": "https://en.wikipedia.org/wiki/Saving",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A NEED is something we must have to live and be safe: food, water, a home, clothes."
+    },
+    {
+      "type": "text",
+      "body": "A WANT is something nice to have, but we can live without it: toys, sweets, games."
+    },
+    {
+      "type": "text",
+      "body": "Families pay for needs first. Then, if there's money left, some wants."
+    },
+    {
+      "type": "text",
+      "body": "Saving helps you get a want later. Put a little money aside each week."
+    },
+    {
+      "type": "tryit",
+      "body": "Make two lists: 3 needs and 3 wants. Which want would you save for?"
+    },
+    {
+      "type": "parent",
+      "body": "Share a simple real example, like choosing between two snacks at the shop. Children learn a lot from seeing choices made out loud."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a NEED?",
+      "options": [
+        "A warm coat in winter",
+        "A new video game",
+        "A toy robot"
+      ],
+      "answer": 0,
+      "hints": [
+        "Needs keep us alive and safe.",
+        "Which one keeps you safe from the cold?",
+        "Food is a need because we can't live without it. Which one here is like that?"
+      ],
+      "explain": "A warm coat keeps you safe in the cold. That's a need."
+    },
+    {
+      "q": "Which is a WANT?",
+      "options": [
+        "Stickers",
+        "Drinking water",
+        "Food"
+      ],
+      "answer": 0,
+      "hints": [
+        "Wants are nice, but we can live without them.",
+        "Two of these we must have every day.",
+        "Water is a need. Sweets are a want. Which one here is just nice to have?"
+      ],
+      "explain": "Stickers are fun, but we can live without them. That's a want."
+    },
+    {
+      "q": "You want a toy that costs 10 coins. You get 2 coins a week. How many weeks to save?",
+      "options": [
+        "5",
+        "2",
+        "10"
+      ],
+      "answer": 0,
+      "hints": [
+        "How many 2s make 10?",
+        "Count up in 2s: 2, 4, 6…",
+        "If a toy cost 6 coins: 2, 4, 6 is 3 weeks. Do the same for 10."
+      ],
+      "explain": "2, 4, 6, 8, 10: that's 5 weeks of saving."
+    }
+  ]
+}

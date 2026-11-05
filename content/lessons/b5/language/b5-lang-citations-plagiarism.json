@@ -1,0 +1,98 @@
+{
+  "id": "b5-lang-citations-plagiarism",
+  "title": "Research, Citations and Plagiarism",
+  "band": "b5",
+  "subject": "language",
+  "outcomes": [
+    "b5-lang-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Plagiarism",
+      "url": "https://en.wikipedia.org/wiki/Plagiarism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Citation",
+      "url": "https://en.wikipedia.org/wiki/Citation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "PLAGIARISM is presenting someone else's words or ideas as your own. In school and work it's taken seriously: failing an assignment, losing a job, or worse."
+    },
+    {
+      "type": "text",
+      "body": "Changing a few words (patchwriting) is still plagiarism if the ideas and structure are someone else's and you don't credit them."
+    },
+    {
+      "type": "text",
+      "body": "Avoid it by: putting exact words in quotation marks with a citation; paraphrasing in your own words AND citing the source; keeping a list of sources while you research."
+    },
+    {
+      "type": "text",
+      "body": "A citation tells readers where an idea came from (author, title, date, publisher or URL) so they can check it. Common styles are APA, MLA and Chicago."
+    },
+    {
+      "type": "text",
+      "body": "Using AI: if you use an AI tool to help, follow your school's rules and say how you used it. AI can also invent fake sources, so always check that a source really exists."
+    },
+    {
+      "type": "fact",
+      "body": "Common knowledge (e.g. 'Paris is the capital of France') usually doesn't need a citation. Statistics and specific claims do."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You rewrite a paragraph from a website, changing some words, but keep the ideas and don't cite it. Is this plagiarism?",
+      "options": [
+        "Yes: the ideas still need credit",
+        "No: you changed the words",
+        "Only if you copied every word"
+      ],
+      "answer": 0,
+      "hints": [
+        "Who did the original thinking?",
+        "Plagiarism covers ideas, not just exact words.",
+        "If you redraw someone's painting in different colours and sign it as yours, is it your original work?"
+      ],
+      "explain": "Yes. Paraphrasing without credit is still plagiarism, because the ideas belong to someone else."
+    },
+    {
+      "q": "Which statement needs a citation?",
+      "options": [
+        "'Teen screen time rose 17% between 2019 and 2021.'",
+        "'Water is wet.'",
+        "'There are seven days in a week.'"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which is a specific claim someone had to measure?",
+        "Statistics need a source.",
+        "'Paris is in France' is common knowledge. 'Paris had 2.1 million residents in 2023' needs a source."
+      ],
+      "explain": "A specific statistic needs a citation so readers can check where it came from."
+    },
+    {
+      "q": "An AI tool gives you a source for your essay. What should you do?",
+      "options": [
+        "Check that the source exists and says what's claimed",
+        "Copy it straight in",
+        "Cite the AI as the original author"
+      ],
+      "answer": 0,
+      "hints": [
+        "Can AI tools make mistakes about sources?",
+        "The lesson warned about one specific problem.",
+        "If a friend told you a book quote, you'd check the book before quoting it in an essay. Same here."
+      ],
+      "explain": "AI can invent sources. Always check that a source is real and actually says what's claimed."
+    }
+  ]
+}

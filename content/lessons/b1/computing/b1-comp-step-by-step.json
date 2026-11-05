@@ -1,0 +1,75 @@
+{
+  "id": "b1-comp-step-by-step",
+  "title": "Step by Step",
+  "band": "b1",
+  "subject": "computing",
+  "outcomes": [
+    "b1-comp-1",
+    "b1-comp-2"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Algorithm",
+      "url": "https://en.wikipedia.org/wiki/Algorithm",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Robots and computers follow steps, one at a time. 🤖"
+    },
+    {
+      "type": "text",
+      "body": "The ORDER matters! Socks go on before shoes. 🧦👟"
+    },
+    {
+      "type": "text",
+      "body": "If the steps are mixed up, things go wrong. Shoes then socks? Silly! 😄"
+    },
+    {
+      "type": "tryit",
+      "body": "Be a robot! A grown-up gives you steps: 'Walk 2 steps. Turn around. Clap!'"
+    },
+    {
+      "type": "parent",
+      "body": "Take turns being the 'robot' and the 'programmer'. Follow instructions very literally, so children see why clear steps matter."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Getting dressed: what comes FIRST? 🧦👟",
+      "options": [
+        "Socks 🧦",
+        "Shoes 👟",
+        "It doesn't matter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about your feet.",
+        "Can socks go over shoes?",
+        "When we eat cereal, first the bowl, then the cereal. For feet, which goes on first?"
+      ],
+      "explain": "Socks first, then shoes! 🧦👟"
+    },
+    {
+      "q": "A robot is making a sandwich 🥪. What is the LAST step?",
+      "options": [
+        "Put the top bread on",
+        "Get the bread",
+        "Open the jam"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of the start and the end.",
+        "Getting the bread happens at the start.",
+        "Building a tower: first the bottom block, last the TOP block. A sandwich is like that!"
+      ],
+      "explain": "The top bread goes on last! 🥪"
+    }
+  ]
+}

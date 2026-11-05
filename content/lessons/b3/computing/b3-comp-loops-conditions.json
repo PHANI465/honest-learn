@@ -1,0 +1,95 @@
+{
+  "id": "b3-comp-loops-conditions",
+  "title": "Loops and If-Then",
+  "band": "b3",
+  "subject": "computing",
+  "outcomes": [
+    "b3-comp-1",
+    "b3-comp-4"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Control flow",
+      "url": "https://en.wikipedia.org/wiki/Control_flow",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Conditional (computer programming)",
+      "url": "https://en.wikipedia.org/wiki/Conditional_(computer_programming)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A LOOP repeats instructions. Instead of writing 'step forward' 10 times, write: repeat 10 times → step forward."
+    },
+    {
+      "type": "text",
+      "body": "A CONDITION (if-then) makes a decision. 'IF it is raining THEN take an umbrella, ELSE wear sunglasses.'"
+    },
+    {
+      "type": "text",
+      "body": "Games use both! 'Repeat forever: IF touching a coin THEN add 1 point.'"
+    },
+    {
+      "type": "text",
+      "body": "Every program has INPUT (a key press, a click), PROCESS (the steps) and OUTPUT (what you see or hear)."
+    },
+    {
+      "type": "tryit",
+      "body": "Write instructions for a dance using a loop: repeat 4 times → clap, jump, spin."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which block makes a sprite move 10 steps, 5 times, with the least code?",
+      "options": [
+        "Repeat 5 times → move 10 steps",
+        "Move 10 steps (written once)",
+        "If key pressed → move 10 steps"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which block repeats instructions?",
+        "You want the same thing to happen several times.",
+        "To clap 3 times you could write 'repeat 3 → clap' instead of 'clap, clap, clap'."
+      ],
+      "explain": "A loop (repeat 5 times) runs 'move 10 steps' five times without writing it five times."
+    },
+    {
+      "q": "'IF score = 10 THEN show You win!' This is an example of…",
+      "options": [
+        "A condition",
+        "A loop",
+        "An input device"
+      ],
+      "answer": 0,
+      "hints": [
+        "It makes a decision.",
+        "Look at the first word.",
+        "'If it's cold, wear a coat' is a decision. Programmers call it a…?"
+      ],
+      "explain": "It's a condition: the program checks something and decides what to do."
+    },
+    {
+      "q": "In a game, pressing the space bar is the…",
+      "options": [
+        "Input",
+        "Output",
+        "Loop"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do you GIVE the computer?",
+        "Input goes in, output comes out.",
+        "Typing on a keyboard is input. Sound from speakers is output. Pressing space is…?"
+      ],
+      "explain": "Pressing a key is input: information you give to the computer."
+    }
+  ]
+}

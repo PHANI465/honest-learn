@@ -1,0 +1,99 @@
+{
+  "id": "b3-money-make-a-budget",
+  "title": "Making a Budget",
+  "band": "b3",
+  "subject": "money",
+  "outcomes": [
+    "b3-money-1",
+    "b3-money-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Budget",
+      "url": "https://en.wikipedia.org/wiki/Budget",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Saving",
+      "url": "https://en.wikipedia.org/wiki/Saving",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A BUDGET is a plan for your money. It shows money coming in (income) and money going out (spending)."
+    },
+    {
+      "type": "text",
+      "body": "A simple plan: split money into Save, Spend and Share (giving to others or charity)."
+    },
+    {
+      "type": "text",
+      "body": "Example: you get 50 coins. Save 20, spend 25, share 5. Total = 50. A budget must add up!"
+    },
+    {
+      "type": "text",
+      "body": "Comparing prices helps your money go further. Bigger isn't always cheaper. Work out the cost of each item."
+    },
+    {
+      "type": "fact",
+      "body": "Many adults use the same idea, with more categories like rent, food and travel."
+    },
+    {
+      "type": "tryit",
+      "body": "Pretend you have 100 coins. Make a Save / Spend / Share plan. Does it add up to 100?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You get 40 coins. You save 15 and share 5. How much is left to spend?",
+      "options": [
+        "20",
+        "25",
+        "35"
+      ],
+      "answer": 0,
+      "hints": [
+        "Add up the money that's already planned.",
+        "15 + 5 = ? Now take that away from 40.",
+        "Example: 30 coins, save 10, share 5 → 30 − 15 = 15 to spend."
+      ],
+      "explain": "15 + 5 = 20 already planned, so 40 − 20 = 20 coins left to spend."
+    },
+    {
+      "q": "Pack A: 4 pencils for 20 coins. Pack B: 6 pencils for 24 coins. Which is better value per pencil?",
+      "options": [
+        "Pack B",
+        "Pack A",
+        "They're the same"
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out the cost of ONE pencil in each pack.",
+        "Divide the price by the number of pencils.",
+        "Example: 3 apples for 15 = 5 each; 5 apples for 20 = 4 each. Cheaper each = better value."
+      ],
+      "explain": "Pack A: 20 ÷ 4 = 5 coins each. Pack B: 24 ÷ 6 = 4 coins each. Pack B is better value."
+    },
+    {
+      "q": "What is a budget?",
+      "options": [
+        "A plan for how to use money",
+        "A type of bank",
+        "A shopping bag"
+      ],
+      "answer": 0,
+      "hints": [
+        "It helps you decide before you spend.",
+        "It shows money in and money out.",
+        "A timetable is a plan for your time. A budget is a plan for your…?"
+      ],
+      "explain": "A budget is a plan for your money: what comes in and where it goes."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "b1-world-helpers",
+  "title": "People Who Help Us",
+  "band": "b1",
+  "subject": "world",
+  "outcomes": [
+    "b1-world-1"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Firefighter",
+      "url": "https://en.wikipedia.org/wiki/Firefighter",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Farmer",
+      "url": "https://en.wikipedia.org/wiki/Farmer",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Physician",
+      "url": "https://en.wikipedia.org/wiki/Physician",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Many people help us every day. 💛"
+    },
+    {
+      "type": "text",
+      "body": "Doctors and nurses help us when we are sick. 🩺"
+    },
+    {
+      "type": "text",
+      "body": "Firefighters put out fires and keep us safe. 🚒"
+    },
+    {
+      "type": "text",
+      "body": "Farmers grow the food we eat. 🌾 Teachers help us learn. 📚"
+    },
+    {
+      "type": "tryit",
+      "body": "Who helped you today? Say thank you to them!"
+    },
+    {
+      "type": "parent",
+      "body": "Talk about helpers your child meets: bus drivers, shopkeepers, cleaners, grandparents. If you're comfortable, explain who to go to if they ever get lost (a police officer, or a parent with children)."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Who puts out fires? 🔥",
+      "options": [
+        "A firefighter 🚒",
+        "A baker 🍞",
+        "A farmer 🌾"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of the big red truck.",
+        "This helper sprays water with a hose.",
+        "A doctor 🩺 helps sick people. Who helps when there's a fire?"
+      ],
+      "explain": "Firefighters put out fires! 🚒"
+    },
+    {
+      "q": "Who grows food like rice, wheat and apples? 🍎",
+      "options": [
+        "A farmer 🌾",
+        "A pilot ✈️",
+        "A firefighter 🚒"
+      ],
+      "answer": 0,
+      "hints": [
+        "Food grows in fields.",
+        "This helper works with plants and animals on a farm.",
+        "A teacher works in a school. Who works on a farm?"
+      ],
+      "explain": "Farmers grow our food! 🌾"
+    }
+  ]
+}

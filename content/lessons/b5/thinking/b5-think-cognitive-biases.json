@@ -1,0 +1,109 @@
+{
+  "id": "b5-think-cognitive-biases",
+  "title": "Cognitive Biases: Glitches in Thinking",
+  "band": "b5",
+  "subject": "thinking",
+  "outcomes": [
+    "b5-think-3",
+    "b5-think-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Cognitive bias",
+      "url": "https://en.wikipedia.org/wiki/Cognitive_bias",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Confirmation bias",
+      "url": "https://en.wikipedia.org/wiki/Confirmation_bias",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Anchoring effect",
+      "url": "https://en.wikipedia.org/wiki/Anchoring_effect",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Availability heuristic",
+      "url": "https://en.wikipedia.org/wiki/Availability_heuristic",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Cognitive biases are predictable shortcuts in thinking. They're usually helpful, but they can lead us to wrong conclusions. Everyone has them, including experts."
+    },
+    {
+      "type": "text",
+      "body": "CONFIRMATION BIAS: noticing and believing information that supports what we already think, and ignoring what doesn't."
+    },
+    {
+      "type": "text",
+      "body": "ANCHORING: relying too much on the first number we see. A 'was 200, now 99' price tag makes 99 feel cheap even if the item is worth 50."
+    },
+    {
+      "type": "text",
+      "body": "AVAILABILITY HEURISTIC: judging how likely something is by how easily examples come to mind. Plane crashes get huge news coverage, so flying feels riskier than driving, but per kilometre it's much safer."
+    },
+    {
+      "type": "text",
+      "body": "Defences: look for evidence AGAINST your view, ask 'what would change my mind?', check base rates and real data, and slow down on important decisions."
+    },
+    {
+      "type": "tryit",
+      "body": "Pick a belief you hold strongly. Find the best argument against it, written by someone who disagrees."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You only follow accounts that agree with your opinions and think opposing views are 'obviously wrong'. This is…",
+      "options": [
+        "Confirmation bias",
+        "Anchoring",
+        "Availability heuristic"
+      ],
+      "answer": 0,
+      "hints": [
+        "What kind of information are you seeking out?",
+        "You're only seeing what confirms your beliefs.",
+        "A fan who only remembers their team's good games and forgets the bad ones shows the same bias."
+      ],
+      "explain": "Seeking and trusting only information that agrees with you is confirmation bias."
+    },
+    {
+      "q": "A jacket is labelled 'was 300, now 150' and feels like a bargain. Which bias is the label using?",
+      "options": [
+        "Anchoring",
+        "Confirmation bias",
+        "Bandwagon"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which number did you see first?",
+        "That first number sets a reference point.",
+        "If a seller opens a negotiation at a very high price, later offers seem reasonable. What's that called?"
+      ],
+      "explain": "The 'was 300' anchors your sense of value, making 150 seem cheap whatever the jacket's real worth."
+    },
+    {
+      "q": "After watching lots of shark-attack news, someone thinks sharks are a major risk at the beach. This is the…",
+      "options": [
+        "Availability heuristic",
+        "Anchoring effect",
+        "Sunk cost fallacy"
+      ],
+      "answer": 0,
+      "hints": [
+        "Why do shark attacks come to mind so easily?",
+        "Vivid, well-covered events feel more common than they are.",
+        "After a lottery winner is in the news, people overestimate their own chances of winning. Same bias."
+      ],
+      "explain": "Vivid news makes examples easy to recall, so we overestimate the risk. That's the availability heuristic."
+    }
+  ]
+}

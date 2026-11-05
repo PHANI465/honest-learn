@@ -137,11 +137,14 @@ export function loadContent(contentDir: string): ContentStore {
   return { map, lessons, resources };
 }
 
-/** Lesson without quiz answers/explanations — what the app receives before answering. */
-export function publicLesson(l: Lesson) {
+/**
+ * Lesson without quiz answers, hints or explanations: what the app receives before answering.
+ * `orderFor(i)` gives the display order of question i's options (see shuffle.ts).
+ */
+export function publicLesson(l: Lesson, orderFor: (question: number, count: number) => number[] = (_q, n) => [...Array(n).keys()]) {
   return {
     ...l,
-    quiz: l.quiz.map(({ q, options }) => ({ q, options })),
+    quiz: l.quiz.map(({ q, options }, i) => ({ q, options: orderFor(i, options.length).map((o) => options[o]!) })),
   };
 }
 

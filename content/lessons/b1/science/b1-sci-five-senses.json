@@ -1,0 +1,78 @@
+{
+  "id": "b1-sci-five-senses",
+  "title": "My Five Senses",
+  "band": "b1",
+  "subject": "science",
+  "outcomes": [
+    "b1-sci-1"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sense",
+      "url": "https://en.wikipedia.org/wiki/Sense",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "We learn about the world with our five senses! 🌍"
+    },
+    {
+      "type": "text",
+      "body": "We SEE with our eyes. 👀 We HEAR with our ears. 👂"
+    },
+    {
+      "type": "text",
+      "body": "We SMELL with our nose. 👃 We TASTE with our tongue. 👅"
+    },
+    {
+      "type": "text",
+      "body": "We TOUCH and feel with our skin, like our fingers. ✋"
+    },
+    {
+      "type": "tryit",
+      "body": "Close your eyes. What can you hear right now?"
+    },
+    {
+      "type": "parent",
+      "body": "Play 'I spy' and 'what's that sound?'. Name the sense each time: 'You used your ears!'. Never ask a child to taste unknown things to test their senses."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What do we use to HEAR music? 🎵",
+      "options": [
+        "Ears 👂",
+        "Nose 👃",
+        "Feet 🦶"
+      ],
+      "answer": 0,
+      "hints": [
+        "Music makes sounds.",
+        "Which part of your head do you cover when it's too loud?",
+        "We SEE with our eyes 👀. Now think: what do we HEAR with?"
+      ],
+      "explain": "We hear with our ears! 👂"
+    },
+    {
+      "q": "What do we use to TASTE ice cream? 🍦",
+      "options": [
+        "Tongue 👅",
+        "Eyes 👀",
+        "Hands ✋"
+      ],
+      "answer": 0,
+      "hints": [
+        "Taste happens inside your mouth.",
+        "What part of your mouth touches the ice cream?",
+        "We SMELL with our nose 👃. What do we TASTE with?"
+      ],
+      "explain": "We taste with our tongue! 👅"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "b4-lang-figurative-language",
+  "title": "Metaphor, Simile and Irony",
+  "band": "b4",
+  "subject": "language",
+  "outcomes": [
+    "b4-lang-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Metaphor",
+      "url": "https://en.wikipedia.org/wiki/Metaphor",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Simile",
+      "url": "https://en.wikipedia.org/wiki/Simile",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Irony",
+      "url": "https://en.wikipedia.org/wiki/Irony",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Figurative language means words that go beyond their literal meaning to create images or feelings."
+    },
+    {
+      "type": "text",
+      "body": "A SIMILE compares two things using 'like' or 'as': 'Her voice was as smooth as honey.'"
+    },
+    {
+      "type": "text",
+      "body": "A METAPHOR says one thing IS another: 'Time is a thief.' (Time doesn't steal, but it takes moments from us.)"
+    },
+    {
+      "type": "text",
+      "body": "IRONY is when the opposite of what's expected happens or is meant. A fire station burning down is situational irony. Saying 'Great weather!' in a storm is verbal irony."
+    },
+    {
+      "type": "text",
+      "body": "Personification gives human qualities to non-human things: 'The wind whispered through the trees.'"
+    },
+    {
+      "type": "tryit",
+      "body": "Find one simile and one metaphor in a song lyric or a book you like. What does each make you picture?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "'He ran like the wind.' This is a…",
+      "options": [
+        "Simile",
+        "Metaphor",
+        "Fact"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for a comparison word.",
+        "Does it use 'like' or 'as'?",
+        "'Her smile was as bright as the sun' compares using 'as'. What's that called?"
+      ],
+      "explain": "It compares using 'like', so it's a simile."
+    },
+    {
+      "q": "'The classroom was a zoo.' What does this metaphor suggest?",
+      "options": [
+        "The class was wild and noisy",
+        "There were animals in class",
+        "The class was outdoors"
+      ],
+      "answer": 0,
+      "hints": [
+        "Metaphors aren't meant literally.",
+        "What is a zoo like? Noisy? Calm?",
+        "'My brother is a couch potato' doesn't mean he's a vegetable. It means he's lazy. Apply the same thinking."
+      ],
+      "explain": "It's not literal. It means the classroom was wild and noisy, like a zoo."
+    },
+    {
+      "q": "A lifeguard has to be rescued from the pool. This is…",
+      "options": [
+        "Situational irony",
+        "A simile",
+        "A metaphor"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is this what you'd expect?",
+        "It's the opposite of what should happen.",
+        "A police station getting robbed is the opposite of what you'd expect. What's that called?"
+      ],
+      "explain": "It's situational irony: the opposite of what you'd expect from a lifeguard."
+    }
+  ]
+}

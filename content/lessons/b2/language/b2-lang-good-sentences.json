@@ -1,0 +1,102 @@
+{
+  "id": "b2-lang-good-sentences",
+  "title": "Writing a Good Sentence",
+  "band": "b2",
+  "subject": "language",
+  "outcomes": [
+    "b2-lang-3"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sentence (linguistics)",
+      "url": "https://en.wikipedia.org/wiki/Sentence_(linguistics)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Punctuation",
+      "url": "https://en.wikipedia.org/wiki/Punctuation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A sentence is a group of words that makes sense on its own."
+    },
+    {
+      "type": "text",
+      "body": "Every sentence starts with a CAPITAL letter."
+    },
+    {
+      "type": "text",
+      "body": "A telling sentence ends with a full stop (.). Example: The cat is asleep."
+    },
+    {
+      "type": "text",
+      "body": "An asking sentence ends with a question mark (?). Example: Where is my hat?"
+    },
+    {
+      "type": "text",
+      "body": "An exciting sentence can end with an exclamation mark (!). Example: We won!"
+    },
+    {
+      "type": "tryit",
+      "body": "Write one telling sentence, one asking sentence and one exciting sentence about your day."
+    },
+    {
+      "type": "parent",
+      "body": "Read your child's sentences aloud with expression. They can hear the difference between '.', '?' and '!'."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which sentence is an ASKING sentence?",
+      "options": [
+        "Can I have a drink?",
+        "I have a drink.",
+        "My drink is cold."
+      ],
+      "answer": 0,
+      "hints": [
+        "Asking sentences end with a special mark.",
+        "Look at the last mark in each sentence.",
+        "'Is it raining?' is asking. It ends with '?'. Find the one like that."
+      ],
+      "explain": "'Can I have a drink?' asks something, so it ends with a question mark."
+    },
+    {
+      "q": "Which sentence is written correctly?",
+      "options": [
+        "The bus is late.",
+        "the bus is late.",
+        "The bus is late"
+      ],
+      "answer": 0,
+      "hints": [
+        "Check the start of each sentence.",
+        "Now check the end of each sentence.",
+        "'My dog runs.' starts with a capital and ends with a full stop."
+      ],
+      "explain": "It starts with a capital T and ends with a full stop."
+    },
+    {
+      "q": "Which mark ends this sentence? 'Wow, a rainbow'",
+      "options": [
+        "!",
+        "?",
+        ","
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it asking something?",
+        "It sounds very excited!",
+        "'Hooray, we won!' is exciting, and it ends with the same mark."
+      ],
+      "explain": "It shows excitement, so it ends with an exclamation mark: Wow, a rainbow!"
+    }
+  ]
+}

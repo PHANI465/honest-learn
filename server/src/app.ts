@@ -19,6 +19,7 @@ import {
 } from "./security.ts";
 import { precheck, type TutorProvider, type TutorTurn } from "./tutor.ts";
 import { lessonWikiTitle, WikiClient, wikiHostFor } from "./wiki.ts";
+import { optionOrder } from "./shuffle.ts";
 import { createMailer, type Mailer } from "./mailer.ts";
 
 export const CONSENT_VERSION = "2026-11-v1";
@@ -413,7 +414,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     const solved = (db
       .prepare("SELECT q_index FROM quiz_solved WHERE child_id = ? AND lesson_id = ?")
       .all(r.child.id, r.lesson.id) as { q_index: number }[]).map((s) => s.q_index);
-    return c.json({ lesson: publicLesson(r.lesson), solved });
+    return c.json({ lesson: publicLesson(r.lesson, (i, n) => optionOrder(r.child.id, r.lesson.id, i, n)), solved });
   });
 
   /** Wikipedia summary for this lesson's topic (ages 9+; Simple English for 9–11). */
@@ -459,7 +460,10 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     );
     const q = r.lesson.quiz[body.question];
     if (!q) return c.json({ error: "question_not_found" }, 404);
-    const correct = body.choice === q.answer;
+    // body.choice is the position on screen; map it back to the lesson's own option index.
+    const order = optionOrder(r.child.id, r.lesson.id, body.question, q.options.length);
+    if (body.choice >= order.length) return c.json({ error: "invalid_input", details: ["choice out of range"] }, 400);
+    const correct = order[body.choice] === q.answer;
     if (correct) {
       db.prepare("INSERT OR IGNORE INTO quiz_solved (child_id, lesson_id, q_index, solved_at) VALUES (?,?,?,?)").run(
         r.child.id,
@@ -470,7 +474,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     }
     // The explanation is only revealed after success, or after the learner tried with every hint.
     const reveal = correct || body.hintsUsed >= 3;
-    return c.json({ correct, explain: reveal ? q.explain : null, answer: !correct && reveal ? q.answer : null });
+    return c.json({ correct, explain: reveal ? q.explain : null, answer: !correct && reveal ? order.indexOf(q.answer) : null });
   });
 
   fam.post("/children/:childId/lessons/:lessonId/complete", async (c) => {
@@ -478,7 +482,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     if (r instanceof Response) return r;
     const { choices } = z.object({ choices: z.array(z.number().int()) }).parse(await c.req.json());
     if (choices.length !== r.lesson.quiz.length) return c.json({ error: "answer_every_question" }, 400);
-    const score = r.lesson.quiz.filter((q, i) => q.answer === choices[i]).length;
+    const score = r.lesson.quiz.filter((q, i) => optionOrder(r.child.id, r.lesson.id, i, q.options.length)[choices[i]!] === q.answer).length;
     const total = r.lesson.quiz.length;
     const prev = db.prepare("SELECT best_score, attempts FROM progress WHERE child_id = ? AND lesson_id = ?").get(
       r.child.id,
@@ -584,6 +588,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
         nickname: pub.nickname,
         lesson: r.lesson,
         questionIndex: body.question,
+        optionOrder: body.question === null ? undefined : optionOrder(r.child.id, r.lesson.id, body.question, r.lesson.quiz[body.question]!.options.length),
         questionSolved: solved,
         history,
         message: body.message,

@@ -1,0 +1,103 @@
+{
+  "id": "b5-arts-copyright-creative-commons",
+  "title": "Copyright and Creative Commons",
+  "band": "b5",
+  "subject": "arts",
+  "outcomes": [
+    "b5-arts-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Copyright",
+      "url": "https://en.wikipedia.org/wiki/Copyright",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Creative Commons license",
+      "url": "https://en.wikipedia.org/wiki/Creative_Commons_license",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Public domain",
+      "url": "https://en.wikipedia.org/wiki/Public_domain",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "COPYRIGHT automatically protects original creative work (writing, music, art, photos, code) the moment it's made. Only the owner can copy, share or adapt it, unless they give permission."
+    },
+    {
+      "type": "text",
+      "body": "PUBLIC DOMAIN works have no copyright, usually because it expired (often decades after the creator's death, depending on the country). Anyone can use them freely."
+    },
+    {
+      "type": "text",
+      "body": "CREATIVE COMMONS (CC) licences let creators give permission in advance. BY = credit the creator. SA = share your adaptation under the same licence. NC = non-commercial use only. ND = no changes allowed."
+    },
+    {
+      "type": "text",
+      "body": "Many countries allow limited use without permission for things like criticism, teaching or parody ('fair use' in the US, 'fair dealing' in the UK, India and others). The rules differ and are narrower than many people think."
+    },
+    {
+      "type": "fact",
+      "body": "Honest Learn writes its own lessons and lists sources. Wikipedia text is CC BY-SA, so anything adapted from it must credit Wikipedia and use the same licence."
+    },
+    {
+      "type": "tryit",
+      "body": "Find a CC-licensed photo (many sites let you filter by licence). Write the correct credit line for it."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A photo is licensed CC BY-NC. Can you use it in a poster you'll SELL?",
+      "options": [
+        "No: NC means non-commercial only",
+        "Yes, if you credit the photographer",
+        "Yes, CC means free for anything"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does NC stand for?",
+        "Selling something is commercial use.",
+        "CC BY-ND means 'no derivatives' (no changes). Each letter adds a condition. What condition does NC add?"
+      ],
+      "explain": "NC means non-commercial. Selling the poster is commercial use, so you'd need separate permission."
+    },
+    {
+      "q": "What does 'BY' require in a Creative Commons licence?",
+      "options": [
+        "Giving credit to the creator",
+        "Paying a fee",
+        "Asking permission each time"
+      ],
+      "answer": 0,
+      "hints": [
+        "BY is short for 'attribution by…'.",
+        "It's about naming someone.",
+        "A credit line like 'Photo by Asha Rao, CC BY' fulfils this condition. What is it?"
+      ],
+      "explain": "BY means you must credit (attribute) the creator."
+    },
+    {
+      "q": "Which work is most likely in the public domain?",
+      "options": [
+        "A Shakespeare play",
+        "A song released last year",
+        "A new video game"
+      ],
+      "answer": 0,
+      "hints": [
+        "Copyright expires after a long time.",
+        "Which work is centuries old?",
+        "Very old works like Beethoven's original compositions are free to use. Which option is old like that?"
+      ],
+      "explain": "Shakespeare's plays are hundreds of years old, so their copyright has long expired. They're public domain."
+    }
+  ]
+}

@@ -13,6 +13,8 @@ export interface TutorRequest {
   nickname: string;
   lesson: Lesson;
   questionIndex: number | null;
+  /** Display order of the current question's options (order[shown] = original index). */
+  optionOrder?: number[];
   /** true once the child has answered this question correctly — then explaining it fully is fine. */
   questionSolved: boolean;
   history: TutorTurn[];
@@ -110,8 +112,10 @@ export function lessonContext(req: TutorRequest): string {
   let ctx = `Current lesson: "${l.title}"\nLesson content:\n${sections}\n`;
   if (req.questionIndex !== null) {
     const q = l.quiz[req.questionIndex]!;
-    ctx += `\nThe learner is working on this quiz question: "${q.q}"\nOptions: ${q.options.map((o, i) => `(${i + 1}) ${o}`).join("  ")}\n`;
-    ctx += `SECRET — the correct option is (${q.answer + 1}) "${q.options[q.answer]}". Explanation for you: ${q.explain}\n`;
+    // Number the options the way the learner sees them on screen.
+    const order = req.optionOrder ?? [...q.options.keys()];
+    ctx += `\nThe learner is working on this quiz question: "${q.q}"\nOptions as shown to the learner: ${order.map((o, i) => `(${i + 1}) ${q.options[o]}`).join("  ")}\n`;
+    ctx += `SECRET — the correct option is (${order.indexOf(q.answer) + 1}) "${q.options[q.answer]}". Explanation for you: ${q.explain}\n`;
     ctx += req.questionSolved
       ? "The learner has ALREADY SOLVED this question, so you may now explain the reasoning fully.\n"
       : "The learner has NOT solved it yet: never state, spell out, point to or confirm the correct option, and never eliminate options down to one. Guide their thinking instead.\n";

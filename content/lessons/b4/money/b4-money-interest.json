@@ -1,0 +1,99 @@
+{
+  "id": "b4-money-interest",
+  "title": "Simple vs Compound Interest",
+  "band": "b4",
+  "subject": "money",
+  "outcomes": [
+    "b4-money-1",
+    "b4-money-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Interest",
+      "url": "https://en.wikipedia.org/wiki/Interest",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Compound interest",
+      "url": "https://en.wikipedia.org/wiki/Compound_interest",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "INTEREST is money paid for using money. Banks may pay you interest on savings, and you pay interest when you borrow."
+    },
+    {
+      "type": "text",
+      "body": "SIMPLE interest is paid only on the original amount. 1,000 at 10% simple interest earns 100 every year."
+    },
+    {
+      "type": "text",
+      "body": "COMPOUND interest is paid on the original amount AND on interest already earned. 1,000 at 10%: year 1 → 1,100; year 2 → 1,210; year 3 → 1,331."
+    },
+    {
+      "type": "text",
+      "body": "Compounding helps savers grow money over time. But it also makes debts grow fast if you don't pay them off!"
+    },
+    {
+      "type": "fact",
+      "body": "Rule of 72: divide 72 by the interest rate to estimate how many years it takes money to double. At 6%, about 12 years."
+    },
+    {
+      "type": "tryit",
+      "body": "Use a calculator: what does 500 become after 5 years at 8% compound interest? Multiply by 1.08 five times."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You save 200 at 5% SIMPLE interest. How much interest do you earn in 3 years?",
+      "options": [
+        "30",
+        "10",
+        "31.53"
+      ],
+      "answer": 0,
+      "hints": [
+        "Simple interest is the same every year.",
+        "First find 5% of 200, then think about 3 years.",
+        "Example: 100 at 10% simple → 10 a year → 3 years = 30."
+      ],
+      "explain": "5% of 200 is 10 a year. 10 × 3 years = 30."
+    },
+    {
+      "q": "Why does compound interest grow faster than simple interest?",
+      "options": [
+        "You also earn interest on past interest",
+        "The bank adds a bonus",
+        "The rate goes up every year"
+      ],
+      "answer": 0,
+      "hints": [
+        "What is the interest calculated on in year 2?",
+        "With compounding, last year's interest becomes part of the amount.",
+        "1,000 → 1,100 → 1,210. Why is year 2's interest 110, not 100?"
+      ],
+      "explain": "Each year's interest is added to the total, so the next year you earn interest on it too."
+    },
+    {
+      "q": "Using the Rule of 72, about how long does money take to double at 9% a year?",
+      "options": [
+        "About 8 years",
+        "About 72 years",
+        "About 2 years"
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide 72 by the interest rate.",
+        "72 ÷ 9 = ?",
+        "At 6%: 72 ÷ 6 = 12 years. Now try 9%."
+      ],
+      "explain": "72 ÷ 9 = 8, so about 8 years."
+    }
+  ]
+}

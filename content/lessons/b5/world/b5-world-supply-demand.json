@@ -1,0 +1,98 @@
+{
+  "id": "b5-world-supply-demand",
+  "title": "Supply and Demand",
+  "band": "b5",
+  "subject": "world",
+  "outcomes": [
+    "b5-world-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Supply and demand",
+      "url": "https://en.wikipedia.org/wiki/Supply_and_demand",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Principles of Economics 3e",
+      "url": "https://openstax.org/details/books/principles-economics-3e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "DEMAND is how much of something people want to buy at different prices. Usually, when the price goes up, people buy less."
+    },
+    {
+      "type": "text",
+      "body": "SUPPLY is how much sellers want to sell at different prices. Usually, when the price goes up, sellers want to sell more."
+    },
+    {
+      "type": "text",
+      "body": "The market price tends to settle where the amount people want to buy matches the amount offered: the EQUILIBRIUM."
+    },
+    {
+      "type": "text",
+      "body": "If demand rises (a product goes viral) and supply stays the same, prices tend to rise. If supply rises (a huge harvest), prices tend to fall."
+    },
+    {
+      "type": "text",
+      "body": "Real markets are messier: governments set rules and taxes, some sellers have lots of power, and people don't always act 'rationally'. Economists debate how much these matter."
+    },
+    {
+      "type": "tryit",
+      "body": "Think of a product that suddenly became popular. What happened to its price and why?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A bad harvest cuts the coffee supply, but demand stays the same. What tends to happen to the price?",
+      "options": [
+        "It rises",
+        "It falls",
+        "It stays exactly the same"
+      ],
+      "answer": 0,
+      "hints": [
+        "Less is available, but the same number of people want it.",
+        "When something becomes scarcer, what happens to the price?",
+        "Concert tickets: few seats and many fans means higher prices. Apply the same logic."
+      ],
+      "explain": "Less supply with the same demand usually pushes the price up."
+    },
+    {
+      "q": "The equilibrium price is where…",
+      "options": [
+        "The amount buyers want equals the amount sellers offer",
+        "Prices are as high as possible",
+        "The government sets the price"
+      ],
+      "answer": 0,
+      "hints": [
+        "Two amounts are equal.",
+        "Think about buyers and sellers meeting.",
+        "If 100 people want lemonade at 1 coin and 100 cups are offered at 1 coin, the market 'clears'. What's that point called?"
+      ],
+      "explain": "Equilibrium is where the amount demanded equals the amount supplied."
+    },
+    {
+      "q": "A farmers' market has far too many tomatoes at the end of the day. Sellers will most likely…",
+      "options": [
+        "Lower prices to sell them",
+        "Raise prices",
+        "Do nothing"
+      ],
+      "answer": 0,
+      "hints": [
+        "Supply is greater than demand.",
+        "How do sellers attract more buyers?",
+        "Shops have sales on winter coats in spring when too many are left. Why?"
+      ],
+      "explain": "With too much supply, sellers usually cut prices to attract buyers."
+    }
+  ]
+}
