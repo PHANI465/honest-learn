@@ -20,20 +20,21 @@ interface Overview {
 
 const DONATE_URL = process.env.EXPO_PUBLIC_DONATE_URL;
 
-function confirm(title: string, message: string): Promise<boolean> {
+function confirm(title: string, message: string, action = "Delete"): Promise<boolean> {
   if (Platform.OS === "web") return Promise.resolve(globalThis.confirm?.(`${title}\n\n${message}`) ?? false);
   return new Promise((resolve) =>
     Alert.alert(title, message, [
       { text: "Cancel", style: "cancel", onPress: () => resolve(false) },
-      { text: "Delete", style: "destructive", onPress: () => resolve(true) },
+      { text: action, style: "destructive", onPress: () => resolve(true) },
     ]),
   );
 }
 
 export default function ParentHome() {
-  const { parentApi, parentEmail, emailVerified, verifyEmail, resendVerification, country, map, lockParent, logout, refreshFamily } = useSession();
+  const { parentApi, parentEmail, emailVerified, verifyEmail, resendVerification, country, map, lockParent, logout, refreshFamily, signOutEverywhere } = useSession();
   const [code, setCode] = useState("");
   const [note, setNote] = useState<string | null>(null);
+  const [done, setDone] = useState<string | null>(null);
   const [data, setData] = useState<Overview | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -58,6 +59,21 @@ export default function ParentHome() {
         // Phones: hand the full file to the system share sheet (save to Files, email it, etc.).
         await Share.share({ title: "Honest Learn family data", message: text });
       }
+    } catch (e) {
+      setError(friendly(e));
+    }
+  }
+
+  async function signOutOthers() {
+    const ok = await confirm(
+      "Sign out all other devices?",
+      "Every other phone, tablet and browser using this account will need the password again. This one stays signed in.",
+      "Sign out others",
+    );
+    if (!ok) return;
+    try {
+      await signOutEverywhere();
+      setDone("Done. Every other device is signed out. This one stays signed in.");
     } catch (e) {
       setError(friendly(e));
     }
@@ -163,11 +179,13 @@ export default function ParentHome() {
       </Card>
 
       <H2>Account</H2>
+      {done ? <Banner tone="info">{done}</Banner> : null}
       <Card style={{ gap: 10 }}>
         <Button title="Download all our data" kind="secondary" onPress={exportData} />
         {DONATE_URL ? <Button title="💚 Donate to keep Honest Learn free" kind="secondary" onPress={() => Linking.openURL(DONATE_URL)} /> : null}
         <Button title="Lock parent area" kind="ghost" onPress={() => { lockParent(); router.replace("/profiles"); }} />
         <Button title="Sign out of this device" kind="ghost" onPress={async () => { await logout(); router.replace("/welcome"); }} />
+        <Button title="Sign out all other devices" kind="ghost" onPress={signOutOthers} label="Sign out all other devices, for example a lost phone" />
         <Button title="Delete account and all data" kind="danger" onPress={deleteAccount} />
       </Card>
       {data?.children.length ? <Button big title="Back to learning →" onPress={() => { lockParent(); router.replace("/profiles"); }} /> : null}

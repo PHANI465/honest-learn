@@ -3,10 +3,10 @@
 Free, ad-free learning app for ages 3–18 (iOS, Android, web) with a parent-controlled account, a hint-only AI helper ("Hoot") and 175 draft lessons. Owner: PHANI465. Nothing is public-launch ready until humans approve the content (see `docs/NEEDS_APPROVAL.md` and issue #1).
 
 ## Layout
-- `server/`: Hono API on Node 22 (TypeScript via tsx). SQLite locally; Postgres (Neon) when `DATABASE_URL`/`POSTGRES_URL` is set; in-memory demo DB on Vercel without one.
+- `server/`: Hono API on Node 22 (TypeScript via tsx). `src/app.ts` wires shared protections and mounts `src/routes/*` (public, auth, learn, puzzles, usage, tutor, parent); shared helpers in `src/context.ts`, shapes and input rules in `src/models.ts`. SQLite locally; Postgres (Neon) when `DATABASE_URL`/`POSTGRES_URL` is set; in-memory demo DB on Vercel without one.
 - `app/`: Expo SDK 58 + expo-router (routes in `app/src/app`). Web export in `app/dist`.
 - `content/`: the curriculum as JSON: `knowledge-map.json` (5 age bands × 11 subjects, 220 outcomes), `lessons/<band>/<subject>/*.json`, `puzzles/<band>.json`, `resources.json`, `helplines.json`, `hoot-redteam.json`.
-- `docs/`: reviewer guide, approval list, launch checklist, deployment, legal drafts, research.
+- `docs/`: `guide/` (what's built, where it lives, how it works, navigation, scaling), `SECURITY.md`, reviewer guide, approval list, launch checklist, deployment, legal drafts, research.
 - `scripts/`: generators and checkers (see below).
 
 ## Commands
@@ -32,6 +32,8 @@ After changing content, run all three generators before committing.
 - **No ads, no third-party analytics, no selling data, no streaks or leaderboards.**
 - New or edited content stays `"status": "draft"` until two human reviewers approve it.
 - Hoot replies pass a second safety/answer-leak check; `precheck()` in `server/src/tutor.ts` handles personal info and wellbeing messages before any AI call.
+- The server records opened hints (`hints_seen`); answers are revealed only after all three, in order. Never trust the app's `hintsUsed` alone.
+- Tokens carry a session version (`v`); bump it with `revokeSessions()` to sign out every device. Website security headers live in `server/src/web-headers.ts` and must match `vercel.json` (a test checks).
 
 ## Deployment
 Pre-launch mode is the default (drafts shown, no email verification, token secret auto-generated in the DB); `LAUNCH=true` switches to strict launch defaults.

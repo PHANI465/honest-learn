@@ -10,7 +10,7 @@ import { Banner, Button, Card, Emoji, H1, Loading, P, Pill, ProgressBar, Screen 
 import { api, friendly, type LearnMore, type Lesson } from "../../../../lib/api";
 import { cachedGet, isOffline, isOfflineError, offlineMessage, queueCompletion } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
-import { bandTheme, colors, surfaces } from "../../../../lib/theme";
+import { bandTheme, colors, subjectEmoji, surfaces } from "../../../../lib/theme";
 
 interface QState {
   firstChoice: number | null; // what counts for the score (honest scoring: first try)
@@ -24,6 +24,21 @@ interface QState {
   tries: number;
 }
 const freshQ = (): QState => ({ firstChoice: null, picked: null, correct: null, unchecked: false, hints: [], explain: null, revealed: null, tries: 0 });
+
+/**
+ * Lesson text with its lead-in term in bold, e.g. "1. Evaporation: the Sun heats…" → **1. Evaporation:** the Sun heats…
+ * Only short lead-ins count, so ordinary sentences with a colon stay as they are.
+ */
+function LessonText({ body, style }: { body: string; style: object }) {
+  const m = /^((?:\d+\.\s+)?[A-Z][^.:!?\n]{1,32}:)\s/.exec(body);
+  if (!m) return <Text style={style}>{body}</Text>;
+  return (
+    <Text style={style}>
+      <Text style={{ fontWeight: "800" }}>{m[1]}</Text>
+      {body.slice(m[1]!.length)}
+    </Text>
+  );
+}
 
 const SECTION_STYLE: Record<string, { icon: string; bg: string }> = {
   text: { icon: "", bg: colors.card },
@@ -41,7 +56,7 @@ const linkTarget = { minHeight: 44, justifyContent: "center" } as const;
 
 export default function LessonScreen() {
   const { childId, lessonId } = useLocalSearchParams<{ childId: string; lessonId: string }>();
-  const { familyToken } = useSession();
+  const { familyToken, map } = useSession();
   const child = useChild(childId);
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [fromCache, setFromCache] = useState(false);
@@ -180,10 +195,22 @@ export default function LessonScreen() {
       <Screen>
         {header}
         <OfflineBanner fromCache={fromCache} />
+        {(() => {
+          const subject = map?.subjects.find((x) => x.id === lesson.subject);
+          return subject ? (
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+              <View style={{ width: 34, height: 34, borderRadius: 17, backgroundColor: t.soft, alignItems: "center", justifyContent: "center" }}>
+                <Emoji size={18}>{subjectEmoji[lesson.subject] ?? "📘"}</Emoji>
+              </View>
+              <Text style={{ color: t.accent, fontWeight: "800", fontSize: 15 }}>{subject.name}</Text>
+            </View>
+          ) : null;
+        })()}
         <H1 size={young ? 30 : 26}>{lesson.title}</H1>
         <View style={{ flexDirection: "row", gap: 6, flexWrap: "wrap" }}>
           <Pill text={`⏱ ${lesson.minutes} min`} />
-          {lesson.status === "draft" ? <Pill text="Draft: not yet reviewed by teachers" color={colors.warn} bg={colors.warnSoft} /> : <Pill text="✓ Reviewed by teachers" color={colors.good} bg={colors.goodSoft} />}
+          <Pill text={`🎯 ${lesson.quiz.length} questions`} />
+          {lesson.status === "draft" ? <Pill text="✏️ Draft: being checked by teachers" color={colors.warn} bg={colors.warnSoft} /> : <Pill text="✓ Reviewed by teachers" color={colors.good} bg={colors.goodSoft} />}
         </View>
         {young ? (
           <Button title="🔊 Read it to me" kind="secondary" color={t.accent} onPress={() => readAloud(lesson.sections.filter((s) => s.type !== "parent").map((s) => s.body).join(". "))} />
@@ -194,7 +221,7 @@ export default function LessonScreen() {
             <Card key={i} style={{ backgroundColor: st.bg, borderRadius: t.radius }}>
               {st.icon ? <Text style={{ fontWeight: "800", color: colors.ink }}>{st.icon}{s.videoMinutes ? ` (${s.videoMinutes} min)` : ""}</Text> : null}
               {s.type === "video" && s.videoId ? <VideoEmbed videoId={s.videoId} title={s.body} /> : null}
-              <Text style={{ fontSize: s.type === "parent" ? 15 : t.font, lineHeight: (s.type === "parent" ? 15 : t.font) * 1.45, color: colors.ink }}>{s.body}</Text>
+              <LessonText body={s.body} style={{ fontSize: s.type === "parent" ? 15 : t.font, lineHeight: (s.type === "parent" ? 15 : t.font) * 1.45, color: colors.ink }} />
             </Card>
           );
         })}

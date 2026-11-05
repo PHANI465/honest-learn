@@ -166,6 +166,11 @@ describe("child profiles and lessons", () => {
     assert.match(h.json.hint, /denominators/);
     const wrong = await call("POST", `${path}/check`, { question: 2, choice: pos(2, "3/4"), hintsUsed: 1 }, fam);
     assert.deepEqual(wrong.json, { correct: false, explain: null, answer: null });
+    // Claiming every hint was used isn't enough: the server knows only one was opened.
+    const claimed = await call("POST", `${path}/check`, { question: 2, choice: pos(2, "3/4"), hintsUsed: 3 }, fam);
+    assert.deepEqual(claimed.json, { correct: false, explain: null, answer: null });
+    assert.equal((await call("POST", `${path}/hint`, { question: 1, level: 2 }, fam)).json.error, "hint_out_of_order", "no skipping to the worked example");
+    for (const level of [1, 2]) assert.equal((await call("POST", `${path}/hint`, { question: 2, level }, fam)).status, 200);
     const tried = await call("POST", `${path}/check`, { question: 2, choice: pos(2, "3/4"), hintsUsed: 3 }, fam);
     assert.equal(tried.json.answer, pos(2, "5/6"), "the revealed answer is the on-screen position");
     assert.ok(tried.json.explain);
@@ -354,6 +359,74 @@ describe("email verification, password and PIN reset", () => {
     } finally {
       config.security.authRateLimit = before;
     }
+  });
+});
+
+describe("security hardening", () => {
+  test("signing out everywhere ends every other session", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const phone = (await call("POST", "/auth/login", { email: "parent@example.com", password: "correct horse" })).json.familyToken;
+    assert.equal((await call("GET", "/family", undefined, phone)).status, 200);
+    const fresh = await call("POST", "/parent/sign-out-everywhere", undefined, par);
+    assert.ok(fresh.json.familyToken);
+    for (const old of [fam, phone, par]) assert.equal((await call("GET", "/family", undefined, old)).status, 401, "old tokens no longer work");
+    assert.equal((await call("GET", "/family", undefined, fresh.json.familyToken)).status, 200, "this device stays signed in");
+    assert.equal((await call("GET", "/parent/overview", undefined, fresh.json.parentToken)).status, 200, "and stays in the parent area");
+    const relogin = (await call("POST", "/auth/login", { email: "parent@example.com", password: "correct horse" })).json.familyToken;
+    assert.equal((await call("GET", "/family", undefined, relogin)).status, 200, "signing in again works");
+  });
+
+  test("a password reset signs out old sessions", async () => {
+    const { call, mailer } = makeApp();
+    const fam = (await call("POST", "/auth/signup", signup)).json.familyToken;
+    await call("POST", "/auth/forgot-password", { email: "parent@example.com" });
+    const code = mailer.lastCode("parent@example.com")!;
+    const ok = await call("POST", "/auth/reset-password", { email: "parent@example.com", code, newPassword: "a new password" });
+    assert.equal((await call("GET", "/family", undefined, fam)).status, 401);
+    assert.equal((await call("GET", "/family", undefined, ok.json.familyToken)).status, 200);
+  });
+
+  test("forgot-password sends at most one email a minute per account", async () => {
+    const { call, mailer } = makeApp();
+    await call("POST", "/auth/signup", signup);
+    const before = mailer.sent.length;
+    for (let i = 0; i < 4; i++) assert.deepEqual((await call("POST", "/auth/forgot-password", { email: "parent@example.com" })).json, { ok: true });
+    assert.equal(mailer.sent.length, before + 1);
+  });
+
+  test("puzzle answers also need every hint opened", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 13 }, par)).json.child.id;
+    const r = await call("GET", `/children/${kid}/puzzles`, undefined, fam);
+    const set = content.puzzles.get("b4")!;
+    const right = r.json.puzzles[0].options.indexOf(set.puzzles[0]!.options[set.puzzles[0]!.answer]);
+    const wrong = right === 0 ? 1 : 0;
+    const claim = await call("POST", `/children/${kid}/puzzles/check`, { question: 0, choice: wrong, hintsUsed: 3 }, fam);
+    assert.equal(claim.json.answer, null);
+    for (const level of [0, 1, 2]) await call("POST", `/children/${kid}/puzzles/hint`, { question: 0, level }, fam);
+    const earned = await call("POST", `/children/${kid}/puzzles/check`, { question: 0, choice: wrong, hintsUsed: 3 }, fam);
+    assert.equal(earned.json.answer, right);
+  });
+
+  test("oversized and malformed requests are refused; responses carry safety headers", async () => {
+    const { app, call } = makeApp();
+    const big = await app.request("/auth/login", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email: "a@b.co", password: "x".repeat(40_000) }) });
+    assert.equal(big.status, 413);
+    const bad = await app.request("/auth/login", { method: "POST", headers: { "content-type": "application/json" }, body: "{not json" });
+    assert.equal(bad.status, 400);
+    assert.equal((await call("POST", "/auth/login", { email: "a@b.co", password: "x".repeat(300) })).status, 400);
+    const h = await app.request("/health");
+    assert.equal(h.headers.get("x-content-type-options"), "nosniff");
+    assert.equal(h.headers.get("cache-control"), "no-store");
+    assert.match(h.headers.get("content-security-policy") ?? "", /frame-ancestors 'none'/);
+  });
+
+  test("unknown routes are 404 for everyone, not a sign-in prompt", async () => {
+    const { call } = makeApp();
+    assert.equal((await call("GET", "/nope")).status, 404);
+    assert.equal((await call("GET", "/children/x/home")).status, 401);
   });
 });
 

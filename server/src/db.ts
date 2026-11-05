@@ -85,6 +85,14 @@ const TABLES = [
   solved_at   TEXT NOT NULL,
   PRIMARY KEY (child_id, lesson_id, q_index)
 )`,
+  // the highest hint level a child has opened per question, so answers are only revealed after real hints
+  `CREATE TABLE IF NOT EXISTS hints_seen (
+  child_id    TEXT NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  item_id     TEXT NOT NULL,
+  q_index     INTEGER NOT NULL,
+  level       INTEGER NOT NULL,
+  PRIMARY KEY (child_id, item_id, q_index)
+)`,
   `CREATE TABLE IF NOT EXISTS tutor_messages (
   id          TEXT PRIMARY KEY,
   child_id    TEXT NOT NULL REFERENCES children(id) ON DELETE CASCADE,
@@ -95,6 +103,8 @@ const TABLES = [
   created_at  TEXT NOT NULL
 )`,
   `CREATE INDEX IF NOT EXISTS idx_tutor_child_lesson ON tutor_messages(child_id, lesson_id, created_at)`,
+  // Postgres doesn't index foreign keys by itself; these are looked up on almost every request.
+  `CREATE INDEX IF NOT EXISTS idx_children_parent ON children(parent_id)`,
   // one-time codes for email verification and password reset (hashed, short-lived)
   `CREATE TABLE IF NOT EXISTS auth_codes (
   parent_id   TEXT NOT NULL REFERENCES parents(id) ON DELETE CASCADE,
@@ -125,6 +135,7 @@ const TABLES = [
   status      TEXT NOT NULL DEFAULT 'open',
   created_at  TEXT NOT NULL
 )`,
+  `CREATE INDEX IF NOT EXISTS idx_reports_parent ON reports(parent_id)`,
 ];
 
 /** Columns added after v0.1.0. Applied on start-up when the column is missing. */
@@ -152,6 +163,13 @@ const MIGRATIONS: { table: string; column: string; sqlite: string[]; postgres: s
       "UPDATE tutor_messages SET seq = rowid WHERE seq IS NULL",
     ],
     postgres: ["ALTER TABLE tutor_messages ADD COLUMN IF NOT EXISTS seq BIGSERIAL"],
+  },
+  {
+    // Session version: raising it signs out every device (password reset, "sign out everywhere").
+    table: "parents",
+    column: "token_version",
+    sqlite: ["ALTER TABLE parents ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0"],
+    postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS token_version INTEGER NOT NULL DEFAULT 0"],
   },
 ];
 

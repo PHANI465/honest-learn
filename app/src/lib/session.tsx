@@ -26,6 +26,8 @@ interface Session {
   /** Returns the short-lived parent token (also kept in state). */
   unlockParent(pin: string): Promise<string>;
   lockParent(): void;
+  /** Signs out every other phone, tablet and browser (keeps this one signed in and unlocked). */
+  signOutEverywhere(): Promise<void>;
   refreshFamily(): Promise<void>;
   /** Calls the API with the parent token; if it expired, clears it so the PIN screen shows again. */
   parentApi<T>(method: string, path: string, body?: unknown): Promise<T>;
@@ -36,7 +38,13 @@ const Ctx = createContext<Session | null>(null);
 export function SessionProvider({ children: kids }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);
   const [familyToken, setFamilyToken] = useState<string | null>(null);
-  const [parentToken, setParentToken] = useState<string | null>(null);
+  const [parentToken, setParentTokenState] = useState<string | null>(null);
+  // The latest parent token, readable from requests that started before it changed.
+  const parentTokenRef = useRef<string | null>(null);
+  const setParentToken = useCallback((t: string | null) => {
+    parentTokenRef.current = t;
+    setParentTokenState(t);
+  }, []);
   const [parentEmail, setParentEmail] = useState<string | null>(null);
   const [emailVerified, setEmailVerified] = useState(true);
   const [country, setCountry] = useState<string | null>(null);
@@ -97,7 +105,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
   const lockParent = useCallback(() => {
     if (lockTimer.current) clearTimeout(lockTimer.current);
     setParentToken(null);
-  }, []);
+  }, [setParentToken]);
 
   const value = useMemo<Session>(
     () => ({
@@ -153,19 +161,36 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         return r.parentToken;
       },
       lockParent,
+      async signOutEverywhere() {
+        const r = await api<{ familyToken: string; parentToken: string; expiresInSec: number }>("POST", "/parent/sign-out-everywhere", parentToken, {});
+        // Swap both tokens in the same render: the old ones stopped working the moment the call succeeded,
+        // and a screen that refreshed in between would otherwise lock itself with the old parent token.
+        setParentToken(r.parentToken);
+        setFamilyToken(r.familyToken);
+        await storage.set(FAMILY_KEY, r.familyToken);
+        await loadFamily(r.familyToken);
+        if (lockTimer.current) clearTimeout(lockTimer.current);
+        lockTimer.current = setTimeout(() => setParentToken(null), (r.expiresInSec - 5) * 1000);
+      },
       async refreshFamily() {
         if (familyToken) await loadFamily(familyToken);
       },
       async parentApi<T>(method: string, path: string, body?: unknown) {
+        const used = parentTokenRef.current ?? parentToken;
         try {
-          return await api<T>(method, "/parent" + path, parentToken, body);
+          return await api<T>(method, "/parent" + path, used, body);
         } catch (e) {
-          if (e instanceof ApiError && (e.status === 401 || e.status === 403)) setParentToken(null);
+          if (e instanceof ApiError && (e.status === 401 || e.status === 403)) {
+            // The token was replaced while this request was on its way (e.g. "sign out all other devices"): retry once.
+            const latest = parentTokenRef.current;
+            if (latest && latest !== used) return api<T>(method, "/parent" + path, latest, body);
+            setParentToken(null);
+          }
           throw e;
         }
       },
     }),
-    [ready, familyToken, parentToken, parentEmail, emailVerified, country, children, map, adopt, lockParent, loadFamily],
+    [ready, familyToken, parentToken, parentEmail, emailVerified, country, children, map, adopt, lockParent, loadFamily, setParentToken],
   );
 
   return <Ctx.Provider value={value}>{kids}</Ctx.Provider>;

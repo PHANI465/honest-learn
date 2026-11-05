@@ -120,6 +120,8 @@ export function friendly(err: unknown): string {
     email_not_verified: "Please verify your email first (check your inbox for a 6-digit code).",
     wait_a_minute: "We just sent a code. Please wait a minute before asking again.",
     not_found: "We couldn't find that.",
+    hint_out_of_order: "Open the hints one at a time, starting with the first.",
+    too_large: "That's too long to send. Please make it shorter.",
   };
   return map[err.code] ?? "Something went wrong. Please try again.";
 }

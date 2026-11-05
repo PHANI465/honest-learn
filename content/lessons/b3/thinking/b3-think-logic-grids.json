@@ -50,8 +50,8 @@
       ],
       "answer": 0,
       "hints": [
-        "Start with Raj: not red, not blue…",
-        "Raj has green. Mia isn't red, so Mia has…?",
+        "Start with Raj: his clue rules out two colours. Which one is left for him?",
+        "Now you know Raj's colour. Look at Mia's clue: which colours are still possible for her?",
         "In the pets example, finding one person's answer first unlocked the others. Do Raj first."
       ],
       "explain": "Raj = green, Mia = blue (not red), so Tom = red."

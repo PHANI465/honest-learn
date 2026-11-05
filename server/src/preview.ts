@@ -4,7 +4,7 @@
 //
 //   npm run dev            # from the repo root: installs, builds the web app, starts on PORT (default 3000)
 import { readFile, stat } from "node:fs/promises";
-import { extname, join, normalize, resolve, dirname } from "node:path";
+import { extname, join, normalize, resolve, dirname, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
@@ -14,6 +14,7 @@ import { openConfiguredDb } from "./open-db.ts";
 import { loadContent } from "./content.ts";
 import { createTutor } from "./tutor.ts";
 import { createApp } from "./app.ts";
+import { WEB_SECURITY_HEADERS } from "./web-headers.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const dist = resolve(here, "../../app/dist");
@@ -37,15 +38,22 @@ const types: Record<string, string> = {
 };
 
 const root = new Hono();
+root.route("/api", createApp({ db, content, tutor: createTutor() }));
 root.use("*", async (c, next) => {
   await next();
-  c.header("X-Robots-Tag", "noindex, nofollow"); // lessons are unreviewed drafts
+  if (new URL(c.req.url).pathname.startsWith("/api")) return; // the API sets its own headers
+  for (const [k, v] of Object.entries(WEB_SECURITY_HEADERS)) c.header(k, v);
 });
-root.route("/api", createApp({ db, content, tutor: createTutor() }));
 root.get("*", async (c) => {
   // static files from app/dist, falling back to index.html for app routes (/parent, /learn/…)
-  const rel = normalize(decodeURIComponent(new URL(c.req.url).pathname)).replace(/^([/\\]*\.\.)+/, "");
-  let file = join(dist, rel);
+  let rel: string;
+  try {
+    rel = normalize(decodeURIComponent(new URL(c.req.url).pathname));
+  } catch {
+    return c.text("Bad address", 400); // malformed %-escapes
+  }
+  let file = resolve(dist, "." + rel);
+  if (file !== dist && !file.startsWith(dist + sep)) file = join(dist, "index.html"); // never outside app/dist
   try {
     if (!(await stat(file)).isFile()) throw new Error("not a file");
   } catch {

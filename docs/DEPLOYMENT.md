@@ -8,21 +8,22 @@ The server is a single Node process with a SQLite file. Any host with a **persis
 
 | Variable | Required | Default | Notes |
 |---|---|---|---|
+| `LAUNCH` | no | off | `true` switches on the strict public-launch defaults below (drafts hidden, email verification on, real email required). Until then the server runs in *pre-launch mode*. |
 | `NODE_ENV` | yes | — | Set to `production`. |
-| `TOKEN_SECRET` | **yes** | — | Long random string (e.g. `openssl rand -base64 48`). The server refuses to start in production without it. |
+| `TOKEN_SECRET` | recommended | generated | Long random string that signs sign-ins (e.g. `openssl rand -base64 48`). If it's missing in production, a strong one is generated once and stored in the database (`app_settings` table). Changing it signs everyone out. |
 | `DB_PATH` | no | `server/data/honest-learn.db` | SQLite file. Put it on the persistent disk. Back it up daily. Ignored when `DATABASE_URL` is set. |
 | `DATABASE_URL` (or `POSTGRES_URL`) | no | — | Postgres connection string. When set, the server uses Postgres (via Neon's HTTPS driver) instead of SQLite. Tables are created on first use. |
 | `CONTENT_DIR` | no | `../content` | Folder with `knowledge-map.json` and `lessons/`. |
-| `SHOW_DRAFTS` | no | `false` in production | Keep `false` for the public. Use `true` on a staging server for reviewers. |
+| `SHOW_DRAFTS` | no | `true` before launch, `false` with `LAUNCH=true` | Keep `false` for the public. Use `true` on a staging server for reviewers. |
 | `CORS_ORIGINS` | no | `*` | Comma-separated web origins, e.g. `https://app.honestlearn.org`. |
 | `ANTHROPIC_API_KEY` | for AI | — | Turns on the real AI tutor. Without it, Hoot answers with the lesson's pre-written hints. |
 | `TUTOR_MODEL` | no | `claude-opus-5-5` | Model that writes Hoot's replies. |
 | `TUTOR_SAFETY_MODEL` | no | `claude-opus-5-5` | Model that checks every reply before a child sees it. |
 | `TUTOR_EFFORT` | no | `low` | `low` / `medium` / `high`. Higher means slower and more expensive. |
 | `TUTOR_DAILY_LIMIT` | no | `40` | Messages per child per day. |
-| `POSTMARK_TOKEN`, `MAIL_FROM` | **yes** | — | Sends verification and password-reset codes. Without them, production refuses to start; in development, emails are printed to the console. |
+| `POSTMARK_TOKEN`, `MAIL_FROM` | **yes at launch** | — | Sends verification and password-reset codes. With `LAUNCH=true` in production the server refuses to start without them; before launch, emails are printed to the server log. |
 | `MAIL_MODE` | no | — | `console` prints emails (and their codes) to the server log instead of sending them, even in production. Only for demos. |
-| `REQUIRE_EMAIL_VERIFICATION` | no | `true` in production | Parents must verify their email before adding children. |
+| `REQUIRE_EMAIL_VERIFICATION` | no | `false` before launch, `true` with `LAUNCH=true` | Parents must verify their email before adding children. |
 | `TRUST_PROXY` | no | `false` (`true` on Vercel) | Set `true` only behind your own reverse proxy, so rate limits use the real client IP. Vercel sets `X-Forwarded-For` itself, so it is on there by default. |
 | `AUTH_RATE_LIMIT` | no | `30` | Requests per IP per 10 minutes on `/auth/*`. |
 | `CHAT_RETENTION_DAYS` | no | `365` | Hoot chats older than this are deleted automatically (checked daily). |

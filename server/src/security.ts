@@ -30,13 +30,15 @@ export interface TokenClaims {
   sub: string; // parent id
   scope: Scope;
   exp: number;
+  /** Session version: tokens with an older version than the account's are rejected ("sign out everywhere", password reset). */
+  v?: number;
   [key: string]: unknown;
 }
 
-export async function issueToken(parentId: string, scope: Scope): Promise<string> {
+export async function issueToken(parentId: string, scope: Scope, version = 0): Promise<string> {
   const seconds =
     scope === "family" ? config.security.familyTokenDays * 86400 : config.security.parentTokenMinutes * 60;
-  const claims: TokenClaims = { sub: parentId, scope, exp: Math.floor(Date.now() / 1000) + seconds };
+  const claims: TokenClaims = { sub: parentId, scope, v: version, exp: Math.floor(Date.now() / 1000) + seconds };
   return sign(claims, config.tokenSecret, "HS256");
 }
 

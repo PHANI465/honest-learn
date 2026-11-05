@@ -6,6 +6,7 @@ Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android an
 - **Helps, never cheats:** quizzes use a hint ladder (nudge → bigger hint → worked example of a *similar* problem). Hoot, the AI helper, never gives quiz answers, and an independent check reviews every reply before a child sees it.
 - **Parents in control:** a parent account is required. A parent PIN protects settings, sensitive topics (religion, body, politics), chat history, outside links and extra screen time.
 - **Honest by design:** no ads, no tracking and no data selling. Every lesson lists its sources and shows whether teachers have reviewed it. Families can export or delete all their data.
+- **Documented:** [the guide](docs/guide/README.md) explains what's built, where it lives, how it works, how to navigate it and how it can scale.
 - **Points to the best free resources:** each subject lists hand-picked free websites for the child's age (Khan Academy, PhET, Scratch, NASA Space Place, OpenStax and more). Lessons for ages 9+ show a short Wikipedia summary (Simple English Wikipedia for 9–11). Lessons can include reviewed YouTube videos in the privacy-enhanced player. Outside links need a parent's PIN for under-13s.
 
 ## What's inside
@@ -141,20 +142,16 @@ Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android an
 
 | Path | What it is |
 |---|---|
-| `content/knowledge-map.json` | Age groups, subjects and learning outcomes. The source of truth for the curriculum. |
-| `content/lessons/<band>/<subject>/*.json` | Lessons and quizzes. One file per lesson (51 so far, all drafts). |
-| `content/resources.json` | Curated free websites by age and subject. |
-| `docs/review/*.csv` | Spreadsheets for outsourced reviewers (`node scripts/export-review-sheet.mjs`). |
-| `.github/workflows/ci.yml` | Runs content validation, tests, type checks, lint and a web build on every push. |
-| `docs/KNOWLEDGE_MAP.md` | Generated, human-readable knowledge map for reviewers. |
-| `docs/REVIEWER_GUIDE.md` | Rules for content writers and reviewers. |
-| `docs/LAUNCH_CHECKLIST.md` | What must be done before the public and store launch. |
+| `app/` | The app: website, Android and iPhone from one Expo (React Native) codebase. Screens are in `app/src/app/`. |
+| `server/` | The API (Node + Hono): accounts, PIN, lessons, quizzes and hints, Hoot, screen time. Routes are in `server/src/routes/`. SQLite locally, Postgres (Neon) when deployed. |
+| `content/` | The curriculum as JSON: `knowledge-map.json`, `lessons/<age>/<subject>/*.json` (175 lessons, all drafts), `puzzles/`, `resources.json`, `helplines.json`, `hoot-redteam.json`. |
+| `docs/` | Documents. **Start with [`docs/guide/`](docs/guide/README.md)**: what's built, where it lives, how it works, how to navigate, how it scales. |
 | `docs/NEEDS_APPROVAL.md` | **What needs a human expert's approval**, ranked by risk. |
-| `docs/RESEARCH_USER_FEEDBACK.md` | What parents, kids and teachers say about learning apps online, and what we did about it. |
-| `content/puzzles/*.json` | Brain puzzles per age group (IQ-style practice; never an IQ score). |
-| `docs/DEPLOYMENT.md` | How to run the server and build the apps. |
-| `server/` | API (Node + Hono + SQLite): accounts, PIN, profiles, progress, AI tutor. |
-| `app/` | Expo (React Native) app for iOS, Android and web. |
+| `docs/SECURITY.md` | How families are protected, and the latest security review. |
+| `docs/DEPLOYMENT.md` | Settings, Vercel + Neon, app-store builds. |
+| `scripts/` | Generators (this catalogue, review spreadsheets, knowledge-map document, legal texts) and link/video checkers. |
+| `api/`, `vercel.json` | How Vercel serves the website and the API on one domain. |
+| `.github/workflows/ci.yml` | Validation, tests (SQLite + Postgres), type checks, lint and a web build on every push. |
 
 ## How to see the app
 
@@ -200,4 +197,4 @@ cd app && npm run typecheck
 3. Run `npm run validate` in `server/`.
 4. After two reviews, set `"status": "reviewed"` and add both reviewers.
 
-Draft lessons are shown only when `SHOW_DRAFTS=true` (the default in development, off in production).
+Draft lessons are shown until launch (`LAUNCH=true` hides them unless `SHOW_DRAFTS=true`).
