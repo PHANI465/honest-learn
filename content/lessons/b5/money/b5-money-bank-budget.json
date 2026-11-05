@@ -1,0 +1,75 @@
+{
+  "id": "b5-money-bank-budget",
+  "title": "Bank Accounts and Monthly Budgets",
+  "band": "b5",
+  "subject": "money",
+  "outcomes": [
+    "b5-money-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Transaction account",
+      "url": "https://en.wikipedia.org/wiki/Transaction_account",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Personal budget",
+      "url": "https://en.wikipedia.org/wiki/Personal_budget",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A CURRENT/CHECKING account is for everyday spending (with a debit card). A SAVINGS account earns interest for money you don't need now."
+    },
+    {
+      "type": "text",
+      "body": "Check fees, minimum balances and interest rates. Keep your PIN and online banking details private."
+    },
+    {
+      "type": "text",
+      "body": "The 50/30/20 guideline: about 50% needs (rent, food, transport), 30% wants, 20% savings or paying off debt. Adjust it to your situation."
+    },
+    {
+      "type": "text",
+      "body": "Build an EMERGENCY FUND: a few months of essential costs, for surprises like losing a job or a repair."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Using the 50/30/20 guideline, how much of a 2,000 monthly income goes to savings?",
+      "options": [
+        "400",
+        "1,000",
+        "600"
+      ],
+      "answer": 0,
+      "hints": [
+        "Savings is the 20% part.",
+        "20% of 2,000 = 0.2 × 2,000.",
+        "With 1,500 income, 20% savings = 300."
+      ],
+      "explain": "20% of 2,000 = 400."
+    },
+    {
+      "q": "What is an emergency fund for?",
+      "options": [
+        "Unexpected costs like repairs or job loss",
+        "Holidays",
+        "Buying the latest phone"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Emergency' means unexpected.",
+        "It's a safety cushion.",
+        "A spare tyre in a car is there for surprise punctures. An emergency fund is like that for money."
+      ],
+      "explain": "An emergency fund covers unexpected costs so you don't have to borrow."
+    }
+  ]
+}

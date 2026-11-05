@@ -1,0 +1,75 @@
+{
+  "id": "b5-math-financial",
+  "title": "Real-Life Money Maths: Loans, Inflation, Percentages",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-5"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Inflation",
+      "url": "https://en.wikipedia.org/wiki/Inflation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Annual percentage rate",
+      "url": "https://en.wikipedia.org/wiki/Annual_percentage_rate",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "INFLATION means prices rise over time, so money buys less. With 5% inflation, something costing 100 costs about 105 next year."
+    },
+    {
+      "type": "text",
+      "body": "Loans charge interest. The APR (annual percentage rate) includes fees, so it's the fairest number to compare loans by."
+    },
+    {
+      "type": "text",
+      "body": "Percentage change = (new − old) ÷ old × 100. A price going from 80 to 100 is a 25% increase."
+    },
+    {
+      "type": "fact",
+      "body": "Minimum payments on a credit card can make a debt last years and cost far more than the original amount."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A phone's price rises from 200 to 250. What's the percentage increase?",
+      "options": [
+        "25%",
+        "50%",
+        "20%"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the change first: 250 − 200.",
+        "Divide the change by the ORIGINAL price.",
+        "From 40 to 50: change 10, 10 ÷ 40 = 25%."
+      ],
+      "explain": "Change = 50, and 50 ÷ 200 = 0.25 = 25%."
+    },
+    {
+      "q": "Which number is best for comparing the true cost of two loans?",
+      "options": [
+        "APR",
+        "The monthly payment only",
+        "The bank's logo"
+      ],
+      "answer": 0,
+      "hints": [
+        "One number includes interest AND fees.",
+        "It's yearly and standardised.",
+        "Comparing cars by total price (not just the deposit) is fairer. Which loan number is like the total?"
+      ],
+      "explain": "APR includes interest and fees, so it's the fairest comparison."
+    }
+  ]
+}

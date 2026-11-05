@@ -1,0 +1,71 @@
+{
+  "id": "b5-math-trigonometry",
+  "title": "Trigonometry and Geometric Proof",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-2"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Trigonometry",
+      "url": "https://en.wikipedia.org/wiki/Trigonometry",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Mathematical proof",
+      "url": "https://en.wikipedia.org/wiki/Mathematical_proof",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "In a right-angled triangle: sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent. Memory aid: SOH CAH TOA."
+    },
+    {
+      "type": "text",
+      "body": "Use trig to find unknown sides or angles, for example the height of a tree from its shadow."
+    },
+    {
+      "type": "text",
+      "body": "A PROOF shows something must be true using definitions and logic. Example: angles on a straight line add to 180°, which lets you prove a triangle's angles add to 180°."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In a right triangle, the opposite side is 3 and the hypotenuse is 6. What is sin θ?",
+      "options": [
+        "0.5",
+        "2",
+        "0.6"
+      ],
+      "answer": 0,
+      "hints": [
+        "sin = opposite/hypotenuse.",
+        "3 ÷ 6 = ?",
+        "If opposite = 4 and hypotenuse = 5, sin θ = 4/5 = 0.8. Try yours."
+      ],
+      "explain": "sin θ = 3/6 = 0.5 (so θ = 30°)."
+    },
+    {
+      "q": "Which ratio would you use with the opposite and adjacent sides?",
+      "options": [
+        "tan",
+        "sin",
+        "cos"
+      ],
+      "answer": 0,
+      "hints": [
+        "SOH CAH TOA.",
+        "Which letters go with O and A together?",
+        "With adjacent and hypotenuse, you'd use cos (CAH). Which uses O and A?"
+      ],
+      "explain": "TOA: tan θ = opposite/adjacent."
+    }
+  ]
+}

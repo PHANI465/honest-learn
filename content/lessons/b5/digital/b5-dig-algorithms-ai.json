@@ -1,0 +1,81 @@
+{
+  "id": "b5-dig-algorithms-ai",
+  "title": "Feeds, Filter Bubbles and Responsible AI Use",
+  "band": "b5",
+  "subject": "digital",
+  "outcomes": [
+    "b5-dig-3",
+    "b5-dig-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Filter bubble",
+      "url": "https://en.wikipedia.org/wiki/Filter_bubble",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Recommender system",
+      "url": "https://en.wikipedia.org/wiki/Recommender_system",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Generative artificial intelligence",
+      "url": "https://en.wikipedia.org/wiki/Generative_artificial_intelligence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Social media feeds are ranked by ALGORITHMS that predict what keeps you engaged: likes, watch time, shares. Outrage and extremes often get more engagement."
+    },
+    {
+      "type": "text",
+      "body": "A FILTER BUBBLE forms when you mostly see views you already agree with. It can make other views seem rare or extreme."
+    },
+    {
+      "type": "text",
+      "body": "Break the bubble: follow reliable sources from different perspectives, check the 'why am I seeing this?' options, and search directly instead of only scrolling."
+    },
+    {
+      "type": "text",
+      "body": "Using AI responsibly: follow your school's or employer's rules, cite AI help, check facts (AI can invent sources), and never paste private data into AI tools."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why might your feed show increasingly extreme content?",
+      "options": [
+        "Algorithms reward engagement, and extreme content often gets more",
+        "Feeds are random",
+        "Your phone chooses your opinions"
+      ],
+      "answer": 0,
+      "hints": [
+        "What does a feed's algorithm want you to do?",
+        "Keep watching and reacting.",
+        "If a TV channel learned that shocking clips kept you watching longer, what would it show more of?"
+      ],
+      "explain": "Algorithms rank content for engagement, and extreme or outrage-provoking content often gets more."
+    },
+    {
+      "q": "Which is responsible AI use for a school report?",
+      "options": [
+        "Citing that you used AI and checking its facts",
+        "Pasting AI text without checking",
+        "Using AI to invent sources"
+      ],
+      "answer": 0,
+      "hints": [
+        "Honesty and accuracy.",
+        "AI can be wrong or invent references.",
+        "If a friend helped proofread your essay, you'd acknowledge it if required. AI is the same."
+      ],
+      "explain": "Be open about AI help, and check everything it says."
+    }
+  ]
+}

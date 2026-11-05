@@ -1,0 +1,76 @@
+{
+  "id": "b5-math-functions-logs",
+  "title": "Quadratics, Exponents and Logarithms",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-1"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Quadratic equation",
+      "url": "https://en.wikipedia.org/wiki/Quadratic_equation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Exponentiation",
+      "url": "https://en.wikipedia.org/wiki/Exponentiation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Logarithm",
+      "url": "https://en.wikipedia.org/wiki/Logarithm",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A QUADRATIC has an x² term, like y = x² − 5x + 6. Its graph is a U-shaped parabola. Solve x² − 5x + 6 = 0 by factorising: (x − 2)(x − 3) = 0, so x = 2 or x = 3."
+    },
+    {
+      "type": "text",
+      "body": "EXPONENTS: 2⁵ = 32. Rules: aᵐ × aⁿ = aᵐ⁺ⁿ, and (aᵐ)ⁿ = aᵐⁿ."
+    },
+    {
+      "type": "text",
+      "body": "A LOGARITHM asks 'what power?': log₂(32) = 5 because 2⁵ = 32. Logs turn multiplication into addition and appear in sound (decibels), earthquakes and pH."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Solve x² − 7x + 12 = 0.",
+      "options": [
+        "x = 3 or x = 4",
+        "x = 7 or x = 12",
+        "x = −3 or x = −4"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find two numbers that multiply to 12 and add to 7.",
+        "Factorise: (x − ?)(x − ?) = 0.",
+        "x² − 5x + 6 = (x − 2)(x − 3), so x = 2 or 3. Use the same method."
+      ],
+      "explain": "(x − 3)(x − 4) = 0, so x = 3 or x = 4."
+    },
+    {
+      "q": "What is log₁₀(1000)?",
+      "options": [
+        "3",
+        "100",
+        "10"
+      ],
+      "answer": 0,
+      "hints": [
+        "Ask: 10 to what power gives 1000?",
+        "10¹ = 10, 10² = 100, 10³ = …",
+        "log₂(8) = 3 because 2³ = 8."
+      ],
+      "explain": "10³ = 1000, so log₁₀(1000) = 3."
+    }
+  ]
+}

@@ -124,9 +124,11 @@ describe("child profiles and lessons", () => {
   });
 
   test("sensitive lessons stay locked until a parent unlocks the topic", async () => {
+    const has = (l: any) => l.json.lessons.some((x: any) => x.id === "b3-world-festivals-of-light");
     let list = await call("GET", `/children/${kid}/lessons?subject=world`, undefined, fam);
-    assert.equal(list.json.lessons.length, 0);
+    assert.equal(has(list), false);
     assert.equal(list.json.lockedCount, 1);
+    const before = list.json.lessons.length;
     const blocked = await call("GET", `/children/${kid}/lessons/b3-world-festivals-of-light`, undefined, fam);
     assert.equal(blocked.status, 403);
     assert.equal(blocked.json.error, "needs_parent_permission");
@@ -137,7 +139,9 @@ describe("child profiles and lessons", () => {
     assert.deepEqual(unlocked.json.child.unlockedTopics, ["religion"]);
 
     list = await call("GET", `/children/${kid}/lessons?subject=world`, undefined, fam);
-    assert.equal(list.json.lessons.length, 1);
+    assert.equal(has(list), true);
+    assert.equal(list.json.lessons.length, before + 1);
+    assert.equal(list.json.lockedCount, 0);
     assert.equal((await call("GET", `/children/${kid}/lessons/b3-world-festivals-of-light`, undefined, fam)).status, 200);
   });
 

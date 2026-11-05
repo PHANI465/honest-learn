@@ -1,0 +1,72 @@
+{
+  "id": "b5-arts-criticism-portfolio",
+  "title": "Criticism and Building a Portfolio",
+  "band": "b5",
+  "subject": "arts",
+  "outcomes": [
+    "b5-arts-1",
+    "b5-arts-2"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Art criticism",
+      "url": "https://en.wikipedia.org/wiki/Art_criticism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Portfolio (creative)",
+      "url": "https://en.wikipedia.org/wiki/Portfolio_(creative)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Criticism isn't just opinion. Describe (what do you see/hear?), analyse (how do the technique, structure and choices work?), interpret (what does it mean?), then judge (how well does it achieve its aims?)."
+    },
+    {
+      "type": "text",
+      "body": "Film example: how do camera angles, lighting, editing and music shape what we feel in a scene?"
+    },
+    {
+      "type": "text",
+      "body": "A PORTFOLIO shows your best 10–20 pieces, with short notes on your process and goals. Quality beats quantity. Tailor it to the course or job."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What comes first in a structured critique?",
+      "options": [
+        "Describe what you see or hear",
+        "Give your final judgement",
+        "Compare it to your favourite artist"
+      ],
+      "answer": 0,
+      "hints": [
+        "Start with observation before opinion.",
+        "Judgement comes last.",
+        "A doctor examines symptoms before diagnosing. Critics observe before judging."
+      ],
+      "explain": "Start by describing, then analyse, interpret and finally judge."
+    },
+    {
+      "q": "What makes a strong creative portfolio?",
+      "options": [
+        "Your best work, selected and explained",
+        "Every piece you've ever made",
+        "Only finished pieces with no notes"
+      ],
+      "answer": 0,
+      "hints": [
+        "Quality or quantity?",
+        "Explaining your process helps.",
+        "A football highlight reel shows your best plays, not every minute of every game."
+      ],
+      "explain": "A focused selection of your best work, with notes on your process."
+    }
+  ]
+}

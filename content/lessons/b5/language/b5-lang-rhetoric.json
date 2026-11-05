@@ -1,0 +1,71 @@
+{
+  "id": "b5-lang-rhetoric",
+  "title": "Rhetoric: How Texts Persuade",
+  "band": "b5",
+  "subject": "language",
+  "outcomes": [
+    "b5-lang-1"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Rhetoric",
+      "url": "https://en.wikipedia.org/wiki/Rhetoric",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Modes of persuasion",
+      "url": "https://en.wikipedia.org/wiki/Modes_of_persuasion",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Aristotle described three appeals: ETHOS (credibility: 'As a doctor…'), PATHOS (emotion: stories, vivid images) and LOGOS (logic: evidence, statistics, reasoning)."
+    },
+    {
+      "type": "text",
+      "body": "Other devices: rhetorical questions, repetition ('We shall fight… we shall fight…'), the rule of three, and contrast."
+    },
+    {
+      "type": "text",
+      "body": "Critical reading asks: What is the writer trying to make me feel or do? Which appeals are strongest? What's left out?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "'As a firefighter with 20 years' experience, I urge you to test your smoke alarm.' Which appeal is strongest?",
+      "options": [
+        "Ethos",
+        "Pathos",
+        "Logos"
+      ],
+      "answer": 0,
+      "hints": [
+        "What is the speaker relying on?",
+        "They mention their experience and job.",
+        "'Studies show 3 in 5 fire deaths happen in homes without working alarms' uses statistics, which is logos. This one uses something else."
+      ],
+      "explain": "It relies on the speaker's credibility: ethos."
+    },
+    {
+      "q": "'Imagine waking to smoke, unable to find your children.' This mainly uses…",
+      "options": [
+        "Pathos",
+        "Logos",
+        "Ethos"
+      ],
+      "answer": 0,
+      "hints": [
+        "How does it make you feel?",
+        "It creates a vivid, emotional image.",
+        "Charity adverts often show a sad animal's face to move you. That's the same appeal."
+      ],
+      "explain": "It appeals to emotion: pathos."
+    }
+  ]
+}

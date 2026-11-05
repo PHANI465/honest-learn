@@ -1,0 +1,80 @@
+{
+  "id": "b5-world-citizenship",
+  "title": "Citizenship, Elections and Political Claims",
+  "band": "b5",
+  "subject": "world",
+  "outcomes": [
+    "b5-world-4"
+  ],
+  "sensitive": "politics",
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Citizenship",
+      "url": "https://en.wikipedia.org/wiki/Citizenship",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Election",
+      "url": "https://en.wikipedia.org/wiki/Election",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Fact-checking",
+      "url": "https://en.wikipedia.org/wiki/Fact-checking",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Citizens usually have rights (vote, free speech, fair trial) and responsibilities (follow laws, pay taxes, serve on juries in some countries). These vary by country."
+    },
+    {
+      "type": "text",
+      "body": "Elections work in different ways: first-past-the-post, proportional representation and others. Each has trade-offs."
+    },
+    {
+      "type": "text",
+      "body": "Evaluating political claims: Is there evidence? Is the statistic in context? What do independent fact-checkers say? What would the other side say?"
+    },
+    {
+      "type": "text",
+      "body": "This lesson doesn't tell you what to think. Good citizens understand different views and decide with evidence."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A politician says 'Crime doubled!' What's the first thing to check?",
+      "options": [
+        "The actual numbers, time period and source",
+        "Whether you like the politician",
+        "How loudly they said it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Doubled from what to what?",
+        "Statistics need context.",
+        "'Cases doubled' from 1 to 2 is very different from 1,000 to 2,000."
+      ],
+      "explain": "Check the real numbers, time period and source. 'Doubled' can mean very different things."
+    },
+    {
+      "q": "What is proportional representation?",
+      "options": [
+        "Seats are shared roughly in proportion to votes",
+        "The candidate with most votes in each area wins",
+        "Only one party can stand"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Proportional' means in proportion.",
+        "If a party gets 30% of votes…",
+        "In first-past-the-post, the top candidate in each area wins. Proportional systems do something different with the total vote."
+      ],
+      "explain": "In proportional representation, parties get seats roughly in proportion to their share of the vote."
+    }
+  ]
+}

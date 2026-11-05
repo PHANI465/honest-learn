@@ -1,0 +1,75 @@
+{
+  "id": "b5-money-credit-loans",
+  "title": "Credit, Credit Scores and Student Finance",
+  "band": "b5",
+  "subject": "money",
+  "outcomes": [
+    "b5-money-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Credit score",
+      "url": "https://en.wikipedia.org/wiki/Credit_score",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Student loan",
+      "url": "https://en.wikipedia.org/wiki/Student_loan",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "CREDIT is borrowing money to pay back later, with interest. Credit cards, loans and 'buy now, pay later' are all credit."
+    },
+    {
+      "type": "text",
+      "body": "A CREDIT SCORE (in many countries) estimates how reliably you repay. Paying on time and not borrowing too much helps; missed payments hurt."
+    },
+    {
+      "type": "text",
+      "body": "Student finance differs hugely by country: grants (don't repay), scholarships, and loans (with different interest and repayment rules). Read the terms carefully."
+    },
+    {
+      "type": "text",
+      "body": "Avoid high-cost loans (like payday loans) and loan apps that ask for access to your contacts or photos. These are red flags."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What helps build a good credit score?",
+      "options": [
+        "Paying bills on time",
+        "Missing payments",
+        "Maxing out every card"
+      ],
+      "answer": 0,
+      "hints": [
+        "Lenders want to know you'll repay.",
+        "Reliability matters.",
+        "A friend who always returns borrowed things on time is someone you'd lend to again."
+      ],
+      "explain": "Paying on time shows you're reliable, which builds a good score."
+    },
+    {
+      "q": "A loan app asks for access to all your phone contacts. This is…",
+      "options": [
+        "A red flag",
+        "Normal and safe",
+        "Required by law"
+      ],
+      "answer": 0,
+      "hints": [
+        "Why would a lender need your contacts?",
+        "Some predatory apps harass borrowers' contacts.",
+        "A bank doesn't need your photos to give you an account. Why would a loan app need your contacts?"
+      ],
+      "explain": "It's a red flag. Predatory loan apps have used contacts to harass and shame borrowers."
+    }
+  ]
+}

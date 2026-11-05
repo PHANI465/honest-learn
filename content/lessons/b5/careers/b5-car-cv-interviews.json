@@ -1,0 +1,71 @@
+{
+  "id": "b5-car-cv-interviews",
+  "title": "Writing a CV and Preparing for Interviews",
+  "band": "b5",
+  "subject": "careers",
+  "outcomes": [
+    "b5-car-2"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Résumé",
+      "url": "https://en.wikipedia.org/wiki/Résumé",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Job interview",
+      "url": "https://en.wikipedia.org/wiki/Job_interview",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A CV/résumé: contact details, a short profile, education, experience (including volunteering and projects), skills, and achievements. Keep it to 1–2 pages and tailor it to each role."
+    },
+    {
+      "type": "text",
+      "body": "Use action verbs and results: 'Organised a charity bake sale that raised 500.'"
+    },
+    {
+      "type": "text",
+      "body": "Interviews: research the organisation, prepare examples using STAR (Situation, Task, Action, Result), practise answers aloud, and prepare 2 questions to ask them."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which CV line is strongest?",
+      "options": [
+        "'Led a team of 4 to build a school app used by 200 students'",
+        "'Responsible for things'",
+        "'Good at teamwork'"
+      ],
+      "answer": 0,
+      "hints": [
+        "Strong lines show action and results.",
+        "Look for numbers and outcomes.",
+        "'Raised 500 for charity by organising a sponsored walk' beats 'Did charity work'."
+      ],
+      "explain": "It uses an action verb and a measurable result."
+    },
+    {
+      "q": "What does STAR stand for in interview answers?",
+      "options": [
+        "Situation, Task, Action, Result",
+        "Smile, Talk, Agree, Repeat",
+        "Skills, Talent, Ambition, Respect"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's a structure for telling a story about your experience.",
+        "Start with the context, end with the outcome.",
+        "Describe where you were, what you needed to do, what you did, and what happened."
+      ],
+      "explain": "STAR = Situation, Task, Action, Result."
+    }
+  ]
+}

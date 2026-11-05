@@ -1,0 +1,80 @@
+{
+  "id": "b5-health-sexual-health",
+  "title": "Sexual and Reproductive Health",
+  "band": "b5",
+  "subject": "health",
+  "outcomes": [
+    "b5-health-4"
+  ],
+  "sensitive": "body",
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sexual and reproductive health",
+      "url": "https://en.wikipedia.org/wiki/Sexual_and_reproductive_health",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Sexually transmitted infection",
+      "url": "https://en.wikipedia.org/wiki/Sexually_transmitted_infection",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Birth control",
+      "url": "https://en.wikipedia.org/wiki/Birth_control",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Sexual and reproductive health is about wellbeing, safety and making informed choices. Laws on age of consent and access to services differ by country. Know your local laws and services."
+    },
+    {
+      "type": "text",
+      "body": "Sexually transmitted infections (STIs) can often have no symptoms. Condoms reduce the risk of many STIs. Testing is confidential in many places."
+    },
+    {
+      "type": "text",
+      "body": "Contraception methods (such as condoms, the pill and implants) help prevent pregnancy. Doctors and sexual health clinics can explain options."
+    },
+    {
+      "type": "text",
+      "body": "Reliable sources: doctors, school nurses, official health services and WHO. Pornography is not sex education. It often shows unrealistic and non-consensual behaviour."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Can someone have an STI without any symptoms?",
+      "options": [
+        "Yes, many STIs can have no symptoms",
+        "No, there are always symptoms",
+        "Only adults get STIs"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson says something about symptoms.",
+        "Why is testing important?",
+        "Some illnesses, like high blood pressure, often have no obvious signs, so checks are needed."
+      ],
+      "explain": "Yes. Many STIs have no symptoms, which is why testing matters."
+    },
+    {
+      "q": "Where is the most reliable place to get sexual health information?",
+      "options": [
+        "A doctor, nurse or official health service",
+        "Anonymous social media posts",
+        "Pornography"
+      ],
+      "answer": 0,
+      "hints": [
+        "Who is trained and accountable?",
+        "Think professional and official.",
+        "For a broken arm you'd see a doctor, not a random video. Sexual health is the same."
+      ],
+      "explain": "Doctors, nurses and official health services give accurate, confidential advice."
+    }
+  ]
+}

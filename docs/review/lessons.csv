@@ -1,4 +1,15 @@
 ﻿"Lesson ID","Title","Age band","Subject","Outcomes","Sensitive","Minutes","Status","Lesson text","Sources","File","Reviewer 1 (subject) initials","Reviewer 1 date","Reviewer 2 (age & safety) initials","Reviewer 2 date","Checklist: Facts correct & sourced | Fits outcomes | Reading level | No bias | Sensitive tag | Quiz/hints | Licensing | Safe","Changes needed"
+"b1-arts-beat-and-draw","Clap a Beat, Draw a Picture","Little Explorers (3–5)","Arts & Music","b1-arts-2: Claps a steady beat and sings simple songs
+b1-arts-3: Draws a picture and talks about it","","5","draft","[text] Music has a steady BEAT, like your heartbeat: thump, thump, thump. 🥁
+
+[text] Clap along to a song: clap, clap, clap!
+
+[text] Drawing is another way to share ideas. ✏️ There's no wrong way to draw!
+
+[tryit] Draw your favourite animal, then tell a grown-up all about it.
+
+[parent] Ask 'Tell me about your picture' instead of 'What is it?'. Your child gets to explain their ideas.","Wikipedia: Beat (music) — https://en.wikipedia.org/wiki/Beat_(music) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Drawing — https://en.wikipedia.org/wiki/Drawing (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/arts/b1-arts-beat-and-draw.json","","","","","",""
 "b1-arts-mixing-colours","Mixing Colours","Little Explorers (3–5)","Arts & Music","b1-arts-1: Names primary colours and mixes two to make a new colour","","5","draft","[text] Red 🔴, yellow 🟡 and blue 🔵 are special paint colours.
 
 [text] Mix them and you make NEW colours! 🎨
@@ -39,6 +50,46 @@ b1-dig-3: Tells a grown-up if something on a screen is scary or upsetting","","5
 
 [parent] Washing with soap for about 20 seconds (two rounds of 'Happy Birthday') helps remove germs. Key times: before eating, after the toilet, after playing outside and after touching animals.","WHO: World Hand Hygiene Day — https://www.who.int/campaigns/world-hand-hygiene-day (Reference only; text is original)
 Wikipedia: Hand washing — https://en.wikipedia.org/wiki/Hand_washing (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/health/b1-health-clean-hands.json","","","","","",""
+"b1-health-grow-strong","Food That Helps Us Grow","Little Explorers (3–5)","Health, Body & Feelings","b1-health-5: Knows fruit and vegetables help us grow strong","","5","draft","[text] Fruit and vegetables help our bodies grow strong and stay well. 🥦🍎
+
+[text] Eat the rainbow! Red tomatoes, orange carrots, green peas, purple grapes. 🌈
+
+[text] Water helps too. 💧
+
+[tryit] How many colours of fruit and vegetables can you eat today?
+
+[parent] Offer new vegetables many times without pressure. Children often need to try a food 10+ times before they like it.","Wikipedia: Fruit — https://en.wikipedia.org/wiki/Fruit (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Vegetable — https://en.wikipedia.org/wiki/Vegetable (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/health/b1-health-grow-strong.json","","","","","",""
+"b1-health-my-body","My Body Belongs to Me","Little Explorers (3–5)","Health, Body & Feelings","b1-health-3: Knows the names of main body parts
+b1-health-4: Knows their body belongs to them and to tell a trusted adult if something feels wrong","","5","draft","[text] Let's name body parts: head, shoulders, knees and toes! Eyes, ears, mouth and nose!
+
+[text] Your body belongs to YOU. 💛
+
+[text] If anyone touches you in a way that feels wrong, or asks you to keep a secret that feels bad, tell a grown-up you trust.
+
+[text] You will never be in trouble for telling.
+
+[parent] Use correct names for all body parts and agree on who your child's trusted adults are. Explain the difference between surprises (fun, shared soon) and secrets (never OK to keep about touching).","Wikipedia: Human body — https://en.wikipedia.org/wiki/Human_body (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Child abuse prevention — https://en.wikipedia.org/wiki/Child_abuse_prevention (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/health/b1-health-my-body.json","","","","","",""
+"b1-health-my-feelings","My Feelings","Little Explorers (3–5)","Health, Body & Feelings","b1-health-2: Names basic feelings: happy, sad, angry, scared","","5","draft","[text] We all have feelings. 😊 happy, 😢 sad, 😠 angry, 😨 scared.
+
+[text] All feelings are OK. It's what we DO with them that matters.
+
+[text] When we feel big feelings, we can take a deep breath and tell a grown-up.
+
+[tryit] Make a happy face, a sad face, then a surprised face in the mirror!
+
+[parent] Name feelings out loud ('You look frustrated'). Children learn emotional words by hearing them in real moments.","Wikipedia: Emotion — https://en.wikipedia.org/wiki/Emotion (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/health/b1-health-my-feelings.json","","","","","",""
+"b1-lang-letters","Letters All Around","Little Explorers (3–5)","Language & Reading","b1-lang-2: Recognises the letters of their name and most capital letters","","5","draft","[text] Words are made of letters. There are 26 letters in the English alphabet: A to Z. 🔤
+
+[text] Letters can be BIG (capital) like A, B, C, or small like a, b, c.
+
+[text] Your name starts with a capital letter!
+
+[tryit] Find the first letter of your name on a sign, a box or a book.
+
+[parent] Magnetic letters, writing in sand or tracing letters with a finger help. Start with the letters in your child's name.","Wikipedia: Alphabet — https://en.wikipedia.org/wiki/Alphabet (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Letter case — https://en.wikipedia.org/wiki/Letter_case (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/language/b1-lang-letters.json","","","","","",""
 "b1-lang-rhyme-time","Rhyme Time","Little Explorers (3–5)","Language & Reading","b1-lang-3: Hears the first sound in a word (b-b-ball) and finds rhyming words","","5","draft","[text] Some words sound the same at the end. They RHYME! 🎵
 
 [text] Cat 🐱 and hat 🎩 rhyme. Cat… hat… they both end with 'at'.
@@ -46,6 +97,28 @@ Wikipedia: Hand washing — https://en.wikipedia.org/wiki/Hand_washing (CC BY-SA
 [tryit] Say these out loud: bee 🐝, tree 🌳, me! Do they rhyme?
 
 [parent] Read the questions aloud. Stretch the ending sounds (c-AT, h-AT). Nursery rhymes and songs are a great way to practise rhyming every day.","Wikipedia: Rhyme — https://en.wikipedia.org/wiki/Rhyme (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/language/b1-lang-rhyme-time.json","","","","","",""
+"b1-lang-story-time","Story Time!","Little Explorers (3–5)","Language & Reading","b1-lang-1: Listens to a short story and retells what happened in their own words
+b1-lang-4: Holds a book the right way and knows print goes left to right
+b1-lang-5: Uses new words learned from stories when talking","","5","draft","[text] We hold a book the right way up. 📖 We start at the front cover.
+
+[text] We read words from left to right ➡️, and turn pages one at a time.
+
+[text] After a story, we can tell it again: what happened first, next and at the end?
+
+[text] Stories teach us new words. Try using a new word today!
+
+[parent] Read together daily. Ask 'What happened next?' and 'How did they feel?'. Let your child turn the pages and point to words as you read.","Wikipedia: Storytelling — https://en.wikipedia.org/wiki/Storytelling (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Book — https://en.wikipedia.org/wiki/Book (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/language/b1-lang-story-time.json","","","","","",""
+"b1-math-compare-patterns","Bigger, Smaller and Patterns","Little Explorers (3–5)","Math","b1-math-4: Compares: more/less, bigger/smaller, longer/shorter
+b1-math-5: Continues a simple pattern (red, blue, red, blue…)","","5","draft","[text] An elephant is BIGGER than a mouse. A mouse is SMALLER. 🐘🐭
+
+[text] A long snake 🐍 and a short worm 🪱. Long and short!
+
+[text] A PATTERN repeats: 🍎🍌🍎🍌🍎… What comes next? 🍌!
+
+[tryit] Make a pattern with spoons and forks, or two colours of blocks.
+
+[parent] Use words like more, fewer, longer and taller in daily life. Clapping patterns (clap, clap, stamp) also count!","Wikipedia: Pattern — https://en.wikipedia.org/wiki/Pattern (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/math/b1-math-compare-patterns.json","","","","","",""
 "b1-math-counting-to-5","Let's Count to 5!","Little Explorers (3–5)","Math","b1-math-1: Counts objects up to 10, one number for each object
 b1-math-2: Recognises numerals 0–10","","5","draft","[text] Hold up one finger. ☝️ That is ONE.
 
@@ -54,6 +127,26 @@ b1-math-2: Recognises numerals 0–10","","5","draft","[text] Hold up one finger
 [tryit] Find 5 toys. Touch each one and count out loud.
 
 [parent] Point to each object as your child counts so they match one number to one object. If they skip, gently start again together — no rush.","Wikipedia: Counting — https://en.wikipedia.org/wiki/Counting (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/math/b1-math-counting-to-5.json","","","","","",""
+"b1-math-shapes","Shapes Everywhere","Little Explorers (3–5)","Math","b1-math-3: Names circle, square, triangle and rectangle in everyday things","","5","draft","[text] A CIRCLE is round, like a plate. ⚪
+
+[text] A SQUARE has 4 straight sides, all the same. 🟦
+
+[text] A TRIANGLE has 3 sides and 3 corners. 🔺
+
+[text] A RECTANGLE has 4 sides, two long and two short, like a door. 🚪
+
+[tryit] Go on a shape hunt! Find a circle, a square and a triangle at home.
+
+[parent] Name shapes in everyday things: wheels, windows, sandwiches cut in halves. Counting corners together builds early math.","Wikipedia: Shape — https://en.wikipedia.org/wiki/Shape (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/math/b1-math-shapes.json","","","","","",""
+"b1-money-helping-at-home","I Can Help at Home","Little Explorers (3–5)","Money & Life Skills","b1-money-3: Helps with simple chores: tidy toys, put clothes away","","5","draft","[text] Everyone in a family can help! 🏠
+
+[text] You can tidy your toys, put clothes in the basket and help set the table.
+
+[text] Helping makes you feel proud and big! 💪
+
+[tryit] Choose one job to do today, like putting your shoes away.
+
+[parent] Small, regular jobs build responsibility. Praise effort, not perfection.","Wikipedia: Housekeeping — https://en.wikipedia.org/wiki/Housekeeping (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/money/b1-money-helping-at-home.json","","","","","",""
 "b1-money-saving-jar","The Saving Jar","Little Explorers (3–5)","Money & Life Skills","b1-money-1: Knows we use money to buy things
 b1-money-2: Understands waiting and saving (sometimes we wait to get something)","","5","draft","[text] We use money to buy things. 🪙
 
@@ -75,6 +168,37 @@ b1-money-2: Understands waiting and saving (sometimes we wait to get something)"
 [tryit] Close your eyes. What can you hear right now?
 
 [parent] Play 'I spy' and 'what's that sound?'. Name the sense each time: 'You used your ears!'. Never ask a child to taste unknown things to test their senses.","Wikipedia: Sense — https://en.wikipedia.org/wiki/Sense (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/science/b1-sci-five-senses.json","","","","","",""
+"b1-sci-float-sink","Float or Sink?","Little Explorers (3–5)","Science","b1-sci-4: Sorts things: floats/sinks, hard/soft, hot/cold","","5","draft","[text] Some things FLOAT on water. Some things SINK to the bottom. 💧
+
+[text] A leaf and a plastic duck float. 🦆🍃 A stone and a coin sink. 🪨🪙
+
+[text] We can also sort things: hard or soft, hot or cold.
+
+[tryit] With a grown-up, fill a bowl with water. Guess first: float or sink? Then test!
+
+[parent] Always supervise water play. Ask 'What do you think will happen?' before each test. Guessing first is real science!","Wikipedia: Buoyancy — https://en.wikipedia.org/wiki/Buoyancy (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/science/b1-sci-float-sink.json","","","","","",""
+"b1-sci-living-things-weather","Living Things and Weather","Little Explorers (3–5)","Science","b1-sci-2: Knows living things need food, water and air
+b1-sci-3: Notices weather and the four seasons (or wet/dry seasons)","","5","draft","[text] Living things grow and need food, water and air. 🌱🐶👧
+
+[text] A rock doesn't eat or grow. It is not alive. 🪨
+
+[text] Weather changes: sunny ☀️, rainy 🌧️, windy 💨, snowy ❄️.
+
+[text] Many places have four seasons: spring, summer, autumn and winter. Some places have a wet season and a dry season.
+
+[parent] Look out of the window each day and name the weather together. Plant a seed in a cup and water it to watch something living grow.","Wikipedia: Life — https://en.wikipedia.org/wiki/Life (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Season — https://en.wikipedia.org/wiki/Season (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/science/b1-sci-living-things-weather.json","","","","","",""
+"b1-think-first-next-last","First, Next, Last","Little Explorers (3–5)","Thinking Skills","b1-think-3: Puts 3 pictures of a story in order (first, next, last)
+b1-think-4: Asks 'why?' and 'what if?' questions","","5","draft","[text] Stories happen in order: FIRST, NEXT, LAST.
+
+[text] Planting a seed: first dig a hole 🕳️, next put in the seed 🌰, last water it 💧.
+
+[text] Good thinkers ask 'Why?' and 'What if?' 🤔 Like: Why is the sky blue? What if it rained jelly?
+
+[tryit] Tell someone three things you did today, in order: first, next, last.
+
+[parent] Welcome 'why' questions, even the tricky ones. 'I don't know, let's find out together' is a great answer.","Wikipedia: Sequence — https://en.wikipedia.org/wiki/Sequence (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Curiosity — https://en.wikipedia.org/wiki/Curiosity (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/thinking/b1-think-first-next-last.json","","","","","",""
 "b1-think-odd-one-out","Odd One Out","Little Explorers (3–5)","Thinking Skills","b1-think-1: Sorts objects by colour, shape or size
 b1-think-2: Spots what is different / the odd one out","","5","draft","[text] Let's be detectives! 🔍
 
@@ -85,6 +209,30 @@ b1-think-2: Spots what is different / the odd one out","","5","draft","[text] Le
 [tryit] Put your toys in groups: things that are red, things that are soft, things with wheels.
 
 [parent] Ask 'why?' after each answer. There can be more than one good answer, and explaining is the real skill.","Wikipedia: Categorization — https://en.wikipedia.org/wiki/Categorization (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/thinking/b1-think-odd-one-out.json","","","","","",""
+"b1-world-day-and-night","Day, Night and Time","Little Explorers (3–5)","Our World","b1-world-2: Knows the difference between day and night, today, yesterday and tomorrow
+b1-world-3: Knows people around the world speak different languages, eat different food and wear different clothes — and that is good","","5","draft","[text] In the DAY the Sun is in the sky. ☀️ At NIGHT it's dark and we can see the Moon and stars. 🌙⭐
+
+[text] Yesterday was before today. Tomorrow comes after today.
+
+[text] People around the world speak different languages! 'Hello' can be 'Hola', 'Namaste', 'Bonjour' or 'Ni hao'. 🌍
+
+[text] Different is good. We can learn from each other!
+
+[parent] Use 'yesterday / today / tomorrow' at bedtime. If your family speaks more than one language, celebrate it!","Wikipedia: Day — https://en.wikipedia.org/wiki/Day (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Language — https://en.wikipedia.org/wiki/Language (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/world/b1-world-day-and-night.json","","","","","",""
+"b1-world-festivals","Happy Festivals!","Little Explorers (3–5)","Our World","b1-world-4: Celebrations and festivals from many cultures","religion","5","draft","[text] All around the world, families celebrate special days called festivals. 🎉
+
+[text] Diwali has little lamps 🪔. Eid often has new clothes and sharing sweets. Christmas has decorated trees 🎄. Lunar New Year has red lanterns 🏮.
+
+[text] Some festivals are religious and some are not. People celebrate in many different ways.
+
+[text] When a friend tells you about their festival, listen and say 'That sounds lovely!'
+
+[parent] Share your own family's celebrations, and talk kindly about others'. This lesson is descriptive only and is shown only if you unlock it.","Wikipedia: Festival — https://en.wikipedia.org/wiki/Festival (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Diwali — https://en.wikipedia.org/wiki/Diwali (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Eid al-Fitr — https://en.wikipedia.org/wiki/Eid_al-Fitr (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Christmas — https://en.wikipedia.org/wiki/Christmas (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Chinese New Year — https://en.wikipedia.org/wiki/Chinese_New_Year (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/world/b1-world-festivals.json","","","","","",""
 "b1-world-helpers","People Who Help Us","Little Explorers (3–5)","Our World","b1-world-1: Talks about their family and the people who help in their community","","5","draft","[text] Many people help us every day. 💛
 
 [text] Doctors and nurses help us when we are sick. 🩺
@@ -98,6 +246,17 @@ b1-think-2: Spots what is different / the odd one out","","5","draft","[text] Le
 [parent] Talk about helpers your child meets: bus drivers, shopkeepers, cleaners, grandparents. If you're comfortable, explain who to go to if they ever get lost (a police officer, or a parent with children).","Wikipedia: Firefighter — https://en.wikipedia.org/wiki/Firefighter (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Farmer — https://en.wikipedia.org/wiki/Farmer (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Physician — https://en.wikipedia.org/wiki/Physician (CC BY-SA 4.0 (reference; text is original))","content/lessons/b1/world/b1-world-helpers.json","","","","","",""
+"b2-arts-art-elements-cultures","Lines, Shapes and Art Around the World","Early Learners (6–8)","Arts & Music","b2-arts-1: Uses line, shape, colour and texture in their own art
+b2-arts-3: Looks at art and music from different cultures and says what they notice","","10","draft","[text] Artists use LINE (straight, wavy, zigzag), SHAPE, COLOUR and TEXTURE (how something feels: rough, smooth, bumpy).
+
+[text] Art from around the world looks different: Aboriginal dot paintings from Australia, Madhubani art from India, Mexican papel picado paper banners.
+
+[text] When you look at art, say what you NOTICE: colours, shapes, how it makes you feel.
+
+[tryit] Draw a picture using only wavy lines, then one using only dots!
+
+[parent] Look at art from your family's heritage together, and from a culture you don't know yet.","Wikipedia: Elements of art — https://en.wikipedia.org/wiki/Elements_of_art (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Folk art — https://en.wikipedia.org/wiki/Folk_art (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/arts/b2-arts-art-elements-cultures.json","","","","","",""
 "b2-arts-loud-quiet-fast-slow","Music: Loud, Quiet, Fast, Slow","Early Learners (6–8)","Arts & Music","b2-arts-2: Recognises loud/quiet, fast/slow and high/low in music","","10","draft","[text] Music can be loud or quiet. How loud music is, is called its DYNAMICS. 🔊🔈
 
 [text] Music can be fast or slow. How fast music is, is called its TEMPO. 🐇🐢
@@ -123,6 +282,16 @@ b2-comp-3: Finds and fixes a bug in a short set of instructions (debugging)","",
 
 [parent] Following instructions literally ('you said pick up the cup, not fill it!') makes this lesson memorable and funny.","Wikipedia: Algorithm — https://en.wikipedia.org/wiki/Algorithm (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Debugging — https://en.wikipedia.org/wiki/Debugging (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/computing/b2-comp-algorithms-bugs.json","","","","","",""
+"b2-comp-block-code","Make It Move with Blocks","Early Learners (6–8)","Computing","b2-comp-2: Makes a character move with block code (sequence)","","10","draft","[text] Block code lets you build programs by snapping blocks together, like LEGO for computers. 🧱
+
+[text] A SEQUENCE is blocks in order: 'move 10 steps' → 'turn right' → 'say Hello!'
+
+[text] The computer runs the blocks from top to bottom, one at a time.
+
+[tryit] Try a free block-coding app (like ScratchJr) with a grown-up. Make a character walk and wave!
+
+[parent] ScratchJr and Code.org are free. Let your child explain their program to you. That's great learning.","Wikipedia: Visual programming language — https://en.wikipedia.org/wiki/Visual_programming_language (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Scratch (programming language) — https://en.wikipedia.org/wiki/Scratch_(programming_language) (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/computing/b2-comp-block-code.json","","","","","",""
 "b2-dig-keep-it-private","Keep It Private!","Early Learners (6–8)","Digital Life & AI Safety","b2-dig-1: Knows what personal information is (name, address, school, photos) and keeps it private
 b2-dig-2: Knows people online may not be who they say they are","","10","draft","[text] Some things about you are PRIVATE. That means just for you and your family. 🔒
 
@@ -133,6 +302,17 @@ b2-dig-2: Knows people online may not be who they say they are","","10","draft",
 [text] If anyone online asks for private things, stop. Tell a grown-up you trust.
 
 [parent] Agree on simple family rules: never share private details online, and always tell a parent if someone asks. Praise your child for telling you, even if they already shared something.","Wikipedia: Personal data — https://en.wikipedia.org/wiki/Personal_data (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/digital/b2-dig-keep-it-private.json","","","","","",""
+"b2-dig-online-truth-ai","Is It True? And What Is AI?","Early Learners (6–8)","Digital Life & AI Safety","b2-dig-3: Knows not everything online is true
+b2-dig-4: Knows AI helpers are computer programs, not people, and can make mistakes","","10","draft","[text] Not everything online is true. Anyone can post anything!
+
+[text] Ask: Who made this? Does it sound too amazing? Can a grown-up check it in a trusted place?
+
+[text] AI helpers, like Hoot, are computer programs, not people. They don't have feelings, and they can make mistakes.
+
+[text] If an AI says something that seems wrong or upsetting, tell a grown-up.
+
+[parent] Look at a silly fake photo online together and talk about how you can tell it's not real.","Wikipedia: Misinformation — https://en.wikipedia.org/wiki/Misinformation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Chatbot — https://en.wikipedia.org/wiki/Chatbot (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/digital/b2-dig-online-truth-ai.json","","","","","",""
 "b2-health-balanced-plate","A Balanced Plate","Early Learners (6–8)","Health, Body & Feelings","b2-health-1: Knows the food groups and what a balanced plate looks like","","10","draft","[text] Food gives your body energy to grow, play and think.
 
 [text] A balanced plate has lots of fruit and vegetables. About half the plate! 🥕🍎
@@ -145,6 +325,57 @@ b2-dig-2: Knows people online may not be who they say they are","","10","draft",
 
 [parent] Families eat in many ways (vegetarian, halal, kosher and more). Every way can be balanced. Avoid calling foods 'bad'; 'sometimes foods' is kinder and more accurate.","WHO: Healthy diet fact sheet — https://www.who.int/news-room/fact-sheets/detail/healthy-diet (Reference only; text is original)
 Wikipedia: Healthy diet — https://en.wikipedia.org/wiki/Healthy_diet (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/health/b2-health-balanced-plate.json","","","","","",""
+"b2-health-body-safety","Safe and Unsafe","Early Learners (6–8)","Health, Body & Feelings","b2-health-4: Knows safe/unsafe touch, safe and unsafe secrets, and who their trusted adults are","","10","draft","[text] Your body belongs to you. Private parts are the parts covered by a swimsuit.
+
+[text] Safe touch feels OK, like a high five or a hug you want. Unsafe touch feels wrong or confusing. You can say NO.
+
+[text] SURPRISES are fun and get told soon (a birthday present). SECRETS that make you feel worried should be told to a trusted adult.
+
+[text] Make a list of 3 trusted adults you can tell anything. If one doesn't listen, tell another.
+
+[parent] Use correct names for body parts. Reassure your child they will never be in trouble for telling you something. Many organisations publish free guides on 'body safety' conversations.","Wikipedia: Child abuse prevention — https://en.wikipedia.org/wiki/Child_abuse_prevention (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Personal boundaries — https://en.wikipedia.org/wiki/Personal_boundaries (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/health/b2-health-body-safety.json","","","","","",""
+"b2-health-calm-down","Big Feelings, Calm Body","Early Learners (6–8)","Health, Body & Feelings","b2-health-3: Names more feelings and simple calm-down strategies (breathing, counting)","","10","draft","[text] Feelings have names: excited, nervous, frustrated, jealous, proud, lonely.
+
+[text] Naming a feeling helps it shrink: 'I feel frustrated because my drawing went wrong.'
+
+[text] Calm-down tools: smell the flower, blow the candle (slow breaths), count to 10, squeeze a pillow, ask for a hug.
+
+[tryit] Practise 'flower and candle' breathing: breathe in through your nose like smelling a flower, then blow out slowly like a candle.
+
+[parent] Practise calm-down tools when your child is calm, so they're easier to use when upset.","Wikipedia: Emotional self-regulation — https://en.wikipedia.org/wiki/Emotional_self-regulation (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/health/b2-health-calm-down.json","","","","","",""
+"b2-health-healthy-habits","Sleep, Move, Brush!","Early Learners (6–8)","Health, Body & Feelings","b2-health-2: Knows why sleep, exercise and brushing teeth matter","","10","draft","[text] Children your age need about 9 to 12 hours of sleep. Sleep helps you grow and remember what you learned.
+
+[text] Moving your body every day keeps your heart and muscles strong. Run, dance, jump, play!
+
+[text] Brush your teeth twice a day, for about 2 minutes, to keep them healthy. 🪥
+
+[tryit] Make a chart: did you sleep well, play actively and brush twice today?
+
+[parent] Experts suggest children aged 6–8 get an hour of active play a day. A regular bedtime routine helps sleep.","Wikipedia: Sleep — https://en.wikipedia.org/wiki/Sleep (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Exercise — https://en.wikipedia.org/wiki/Exercise (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Tooth brushing — https://en.wikipedia.org/wiki/Tooth_brushing (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/health/b2-health-healthy-habits.json","","","","","",""
+"b2-health-staying-safe","Staying Safe: Roads, Water, Emergencies","Early Learners (6–8)","Health, Body & Feelings","b2-health-5: Road safety, water safety and what to do in an emergency (calling for help)","","10","draft","[text] ROADS: Stop, look both ways, listen, then cross with a grown-up. Use crossings when you can.
+
+[text] WATER: Only swim with a grown-up watching. Never go near deep water alone.
+
+[text] EMERGENCIES: If someone is badly hurt or there's a fire, get a grown-up. Grown-ups call the emergency number.
+
+[fact] Emergency numbers are different in each country, such as 112, 911, 999 or 000. Learn yours with a grown-up!
+
+[parent] Teach your child your local emergency number and their own address. Practise crossing roads together.","Wikipedia: Road safety — https://en.wikipedia.org/wiki/Road_safety (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Water safety — https://en.wikipedia.org/wiki/Water_safety (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Emergency telephone number — https://en.wikipedia.org/wiki/Emergency_telephone_number (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/health/b2-health-staying-safe.json","","","","","",""
+"b2-lang-fiction-nonfiction","Stories or Facts?","Early Learners (6–8)","Language & Reading","b2-lang-5: Tells the difference between stories (fiction) and fact books (non-fiction)","","10","draft","[text] FICTION books are made-up stories, like a dragon who bakes cakes. 🐉
+
+[text] NON-FICTION books give real facts, like a book about how volcanoes work. 🌋
+
+[text] Non-fiction often has headings, photos, labels and a contents page.
+
+[tryit] Find one fiction and one non-fiction book at home or school. How can you tell?
+
+[parent] Visit a library together and explore both sections. Non-fiction about a child's hobby is a great way into reading.","Wikipedia: Fiction — https://en.wikipedia.org/wiki/Fiction (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Non-fiction — https://en.wikipedia.org/wiki/Non-fiction (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/language/b2-lang-fiction-nonfiction.json","","","","","",""
 "b2-lang-good-sentences","Writing a Good Sentence","Early Learners (6–8)","Language & Reading","b2-lang-3: Writes simple sentences with a capital letter and full stop","","10","draft","[text] A sentence is a group of words that makes sense on its own.
 
 [text] Every sentence starts with a CAPITAL letter.
@@ -159,6 +390,27 @@ Wikipedia: Healthy diet — https://en.wikipedia.org/wiki/Healthy_diet (CC BY-SA
 
 [parent] Read your child's sentences aloud with expression. They can hear the difference between '.', '?' and '!'.","Wikipedia: Sentence (linguistics) — https://en.wikipedia.org/wiki/Sentence_(linguistics) (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Punctuation — https://en.wikipedia.org/wiki/Punctuation (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/language/b2-lang-good-sentences.json","","","","","",""
+"b2-lang-phonics","Sounding Out Words","Early Learners (6–8)","Language & Reading","b2-lang-1: Decodes simple words using letter sounds (phonics) and reads common sight words","","10","draft","[text] Letters make sounds. To read a new word, say each sound and blend them: c-a-t → cat!
+
+[text] Some letters team up: 'sh' in ship, 'ch' in chip, 'th' in thin.
+
+[text] Some words are tricky and don't follow the rules, like 'the', 'said' and 'was'. We learn these by sight.
+
+[tryit] Sound out: d-o-g, f-i-sh, s-u-n. What words did you make?
+
+[parent] Point under each sound as your child blends. Short, daily practice (5–10 minutes) beats long sessions.","Wikipedia: Phonics — https://en.wikipedia.org/wiki/Phonics (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Sight word — https://en.wikipedia.org/wiki/Sight_word (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/language/b2-lang-phonics.json","","","","","",""
+"b2-lang-reading-detective","Be a Reading Detective","Early Learners (6–8)","Language & Reading","b2-lang-2: Reads a short text aloud and answers who/what/where questions about it (GPF G2–3)
+b2-lang-4: Works out the meaning of a new word from the picture or sentence","","10","draft","[text] After reading, ask: WHO is in the story? WHAT happened? WHERE did it happen?
+
+[text] Stuck on a new word? Look for clues in the picture and the sentence around it.
+
+[fact] Example: 'The enormous elephant was so big it could hardly fit through the gate.' 'So big' tells you enormous means very big!
+
+[tryit] Read a short story. Tell someone the who, what and where.
+
+[parent] Ask open questions after reading ('Why do you think she did that?'), not just yes/no ones.","Wikipedia: Reading comprehension — https://en.wikipedia.org/wiki/Reading_comprehension (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Context clue — https://en.wikipedia.org/wiki/Context_clue (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/language/b2-lang-reading-detective.json","","","","","",""
 "b2-math-adding-tens-ones","Adding Big Numbers with Tens and Ones","Early Learners (6–8)","Math","b2-math-2: Adds and subtracts within 100, including word problems (GPF G2–3)
 b2-math-1: Reads, writes and compares numbers to 1,000; understands place value (hundreds, tens, ones)","","10","draft","[text] The number 23 has 2 tens and 3 ones.
 
@@ -170,6 +422,56 @@ b2-math-1: Reads, writes and compares numbers to 1,000; understands place value 
 
 [parent] Ask your child to say how many tens and ones are in each number before adding. Real objects (sticks, coins, blocks) make it concrete.","Wikipedia: Positional notation — https://en.wikipedia.org/wiki/Positional_notation (CC BY-SA 4.0 (reference; text is original))
 OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content/lessons/b2/math/b2-math-adding-tens-ones.json","","","","","",""
+"b2-math-halves-quarters","Halves and Quarters","Early Learners (6–8)","Math","b2-math-6: Understands halves and quarters of a shape","","10","draft","[text] A HALF means 2 EQUAL parts. We write it ½.
+
+[text] A QUARTER means 4 EQUAL parts. We write one quarter ¼.
+
+[text] The parts must be the same size. Otherwise they aren't halves or quarters!
+
+[tryit] Fold a paper square in half, then in half again. How many equal parts now?
+
+[parent] Share snacks fairly: 'Let's cut it in half so we each get the same.'","Wikipedia: Fraction — https://en.wikipedia.org/wiki/Fraction (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/math/b2-math-halves-quarters.json","","","","","",""
+"b2-math-measure-graphs","Measuring and Picture Graphs","Early Learners (6–8)","Math","b2-math-5: Measures length with a ruler; reads a simple picture graph","","10","draft","[text] We measure length with a ruler, starting at 0. Short things in centimetres (cm).
+
+[text] A PICTURE GRAPH uses pictures to show numbers. If each 🍎 means 1 child, 4 🍎 means 4 children.
+
+[text] Look at the title and the key to understand a graph.
+
+[tryit] Measure your pencil, your hand and a spoon with a ruler. Which is longest?
+
+[parent] Let your child measure real things. Line the object up with 0, not with the end of the ruler!","Wikipedia: Ruler — https://en.wikipedia.org/wiki/Ruler (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Pictogram — https://en.wikipedia.org/wiki/Pictogram (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/math/b2-math-measure-graphs.json","","","","","",""
+"b2-math-time-and-money","Telling Time and Counting Money","Early Learners (6–8)","Math","b2-math-4: Tells time to the hour and half hour; recognises coins and notes","","10","draft","[text] On a clock, the short hand shows the hour. The long hand shows the minutes.
+
+[text] When the long hand points to 12, it's 'o'clock'. When it points to 6, it's 'half past'.
+
+[text] We count money by adding coins and notes. If something costs less than you pay, you get CHANGE back.
+
+[fact] Example: a toy costs 7. You pay 10. Your change is 10 − 7 = 3.
+
+[parent] Use your local coins for shop role-play. Ask your child to read the clock at key times (lunch, bedtime).","Wikipedia: Clock face — https://en.wikipedia.org/wiki/Clock_face (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Coin — https://en.wikipedia.org/wiki/Coin (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/math/b2-math-time-and-money.json","","","","","",""
+"b2-math-times-tables","Times Tables: Equal Groups","Early Learners (6–8)","Math","b2-math-3: Understands multiplication as equal groups; knows 2, 5 and 10 times tables","","10","draft","[text] Multiplication means equal groups. 3 groups of 2 apples = 2 + 2 + 2 = 6. We write 3 × 2 = 6.
+
+[text] The 2 times table counts in 2s: 2, 4, 6, 8, 10…
+
+[text] The 5 times table counts in 5s: 5, 10, 15, 20… The 10 times table counts in 10s: 10, 20, 30…
+
+[fact] 3 × 2 is the same as 2 × 3. You can swap the numbers!
+
+[parent] Count in 2s, 5s and 10s on walks or stairs. Real objects (coins, socks in pairs) make it concrete.","Wikipedia: Multiplication — https://en.wikipedia.org/wiki/Multiplication (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Multiplication table — https://en.wikipedia.org/wiki/Multiplication_table (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/math/b2-math-times-tables.json","","","","","",""
+"b2-money-life-skills","I Can Do It Myself!","Early Learners (6–8)","Money & Life Skills","b2-money-4: Life skills: pack own school bag, tie shoelaces, simple tidy routines
+b2-money-1: Counts money and gives change in simple cases","","10","draft","[text] Growing up means learning to do things yourself: packing your school bag, tying shoelaces, getting dressed.
+
+[text] A checklist helps: lunchbox, water bottle, homework, coat. Tick them off! ✅
+
+[text] Shoelaces: cross the laces, tuck one under, pull tight, make 'bunny ears' and cross them over!
+
+[tryit] Make a checklist for your school bag and stick it by the door.
+
+[parent] Give extra time in the morning so your child can practise. Doing it themselves, slowly, builds confidence.","Wikipedia: Self-care — https://en.wikipedia.org/wiki/Self-care (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Shoelaces — https://en.wikipedia.org/wiki/Shoelaces (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/money/b2-money-life-skills.json","","","","","",""
 "b2-money-needs-wants","Needs and Wants","Early Learners (6–8)","Money & Life Skills","b2-money-2: Understands needs vs wants
 b2-money-3: Understands saving for a goal (a savings jar)","","10","draft","[text] A NEED is something we must have to live and be safe: food, water, a home, clothes.
 
@@ -183,6 +485,46 @@ b2-money-3: Understands saving for a goal (a savings jar)","","10","draft","[tex
 
 [parent] Share a simple real example, like choosing between two snacks at the shop. Children learn a lot from seeing choices made out loud.","Wikipedia: Need — https://en.wikipedia.org/wiki/Need (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Saving — https://en.wikipedia.org/wiki/Saving (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/money/b2-money-needs-wants.json","","","","","",""
+"b2-sci-animal-groups","Animal Groups and Habitats","Early Learners (6–8)","Science","b2-sci-2: Groups animals (mammals, birds, fish, insects) and knows their habitats","","10","draft","[text] MAMMALS have hair or fur and feed their babies milk (dogs, whales, humans).
+
+[text] BIRDS have feathers and lay eggs. FISH live in water and breathe with gills. INSECTS have 6 legs.
+
+[text] A HABITAT is an animal's home: ocean, desert, forest, polar ice…
+
+[fact] A whale is a mammal, not a fish! It breathes air and feeds its babies milk.
+
+[parent] Sort toy animals into groups together, and talk about why. Explaining 'why' matters more than the answer.","Wikipedia: Animal — https://en.wikipedia.org/wiki/Animal (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Habitat — https://en.wikipedia.org/wiki/Habitat (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/science/b2-sci-animal-groups.json","","","","","",""
+"b2-sci-day-and-night","Sun, Earth and Moon","Early Learners (6–8)","Science","b2-sci-4: Knows the Sun, Earth and Moon and why we have day and night","","10","draft","[text] The Earth spins around like a top. It takes one day (24 hours) to spin once.
+
+[text] When your side faces the Sun, it's DAY. When it faces away, it's NIGHT.
+
+[text] The Earth travels around the Sun. One trip takes a year. The Moon travels around the Earth.
+
+[fact] The Sun is a star, the closest one to us!
+
+[parent] In a dark room, use a torch as the Sun and a ball as the Earth. Spin the ball slowly to show day and night.","Wikipedia: Earth's rotation — https://en.wikipedia.org/wiki/Earth's_rotation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Moon — https://en.wikipedia.org/wiki/Moon (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/science/b2-sci-day-and-night.json","","","","","",""
+"b2-sci-fair-test","Predict and Test","Early Learners (6–8)","Science","b2-sci-5: Makes a prediction and does a simple fair test","","10","draft","[text] Scientists PREDICT (make a smart guess), then TEST to find out.
+
+[text] A fair test changes only ONE thing. Everything else stays the same.
+
+[fact] Example: Which ball bounces highest? Drop each from the SAME height onto the SAME floor. Only the ball changes.
+
+[tryit] Predict which paper aeroplane design flies furthest. Throw each the same way and measure!
+
+[parent] Ask 'What do you think will happen?' before every experiment. It's fine to be wrong. That's how science works!","Wikipedia: Prediction — https://en.wikipedia.org/wiki/Prediction (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Experiment — https://en.wikipedia.org/wiki/Experiment (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/science/b2-sci-fair-test.json","","","","","",""
+"b2-sci-plants","How Plants Grow","Early Learners (6–8)","Science","b2-sci-1: Knows what plants need to grow and the parts of a plant","","10","draft","[text] Plants need sunlight ☀️, water 💧, air and soil (or nutrients) to grow.
+
+[text] ROOTS take in water. The STEM holds the plant up. LEAVES make food using sunlight. FLOWERS make seeds.
+
+[fact] Plants make their own food from sunlight, air and water. This is called photosynthesis.
+
+[tryit] Put a bean in a wet tissue in a clear cup. Watch the roots grow over a week!
+
+[parent] A windowsill seed is a great science project. Ask what would happen with no water or no light, then test it.","Wikipedia: Plant — https://en.wikipedia.org/wiki/Plant (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Photosynthesis — https://en.wikipedia.org/wiki/Photosynthesis (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/science/b2-sci-plants.json","","","","","",""
 "b2-sci-solid-liquid-gas","Solid, Liquid, Gas","Early Learners (6–8)","Science","b2-sci-3: Knows the states of matter: solid, liquid, gas","","10","draft","[text] Everything around us is made of matter. Matter can be a solid, a liquid or a gas.
 
 [text] A SOLID keeps its shape. A rock, a spoon and ice are solids. 🧊
@@ -208,6 +550,18 @@ Wikipedia: Saving — https://en.wikipedia.org/wiki/Saving (CC BY-SA 4.0 (refere
 
 [parent] Model it during the day: 'That's my opinion, you might disagree!' This builds respect for different views.","Wikipedia: Fact — https://en.wikipedia.org/wiki/Fact (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Opinion — https://en.wikipedia.org/wiki/Opinion (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/thinking/b2-think-fact-or-opinion.json","","","","","",""
+"b2-think-patterns-growth","Patterns, Puzzles and Trying Again","Early Learners (6–8)","Thinking Skills","b2-think-1: Finds and continues number and shape patterns
+b2-think-3: Solves simple logic puzzles and explains how
+b2-think-4: Tries again after a mistake (growth mindset)","","10","draft","[text] Patterns are everywhere: 2, 4, 6, 8… or ⭐🌙⭐🌙. Find the rule, then continue it.
+
+[text] Logic puzzles need careful thinking. Explain HOW you solved it, not just the answer.
+
+[text] Mistakes help your brain grow! When something is hard, say 'I can't do it YET.'
+
+[tryit] Try a hard puzzle. If you get stuck, take a break and try again.
+
+[parent] Praise effort and strategy ('You kept trying different ways!') rather than 'You're so smart'.","Wikipedia: Pattern — https://en.wikipedia.org/wiki/Pattern (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Growth mindset — https://en.wikipedia.org/wiki/Growth_mindset (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/thinking/b2-think-patterns-growth.json","","","","","",""
 "b2-world-continents-oceans","Continents and Oceans","Early Learners (6–8)","Our World","b2-world-1: Names the 7 continents and 5 oceans and finds them on a map/globe","","10","draft","[text] Earth's land is split into big pieces called continents. Most maps show seven.
 
 [text] The seven continents are: Africa, Antarctica, Asia, Australia (part of Oceania), Europe, North America and South America.
@@ -222,6 +576,54 @@ Wikipedia: Opinion — https://en.wikipedia.org/wiki/Opinion (CC BY-SA 4.0 (refe
 
 [parent] A cheap globe or a free online map makes this concrete. Find where family or friends live.","Wikipedia: Continent — https://en.wikipedia.org/wiki/Continent (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Ocean — https://en.wikipedia.org/wiki/Ocean (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/world/b2-world-continents-oceans.json","","","","","",""
+"b2-world-long-ago-far-away","Long Ago and Far Away","Early Learners (6–8)","Our World","b2-world-3: Understands past, present and timelines (how life was different long ago)
+b2-world-4: Learns about children's lives in different countries","","10","draft","[text] A TIMELINE shows events in order, from long ago to now.
+
+[text] Long ago, there were no phones or computers. Children wrote letters and played outside with simple toys.
+
+[text] Today, children around the world live in many ways: some walk far to school, some live in cities, some on farms, some by the sea.
+
+[text] Kids everywhere like to play, learn and spend time with family. We're more alike than different!
+
+[parent] Ask a grandparent what school was like for them, and add it to a family timeline.","Wikipedia: Timeline — https://en.wikipedia.org/wiki/Timeline (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Childhood — https://en.wikipedia.org/wiki/Childhood (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/world/b2-world-long-ago-far-away.json","","","","","",""
+"b2-world-maps","Reading a Map","Early Learners (6–8)","Our World","b2-world-2: Reads a simple map using a key and directions (N, S, E, W)","","10","draft","[text] A MAP is a drawing of a place from above, like a bird's view. 🗺️
+
+[text] The KEY shows what the symbols mean: a blue line might be a river, a tree symbol might be a park.
+
+[text] The compass shows directions: North (up), South (down), East (right) and West (left).
+
+[fact] A way to remember: 'Never Eat Soggy Waffles' goes clockwise: North, East, South, West.
+
+[parent] Draw a simple map of your home or street together, with a key.","Wikipedia: Map — https://en.wikipedia.org/wiki/Map (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Cardinal direction — https://en.wikipedia.org/wiki/Cardinal_direction (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/world/b2-world-maps.json","","","","","",""
+"b2-world-religions","Beliefs Around the World","Early Learners (6–8)","Our World","b2-world-5: Main world religions and their festivals, described respectfully","religion","10","draft","[text] People around the world have different beliefs. Some follow a religion, some don't.
+
+[text] Some of the biggest religions are Christianity, Islam, Hinduism and Buddhism. There are many others, like Sikhism and Judaism.
+
+[text] Each has special places (churches, mosques, temples, gurdwaras, synagogues), special books and festivals.
+
+[text] Many people aren't religious and find meaning in other ways. Everyone deserves respect.
+
+[parent] This lesson describes beliefs; it doesn't tell children what to believe. Share your family's own views alongside it.","Wikipedia: Religion — https://en.wikipedia.org/wiki/Religion (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Major religious groups — https://en.wikipedia.org/wiki/Major_religious_groups (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Irreligion — https://en.wikipedia.org/wiki/Irreligion (CC BY-SA 4.0 (reference; text is original))","content/lessons/b2/world/b2-world-religions.json","","","","","",""
+"b3-arts-artists-world","Artists and Musicians From Around the World","Discoverers (9–11)","Arts & Music","b3-arts-3: Learns about famous artists and musicians from different continents","","15","draft","[text] Frida Kahlo (Mexico) painted bold self-portraits full of colour and Mexican culture.
+
+[text] Katsushika Hokusai (Japan) made 'The Great Wave off Kanagawa', a famous woodblock print.
+
+[text] A. R. Rahman (India) composes film music heard around the world. Fela Kuti (Nigeria) created Afrobeat music.
+
+[text] Art and music often show where the artist comes from: their landscape, stories and traditions.","Wikipedia: Frida Kahlo — https://en.wikipedia.org/wiki/Frida_Kahlo (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Katsushika Hokusai — https://en.wikipedia.org/wiki/Katsushika_Hokusai (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: A. R. Rahman — https://en.wikipedia.org/wiki/A._R._Rahman (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Fela Kuti — https://en.wikipedia.org/wiki/Fela_Kuti (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/arts/b3-arts-artists-world.json","","","","","",""
+"b3-arts-rhythm-instruments","Rhythm and Instrument Families","Discoverers (9–11)","Arts & Music","b3-arts-2: Reads simple rhythm notation; knows instrument families","","15","draft","[text] In music notation, a crotchet (quarter note) ♩ lasts 1 beat, a minim (half note) lasts 2 beats, and a semibreve (whole note) lasts 4 beats. Two quavers (eighth notes) ♫ share 1 beat.
+
+[text] Instrument families: STRINGS (violin, guitar, sitar), WOODWIND (flute, clarinet), BRASS (trumpet, trombone), PERCUSSION (drums, xylophone, tabla).
+
+[text] You can sort instruments by how they make sound: plucked or bowed strings, blowing air, or hitting.","Wikipedia: Note value — https://en.wikipedia.org/wiki/Note_value (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Orchestra — https://en.wikipedia.org/wiki/Orchestra (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/arts/b3-arts-rhythm-instruments.json","","","","","",""
 "b3-arts-warm-cool-colours","Warm and Cool Colours","Discoverers (9–11)","Arts & Music","b3-arts-1: Uses perspective, shading and colour theory (warm/cool)","","15","draft","[text] Artists arrange colours on a circle called a COLOUR WHEEL.
 
 [text] WARM colours are reds, oranges and yellows. They can feel energetic, sunny or fiery.
@@ -234,6 +636,14 @@ Wikipedia: Ocean — https://en.wikipedia.org/wiki/Ocean (CC BY-SA 4.0 (referenc
 
 [tryit] Draw the same tree twice: once in warm colours and once in cool colours. How does each one feel?","Wikipedia: Color wheel — https://en.wikipedia.org/wiki/Color_wheel (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Complementary colors — https://en.wikipedia.org/wiki/Complementary_colors (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/arts/b3-arts-warm-cool-colours.json","","","","","",""
+"b3-comp-how-internet-works","How the Internet Works","Discoverers (9–11)","Computing","b3-comp-3: Knows how the internet works simply (computers sending messages)","","15","draft","[text] The internet is a giant network of computers connected by cables, Wi-Fi, phone signals and even undersea cables.
+
+[text] When you send a message, it's split into small PACKETS. They travel separately and are put back together at the other end.
+
+[text] Each device has an address (an IP address) so packets know where to go, a bit like a postal address.
+
+[fact] Most internet data between continents travels through cables under the ocean, not through satellites.","Wikipedia: Internet — https://en.wikipedia.org/wiki/Internet (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Packet switching — https://en.wikipedia.org/wiki/Packet_switching (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/computing/b3-comp-how-internet-works.json","","","","","",""
 "b3-comp-loops-conditions","Loops and If-Then","Discoverers (9–11)","Computing","b3-comp-1: Uses loops, conditions (if/else) and variables in block code
 b3-comp-4: Understands input → process → output","","15","draft","[text] A LOOP repeats instructions. Instead of writing 'step forward' 10 times, write: repeat 10 times → step forward.
 
@@ -245,6 +655,29 @@ b3-comp-4: Understands input → process → output","","15","draft","[text] A L
 
 [tryit] Write instructions for a dance using a loop: repeat 4 times → clap, jump, spin.","Wikipedia: Control flow — https://en.wikipedia.org/wiki/Control_flow (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Conditional (computer programming) — https://en.wikipedia.org/wiki/Conditional_(computer_programming) (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/computing/b3-comp-loops-conditions.json","","","","","",""
+"b3-comp-scratch-game","Make a Game in Scratch","Discoverers (9–11)","Computing","b3-comp-2: Makes a simple game or animation in Scratch","","15","draft","[text] Scratch is a free block-coding tool from MIT. You make SPRITES (characters) and give them scripts.
+
+[text] Events start scripts: 'when green flag clicked', 'when space key pressed'.
+
+[text] A simple game: a cat catches falling apples. Use a loop to move the apple down, an IF to check 'touching cat?', and a VARIABLE to keep score.
+
+[tryit] With a grown-up, open Scratch and make a sprite move with the arrow keys.","Wikipedia: Scratch (programming language) — https://en.wikipedia.org/wiki/Scratch_(programming_language) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Game design — https://en.wikipedia.org/wiki/Game_design (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/computing/b3-comp-scratch-game.json","","","","","",""
+"b3-dig-checking-facts","Is It True? Check 2 Sources","Discoverers (9–11)","Digital Life & AI Safety","b3-dig-3: Checks if information is true using 2+ trusted sources","","15","draft","[text] Before you believe or share something, check it in at least 2 TRUSTED sources: a reliable encyclopedia, a museum, a science organisation, a well-known news outlet.
+
+[text] Ask: Who wrote it? Do they have evidence? When was it written? Does it make me feel very angry or excited? Strong feelings can be a warning sign.
+
+[text] Pictures can be edited or taken out of context. A reverse image search (with an adult) can show where a picture really came from.","Wikipedia: Fact-checking — https://en.wikipedia.org/wiki/Fact-checking (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Information literacy — https://en.wikipedia.org/wiki/Information_literacy (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/digital/b3-dig-checking-facts.json","","","","","",""
+"b3-dig-footprint-ai","Digital Footprints and How AI Works","Discoverers (9–11)","Digital Life & AI Safety","b3-dig-4: Understands digital footprint: posts can last forever
+b3-dig-5: Knows how AI chatbots work at a simple level and why they can be wrong","","15","draft","[text] Your DIGITAL FOOTPRINT is the trail you leave online: posts, photos, comments, searches. It can last a very long time, even if you delete something.
+
+[text] Before posting, ask: Would I be OK with my teacher, family or a future employer seeing this?
+
+[text] AI chatbots learn patterns from huge amounts of text, then predict likely next words. They don't 'know' things like people do.
+
+[text] That's why AI can sound confident but still be WRONG. This is sometimes called 'hallucinating'. Always check important facts.","Wikipedia: Digital footprint — https://en.wikipedia.org/wiki/Digital_footprint (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Large language model — https://en.wikipedia.org/wiki/Large_language_model (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/digital/b3-dig-footprint-ai.json","","","","","",""
 "b3-dig-spot-a-scam","Spot the Scam","Discoverers (9–11)","Digital Life & AI Safety","b3-dig-2: Recognises scams, fake prizes and suspicious links
 b3-dig-1: Creates strong passwords and never shares them","","15","draft","[text] A scam is a trick to get your money, your passwords or your personal information.
 
@@ -273,6 +706,45 @@ b3-health-3: Friendship skills, dealing with bullying, asking for help","","15",
 
 [tryit] Try 'box breathing': breathe in for 4, hold for 4, out for 4, hold for 4. Do it 4 times. How do you feel?","Wikipedia: Stress management — https://en.wikipedia.org/wiki/Stress_management (CC BY-SA 4.0 (reference; text is original))
 KidsHealth: Stress — https://kidshealth.org/en/kids/stress.html (Reference only; text is original)","content/lessons/b3/health/b3-health-big-feelings.json","","","","","",""
+"b3-health-first-aid-basics","First Aid Basics","Discoverers (9–11)","Health, Body & Feelings","b3-health-2: Basic first aid: cuts, burns, calling emergency services","","15","draft","[text] First aid is the help you give before a doctor arrives. Always get an adult first if you can.
+
+[text] Small CUT: wash hands, clean with clean water, press gently with a clean cloth to stop bleeding, cover with a plaster.
+
+[text] BURN: cool it under cool (not icy) running water for 20 minutes. Don't use butter or ice. Tell an adult.
+
+[text] SERIOUS emergency: call your local emergency number, say where you are and what happened, and follow instructions.","Wikipedia: First aid — https://en.wikipedia.org/wiki/First_aid (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Burn — https://en.wikipedia.org/wiki/Burn (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/health/b3-health-first-aid-basics.json","","","","","",""
+"b3-health-food-labels","Reading Food Labels","Discoverers (9–11)","Health, Body & Feelings","b3-health-1: Reads a food label; understands sugar, salt and balanced diet","","15","draft","[text] Food labels show what's inside: energy (calories), fat, sugar, salt and more, usually per 100 g and per portion.
+
+[text] Ingredients are listed from MOST to LEAST. If sugar is first, there's more sugar than anything else!
+
+[text] Some countries use traffic-light colours: green = low, amber = medium, red = high.
+
+[fact] The WHO recommends keeping 'free sugars' (added sugars, plus honey and fruit juice) to less than 10% of daily energy.","Wikipedia: Nutrition facts label — https://en.wikipedia.org/wiki/Nutrition_facts_label (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Added sugar — https://en.wikipedia.org/wiki/Added_sugar (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/health/b3-health-food-labels.json","","","","","",""
+"b3-health-puberty","Growing Up: Puberty","Discoverers (9–11)","Health, Body & Feelings","b3-health-5: Puberty: body changes and why they happen","body","15","draft","[text] Puberty is when your body starts changing from a child's body into an adult's. It usually starts somewhere between about 8 and 14. Everyone's timing is different, and that's normal.
+
+[text] Common changes for everyone: growth spurts, new body hair, more sweat (time for deodorant and daily washing), spots, and stronger feelings or mood changes.
+
+[text] Many girls develop breasts and start having periods. Many boys' voices get deeper and their shoulders get broader.
+
+[text] Questions are normal! Ask a parent, school nurse or another trusted adult. Reliable health websites can help too.","Wikipedia: Puberty — https://en.wikipedia.org/wiki/Puberty (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/health/b3-health-puberty.json","","","","","",""
+"b3-lang-compare-texts","Comparing Two Texts","Discoverers (9–11)","Language & Reading","b3-lang-5: Compares two texts on the same topic","","15","draft","[text] Two texts about the same topic can be very different. A diary of a sailor and an encyclopedia page about ships both tell you about the sea, but in different ways.
+
+[text] Compare: PURPOSE (to inform, entertain or persuade?), POINT OF VIEW (who is telling it?), and FACTS vs FEELINGS.
+
+[text] Use words like 'Both…', 'However…', 'In contrast…' to compare.
+
+[tryit] Read a news article and a story about the same animal. List one thing that's the same and one that's different.","Wikipedia: Comparison — https://en.wikipedia.org/wiki/Comparison (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Point of view (literature) — https://en.wikipedia.org/wiki/Point_of_view_(literature) (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/language/b3-lang-compare-texts.json","","","","","",""
+"b3-lang-grammar","Word Jobs: Nouns, Verbs, Adjectives, Adverbs","Discoverers (9–11)","Language & Reading","b3-lang-4: Uses nouns, verbs, adjectives, adverbs and correct tenses","","15","draft","[text] NOUNS name people, places or things: girl, city, pencil.
+
+[text] VERBS are action or being words: run, think, is.
+
+[text] ADJECTIVES describe nouns: a TALL tree. ADVERBS describe verbs, often ending in -ly: she ran QUICKLY.
+
+[text] TENSE shows time: I walk (present), I walked (past), I will walk (future).","Wikipedia: Part of speech — https://en.wikipedia.org/wiki/Part_of_speech (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Grammatical tense — https://en.wikipedia.org/wiki/Grammatical_tense (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/language/b3-lang-grammar.json","","","","","",""
 "b3-lang-main-idea","Finding the Main Idea","Discoverers (9–11)","Language & Reading","b3-lang-1: Reads texts of a few paragraphs independently and finds the main idea and supporting details (GPF G4–6)
 b3-lang-2: Makes inferences: works out what is not said directly","","15","draft","[text] The MAIN IDEA is what a paragraph is mostly about. The other sentences are DETAILS that support it.
 
@@ -286,6 +758,23 @@ b3-lang-2: Makes inferences: works out what is not said directly","","15","draft
 
 [tryit] Pick a paragraph from any book. Write its main idea in 10 words or fewer.","Wikipedia: Reading comprehension — https://en.wikipedia.org/wiki/Reading_comprehension (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Topic sentence — https://en.wikipedia.org/wiki/Topic_sentence (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/language/b3-lang-main-idea.json","","","","","",""
+"b3-lang-paragraph-writing","Writing a Strong Paragraph","Discoverers (9–11)","Language & Reading","b3-lang-3: Writes a paragraph with a topic sentence; plans, drafts and edits","","15","draft","[text] A paragraph is a group of sentences about ONE main idea.
+
+[text] Start with a TOPIC SENTENCE that says the main idea. Add 2–4 SUPPORTING sentences with details or examples. End with a CONCLUDING sentence.
+
+[text] Good writers PLAN (list ideas), DRAFT (write it), then EDIT (fix spelling, punctuation and unclear bits).
+
+[tryit] Write a paragraph about your favourite animal: one topic sentence, three facts, one ending sentence.","Wikipedia: Paragraph — https://en.wikipedia.org/wiki/Paragraph (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Writing process — https://en.wikipedia.org/wiki/Writing_process (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/language/b3-lang-paragraph-writing.json","","","","","",""
+"b3-math-area-perimeter-angles","Perimeter, Area and Angles","Discoverers (9–11)","Math","b3-math-3: Calculates perimeter and area of rectangles; knows angles and types of triangles","","15","draft","[text] PERIMETER is the distance all the way around a shape. Add up all the sides.
+
+[text] AREA is the space inside. For a rectangle: length × width. It's measured in square units (cm²).
+
+[text] A right angle is 90° (like a square corner). Acute angles are smaller than 90°; obtuse angles are between 90° and 180°.
+
+[fact] The angles inside any triangle always add up to 180°.","Wikipedia: Perimeter — https://en.wikipedia.org/wiki/Perimeter (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Area — https://en.wikipedia.org/wiki/Area (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Angle — https://en.wikipedia.org/wiki/Angle (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/math/b3-math-area-perimeter-angles.json","","","","","",""
 "b3-math-comparing-fractions","Which Fraction Is Bigger?","Discoverers (9–11)","Math","b3-math-2: Understands, compares and adds fractions; links fractions, decimals and percentages","","15","draft","[text] A fraction like 3/4 means 3 parts out of 4 equal parts. The bottom number (denominator) says how many parts the whole is cut into.
 
 [text] Same denominator? Just compare the tops. 5/8 is bigger than 3/8 because 5 pieces is more than 3 pieces of the same size.
@@ -296,6 +785,47 @@ Wikipedia: Topic sentence — https://en.wikipedia.org/wiki/Topic_sentence (CC B
 
 [tryit] Fold two paper strips the same length. Fold one into 3 parts and one into 4. Shade 2/3 and 3/4 and compare.","Wikipedia: Fraction — https://en.wikipedia.org/wiki/Fraction (CC BY-SA 4.0 (reference; text is original))
 OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content/lessons/b3/math/b3-math-comparing-fractions.json","","","","","",""
+"b3-math-graphs-mean","Graphs, Tables and the Mean","Discoverers (9–11)","Math","b3-math-4: Reads and makes bar charts, line graphs and tables; finds the mean","","15","draft","[text] A BAR CHART compares amounts. A LINE GRAPH shows change over time, like temperature through the day.
+
+[text] Always read the title, the labels on each axis and the scale.
+
+[text] The MEAN (average) = add all the values, then divide by how many there are.
+
+[fact] Example: scores 4, 6 and 8. Sum = 18, and 18 ÷ 3 = 6. The mean is 6.","Wikipedia: Bar chart — https://en.wikipedia.org/wiki/Bar_chart (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Arithmetic mean — https://en.wikipedia.org/wiki/Arithmetic_mean (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/math/b3-math-graphs-mean.json","","","","","",""
+"b3-math-multi-step-problems","Multi-Step Word Problems","Discoverers (9–11)","Math","b3-math-5: Solves multi-step word problems and checks if the answer is reasonable","","15","draft","[text] Read the problem twice. Underline the numbers and the question.
+
+[text] Decide the steps: what do you need to find first?
+
+[text] ESTIMATE first, then check that your answer is reasonable. If you estimated about 100 and got 1,000, check again!
+
+[fact] Example: 3 packs of 12 eggs, 5 broken. Step 1: 3 × 12 = 36. Step 2: 36 − 5 = 31. Estimate: about 35, so 31 is reasonable.","Wikipedia: Word problem (mathematics education) — https://en.wikipedia.org/wiki/Word_problem_(mathematics_education) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Estimation — https://en.wikipedia.org/wiki/Estimation (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/math/b3-math-multi-step-problems.json","","","","","",""
+"b3-math-times-division","Times Tables and Division","Discoverers (9–11)","Math","b3-math-1: Knows all times tables to 10×10; multiplies and divides multi-digit numbers (GPF G4–6)","","15","draft","[text] Knowing times tables up to 10 × 10 makes harder math much faster.
+
+[text] Division is the opposite of multiplication: if 6 × 7 = 42, then 42 ÷ 7 = 6.
+
+[text] For big multiplication, split numbers: 23 × 4 = (20 × 4) + (3 × 4) = 80 + 12 = 92.
+
+[fact] Trick for 9s: 9 × 7 = 63, and 6 + 3 = 9. The digits of the 9 times table (up to 9 × 10) always add to 9!","Wikipedia: Multiplication table — https://en.wikipedia.org/wiki/Multiplication_table (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Division (mathematics) — https://en.wikipedia.org/wiki/Division_(mathematics) (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/math/b3-math-times-division.json","","","","","",""
+"b3-money-banks-interest","Banks, Saving Accounts and Interest","Discoverers (9–11)","Money & Life Skills","b3-money-2: Understands banks, saving accounts and interest (simple)","","15","draft","[text] A BANK keeps money safe. You can put money in (deposit) and take it out (withdraw).
+
+[text] A SAVINGS ACCOUNT may pay you INTEREST: extra money for keeping your money there.
+
+[fact] Example: you save 100 at 5% interest a year. After a year you have 105.
+
+[text] When people BORROW money from a bank, they pay interest to the bank. Borrowing costs money!","Wikipedia: Bank — https://en.wikipedia.org/wiki/Bank (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Savings account — https://en.wikipedia.org/wiki/Savings_account (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Interest — https://en.wikipedia.org/wiki/Interest (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/money/b3-money-banks-interest.json","","","","","",""
+"b3-money-life-skills","Kitchen Safety and Planning Your Day","Discoverers (9–11)","Money & Life Skills","b3-money-4: Life skills: simple cooking safety, planning their day","","15","draft","[text] KITCHEN SAFETY: wash hands, ask an adult before using knives or the stove, turn pan handles inward, and use oven gloves.
+
+[text] Simple no-cook recipes to start: sandwiches, fruit salad, yoghurt with fruit.
+
+[text] PLANNING YOUR DAY: list what you must do (homework, chores), what you'd like to do (play, read), and give each a time.
+
+[tryit] Write a plan for tomorrow after school. Did you stick to it?","Wikipedia: Kitchen — https://en.wikipedia.org/wiki/Kitchen (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Time management — https://en.wikipedia.org/wiki/Time_management (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/money/b3-money-life-skills.json","","","","","",""
 "b3-money-make-a-budget","Making a Budget","Discoverers (9–11)","Money & Life Skills","b3-money-1: Makes a simple budget for pocket money
 b3-money-3: Compares prices and value for money","","15","draft","[text] A BUDGET is a plan for your money. It shows money coming in (income) and money going out (spending).
 
@@ -309,6 +839,50 @@ b3-money-3: Compares prices and value for money","","15","draft","[text] A BUDGE
 
 [tryit] Pretend you have 100 coins. Make a Save / Spend / Share plan. Does it add up to 100?","Wikipedia: Budget — https://en.wikipedia.org/wiki/Budget (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Saving — https://en.wikipedia.org/wiki/Saving (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/money/b3-money-make-a-budget.json","","","","","",""
+"b3-sci-body-systems","Body Systems Working Together","Discoverers (9–11)","Science","b3-sci-2: Knows the main human body systems (digestive, circulatory, respiratory, skeletal)","","15","draft","[text] DIGESTIVE system: breaks down food (mouth, stomach, intestines).
+
+[text] CIRCULATORY system: the heart pumps blood through blood vessels, carrying oxygen and food to every cell.
+
+[text] RESPIRATORY system: lungs take in oxygen and breathe out carbon dioxide.
+
+[text] SKELETAL system: 206 bones in an adult support you and protect organs (the skull protects the brain).","Wikipedia: Human body — https://en.wikipedia.org/wiki/Human_body (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Circulatory system — https://en.wikipedia.org/wiki/Circulatory_system (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Respiratory system — https://en.wikipedia.org/wiki/Respiratory_system (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/science/b3-sci-body-systems.json","","","","","",""
+"b3-sci-climate-environment","Climate and People","Discoverers (9–11)","Science","b3-sci-6: Understands climate and how humans affect the environment","","15","draft","[text] WEATHER is what happens day to day. CLIMATE is the usual pattern over many years.
+
+[text] Gases like carbon dioxide trap heat around the Earth like a blanket. This is the greenhouse effect, and it keeps Earth warm enough to live on.
+
+[text] Burning coal, oil and gas adds extra carbon dioxide, so the Earth is warming. Scientists agree this is mainly caused by human activity.
+
+[text] Solutions include clean energy (sun, wind, water), saving energy, protecting forests and wasting less.","Wikipedia: Climate — https://en.wikipedia.org/wiki/Climate (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Climate change — https://en.wikipedia.org/wiki/Climate_change (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Greenhouse effect — https://en.wikipedia.org/wiki/Greenhouse_effect (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/science/b3-sci-climate-environment.json","","","","","",""
+"b3-sci-food-chains","Food Chains and Ecosystems","Discoverers (9–11)","Science","b3-sci-1: Explains food chains and ecosystems","","15","draft","[text] A FOOD CHAIN shows what eats what: grass → rabbit → fox. The arrows show where the energy goes.
+
+[text] PRODUCERS (plants) make food from sunlight. CONSUMERS eat other living things. DECOMPOSERS (fungi, bacteria) break down dead things.
+
+[text] An ECOSYSTEM is all the living things in an area plus their environment, all depending on each other.
+
+[fact] If one part of a food chain disappears, the others are affected. Fewer rabbits can mean fewer foxes.","Wikipedia: Food chain — https://en.wikipedia.org/wiki/Food_chain (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Ecosystem — https://en.wikipedia.org/wiki/Ecosystem (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/science/b3-sci-food-chains.json","","","","","",""
+"b3-sci-forces","Forces: Push, Pull, Gravity, Friction","Discoverers (9–11)","Science","b3-sci-3: Understands forces (gravity, friction, magnetism) and simple machines","","15","draft","[text] A FORCE is a push or a pull. Forces can start, stop or change the direction of things.
+
+[text] GRAVITY pulls things towards Earth. FRICTION slows things when surfaces rub. MAGNETS attract some metals, like iron.
+
+[text] SIMPLE MACHINES make work easier: levers, pulleys, ramps, wheels and axles.
+
+[fact] Ice is slippery because there's very little friction. That's why we sprinkle grit or sand on icy paths.","Wikipedia: Force — https://en.wikipedia.org/wiki/Force (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Friction — https://en.wikipedia.org/wiki/Friction (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Magnetism — https://en.wikipedia.org/wiki/Magnetism (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Simple machine — https://en.wikipedia.org/wiki/Simple_machine (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/science/b3-sci-forces.json","","","","","",""
+"b3-sci-planning-fair-test","Planning a Fair Test","Discoverers (9–11)","Science","b3-sci-5: Plans a fair test: changes one variable, records results, draws a conclusion","","15","draft","[text] A fair test changes ONE thing (the variable you test) and keeps everything else the same.
+
+[text] Decide what you MEASURE, then record results in a table.
+
+[text] Repeat the test to make sure results are reliable, then write a CONCLUSION: what did you find out?
+
+[fact] Example: Does sugar dissolve faster in hot water? Change only the water temperature. Same amount of sugar, same cup, same stirring.","Wikipedia: Scientific control — https://en.wikipedia.org/wiki/Scientific_control (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Dependent and independent variables — https://en.wikipedia.org/wiki/Dependent_and_independent_variables (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/science/b3-sci-planning-fair-test.json","","","","","",""
 "b3-sci-water-cycle","The Water Cycle","Discoverers (9–11)","Science","b3-sci-4: Knows the water cycle and the solar system","","15","draft","[text] The water you drink today may once have been in an ocean, a cloud or a glacier. Earth keeps reusing its water in a loop called the water cycle.
 
 [text] 1. Evaporation: the Sun heats water in oceans, lakes and rivers. It turns into water vapour, a gas, and rises.
@@ -331,6 +905,39 @@ USGS Water Science School — https://www.usgs.gov/special-topics/water-science-
 
 [tryit] Pick a goal (like tidying your room or building a model). Break it into at least 5 small steps.","Wikipedia: Decomposition (computer science) — https://en.wikipedia.org/wiki/Decomposition_(computer_science) (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Problem solving — https://en.wikipedia.org/wiki/Problem_solving (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/thinking/b3-think-break-it-down.json","","","","","",""
+"b3-think-evidence-ads","Reasons, Evidence and Advert Tricks","Discoverers (9–11)","Thinking Skills","b3-think-2: Gives reasons and evidence for an opinion
+b3-think-3: Spots simple tricks in ads and headlines","","15","draft","[text] A strong opinion gives REASONS and EVIDENCE: 'School should have more breaks because studies show short breaks help concentration.'
+
+[text] Adverts use tricks: famous people, 'everyone has one!', tiny print, 'limited time only!', and pictures that look better than the real thing.
+
+[text] Headlines can exaggerate to get clicks: 'You WON'T BELIEVE…'","Wikipedia: Evidence — https://en.wikipedia.org/wiki/Evidence (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Advertising — https://en.wikipedia.org/wiki/Advertising (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/thinking/b3-think-evidence-ads.json","","","","","",""
+"b3-think-logic-grids","Logic Grids and Sequences","Discoverers (9–11)","Thinking Skills","b3-think-4: Solves logic grids and sequence puzzles","","15","draft","[text] A LOGIC GRID helps solve 'who has what' puzzles. Mark ✓ for definitely yes and ✗ for definitely no.
+
+[text] When one box gets a ✓, the rest of its row and column become ✗.
+
+[text] Sequences: find the rule (add 3? double? alternate?), then test it on every number.
+
+[fact] Example: Ana, Ben and Cy have a cat, dog and fish. Ana is allergic to fur. Ben's pet barks. So Ben has the dog, Ana the fish (no fur) and Cy the cat.","Wikipedia: Logic puzzle — https://en.wikipedia.org/wiki/Logic_puzzle (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Sequence — https://en.wikipedia.org/wiki/Sequence (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/thinking/b3-think-logic-grids.json","","","","","",""
+"b3-world-ancient-civilisations","Ancient Civilisations","Discoverers (9–11)","Our World","b3-world-2: Ancient civilisations around the world (e.g., Mesopotamia, Egypt, Indus Valley, China, Maya, Greece)","","15","draft","[text] Some of the earliest cities grew up beside big rivers, because rivers gave water and fertile soil for farming.
+
+[text] Mesopotamia (Tigris and Euphrates, modern Iraq) gave us one of the first writing systems, cuneiform, around 5,000 years ago.
+
+[text] Ancient Egypt (Nile) built pyramids. The Indus Valley civilisation (modern Pakistan and India) had planned cities with drains. Ancient China grew by the Yellow River.
+
+[text] Later civilisations included Ancient Greece, Rome and the Maya in Central America, who built cities and made calendars.","Wikipedia: Civilization — https://en.wikipedia.org/wiki/Civilization (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Mesopotamia — https://en.wikipedia.org/wiki/Mesopotamia (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Indus Valley civilisation — https://en.wikipedia.org/wiki/Indus_Valley_civilisation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Ancient Egypt — https://en.wikipedia.org/wiki/Ancient_Egypt (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/world/b3-world-ancient-civilisations.json","","","","","",""
+"b3-world-child-rights","Children's Rights","Discoverers (9–11)","Our World","b3-world-4: Understands rights and responsibilities (UN Convention on the Rights of the Child)","","15","draft","[text] In 1989 the United Nations agreed the Convention on the Rights of the Child. Almost every country in the world has signed it.
+
+[text] It says every child has rights, including the right to education, health care, play, safety, a name and nationality, and to be heard.
+
+[text] Rights come with responsibilities: respecting other people's rights too.
+
+[fact] The Convention is the most widely ratified human rights treaty in history.","Wikipedia: Convention on the Rights of the Child — https://en.wikipedia.org/wiki/Convention_on_the_Rights_of_the_Child (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Children's rights — https://en.wikipedia.org/wiki/Children's_rights (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/world/b3-world-child-rights.json","","","","","",""
 "b3-world-festivals-of-light","Festivals of Light Around the World","Discoverers (9–11)","Our World","b3-world-5: Beliefs and practices of world religions and non-religious worldviews, compared respectfully","religion","15","draft","[text] Many religions and cultures have festivals that use light. Here are three. People of each faith celebrate in their own ways, and not everyone celebrates.
 
 [text] Diwali is celebrated by many Hindus, Sikhs and Jains, mostly in October or November. People light small oil lamps called diyas, and many see it as celebrating light over darkness and good over evil.
@@ -342,6 +949,29 @@ Wikipedia: Problem solving — https://en.wikipedia.org/wiki/Problem_solving (CC
 [tryit] Ask your family: do you have a festival you celebrate? What do you do on that day?","Wikipedia: Diwali — https://en.wikipedia.org/wiki/Diwali (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Hanukkah — https://en.wikipedia.org/wiki/Hanukkah (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Christmas lights — https://en.wikipedia.org/wiki/Christmas_lights (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/world/b3-world-festivals-of-light.json","","","","","",""
+"b3-world-maps-latitude","Latitude, Longitude and the World","Discoverers (9–11)","Our World","b3-world-1: Uses latitude/longitude basics; knows major countries, mountains, rivers and climate zones","","15","draft","[text] Imaginary lines help us find places. LATITUDE lines run east–west and measure how far north or south you are. The EQUATOR is 0°.
+
+[text] LONGITUDE lines run north–south from pole to pole. The Prime Meridian (0°) passes through Greenwich, London.
+
+[text] Places near the equator are usually hot (tropical). Near the poles it's cold (polar). In between is temperate.
+
+[fact] The world's longest river is either the Nile or the Amazon. Geographers still argue about how to measure them! The tallest mountain is Mount Everest (8,849 m).","Wikipedia: Latitude — https://en.wikipedia.org/wiki/Latitude (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Longitude — https://en.wikipedia.org/wiki/Longitude (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Climate zone — https://en.wikipedia.org/wiki/Climate_zone (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/world/b3-world-maps-latitude.json","","","","","",""
+"b3-world-primary-secondary-sources","History Detectives: Sources","Discoverers (9–11)","Our World","b3-world-3: Knows the difference between primary and secondary sources","","15","draft","[text] A PRIMARY source was made at the time by someone who was there: a diary, a photo, a letter, an object.
+
+[text] A SECONDARY source was made later, about the past: a textbook, a documentary, an encyclopedia.
+
+[text] Historians use both, and ask: Who made it? When? Why? Could it be one-sided?","Wikipedia: Primary source — https://en.wikipedia.org/wiki/Primary_source (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Secondary source — https://en.wikipedia.org/wiki/Secondary_source (CC BY-SA 4.0 (reference; text is original))","content/lessons/b3/world/b3-world-primary-secondary-sources.json","","","","","",""
+"b4-arts-movements-project","Art Movements and Your Own Project","Thinkers (12–14)","Arts & Music","b4-arts-1: Art movements and how art reflects its time and place
+b4-arts-3: Creates a project in a chosen medium (drawing, music, film, design)","","20","draft","[text] Art reflects its time and place. IMPRESSIONISM (1870s France) captured light and moments with quick brushstrokes. CUBISM (early 1900s) showed objects from several angles at once.
+
+[text] Around the world: Mughal miniature painting (India), Ukiyo-e prints (Japan), the Harlem Renaissance (USA, 1920s) and Mexican muralism (1920s) all responded to their societies.
+
+[text] Your project: choose a medium (drawing, music, film, design), set a goal, make drafts, ask for feedback, and improve. Share your process, not just the final piece.","Wikipedia: Art movement — https://en.wikipedia.org/wiki/Art_movement (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Impressionism — https://en.wikipedia.org/wiki/Impressionism (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Cubism — https://en.wikipedia.org/wiki/Cubism (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/arts/b4-arts-movements-project.json","","","","","",""
 "b4-arts-scales-and-chords","Scales and Chords","Thinkers (12–14)","Arts & Music","b4-arts-2: Music: scales, chords, melody and harmony basics","","20","draft","[text] A SCALE is a set of notes in order, going up or down. The C major scale uses only the white keys on a piano: C D E F G A B C.
 
 [text] MELODY is a sequence of single notes, the part you can hum. HARMONY is notes played at the same time to support the melody.
@@ -367,6 +997,35 @@ Wikipedia: Triad (music) — https://en.wikipedia.org/wiki/Triad_(music) (CC BY-
 
 [tryit] Use 4 cards marked 8, 4, 2, 1. Turn cards face up to make every number from 0 to 15.","Wikipedia: Binary number — https://en.wikipedia.org/wiki/Binary_number (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Bit — https://en.wikipedia.org/wiki/Bit (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/computing/b4-comp-binary.json","","","","","",""
+"b4-comp-python-basics","Programming in Python: Lists, Loops, Functions","Thinkers (12–14)","Computing","b4-comp-1: Writes simple programs in a text language (Python or JavaScript)
+b4-comp-2: Uses lists, functions and loops","","25","draft","[text] Python is a popular text-based language. print(""Hello"") shows Hello on the screen.
+
+[text] A LIST stores many values: scores = [7, 9, 4]. A FOR loop repeats for each item: for s in scores: print(s).
+
+[text] A FUNCTION is a named block of code you can reuse: def double(n): return n * 2. Then double(5) gives 10.
+
+[tryit] Use a free online Python editor to write a function that adds up a list of numbers.","Wikipedia: Python (programming language) — https://en.wikipedia.org/wiki/Python_(programming_language) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Subroutine — https://en.wikipedia.org/wiki/Subroutine (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/computing/b4-comp-python-basics.json","","","","","",""
+"b4-comp-web-page","Build a Web Page: HTML and CSS","Thinkers (12–14)","Computing","b4-comp-4: Basic web page (HTML/CSS)","","25","draft","[text] HTML gives a page its STRUCTURE using tags: <h1> for a big heading, <p> for a paragraph, <a> for a link, <img> for an image.
+
+[text] CSS controls STYLE: colours, fonts, spacing. Example: h1 { color: green; }
+
+[text] Browsers read HTML and CSS and display the page. Anyone can view a page's code with 'View source'.
+
+[tryit] Make a page about your hobby with a heading, a paragraph and a list (<ul><li>…</li></ul>).","Wikipedia: HTML — https://en.wikipedia.org/wiki/HTML (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: CSS — https://en.wikipedia.org/wiki/CSS (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/computing/b4-comp-web-page.json","","","","","",""
+"b4-dig-ai-literacy","AI Literacy: Training, Bias and Honest Use","Thinkers (12–14)","Digital Life & AI Safety","b4-dig-5: AI literacy: how AI is trained, bias, and using AI honestly for learning","","20","draft","[text] AI systems learn from huge amounts of data. If the data is unbalanced, the AI can be BIASED. For example, a face-recognition system trained mostly on some groups may work worse for others.
+
+[text] AI can generate text, images and code, but it can be confidently wrong and it doesn't understand like a human.
+
+[text] Using AI honestly: follow your school's rules, say when you used it, use it to explain and give feedback rather than do your work, and check facts it gives you.","Wikipedia: Artificial intelligence — https://en.wikipedia.org/wiki/Artificial_intelligence (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Algorithmic bias — https://en.wikipedia.org/wiki/Algorithmic_bias (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/digital/b4-dig-ai-literacy.json","","","","","",""
+"b4-dig-cyberbullying","Cyberbullying: Respond, Report, Support","Thinkers (12–14)","Digital Life & AI Safety","b4-dig-4: Cyberbullying: how to respond, report and support others","","20","draft","[text] Cyberbullying is repeated, deliberate online cruelty: mean messages, sharing embarrassing photos, excluding someone, or impersonation.
+
+[text] If it happens to you: don't reply in anger. Screenshot evidence, block, report on the platform, and tell a trusted adult.
+
+[text] If you see it: don't like or share. Privately check on the person ('Are you OK?') and report it. Bystanders can make a big difference.","Wikipedia: Cyberbullying — https://en.wikipedia.org/wiki/Cyberbullying (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Bystander effect — https://en.wikipedia.org/wiki/Bystander_effect (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/digital/b4-dig-cyberbullying.json","","","","","",""
 "b4-dig-how-free-apps-make-money","How Do Free Apps Make Money?","Thinkers (12–14)","Digital Life & AI Safety","b4-dig-1: Privacy settings, data collection and how apps make money
 b4-dig-3: Healthy social media habits and recognising addictive design","","20","draft","[text] Building an app costs money: developers, servers, designers. So when an app is free, it makes money some other way.
 
@@ -381,6 +1040,41 @@ b4-dig-3: Healthy social media habits and recognising addictive design","","20",
 [tryit] Pick an app you use. Look at its privacy settings. What data does it collect? Can you turn some of it off?","Wikipedia: Freemium — https://en.wikipedia.org/wiki/Freemium (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Targeted advertising — https://en.wikipedia.org/wiki/Targeted_advertising (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Dark pattern — https://en.wikipedia.org/wiki/Dark_pattern (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/digital/b4-dig-how-free-apps-make-money.json","","","","","",""
+"b4-dig-misinformation-deepfakes","Misinformation and Deepfakes","Thinkers (12–14)","Digital Life & AI Safety","b4-dig-2: Recognises misinformation, deepfakes and manipulated images","","20","draft","[text] MISINFORMATION is false information shared by mistake. DISINFORMATION is false information spread on purpose.
+
+[text] DEEPFAKES are AI-made videos, images or audio that make it look like someone said or did something they didn't.
+
+[text] Check: Is the source reliable? Do other trusted outlets report it? Does the image look odd (hands, shadows, blurry edges)? Try a reverse image search.
+
+[text] Pause before sharing, especially if it makes you angry or shocked. Emotions spread fakes fastest.","Wikipedia: Misinformation — https://en.wikipedia.org/wiki/Misinformation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Deepfake — https://en.wikipedia.org/wiki/Deepfake (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/digital/b4-dig-misinformation-deepfakes.json","","","","","",""
+"b4-health-mental-health","Looking After Your Mental Health","Thinkers (12–14)","Health, Body & Feelings","b4-health-1: Mental health: anxiety, mood, self-esteem, where to get help","","20","draft","[text] Mental health is how we think, feel and cope. Everyone has mental health, just like physical health. It goes up and down.
+
+[text] Anxiety (worry), low mood and stress are common, especially during the teenage years. Signs to take seriously: feelings that last weeks, stop you doing normal things, or change sleep and appetite.
+
+[text] Things that help: sleep, exercise, time outdoors, talking to people you trust, limiting doom-scrolling, and being kind to yourself.
+
+[text] Getting help is a strength. Talk to a parent, teacher, school counsellor or doctor. If you ever feel unsafe, contact your local emergency number or a youth helpline straight away.","Wikipedia: Mental health — https://en.wikipedia.org/wiki/Mental_health (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Self-esteem — https://en.wikipedia.org/wiki/Self-esteem (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/health/b4-health-mental-health.json","","","","","",""
+"b4-health-peer-pressure-friendship","Peer Pressure, Friendship and Consent","Thinkers (12–14)","Health, Body & Feelings","b4-health-3: Peer pressure, healthy friendships and consent in everyday life","","20","draft","[text] Peer pressure is feeling pushed to do something to fit in. It can be positive (joining a study group) or negative (risky dares, being unkind to someone).
+
+[text] Healthy friends respect your 'no', support you, and don't make you feel bad for being yourself.
+
+[text] CONSENT in everyday life means asking and respecting the answer: before borrowing things, sharing someone's photo, or hugging. Consent can be changed at any time.
+
+[text] Saying no: be clear and short ('No thanks'), suggest something else, or leave. Real friends will accept it.","Wikipedia: Peer pressure — https://en.wikipedia.org/wiki/Peer_pressure (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Consent — https://en.wikipedia.org/wiki/Consent (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/health/b4-health-peer-pressure-friendship.json","","","","","",""
+"b4-health-puberty-relationships","Puberty, Reproduction and Relationships","Thinkers (12–14)","Health, Body & Feelings","b4-health-5: Puberty, reproduction and relationships education","body","20","draft","[text] Puberty is driven by hormones (mainly oestrogen and testosterone). These cause growth, body changes and the ability to reproduce.
+
+[text] Human reproduction: a sperm cell from a male joins an egg cell from a female (fertilisation). The fertilised egg can grow into a baby in the uterus over about 9 months.
+
+[text] The menstrual cycle (periods) is about monthly and is a normal sign that the body is preparing for possible pregnancy.
+
+[text] Healthy relationships of any kind are built on respect, trust, honesty and consent. Nobody should pressure you to do anything you're not ready for.
+
+[text] Questions are normal. Trusted adults, school nurses, doctors and reliable health websites can help.","Wikipedia: Puberty — https://en.wikipedia.org/wiki/Puberty (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Human reproduction — https://en.wikipedia.org/wiki/Human_reproduction (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Healthy relationship — https://en.wikipedia.org/wiki/Healthy_relationship (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/health/b4-health-puberty-relationships.json","","","","","",""
 "b4-health-sleep-superpower","Sleep: Your Brain's Superpower","Thinkers (12–14)","Health, Body & Feelings","b4-health-2: Nutrition, exercise and sleep for teenagers","","15","draft","[text] While you sleep, your brain stores what you learned that day, your body repairs itself, and you grow.
 
 [text] Sleep experts recommend 9–12 hours a night for ages 6–12, and 8–10 hours for teenagers. Many teens get much less.
@@ -393,6 +1087,21 @@ Wikipedia: Dark pattern — https://en.wikipedia.org/wiki/Dark_pattern (CC BY-SA
 
 [tryit] Keep a sleep diary for a week: bedtime, wake time and how you feel. Do you see a pattern?","Wikipedia: Sleep — https://en.wikipedia.org/wiki/Sleep (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Sleep hygiene — https://en.wikipedia.org/wiki/Sleep_hygiene (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/health/b4-health-sleep-superpower.json","","","","","",""
+"b4-health-substances","Tobacco, Vaping, Alcohol and Drugs","Thinkers (12–14)","Health, Body & Feelings","b4-health-4: Risks of tobacco, vaping, alcohol and drugs","","20","draft","[text] Nicotine (in cigarettes and most vapes) is highly addictive. Teenage brains are still developing, which makes addiction more likely and can affect attention and learning.
+
+[text] Vapes are not harmless: they can contain nicotine and other chemicals, and many are marketed with sweet flavours to attract young people.
+
+[text] Alcohol and other drugs can affect judgement, memory, mental health and safety, and many are illegal for young people.
+
+[text] If you're worried about yourself or a friend, talk to a trusted adult or health professional. In an emergency, call your local emergency number.","Wikipedia: Electronic cigarette — https://en.wikipedia.org/wiki/Electronic_cigarette (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Nicotine — https://en.wikipedia.org/wiki/Nicotine (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Adolescence — https://en.wikipedia.org/wiki/Adolescence (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/health/b4-health-substances.json","","","","","",""
+"b4-lang-essays","Writing Structured Essays","Thinkers (12–14)","Language & Reading","b4-lang-2: Writes structured essays: argument, explanation and narrative","","20","draft","[text] An essay has an INTRODUCTION (hook + thesis: your main claim), BODY paragraphs (one point each, with evidence and explanation) and a CONCLUSION (sum up, don't add new points).
+
+[text] A useful body paragraph pattern is PEE: Point, Evidence, Explanation.
+
+[text] Argument essays also answer the strongest counter-argument. This makes your case more convincing, not less.","Wikipedia: Essay — https://en.wikipedia.org/wiki/Essay (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Thesis statement — https://en.wikipedia.org/wiki/Thesis_statement (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/language/b4-lang-essays.json","","","","","",""
 "b4-lang-figurative-language","Metaphor, Simile and Irony","Thinkers (12–14)","Language & Reading","b4-lang-3: Understands figurative language: metaphor, simile, irony","","20","draft","[text] Figurative language means words that go beyond their literal meaning to create images or feelings.
 
 [text] A SIMILE compares two things using 'like' or 'as': 'Her voice was as smooth as honey.'
@@ -406,6 +1115,27 @@ Wikipedia: Sleep hygiene — https://en.wikipedia.org/wiki/Sleep_hygiene (CC BY-
 [tryit] Find one simile and one metaphor in a song lyric or a book you like. What does each make you picture?","Wikipedia: Metaphor — https://en.wikipedia.org/wiki/Metaphor (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Simile — https://en.wikipedia.org/wiki/Simile (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Irony — https://en.wikipedia.org/wiki/Irony (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/language/b4-lang-figurative-language.json","","","","","",""
+"b4-lang-purpose-tone","Purpose, Tone and Point of View","Thinkers (12–14)","Language & Reading","b4-lang-1: Analyses author's purpose, tone and point of view (GPF G7–9)","","20","draft","[text] Every text has a PURPOSE: to inform, persuade, entertain, instruct or explain. Ask: why was this written?
+
+[text] TONE is the writer's attitude: serious, playful, angry, hopeful, sarcastic. Word choice reveals it: 'a bold plan' vs 'a reckless plan'.
+
+[text] POINT OF VIEW: first person ('I'), second person ('you'), third person ('she', 'they'). A first-person narrator only knows what they see and feel, so they can be unreliable.","Wikipedia: Tone (literature) — https://en.wikipedia.org/wiki/Tone_(literature) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Narration — https://en.wikipedia.org/wiki/Narration (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/language/b4-lang-purpose-tone.json","","","","","",""
+"b4-lang-summarise-discuss","Summarising and Discussing Respectfully","Thinkers (12–14)","Language & Reading","b4-lang-4: Summarises long texts and cites evidence from them
+b4-lang-5: Speaks and listens in discussions; disagrees respectfully","","20","draft","[text] A SUMMARY gives the main points in your own words, much shorter than the original. Leave out minor details and examples.
+
+[text] When you make a claim about a text, CITE evidence: quote or refer to the exact part.
+
+[text] In discussions: listen fully, repeat back what you heard ('So you're saying…'), then respond to the idea, not the person.
+
+[text] Respectful disagreement: 'I see it differently because…' rather than 'That's stupid.'","Wikipedia: Summary — https://en.wikipedia.org/wiki/Summary (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Active listening — https://en.wikipedia.org/wiki/Active_listening (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/language/b4-lang-summarise-discuss.json","","","","","",""
+"b4-math-coordinates-graphs","Coordinates and Straight-Line Graphs","Thinkers (12–14)","Math","b4-math-3: Plots points and straight-line graphs on coordinate axes","","20","draft","[text] A point is written (x, y): go along the x-axis first, then up or down the y-axis. 'Along the corridor, then up the stairs.'
+
+[text] A straight-line graph can be written y = mx + c. m is the GRADIENT (steepness) and c is where the line crosses the y-axis.
+
+[fact] In y = 2x + 1, when x = 3, y = 2(3) + 1 = 7. So the point (3, 7) is on the line.","Wikipedia: Cartesian coordinate system — https://en.wikipedia.org/wiki/Cartesian_coordinate_system (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Linear equation — https://en.wikipedia.org/wiki/Linear_equation (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/math/b4-math-coordinates-graphs.json","","","","","",""
 "b4-math-linear-equations","Solving Linear Equations","Thinkers (12–14)","Math","b4-math-2: Writes and solves linear equations; understands variables","","20","draft","[text] An equation is a balance: both sides are equal. To find the unknown (x), do the same thing to both sides until x is alone.
 
 [text] Undo operations in reverse order. In 3x + 4 = 19, x was multiplied by 3 and then 4 was added. So first subtract 4, then divide by 3.
@@ -416,6 +1146,39 @@ Wikipedia: Irony — https://en.wikipedia.org/wiki/Irony (CC BY-SA 4.0 (referenc
 
 [tryit] Make up your own equation: pick a secret number, multiply it, add something, and challenge a friend to solve it.","Wikipedia: Linear equation — https://en.wikipedia.org/wiki/Linear_equation (CC BY-SA 4.0 (reference; text is original))
 OpenStax Elementary Algebra 2e — https://openstax.org/details/books/elementary-algebra-2e (CC BY 4.0 (reference))","content/lessons/b4/math/b4-math-linear-equations.json","","","","","",""
+"b4-math-pythagoras-area-volume","Pythagoras, Area and Volume","Thinkers (12–14)","Math","b4-math-4: Area/volume of shapes; Pythagoras' theorem","","20","draft","[text] In a right-angled triangle, a² + b² = c², where c is the HYPOTENUSE (the longest side, opposite the right angle).
+
+[text] Area of a triangle = ½ × base × height. Area of a circle = πr².
+
+[text] Volume of a cuboid = length × width × height, measured in cubic units (cm³).
+
+[fact] The 3-4-5 triangle is right-angled: 3² + 4² = 9 + 16 = 25 = 5².","Wikipedia: Pythagorean theorem — https://en.wikipedia.org/wiki/Pythagorean_theorem (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Volume — https://en.wikipedia.org/wiki/Volume (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/math/b4-math-pythagoras-area-volume.json","","","","","",""
+"b4-math-ratio-percent-negatives","Negatives, Ratios and Percentages","Thinkers (12–14)","Math","b4-math-1: Works with negative numbers, ratios, rates and percentages (GPF G7–9)","","20","draft","[text] NEGATIVE numbers are below zero, like −5 °C. Subtracting a negative is like adding: 3 − (−2) = 5.
+
+[text] A RATIO compares amounts: 2 cups of flour to 1 cup of sugar is 2:1. Scale it: 4:2, 6:3…
+
+[text] PERCENT means 'out of 100'. 25% = 25/100 = 1/4. To find 20% of 60: 0.2 × 60 = 12.
+
+[fact] A RATE compares different units, like km per hour or price per kg.","Wikipedia: Negative number — https://en.wikipedia.org/wiki/Negative_number (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Ratio — https://en.wikipedia.org/wiki/Ratio (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Percentage — https://en.wikipedia.org/wiki/Percentage (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/math/b4-math-ratio-percent-negatives.json","","","","","",""
+"b4-math-statistics","Averages, Spread and Misleading Graphs","Thinkers (12–14)","Math","b4-math-5: Probability and statistics: mean, median, mode, range; misleading graphs","","20","draft","[text] MEAN = total ÷ how many. MEDIAN = the middle value when sorted. MODE = the most common. RANGE = biggest − smallest.
+
+[text] One extreme value can pull the mean a lot, but barely moves the median.
+
+[text] Graphs can mislead: a y-axis that doesn't start at zero can make small differences look huge.
+
+[fact] Probability ranges from 0 (impossible) to 1 (certain). A fair coin landing heads has probability ½.","Wikipedia: Average — https://en.wikipedia.org/wiki/Average (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Misleading graph — https://en.wikipedia.org/wiki/Misleading_graph (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/math/b4-math-statistics.json","","","","","",""
+"b4-money-how-businesses-work","How Businesses Work: Cost, Price, Profit","Thinkers (12–14)","Money & Life Skills","b4-money-3: How businesses work: cost, price, profit","","20","draft","[text] Businesses have COSTS: materials, wages, rent, energy. They set a PRICE for their product.
+
+[text] PROFIT = revenue (money from sales) − costs. If costs are bigger, the business makes a LOSS.
+
+[text] Price too high and fewer people buy; too low and you may not cover costs. Businesses also compete with each other.
+
+[fact] Example: lemonade costs 0.30 per cup to make and sells for 1.00. Selling 50 cups: revenue 50, costs 15, profit 35.","Wikipedia: Profit (economics) — https://en.wikipedia.org/wiki/Profit_(economics) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Pricing — https://en.wikipedia.org/wiki/Pricing (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/money/b4-money-how-businesses-work.json","","","","","",""
 "b4-money-interest","Simple vs Compound Interest","Thinkers (12–14)","Money & Life Skills","b4-money-1: Budgeting, saving and simple vs compound interest
 b4-money-2: Debt, loans and why 'buy now, pay later' can be risky","","20","draft","[text] INTEREST is money paid for using money. Banks may pay you interest on savings, and you pay interest when you borrow.
 
@@ -429,6 +1192,14 @@ b4-money-2: Debt, loans and why 'buy now, pay later' can be risky","","20","draf
 
 [tryit] Use a calculator: what does 500 become after 5 years at 8% compound interest? Multiply by 1.08 five times.","Wikipedia: Interest — https://en.wikipedia.org/wiki/Interest (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Compound interest — https://en.wikipedia.org/wiki/Compound_interest (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/money/b4-money-interest.json","","","","","",""
+"b4-money-life-skills","Cooking, Time and Simple Fixes","Thinkers (12–14)","Money & Life Skills","b4-money-4: Life skills: cooking a simple meal, time management, basic repairs","","20","draft","[text] COOKING a simple meal: plan, wash hands, prepare ingredients, cook carefully (ask an adult the first times), and clean as you go.
+
+[text] FOOD SAFETY: keep raw meat separate from ready-to-eat food, cook food all the way through, and refrigerate leftovers quickly.
+
+[text] TIME MANAGEMENT: break big tasks into smaller ones, do the hardest task when you have most energy, and use a planner.
+
+[text] SIMPLE FIXES: sewing a button, changing a light bulb (power off!), pumping up a bike tyre. Watch a reliable how-to with an adult.","Wikipedia: Time management — https://en.wikipedia.org/wiki/Time_management (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Food safety — https://en.wikipedia.org/wiki/Food_safety (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/money/b4-money-life-skills.json","","","","","",""
 "b4-sci-atoms-elements-compounds","Atoms, Elements and Compounds","Thinkers (12–14)","Science","b4-sci-2: Atoms, elements, compounds, the periodic table; chemical vs physical change","","20","draft","[text] Everything is made of tiny particles called ATOMS. An atom has a nucleus (protons and neutrons) with electrons around it.
 
 [text] An ELEMENT is a substance made of only one kind of atom, like oxygen (O), gold (Au) or carbon (C). The periodic table lists all 118 known elements.
@@ -443,6 +1214,37 @@ Wikipedia: Compound interest — https://en.wikipedia.org/wiki/Compound_interest
 Wikipedia: Chemical element — https://en.wikipedia.org/wiki/Chemical_element (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Chemical compound — https://en.wikipedia.org/wiki/Chemical_compound (CC BY-SA 4.0 (reference; text is original))
 OpenStax Chemistry 2e — https://openstax.org/details/books/chemistry-2e (CC BY 4.0 (reference))","content/lessons/b4/science/b4-sci-atoms-elements-compounds.json","","","","","",""
+"b4-sci-cells-genetics-evolution","Cells, Genes and Evolution","Thinkers (12–14)","Science","b4-sci-1: Cells, genetics basics, evolution and classification","","20","draft","[text] All living things are made of CELLS. Animal and plant cells have a nucleus, cytoplasm and a membrane. Plant cells also have a cell wall and chloroplasts.
+
+[text] The nucleus holds DNA, which is organised into GENES: instructions for building and running the body. Offspring inherit genes from their parents.
+
+[text] EVOLUTION by NATURAL SELECTION: individuals vary; those with traits better suited to their environment tend to survive and reproduce more, so those traits become more common over many generations.
+
+[text] Scientists CLASSIFY living things into groups (kingdom → species) based on shared features and DNA.","Wikipedia: Cell (biology) — https://en.wikipedia.org/wiki/Cell_(biology) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Gene — https://en.wikipedia.org/wiki/Gene (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Evolution — https://en.wikipedia.org/wiki/Evolution (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Natural selection — https://en.wikipedia.org/wiki/Natural_selection (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/science/b4-sci-cells-genetics-evolution.json","","","","","",""
+"b4-sci-earth-climate-evidence","Plate Tectonics, Rocks and Climate Evidence","Thinkers (12–14)","Science","b4-sci-4: Earth science: plate tectonics, rocks, climate change evidence","","20","draft","[text] Earth's crust is split into PLATES that move a few centimetres a year. Where they meet: earthquakes, volcanoes and mountains (the Himalayas formed as the Indian plate pushed into Asia).
+
+[text] The ROCK CYCLE: IGNEOUS rocks form from cooled magma, SEDIMENTARY from layers of sediment, METAMORPHIC from rocks changed by heat and pressure.
+
+[text] CLIMATE EVIDENCE: thermometer records since the 1800s, ice cores (trapped air bubbles show past CO₂), shrinking glaciers and rising sea levels. Together, they show recent warming linked to human activity.","Wikipedia: Plate tectonics — https://en.wikipedia.org/wiki/Plate_tectonics (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Rock cycle — https://en.wikipedia.org/wiki/Rock_cycle (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Instrumental temperature record — https://en.wikipedia.org/wiki/Instrumental_temperature_record (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/science/b4-sci-earth-climate-evidence.json","","","","","",""
+"b4-sci-energy-circuits","Energy and Electric Circuits","Thinkers (12–14)","Science","b4-sci-3: Energy forms and transfer; electricity and circuits","","20","draft","[text] Energy can't be created or destroyed. It changes form: chemical → kinetic (movement) → thermal (heat), and so on.
+
+[text] A CIRCUIT needs a complete loop, an energy source (cell/battery) and components (bulbs, motors).
+
+[text] SERIES circuit: one loop. If one bulb breaks, all go out. PARALLEL circuit: several branches. Others stay on if one breaks.
+
+[fact] Most homes are wired in parallel, so turning off one light doesn't turn off the others.","Wikipedia: Conservation of energy — https://en.wikipedia.org/wiki/Conservation_of_energy (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Electrical network — https://en.wikipedia.org/wiki/Electrical_network (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/science/b4-sci-energy-circuits.json","","","","","",""
+"b4-sci-scientific-method","Hypotheses, Variables and Bias","Thinkers (12–14)","Science","b4-sci-5: Scientific method: hypothesis, variables, evaluating evidence and bias","","20","draft","[text] A HYPOTHESIS is a testable prediction: 'If plants get more light, then they will grow taller.'
+
+[text] INDEPENDENT variable: what you change. DEPENDENT variable: what you measure. CONTROL variables: what you keep the same.
+
+[text] Bias can sneak in: small samples, measuring only what you expect, or wanting a certain result. Good scientists repeat tests, use controls and let others check.","Wikipedia: Scientific method — https://en.wikipedia.org/wiki/Scientific_method (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Observer bias — https://en.wikipedia.org/wiki/Observer_bias (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/science/b4-sci-scientific-method.json","","","","","",""
 "b4-think-logical-fallacies","Spotting Bad Arguments","Thinkers (12–14)","Thinking Skills","b4-think-1: Identifies common logical fallacies (straw man, false choice, bandwagon)
 b4-think-2: Builds an argument: claim, evidence, reasoning","","20","draft","[text] A fallacy is a mistake in reasoning. It can make an argument sound convincing when it isn't. Spotting them protects you from being manipulated by ads, social media and even friends.
 
@@ -458,6 +1260,51 @@ b4-think-2: Builds an argument: claim, evidence, reasoning","","20","draft","[te
 Wikipedia: Straw man — https://en.wikipedia.org/wiki/Straw_man (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: False dilemma — https://en.wikipedia.org/wiki/False_dilemma (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Argumentum ad populum — https://en.wikipedia.org/wiki/Argumentum_ad_populum (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/thinking/b4-think-logical-fallacies.json","","","","","",""
+"b4-think-viewpoints-estimation","Other Viewpoints and Smart Estimates","Thinkers (12–14)","Thinking Skills","b4-think-3: Considers other viewpoints before deciding
+b4-think-4: Uses estimation and 'back of the envelope' reasoning","","20","draft","[text] Before deciding, try 'steelmanning': state the other side's argument in its strongest form. If you can't, you may not understand it yet.
+
+[text] Ask: Who is affected? What would they say? What evidence would change my mind?
+
+[text] ESTIMATION ('back of the envelope'): break a big question into smaller guessable parts.
+
+[fact] Example: how many heartbeats in a day? About 70 per minute × 60 minutes × 24 hours ≈ 100,000.","Wikipedia: Perspective-taking — https://en.wikipedia.org/wiki/Perspective-taking (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Fermi problem — https://en.wikipedia.org/wiki/Fermi_problem (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/thinking/b4-think-viewpoints-estimation.json","","","","","",""
+"b4-world-colonialism-wars","Empires, Independence and World Wars","Thinkers (12–14)","Our World","b4-world-5: Colonialism, independence movements and world wars — multiple perspectives","politics","25","draft","[text] From the 1500s to the 1900s, several European powers (and others, like Japan) built EMPIRES by taking control of lands in Africa, Asia, the Americas and Oceania.
+
+[text] Colonisers often took resources and land, and imposed their rule on local people. Effects included exploitation, famines, and borders drawn without local consent. Historians also debate long-term effects on infrastructure, languages and institutions.
+
+[text] INDEPENDENCE movements, especially after 1945, led to many new nations: India and Pakistan (1947), Ghana (1957), Algeria (1962) and many more. Some were peaceful mass movements; others involved war.
+
+[text] World War I (1914–1918) and World War II (1939–1945) killed tens of millions of people worldwide, including the Holocaust, in which Nazi Germany murdered six million Jews and millions of others. After WWII, the United Nations was founded (1945) to try to prevent future wars.
+
+[text] People in different countries remember these events differently. Reading sources from several perspectives is essential.","Wikipedia: Colonialism — https://en.wikipedia.org/wiki/Colonialism (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Decolonization — https://en.wikipedia.org/wiki/Decolonization (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: World War I — https://en.wikipedia.org/wiki/World_War_I (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: World War II — https://en.wikipedia.org/wiki/World_War_II (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/world/b4-world-colonialism-wars.json","","","","","",""
+"b4-world-government","How Countries Are Governed","Thinkers (12–14)","Our World","b4-world-4: Types of government and how laws are made","politics","20","draft","[text] Countries are governed in different ways. In a DEMOCRACY, citizens elect leaders. In a MONARCHY, a king or queen is head of state (often with an elected parliament too). In an AUTHORITARIAN system, power is held by one leader or party with limited elections or freedoms.
+
+[text] Many countries separate power into 3 branches: LEGISLATIVE (makes laws, such as a parliament), EXECUTIVE (runs the country, such as a president or prime minister) and JUDICIAL (courts that interpret laws).
+
+[text] Laws are usually proposed, debated, voted on, and then signed into law. Courts can check laws against a constitution.
+
+[text] People disagree about which policies are best. That's normal in a democracy. Look at the evidence and listen to different views.","Wikipedia: Government — https://en.wikipedia.org/wiki/Government (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Democracy — https://en.wikipedia.org/wiki/Democracy (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Separation of powers — https://en.wikipedia.org/wiki/Separation_of_powers (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/world/b4-world-government.json","","","","","",""
+"b4-world-history-cause-consequence","History: Causes and Consequences","Thinkers (12–14)","Our World","b4-world-1: Medieval to modern world history from multiple regions; causes and consequences","","20","draft","[text] Historians ask WHY things happened (causes) and WHAT changed afterwards (consequences). Most events have several causes: long-term and short-term.
+
+[text] Example: the printing press (Gutenberg, around 1440, building on earlier Chinese and Korean printing) made books cheaper. Consequences: more people could read, and ideas spread faster.
+
+[text] Example: the Industrial Revolution (from the late 1700s, starting in Britain) brought factories and railways, and moved people to cities. It also brought child labour and pollution, which led to new laws.
+
+[text] World history happens everywhere at once. The Mali Empire, the Mughal Empire and Ming China were all powerful while Europe changed too.","Wikipedia: Causality — https://en.wikipedia.org/wiki/Causality (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Printing press — https://en.wikipedia.org/wiki/Printing_press (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Industrial Revolution — https://en.wikipedia.org/wiki/Industrial_Revolution (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/world/b4-world-history-cause-consequence.json","","","","","",""
+"b4-world-source-bias","Evaluating Sources for Bias","Thinkers (12–14)","Our World","b4-world-3: Evaluates sources for bias and perspective","","20","draft","[text] Every source is made by someone, for a reason. Ask: Who made it? When? For whom? Why?
+
+[text] BIAS isn't always lying. It can be choosing which facts to include, or using loaded words ('freedom fighters' vs 'rebels').
+
+[text] Compare several sources from different sides or countries. Where they agree, you can be more confident.","Wikipedia: Source criticism — https://en.wikipedia.org/wiki/Source_criticism (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Media bias — https://en.wikipedia.org/wiki/Media_bias (CC BY-SA 4.0 (reference; text is original))","content/lessons/b4/world/b4-world-source-bias.json","","","","","",""
 "b4-world-why-people-move","Why Do People Move? Migration","Thinkers (12–14)","Our World","b4-world-2: Population, migration, cities, resources and trade","","20","draft","[text] Migration means people moving from one place to live in another, within a country or to another country. Humans have migrated throughout history.
 
 [text] PUSH factors make people want to leave a place: few jobs, conflict, natural disasters, or lack of schools or healthcare.
@@ -483,6 +1330,34 @@ Wikipedia: Urbanization — https://en.wikipedia.org/wiki/Urbanization (CC BY-SA
 [tryit] Find a CC-licensed photo (many sites let you filter by licence). Write the correct credit line for it.","Wikipedia: Copyright — https://en.wikipedia.org/wiki/Copyright (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Creative Commons license — https://en.wikipedia.org/wiki/Creative_Commons_license (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Public domain — https://en.wikipedia.org/wiki/Public_domain (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/arts/b5-arts-copyright-creative-commons.json","","","","","",""
+"b5-arts-criticism-portfolio","Criticism and Building a Portfolio","Builders (15–18)","Arts & Music","b5-arts-1: Art, music and film criticism: analysing technique and meaning
+b5-arts-2: Builds a creative portfolio","","25","draft","[text] Criticism isn't just opinion. Describe (what do you see/hear?), analyse (how do the technique, structure and choices work?), interpret (what does it mean?), then judge (how well does it achieve its aims?).
+
+[text] Film example: how do camera angles, lighting, editing and music shape what we feel in a scene?
+
+[text] A PORTFOLIO shows your best 10–20 pieces, with short notes on your process and goals. Quality beats quantity. Tailor it to the course or job.","Wikipedia: Art criticism — https://en.wikipedia.org/wiki/Art_criticism (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Portfolio (creative) — https://en.wikipedia.org/wiki/Portfolio_(creative) (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/arts/b5-arts-criticism-portfolio.json","","","","","",""
+"b5-car-cv-interviews","Writing a CV and Preparing for Interviews","Builders (15–18)","Careers & College Prep","b5-car-2: Writes a CV and prepares for interviews","","25","draft","[text] A CV/résumé: contact details, a short profile, education, experience (including volunteering and projects), skills, and achievements. Keep it to 1–2 pages and tailor it to each role.
+
+[text] Use action verbs and results: 'Organised a charity bake sale that raised 500.'
+
+[text] Interviews: research the organisation, prepare examples using STAR (Situation, Task, Action, Result), practise answers aloud, and prepare 2 questions to ask them.","Wikipedia: Résumé — https://en.wikipedia.org/wiki/Résumé (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Job interview — https://en.wikipedia.org/wiki/Job_interview (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/careers/b5-car-cv-interviews.json","","","","","",""
+"b5-car-paths-and-goals","Career Paths and Your Goals","Builders (15–18)","Careers & College Prep","b5-car-1: Explores career paths, required skills and education routes (college, vocational, apprenticeships)
+b5-car-5: Sets goals and reflects on strengths and interests","","25","draft","[text] Many routes lead to good careers: university, vocational college, apprenticeships, starting a business, or working and studying later. None is the only 'right' path.
+
+[text] Explore: what do you enjoy, what are you good at, what does the world need, and what pays enough? Talk to people doing jobs you're curious about.
+
+[text] Set SMART goals: Specific, Measurable, Achievable, Relevant, Time-bound. 'Learn basic Python by finishing a free course by June' beats 'get better at coding'.
+
+[text] Reflect regularly: what's working, what isn't, what will I change?","Wikipedia: Career — https://en.wikipedia.org/wiki/Career (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: SMART criteria — https://en.wikipedia.org/wiki/SMART_criteria (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/careers/b5-car-paths-and-goals.json","","","","","",""
+"b5-car-scholarships-free-learning","Finding Free Learning and Scholarships (and Avoiding Scams)","Builders (15–18)","Careers & College Prep","b5-car-4: Finds free scholarships and free learning platforms (and spots fake ones)","","20","draft","[text] Free high-quality learning: Khan Academy, MIT OpenCourseWare, OpenStax textbooks, freeCodeCamp, and many university courses you can audit for free.
+
+[text] Scholarships: check your school, university websites, government portals and reputable foundations. Apply early and to many.
+
+[text] SCAM warning signs: you must pay a fee to apply or to 'claim' a scholarship, guaranteed winnings, pressure to act now, or requests for bank passwords.","Wikipedia: Scholarship — https://en.wikipedia.org/wiki/Scholarship (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Massive open online course — https://en.wikipedia.org/wiki/Massive_open_online_course (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/careers/b5-car-scholarships-free-learning.json","","","","","",""
 "b5-car-study-smarter","Study Smarter: Active Recall and Spacing","Builders (15–18)","Careers & College Prep","b5-car-3: Study skills: planning, spaced repetition, active recall, exam technique","","20","draft","[text] Re-reading notes and highlighting feel productive but are among the least effective ways to study.
 
 [text] Active recall (the testing effect): close the book and pull information out of memory with flashcards, practice questions, or explaining it aloud. Retrieval strengthens memory more than re-reading does.
@@ -509,6 +1384,41 @@ Wikipedia: Spacing effect — https://en.wikipedia.org/wiki/Spacing_effect (CC B
 [tryit] Write a binary search in Python or JavaScript. Test it on a sorted list of 20 numbers and count the steps.","Wikipedia: Binary search — https://en.wikipedia.org/wiki/Binary_search (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Linear search — https://en.wikipedia.org/wiki/Linear_search (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Big O notation — https://en.wikipedia.org/wiki/Big_O_notation (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/computing/b5-comp-binary-search.json","","","","","",""
+"b5-comp-databases","Databases: How Apps Store Data","Builders (15–18)","Computing","b5-comp-2: Databases and how apps store data","","25","draft","[text] Most apps store data in DATABASES. Relational databases use TABLES with rows (records) and columns (fields), like a spreadsheet.
+
+[text] SQL is the language used to query them: SELECT name FROM students WHERE age > 15;
+
+[text] A PRIMARY KEY uniquely identifies each row. Tables link using FOREIGN KEYS (e.g. an orders table refers to a customer's id).
+
+[fact] Honest Learn itself uses a relational database (SQLite) with tables for parents, children, progress and chats.","Wikipedia: Database — https://en.wikipedia.org/wiki/Database (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: SQL — https://en.wikipedia.org/wiki/SQL (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/computing/b5-comp-databases.json","","","","","",""
+"b5-comp-machine-learning","How Machine Learning Works","Builders (15–18)","Computing","b5-comp-4: How machine learning works at a high level; ethics of AI","","25","draft","[text] Machine learning finds patterns in data instead of following hand-written rules. You show a model many labelled examples (photos labelled 'cat' or 'dog'), and it adjusts itself to reduce mistakes.
+
+[text] We TRAIN on one set of data and TEST on new data the model hasn't seen. OVERFITTING is when a model memorises training data but fails on new data.
+
+[text] Ethics: biased data gives biased results; privacy matters; decisions about people (loans, jobs) need fairness, transparency and human oversight.","Wikipedia: Machine learning — https://en.wikipedia.org/wiki/Machine_learning (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Overfitting — https://en.wikipedia.org/wiki/Overfitting (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Ethics of artificial intelligence — https://en.wikipedia.org/wiki/Ethics_of_artificial_intelligence (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/computing/b5-comp-machine-learning.json","","","","","",""
+"b5-comp-networks-encryption","Networks, Security and Encryption","Builders (15–18)","Computing","b5-comp-3: Networks, security and encryption basics","","25","draft","[text] Networks connect devices. The internet uses protocols like TCP/IP to route packets. DNS translates names (example.org) into IP addresses.
+
+[text] ENCRYPTION scrambles data so only someone with the key can read it. HTTPS encrypts traffic between your browser and websites (look for the padlock).
+
+[text] Public-key cryptography uses a pair of keys: a public key to encrypt (or verify) and a private key to decrypt (or sign). It lets strangers communicate securely.
+
+[text] Common attacks: phishing, malware, weak passwords, unpatched software. Defences: updates, 2FA, backups and caution.","Wikipedia: Computer network — https://en.wikipedia.org/wiki/Computer_network (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Encryption — https://en.wikipedia.org/wiki/Encryption (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Public-key cryptography — https://en.wikipedia.org/wiki/Public-key_cryptography (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: HTTPS — https://en.wikipedia.org/wiki/HTTPS (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/computing/b5-comp-networks-encryption.json","","","","","",""
+"b5-dig-algorithms-ai","Feeds, Filter Bubbles and Responsible AI Use","Builders (15–18)","Digital Life & AI Safety","b5-dig-3: Algorithms, filter bubbles and how feeds shape opinions
+b5-dig-4: Using AI responsibly: honesty, citing AI help, checking AI output","","20","draft","[text] Social media feeds are ranked by ALGORITHMS that predict what keeps you engaged: likes, watch time, shares. Outrage and extremes often get more engagement.
+
+[text] A FILTER BUBBLE forms when you mostly see views you already agree with. It can make other views seem rare or extreme.
+
+[text] Break the bubble: follow reliable sources from different perspectives, check the 'why am I seeing this?' options, and search directly instead of only scrolling.
+
+[text] Using AI responsibly: follow your school's or employer's rules, cite AI help, check facts (AI can invent sources), and never paste private data into AI tools.","Wikipedia: Filter bubble — https://en.wikipedia.org/wiki/Filter_bubble (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Recommender system — https://en.wikipedia.org/wiki/Recommender_system (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Generative artificial intelligence — https://en.wikipedia.org/wiki/Generative_artificial_intelligence (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/digital/b5-dig-algorithms-ai.json","","","","","",""
 "b5-dig-lock-down-accounts","Locking Down Your Accounts","Builders (15–18)","Digital Life & AI Safety","b5-dig-1: Cybersecurity: two-factor authentication, phishing, account recovery","","20","draft","[text] Most account hacks don't need genius hackers. They use reused passwords, phishing and missing two-factor authentication.
 
 [text] Use a different strong password for every important account. A password manager can create and remember them. A long passphrase (4+ random words) is strong and memorable.
@@ -520,6 +1430,20 @@ Wikipedia: Big O notation — https://en.wikipedia.org/wiki/Big_O_notation (CC B
 [text] NEVER share a 2FA code. No real company will ask you for one. Set up recovery options (backup codes, a recovery email) before you need them.","Wikipedia: Multi-factor authentication — https://en.wikipedia.org/wiki/Multi-factor_authentication (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Phishing — https://en.wikipedia.org/wiki/Phishing (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Password manager — https://en.wikipedia.org/wiki/Password_manager (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/digital/b5-dig-lock-down-accounts.json","","","","","",""
+"b5-dig-online-reputation","Your Online Reputation","Builders (15–18)","Digital Life & AI Safety","b5-dig-2: Professional online presence and digital reputation","","20","draft","[text] Colleges and employers often search applicants online. Your posts, comments and photos can shape first impressions.
+
+[text] Build a positive presence: share your projects, volunteering, writing or creative work. A simple portfolio or professional profile can help.
+
+[text] Review privacy settings regularly, think before posting in anger, and remember that screenshots last even if you delete something.","Wikipedia: Online identity — https://en.wikipedia.org/wiki/Online_identity (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Digital footprint — https://en.wikipedia.org/wiki/Digital_footprint (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/digital/b5-dig-online-reputation.json","","","","","",""
+"b5-health-exam-stress","Exam Stress and Mental Wellbeing","Builders (15–18)","Health, Body & Feelings","b5-health-1: Mental health, stress management and exam pressure; how to seek help","","20","draft","[text] Some stress before exams can help focus. Too much makes it hard to think, sleep or eat.
+
+[text] What helps: a realistic revision plan with breaks, active recall (testing yourself), sleep (cramming all night hurts memory), exercise, and talking about worries.
+
+[text] Results matter, but they don't define your worth. There are many paths to a good life and career.
+
+[text] If stress feels overwhelming or you feel hopeless, talk to someone now: a parent, teacher, counsellor, doctor or a youth helpline. In an emergency, call your local emergency number.","Wikipedia: Test anxiety — https://en.wikipedia.org/wiki/Test_anxiety (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Stress management — https://en.wikipedia.org/wiki/Stress_management (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/health/b5-health-exam-stress.json","","","","","",""
 "b5-health-first-aid-cpr","First Aid and CPR Basics","Builders (15–18)","Health, Body & Feelings","b5-health-3: First aid and CPR basics","","20","draft","[text] This lesson is an introduction, not a certificate. Take a hands-on first-aid course (often free or cheap from Red Cross/Red Crescent and other groups). Practice is what makes you able to help.
 
 [text] 1. DANGER: check the area is safe for you first. 2. RESPONSE: tap the shoulders and shout 'Are you OK?'. 3. Call your local EMERGENCY NUMBER (or get someone to) and put the phone on speaker.
@@ -533,6 +1457,24 @@ Wikipedia: Password manager — https://en.wikipedia.org/wiki/Password_manager (
 [text] If someone is unresponsive but breathing normally, put them in the recovery position (on their side) and keep checking their breathing until help arrives.","Wikipedia: Cardiopulmonary resuscitation — https://en.wikipedia.org/wiki/Cardiopulmonary_resuscitation (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: First aid — https://en.wikipedia.org/wiki/First_aid (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Recovery position — https://en.wikipedia.org/wiki/Recovery_position (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/health/b5-health-first-aid-cpr.json","","","","","",""
+"b5-health-relationships-consent","Healthy Relationships and Consent","Builders (15–18)","Health, Body & Feelings","b5-health-2: Healthy relationships, consent and recognising abuse","","20","draft","[text] Healthy relationships (friends, family, partners) have respect, trust, honesty, equality and good communication. You can be yourself and spend time with others.
+
+[text] CONSENT is a clear, freely given, enthusiastic 'yes'. It can be withdrawn at any time. Silence, pressure or someone being drunk or asleep does NOT mean consent.
+
+[text] Warning signs of an unhealthy or abusive relationship: controlling who you see, checking your phone, jealousy presented as 'love', threats, put-downs, or pressure to do things you don't want to.
+
+[text] If you or someone you know is in an unhealthy relationship, talk to a trusted adult or a support service. It is never the victim's fault.","Wikipedia: Consent — https://en.wikipedia.org/wiki/Consent (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Dating violence — https://en.wikipedia.org/wiki/Dating_violence (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Healthy relationship — https://en.wikipedia.org/wiki/Healthy_relationship (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/health/b5-health-relationships-consent.json","","","","","",""
+"b5-health-sexual-health","Sexual and Reproductive Health","Builders (15–18)","Health, Body & Feelings","b5-health-4: Sexual and reproductive health","body","20","draft","[text] Sexual and reproductive health is about wellbeing, safety and making informed choices. Laws on age of consent and access to services differ by country. Know your local laws and services.
+
+[text] Sexually transmitted infections (STIs) can often have no symptoms. Condoms reduce the risk of many STIs. Testing is confidential in many places.
+
+[text] Contraception methods (such as condoms, the pill and implants) help prevent pregnancy. Doctors and sexual health clinics can explain options.
+
+[text] Reliable sources: doctors, school nurses, official health services and WHO. Pornography is not sex education. It often shows unrealistic and non-consensual behaviour.","Wikipedia: Sexual and reproductive health — https://en.wikipedia.org/wiki/Sexual_and_reproductive_health (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Sexually transmitted infection — https://en.wikipedia.org/wiki/Sexually_transmitted_infection (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Birth control — https://en.wikipedia.org/wiki/Birth_control (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/health/b5-health-sexual-health.json","","","","","",""
 "b5-lang-citations-plagiarism","Research, Citations and Plagiarism","Builders (15–18)","Language & Reading","b5-lang-2: Writes research essays with citations and avoids plagiarism","","20","draft","[text] PLAGIARISM is presenting someone else's words or ideas as your own. In school and work it's taken seriously: failing an assignment, losing a job, or worse.
 
 [text] Changing a few words (patchwriting) is still plagiarism if the ideas and structure are someone else's and you don't credit them.
@@ -545,6 +1487,24 @@ Wikipedia: Recovery position — https://en.wikipedia.org/wiki/Recovery_position
 
 [fact] Common knowledge (e.g. 'Paris is the capital of France') usually doesn't need a citation. Statistics and specific claims do.","Wikipedia: Plagiarism — https://en.wikipedia.org/wiki/Plagiarism (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Citation — https://en.wikipedia.org/wiki/Citation (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/language/b5-lang-citations-plagiarism.json","","","","","",""
+"b5-lang-formal-writing","Formal Writing: Emails, Applications, CVs","Builders (15–18)","Language & Reading","b5-lang-3: Formal writing: emails, applications, CVs, statements of purpose","","25","draft","[text] Formal emails: clear subject line, polite greeting ('Dear Ms Rao,'), short paragraphs with one purpose each, a polite sign-off ('Kind regards'), and your full name.
+
+[text] Applications and statements of purpose: show, don't just tell. 'I led a team of 5 to organise a charity run that raised 2,000' beats 'I am a leader.'
+
+[text] Proofread for spelling, tone and accuracy. Read it aloud, and ask someone else to check.","Wikipedia: Business letter — https://en.wikipedia.org/wiki/Business_letter (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Personal statement — https://en.wikipedia.org/wiki/Personal_statement (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/language/b5-lang-formal-writing.json","","","","","",""
+"b5-lang-public-speaking","Public Speaking and Presenting an Argument","Builders (15–18)","Language & Reading","b5-lang-4: Public speaking and presenting an argument","","25","draft","[text] Structure: open with a hook (question, story or surprising fact), state your main point, give 2–3 supporting points with evidence, and end with a strong conclusion.
+
+[text] Delivery: speak slower than feels natural, pause after key points, make eye contact, and use notes with key words, not a full script.
+
+[text] Nerves are normal. Most speakers feel them. Practise out loud, breathe slowly, and focus on your message, not yourself.","Wikipedia: Public speaking — https://en.wikipedia.org/wiki/Public_speaking (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Glossophobia — https://en.wikipedia.org/wiki/Glossophobia (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/language/b5-lang-public-speaking.json","","","","","",""
+"b5-lang-rhetoric","Rhetoric: How Texts Persuade","Builders (15–18)","Language & Reading","b5-lang-1: Critically analyses literature and non-fiction, including rhetoric and persuasion","","25","draft","[text] Aristotle described three appeals: ETHOS (credibility: 'As a doctor…'), PATHOS (emotion: stories, vivid images) and LOGOS (logic: evidence, statistics, reasoning).
+
+[text] Other devices: rhetorical questions, repetition ('We shall fight… we shall fight…'), the rule of three, and contrast.
+
+[text] Critical reading asks: What is the writer trying to make me feel or do? Which appeals are strongest? What's left out?","Wikipedia: Rhetoric — https://en.wikipedia.org/wiki/Rhetoric (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Modes of persuasion — https://en.wikipedia.org/wiki/Modes_of_persuasion (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/language/b5-lang-rhetoric.json","","","","","",""
 "b5-math-correlation-causation","Correlation Is Not Causation","Builders (15–18)","Math","b5-math-3: Statistics: distributions, sampling, correlation vs causation","","25","draft","[text] Two things are correlated when they tend to change together. That doesn't mean one causes the other.
 
 [text] Confounding variable: a third factor causing both. Ice-cream sales and drownings both rise in summer. Ice cream doesn't cause drowning. Hot weather increases both swimming and ice-cream buying.
@@ -558,6 +1518,49 @@ Wikipedia: Citation — https://en.wikipedia.org/wiki/Citation (CC BY-SA 4.0 (re
 [tryit] Find a news headline that says 'X linked to Y'. List one possible confounder and one possible reverse-causation story.","Wikipedia: Correlation does not imply causation — https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Confounding — https://en.wikipedia.org/wiki/Confounding (CC BY-SA 4.0 (reference; text is original))
 OpenStax Introductory Statistics 2e — https://openstax.org/details/books/introductory-statistics-2e (CC BY 4.0 (reference))","content/lessons/b5/math/b5-math-correlation-causation.json","","","","","",""
+"b5-math-financial","Real-Life Money Maths: Loans, Inflation, Percentages","Builders (15–18)","Math","b5-math-5: Financial maths: loans, inflation, percentages in real life","","25","draft","[text] INFLATION means prices rise over time, so money buys less. With 5% inflation, something costing 100 costs about 105 next year.
+
+[text] Loans charge interest. The APR (annual percentage rate) includes fees, so it's the fairest number to compare loans by.
+
+[text] Percentage change = (new − old) ÷ old × 100. A price going from 80 to 100 is a 25% increase.
+
+[fact] Minimum payments on a credit card can make a debt last years and cost far more than the original amount.","Wikipedia: Inflation — https://en.wikipedia.org/wiki/Inflation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Annual percentage rate — https://en.wikipedia.org/wiki/Annual_percentage_rate (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/math/b5-math-financial.json","","","","","",""
+"b5-math-functions-logs","Quadratics, Exponents and Logarithms","Builders (15–18)","Math","b5-math-1: Quadratics, functions, exponents and logarithms","","25","draft","[text] A QUADRATIC has an x² term, like y = x² − 5x + 6. Its graph is a U-shaped parabola. Solve x² − 5x + 6 = 0 by factorising: (x − 2)(x − 3) = 0, so x = 2 or x = 3.
+
+[text] EXPONENTS: 2⁵ = 32. Rules: aᵐ × aⁿ = aᵐ⁺ⁿ, and (aᵐ)ⁿ = aᵐⁿ.
+
+[text] A LOGARITHM asks 'what power?': log₂(32) = 5 because 2⁵ = 32. Logs turn multiplication into addition and appear in sound (decibels), earthquakes and pH.","Wikipedia: Quadratic equation — https://en.wikipedia.org/wiki/Quadratic_equation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Exponentiation — https://en.wikipedia.org/wiki/Exponentiation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Logarithm — https://en.wikipedia.org/wiki/Logarithm (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/math/b5-math-functions-logs.json","","","","","",""
+"b5-math-rates-of-change","Intro to Calculus: Rates of Change","Builders (15–18)","Math","b5-math-4: Introduction to calculus ideas (rates of change)","","25","draft","[text] Calculus studies change. The GRADIENT of a curve at a point tells you how fast something is changing right then, like speed from a distance–time graph.
+
+[text] The DERIVATIVE gives that rate. For y = xⁿ, the derivative is nxⁿ⁻¹. So y = x² has derivative 2x, and at x = 3 the slope is 6.
+
+[text] Calculus is used in physics, economics, medicine (drug doses), engineering and machine learning.","Wikipedia: Derivative — https://en.wikipedia.org/wiki/Derivative (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Calculus — https://en.wikipedia.org/wiki/Calculus (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/math/b5-math-rates-of-change.json","","","","","",""
+"b5-math-trigonometry","Trigonometry and Geometric Proof","Builders (15–18)","Math","b5-math-2: Trigonometry and geometry proofs","","25","draft","[text] In a right-angled triangle: sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent. Memory aid: SOH CAH TOA.
+
+[text] Use trig to find unknown sides or angles, for example the height of a tree from its shadow.
+
+[text] A PROOF shows something must be true using definitions and logic. Example: angles on a straight line add to 180°, which lets you prove a triangle's angles add to 180°.","Wikipedia: Trigonometry — https://en.wikipedia.org/wiki/Trigonometry (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Mathematical proof — https://en.wikipedia.org/wiki/Mathematical_proof (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/math/b5-math-trigonometry.json","","","","","",""
+"b5-money-bank-budget","Bank Accounts and Monthly Budgets","Builders (15–18)","Money & Life Skills","b5-money-1: Opening a bank account, budgeting a monthly income","","20","draft","[text] A CURRENT/CHECKING account is for everyday spending (with a debit card). A SAVINGS account earns interest for money you don't need now.
+
+[text] Check fees, minimum balances and interest rates. Keep your PIN and online banking details private.
+
+[text] The 50/30/20 guideline: about 50% needs (rent, food, transport), 30% wants, 20% savings or paying off debt. Adjust it to your situation.
+
+[text] Build an EMERGENCY FUND: a few months of essential costs, for surprises like losing a job or a repair.","Wikipedia: Transaction account — https://en.wikipedia.org/wiki/Transaction_account (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Personal budget — https://en.wikipedia.org/wiki/Personal_budget (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/money/b5-money-bank-budget.json","","","","","",""
+"b5-money-credit-loans","Credit, Credit Scores and Student Finance","Builders (15–18)","Money & Life Skills","b5-money-2: Credit, credit scores, loans and student finance","","20","draft","[text] CREDIT is borrowing money to pay back later, with interest. Credit cards, loans and 'buy now, pay later' are all credit.
+
+[text] A CREDIT SCORE (in many countries) estimates how reliably you repay. Paying on time and not borrowing too much helps; missed payments hurt.
+
+[text] Student finance differs hugely by country: grants (don't repay), scholarships, and loans (with different interest and repayment rules). Read the terms carefully.
+
+[text] Avoid high-cost loans (like payday loans) and loan apps that ask for access to your contacts or photos. These are red flags.","Wikipedia: Credit score — https://en.wikipedia.org/wiki/Credit_score (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Student loan — https://en.wikipedia.org/wiki/Student_loan (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/money/b5-money-credit-loans.json","","","","","",""
 "b5-money-investment-scams","Spotting Investment Scams","Builders (15–18)","Money & Life Skills","b5-money-4: Investing basics: risk, diversification, avoiding scams","","20","draft","[text] Every real investment has risk. In general, higher possible returns come with higher risk of losing money. Anyone promising high returns with 'no risk' is a red flag.
 
 [text] Ponzi scheme: early investors are paid with money from new investors, not real profits. It collapses when new money stops coming in.
@@ -569,6 +1572,47 @@ OpenStax Introductory Statistics 2e — https://openstax.org/details/books/intro
 [fact] Many countries have an official register of licensed investment firms. Check it before investing.","Wikipedia: Ponzi scheme — https://en.wikipedia.org/wiki/Ponzi_scheme (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Pump and dump — https://en.wikipedia.org/wiki/Pump_and_dump (CC BY-SA 4.0 (reference; text is original))
 US SEC Investor.gov: Ponzi schemes — https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme (Public domain (US government; reference))","content/lessons/b5/money/b5-money-investment-scams.json","","","","","",""
+"b5-money-living-skills","Living Independently","Builders (15–18)","Money & Life Skills","b5-money-5: Living skills: cooking, laundry, renting basics, travel safety","","20","draft","[text] COOKING: learn 5 cheap, healthy meals (rice and lentils, pasta with vegetables, eggs, stir-fry, soup). Batch-cook to save money and time.
+
+[text] LAUNDRY: check labels, separate darks and lights, and don't overload the machine.
+
+[text] RENTING: read the whole contract before signing, photograph the place when you move in, know the deposit rules, and never send money for a place you haven't seen (a common scam).
+
+[text] TRAVEL SAFETY: share your plans with someone, keep copies of documents, use licensed transport, and keep emergency numbers saved.","Wikipedia: Lease — https://en.wikipedia.org/wiki/Lease (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Laundry — https://en.wikipedia.org/wiki/Laundry (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/money/b5-money-living-skills.json","","","","","",""
+"b5-money-taxes-payslips","Taxes and Payslips","Builders (15–18)","Money & Life Skills","b5-money-3: Taxes and payslips (general concepts)","","20","draft","[text] Governments collect TAXES to pay for public services: roads, schools, hospitals, defence. Common types: income tax, sales tax/VAT/GST, and property tax.
+
+[text] Many countries use PROGRESSIVE income tax: higher rates apply to higher portions of income.
+
+[text] A PAYSLIP shows GROSS pay (before deductions) and NET pay (take-home), plus deductions like income tax, social security/pension contributions.
+
+[text] Rules differ a lot by country. Use official government websites to learn yours.","Wikipedia: Tax — https://en.wikipedia.org/wiki/Tax (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Payslip — https://en.wikipedia.org/wiki/Payslip (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/money/b5-money-taxes-payslips.json","","","","","",""
+"b5-sci-chemistry-reactions","Bonding, Reactions, Acids and Moles","Builders (15–18)","Science","b5-sci-2: Chemistry: bonding, reactions, acids/bases, moles basics","","25","draft","[text] IONIC bonds form when electrons transfer (Na⁺Cl⁻ in salt). COVALENT bonds form when atoms share electrons (H₂O).
+
+[text] In a reaction, atoms are rearranged, never created or destroyed, so equations must balance: 2H₂ + O₂ → 2H₂O.
+
+[text] The pH scale runs from 0 (strongly acidic) to 14 (strongly basic/alkaline). 7 is neutral (pure water). Acid + base → salt + water (neutralisation).
+
+[text] A MOLE is a counting unit for particles: about 6.02 × 10²³ of them, just like a 'dozen' means 12.","Wikipedia: Chemical bond — https://en.wikipedia.org/wiki/Chemical_bond (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: PH — https://en.wikipedia.org/wiki/PH (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Mole (unit) — https://en.wikipedia.org/wiki/Mole_(unit) (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/science/b5-sci-chemistry-reactions.json","","","","","",""
+"b5-sci-dna-genetics","DNA, Genetics and Ecology","Builders (15–18)","Science","b5-sci-1: Biology: DNA, genetics, human systems, ecology","","25","draft","[text] DNA is a double helix made of four bases (A, T, C, G). A always pairs with T, and C with G. The sequence of bases codes for proteins.
+
+[text] You inherit one copy of each gene from each parent. Versions of genes are called ALLELES. A DOMINANT allele shows its effect even with just one copy; a RECESSIVE one needs two copies.
+
+[text] ECOLOGY studies how organisms interact with each other and their environment: food webs, competition and nutrient cycles.","Wikipedia: DNA — https://en.wikipedia.org/wiki/DNA (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Mendelian inheritance — https://en.wikipedia.org/wiki/Mendelian_inheritance (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Ecology — https://en.wikipedia.org/wiki/Ecology (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/science/b5-sci-dna-genetics.json","","","","","",""
+"b5-sci-judging-studies","How to Judge a Scientific Study","Builders (15–18)","Science","b5-sci-4: Reads a scientific study and judges its quality (sample size, controls, peer review)","","25","draft","[text] Questions to ask: How big was the sample? Was there a CONTROL group? Were participants randomly assigned? Was it BLINDED (people didn't know who got what)?
+
+[text] Was it PEER-REVIEWED (checked by other experts)? Who funded it? Has it been REPLICATED by other teams?
+
+[text] One study is rarely the final word. Systematic reviews, which combine many studies, are stronger evidence.
+
+[fact] Headlines often say 'X causes Y' when the study only found a correlation, or was done in mice!","Wikipedia: Randomized controlled trial — https://en.wikipedia.org/wiki/Randomized_controlled_trial (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Peer review — https://en.wikipedia.org/wiki/Peer_review (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Replication crisis — https://en.wikipedia.org/wiki/Replication_crisis (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/science/b5-sci-judging-studies.json","","","","","",""
 "b5-sci-newtons-laws","Newton's Three Laws of Motion","Builders (15–18)","Science","b5-sci-3: Physics: motion, Newton's laws, waves, electricity, energy","","25","draft","[text] FIRST LAW (inertia): an object stays at rest, or keeps moving at a constant velocity, unless a net (unbalanced) force acts on it. That's why you lurch forward when a bus brakes suddenly.
 
 [text] SECOND LAW: net force = mass × acceleration (F = ma). The same push accelerates a light object more than a heavy one. Force is measured in newtons (N).
@@ -596,6 +1640,44 @@ b5-think-1: Evaluates arguments and evidence in news and research","","20","draf
 Wikipedia: Confirmation bias — https://en.wikipedia.org/wiki/Confirmation_bias (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Anchoring effect — https://en.wikipedia.org/wiki/Anchoring_effect (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Availability heuristic — https://en.wikipedia.org/wiki/Availability_heuristic (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/thinking/b5-think-cognitive-biases.json","","","","","",""
+"b5-think-decisions-ethics","Decision-Making Tools and Ethical Dilemmas","Builders (15–18)","Thinking Skills","b5-think-2: Decision-making tools: pros/cons, cost-benefit, thinking about consequences
+b5-think-4: Ethical reasoning about real dilemmas","","25","draft","[text] Decision tools: PROS AND CONS lists, COST–BENEFIT analysis (put rough values on outcomes), and '10-10-10' (how will I feel in 10 minutes, 10 months, 10 years?).
+
+[text] Think about second-order consequences: what happens after the first effect?
+
+[text] Ethical dilemmas have no easy answer. The 'trolley problem' asks whether it's right to divert harm from five people to one. People reason differently depending on consequences, duties and character.
+
+[text] Good ethical reasoning: identify who is affected, consider different principles, and be willing to explain and change your view.","Wikipedia: Decision-making — https://en.wikipedia.org/wiki/Decision-making (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Cost–benefit analysis — https://en.wikipedia.org/wiki/Cost–benefit_analysis (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Trolley problem — https://en.wikipedia.org/wiki/Trolley_problem (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/thinking/b5-think-decisions-ethics.json","","","","","",""
+"b5-world-citizenship","Citizenship, Elections and Political Claims","Builders (15–18)","Our World","b5-world-4: Citizenship, elections, rights and how to evaluate political claims","politics","25","draft","[text] Citizens usually have rights (vote, free speech, fair trial) and responsibilities (follow laws, pay taxes, serve on juries in some countries). These vary by country.
+
+[text] Elections work in different ways: first-past-the-post, proportional representation and others. Each has trade-offs.
+
+[text] Evaluating political claims: Is there evidence? Is the statistic in context? What do independent fact-checkers say? What would the other side say?
+
+[text] This lesson doesn't tell you what to think. Good citizens understand different views and decide with evidence.","Wikipedia: Citizenship — https://en.wikipedia.org/wiki/Citizenship (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Election — https://en.wikipedia.org/wiki/Election (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Fact-checking — https://en.wikipedia.org/wiki/Fact-checking (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/world/b5-world-citizenship.json","","","","","",""
+"b5-world-globalisation","Modern History, Globalisation and Global Challenges","Builders (15–18)","Our World","b5-world-1: 20th–21st century world history and globalisation
+b5-world-3: Global challenges: climate, inequality, health, technology","","25","draft","[text] Since 1945: the Cold War (USA vs USSR) shaped much of the world until 1991. Dozens of countries became independent. China, India and others grew rapidly.
+
+[text] GLOBALISATION is the growing connection of economies, people and cultures through trade, travel and the internet. It has lifted many out of poverty but also brought job losses in some places, and spread problems quickly (like pandemics).
+
+[text] Global challenges include climate change, inequality, pandemics and the impact of new technology like AI. In 2015, UN members agreed 17 Sustainable Development Goals (SDGs) to tackle them by 2030.","Wikipedia: Globalization — https://en.wikipedia.org/wiki/Globalization (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Sustainable Development Goals — https://en.wikipedia.org/wiki/Sustainable_Development_Goals (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Cold War — https://en.wikipedia.org/wiki/Cold_War (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/world/b5-world-globalisation.json","","","","","",""
+"b5-world-philosophy-ethics","Philosophy and Ethics: Big Questions","Builders (15–18)","Our World","b5-world-5: Philosophy and ethics: major traditions and questions","religion","25","draft","[text] Philosophy asks big questions: What is right? What can we know? What makes a good life?
+
+[text] Three major approaches to ethics: CONSEQUENTIALISM (judge actions by results, such as the greatest good for the greatest number), DEONTOLOGY (some duties and rules matter whatever the results, such as not lying), and VIRTUE ETHICS (be a person of good character: honest, brave, kind).
+
+[text] Traditions worldwide add rich perspectives: Confucian ideas of harmony and respect, Buddhist ideas of compassion and non-harm, Ubuntu ('I am because we are') from southern Africa, and religious ethics in many faiths.
+
+[text] Philosophy doesn't hand you answers; it helps you reason carefully and understand people who think differently.","Wikipedia: Ethics — https://en.wikipedia.org/wiki/Ethics (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Utilitarianism — https://en.wikipedia.org/wiki/Utilitarianism (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Deontology — https://en.wikipedia.org/wiki/Deontology (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Virtue ethics — https://en.wikipedia.org/wiki/Virtue_ethics (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Confucianism — https://en.wikipedia.org/wiki/Confucianism (CC BY-SA 4.0 (reference; text is original))","content/lessons/b5/world/b5-world-philosophy-ethics.json","","","","","",""
 "b5-world-supply-demand","Supply and Demand","Builders (15–18)","Our World","b5-world-2: Economics basics: supply and demand, inflation, trade","","20","draft","[text] DEMAND is how much of something people want to buy at different prices. Usually, when the price goes up, people buy less.
 
 [text] SUPPLY is how much sellers want to sell at different prices. Usually, when the price goes up, sellers want to sell more.

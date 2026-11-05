@@ -1,0 +1,76 @@
+{
+  "id": "b5-sci-dna-genetics",
+  "title": "DNA, Genetics and Ecology",
+  "band": "b5",
+  "subject": "science",
+  "outcomes": [
+    "b5-sci-1"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: DNA",
+      "url": "https://en.wikipedia.org/wiki/DNA",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Mendelian inheritance",
+      "url": "https://en.wikipedia.org/wiki/Mendelian_inheritance",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Ecology",
+      "url": "https://en.wikipedia.org/wiki/Ecology",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "DNA is a double helix made of four bases (A, T, C, G). A always pairs with T, and C with G. The sequence of bases codes for proteins."
+    },
+    {
+      "type": "text",
+      "body": "You inherit one copy of each gene from each parent. Versions of genes are called ALLELES. A DOMINANT allele shows its effect even with just one copy; a RECESSIVE one needs two copies."
+    },
+    {
+      "type": "text",
+      "body": "ECOLOGY studies how organisms interact with each other and their environment: food webs, competition and nutrient cycles."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In DNA, adenine (A) always pairs with…",
+      "options": [
+        "Thymine (T)",
+        "Guanine (G)",
+        "Cytosine (C)"
+      ],
+      "answer": 0,
+      "hints": [
+        "There are two base pairs.",
+        "C pairs with G. What's left for A?",
+        "If one strand is C-C-G, the other is G-G-C."
+      ],
+      "explain": "A pairs with T (and C pairs with G)."
+    },
+    {
+      "q": "Two parents each carry one recessive allele for a trait (but don't show it). What's the chance their child shows the trait?",
+      "options": [
+        "1 in 4",
+        "1 in 2",
+        "0"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw a Punnett square: Aa × Aa.",
+        "Which combination has two recessive alleles?",
+        "The four outcomes are AA, Aa, aA, aa. Only one has two recessive copies."
+      ],
+      "explain": "Only aa shows the trait: 1 out of 4 outcomes."
+    }
+  ]
+}

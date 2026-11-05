@@ -1,0 +1,75 @@
+{
+  "id": "b5-comp-databases",
+  "title": "Databases: How Apps Store Data",
+  "band": "b5",
+  "subject": "computing",
+  "outcomes": [
+    "b5-comp-2"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Database",
+      "url": "https://en.wikipedia.org/wiki/Database",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: SQL",
+      "url": "https://en.wikipedia.org/wiki/SQL",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Most apps store data in DATABASES. Relational databases use TABLES with rows (records) and columns (fields), like a spreadsheet."
+    },
+    {
+      "type": "text",
+      "body": "SQL is the language used to query them: SELECT name FROM students WHERE age > 15;"
+    },
+    {
+      "type": "text",
+      "body": "A PRIMARY KEY uniquely identifies each row. Tables link using FOREIGN KEYS (e.g. an orders table refers to a customer's id)."
+    },
+    {
+      "type": "fact",
+      "body": "Honest Learn itself uses a relational database (SQLite) with tables for parents, children, progress and chats."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does SELECT * FROM books WHERE year < 2000; return?",
+      "options": [
+        "All columns for books published before 2000",
+        "Only the book titles",
+        "Books published after 2000"
+      ],
+      "answer": 0,
+      "hints": [
+        "* means 'all columns'.",
+        "WHERE filters the rows.",
+        "SELECT * FROM pets WHERE type = 'cat'; returns every column for cats only."
+      ],
+      "explain": "It returns every column (*) for rows where year is less than 2000."
+    },
+    {
+      "q": "Why does each row need a primary key?",
+      "options": [
+        "To uniquely identify it",
+        "To make it bold",
+        "To sort alphabetically"
+      ],
+      "answer": 0,
+      "hints": [
+        "Two students might share a name.",
+        "Something must be unique.",
+        "Every phone has a unique number, even if two owners have the same name."
+      ],
+      "explain": "A primary key uniquely identifies each record."
+    }
+  ]
+}

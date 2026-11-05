@@ -1,0 +1,71 @@
+{
+  "id": "b5-dig-online-reputation",
+  "title": "Your Online Reputation",
+  "band": "b5",
+  "subject": "digital",
+  "outcomes": [
+    "b5-dig-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Online identity",
+      "url": "https://en.wikipedia.org/wiki/Online_identity",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Digital footprint",
+      "url": "https://en.wikipedia.org/wiki/Digital_footprint",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Colleges and employers often search applicants online. Your posts, comments and photos can shape first impressions."
+    },
+    {
+      "type": "text",
+      "body": "Build a positive presence: share your projects, volunteering, writing or creative work. A simple portfolio or professional profile can help."
+    },
+    {
+      "type": "text",
+      "body": "Review privacy settings regularly, think before posting in anger, and remember that screenshots last even if you delete something."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which post is most likely to help a future job application?",
+      "options": [
+        "A blog showing a coding project you built",
+        "An angry rant about a teacher",
+        "Embarrassing party photos"
+      ],
+      "answer": 0,
+      "hints": [
+        "What would impress an employer?",
+        "Show skills and effort.",
+        "A video of you volunteering at an animal shelter would show good qualities. Which option shows skills?"
+      ],
+      "explain": "Sharing a project you built shows skills and initiative."
+    },
+    {
+      "q": "You post something in anger and delete it 5 minutes later. Is it definitely gone?",
+      "options": [
+        "No, someone may have screenshotted it",
+        "Yes, deleting removes it everywhere",
+        "Only if it got no likes"
+      ],
+      "answer": 0,
+      "hints": [
+        "Can others save what they see?",
+        "Screenshots and shares last.",
+        "If you shout something in a crowded room, you can't un-say it even if you leave."
+      ],
+      "explain": "No. Others may have screenshotted or shared it before you deleted it."
+    }
+  ]
+}

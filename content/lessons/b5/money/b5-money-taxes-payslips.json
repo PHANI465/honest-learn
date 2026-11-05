@@ -1,0 +1,75 @@
+{
+  "id": "b5-money-taxes-payslips",
+  "title": "Taxes and Payslips",
+  "band": "b5",
+  "subject": "money",
+  "outcomes": [
+    "b5-money-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Tax",
+      "url": "https://en.wikipedia.org/wiki/Tax",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Payslip",
+      "url": "https://en.wikipedia.org/wiki/Payslip",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Governments collect TAXES to pay for public services: roads, schools, hospitals, defence. Common types: income tax, sales tax/VAT/GST, and property tax."
+    },
+    {
+      "type": "text",
+      "body": "Many countries use PROGRESSIVE income tax: higher rates apply to higher portions of income."
+    },
+    {
+      "type": "text",
+      "body": "A PAYSLIP shows GROSS pay (before deductions) and NET pay (take-home), plus deductions like income tax, social security/pension contributions."
+    },
+    {
+      "type": "text",
+      "body": "Rules differ a lot by country. Use official government websites to learn yours."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is 'net pay'?",
+      "options": [
+        "Take-home pay after deductions",
+        "Pay before any deductions",
+        "Your bonus"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of what lands in your bank account.",
+        "Gross is before deductions.",
+        "If gross pay is 1,000 and deductions are 150, what you actually receive is 850. What's that called?"
+      ],
+      "explain": "Net pay is what you take home after tax and other deductions."
+    },
+    {
+      "q": "A VAT/GST is a tax on…",
+      "options": [
+        "Spending on goods and services",
+        "Only income",
+        "Only houses"
+      ],
+      "answer": 0,
+      "hints": [
+        "When do you pay it?",
+        "It's added to prices in shops.",
+        "Income tax is taken from wages. Which tax is taken when you buy things?"
+      ],
+      "explain": "VAT/GST is a tax on goods and services when you buy them."
+    }
+  ]
+}

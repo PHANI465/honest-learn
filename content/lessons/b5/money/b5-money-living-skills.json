@@ -1,0 +1,75 @@
+{
+  "id": "b5-money-living-skills",
+  "title": "Living Independently",
+  "band": "b5",
+  "subject": "money",
+  "outcomes": [
+    "b5-money-5"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Lease",
+      "url": "https://en.wikipedia.org/wiki/Lease",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Laundry",
+      "url": "https://en.wikipedia.org/wiki/Laundry",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "COOKING: learn 5 cheap, healthy meals (rice and lentils, pasta with vegetables, eggs, stir-fry, soup). Batch-cook to save money and time."
+    },
+    {
+      "type": "text",
+      "body": "LAUNDRY: check labels, separate darks and lights, and don't overload the machine."
+    },
+    {
+      "type": "text",
+      "body": "RENTING: read the whole contract before signing, photograph the place when you move in, know the deposit rules, and never send money for a place you haven't seen (a common scam)."
+    },
+    {
+      "type": "text",
+      "body": "TRAVEL SAFETY: share your plans with someone, keep copies of documents, use licensed transport, and keep emergency numbers saved."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why photograph a rented flat when you move in?",
+      "options": [
+        "To prove its condition so you get your deposit back",
+        "For social media",
+        "It's required to unlock the door"
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens when you move out?",
+        "The landlord checks for damage.",
+        "If you borrowed a car with a scratch already on it, a photo proves you didn't cause it."
+      ],
+      "explain": "Photos record the original condition, protecting your deposit."
+    },
+    {
+      "q": "An online advert for a cheap flat asks for a deposit before you can view it. This is likely…",
+      "options": [
+        "A scam",
+        "A great deal",
+        "Standard practice"
+      ],
+      "answer": 0,
+      "hints": [
+        "Would you pay for something you can't see?",
+        "Rental scams often ask for money up front.",
+        "If someone sold concert tickets but refused to show proof they exist, would you pay?"
+      ],
+      "explain": "Paying before viewing is a classic rental scam warning sign."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "b5-car-scholarships-free-learning",
+  "title": "Finding Free Learning and Scholarships (and Avoiding Scams)",
+  "band": "b5",
+  "subject": "careers",
+  "outcomes": [
+    "b5-car-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Scholarship",
+      "url": "https://en.wikipedia.org/wiki/Scholarship",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Massive open online course",
+      "url": "https://en.wikipedia.org/wiki/Massive_open_online_course",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Free high-quality learning: Khan Academy, MIT OpenCourseWare, OpenStax textbooks, freeCodeCamp, and many university courses you can audit for free."
+    },
+    {
+      "type": "text",
+      "body": "Scholarships: check your school, university websites, government portals and reputable foundations. Apply early and to many."
+    },
+    {
+      "type": "text",
+      "body": "SCAM warning signs: you must pay a fee to apply or to 'claim' a scholarship, guaranteed winnings, pressure to act now, or requests for bank passwords."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A 'scholarship' says you've won but must pay a 50 processing fee. This is…",
+      "options": [
+        "Likely a scam",
+        "Normal",
+        "A great opportunity"
+      ],
+      "answer": 0,
+      "hints": [
+        "Do real scholarships charge you to receive money?",
+        "Upfront fees are a classic warning sign.",
+        "A lottery you never entered saying you've won but need to pay a fee is a well-known scam."
+      ],
+      "explain": "Real scholarships don't charge you to receive them. This is a red flag."
+    },
+    {
+      "q": "Which is a genuinely free learning platform?",
+      "options": [
+        "MIT OpenCourseWare",
+        "A site that charges after a 'free' quiz",
+        "An app asking for your bank login"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson lists several.",
+        "It's run by a university.",
+        "OpenStax gives free textbooks. Which option is similar?"
+      ],
+      "explain": "MIT OpenCourseWare offers free course materials from MIT."
+    }
+  ]
+}

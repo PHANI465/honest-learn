@@ -1,0 +1,80 @@
+{
+  "id": "b5-sci-judging-studies",
+  "title": "How to Judge a Scientific Study",
+  "band": "b5",
+  "subject": "science",
+  "outcomes": [
+    "b5-sci-4"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Randomized controlled trial",
+      "url": "https://en.wikipedia.org/wiki/Randomized_controlled_trial",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Peer review",
+      "url": "https://en.wikipedia.org/wiki/Peer_review",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Replication crisis",
+      "url": "https://en.wikipedia.org/wiki/Replication_crisis",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Questions to ask: How big was the sample? Was there a CONTROL group? Were participants randomly assigned? Was it BLINDED (people didn't know who got what)?"
+    },
+    {
+      "type": "text",
+      "body": "Was it PEER-REVIEWED (checked by other experts)? Who funded it? Has it been REPLICATED by other teams?"
+    },
+    {
+      "type": "text",
+      "body": "One study is rarely the final word. Systematic reviews, which combine many studies, are stronger evidence."
+    },
+    {
+      "type": "fact",
+      "body": "Headlines often say 'X causes Y' when the study only found a correlation, or was done in mice!"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A headline says 'Chocolate cures anxiety!' The study had 12 people and no control group. What's the best response?",
+      "options": [
+        "Treat it as weak evidence",
+        "Believe it",
+        "Ban chocolate"
+      ],
+      "answer": 0,
+      "hints": [
+        "Check sample size and controls.",
+        "12 people with no comparison group…",
+        "A survey of 5 friends isn't enough to prove a national trend. Same here."
+      ],
+      "explain": "A tiny study with no control group is weak evidence; it needs much better research."
+    },
+    {
+      "q": "What does 'double-blind' mean?",
+      "options": [
+        "Neither participants nor researchers know who gets the real treatment",
+        "Everyone wears blindfolds",
+        "The results are hidden forever"
+      ],
+      "answer": 0,
+      "hints": [
+        "It reduces bias from expectations.",
+        "Two groups don't know something.",
+        "In a taste test where neither the tasters nor the server know which cola is which, nobody's expectations sway results."
+      ],
+      "explain": "In a double-blind study, neither the participants nor the researchers know who gets which treatment."
+    }
+  ]
+}

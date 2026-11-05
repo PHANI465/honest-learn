@@ -1,0 +1,85 @@
+{
+  "id": "b5-comp-networks-encryption",
+  "title": "Networks, Security and Encryption",
+  "band": "b5",
+  "subject": "computing",
+  "outcomes": [
+    "b5-comp-3"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Computer network",
+      "url": "https://en.wikipedia.org/wiki/Computer_network",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Encryption",
+      "url": "https://en.wikipedia.org/wiki/Encryption",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Public-key cryptography",
+      "url": "https://en.wikipedia.org/wiki/Public-key_cryptography",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: HTTPS",
+      "url": "https://en.wikipedia.org/wiki/HTTPS",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Networks connect devices. The internet uses protocols like TCP/IP to route packets. DNS translates names (example.org) into IP addresses."
+    },
+    {
+      "type": "text",
+      "body": "ENCRYPTION scrambles data so only someone with the key can read it. HTTPS encrypts traffic between your browser and websites (look for the padlock)."
+    },
+    {
+      "type": "text",
+      "body": "Public-key cryptography uses a pair of keys: a public key to encrypt (or verify) and a private key to decrypt (or sign). It lets strangers communicate securely."
+    },
+    {
+      "type": "text",
+      "body": "Common attacks: phishing, malware, weak passwords, unpatched software. Defences: updates, 2FA, backups and caution."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does DNS do?",
+      "options": [
+        "Translates website names into IP addresses",
+        "Encrypts passwords",
+        "Blocks viruses"
+      ],
+      "answer": 0,
+      "hints": [
+        "Computers find each other by numbers.",
+        "Humans use names like example.org.",
+        "A contacts app turns a friend's name into their phone number. DNS does something similar for websites."
+      ],
+      "explain": "DNS translates domain names into IP addresses."
+    },
+    {
+      "q": "In public-key encryption, which key must be kept secret?",
+      "options": [
+        "The private key",
+        "The public key",
+        "Neither"
+      ],
+      "answer": 0,
+      "hints": [
+        "One key is shared with everyone.",
+        "The other must be protected.",
+        "A mailbox slot (public) lets anyone drop letters in; only the owner's key (private) opens it."
+      ],
+      "explain": "The private key must stay secret; the public key can be shared."
+    }
+  ]
+}

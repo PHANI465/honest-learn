@@ -1,0 +1,77 @@
+{
+  "id": "b5-world-globalisation",
+  "title": "Modern History, Globalisation and Global Challenges",
+  "band": "b5",
+  "subject": "world",
+  "outcomes": [
+    "b5-world-1",
+    "b5-world-3"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Globalization",
+      "url": "https://en.wikipedia.org/wiki/Globalization",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Sustainable Development Goals",
+      "url": "https://en.wikipedia.org/wiki/Sustainable_Development_Goals",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Cold War",
+      "url": "https://en.wikipedia.org/wiki/Cold_War",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Since 1945: the Cold War (USA vs USSR) shaped much of the world until 1991. Dozens of countries became independent. China, India and others grew rapidly."
+    },
+    {
+      "type": "text",
+      "body": "GLOBALISATION is the growing connection of economies, people and cultures through trade, travel and the internet. It has lifted many out of poverty but also brought job losses in some places, and spread problems quickly (like pandemics)."
+    },
+    {
+      "type": "text",
+      "body": "Global challenges include climate change, inequality, pandemics and the impact of new technology like AI. In 2015, UN members agreed 17 Sustainable Development Goals (SDGs) to tackle them by 2030."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which best describes globalisation?",
+      "options": [
+        "Growing connections of economies and cultures worldwide",
+        "Countries cutting all contact",
+        "A type of weather"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think 'global'.",
+        "Trade, travel and the internet link the world.",
+        "A phone designed in one country, made in another and sold everywhere is an example of…?"
+      ],
+      "explain": "Globalisation is the increasing connection of economies, people and cultures worldwide."
+    },
+    {
+      "q": "The UN's 17 goals for 2030 are called the…",
+      "options": [
+        "Sustainable Development Goals",
+        "Olympic Goals",
+        "Global Football Goals"
+      ],
+      "answer": 0,
+      "hints": [
+        "They were agreed in 2015.",
+        "Their initials are often written as SDGs.",
+        "They aim for development that lasts. Which option fits?"
+      ],
+      "explain": "The Sustainable Development Goals (SDGs)."
+    }
+  ]
+}

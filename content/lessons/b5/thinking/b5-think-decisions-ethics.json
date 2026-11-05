@@ -1,0 +1,81 @@
+{
+  "id": "b5-think-decisions-ethics",
+  "title": "Decision-Making Tools and Ethical Dilemmas",
+  "band": "b5",
+  "subject": "thinking",
+  "outcomes": [
+    "b5-think-2",
+    "b5-think-4"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Decision-making",
+      "url": "https://en.wikipedia.org/wiki/Decision-making",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Cost–benefit analysis",
+      "url": "https://en.wikipedia.org/wiki/Cost–benefit_analysis",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Trolley problem",
+      "url": "https://en.wikipedia.org/wiki/Trolley_problem",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Decision tools: PROS AND CONS lists, COST–BENEFIT analysis (put rough values on outcomes), and '10-10-10' (how will I feel in 10 minutes, 10 months, 10 years?)."
+    },
+    {
+      "type": "text",
+      "body": "Think about second-order consequences: what happens after the first effect?"
+    },
+    {
+      "type": "text",
+      "body": "Ethical dilemmas have no easy answer. The 'trolley problem' asks whether it's right to divert harm from five people to one. People reason differently depending on consequences, duties and character."
+    },
+    {
+      "type": "text",
+      "body": "Good ethical reasoning: identify who is affected, consider different principles, and be willing to explain and change your view."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which tool asks how a decision will feel in 10 minutes, 10 months and 10 years?",
+      "options": [
+        "10-10-10",
+        "Pros and cons",
+        "Coin toss"
+      ],
+      "answer": 0,
+      "hints": [
+        "The name repeats a number.",
+        "It looks at short, medium and long term.",
+        "A pros-and-cons list compares good and bad points. Which tool focuses on time?"
+      ],
+      "explain": "The 10-10-10 method compares short-, medium- and long-term feelings."
+    },
+    {
+      "q": "What is a 'second-order consequence'?",
+      "options": [
+        "An effect that follows from the first effect",
+        "The second option on a list",
+        "A mistake"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the chain of events.",
+        "First effect, then what happens next because of it?",
+        "Cheap fast fashion saves money (first effect) but creates more waste (a later effect)."
+      ],
+      "explain": "It's an effect that follows from the first effect, the 'and then what?' outcome."
+    }
+  ]
+}

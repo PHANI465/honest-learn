@@ -1,0 +1,71 @@
+{
+  "id": "b5-lang-public-speaking",
+  "title": "Public Speaking and Presenting an Argument",
+  "band": "b5",
+  "subject": "language",
+  "outcomes": [
+    "b5-lang-4"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Public speaking",
+      "url": "https://en.wikipedia.org/wiki/Public_speaking",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Glossophobia",
+      "url": "https://en.wikipedia.org/wiki/Glossophobia",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Structure: open with a hook (question, story or surprising fact), state your main point, give 2–3 supporting points with evidence, and end with a strong conclusion."
+    },
+    {
+      "type": "text",
+      "body": "Delivery: speak slower than feels natural, pause after key points, make eye contact, and use notes with key words, not a full script."
+    },
+    {
+      "type": "text",
+      "body": "Nerves are normal. Most speakers feel them. Practise out loud, breathe slowly, and focus on your message, not yourself."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a strong way to open a talk on plastic pollution?",
+      "options": [
+        "'By 2050, there could be more plastic than fish in the ocean by weight. So what can we do?'",
+        "'Um, so my talk is about plastic.'",
+        "'This topic is boring but here goes.'"
+      ],
+      "answer": 0,
+      "hints": [
+        "A hook grabs attention.",
+        "Surprising facts or questions work well.",
+        "'Did you know your heart beats about 100,000 times a day?' is a hook. Which option is similar?"
+      ],
+      "explain": "A surprising statistic plus a question is a strong hook. (That projection comes from a 2016 report; check the source when using it!)"
+    },
+    {
+      "q": "What helps most with speaking nerves?",
+      "options": [
+        "Practising out loud and breathing slowly",
+        "Reading the whole script without looking up",
+        "Speaking as fast as possible"
+      ],
+      "answer": 0,
+      "hints": [
+        "What makes you more confident?",
+        "Rehearsal and calm breathing.",
+        "Athletes practise before matches to feel ready. Speakers can do the same."
+      ],
+      "explain": "Practice and slow breathing reduce nerves."
+    }
+  ]
+}

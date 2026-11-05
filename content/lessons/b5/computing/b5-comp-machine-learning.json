@@ -1,0 +1,76 @@
+{
+  "id": "b5-comp-machine-learning",
+  "title": "How Machine Learning Works",
+  "band": "b5",
+  "subject": "computing",
+  "outcomes": [
+    "b5-comp-4"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Machine learning",
+      "url": "https://en.wikipedia.org/wiki/Machine_learning",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Overfitting",
+      "url": "https://en.wikipedia.org/wiki/Overfitting",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Ethics of artificial intelligence",
+      "url": "https://en.wikipedia.org/wiki/Ethics_of_artificial_intelligence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Machine learning finds patterns in data instead of following hand-written rules. You show a model many labelled examples (photos labelled 'cat' or 'dog'), and it adjusts itself to reduce mistakes."
+    },
+    {
+      "type": "text",
+      "body": "We TRAIN on one set of data and TEST on new data the model hasn't seen. OVERFITTING is when a model memorises training data but fails on new data."
+    },
+    {
+      "type": "text",
+      "body": "Ethics: biased data gives biased results; privacy matters; decisions about people (loans, jobs) need fairness, transparency and human oversight."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why test a model on data it hasn't seen?",
+      "options": [
+        "To check it works on new examples, not just memorised ones",
+        "To make training faster",
+        "Testing isn't needed"
+      ],
+      "answer": 0,
+      "hints": [
+        "Could a model just memorise answers?",
+        "Real use means new data.",
+        "A student who memorises last year's exam answers might fail a new exam. Testing on new questions shows real understanding."
+      ],
+      "explain": "Testing on unseen data shows whether the model generalises instead of memorising."
+    },
+    {
+      "q": "A hiring AI was trained on past hires who were mostly one group. What's the risk?",
+      "options": [
+        "It may unfairly favour that group",
+        "It will be perfectly fair",
+        "It can't make decisions"
+      ],
+      "answer": 0,
+      "hints": [
+        "Models learn patterns from their data.",
+        "If the past was unbalanced…",
+        "If you learned what 'normal' food is only from one country's cookbooks, you'd think other cuisines were odd."
+      ],
+      "explain": "It may learn and repeat past bias, unfairly favouring one group."
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "b5-world-philosophy-ethics",
+  "title": "Philosophy and Ethics: Big Questions",
+  "band": "b5",
+  "subject": "world",
+  "outcomes": [
+    "b5-world-5"
+  ],
+  "sensitive": "religion",
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Ethics",
+      "url": "https://en.wikipedia.org/wiki/Ethics",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Utilitarianism",
+      "url": "https://en.wikipedia.org/wiki/Utilitarianism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Deontology",
+      "url": "https://en.wikipedia.org/wiki/Deontology",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Virtue ethics",
+      "url": "https://en.wikipedia.org/wiki/Virtue_ethics",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Confucianism",
+      "url": "https://en.wikipedia.org/wiki/Confucianism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Philosophy asks big questions: What is right? What can we know? What makes a good life?"
+    },
+    {
+      "type": "text",
+      "body": "Three major approaches to ethics: CONSEQUENTIALISM (judge actions by results, such as the greatest good for the greatest number), DEONTOLOGY (some duties and rules matter whatever the results, such as not lying), and VIRTUE ETHICS (be a person of good character: honest, brave, kind)."
+    },
+    {
+      "type": "text",
+      "body": "Traditions worldwide add rich perspectives: Confucian ideas of harmony and respect, Buddhist ideas of compassion and non-harm, Ubuntu ('I am because we are') from southern Africa, and religious ethics in many faiths."
+    },
+    {
+      "type": "text",
+      "body": "Philosophy doesn't hand you answers; it helps you reason carefully and understand people who think differently."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "'An action is right if it produces the best overall results.' Which approach is this?",
+      "options": [
+        "Consequentialism",
+        "Deontology",
+        "Virtue ethics"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at what is being judged: results.",
+        "'Consequence' means result.",
+        "Deontology focuses on duties like 'never lie'. Which approach focuses on outcomes?"
+      ],
+      "explain": "Judging by outcomes is consequentialism (utilitarianism is one form)."
+    },
+    {
+      "q": "The southern African idea 'I am because we are' is called…",
+      "options": [
+        "Ubuntu",
+        "Stoicism",
+        "Utilitarianism"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson lists a few traditions from different places.",
+        "It comes from southern Africa.",
+        "Confucianism comes from China. Which tradition is from southern Africa?"
+      ],
+      "explain": "Ubuntu emphasises our shared humanity and community."
+    }
+  ]
+}

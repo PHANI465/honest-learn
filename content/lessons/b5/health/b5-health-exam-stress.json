@@ -1,0 +1,75 @@
+{
+  "id": "b5-health-exam-stress",
+  "title": "Exam Stress and Mental Wellbeing",
+  "band": "b5",
+  "subject": "health",
+  "outcomes": [
+    "b5-health-1"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Test anxiety",
+      "url": "https://en.wikipedia.org/wiki/Test_anxiety",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Stress management",
+      "url": "https://en.wikipedia.org/wiki/Stress_management",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Some stress before exams can help focus. Too much makes it hard to think, sleep or eat."
+    },
+    {
+      "type": "text",
+      "body": "What helps: a realistic revision plan with breaks, active recall (testing yourself), sleep (cramming all night hurts memory), exercise, and talking about worries."
+    },
+    {
+      "type": "text",
+      "body": "Results matter, but they don't define your worth. There are many paths to a good life and career."
+    },
+    {
+      "type": "text",
+      "body": "If stress feels overwhelming or you feel hopeless, talk to someone now: a parent, teacher, counsellor, doctor or a youth helpline. In an emergency, call your local emergency number."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which revision approach is best for memory?",
+      "options": [
+        "Short sessions with breaks and self-testing",
+        "One all-nighter before the exam",
+        "Re-reading notes ten times"
+      ],
+      "answer": 0,
+      "hints": [
+        "Your brain needs rest to store memories.",
+        "Testing yourself beats re-reading.",
+        "Athletes train in sessions with rest days, not one 20-hour workout."
+      ],
+      "explain": "Spaced sessions with breaks and self-testing work best, and sleep helps you remember."
+    },
+    {
+      "q": "A friend says they feel hopeless about exams and can't cope. What should you do?",
+      "options": [
+        "Listen, take it seriously, and help them talk to a trusted adult",
+        "Tell them to stop being dramatic",
+        "Ignore it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Hopelessness is a serious feeling.",
+        "Who can give real support?",
+        "If a friend twisted their ankle badly, you'd help them get to someone who can treat it."
+      ],
+      "explain": "Listen, take it seriously, and help them reach a trusted adult or professional."
+    }
+  ]
+}

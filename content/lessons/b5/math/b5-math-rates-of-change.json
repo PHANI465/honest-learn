@@ -1,0 +1,71 @@
+{
+  "id": "b5-math-rates-of-change",
+  "title": "Intro to Calculus: Rates of Change",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-4"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Derivative",
+      "url": "https://en.wikipedia.org/wiki/Derivative",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Calculus",
+      "url": "https://en.wikipedia.org/wiki/Calculus",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Calculus studies change. The GRADIENT of a curve at a point tells you how fast something is changing right then, like speed from a distance–time graph."
+    },
+    {
+      "type": "text",
+      "body": "The DERIVATIVE gives that rate. For y = xⁿ, the derivative is nxⁿ⁻¹. So y = x² has derivative 2x, and at x = 3 the slope is 6."
+    },
+    {
+      "type": "text",
+      "body": "Calculus is used in physics, economics, medicine (drug doses), engineering and machine learning."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does the derivative of a distance–time graph give?",
+      "options": [
+        "Speed (rate of change of distance)",
+        "Total distance",
+        "Time taken"
+      ],
+      "answer": 0,
+      "hints": [
+        "A derivative measures how fast something changes.",
+        "What do we call how fast distance changes?",
+        "The derivative of a savings balance over time tells you how fast it's growing. For distance over time, it's…?"
+      ],
+      "explain": "The derivative of distance over time is speed."
+    },
+    {
+      "q": "What is the derivative of y = x³?",
+      "options": [
+        "3x²",
+        "x²",
+        "3x³"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use nxⁿ⁻¹.",
+        "Bring the power down and reduce it by one.",
+        "For y = x², the derivative is 2x¹ = 2x."
+      ],
+      "explain": "Using nxⁿ⁻¹: 3x²."
+    }
+  ]
+}

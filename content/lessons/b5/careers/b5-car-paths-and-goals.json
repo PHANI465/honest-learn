@@ -1,0 +1,76 @@
+{
+  "id": "b5-car-paths-and-goals",
+  "title": "Career Paths and Your Goals",
+  "band": "b5",
+  "subject": "careers",
+  "outcomes": [
+    "b5-car-1",
+    "b5-car-5"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Career",
+      "url": "https://en.wikipedia.org/wiki/Career",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: SMART criteria",
+      "url": "https://en.wikipedia.org/wiki/SMART_criteria",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Many routes lead to good careers: university, vocational college, apprenticeships, starting a business, or working and studying later. None is the only 'right' path."
+    },
+    {
+      "type": "text",
+      "body": "Explore: what do you enjoy, what are you good at, what does the world need, and what pays enough? Talk to people doing jobs you're curious about."
+    },
+    {
+      "type": "text",
+      "body": "Set SMART goals: Specific, Measurable, Achievable, Relevant, Time-bound. 'Learn basic Python by finishing a free course by June' beats 'get better at coding'."
+    },
+    {
+      "type": "text",
+      "body": "Reflect regularly: what's working, what isn't, what will I change?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a SMART goal?",
+      "options": [
+        "Finish a free online Spanish course and hold a 5-minute conversation by December",
+        "Get better at Spanish",
+        "Be fluent someday"
+      ],
+      "answer": 0,
+      "hints": [
+        "SMART goals are specific and have a deadline.",
+        "Can you measure whether it's achieved?",
+        "'Run 5 km without stopping by March' is SMART. 'Get fitter' isn't."
+      ],
+      "explain": "It's specific, measurable, achievable, relevant and time-bound."
+    },
+    {
+      "q": "Which statement about career paths is most accurate?",
+      "options": [
+        "There are many routes, including apprenticeships and vocational training",
+        "Only university leads to a good career",
+        "Your first job decides your whole career"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about all the routes in the lesson.",
+        "Many skilled careers start with apprenticeships.",
+        "Electricians, chefs and pilots often train through routes other than a traditional degree."
+      ],
+      "explain": "There are many valid routes to a good career."
+    }
+  ]
+}

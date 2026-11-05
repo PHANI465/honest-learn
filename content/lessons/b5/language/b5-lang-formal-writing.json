@@ -1,0 +1,71 @@
+{
+  "id": "b5-lang-formal-writing",
+  "title": "Formal Writing: Emails, Applications, CVs",
+  "band": "b5",
+  "subject": "language",
+  "outcomes": [
+    "b5-lang-3"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Business letter",
+      "url": "https://en.wikipedia.org/wiki/Business_letter",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Personal statement",
+      "url": "https://en.wikipedia.org/wiki/Personal_statement",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Formal emails: clear subject line, polite greeting ('Dear Ms Rao,'), short paragraphs with one purpose each, a polite sign-off ('Kind regards'), and your full name."
+    },
+    {
+      "type": "text",
+      "body": "Applications and statements of purpose: show, don't just tell. 'I led a team of 5 to organise a charity run that raised 2,000' beats 'I am a leader.'"
+    },
+    {
+      "type": "text",
+      "body": "Proofread for spelling, tone and accuracy. Read it aloud, and ask someone else to check."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is the best subject line for an email asking a teacher for an extension?",
+      "options": [
+        "Request for extension: History essay (Year 10)",
+        "hey",
+        "URGENT!!!!!"
+      ],
+      "answer": 0,
+      "hints": [
+        "The subject should tell the reader exactly what the email is about.",
+        "Clear and specific, no shouting.",
+        "'Question about Saturday's football practice time' is clear. Which option is like that?"
+      ],
+      "explain": "A clear, specific subject line tells the teacher exactly what you're asking about."
+    },
+    {
+      "q": "Which statement is strongest for an application?",
+      "options": [
+        "'I tutored 3 younger students weekly for a year and their grades improved.'",
+        "'I am very hardworking.'",
+        "'I like helping people.'"
+      ],
+      "answer": 0,
+      "hints": [
+        "Show, don't just tell.",
+        "Which one gives specific evidence?",
+        "'I'm creative' is weak; 'I designed the school play's posters' shows it."
+      ],
+      "explain": "Specific achievements with evidence are far more convincing than general claims."
+    }
+  ]
+}

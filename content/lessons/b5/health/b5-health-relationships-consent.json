@@ -1,0 +1,80 @@
+{
+  "id": "b5-health-relationships-consent",
+  "title": "Healthy Relationships and Consent",
+  "band": "b5",
+  "subject": "health",
+  "outcomes": [
+    "b5-health-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Consent",
+      "url": "https://en.wikipedia.org/wiki/Consent",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Dating violence",
+      "url": "https://en.wikipedia.org/wiki/Dating_violence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Healthy relationship",
+      "url": "https://en.wikipedia.org/wiki/Healthy_relationship",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Healthy relationships (friends, family, partners) have respect, trust, honesty, equality and good communication. You can be yourself and spend time with others."
+    },
+    {
+      "type": "text",
+      "body": "CONSENT is a clear, freely given, enthusiastic 'yes'. It can be withdrawn at any time. Silence, pressure or someone being drunk or asleep does NOT mean consent."
+    },
+    {
+      "type": "text",
+      "body": "Warning signs of an unhealthy or abusive relationship: controlling who you see, checking your phone, jealousy presented as 'love', threats, put-downs, or pressure to do things you don't want to."
+    },
+    {
+      "type": "text",
+      "body": "If you or someone you know is in an unhealthy relationship, talk to a trusted adult or a support service. It is never the victim's fault."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a warning sign of an unhealthy relationship?",
+      "options": [
+        "A partner who checks your phone and controls who you see",
+        "A partner who respects your friendships",
+        "Talking openly about disagreements"
+      ],
+      "answer": 0,
+      "hints": [
+        "Healthy relationships respect independence.",
+        "Look for control.",
+        "A friend who gets angry whenever you spend time with others is showing a controlling behaviour."
+      ],
+      "explain": "Controlling behaviour, like checking your phone or limiting friendships, is a warning sign."
+    },
+    {
+      "q": "Someone said yes earlier but now says they want to stop. What does consent mean here?",
+      "options": [
+        "Stop: consent can be withdrawn at any time",
+        "Continue, since they said yes before",
+        "Ask them to explain"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is consent a one-time thing?",
+        "It can change at any moment.",
+        "If a friend agreed to lend you their bike but then changes their mind, you give it back."
+      ],
+      "explain": "Consent can be withdrawn at any time, and that must be respected immediately."
+    }
+  ]
+}
