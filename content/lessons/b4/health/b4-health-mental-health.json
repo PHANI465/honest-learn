@@ -70,6 +70,21 @@
         "After a walk outside, people often feel calmer. Which option is like that?"
       ],
       "explain": "Regular sleep and exercise are proven to support mental health."
+    },
+    {
+      "q": "A friend tells you they've felt anxious for weeks and can't sleep properly. Which response matches the lesson's advice?",
+      "options": [
+        "Encourage them to talk to a trusted adult, school counsellor or doctor",
+        "Tell them everyone gets stressed, so it's best to ignore it",
+        "Promise never to tell anyone, whatever happens"
+      ],
+      "answer": 0,
+      "hints": [
+        "Feelings that last weeks and change sleep are signs the lesson says to take seriously.",
+        "The lesson says getting help is a strength. Who could help?",
+        "If a friend's sprained ankle still hurt after weeks, you'd suggest they see someone who can treat it, rather than wait it out alone."
+      ],
+      "explain": "Worry lasting weeks that affects sleep is worth taking seriously. Encouraging your friend to talk to a trusted adult, counsellor or doctor is supportive. If they are ever unsafe, an adult needs to know, so a promise of total secrecy isn't safe."
     }
   ]
 }

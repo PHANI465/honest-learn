@@ -80,6 +80,21 @@
         "Moths that match tree bark get eaten less, so bark-coloured moths become more common."
       ],
       "explain": "White rabbits survive and reproduce more, so white fur becomes more common: natural selection."
+    },
+    {
+      "q": "What are genes?",
+      "options": [
+        "Sections of DNA that carry instructions for building and running the body",
+        "Tiny structures that make food from sunlight",
+        "The outer layer that controls what enters and leaves a cell"
+      ],
+      "answer": 0,
+      "hints": [
+        "Genes are part of something that the nucleus holds.",
+        "The lesson calls them a kind of 'instructions'. The other two options describe cell parts from the first paragraph.",
+        "A recipe book holds many recipes, and each one tells a cook how to make one dish. If DNA is the book, what are the recipes?"
+      ],
+      "explain": "DNA in the nucleus is organised into genes: instructions for building and running the body. Making food from sunlight is the job of chloroplasts, and the membrane controls what enters and leaves the cell."
     }
   ]
 }

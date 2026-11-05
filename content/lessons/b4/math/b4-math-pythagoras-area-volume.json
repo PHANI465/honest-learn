@@ -70,6 +70,21 @@
         "A 1 × 2 × 4 box has volume 8 cm³."
       ],
       "explain": "2 × 3 × 5 = 30 cm³."
+    },
+    {
+      "q": "A triangle has a base of 10 cm and a height of 6 cm. What is its area?",
+      "options": [
+        "30 cm²",
+        "60 cm²",
+        "16 cm²"
+      ],
+      "answer": 0,
+      "hints": [
+        "Area of a triangle = ½ × base × height.",
+        "10 × 6 = 60. Don't forget the ½.",
+        "A triangle with base 8 cm and height 5 cm: ½ × 8 × 5 = 20 cm²."
+      ],
+      "explain": "½ × 10 × 6 = 30 cm². (60 cm² would be a rectangle with the same base and height, and 16 is the base and height added.)"
     }
   ]
 }

@@ -79,6 +79,21 @@
         "A good friendship has trust and respect. Romantic relationships need the same and more."
       ],
       "explain": "Healthy relationships are based on respect, trust, honesty and consent."
+    },
+    {
+      "q": "Which hormones mainly drive the changes of puberty?",
+      "options": [
+        "Oestrogen and testosterone",
+        "Adrenaline and insulin",
+        "Melatonin and serotonin"
+      ],
+      "answer": 0,
+      "hints": [
+        "Hormones are chemical messengers. The lesson names two main ones for puberty.",
+        "Think of the sex hormones: one is made mainly in the ovaries, the other mainly in the testes.",
+        "Insulin is the hormone that controls blood sugar; it's made in the pancreas. Each hormone has its own job."
+      ],
+      "explain": "Oestrogen and testosterone are the main hormones behind puberty's growth and body changes. Adrenaline, insulin, melatonin and serotonin are real chemical messengers with other jobs."
     }
   ]
 }

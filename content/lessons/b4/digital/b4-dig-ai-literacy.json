@@ -66,6 +66,21 @@
         "Asking a friend to explain a math method is fine; copying their answers isn't."
       ],
       "explain": "Use AI to understand, then do the work yourself, and be open about using it."
+    },
+    {
+      "q": "An AI chatbot tells you the date of a historical event in a very confident tone. What should you do?",
+      "options": [
+        "Check it against a reliable source before using it",
+        "Trust it, because a confident answer is usually correct",
+        "Ask the same chatbot again; if it repeats the date, it must be right"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does sounding sure mean being right?",
+        "Re-read what the lesson says AI can be, even when it sounds certain.",
+        "If a classmate confidently says the test is on Friday, you'd still look at the class timetable, and asking that same classmate twice wouldn't tell you anything new."
+      ],
+      "explain": "AI can be confidently wrong, and repeating a question to the same AI isn't independent evidence. Check facts it gives you against a reliable source."
     }
   ]
 }

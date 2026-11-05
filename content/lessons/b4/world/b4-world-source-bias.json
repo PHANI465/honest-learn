@@ -66,6 +66,21 @@
         "Asking several witnesses to an accident gives a fuller picture than asking one."
       ],
       "explain": "Comparing several sources from different perspectives gives the fairest picture."
+    },
+    {
+      "q": "Which of these is an example of bias that ISN'T lying?",
+      "options": [
+        "A report that includes only the facts that support one side",
+        "A report that invents a quote",
+        "A report that gives the wrong date by accident"
+      ],
+      "answer": 0,
+      "hints": [
+        "Bias isn't always about saying false things.",
+        "The lesson mentions loaded words, and also a choice about which facts appear.",
+        "A team's fan page lists all its wins but none of its losses. Every line is true, yet the picture is one-sided."
+      ],
+      "explain": "Choosing which facts to include can make a source one-sided even when every fact is true. Inventing a quote is lying, and an accidental wrong date is a mistake rather than bias."
     }
   ]
 }

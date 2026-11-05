@@ -75,6 +75,21 @@
         "In sport, players play, referees judge, and rule-makers write the rules. Why keep these separate?"
       ],
       "explain": "Separating powers lets each branch check the others, so no one has unchecked power."
+    },
+    {
+      "q": "What is the main job of the judicial branch?",
+      "options": [
+        "Interpreting laws in courts, including checking them against a constitution",
+        "Running the country day to day",
+        "Writing and voting on new laws"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Judicial' is related to the word 'judge'.",
+        "Where do judges work, and what do they decide?",
+        "A sports referee doesn't write the rules or play the game; they decide how the rules apply to what happened. Which branch is most like the referee?"
+      ],
+      "explain": "The judicial branch is the courts. They interpret laws and can check laws against a constitution. The executive runs the country, and the legislative branch makes laws."
     }
   ]
 }

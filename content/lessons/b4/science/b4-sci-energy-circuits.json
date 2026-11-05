@@ -70,6 +70,21 @@
         "A torch converts chemical energy to light energy. A fan produces movement instead."
       ],
       "explain": "The battery's chemical energy becomes kinetic (movement) energy."
+    },
+    {
+      "q": "A light bulb in a circuit feels warm. What does this show about energy?",
+      "options": [
+        "Some energy is changed into heat (thermal energy), not destroyed",
+        "The bulb is creating extra energy",
+        "The energy disappears once it leaves the battery"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson's first rule: energy can't be created or destroyed. So what CAN it do?",
+        "If energy can't vanish, where is some of it going when the bulb feels warm?",
+        "When you rub your hands together, kinetic (movement) energy turns into thermal energy, and your hands warm up."
+      ],
+      "explain": "Energy can't be created or destroyed; it changes form. A bulb changes the energy from the battery into light, and some into thermal energy (heat), which is why it feels warm."
     }
   ]
 }

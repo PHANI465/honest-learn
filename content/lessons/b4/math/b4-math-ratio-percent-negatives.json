@@ -75,6 +75,21 @@
         "In a 2:1 ratio with 10 cups of the first, you'd need 5 of the second."
       ],
       "explain": "12 is 4 × 3, so sugar = 4 × 1 = 4 cups."
+    },
+    {
+      "q": "What is 15% of 80?",
+      "options": [
+        "12",
+        "8",
+        "65"
+      ],
+      "answer": 0,
+      "hints": [
+        "Percent means 'out of 100', so 15% = 15/100 = 0.15.",
+        "Multiply 0.15 by 80. Or find 10% and 5% of 80 and add them.",
+        "Example: 15% of 40 = 0.15 × 40 = 6."
+      ],
+      "explain": "0.15 × 80 = 12. Check: 10% of 80 is 8 and 5% is 4, and 8 + 4 = 12."
     }
   ]
 }

@@ -70,6 +70,21 @@
         "If HTML is a house's walls and rooms, CSS is the paint and decoration."
       ],
       "explain": "CSS controls the style: colours, fonts, layout and spacing."
+    },
+    {
+      "q": "What does the CSS rule h1 { color: green; } do?",
+      "options": [
+        "Makes the text of big headings green",
+        "Makes the text of every paragraph green",
+        "Adds a new green heading to the page's structure"
+      ],
+      "answer": 0,
+      "hints": [
+        "The part before the curly brackets says WHICH elements the rule applies to.",
+        "Inside the brackets is the property being styled and its new value. Does CSS add content, or style what is already there?",
+        "p { font-size: 20px; } makes the text inside paragraphs 20 pixels tall. It doesn't add any new paragraphs."
+      ],
+      "explain": "h1 picks out the big headings, and color: green sets their text colour. CSS changes style; it doesn't add structure (that's HTML's job)."
     }
   ]
 }
