@@ -60,7 +60,7 @@
       "hints": [
         "Use F = ma.",
         "Rearrange to a = F ÷ m.",
-        "Example: 30 N on a 6 kg mass → a = 30 ÷ 6 = 5 m/s². Now do 20 N on 4 kg."
+        "Example: 30 N on a 10 kg mass → a = 30 ÷ 10 = 3 m/s². Now do 20 N on 4 kg."
       ],
       "explain": "a = F ÷ m = 20 ÷ 4 = 5 m/s²."
     },

@@ -19,6 +19,11 @@ The server is a single Node process with a SQLite file. Any host with a **persis
 | `TUTOR_SAFETY_MODEL` | no | `claude-opus-5-5` | Model that checks every reply before a child sees it. |
 | `TUTOR_EFFORT` | no | `low` | `low` / `medium` / `high`. Higher means slower and more expensive. |
 | `TUTOR_DAILY_LIMIT` | no | `40` | Messages per child per day. |
+| `POSTMARK_TOKEN`, `MAIL_FROM` | **yes** | — | Sends verification and password-reset codes. Without them, production refuses to start; in development, emails are printed to the console. |
+| `REQUIRE_EMAIL_VERIFICATION` | no | `true` in production | Parents must verify their email before adding children. |
+| `TRUST_PROXY` | no | `false` | Set `true` only behind your own reverse proxy, so rate limits use the real client IP. |
+| `AUTH_RATE_LIMIT` | no | `30` | Requests per IP per 10 minutes on `/auth/*`. |
+| `CHAT_RETENTION_DAYS` | no | `365` | Hoot chats older than this are deleted automatically (checked daily). |
 
 **AI cost:** each child message makes two model calls (the reply and the safety check). To cut cost, you can set `TUTOR_MODEL` and/or `TUTOR_SAFETY_MODEL` to `claude-haiku-5-5` (much cheaper). Test quality on real lesson chats before switching, and keep the safety check on either way.
 
@@ -46,6 +51,8 @@ npx eas-cli@latest build --platform ios --profile production
 npx eas-cli@latest submit --platform android
 npx eas-cli@latest submit --platform ios
 ```
+
+`app/eas.json` already has `development`, `preview` and `production` profiles. Replace the placeholder `EXPO_PUBLIC_API_URL` values with your real API addresses.
 
 Accounts needed: Apple Developer Program ($99/year) and Google Play Console ($25 one-time).
 

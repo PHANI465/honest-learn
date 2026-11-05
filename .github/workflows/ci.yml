@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  content-and-server:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - name: Validate lessons, resources and knowledge map
+        run: npm run validate
+      - name: Knowledge-map document is up to date
+        working-directory: .
+        run: |
+          node scripts/build-knowledge-doc.mjs
+          git diff --exit-code docs/KNOWLEDGE_MAP.md || (echo "Run: node scripts/build-knowledge-doc.mjs" && exit 1)
+      - run: npm run typecheck
+      - run: npm test
+
+  app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npx expo lint
+      - name: Web build
+        run: npx expo export --platform web
+        env:
+          EXPO_PUBLIC_API_URL: https://api.example.org

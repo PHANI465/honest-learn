@@ -1,6 +1,6 @@
 # Launch checklist
 
-Status as of v0.1.0. ✅ = built, ⬜ = still to do.
+Status as of v0.2.0. ✅ = built, ⬜ = still to do.
 
 ## Built so far
 
@@ -17,25 +17,36 @@ Status as of v0.1.0. ✅ = built, ⬜ = still to do.
 - ✅ Parents can read every chat, see flagged messages, export all data and delete the account
 - ✅ Daily time limit with a break screen
 - ✅ Read-aloud for ages 3–8
-- ✅ 16 starter lessons (all **draft**), covering all 5 age groups
+- ✅ 51 lessons (all **draft**): at least one for every age group × subject, covering 70 of 220 outcomes
+- ✅ Quiz options shuffled per child (the right answer isn't always first)
+- ✅ Free-resources directory: 27 hand-picked free sites by age and subject (each needs a reviewer check)
+- ✅ Wikipedia "Learn more" (Simple English for ages 9–11, English for 12+), cached, only for titles set in lessons
+- ✅ Video support: privacy-enhanced YouTube player, sandboxed; `check-videos.mjs` enforces made-for-kids/embeddable/≤20 min
+- ✅ Email verification, password reset by emailed code, forgot-PIN reset with account password
+- ✅ Rate limiting on sign-in routes; one-time codes are hashed, expire in 15 minutes and lock after 5 wrong tries
+- ✅ Screen-time limits counted on the server (work across devices); parent can add minutes with PIN
+- ✅ Automatic deletion of old chats (`CHAT_RETENTION_DAYS`)
+- ✅ CI workflow, EAS build profiles, reviewer spreadsheets
 
 ## Content: before public launch
 
 - ⬜ Hire or recruit reviewers (2 per lesson: subject expert + age/safety)
-- ⬜ Review all 16 starter lessons and mark them `reviewed`
-- ⬜ Write lessons for the remaining ~198 outcomes (target: at least 3 per subject per age group for launch)
+- ⬜ Review all 51 lessons and mark them `reviewed` (start with `docs/review/*.csv`)
+- ⬜ **Medical review** of `b5-health-first-aid-cpr` and all health lessons
+- ⬜ Write lessons for the remaining 150 outcomes (target: at least 3 per subject per age group for launch)
+- ⬜ Check every entry in `content/resources.json` (free, no ads aimed at children, right ages) and set `lastChecked`
 - ⬜ Have someone from each major faith and region review the 🔒 religion and politics lessons
 - ⬜ Pictures and illustrations for ages 3–8 (original or CC-licensed)
-- ⬜ Curated, age-checked YouTube playlists (check "made for kids" status with the YouTube Data API before embedding)
+- ⬜ Choose videos for lessons (reviewers watch each one fully), then run `scripts/check-videos.mjs --write` with a YouTube API key
 
 ## Legal and privacy: required
 
 - ⬜ Write the real **privacy notice** and **terms**, and update `CONSENT_VERSION` in `server/src/app.ts` when they change
 - ⬜ **Verifiable parental consent:** the current checkbox + email is *not* enough for COPPA (US, under 13) or India's DPDP Rules (under 18, enforceable from about May 2027). Add an FTC-approved method (e.g. a small card verification or ID check) or use a consent-management provider
-- ⬜ **Email verification** and **password reset** (needs an email provider, e.g. Postmark or SES)
+- ⬜ Create a Postmark (or similar) account for the verification/reset emails and set `POSTMARK_TOKEN` + `MAIL_FROM`
 - ⬜ GDPR/UK Children's Code: complete a Data Protection Impact Assessment (DPIA)
 - ⬜ Data processing agreement with Anthropic (AI) and your hosting provider; disclose the AI processor in the privacy notice
-- ⬜ Decide data retention (e.g. delete chats after 12 months) and add a scheduled clean-up job
+- ⬜ Confirm the retention period (default: chats deleted after 12 months) and state it in the privacy notice
 - ⬜ Trademark search for "Honest Learn" (USPTO, India IP office, EUIPO)
 
 ## App stores
@@ -49,8 +60,7 @@ Status as of v0.1.0. ✅ = built, ⬜ = still to do.
 ## Engineering
 
 - ⬜ Deploy the API with HTTPS, a strong `TOKEN_SECRET` and daily database backups
-- ⬜ Rate limiting per IP on `/auth/*` (e.g. a reverse-proxy rule)
-- ⬜ Move parent-chosen screen time to the server, so it applies across devices (now counted per device)
+- ⬜ If running more than one server instance, move rate limits and the Wikipedia cache to a shared store (e.g. Redis)
 - ⬜ Offline mode: cache lessons a child has opened
 - ⬜ Error monitoring that collects no personal data
 - ⬜ Accessibility pass (screen reader, larger text, colour contrast)

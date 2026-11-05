@@ -6,13 +6,17 @@ Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android an
 - **Helps, never cheats:** quizzes use a hint ladder (nudge → bigger hint → worked example of a *similar* problem). Hoot, the AI helper, never gives quiz answers, and an independent check reviews every reply before a child sees it.
 - **Parents in control:** a parent account is required. A parent PIN protects settings, sensitive topics (religion, body, politics), chat history, outside links and extra screen time.
 - **Honest by design:** no ads, no tracking and no data selling. Every lesson lists its sources and shows whether teachers have reviewed it. Families can export or delete all their data.
+- **Points to the best free resources:** each subject lists hand-picked free websites for the child's age (Khan Academy, PhET, Scratch, NASA Space Place, OpenStax and more). Lessons for ages 9+ show a short Wikipedia summary (Simple English Wikipedia for 9–11). Lessons can include reviewed YouTube videos in the privacy-enhanced player. Outside links need a parent's PIN for under-13s.
 
 ## Repository layout
 
 | Path | What it is |
 |---|---|
 | `content/knowledge-map.json` | Age groups, subjects and learning outcomes. The source of truth for the curriculum. |
-| `content/lessons/<band>/<subject>/*.json` | Lessons and quizzes. One file per lesson. |
+| `content/lessons/<band>/<subject>/*.json` | Lessons and quizzes. One file per lesson (51 so far, all drafts). |
+| `content/resources.json` | Curated free websites by age and subject. |
+| `docs/review/*.csv` | Spreadsheets for outsourced reviewers (`node scripts/export-review-sheet.mjs`). |
+| `.github/workflows/ci.yml` | Runs content validation, tests, type checks, lint and a web build on every push. |
 | `docs/KNOWLEDGE_MAP.md` | Generated, human-readable knowledge map for reviewers. |
 | `docs/REVIEWER_GUIDE.md` | Rules for content writers and reviewers. |
 | `docs/LAUNCH_CHECKLIST.md` | What must be done before the public and store launch. |
@@ -38,14 +42,17 @@ On a phone, set `EXPO_PUBLIC_API_URL` to your computer's LAN address, e.g. `EXPO
 
 ```bash
 cd server && npm test             # API test suite
-cd server && npm run validate     # check every lesson against the schema + knowledge map
+cd server && npm run validate     # check every lesson + resource; warns about hints that may give answers away
 node scripts/build-knowledge-doc.mjs   # regenerate docs/KNOWLEDGE_MAP.md after editing the map
+node scripts/export-review-sheet.mjs   # lessons + questions → docs/review/*.csv for reviewers
+node scripts/check-links.mjs           # are all resource and source links still online?
+YOUTUBE_API_KEY=… node scripts/check-videos.mjs --write   # verify lesson videos (made for kids, embeddable, ≤20 min)
 cd app && npm run typecheck
 ```
 
 ## Adding content
 
-1. Pick outcome IDs from `docs/KNOWLEDGE_MAP.md`.
+1. Pick outcome IDs from `docs/KNOWLEDGE_MAP.md`. Always put the correct answer **first** (`"answer": 0`); the server shuffles options for each child.
 2. Write a lesson JSON file following `docs/REVIEWER_GUIDE.md`, with `"status": "draft"`.
 3. Run `npm run validate` in `server/`.
 4. After two reviews, set `"status": "reviewed"` and add both reviewers.

@@ -30,7 +30,8 @@ Each lesson is one JSON file in `content/lessons/<band>/<subject>/<slug>.json`:
   "sections": [
     { "type": "text", "body": "Short paragraphs. One idea per section." },
     { "type": "tryit", "body": "A hands-on activity or a question to think about." },
-    { "type": "parent", "body": "Only for b1/b2: a tip for the parent sitting with the child." }
+    { "type": "parent", "body": "Only for b1/b2: a tip for the parent sitting with the child." },
+    { "type": "video", "videoId": "11-char YouTube id", "body": "Why we picked this video (shown as the caption)." }
   ],
   "quiz": [
     {
@@ -55,6 +56,9 @@ Each lesson is one JSON file in `content/lessons/<band>/<subject>/<slug>.json`:
 | Builders (15–18) | Natural | ≤ 25 min | Real-world use, exam relevance, links to careers. |
 
 ## 4. The "never give the answer" rule (quizzes)
+
+- Always list the **correct answer first** (`"answer": 0`). The app shuffles options for each child.
+- `npm run validate` (in `server/`) warns when a hint contains the correct answer word-for-word. Check each warning.
 
 - Every quiz question has **3 hints**, in this order:
   1. **Nudge:** points to what to think about. It never contains the answer.
@@ -87,6 +91,21 @@ Each lesson is one JSON file in `content/lessons/<band>/<subject>/<slug>.json`:
 | OpenStax, Wikipedia (CC BY-SA, with attribution), NASA, Project Gutenberg | NCERT, CK-12, BBC Bitesize, Crash Course and any "all rights reserved" content |
 
 When in doubt: **link, don't copy**, and ask.
+
+### Videos
+
+- Only YouTube videos, played through the privacy-enhanced player. A reviewer must **watch the whole video**.
+- Ages 3–11: the video must be marked "made for kids" by its creator. All ages: public, embeddable, not age-restricted, 20 minutes or less.
+- Run `YOUTUBE_API_KEY=… node scripts/check-videos.mjs --write` to check these rules and stamp the date. Reviewed lessons can't include unchecked videos.
+
+### Free resources (`content/resources.json`)
+
+- Must be genuinely free (no paywall after a trial), with no ads aimed at children, and suitable for every band listed.
+- Run `node scripts/check-links.mjs --write` to confirm links work, and record your own review in the spreadsheet.
+
+## 7b. Working from the spreadsheets
+
+`node scripts/export-review-sheet.mjs` creates `docs/review/lessons.csv` (one row per lesson, with sign-off columns) and `docs/review/questions.csv` (one row per quiz question). Import both into Google Sheets, share them with reviewers, and copy approved changes back into the lesson files.
 
 ## 8. Review checklist (copy into the review comment)
 
