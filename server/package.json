@@ -7,7 +7,8 @@
     "start": "tsx src/index.ts",
     "test": "tsx --test test/*.test.ts",
     "typecheck": "tsc --noEmit",
-    "validate": "tsx src/validate-content.ts"
+    "validate": "tsx src/validate-content.ts",
+    "redteam": "tsx src/hoot-redteam.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.5.0",
