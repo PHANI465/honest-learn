@@ -9,7 +9,8 @@
     "test:pg": "TEST_DB=pglite tsx --test test/*.test.ts",
     "typecheck": "tsc --noEmit",
     "validate": "tsx src/validate-content.ts",
-    "redteam": "tsx src/hoot-redteam.ts"
+    "redteam": "tsx src/hoot-redteam.ts",
+    "preview": "tsx src/preview.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.5.0",

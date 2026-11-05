@@ -10,25 +10,36 @@ function env(name: string, fallback?: string): string {
 }
 
 const isProd = process.env.NODE_ENV === "production";
+/**
+ * Pre-launch (the default until LAUNCH=true): the deployment works with zero settings for owners and
+ * reviewers: draft lessons are shown, email verification is off and codes are written to the logs.
+ * Set LAUNCH=true for the public launch to switch back to the strict defaults.
+ */
+const launched = process.env.LAUNCH === "true";
 /** Vercel sets VERCEL=1 in its builds and functions. */
 const isVercel = !!process.env.VERCEL;
 
 export const config = {
   isProd,
   isVercel,
+  launched,
   port: Number(env("PORT", "8787")),
   /** SQLite file path. Use ":memory:" for tests. */
   dbPath: env("DB_PATH", resolve(here, "../data/honest-learn.db")),
   /** Postgres connection string. When set, it is used instead of SQLite. The Neon integration on Vercel sets these. */
   databaseUrl: process.env.DATABASE_URL || process.env.POSTGRES_URL || "",
   contentDir: env("CONTENT_DIR", resolve(here, "../../content")),
-  /** Secret used to sign session tokens. MUST be set in production and on every Vercel deployment. */
-  tokenSecret: isProd || isVercel ? env("TOKEN_SECRET") : env("TOKEN_SECRET", "dev-only-insecure-secret-change-me"),
-  /** Show lessons with status "draft". Never enable in production for the public. */
-  showDrafts: env("SHOW_DRAFTS", isProd ? "false" : "true") === "true",
+  /**
+   * Secret used to sign session tokens. Set TOKEN_SECRET to control it. If it's missing in production or on
+   * Vercel, a strong random secret is generated once and kept in the database (see ensureTokenSecret in app.ts).
+   * Local development falls back to a fixed dev secret.
+   */
+  tokenSecret: process.env.TOKEN_SECRET || (isProd || isVercel ? "" : "dev-only-insecure-secret-change-me"),
+  /** Show lessons with status "draft". On before launch (everything is a draft); off after LAUNCH=true. */
+  showDrafts: env("SHOW_DRAFTS", launched ? "false" : "true") === "true",
   corsOrigins: env("CORS_ORIGINS", "*").split(",").map((s) => s.trim()),
   /** Parents must verify their email before adding children. On by default in production. */
-  requireEmailVerification: env("REQUIRE_EMAIL_VERIFICATION", isProd ? "true" : "false") === "true",
+  requireEmailVerification: env("REQUIRE_EMAIL_VERIFICATION", launched ? "true" : "false") === "true",
   /** Trust X-Forwarded-For (only behind a reverse proxy you control). Vercel sets it to the real client IP. */
   trustProxy: env("TRUST_PROXY", isVercel ? "true" : "false") === "true",
   /** Hoot chats are deleted after this many days. */

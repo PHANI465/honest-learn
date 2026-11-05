@@ -1,4 +1,4 @@
-import { randomInt } from "node:crypto";
+import { randomBytes, randomInt } from "node:crypto";
 import { Hono, type Context, type Next } from "hono";
 import { getConnInfo } from "@hono/node-server/conninfo";
 import { cors } from "hono/cors";
@@ -126,6 +126,29 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
   const app = new Hono<Env>();
 
   app.use("*", cors({ origin: config.corsOrigins.includes("*") ? "*" : config.corsOrigins }));
+
+  // No TOKEN_SECRET configured (zero-config deploy): generate one once and keep it in the database,
+  // so sign-ins survive restarts and every instance agrees. Race-safe: first writer wins.
+  let secretReady: Promise<void> | null = null;
+  const ensureTokenSecret = () =>
+    (secretReady ??= (async () => {
+      if (config.tokenSecret) return;
+      await db.exec("CREATE TABLE IF NOT EXISTS app_settings (key TEXT PRIMARY KEY, value TEXT NOT NULL)");
+      await db.run("INSERT INTO app_settings (key, value) VALUES (?, ?) ON CONFLICT DO NOTHING", [
+        "token_secret",
+        randomBytes(48).toString("base64"),
+      ]);
+      const row = await db.get<{ value: string }>("SELECT value FROM app_settings WHERE key = ?", ["token_secret"]);
+      if (!row?.value) throw new Error("could not create a token secret");
+      config.tokenSecret = row.value;
+    })().catch((e) => {
+      secretReady = null;
+      throw e;
+    }));
+  app.use("*", async (_c, next) => {
+    await ensureTokenSecret();
+    await next();
+  });
   app.notFound((c) => c.json({ error: "not_found" }, 404));
   app.onError((err, c) => {
     if (err instanceof z.ZodError) {

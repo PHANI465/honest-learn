@@ -444,6 +444,25 @@ describe("family data rights", () => {
   });
 });
 
+describe("zero-config deploys", () => {
+  test("without TOKEN_SECRET a random secret is generated once, stored, and reused", async () => {
+    const before = config.tokenSecret;
+    config.tokenSecret = "";
+    try {
+      const { call, db } = makeApp();
+      const fam = (await call("POST", "/auth/signup", signup)).json.familyToken;
+      const secret = config.tokenSecret;
+      assert.ok(secret.length >= 60, "a long random secret was generated");
+      assert.notEqual(secret, before);
+      assert.equal((await call("GET", "/family", undefined, fam)).status, 200, "tokens signed with it verify");
+      const row = await db.get<{ value: string }>("SELECT value FROM app_settings WHERE key = ?", ["token_secret"]);
+      assert.equal(row?.value, secret, "kept in the database so restarts and other instances agree");
+    } finally {
+      config.tokenSecret = before;
+    }
+  });
+});
+
 describe("family country and safety replies", () => {
   test("country is optional, validated, editable with the PIN, and used for helplines", async () => {
     const { call } = makeApp();

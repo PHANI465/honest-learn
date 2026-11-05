@@ -82,24 +82,27 @@ One Vercel project serves both: the web app (built from `app/`) and the API as o
 
 ### Environment variables
 
-Add these under **Project → Settings → Environment Variables**, for **Production** and **Preview**:
+**None are required.** Until you set `LAUNCH=true`, the app runs in *pre-launch mode*: draft lessons are shown, email verification is off, sign-in codes are written to the function logs, Hoot uses pre-written hints, and a strong `TOKEN_SECRET` is generated automatically and stored in the database.
 
-| Variable | Value for the demo | Why |
-|---|---|---|
-| `TOKEN_SECRET` | a long random string, e.g. `openssl rand -base64 48` | Signs sign-in tokens. **Required:** without it every API request fails. Use a different value per environment if you like; changing it signs everyone out. |
-| `SHOW_DRAFTS` | `true` | All lessons are still drafts. Without this, children see no lessons. Set back to `false` once lessons are reviewed. |
-| `REQUIRE_EMAIL_VERIFICATION` | `false` | No email is sent in the demo, so parents couldn't verify. |
-| `MAIL_MODE` | `console` | Verification and reset codes are written to the function log (**Project → Logs**) instead of being emailed. Replace with `POSTMARK_TOKEN` + `MAIL_FROM` (and remove `MAIL_MODE`) for a real launch. |
-| `TUTOR_MODE` | `mock` | Hoot answers with the lessons' pre-written hints, so no AI cost. For the real tutor set `ANTHROPIC_API_KEY` and remove this. |
-| `DATABASE_URL` | *set automatically by the Neon integration (below)* | Postgres. Without it, the API runs in **demo mode** (see below). |
+Optional settings (Project → Settings → Environment Variables):
 
-You don't need `NODE_ENV` (Vercel sets it), `DB_PATH`, `CONTENT_DIR`, `CORS_ORIGINS` (same domain) or `TRUST_PROXY` (on by default on Vercel). The other variables in the table in section 1 work the same way.
+| Variable | What it does |
+|---|---|
+| `DATABASE_URL` | Added automatically when you connect Neon (see below). Without a database, the site runs in **demo mode** and forgets accounts. |
+| `TOKEN_SECRET` | Your own sign-in signing secret (otherwise one is generated and stored in the database). Changing it signs everyone out. |
+| `ANTHROPIC_API_KEY` | Turns on the real AI tutor. Without it, Hoot answers with the lessons' pre-written hints. |
+| `LAUNCH` | Set to `true` only for the public launch: hides unreviewed lessons and requires email verification. Then you also need `POSTMARK_TOKEN` + `MAIL_FROM` so emails are actually sent. |
+| `SHOW_DRAFTS`, `REQUIRE_EMAIL_VERIFICATION`, `MAIL_MODE`, `TUTOR_MODE` | Override the pre-launch/launch defaults individually. |
 
-**Demo mode:** if no `DATABASE_URL`/`POSTGRES_URL` is set, the API keeps everything in memory. It works, but accounts and progress disappear whenever Vercel starts a new instance (after a few minutes idle, on every deploy, and differently per instance). The welcome and profile screens then show "Demo mode: accounts and progress may reset". Add Neon to make data stick.
+**Demo mode:** with no database connected, the API keeps everything in memory. It works, but accounts and progress disappear whenever Vercel starts a new instance. The welcome screen then shows "Demo mode: accounts and progress may reset". Connect Neon to make data stick.
+
+### If you imported the repo into v0
+
+v0 previews the app with `npm run dev`, which installs everything, builds the website and starts the website and API together (about 2–3 minutes the first time). To put it online, click **Publish** in v0. That creates the Vercel project using `vercel.json`. Then follow steps 2–5 below to add the database.
 
 ### Step by step
 
-1. **Import the project:** in Vercel, **Add New… → Project**, pick the GitHub repository `PHANI465/honest-learn`, keep the settings above, add the environment variables (without `DATABASE_URL`), and click **Deploy**. The first deployment runs in demo mode.
+1. **Import the project:** in Vercel, **Add New… → Project**, pick the GitHub repository `PHANI465/honest-learn`, keep the settings above, and click **Deploy** (no environment variables needed). The first deployment runs in demo mode.
 2. **Add Neon Postgres:** open the project, go to **Storage → Create Database**, choose **Neon** (Serverless Postgres), pick the free plan and a region close to your users (ideally the same region as your functions, e.g. Washington D.C. `iad1`), and create it.
 3. **Connect it to the project:** on the next screen (or later from the database's page: **Connect Project**), choose this project and tick **Production** and **Preview** (and **Development** if you use `vercel dev`). Keep the default environment-variable prefix, so Neon adds `DATABASE_URL` (plus `POSTGRES_URL` and others). If you change the prefix, also add a plain `DATABASE_URL` variable with the connection string.
 4. **Redeploy:** environment variables only apply to new deployments. Go to **Deployments**, open the latest one, choose **⋯ → Redeploy**. (Or push a commit.)

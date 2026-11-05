@@ -15,6 +15,7 @@ cd server && npm test            # API tests (SQLite); also `npm run test:pg` if
 cd server && npm run validate    # validates all content; warns on hints that contain the answer
 cd server && npx tsc --noEmit
 cd server && npm run dev         # API on :8787 (mock tutor unless ANTHROPIC_API_KEY is set)
+npm run dev                      # repo root: install, build website, serve website + API on :3000 (what v0 uses)
 cd app && npx tsc --noEmit && CI=1 npx expo lint
 cd app && npx expo start         # w = web; scan the QR code with Expo Go on a phone
 node scripts/build-catalogue.mjs     # README "What's inside" (CI fails if stale)
@@ -33,4 +34,5 @@ After changing content, run all three generators before committing.
 - Hoot replies pass a second safety/answer-leak check; `precheck()` in `server/src/tutor.ts` handles personal info and wellbeing messages before any AI call.
 
 ## Deployment
+Pre-launch mode is the default (drafts shown, no email verification, token secret auto-generated in the DB); `LAUNCH=true` switches to strict launch defaults.
 Vercel project at the repo root (`vercel.json`): web app static from `app/dist`, API as a function under `/api`. See `docs/DEPLOYMENT.md` for env vars and how to attach Neon Postgres.

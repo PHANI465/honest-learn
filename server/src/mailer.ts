@@ -44,7 +44,7 @@ export function createMailer(): Mailer {
   const token = process.env.POSTMARK_TOKEN;
   const from = process.env.MAIL_FROM;
   if (token && from) return new PostmarkMailer(token, from);
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV === "production" && process.env.LAUNCH === "true") {
     throw new Error(
       "Production needs POSTMARK_TOKEN and MAIL_FROM so parents can verify email and reset passwords (or MAIL_MODE=console for a demo).",
     );
