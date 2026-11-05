@@ -79,6 +79,21 @@
         "We only cross roads with a grown-up. Swimming is the same."
       ],
       "explain": "Say no and get a grown-up. Never swim without a grown-up watching."
+    },
+    {
+      "q": "Someone is badly hurt. What should you do?",
+      "options": [
+        "Get a grown-up to help",
+        "Walk away and say nothing",
+        "Wait to see if they get better"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is this a small problem or a big one?",
+        "Big emergencies need someone older to help.",
+        "If you spill juice, you can wipe it up. That is a small problem. Is this one small?"
+      ],
+      "explain": "Get a grown-up straight away. Grown-ups can call the emergency number."
     }
   ]
 }

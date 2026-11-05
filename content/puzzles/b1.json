@@ -104,6 +104,74 @@
         "2 balloons 🎈🎈 is more than 1 balloon 🎈."
       ],
       "explain": "Group A has 3 cookies. That's more than 1!"
+    },
+    {
+      "id": "b1-p7",
+      "type": "pattern",
+      "q": "What comes next? 🍎 🍌 🍇 🍎 🍌 🍇 🍎 …",
+      "options": [
+        "🍌",
+        "🍎",
+        "🍇"
+      ],
+      "answer": 0,
+      "hints": [
+        "Say each fruit out loud.",
+        "What comes after the apple?",
+        "Look: 🐶 🐱 🐭 🐶 🐱 🐭 🐶 … next is 🐱."
+      ],
+      "explain": "Apple, banana, grapes, again and again. After the apple comes the banana 🍌!"
+    },
+    {
+      "id": "b1-p8",
+      "type": "counting",
+      "q": "Which group has 3 stars?",
+      "options": [
+        "⭐⭐⭐",
+        "⭐⭐",
+        "⭐⭐⭐⭐"
+      ],
+      "answer": 0,
+      "hints": [
+        "Touch each star as you count.",
+        "Count out loud. Stop at three.",
+        "Look: 🍓🍓 is 2 strawberries. One, two!"
+      ],
+      "explain": "One, two, three! That group has 3 stars ⭐⭐⭐."
+    },
+    {
+      "id": "b1-p9",
+      "type": "odd-one-out",
+      "q": "Which one does NOT belong? 🐶 🐱 🐰 🚗",
+      "options": [
+        "🚗",
+        "🐶",
+        "🐰"
+      ],
+      "answer": 0,
+      "hints": [
+        "Three of them are alike.",
+        "Which ones are animals?",
+        "Look: ⚽ 🏀 🎾 🍰. The cake is not a ball."
+      ],
+      "explain": "Dog, cat and rabbit are animals. A car is not! 🚗"
+    },
+    {
+      "id": "b1-p10",
+      "type": "matching",
+      "q": "It is raining 🌧️. What keeps you dry?",
+      "options": [
+        "Umbrella ☂️",
+        "Sunglasses 🕶️",
+        "Ice cream 🍦"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the rain.",
+        "You hold it over your head.",
+        "Sunny day ☀️? Wear a sun hat 👒."
+      ],
+      "explain": "An umbrella ☂️ keeps you dry!"
     }
   ]
 }

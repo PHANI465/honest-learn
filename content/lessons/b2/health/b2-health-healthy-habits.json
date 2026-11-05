@@ -79,6 +79,21 @@
         "After a good sleep, it's easier to learn and play. Why?"
       ],
       "explain": "Sleep helps your body grow and your brain remember what you learned."
+    },
+    {
+      "q": "Why is it good to move your body every day?",
+      "options": [
+        "It keeps your heart and muscles strong",
+        "It makes your teeth clean",
+        "It helps you stay up late"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about running, dancing and jumping.",
+        "Moving makes parts inside you work hard and grow strong.",
+        "Brushing keeps your teeth healthy. That is what brushing does. What does moving do?"
+      ],
+      "explain": "Running, dancing and playing keep your heart and muscles strong."
     }
   ]
 }

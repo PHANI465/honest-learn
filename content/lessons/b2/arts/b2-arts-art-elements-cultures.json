@@ -75,6 +75,21 @@
         "Madhubani art comes from India. Dot paintings come from…?"
       ],
       "explain": "Dot paintings are a famous Aboriginal Australian art style."
+    },
+    {
+      "q": "What kind of line is this? /\\/\\/\\",
+      "options": [
+        "Zigzag",
+        "Wavy",
+        "Straight"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the points. Are they sharp or round?",
+        "This line goes up and down with sharp corners.",
+        "This line ~~~ goes up and down smoothly. That is a wavy line. Is /\\/\\/\\ smooth?"
+      ],
+      "explain": "It goes up and down with sharp points. That makes it a zigzag line!"
     }
   ]
 }

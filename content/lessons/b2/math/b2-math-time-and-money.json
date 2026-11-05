@@ -74,6 +74,21 @@
         "Pay 10 for something costing 8: change is 10 − 8 = 2."
       ],
       "explain": "10 − 4 = 6 change."
+    },
+    {
+      "q": "The short hand is just past 4. The long hand points to 6. What time is it?",
+      "options": [
+        "Half past 4",
+        "4 o'clock",
+        "6 o'clock"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the long hand first.",
+        "Long hand on 6 means 'half past'.",
+        "Short hand just past 9, long hand on 6. That is half past 9."
+      ],
+      "explain": "The long hand on 6 means half past. The short hand is past 4. So it is half past 4."
     }
   ]
 }

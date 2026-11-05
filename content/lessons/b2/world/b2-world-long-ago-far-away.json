@@ -75,6 +75,21 @@
         "Kids in a village and kids in a city both love games and stories. What's the same?"
       ],
       "explain": "Kids everywhere like to play, learn and be with family."
+    },
+    {
+      "q": "On a timeline of your life, what comes FIRST?",
+      "options": [
+        "Being a baby",
+        "Starting school",
+        "Today"
+      ],
+      "answer": 0,
+      "hints": [
+        "A timeline starts with long ago.",
+        "Think about when you were very little.",
+        "A timeline of one day: breakfast, lunch, dinner. Breakfast comes first."
+      ],
+      "explain": "You were a baby long before school. So it comes first."
     }
   ]
 }

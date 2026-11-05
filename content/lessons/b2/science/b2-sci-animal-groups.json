@@ -74,6 +74,21 @@
         "A dog is a mammal because it feeds puppies milk. Does a whale do that?"
       ],
       "explain": "Whales breathe air and feed their babies milk, like other mammals."
+    },
+    {
+      "q": "What do ALL birds have?",
+      "options": [
+        "Feathers",
+        "Fur",
+        "Gills"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about a parrot, a hen or a penguin.",
+        "Look at what covers a bird's wings.",
+        "Mammals, like dogs, have hair or fur. What covers a bird's body?"
+      ],
+      "explain": "All birds have feathers, and they lay eggs."
     }
   ]
 }

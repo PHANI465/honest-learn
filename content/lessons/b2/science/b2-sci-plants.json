@@ -74,6 +74,21 @@
         "A plant in a dark cupboard turns pale and weak. What is it missing?"
       ],
       "explain": "Plants use sunlight (with water and air) to make food."
+    },
+    {
+      "q": "Which part of a plant makes seeds?",
+      "options": [
+        "Flowers",
+        "Roots",
+        "Stem"
+      ],
+      "answer": 0,
+      "hints": [
+        "It is often the most colourful part.",
+        "Bees love to visit this part.",
+        "The stem holds the plant up. That is the stem's job. Which part's job is making seeds?"
+      ],
+      "explain": "Flowers make seeds. New plants can grow from the seeds."
     }
   ]
 }

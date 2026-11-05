@@ -74,6 +74,21 @@
         "'I think the ice will melt in 10 minutes' is said before watching. What's that called?"
       ],
       "explain": "A prediction is a smart guess about what will happen."
+    },
+    {
+      "q": "Kai tests which paper plane flies furthest. To be fair, what should change?",
+      "options": [
+        "Only the plane",
+        "How hard he throws",
+        "The plane and the throw"
+      ],
+      "answer": 0,
+      "hints": [
+        "A fair test changes just ONE thing.",
+        "What is Kai trying to find out about?",
+        "Testing which ball bounces highest, only the ball changes. The height stays the same."
+      ],
+      "explain": "Kai is testing planes, so only the plane changes. He throws each one the same way."
     }
   ]
 }

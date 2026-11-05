@@ -138,6 +138,91 @@
         "A dog has 4 legs. 2 dogs have 4 + 4 = 8 legs."
       ],
       "explain": "8 + 8 = 16 legs."
+    },
+    {
+      "id": "b2-p9",
+      "type": "odd-one-out",
+      "q": "Which one is NOT an insect? Ant, Bee, Spider, Butterfly",
+      "options": [
+        "Spider",
+        "Ant",
+        "Bee"
+      ],
+      "answer": 0,
+      "hints": [
+        "Insects have 6 legs.",
+        "Count the legs on each animal.",
+        "Dog, cat, cow, hen: the hen is not a mammal. It has feathers, not fur."
+      ],
+      "explain": "Ants, bees and butterflies have 6 legs. A spider has 8 legs. It is not an insect."
+    },
+    {
+      "id": "b2-p10",
+      "type": "sequence",
+      "q": "What number comes next? 30, 25, 20, 15, …",
+      "options": [
+        "10",
+        "14",
+        "5"
+      ],
+      "answer": 0,
+      "hints": [
+        "Are the numbers getting bigger or smaller?",
+        "How much smaller is each number?",
+        "9, 8, 7 goes down by 1 each time. So next is 6."
+      ],
+      "explain": "Each number goes down by 5. So 15 − 5 = 10."
+    },
+    {
+      "id": "b2-p11",
+      "type": "analogy",
+      "q": "Puppy is to dog as kitten is to…",
+      "options": [
+        "Cat",
+        "Dog",
+        "Mouse"
+      ],
+      "answer": 0,
+      "hints": [
+        "A puppy is a baby dog.",
+        "What does a kitten grow up to be?",
+        "Calf is to cow as chick is to hen. Each baby grows into the grown-up animal."
+      ],
+      "explain": "A puppy grows into a dog. A kitten grows into a cat."
+    },
+    {
+      "id": "b2-p12",
+      "type": "logic",
+      "q": "Ana, Ben and Chen each have one pet. The pets are a cat, a dog and a fish. Ana has the dog. Ben does not have the cat. Who has the cat?",
+      "options": [
+        "Chen",
+        "Ben",
+        "Ana"
+      ],
+      "answer": 0,
+      "hints": [
+        "Start with what you know for sure.",
+        "Ana has the dog. So which pet must Ben have?",
+        "Zoe and Max each have one ball: red or blue. Zoe does not have red. So Zoe has blue, and Max has red."
+      ],
+      "explain": "Ana has the dog. Ben can't have the cat, so Ben has the fish. That leaves the cat for Chen."
+    },
+    {
+      "id": "b2-p13",
+      "type": "counting",
+      "q": "There are 3 hens 🐔🐔🐔. Each hen has 2 legs. How many legs altogether?",
+      "options": [
+        "6",
+        "5",
+        "3"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the hens first.",
+        "Count in 2s, once for each hen.",
+        "2 cats have 4 legs each. 4 + 4 = 8 legs."
+      ],
+      "explain": "2 + 2 + 2 = 6 legs."
     }
   ]
 }

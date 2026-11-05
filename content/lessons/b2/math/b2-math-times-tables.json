@@ -74,6 +74,21 @@
         "4 × 2 = 2, 4, 6, 8. Keep going two more."
       ],
       "explain": "6 × 2 = 12."
+    },
+    {
+      "q": "3 × 2 = 6. So what is 2 × 3?",
+      "options": [
+        "6",
+        "5",
+        "23"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look closely. Are the same two numbers used?",
+        "Swapping the numbers does not change the answer.",
+        "5 × 2 = 10. So 2 × 5 = 10 too."
+      ],
+      "explain": "You can swap the numbers. 2 × 3 is the same as 3 × 2. Both make 6."
     }
   ]
 }

@@ -74,6 +74,21 @@
         "To wave then smile, put the wave block first. Do the same for walk and jump."
       ],
       "explain": "Put the walk block first, then the jump block."
+    },
+    {
+      "q": "In block code, what is a SEQUENCE?",
+      "options": [
+        "Blocks put in order, one after another",
+        "Just one block on its own",
+        "All the blocks running at once"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the words 'first', 'next' and 'last'.",
+        "A sequence has lots of blocks, not just one.",
+        "Brush teeth, put on pyjamas, read a story. That is a bedtime routine. How do blocks work like that?"
+      ],
+      "explain": "A sequence is blocks in order. The computer runs them one at a time."
     }
   ]
 }
