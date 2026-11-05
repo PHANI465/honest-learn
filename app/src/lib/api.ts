@@ -121,6 +121,15 @@ export function friendly(err: unknown): string {
   return map[err.code] ?? "Something went wrong. Please try again.";
 }
 
+type ReachabilityListener = (reachable: boolean) => void;
+const reachability = new Set<ReachabilityListener>();
+/** Called after every request with whether the API could be reached (used by offline mode). */
+export function onReachability(fn: ReachabilityListener): () => void {
+  reachability.add(fn);
+  return () => reachability.delete(fn);
+}
+const report = (reachable: boolean) => reachability.forEach((fn) => fn(reachable));
+
 export async function api<T>(method: string, path: string, token?: string | null, body?: unknown): Promise<T> {
   let res: Response;
   try {
@@ -130,8 +139,11 @@ export async function api<T>(method: string, path: string, token?: string | null
       body: body === undefined ? undefined : JSON.stringify(body),
     });
   } catch {
+    report(false);
     throw new Error("network");
   }
+  // A gateway error means the server itself is unreachable (e.g. a proxy in front of it is up but the API isn't).
+  report(res.status !== 502 && res.status !== 503 && res.status !== 504);
   const json = (await res.json().catch(() => ({}))) as Record<string, unknown>;
   if (!res.ok) throw new ApiError(res.status, String(json.error ?? "server_error"), json);
   return json as T;

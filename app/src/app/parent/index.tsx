@@ -1,7 +1,7 @@
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { Alert, Linking, Platform, Text, View } from "react-native";
-import { Banner, Button, Card, Field, H1, H2, P, Pill, Screen } from "../../components/ui";
+import { Banner, Button, Card, Emoji, Field, H1, H2, P, Pill, Screen } from "../../components/ui";
 import { friendly, type Child } from "../../lib/api";
 import { useSession } from "../../lib/session";
 import { avatars, bandTheme, colors } from "../../lib/theme";
@@ -74,7 +74,7 @@ export default function ParentHome() {
 
   return (
     <Screen>
-      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
         <H1>Parent area</H1>
         <Pill text="🔓 Unlocked" color={colors.good} bg={colors.goodSoft} />
       </View>
@@ -109,12 +109,12 @@ export default function ParentHome() {
         return (
           <Card key={c.id} onPress={() => router.push(`/parent/child/${c.id}`)} label={`Settings for ${c.nickname}`}>
             <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
-              <Text style={{ fontSize: 40 }}>{avatars[c.avatar]}</Text>
+              <Emoji size={40}>{avatars[c.avatar]}</Emoji>
               <View style={{ flex: 1 }}>
                 <Text style={{ fontSize: 18, fontWeight: "800", color: colors.ink }}>{c.nickname}, {c.age}</Text>
                 <Text style={{ color: bandTheme[c.band].accent, fontWeight: "700" }}>{band?.name} (ages {band?.ages.join("–")})</Text>
               </View>
-              <Text style={{ fontSize: 22, color: colors.muted }}>›</Text>
+              <Text style={{ fontSize: 22, color: colors.muted }} aria-hidden accessibilityElementsHidden importantForAccessibility="no">›</Text>
             </View>
             <View style={{ flexDirection: "row", gap: 8, flexWrap: "wrap" }}>
               <Pill text={`This week: ${c.thisWeek.lessons} lessons · ${c.thisWeek.minutes} min`} color={colors.brand} bg={colors.brandSoft} />

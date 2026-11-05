@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "Honest Learn",
+  "short_name": "Honest Learn",
+  "description": "Free, safe, age-appropriate learning for ages 3–18. No ads.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#2F6B4F",
+  "background_color": "#FBF8F3",
+  "categories": ["education", "kids"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

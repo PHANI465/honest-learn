@@ -31,6 +31,8 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 - ✅ Screen-time limits counted on the server (work across devices); parent can add minutes with PIN
 - ✅ Automatic deletion of old chats (`CHAT_RETENTION_DAYS`)
 - ✅ CI workflow, EAS build profiles, reviewer spreadsheets
+- ✅ Offline mode: lessons, lesson lists, puzzles and free resources a child has opened are saved on the device (never answers, parent-area data or Hoot chats) and shown with a "You're offline" notice; lessons finished and minutes learned offline are sent once when back online
+- ✅ Install the website: web app manifest, home-screen icons and a service worker, so the website can be added to a phone's home screen and opens without internet
 
 ## Content: before public launch
 

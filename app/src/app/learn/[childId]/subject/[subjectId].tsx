@@ -1,9 +1,11 @@
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
 import { Text, View } from "react-native";
-import { Banner, Button, Card, H1, Loading, Pill, Screen } from "../../../../components/ui";
+import { Banner, Button, Card, Emoji, H1, Loading, Pill, Screen } from "../../../../components/ui";
 import { useExternalLink } from "../../../../components/ExternalLink";
-import { api, friendly, type FreeResource, type LessonSummary } from "../../../../lib/api";
+import { OfflineBanner } from "../../../../components/OfflineBanner";
+import { friendly, type FreeResource, type LessonSummary } from "../../../../lib/api";
+import { cachedGet, offlineMessage } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
 import { bandTheme, colors, subjectEmoji } from "../../../../lib/theme";
 
@@ -13,22 +15,29 @@ export default function SubjectLessons() {
   const child = useChild(childId);
   const [data, setData] = useState<{ lessons: LessonSummary[]; lockedCount: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [fromCache, setFromCache] = useState(false);
   const [resources, setResources] = useState<{ resources: FreeResource[]; opensWithParentPin: boolean } | null>(null);
   const link = useExternalLink(resources?.opensWithParentPin ?? true);
 
   useFocusEffect(
     useCallback(() => {
-      api<{ resources: FreeResource[]; opensWithParentPin: boolean }>("GET", `/children/${childId}/resources?subject=${subjectId}`, familyToken)
-        .then(setResources)
+      if (!childId) return;
+      cachedGet<{ resources: FreeResource[]; opensWithParentPin: boolean }>(childId, `/children/${childId}/resources?subject=${subjectId}`, familyToken)
+        .then((r) => setResources(r.data))
         .catch(() => {});
     }, [childId, subjectId, familyToken]),
   );
 
   useFocusEffect(
     useCallback(() => {
-      api<{ lessons: LessonSummary[]; lockedCount: number }>("GET", `/children/${childId}/lessons?subject=${subjectId}`, familyToken)
-        .then(setData)
-        .catch((e) => setError(friendly(e)));
+      if (!childId) return;
+      cachedGet<{ lessons: LessonSummary[]; lockedCount: number }>(childId, `/children/${childId}/lessons?subject=${subjectId}`, familyToken)
+        .then((r) => {
+          setData(r.data);
+          setFromCache(r.fromCache);
+          setError(null);
+        })
+        .catch((e) => setError(offlineMessage(e, friendly(e))));
     }, [childId, subjectId, familyToken]),
   );
 
@@ -38,16 +47,17 @@ export default function SubjectLessons() {
 
   return (
     <Screen>
-      <Button title="‹ Subjects" kind="ghost" color={t.accent} onPress={() => router.back()} />
+      <Button title="‹ Subjects" kind="ghost" color={t.accent} onPress={() => router.back()} label="Back to subjects" />
+      <OfflineBanner fromCache={fromCache} />
       <H1>{subjectEmoji[subjectId ?? ""]} {subject?.name}</H1>
       {error ? <Banner>{error}</Banner> : null}
       {!data ? <Loading /> : null}
       {data?.lessons.map((l) => {
         const done = !!l.progress;
         return (
-          <Card key={l.id} onPress={() => router.push(`/learn/${childId}/lesson/${l.id}`)} label={l.title} style={{ borderRadius: t.radius, borderLeftWidth: 6, borderLeftColor: done ? colors.good : t.accent }}>
+          <Card key={l.id} onPress={() => router.push(`/learn/${childId}/lesson/${l.id}`)} label={`${l.title}, ${l.minutes} minutes${done ? ", done" : ""}`} style={{ borderRadius: t.radius, borderLeftWidth: 6, borderLeftColor: done ? colors.good : t.accent }}>
             <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-              <Text style={{ fontSize: 26 }}>{done ? "✅" : "▶️"}</Text>
+              <Emoji size={26}>{done ? "✅" : "▶️"}</Emoji>
               <View style={{ flex: 1, gap: 4 }}>
                 <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>{l.title}</Text>
                 <View style={{ flexDirection: "row", gap: 6, flexWrap: "wrap" }}>
@@ -76,7 +86,7 @@ export default function SubjectLessons() {
             Hand-picked free websites for your age.{resources.opensWithParentPin ? " A grown-up opens them with their PIN." : ""}
           </Text>
           {resources.resources.map((r) => (
-            <Card key={r.id} onPress={() => link.open(r.url)} label={`Open ${r.name}`} style={{ borderRadius: t.radius }}>
+            <Card key={r.id} onPress={() => link.open(r.url)} label={`Open ${r.name}, a website outside Honest Learn`} style={{ borderRadius: t.radius }}>
               <Text style={{ fontWeight: "800", fontSize: 16, color: colors.ink }}>{r.name} ↗</Text>
               <Text style={{ color: colors.muted, fontSize: 14, lineHeight: 20 }}>{r.description}</Text>
               <Pill text={r.account === "none" ? "Free · no account" : `Free · account ${r.account}`} />

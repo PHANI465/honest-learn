@@ -11,7 +11,7 @@ import {
   type ViewStyle,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { colors } from "../lib/theme";
+import { colors, surfaces } from "../lib/theme";
 
 export function Screen({ children, scroll = true, style }: { children: ReactNode; scroll?: boolean; style?: ViewStyle }) {
   const inner = <View style={[styles.inner, style]}>{children}</View>;
@@ -50,6 +50,20 @@ export function Card({ children, style, onPress, label }: { children: ReactNode;
   );
 }
 
+/** Screen readers would read "‹" or "🎉" aloud, so labels default to the title without symbols. */
+export function spokenLabel(text: string): string {
+  return text.replace(/[\p{Extended_Pictographic}‍️‹›→←↗]/gu, "").replace(/\s+/g, " ").trim() || text;
+}
+
+/** A purely decorative emoji: hidden from screen readers. */
+export function Emoji({ children, size }: { children: ReactNode; size: number }) {
+  return (
+    <Text style={{ fontSize: size }} aria-hidden accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+      {children}
+    </Text>
+  );
+}
+
 export function Button({
   title,
   onPress,
@@ -58,6 +72,8 @@ export function Button({
   loading,
   disabled,
   big,
+  label,
+  hint,
 }: {
   title: string;
   onPress: () => void;
@@ -66,6 +82,9 @@ export function Button({
   loading?: boolean;
   disabled?: boolean;
   big?: boolean;
+  /** What a screen reader says; defaults to the title without symbols. */
+  label?: string;
+  hint?: string;
 }) {
   const bg = kind === "primary" ? color : kind === "danger" ? colors.danger : "transparent";
   const fg = kind === "primary" || kind === "danger" ? "#fff" : color;
@@ -74,7 +93,9 @@ export function Button({
       onPress={onPress}
       disabled={disabled || loading}
       accessibilityRole="button"
-      accessibilityState={{ disabled: !!(disabled || loading) }}
+      accessibilityLabel={label ?? spokenLabel(title)}
+      accessibilityHint={hint}
+      accessibilityState={{ disabled: !!(disabled || loading), busy: !!loading }}
       style={({ pressed }) => [
         styles.btn,
         big && { paddingVertical: 18 },
@@ -93,7 +114,7 @@ export function Field({ label, hint, ...props }: TextInputProps & { label: strin
   return (
     <View style={{ gap: 6 }}>
       <Text style={styles.label}>{label}</Text>
-      <TextInput placeholderTextColor="#9AA0AA" style={styles.input} accessibilityLabel={label} {...props} />
+      <TextInput placeholderTextColor={colors.placeholder} style={styles.input} accessibilityLabel={label} accessibilityHint={hint} {...props} />
       {hint ? <Text style={styles.hint}>{hint}</Text> : null}
     </View>
   );
@@ -109,7 +130,7 @@ export function Banner({ children, tone = "warn" }: { children: ReactNode; tone?
   );
 }
 
-export function Pill({ text, color = colors.muted, bg = "#F1EEE8" }: { text: string; color?: string; bg?: string }) {
+export function Pill({ text, color = colors.muted, bg = surfaces.pill }: { text: string; color?: string; bg?: string }) {
   return (
     <View style={{ backgroundColor: bg, paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999, alignSelf: "flex-start" }}>
       <Text style={{ color, fontSize: 13, fontWeight: "600" }}>{text}</Text>
@@ -153,14 +174,15 @@ export const styles = StyleSheet.create({
   h2: { fontSize: 20, fontWeight: "700", color: colors.ink, marginTop: 8 },
   p: { color: colors.ink },
   card: { backgroundColor: colors.card, borderRadius: 16, padding: 16, borderWidth: 1, borderColor: colors.line, gap: 8 },
-  btn: { paddingVertical: 14, paddingHorizontal: 20, borderRadius: 14, alignItems: "center", justifyContent: "center", minHeight: 50 },
-  btnText: { fontSize: 17, fontWeight: "700" },
+  btn: { paddingVertical: 14, paddingHorizontal: 20, borderRadius: 14, alignItems: "center", justifyContent: "center", minHeight: 50, minWidth: 44 },
+  btnText: { fontSize: 17, fontWeight: "700", textAlign: "center" },
   label: { fontSize: 15, fontWeight: "600", color: colors.ink },
   hint: { fontSize: 13, color: colors.muted, lineHeight: 18 },
   input: {
     borderWidth: 1.5,
-    borderColor: colors.line,
+    borderColor: colors.inputLine,
     borderRadius: 12,
+    minHeight: 48,
     paddingHorizontal: 14,
     paddingVertical: 12,
     fontSize: 17,
@@ -168,7 +190,7 @@ export const styles = StyleSheet.create({
     color: colors.ink,
   },
   banner: { padding: 14, borderRadius: 12 },
-  toggleRow: { flexDirection: "row", alignItems: "center", gap: 12, paddingVertical: 10 },
-  track: { width: 50, height: 30, borderRadius: 15, backgroundColor: "#D5D0C7", padding: 3 },
+  toggleRow: { flexDirection: "row", alignItems: "center", gap: 12, paddingVertical: 10, minHeight: 48 },
+  track: { width: 50, height: 30, borderRadius: 15, backgroundColor: colors.trackOff, padding: 3 },
   knob: { width: 24, height: 24, borderRadius: 12, backgroundColor: "#fff" },
 });

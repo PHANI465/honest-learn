@@ -2,7 +2,8 @@ import { Platform } from "react-native";
 import * as SecureStore from "expo-secure-store";
 
 // Secure storage on iOS/Android (Keychain / Keystore). On web, localStorage.
-// Only the long-lived family token and small preferences are stored. The parent token is never stored.
+// Stored: the long-lived family token, and offline-mode copies of learning content plus lessons/minutes
+// waiting to be sent (see offline.ts). The parent token, parent-area data and Hoot chats are never stored.
 export const storage = {
   async get(key: string): Promise<string | null> {
     if (Platform.OS === "web") {

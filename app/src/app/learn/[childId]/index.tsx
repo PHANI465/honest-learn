@@ -1,8 +1,10 @@
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
 import { Text, View } from "react-native";
-import { Banner, Button, Card, H1, H2, Loading, P, Screen } from "../../../components/ui";
-import { api, friendly, type Band, type Child, type LessonSummary, type Subject } from "../../../lib/api";
+import { OfflineBanner } from "../../../components/OfflineBanner";
+import { Banner, Button, Card, Emoji, H1, H2, Loading, P, Screen } from "../../../components/ui";
+import { friendly, type Band, type Child, type LessonSummary, type Subject } from "../../../lib/api";
+import { cachedGet, offlineMessage } from "../../../lib/offline";
 import { useSession } from "../../../lib/session";
 import { avatars, bandTheme, colors, subjectEmoji } from "../../../lib/theme";
 
@@ -17,11 +19,19 @@ export default function ChildHome() {
   const { childId } = useLocalSearchParams<{ childId: string }>();
   const { familyToken } = useSession();
   const [home, setHome] = useState<Home | null>(null);
+  const [fromCache, setFromCache] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useFocusEffect(
     useCallback(() => {
-      api<Home>("GET", `/children/${childId}/home`, familyToken).then(setHome).catch((e) => setError(friendly(e)));
+      if (!childId) return;
+      cachedGet<Home>(childId, `/children/${childId}/home`, familyToken)
+        .then((r) => {
+          setHome(r.data);
+          setFromCache(r.fromCache);
+          setError(null);
+        })
+        .catch((e) => setError(offlineMessage(e, friendly(e))));
     }, [childId, familyToken]),
   );
 
@@ -33,13 +43,14 @@ export default function ChildHome() {
   return (
     <Screen>
       <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
-        <Text style={{ fontSize: 52 }}>{avatars[home.child.avatar]}</Text>
+        <Emoji size={52}>{avatars[home.child.avatar]}</Emoji>
         <View style={{ flex: 1 }}>
           <H1 size={young ? 30 : 26}>Hi, {home.child.nickname}!</H1>
           <Text style={{ color: t.accent, fontWeight: "700", fontSize: 15 }}>{home.band.name}</Text>
         </View>
-        <Button title="Switch" kind="ghost" onPress={() => router.replace("/profiles")} />
+        <Button title="Switch" kind="ghost" label="Switch profile" onPress={() => router.replace("/profiles")} />
       </View>
+      <OfflineBanner fromCache={fromCache} />
 
       {home.reviewDue.length ? (
         <Card style={{ backgroundColor: t.soft, borderColor: t.accent }}>
@@ -52,12 +63,12 @@ export default function ChildHome() {
       ) : null}
 
       <Card onPress={() => router.push(`/learn/${childId}/puzzles`)} label="Brain puzzles" style={{ borderRadius: t.radius, flexDirection: "row", alignItems: "center", gap: 12, borderColor: t.accent, borderWidth: 2 }}>
-        <Text style={{ fontSize: 36 }}>🧩</Text>
+        <Emoji size={36}>🧩</Emoji>
         <View style={{ flex: 1 }}>
           <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>Brain puzzles</Text>
           <Text style={{ color: colors.muted, fontSize: 13 }}>{young ? "Patterns and thinking games" : "Patterns, sequences, analogies and logic"}</Text>
         </View>
-        <Text style={{ fontSize: 22, color: colors.muted }}>›</Text>
+        <Text style={{ fontSize: 22, color: colors.muted }} aria-hidden accessibilityElementsHidden importantForAccessibility="no">›</Text>
       </Card>
 
       <H2>{young ? "What do you want to learn? 🌟" : "Subjects"}</H2>
@@ -68,10 +79,10 @@ export default function ChildHome() {
             <Card
               key={s.id}
               onPress={empty ? undefined : () => router.push(`/learn/${childId}/subject/${s.id}`)}
-              label={s.name}
+              label={empty ? undefined : `${s.name}, ${s.completed} of ${s.lessonCount} lessons done`}
               style={{ width: "47%", flexGrow: 1, minWidth: 150, borderRadius: t.radius, opacity: empty ? 0.55 : 1, borderColor: empty ? colors.line : t.accent, borderWidth: empty ? 1 : 2 }}
             >
-              <Text style={{ fontSize: young ? 40 : 30 }}>{subjectEmoji[s.id] ?? "📘"}</Text>
+              <Emoji size={young ? 40 : 30}>{subjectEmoji[s.id] ?? "📘"}</Emoji>
               <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>{s.name}</Text>
               <Text style={{ color: colors.muted, fontSize: 13 }}>
                 {empty ? "Coming soon" : `${s.completed}/${s.lessonCount} done`}
