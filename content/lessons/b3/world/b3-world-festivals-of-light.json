@@ -1,0 +1,99 @@
+{
+  "id": "b3-world-festivals-of-light",
+  "title": "Festivals of Light Around the World",
+  "band": "b3",
+  "subject": "world",
+  "outcomes": [
+    "b3-world-5"
+  ],
+  "sensitive": "religion",
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Diwali",
+      "url": "https://en.wikipedia.org/wiki/Diwali",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Hanukkah",
+      "url": "https://en.wikipedia.org/wiki/Hanukkah",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Christmas lights",
+      "url": "https://en.wikipedia.org/wiki/Christmas_lights",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Many religions and cultures have festivals that use light. Here are three. People of each faith celebrate in their own ways, and not everyone celebrates."
+    },
+    {
+      "type": "text",
+      "body": "Diwali is celebrated by many Hindus, Sikhs and Jains, mostly in October or November. People light small oil lamps called diyas, and many see it as celebrating light over darkness and good over evil."
+    },
+    {
+      "type": "text",
+      "body": "Hanukkah is a Jewish festival lasting eight nights. Families light candles on a special candle holder, adding one more each night. It remembers the rededication of the Temple in Jerusalem long ago."
+    },
+    {
+      "type": "text",
+      "body": "Christmas is when Christians celebrate the birth of Jesus. Many people decorate with lights and candles. Some people celebrate Christmas as a cultural holiday too."
+    },
+    {
+      "type": "tryit",
+      "body": "Ask your family: do you have a festival you celebrate? What do you do on that day?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Small oil lamps called diyas are lit during…",
+      "options": [
+        "Diwali",
+        "Hanukkah",
+        "Christmas"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look back at the festival celebrated by many Hindus, Sikhs and Jains.",
+        "Which festival paragraph mentions lamps called diyas?",
+        "Example: if a lesson said 'lanterns are hung for the Mid-Autumn Festival', you would match lanterns to that festival. Do the same here."
+      ],
+      "explain": "Diyas are lit for Diwali."
+    },
+    {
+      "q": "How many nights does Hanukkah last?",
+      "options": [
+        "Eight",
+        "One",
+        "Thirty"
+      ],
+      "answer": 0,
+      "hints": [
+        "Families add one candle each night.",
+        "Re-read the Hanukkah paragraph.",
+        "Example: a week has seven days. Hanukkah lasts one more than that."
+      ],
+      "explain": "Hanukkah lasts eight nights, with one more candle lit each night."
+    },
+    {
+      "q": "Which is a respectful way to learn about another person's festival?",
+      "options": [
+        "Ask them kindly what it means to them",
+        "Tell them their festival is wrong",
+        "Laugh at it"
+      ],
+      "answer": 0,
+      "hints": [
+        "How would you like others to talk about your celebrations?",
+        "Learning starts with listening.",
+        "Example: if a friend shows you a family tradition, asking 'what does it mean to you?' shows you care."
+      ],
+      "explain": "Asking kindly and listening shows respect for other people's beliefs."
+    }
+  ]
+}

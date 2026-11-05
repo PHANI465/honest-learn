@@ -1,0 +1,70 @@
+{
+  "id": "b1-lang-rhyme-time",
+  "title": "Rhyme Time",
+  "band": "b1",
+  "subject": "language",
+  "outcomes": [
+    "b1-lang-3"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Rhyme",
+      "url": "https://en.wikipedia.org/wiki/Rhyme",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Some words sound the same at the end. They RHYME! 🎵"
+    },
+    {
+      "type": "text",
+      "body": "Cat 🐱 and hat 🎩 rhyme. Cat… hat… they both end with 'at'."
+    },
+    {
+      "type": "tryit",
+      "body": "Say these out loud: bee 🐝, tree 🌳, me! Do they rhyme?"
+    },
+    {
+      "type": "parent",
+      "body": "Read the questions aloud. Stretch the ending sounds (c-AT, h-AT). Nursery rhymes and songs are a great way to practise rhyming every day."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which one rhymes with SUN ☀️?",
+      "options": [
+        "Bun 🍞",
+        "Moon 🌙",
+        "Star ⭐"
+      ],
+      "answer": 0,
+      "hints": [
+        "Say SUN out loud. Listen to the end.",
+        "Sun ends with 'un'. Which one ends with 'un' too?",
+        "Look: cat and hat both end with 'at'. Find a word that ends like sun."
+      ],
+      "explain": "Sun and bun both end with 'un'! ☀️🍞"
+    },
+    {
+      "q": "Which one rhymes with FROG 🐸?",
+      "options": [
+        "Dog 🐶",
+        "Fish 🐟",
+        "Bird 🐦"
+      ],
+      "answer": 0,
+      "hints": [
+        "Say FROG out loud slowly.",
+        "Frog ends with 'og'.",
+        "Bee and tree rhyme because they end with 'ee'. Which animal ends with 'og'?"
+      ],
+      "explain": "Frog and dog both end with 'og'! 🐸🐶"
+    }
+  ]
+}

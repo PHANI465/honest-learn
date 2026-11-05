@@ -1,0 +1,103 @@
+{
+  "id": "b5-car-study-smarter",
+  "title": "Study Smarter: Active Recall and Spacing",
+  "band": "b5",
+  "subject": "careers",
+  "outcomes": [
+    "b5-car-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Testing effect",
+      "url": "https://en.wikipedia.org/wiki/Testing_effect",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Spaced repetition",
+      "url": "https://en.wikipedia.org/wiki/Spaced_repetition",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Spacing effect",
+      "url": "https://en.wikipedia.org/wiki/Spacing_effect",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Re-reading notes and highlighting feel productive but are among the least effective ways to study."
+    },
+    {
+      "type": "text",
+      "body": "Active recall (the testing effect): close the book and pull information out of memory with flashcards, practice questions, or explaining it aloud. Retrieval strengthens memory more than re-reading does."
+    },
+    {
+      "type": "text",
+      "body": "Spaced repetition (the spacing effect): review material over increasing gaps (1 day, 3 days, a week) instead of cramming it all at once."
+    },
+    {
+      "type": "text",
+      "body": "Interleaving: mix different types of problems in one session, so you learn to choose the right method, not just repeat one."
+    },
+    {
+      "type": "fact",
+      "body": "Honest Learn brings finished lessons back for review after a few days. That's spaced repetition built in."
+    },
+    {
+      "type": "tryit",
+      "body": "Turn today's notes from any subject into 5 questions. Answer them tomorrow without looking, then again in 3 days."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You have an exam in two weeks. Which plan uses the spacing effect?",
+      "options": [
+        "Short sessions spread across the two weeks",
+        "One 10-hour session the night before",
+        "Re-reading notes once"
+      ],
+      "answer": 0,
+      "hints": [
+        "Spacing is about WHEN you study.",
+        "Cramming puts all the study in one block.",
+        "Example: practising piano 20 minutes a day beats 3 hours once a week."
+      ],
+      "explain": "Spreading study over time with gaps beats cramming for long-term memory."
+    },
+    {
+      "q": "Which is active recall?",
+      "options": [
+        "Answering practice questions without notes",
+        "Highlighting the textbook",
+        "Re-reading a chapter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Active recall means pulling information OUT of memory.",
+        "Which one works without looking at the material?",
+        "Example: explaining a topic to a friend from memory is active recall."
+      ],
+      "explain": "Answering without notes forces retrieval, which strengthens memory."
+    },
+    {
+      "q": "Why does mixing problem types (interleaving) help?",
+      "options": [
+        "You practise choosing the right method",
+        "It makes sessions shorter",
+        "It avoids hard problems"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do exams usually do with problem types?",
+        "In a block of identical problems, do you ever choose a method?",
+        "Example: a footballer who only practises penalties may struggle in a real match where situations vary."
+      ],
+      "explain": "Mixed practice trains you to recognise which method each problem needs, just like in an exam."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "b4-math-linear-equations",
+  "title": "Solving Linear Equations",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Linear equation",
+      "url": "https://en.wikipedia.org/wiki/Linear_equation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Elementary Algebra 2e",
+      "url": "https://openstax.org/details/books/elementary-algebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "An equation is a balance: both sides are equal. To find the unknown (x), do the same thing to both sides until x is alone."
+    },
+    {
+      "type": "text",
+      "body": "Undo operations in reverse order. In 3x + 4 = 19, x was multiplied by 3 and then 4 was added. So first subtract 4, then divide by 3."
+    },
+    {
+      "type": "text",
+      "body": "3x + 4 = 19 → 3x = 15 → x = 5. Check: 3 × 5 + 4 = 19 ✓"
+    },
+    {
+      "type": "fact",
+      "body": "Always check your answer by putting it back into the original equation."
+    },
+    {
+      "type": "tryit",
+      "body": "Make up your own equation: pick a secret number, multiply it, add something, and challenge a friend to solve it."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Solve: 2x + 6 = 20",
+      "options": [
+        "x = 7",
+        "x = 13",
+        "x = 10"
+      ],
+      "answer": 0,
+      "hints": [
+        "What was done to x, and in what order?",
+        "Undo the +6 first, then undo the ×2.",
+        "Example: 4x + 2 = 18 → 4x = 16 → x = 4. Check: 4 × 4 + 2 = 18 ✓"
+      ],
+      "explain": "2x = 20 − 6 = 14, so x = 14 ÷ 2 = 7. Check: 2 × 7 + 6 = 20 ✓"
+    },
+    {
+      "q": "Solve: 5x − 3 = 22",
+      "options": [
+        "x = 5",
+        "x = 3.8",
+        "x = 25"
+      ],
+      "answer": 0,
+      "hints": [
+        "Undo the −3 first.",
+        "Adding 3 to both sides gives 5x = ?",
+        "Example: 3x − 1 = 11 → 3x = 12 → x = 4."
+      ],
+      "explain": "5x = 22 + 3 = 25, so x = 5. Check: 5 × 5 − 3 = 22 ✓"
+    },
+    {
+      "q": "A taxi charges 3 to start plus 2 per km. A ride costs 17. How many km?",
+      "options": [
+        "7",
+        "8.5",
+        "10"
+      ],
+      "answer": 0,
+      "hints": [
+        "Write it as an equation with x = km.",
+        "Cost = 3 + 2x. Set it equal to 17.",
+        "Example: a gym costs 10 to join plus 5 per visit; you paid 35 → 10 + 5x = 35 → x = 5 visits."
+      ],
+      "explain": "3 + 2x = 17 → 2x = 14 → x = 7 km."
+    }
+  ]
+}

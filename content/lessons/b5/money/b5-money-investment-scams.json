@@ -1,0 +1,99 @@
+{
+  "id": "b5-money-investment-scams",
+  "title": "Spotting Investment Scams",
+  "band": "b5",
+  "subject": "money",
+  "outcomes": [
+    "b5-money-4"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Ponzi scheme",
+      "url": "https://en.wikipedia.org/wiki/Ponzi_scheme",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Pump and dump",
+      "url": "https://en.wikipedia.org/wiki/Pump_and_dump",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "US SEC Investor.gov: Ponzi schemes",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme",
+      "license": "Public domain (US government; reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Every real investment has risk. In general, higher possible returns come with higher risk of losing money. Anyone promising high returns with 'no risk' is a red flag."
+    },
+    {
+      "type": "text",
+      "body": "Ponzi scheme: early investors are paid with money from new investors, not real profits. It collapses when new money stops coming in."
+    },
+    {
+      "type": "text",
+      "body": "Pump-and-dump: promoters hype a cheap stock or coin on social media, the price jumps, they sell, and everyone else is left with losses."
+    },
+    {
+      "type": "text",
+      "body": "Other red flags: pressure to act now, 'secret' strategies, payments only in crypto or gift cards, and unregistered sellers."
+    },
+    {
+      "type": "fact",
+      "body": "Many countries have an official register of licensed investment firms. Check it before investing."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "An influencer promises 'guaranteed 30% returns every month, zero risk'. This is most likely…",
+      "options": [
+        "A scam",
+        "A rare genuine opportunity",
+        "A normal savings account"
+      ],
+      "answer": 0,
+      "hints": [
+        "What's the link between return and risk?",
+        "Can any investment truly guarantee high returns?",
+        "Example: a typical savings account pays a few percent a YEAR. Compare that with 30% a MONTH."
+      ],
+      "explain": "Guaranteed high returns with no risk don't exist. It's a classic scam promise."
+    },
+    {
+      "q": "In a Ponzi scheme, where do early investors' 'profits' come from?",
+      "options": [
+        "Money from newer investors",
+        "Real business profits",
+        "Government grants"
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens when new investors stop joining?",
+        "Is there a real business making money?",
+        "Example: if a 'club' pays old members using new members' joining fees, what happens when no one new joins?"
+      ],
+      "explain": "Payouts come from new investors' money, which is why it collapses when recruitment slows."
+    },
+    {
+      "q": "A coin's price jumped 400% after a wave of social posts. What's a sensible response?",
+      "options": [
+        "Be cautious; it could be a pump-and-dump",
+        "Buy fast before it rises more",
+        "Borrow money to buy more"
+      ],
+      "answer": 0,
+      "hints": [
+        "Who might profit from the hype?",
+        "What happens to late buyers if promoters sell?",
+        "Example: if a stranger hypes a trading card to sell you theirs, who benefits?"
+      ],
+      "explain": "Sudden hype-driven spikes are a pump-and-dump warning sign. Late buyers often lose."
+    }
+  ]
+}

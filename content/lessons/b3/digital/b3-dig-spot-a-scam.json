@@ -1,0 +1,99 @@
+{
+  "id": "b3-dig-spot-a-scam",
+  "title": "Spot the Scam",
+  "band": "b3",
+  "subject": "digital",
+  "outcomes": [
+    "b3-dig-2",
+    "b3-dig-1"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "FTC: How to recognize and avoid phishing scams",
+      "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams",
+      "license": "Public domain (US government; reference)"
+    },
+    {
+      "title": "Wikipedia: Phishing",
+      "url": "https://en.wikipedia.org/wiki/Phishing",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A scam is a trick to get your money, your passwords or your personal information."
+    },
+    {
+      "type": "text",
+      "body": "Warning signs: 'You WON a prize!', 'Hurry, only 5 minutes left!', 'Click this link to claim', or messages asking for passwords or codes."
+    },
+    {
+      "type": "text",
+      "body": "Scammers use excitement or fear to make you act fast without thinking."
+    },
+    {
+      "type": "text",
+      "body": "The rule: STOP, don't click, and show a trusted adult."
+    },
+    {
+      "type": "fact",
+      "body": "Real companies will never ask for your password in a message."
+    },
+    {
+      "type": "tryit",
+      "body": "With a grown-up, look at a spam folder together (don't click anything!). Can you spot the warning signs?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A message says: 'You won a free phone! Click now, offer ends in 2 minutes!' What is the biggest warning sign?",
+      "options": [
+        "Pressure to act fast",
+        "It mentions a phone",
+        "It has an exclamation mark"
+      ],
+      "answer": 0,
+      "hints": [
+        "Why would someone want you to hurry?",
+        "Scammers don't want you to stop and think.",
+        "Example: 'Your account will be closed in 1 hour unless you log in here!' uses the same trick. What trick is it?"
+      ],
+      "explain": "Rushing you is a classic scam trick, so you act before you think or ask someone."
+    },
+    {
+      "q": "A game chat says a moderator needs your password to give you free coins. You should…",
+      "options": [
+        "Never share it and tell an adult",
+        "Share it, they're a moderator",
+        "Share half of it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Who should know your password?",
+        "Would a real company need your password?",
+        "Example: a real bank never asks for your PIN by message. Games are the same."
+      ],
+      "explain": "Real moderators never need your password. Keep it secret and tell an adult."
+    },
+    {
+      "q": "Which password is strongest?",
+      "options": [
+        "Purple!Tiger7Moon",
+        "password123",
+        "Your pet's name"
+      ],
+      "answer": 0,
+      "hints": [
+        "Strong passwords are long and hard to guess.",
+        "Which one would a stranger never guess?",
+        "Example: 'sunshine' is weak, but 'Blue7!Rocket?Tree' is strong. Why?"
+      ],
+      "explain": "Long, random words with symbols and numbers are much harder to guess."
+    }
+  ]
+}

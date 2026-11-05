@@ -1,0 +1,79 @@
+{
+  "id": "b1-health-clean-hands",
+  "title": "Clean Hands, Happy Tummy",
+  "band": "b1",
+  "subject": "health",
+  "outcomes": [
+    "b1-health-1"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "WHO: World Hand Hygiene Day",
+      "url": "https://www.who.int/campaigns/world-hand-hygiene-day",
+      "license": "Reference only; text is original"
+    },
+    {
+      "title": "Wikipedia: Hand washing",
+      "url": "https://en.wikipedia.org/wiki/Hand_washing",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Germs are tiny. Too tiny to see! 🦠"
+    },
+    {
+      "type": "text",
+      "body": "Soap and water wash germs away. 🧼💧"
+    },
+    {
+      "type": "text",
+      "body": "Rub, rub, rub! Fronts, backs and between fingers. Sing 'Happy Birthday' two times while you rub."
+    },
+    {
+      "type": "tryit",
+      "body": "Show a grown-up how you wash your hands."
+    },
+    {
+      "type": "parent",
+      "body": "Washing with soap for about 20 seconds (two rounds of 'Happy Birthday') helps remove germs. Key times: before eating, after the toilet, after playing outside and after touching animals."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "When should we wash our hands?",
+      "options": [
+        "Before eating 🍽️",
+        "Only on birthdays 🎂",
+        "Never 🙅"
+      ],
+      "answer": 0,
+      "hints": [
+        "Germs on hands can get into our mouth.",
+        "When do our hands touch our food?",
+        "We brush teeth before bed so they stay clean. When do we wash hands so food stays clean?"
+      ],
+      "explain": "Yes! We wash before eating so germs don't get into our tummy. 🧼"
+    },
+    {
+      "q": "What helps wash germs away?",
+      "options": [
+        "Soap and water 🧼",
+        "Mud 🟤",
+        "Paint 🎨"
+      ],
+      "answer": 0,
+      "hints": [
+        "What makes bubbles at the sink?",
+        "It is slippery and smells nice.",
+        "When a plate is dirty, we wash it with water and something bubbly. Hands are the same!"
+      ],
+      "explain": "Soap and water wash germs away! 💧"
+    }
+  ]
+}

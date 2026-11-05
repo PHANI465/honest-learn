@@ -1,0 +1,97 @@
+{
+  "id": "b2-sci-solid-liquid-gas",
+  "title": "Solid, Liquid, Gas",
+  "band": "b2",
+  "subject": "science",
+  "outcomes": [
+    "b2-sci-3"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: State of matter",
+      "url": "https://en.wikipedia.org/wiki/State_of_matter",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Everything around us is made of matter. Matter can be a solid, a liquid or a gas."
+    },
+    {
+      "type": "text",
+      "body": "A SOLID keeps its shape. A rock, a spoon and ice are solids. 🧊"
+    },
+    {
+      "type": "text",
+      "body": "A LIQUID flows and takes the shape of its cup. Water and juice are liquids. 💧"
+    },
+    {
+      "type": "text",
+      "body": "A GAS spreads out to fill any space. The air we breathe is a gas. 🎈"
+    },
+    {
+      "type": "fact",
+      "body": "Water can be all three! Ice (solid), water (liquid) and steam (gas)."
+    },
+    {
+      "type": "tryit",
+      "body": "With a grown-up: put an ice cube on a plate. Check it every 10 minutes. What happens?"
+    },
+    {
+      "type": "parent",
+      "body": "Supervise any activity with hot water or steam. Ask 'does it keep its shape?' to help your child sort things."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which one is a LIQUID?",
+      "options": [
+        "Milk",
+        "A book",
+        "A balloon's air"
+      ],
+      "answer": 0,
+      "hints": [
+        "A liquid can be poured.",
+        "Which one takes the shape of a glass?",
+        "Juice is a liquid because it flows when you pour it. Find the one that flows."
+      ],
+      "explain": "Milk flows and takes the shape of its glass, so it is a liquid."
+    },
+    {
+      "q": "Ice melting into water is a change from…",
+      "options": [
+        "Solid to liquid",
+        "Liquid to gas",
+        "Gas to solid"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is ice hard or runny?",
+        "Is water hard or runny?",
+        "Chocolate melting in your hand goes from hard (solid) to runny. Ice does the same."
+      ],
+      "explain": "Ice is a solid. When it melts it becomes liquid water."
+    },
+    {
+      "q": "Which is a GAS?",
+      "options": [
+        "The air in a balloon",
+        "A stone",
+        "Orange juice"
+      ],
+      "answer": 0,
+      "hints": [
+        "A gas spreads out to fill space.",
+        "You often can't see a gas.",
+        "When you blow bubbles, the inside of each bubble is filled with something invisible. What is it?"
+      ],
+      "explain": "Air is a gas. It spreads out to fill the whole balloon."
+    }
+  ]
+}

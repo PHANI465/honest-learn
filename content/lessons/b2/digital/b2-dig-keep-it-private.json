@@ -1,0 +1,90 @@
+{
+  "id": "b2-dig-keep-it-private",
+  "title": "Keep It Private!",
+  "band": "b2",
+  "subject": "digital",
+  "outcomes": [
+    "b2-dig-1",
+    "b2-dig-2"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Personal data",
+      "url": "https://en.wikipedia.org/wiki/Personal_data",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Some things about you are PRIVATE. That means just for you and your family. 🔒"
+    },
+    {
+      "type": "text",
+      "body": "Private things are: your full name, home address, phone number, school, passwords and photos of you."
+    },
+    {
+      "type": "text",
+      "body": "Online, people may not be who they say they are. A 'kid' online could really be a grown-up."
+    },
+    {
+      "type": "text",
+      "body": "If anyone online asks for private things, stop. Tell a grown-up you trust."
+    },
+    {
+      "type": "parent",
+      "body": "Agree on simple family rules: never share private details online, and always tell a parent if someone asks. Praise your child for telling you, even if they already shared something."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A game asks for your home address. What do you do?",
+      "options": [
+        "Ask a grown-up first",
+        "Type it in",
+        "Make one up"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is your address private?",
+        "Who can help you decide what is safe?",
+        "If a stranger at the park asked where you live, you would find your grown-up. Online is the same."
+      ],
+      "explain": "Your address is private. Always ask a grown-up first."
+    },
+    {
+      "q": "Which one is PRIVATE?",
+      "options": [
+        "Your password",
+        "Your favourite colour",
+        "Your favourite animal"
+      ],
+      "answer": 0,
+      "hints": [
+        "Private things could help someone find you or get into your accounts.",
+        "Which one keeps your games and apps locked?",
+        "A house key is private because it opens your door. What is the online 'key'?"
+      ],
+      "explain": "A password is like a key. Never share it, except with your parents."
+    },
+    {
+      "q": "Someone online says they are 8 years old. Can you be sure?",
+      "options": [
+        "No, you can't be sure",
+        "Yes, always",
+        "Only if they say please"
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you see the person online?",
+        "Anyone can type anything.",
+        "If someone wrote 'I am a dinosaur' in a message, would that make it true?"
+      ],
+      "explain": "Online, anyone can pretend. That's why we keep private things private."
+    }
+  ]
+}

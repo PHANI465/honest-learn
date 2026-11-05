@@ -1,0 +1,98 @@
+{
+  "id": "b3-sci-water-cycle",
+  "title": "The Water Cycle",
+  "band": "b3",
+  "subject": "science",
+  "outcomes": [
+    "b3-sci-4"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Water cycle",
+      "url": "https://en.wikipedia.org/wiki/Water_cycle",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "USGS Water Science School",
+      "url": "https://www.usgs.gov/special-topics/water-science-school",
+      "license": "Public domain (US government; reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The water you drink today may once have been in an ocean, a cloud or a glacier. Earth keeps reusing its water in a loop called the water cycle."
+    },
+    {
+      "type": "text",
+      "body": "1. Evaporation: the Sun heats water in oceans, lakes and rivers. It turns into water vapour, a gas, and rises."
+    },
+    {
+      "type": "text",
+      "body": "2. Condensation: high up, the air is cooler. The vapour cools into tiny droplets that form clouds."
+    },
+    {
+      "type": "text",
+      "body": "3. Precipitation: droplets join and get heavy. They fall as rain, snow, sleet or hail."
+    },
+    {
+      "type": "text",
+      "body": "4. Collection: water gathers in oceans, rivers, lakes and underground. Then the cycle starts again."
+    },
+    {
+      "type": "tryit",
+      "body": "Breathe on a cold mirror or window. The foggy patch is condensation: water vapour from your breath turning into droplets."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What makes water evaporate from the ocean?",
+      "options": [
+        "Heat from the Sun",
+        "The Moon",
+        "Wind only"
+      ],
+      "answer": 0,
+      "hints": [
+        "Evaporation needs energy.",
+        "Puddles dry up faster on hot days. Why?",
+        "Example: a wet towel dries faster in sunshine than in a cold room. What is giving the energy?"
+      ],
+      "explain": "The Sun's heat gives water the energy to turn into vapour and rise."
+    },
+    {
+      "q": "Clouds form when water vapour…",
+      "options": [
+        "Cools and condenses into droplets",
+        "Gets hotter",
+        "Turns into salt"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the air warmer or cooler high up?",
+        "Think of a cold drink 'sweating' on a hot day.",
+        "When you breathe on a cold mirror, your warm breath makes tiny droplets. Clouds form the same way."
+      ],
+      "explain": "High in the sky the vapour cools and condenses into tiny droplets, which make clouds."
+    },
+    {
+      "q": "Rain, snow and hail are all types of…",
+      "options": [
+        "Precipitation",
+        "Evaporation",
+        "Collection"
+      ],
+      "answer": 0,
+      "hints": [
+        "They are all water falling from clouds.",
+        "Which step is about water coming DOWN?",
+        "Example: evaporation is water going up. The opposite step is water coming down. What is it called?"
+      ],
+      "explain": "Any water falling from clouds is called precipitation."
+    }
+  ]
+}

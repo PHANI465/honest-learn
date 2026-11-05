@@ -1,0 +1,118 @@
+import { router, useFocusEffect } from "expo-router";
+import { useCallback, useState } from "react";
+import { Alert, Linking, Platform, Text, View } from "react-native";
+import { Banner, Button, Card, H1, H2, P, Pill, Screen } from "../../components/ui";
+import { friendly, type Child } from "../../lib/api";
+import { useSession } from "../../lib/session";
+import { avatars, bandTheme, colors } from "../../lib/theme";
+
+interface Overview {
+  children: (Child & {
+    stats: { lessons: number; score: number; total: number; lastActive: string | null };
+    flaggedMessages: number;
+    recent: { lesson_id: string; title: string; best_score: number; total: number }[];
+  })[];
+}
+
+const DONATE_URL = process.env.EXPO_PUBLIC_DONATE_URL;
+
+function confirm(title: string, message: string): Promise<boolean> {
+  if (Platform.OS === "web") return Promise.resolve(globalThis.confirm?.(`${title}\n\n${message}`) ?? false);
+  return new Promise((resolve) =>
+    Alert.alert(title, message, [
+      { text: "Cancel", style: "cancel", onPress: () => resolve(false) },
+      { text: "Delete", style: "destructive", onPress: () => resolve(true) },
+    ]),
+  );
+}
+
+export default function ParentHome() {
+  const { parentApi, parentEmail, map, lockParent, logout, refreshFamily } = useSession();
+  const [data, setData] = useState<Overview | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useFocusEffect(
+    useCallback(() => {
+      parentApi<Overview>("GET", "/overview").then(setData).catch((e) => setError(friendly(e)));
+      refreshFamily().catch(() => {});
+    }, [parentApi, refreshFamily]),
+  );
+
+  async function exportData() {
+    try {
+      const json = await parentApi<unknown>("GET", "/export");
+      const text = JSON.stringify(json, null, 2);
+      if (Platform.OS === "web") {
+        const blob = new Blob([text], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "honest-learn-family-data.json";
+        a.click();
+      } else {
+        Alert.alert("Your data", text.slice(0, 1500) + (text.length > 1500 ? "\n…" : ""));
+      }
+    } catch (e) {
+      setError(friendly(e));
+    }
+  }
+
+  async function deleteAccount() {
+    const ok = await confirm("Delete your account?", "This permanently deletes your account, every child profile, all progress and all chats. This cannot be undone.");
+    if (!ok) return;
+    try {
+      await parentApi("DELETE", "/account");
+      await logout();
+      router.replace("/welcome");
+    } catch (e) {
+      setError(friendly(e));
+    }
+  }
+
+  return (
+    <Screen>
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+        <H1>Parent area</H1>
+        <Pill text="🔓 Unlocked" color={colors.good} bg={colors.goodSoft} />
+      </View>
+      <P muted size={14}>Signed in as {parentEmail}. This area locks itself after 10 minutes.</P>
+      {error ? <Banner>{error}</Banner> : null}
+
+      <H2>Your children</H2>
+      {data?.children.length === 0 ? <Banner tone="info">Add your first child to get started.</Banner> : null}
+      {data?.children.map((c) => {
+        const band = map?.bands.find((b) => b.id === c.band);
+        return (
+          <Card key={c.id} onPress={() => router.push(`/parent/child/${c.id}`)} label={`Settings for ${c.nickname}`}>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
+              <Text style={{ fontSize: 40 }}>{avatars[c.avatar]}</Text>
+              <View style={{ flex: 1 }}>
+                <Text style={{ fontSize: 18, fontWeight: "800", color: colors.ink }}>{c.nickname}, {c.age}</Text>
+                <Text style={{ color: bandTheme[c.band].accent, fontWeight: "700" }}>{band?.name} (ages {band?.ages.join("–")})</Text>
+              </View>
+              <Text style={{ fontSize: 22, color: colors.muted }}>›</Text>
+            </View>
+            <View style={{ flexDirection: "row", gap: 8, flexWrap: "wrap" }}>
+              <Pill text={`${c.stats.lessons} lessons done`} />
+              {c.stats.total ? <Pill text={`${Math.round((100 * c.stats.score) / c.stats.total)}% quiz score`} /> : null}
+              <Pill text={c.aiEnabled ? "Hoot on" : "Hoot off"} />
+              <Pill text={`${c.dailyMinutes} min/day`} />
+              {c.flaggedMessages ? <Pill text={`⚠️ ${c.flaggedMessages} flagged chat${c.flaggedMessages > 1 ? "s" : ""}`} color={colors.warn} bg={colors.warnSoft} /> : null}
+            </View>
+            {c.recent.length ? <P muted size={13}>Recently: {c.recent.map((r) => r.title).join(" · ")}</P> : null}
+          </Card>
+        );
+      })}
+      <Button title="+ Add a child" kind="secondary" onPress={() => router.push("/parent/add-child")} />
+
+      <H2>Account</H2>
+      <Card style={{ gap: 10 }}>
+        <Button title="Download all our data" kind="secondary" onPress={exportData} />
+        {DONATE_URL ? <Button title="💚 Donate to keep Honest Learn free" kind="secondary" onPress={() => Linking.openURL(DONATE_URL)} /> : null}
+        <Button title="Lock parent area" kind="ghost" onPress={() => { lockParent(); router.replace("/profiles"); }} />
+        <Button title="Sign out of this device" kind="ghost" onPress={async () => { await logout(); router.replace("/welcome"); }} />
+        <Button title="Delete account and all data" kind="danger" onPress={deleteAccount} />
+      </Card>
+      {data?.children.length ? <Button big title="Back to learning →" onPress={() => { lockParent(); router.replace("/profiles"); }} /> : null}
+    </Screen>
+  );
+}

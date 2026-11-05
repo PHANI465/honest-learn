@@ -1,0 +1,71 @@
+{
+  "id": "b1-math-counting-to-5",
+  "title": "Let's Count to 5!",
+  "band": "b1",
+  "subject": "math",
+  "outcomes": [
+    "b1-math-1",
+    "b1-math-2"
+  ],
+  "sensitive": null,
+  "minutes": 5,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Counting",
+      "url": "https://en.wikipedia.org/wiki/Counting",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Hold up one finger. ☝️ That is ONE."
+    },
+    {
+      "type": "text",
+      "body": "Let's count together: 1, 2, 3, 4, 5! 🖐️ Five fingers on one hand."
+    },
+    {
+      "type": "tryit",
+      "body": "Find 5 toys. Touch each one and count out loud."
+    },
+    {
+      "type": "parent",
+      "body": "Point to each object as your child counts so they match one number to one object. If they skip, gently start again together — no rush."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How many stars? ⭐⭐",
+      "options": [
+        "2",
+        "4",
+        "5"
+      ],
+      "answer": 0,
+      "hints": [
+        "Touch each star as you count.",
+        "Count slowly: one… then…?",
+        "Look: 🍎 🍎 — one apple, two apples. Now count the stars the same way."
+      ],
+      "explain": "There are 2 stars: one, two! ⭐⭐"
+    },
+    {
+      "q": "How many ducks? 🦆🦆🦆🦆",
+      "options": [
+        "3",
+        "4",
+        "1"
+      ],
+      "answer": 1,
+      "hints": [
+        "Point to each duck.",
+        "Count: one, two, three… is there one more?",
+        "Look: 🐟🐟🐟 is three fish. Is there one more duck than that?"
+      ],
+      "explain": "4 ducks! One, two, three, four. 🦆"
+    }
+  ]
+}

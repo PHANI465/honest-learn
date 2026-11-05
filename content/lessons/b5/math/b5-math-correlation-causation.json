@@ -1,0 +1,103 @@
+{
+  "id": "b5-math-correlation-causation",
+  "title": "Correlation Is Not Causation",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-3"
+  ],
+  "sensitive": null,
+  "minutes": 25,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Correlation does not imply causation",
+      "url": "https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Confounding",
+      "url": "https://en.wikipedia.org/wiki/Confounding",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Introductory Statistics 2e",
+      "url": "https://openstax.org/details/books/introductory-statistics-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Two things are correlated when they tend to change together. That doesn't mean one causes the other."
+    },
+    {
+      "type": "text",
+      "body": "Confounding variable: a third factor causing both. Ice-cream sales and drownings both rise in summer. Ice cream doesn't cause drowning. Hot weather increases both swimming and ice-cream buying."
+    },
+    {
+      "type": "text",
+      "body": "Reverse causation: maybe B causes A, not A causes B. People who exercise more may sleep better, or people who sleep better may have more energy to exercise."
+    },
+    {
+      "type": "text",
+      "body": "Coincidence: with enough data, some unrelated things will line up by chance."
+    },
+    {
+      "type": "text",
+      "body": "How scientists test causation: randomised controlled trials. People are randomly assigned to groups so the only systematic difference is the thing being tested."
+    },
+    {
+      "type": "tryit",
+      "body": "Find a news headline that says 'X linked to Y'. List one possible confounder and one possible reverse-causation story."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Students who eat breakfast get better grades. What's the best conclusion from this alone?",
+      "options": [
+        "They're correlated; a confounder like home routine could explain it",
+        "Breakfast causes better grades",
+        "Grades cause breakfast"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is this an experiment or an observation?",
+        "What else might differ between students who eat breakfast and those who don't?",
+        "Example: 'People with more books at home earn more' — maybe family income affects both."
+      ],
+      "explain": "From observation alone we only know they're correlated. Factors like family routine or sleep could drive both."
+    },
+    {
+      "q": "Which study design best tests whether a new study app causes higher test scores?",
+      "options": [
+        "Randomly assign students to use it or not, then compare",
+        "Survey students who already use it",
+        "Ask the app's makers"
+      ],
+      "answer": 0,
+      "hints": [
+        "How do you rule out other differences between groups?",
+        "Who decides which students use the app?",
+        "Example: medicine trials randomly give some people the drug and others a placebo."
+      ],
+      "explain": "Random assignment makes the groups similar in everything except the app, so differences can be attributed to it."
+    },
+    {
+      "q": "Cities with more police officers have more crime. A likely explanation is…",
+      "options": [
+        "Reverse causation: high-crime cities hire more police",
+        "Police cause crime",
+        "It's impossible to explain"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which might come first?",
+        "Why would a city decide to hire more police?",
+        "Example: hospitals have more sick people than gyms, but hospitals don't cause sickness. Sick people go there."
+      ],
+      "explain": "Cities with more crime tend to hire more police, so the causal arrow likely runs the other way."
+    }
+  ]
+}

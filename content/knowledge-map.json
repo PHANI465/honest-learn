@@ -1,0 +1,407 @@
+{
+  "version": "0.1.0",
+  "status": "draft — every outcome needs review by two subject reviewers before publishing",
+  "alignment": [
+    "UNESCO Global Proficiency Framework (reading & mathematics, grades 1–9) — minimum proficiency levels",
+    "Cross-checked against Cambridge Primary/Lower Secondary, US Common Core + NGSS, India NCF 2023 (coverage check only; no text copied)"
+  ],
+  "sensitiveTopics": {
+    "religion": "Beliefs, religious practices and festivals. Taught descriptively (what people believe), never as advocacy. Hidden unless a parent unlocks it with their PIN.",
+    "body": "Puberty, reproduction, relationships and consent education. Hidden unless a parent unlocks it with their PIN.",
+    "politics": "Government systems, elections, contested history and current issues. Taught with multiple perspectives and sources. Hidden unless a parent unlocks it with their PIN."
+  },
+  "bands": [
+    { "id": "b1", "name": "Little Explorers", "ages": [3, 5], "reading": "pre-reader", "sessionMinutes": 10, "ai": "read-aloud and simple questions only; no free chat", "style": "pictures, sound, play, parent beside the child" },
+    { "id": "b2", "name": "Early Learners", "ages": [6, 8], "reading": "early reader", "sessionMinutes": 15, "ai": "'Ask why' helper, short safe answers, parent can see every chat", "style": "concrete, hands-on, short videos (<5 min), praise effort" },
+    { "id": "b3", "name": "Discoverers", "ages": [9, 11], "reading": "independent reader", "sessionMinutes": 20, "ai": "hint-ladder tutor (nudge → bigger hint → similar worked example); never gives homework answers", "style": "small projects, experiments, asking why" },
+    { "id": "b4", "name": "Thinkers", "ages": [12, 14], "reading": "fluent reader", "sessionMinutes": 25, "ai": "hint-ladder tutor; Socratic questioning", "style": "debate, abstract ideas, choice of topics, respectful (not babyish) tone" },
+    { "id": "b5", "name": "Builders", "ages": [15, 18], "reading": "fluent reader", "sessionMinutes": 30, "ai": "Socratic tutor + study planner; never writes essays or solves assignments", "style": "exam-ready, real-world, careers, independence" }
+  ],
+  "subjects": [
+    { "id": "language", "name": "Language & Reading", "icon": "book" },
+    { "id": "math", "name": "Math", "icon": "calculator" },
+    { "id": "science", "name": "Science", "icon": "flask" },
+    { "id": "world", "name": "Our World", "icon": "globe" },
+    { "id": "health", "name": "Health, Body & Feelings", "icon": "heart" },
+    { "id": "digital", "name": "Digital Life & AI Safety", "icon": "shield" },
+    { "id": "money", "name": "Money & Life Skills", "icon": "wallet" },
+    { "id": "thinking", "name": "Thinking Skills", "icon": "bulb" },
+    { "id": "arts", "name": "Arts & Music", "icon": "palette" },
+    { "id": "computing", "name": "Computing", "icon": "code" },
+    { "id": "careers", "name": "Careers & College Prep", "icon": "compass", "bands": ["b5"] }
+  ],
+  "cells": [
+    { "band": "b1", "subject": "language", "outcomes": [
+      { "id": "b1-lang-1", "text": "Listens to a short story and retells what happened in their own words" },
+      { "id": "b1-lang-2", "text": "Recognises the letters of their name and most capital letters" },
+      { "id": "b1-lang-3", "text": "Hears the first sound in a word (b-b-ball) and finds rhyming words" },
+      { "id": "b1-lang-4", "text": "Holds a book the right way and knows print goes left to right" },
+      { "id": "b1-lang-5", "text": "Uses new words learned from stories when talking" }
+    ], "sampleQuiz": { "q": "Which word rhymes with CAT?", "options": ["Hat", "Dog", "Sun"], "answer": 0, "hint": "Say them out loud: cat… hat… do they sound the same at the end?" } },
+
+    { "band": "b1", "subject": "math", "outcomes": [
+      { "id": "b1-math-1", "text": "Counts objects up to 10, one number for each object" },
+      { "id": "b1-math-2", "text": "Recognises numerals 0–10" },
+      { "id": "b1-math-3", "text": "Names circle, square, triangle and rectangle in everyday things" },
+      { "id": "b1-math-4", "text": "Compares: more/less, bigger/smaller, longer/shorter" },
+      { "id": "b1-math-5", "text": "Continues a simple pattern (red, blue, red, blue…)" }
+    ], "sampleQuiz": { "q": "How many apples? 🍎🍎🍎", "options": ["2", "3", "4"], "answer": 1, "hint": "Touch each apple as you count it." } },
+
+    { "band": "b1", "subject": "science", "outcomes": [
+      { "id": "b1-sci-1", "text": "Names the five senses and what each one does" },
+      { "id": "b1-sci-2", "text": "Knows living things need food, water and air" },
+      { "id": "b1-sci-3", "text": "Notices weather and the four seasons (or wet/dry seasons)" },
+      { "id": "b1-sci-4", "text": "Sorts things: floats/sinks, hard/soft, hot/cold" }
+    ], "sampleQuiz": { "q": "Which part of your body do you use to smell a flower?", "options": ["Ears", "Nose", "Hands"], "answer": 1, "hint": "Take a big sniff — what moved?" } },
+
+    { "band": "b1", "subject": "world", "outcomes": [
+      { "id": "b1-world-1", "text": "Talks about their family and the people who help in their community" },
+      { "id": "b1-world-2", "text": "Knows the difference between day and night, today, yesterday and tomorrow" },
+      { "id": "b1-world-3", "text": "Knows people around the world speak different languages, eat different food and wear different clothes — and that is good" },
+      { "id": "b1-world-4", "text": "Celebrations and festivals from many cultures", "sensitive": "religion" }
+    ], "sampleQuiz": { "q": "Who helps us when we are sick?", "options": ["A doctor", "A pilot", "A chef"], "answer": 0, "hint": "Who listens to your heartbeat?" } },
+
+    { "band": "b1", "subject": "health", "outcomes": [
+      { "id": "b1-health-1", "text": "Washes hands properly and knows when (before eating, after toilet)" },
+      { "id": "b1-health-2", "text": "Names basic feelings: happy, sad, angry, scared" },
+      { "id": "b1-health-3", "text": "Knows the names of main body parts" },
+      { "id": "b1-health-4", "text": "Knows their body belongs to them and to tell a trusted adult if something feels wrong" },
+      { "id": "b1-health-5", "text": "Knows fruit and vegetables help us grow strong" }
+    ], "sampleQuiz": { "q": "When should you wash your hands?", "options": ["Before eating", "Only at bedtime", "Never"], "answer": 0, "hint": "Germs on hands can get into food…" } },
+
+    { "band": "b1", "subject": "digital", "outcomes": [
+      { "id": "b1-dig-1", "text": "Asks a grown-up before using a screen or tapping something new" },
+      { "id": "b1-dig-2", "text": "Knows screens have a time to stop" },
+      { "id": "b1-dig-3", "text": "Tells a grown-up if something on a screen is scary or upsetting" }
+    ], "sampleQuiz": { "q": "Something on the tablet makes you feel scared. What do you do?", "options": ["Tell a grown-up", "Keep watching", "Hide the tablet"], "answer": 0, "hint": "Who can help you feel safe?" } },
+
+    { "band": "b1", "subject": "money", "outcomes": [
+      { "id": "b1-money-1", "text": "Knows we use money to buy things" },
+      { "id": "b1-money-2", "text": "Understands waiting and saving (sometimes we wait to get something)" },
+      { "id": "b1-money-3", "text": "Helps with simple chores: tidy toys, put clothes away" }
+    ], "sampleQuiz": { "q": "What do we use to buy things at a shop?", "options": ["Money", "Leaves", "Stickers"], "answer": 0, "hint": "What does a grown-up give the shopkeeper?" } },
+
+    { "band": "b1", "subject": "thinking", "outcomes": [
+      { "id": "b1-think-1", "text": "Sorts objects by colour, shape or size" },
+      { "id": "b1-think-2", "text": "Spots what is different / the odd one out" },
+      { "id": "b1-think-3", "text": "Puts 3 pictures of a story in order (first, next, last)" },
+      { "id": "b1-think-4", "text": "Asks 'why?' and 'what if?' questions" }
+    ], "sampleQuiz": { "q": "Which one is the odd one out? 🐶 🐱 🚗", "options": ["🐶", "🐱", "🚗"], "answer": 2, "hint": "Which one is not an animal?" } },
+
+    { "band": "b1", "subject": "arts", "outcomes": [
+      { "id": "b1-arts-1", "text": "Names primary colours and mixes two to make a new colour" },
+      { "id": "b1-arts-2", "text": "Claps a steady beat and sings simple songs" },
+      { "id": "b1-arts-3", "text": "Draws a picture and talks about it" }
+    ], "sampleQuiz": { "q": "Mix yellow and blue. What colour do you get?", "options": ["Green", "Red", "Black"], "answer": 0, "hint": "Think of the colour of grass." } },
+
+    { "band": "b1", "subject": "computing", "outcomes": [
+      { "id": "b1-comp-1", "text": "Follows and gives simple step-by-step instructions (unplugged)" },
+      { "id": "b1-comp-2", "text": "Knows machines follow instructions people give them" }
+    ], "sampleQuiz": { "q": "To brush your teeth, what comes first?", "options": ["Put toothpaste on the brush", "Rinse your mouth", "Put the brush away"], "answer": 0, "hint": "What do you need before you can start brushing?" } },
+
+    { "band": "b2", "subject": "language", "outcomes": [
+      { "id": "b2-lang-1", "text": "Decodes simple words using letter sounds (phonics) and reads common sight words" },
+      { "id": "b2-lang-2", "text": "Reads a short text aloud and answers who/what/where questions about it (GPF G2–3)" },
+      { "id": "b2-lang-3", "text": "Writes simple sentences with a capital letter and full stop" },
+      { "id": "b2-lang-4", "text": "Works out the meaning of a new word from the picture or sentence" },
+      { "id": "b2-lang-5", "text": "Tells the difference between stories (fiction) and fact books (non-fiction)" }
+    ], "sampleQuiz": { "q": "Which sentence is written correctly?", "options": ["the dog ran.", "The dog ran.", "The dog ran"], "answer": 1, "hint": "Check the start and the end of each sentence." } },
+
+    { "band": "b2", "subject": "math", "outcomes": [
+      { "id": "b2-math-1", "text": "Reads, writes and compares numbers to 1,000; understands place value (hundreds, tens, ones)" },
+      { "id": "b2-math-2", "text": "Adds and subtracts within 100, including word problems (GPF G2–3)" },
+      { "id": "b2-math-3", "text": "Understands multiplication as equal groups; knows 2, 5 and 10 times tables" },
+      { "id": "b2-math-4", "text": "Tells time to the hour and half hour; recognises coins and notes" },
+      { "id": "b2-math-5", "text": "Measures length with a ruler; reads a simple picture graph" },
+      { "id": "b2-math-6", "text": "Understands halves and quarters of a shape" }
+    ], "sampleQuiz": { "q": "Mia has 23 stickers. She gets 15 more. How many now?", "options": ["38", "8", "33"], "answer": 0, "hint": "Add the tens first, then the ones." } },
+
+    { "band": "b2", "subject": "science", "outcomes": [
+      { "id": "b2-sci-1", "text": "Knows what plants need to grow and the parts of a plant" },
+      { "id": "b2-sci-2", "text": "Groups animals (mammals, birds, fish, insects) and knows their habitats" },
+      { "id": "b2-sci-3", "text": "Knows the states of matter: solid, liquid, gas" },
+      { "id": "b2-sci-4", "text": "Knows the Sun, Earth and Moon and why we have day and night" },
+      { "id": "b2-sci-5", "text": "Makes a prediction and does a simple fair test" }
+    ], "sampleQuiz": { "q": "Ice melting into water is a change from…", "options": ["Solid to liquid", "Liquid to gas", "Gas to solid"], "answer": 0, "hint": "Is ice hard or runny? Is water hard or runny?" } },
+
+    { "band": "b2", "subject": "world", "outcomes": [
+      { "id": "b2-world-1", "text": "Names the 7 continents and 5 oceans and finds them on a map/globe" },
+      { "id": "b2-world-2", "text": "Reads a simple map using a key and directions (N, S, E, W)" },
+      { "id": "b2-world-3", "text": "Understands past, present and timelines (how life was different long ago)" },
+      { "id": "b2-world-4", "text": "Learns about children's lives in different countries" },
+      { "id": "b2-world-5", "text": "Main world religions and their festivals, described respectfully", "sensitive": "religion" }
+    ], "sampleQuiz": { "q": "Which of these is a continent?", "options": ["Africa", "Pacific", "Amazon"], "answer": 0, "hint": "One is an ocean and one is a river…" } },
+
+    { "band": "b2", "subject": "health", "outcomes": [
+      { "id": "b2-health-1", "text": "Knows the food groups and what a balanced plate looks like" },
+      { "id": "b2-health-2", "text": "Knows why sleep, exercise and brushing teeth matter" },
+      { "id": "b2-health-3", "text": "Names more feelings and simple calm-down strategies (breathing, counting)" },
+      { "id": "b2-health-4", "text": "Knows safe/unsafe touch, safe and unsafe secrets, and who their trusted adults are" },
+      { "id": "b2-health-5", "text": "Road safety, water safety and what to do in an emergency (calling for help)" }
+    ], "sampleQuiz": { "q": "You feel very angry. What could help you calm down?", "options": ["Take 5 slow breaths", "Shout at a friend", "Break something"], "answer": 0, "hint": "Which choice doesn't hurt anyone, including you?" } },
+
+    { "band": "b2", "subject": "digital", "outcomes": [
+      { "id": "b2-dig-1", "text": "Knows what personal information is (name, address, school, photos) and keeps it private" },
+      { "id": "b2-dig-2", "text": "Knows people online may not be who they say they are" },
+      { "id": "b2-dig-3", "text": "Knows not everything online is true" },
+      { "id": "b2-dig-4", "text": "Knows AI helpers are computer programs, not people, and can make mistakes" }
+    ], "sampleQuiz": { "q": "A game asks for your home address. What should you do?", "options": ["Ask a grown-up first", "Type it in", "Make one up"], "answer": 0, "hint": "Is your address personal information?" } },
+
+    { "band": "b2", "subject": "money", "outcomes": [
+      { "id": "b2-money-1", "text": "Counts money and gives change in simple cases" },
+      { "id": "b2-money-2", "text": "Understands needs vs wants" },
+      { "id": "b2-money-3", "text": "Understands saving for a goal (a savings jar)" },
+      { "id": "b2-money-4", "text": "Life skills: pack own school bag, tie shoelaces, simple tidy routines" }
+    ], "sampleQuiz": { "q": "Which is a NEED?", "options": ["Drinking water", "A new toy", "Sweets"], "answer": 0, "hint": "Which one could you not live without?" } },
+
+    { "band": "b2", "subject": "thinking", "outcomes": [
+      { "id": "b2-think-1", "text": "Finds and continues number and shape patterns" },
+      { "id": "b2-think-2", "text": "Tells fact from opinion in simple sentences" },
+      { "id": "b2-think-3", "text": "Solves simple logic puzzles and explains how" },
+      { "id": "b2-think-4", "text": "Tries again after a mistake (growth mindset)" }
+    ], "sampleQuiz": { "q": "Which is an OPINION?", "options": ["Pizza is the best food", "Pizza is round", "Pizza has cheese on it"], "answer": 0, "hint": "Which one could someone disagree with?" } },
+
+    { "band": "b2", "subject": "arts", "outcomes": [
+      { "id": "b2-arts-1", "text": "Uses line, shape, colour and texture in their own art" },
+      { "id": "b2-arts-2", "text": "Recognises loud/quiet, fast/slow and high/low in music" },
+      { "id": "b2-arts-3", "text": "Looks at art and music from different cultures and says what they notice" }
+    ], "sampleQuiz": { "q": "A song that goes very fast has a fast…", "options": ["Tempo", "Colour", "Shape"], "answer": 0, "hint": "It's the musical word for speed." } },
+
+    { "band": "b2", "subject": "computing", "outcomes": [
+      { "id": "b2-comp-1", "text": "Writes an algorithm (step-by-step instructions) for an everyday task" },
+      { "id": "b2-comp-2", "text": "Makes a character move with block code (sequence)" },
+      { "id": "b2-comp-3", "text": "Finds and fixes a bug in a short set of instructions (debugging)" }
+    ], "sampleQuiz": { "q": "A robot should go forward 2 steps then turn right. The code says: turn right, forward 2. What's wrong?", "options": ["The order is wrong", "Nothing", "It needs 3 steps"], "answer": 0, "hint": "Which instruction should come first?" } },
+
+    { "band": "b3", "subject": "language", "outcomes": [
+      { "id": "b3-lang-1", "text": "Reads texts of a few paragraphs independently and finds the main idea and supporting details (GPF G4–6)" },
+      { "id": "b3-lang-2", "text": "Makes inferences: works out what is not said directly" },
+      { "id": "b3-lang-3", "text": "Writes a paragraph with a topic sentence; plans, drafts and edits" },
+      { "id": "b3-lang-4", "text": "Uses nouns, verbs, adjectives, adverbs and correct tenses" },
+      { "id": "b3-lang-5", "text": "Compares two texts on the same topic" }
+    ], "sampleQuiz": { "q": "'Sam grabbed his umbrella and raincoat before leaving.' What can you infer?", "options": ["It might rain", "Sam is late", "Sam is hungry"], "answer": 0, "hint": "Why do people carry umbrellas?" } },
+
+    { "band": "b3", "subject": "math", "outcomes": [
+      { "id": "b3-math-1", "text": "Knows all times tables to 10×10; multiplies and divides multi-digit numbers (GPF G4–6)" },
+      { "id": "b3-math-2", "text": "Understands, compares and adds fractions; links fractions, decimals and percentages" },
+      { "id": "b3-math-3", "text": "Calculates perimeter and area of rectangles; knows angles and types of triangles" },
+      { "id": "b3-math-4", "text": "Reads and makes bar charts, line graphs and tables; finds the mean" },
+      { "id": "b3-math-5", "text": "Solves multi-step word problems and checks if the answer is reasonable" }
+    ], "sampleQuiz": { "q": "Which fraction is bigger: 3/4 or 2/3?", "options": ["3/4", "2/3", "They are equal"], "answer": 0, "hint": "Try changing both to twelfths." } },
+
+    { "band": "b3", "subject": "science", "outcomes": [
+      { "id": "b3-sci-1", "text": "Explains food chains and ecosystems" },
+      { "id": "b3-sci-2", "text": "Knows the main human body systems (digestive, circulatory, respiratory, skeletal)" },
+      { "id": "b3-sci-3", "text": "Understands forces (gravity, friction, magnetism) and simple machines" },
+      { "id": "b3-sci-4", "text": "Knows the water cycle and the solar system" },
+      { "id": "b3-sci-5", "text": "Plans a fair test: changes one variable, records results, draws a conclusion" },
+      { "id": "b3-sci-6", "text": "Understands climate and how humans affect the environment" }
+    ], "sampleQuiz": { "q": "In a fair test about plant growth, you should change…", "options": ["Only one thing", "Everything", "Nothing"], "answer": 0, "hint": "If you change two things, how do you know which one made the difference?" } },
+
+    { "band": "b3", "subject": "world", "outcomes": [
+      { "id": "b3-world-1", "text": "Uses latitude/longitude basics; knows major countries, mountains, rivers and climate zones" },
+      { "id": "b3-world-2", "text": "Ancient civilisations around the world (e.g., Mesopotamia, Egypt, Indus Valley, China, Maya, Greece)" },
+      { "id": "b3-world-3", "text": "Knows the difference between primary and secondary sources" },
+      { "id": "b3-world-4", "text": "Understands rights and responsibilities (UN Convention on the Rights of the Child)" },
+      { "id": "b3-world-5", "text": "Beliefs and practices of world religions and non-religious worldviews, compared respectfully", "sensitive": "religion" }
+    ], "sampleQuiz": { "q": "A diary written by someone who lived 500 years ago is a…", "options": ["Primary source", "Secondary source", "Fiction book"], "answer": 0, "hint": "Was it made by someone who was actually there?" } },
+
+    { "band": "b3", "subject": "health", "outcomes": [
+      { "id": "b3-health-1", "text": "Reads a food label; understands sugar, salt and balanced diet" },
+      { "id": "b3-health-2", "text": "Basic first aid: cuts, burns, calling emergency services" },
+      { "id": "b3-health-3", "text": "Friendship skills, dealing with bullying, asking for help" },
+      { "id": "b3-health-4", "text": "Understands stress and healthy ways to cope" },
+      { "id": "b3-health-5", "text": "Puberty: body changes and why they happen", "sensitive": "body" }
+    ], "sampleQuiz": { "q": "Someone is being bullied at school. A good first step is…", "options": ["Tell a trusted adult", "Ignore it forever", "Join in"], "answer": 0, "hint": "Who has the power to help stop it?" } },
+
+    { "band": "b3", "subject": "digital", "outcomes": [
+      { "id": "b3-dig-1", "text": "Creates strong passwords and never shares them" },
+      { "id": "b3-dig-2", "text": "Recognises scams, fake prizes and suspicious links" },
+      { "id": "b3-dig-3", "text": "Checks if information is true using 2+ trusted sources" },
+      { "id": "b3-dig-4", "text": "Understands digital footprint: posts can last forever" },
+      { "id": "b3-dig-5", "text": "Knows how AI chatbots work at a simple level and why they can be wrong" }
+    ], "sampleQuiz": { "q": "Which password is strongest?", "options": ["Blue!Tiger7Moon", "password123", "your name"], "answer": 0, "hint": "Long, mixed and hard to guess wins." } },
+
+    { "band": "b3", "subject": "money", "outcomes": [
+      { "id": "b3-money-1", "text": "Makes a simple budget for pocket money" },
+      { "id": "b3-money-2", "text": "Understands banks, saving accounts and interest (simple)" },
+      { "id": "b3-money-3", "text": "Compares prices and value for money" },
+      { "id": "b3-money-4", "text": "Life skills: simple cooking safety, planning their day" }
+    ], "sampleQuiz": { "q": "You get 100 coins a week and want a 400-coin book. Saving it all, how many weeks?", "options": ["4", "40", "1"], "answer": 0, "hint": "How many 100s make 400?" } },
+
+    { "band": "b3", "subject": "thinking", "outcomes": [
+      { "id": "b3-think-1", "text": "Breaks a big problem into smaller steps" },
+      { "id": "b3-think-2", "text": "Gives reasons and evidence for an opinion" },
+      { "id": "b3-think-3", "text": "Spots simple tricks in ads and headlines" },
+      { "id": "b3-think-4", "text": "Solves logic grids and sequence puzzles" }
+    ], "sampleQuiz": { "q": "An ad says '9 out of 10 kids love it!' What should you ask?", "options": ["Which 10 kids were asked?", "Nothing, it's true", "What colour is it?"], "answer": 0, "hint": "Could the result depend on who they asked?" } },
+
+    { "band": "b3", "subject": "arts", "outcomes": [
+      { "id": "b3-arts-1", "text": "Uses perspective, shading and colour theory (warm/cool)" },
+      { "id": "b3-arts-2", "text": "Reads simple rhythm notation; knows instrument families" },
+      { "id": "b3-arts-3", "text": "Learns about famous artists and musicians from different continents" }
+    ], "sampleQuiz": { "q": "Which is a 'warm' colour?", "options": ["Orange", "Blue", "Green"], "answer": 0, "hint": "Think of fire and the sun." } },
+
+    { "band": "b3", "subject": "computing", "outcomes": [
+      { "id": "b3-comp-1", "text": "Uses loops, conditions (if/else) and variables in block code" },
+      { "id": "b3-comp-2", "text": "Makes a simple game or animation in Scratch" },
+      { "id": "b3-comp-3", "text": "Knows how the internet works simply (computers sending messages)" },
+      { "id": "b3-comp-4", "text": "Understands input → process → output" }
+    ], "sampleQuiz": { "q": "Which block repeats something many times?", "options": ["A loop", "A variable", "A sound"], "answer": 0, "hint": "Think of going around and around." } },
+
+    { "band": "b4", "subject": "language", "outcomes": [
+      { "id": "b4-lang-1", "text": "Analyses author's purpose, tone and point of view (GPF G7–9)" },
+      { "id": "b4-lang-2", "text": "Writes structured essays: argument, explanation and narrative" },
+      { "id": "b4-lang-3", "text": "Understands figurative language: metaphor, simile, irony" },
+      { "id": "b4-lang-4", "text": "Summarises long texts and cites evidence from them" },
+      { "id": "b4-lang-5", "text": "Speaks and listens in discussions; disagrees respectfully" }
+    ], "sampleQuiz": { "q": "'The classroom was a zoo.' This is a…", "options": ["Metaphor", "Simile", "Fact"], "answer": 0, "hint": "Does it use 'like' or 'as'?" } },
+
+    { "band": "b4", "subject": "math", "outcomes": [
+      { "id": "b4-math-1", "text": "Works with negative numbers, ratios, rates and percentages (GPF G7–9)" },
+      { "id": "b4-math-2", "text": "Writes and solves linear equations; understands variables" },
+      { "id": "b4-math-3", "text": "Plots points and straight-line graphs on coordinate axes" },
+      { "id": "b4-math-4", "text": "Area/volume of shapes; Pythagoras' theorem" },
+      { "id": "b4-math-5", "text": "Probability and statistics: mean, median, mode, range; misleading graphs" }
+    ], "sampleQuiz": { "q": "Solve: 3x + 4 = 19", "options": ["x = 5", "x = 7", "x = 15"], "answer": 0, "hint": "First undo the +4 on both sides." } },
+
+    { "band": "b4", "subject": "science", "outcomes": [
+      { "id": "b4-sci-1", "text": "Cells, genetics basics, evolution and classification" },
+      { "id": "b4-sci-2", "text": "Atoms, elements, compounds, the periodic table; chemical vs physical change" },
+      { "id": "b4-sci-3", "text": "Energy forms and transfer; electricity and circuits" },
+      { "id": "b4-sci-4", "text": "Earth science: plate tectonics, rocks, climate change evidence" },
+      { "id": "b4-sci-5", "text": "Scientific method: hypothesis, variables, evaluating evidence and bias" }
+    ], "sampleQuiz": { "q": "Which is a chemical change?", "options": ["Burning wood", "Melting ice", "Cutting paper"], "answer": 0, "hint": "In which one is a new substance made that you can't easily turn back?" } },
+
+    { "band": "b4", "subject": "world", "outcomes": [
+      { "id": "b4-world-1", "text": "Medieval to modern world history from multiple regions; causes and consequences" },
+      { "id": "b4-world-2", "text": "Population, migration, cities, resources and trade" },
+      { "id": "b4-world-3", "text": "Evaluates sources for bias and perspective" },
+      { "id": "b4-world-4", "text": "Types of government and how laws are made", "sensitive": "politics" },
+      { "id": "b4-world-5", "text": "Colonialism, independence movements and world wars — multiple perspectives", "sensitive": "politics" }
+    ], "sampleQuiz": { "q": "Two history books describe the same war very differently. A good historian…", "options": ["Asks who wrote each and why", "Picks the one they like", "Ignores both"], "answer": 0, "hint": "Think about perspective and purpose." } },
+
+    { "band": "b4", "subject": "health", "outcomes": [
+      { "id": "b4-health-1", "text": "Mental health: anxiety, mood, self-esteem, where to get help" },
+      { "id": "b4-health-2", "text": "Nutrition, exercise and sleep for teenagers" },
+      { "id": "b4-health-3", "text": "Peer pressure, healthy friendships and consent in everyday life" },
+      { "id": "b4-health-4", "text": "Risks of tobacco, vaping, alcohol and drugs" },
+      { "id": "b4-health-5", "text": "Puberty, reproduction and relationships education", "sensitive": "body" }
+    ], "sampleQuiz": { "q": "A friend keeps pressuring you to try vaping. A strong response is…", "options": ["'No thanks' and change the subject", "Try it once to fit in", "Lie that you will later"], "answer": 0, "hint": "Which one keeps you in control?" } },
+
+    { "band": "b4", "subject": "digital", "outcomes": [
+      { "id": "b4-dig-1", "text": "Privacy settings, data collection and how apps make money" },
+      { "id": "b4-dig-2", "text": "Recognises misinformation, deepfakes and manipulated images" },
+      { "id": "b4-dig-3", "text": "Healthy social media habits and recognising addictive design" },
+      { "id": "b4-dig-4", "text": "Cyberbullying: how to respond, report and support others" },
+      { "id": "b4-dig-5", "text": "AI literacy: how AI is trained, bias, and using AI honestly for learning" }
+    ], "sampleQuiz": { "q": "An app is free and has no ads. How might it still make money?", "options": ["Selling or using your data", "It can't", "Magic"], "answer": 0, "hint": "What valuable thing do you give it every day?" } },
+
+    { "band": "b4", "subject": "money", "outcomes": [
+      { "id": "b4-money-1", "text": "Budgeting, saving and simple vs compound interest" },
+      { "id": "b4-money-2", "text": "Debt, loans and why 'buy now, pay later' can be risky" },
+      { "id": "b4-money-3", "text": "How businesses work: cost, price, profit" },
+      { "id": "b4-money-4", "text": "Life skills: cooking a simple meal, time management, basic repairs" }
+    ], "sampleQuiz": { "q": "You save 1,000 at 10% interest per year, compounded. After 2 years you have…", "options": ["1,210", "1,200", "1,100"], "answer": 0, "hint": "Year 2 earns interest on 1,100, not 1,000." } },
+
+    { "band": "b4", "subject": "thinking", "outcomes": [
+      { "id": "b4-think-1", "text": "Identifies common logical fallacies (straw man, false choice, bandwagon)" },
+      { "id": "b4-think-2", "text": "Builds an argument: claim, evidence, reasoning" },
+      { "id": "b4-think-3", "text": "Considers other viewpoints before deciding" },
+      { "id": "b4-think-4", "text": "Uses estimation and 'back of the envelope' reasoning" }
+    ], "sampleQuiz": { "q": "'Everyone is buying this phone, so it must be the best.' This is…", "options": ["Bandwagon fallacy", "A strong argument", "A fact"], "answer": 0, "hint": "Does popularity prove quality?" } },
+
+    { "band": "b4", "subject": "arts", "outcomes": [
+      { "id": "b4-arts-1", "text": "Art movements and how art reflects its time and place" },
+      { "id": "b4-arts-2", "text": "Music: scales, chords, melody and harmony basics" },
+      { "id": "b4-arts-3", "text": "Creates a project in a chosen medium (drawing, music, film, design)" }
+    ], "sampleQuiz": { "q": "Playing three or more notes together creates a…", "options": ["Chord", "Rhythm", "Tempo"], "answer": 0, "hint": "Guitarists strum these." } },
+
+    { "band": "b4", "subject": "computing", "outcomes": [
+      { "id": "b4-comp-1", "text": "Writes simple programs in a text language (Python or JavaScript)" },
+      { "id": "b4-comp-2", "text": "Uses lists, functions and loops" },
+      { "id": "b4-comp-3", "text": "Binary numbers and how computers store data" },
+      { "id": "b4-comp-4", "text": "Basic web page (HTML/CSS)" }
+    ], "sampleQuiz": { "q": "What is 101 in binary as a normal number?", "options": ["5", "101", "3"], "answer": 0, "hint": "Columns are 4, 2, 1." } },
+
+    { "band": "b5", "subject": "language", "outcomes": [
+      { "id": "b5-lang-1", "text": "Critically analyses literature and non-fiction, including rhetoric and persuasion" },
+      { "id": "b5-lang-2", "text": "Writes research essays with citations and avoids plagiarism" },
+      { "id": "b5-lang-3", "text": "Formal writing: emails, applications, CVs, statements of purpose" },
+      { "id": "b5-lang-4", "text": "Public speaking and presenting an argument" }
+    ], "sampleQuiz": { "q": "Using someone's idea in your essay without credit is…", "options": ["Plagiarism", "Research", "Fine if you change words"], "answer": 0, "hint": "Whose idea is it?" } },
+
+    { "band": "b5", "subject": "math", "outcomes": [
+      { "id": "b5-math-1", "text": "Quadratics, functions, exponents and logarithms" },
+      { "id": "b5-math-2", "text": "Trigonometry and geometry proofs" },
+      { "id": "b5-math-3", "text": "Statistics: distributions, sampling, correlation vs causation" },
+      { "id": "b5-math-4", "text": "Introduction to calculus ideas (rates of change)" },
+      { "id": "b5-math-5", "text": "Financial maths: loans, inflation, percentages in real life" }
+    ], "sampleQuiz": { "q": "Ice-cream sales and sunburns both rise in summer. This shows…", "options": ["Correlation, not causation", "Ice cream causes sunburn", "Sunburn causes ice cream"], "answer": 0, "hint": "Is there a third thing causing both?" } },
+
+    { "band": "b5", "subject": "science", "outcomes": [
+      { "id": "b5-sci-1", "text": "Biology: DNA, genetics, human systems, ecology" },
+      { "id": "b5-sci-2", "text": "Chemistry: bonding, reactions, acids/bases, moles basics" },
+      { "id": "b5-sci-3", "text": "Physics: motion, Newton's laws, waves, electricity, energy" },
+      { "id": "b5-sci-4", "text": "Reads a scientific study and judges its quality (sample size, controls, peer review)" }
+    ], "sampleQuiz": { "q": "A study tested a medicine on 8 people with no control group. This study is…", "options": ["Weak evidence", "Strong proof", "Perfect"], "answer": 0, "hint": "Think about sample size and comparison." } },
+
+    { "band": "b5", "subject": "world", "outcomes": [
+      { "id": "b5-world-1", "text": "20th–21st century world history and globalisation" },
+      { "id": "b5-world-2", "text": "Economics basics: supply and demand, inflation, trade" },
+      { "id": "b5-world-3", "text": "Global challenges: climate, inequality, health, technology" },
+      { "id": "b5-world-4", "text": "Citizenship, elections, rights and how to evaluate political claims", "sensitive": "politics" },
+      { "id": "b5-world-5", "text": "Philosophy and ethics: major traditions and questions", "sensitive": "religion" }
+    ], "sampleQuiz": { "q": "If many people want a product but few exist, the price usually…", "options": ["Goes up", "Goes down", "Stays the same"], "answer": 0, "hint": "Think about what sellers can charge when buyers compete." } },
+
+    { "band": "b5", "subject": "health", "outcomes": [
+      { "id": "b5-health-1", "text": "Mental health, stress management and exam pressure; how to seek help" },
+      { "id": "b5-health-2", "text": "Healthy relationships, consent and recognising abuse" },
+      { "id": "b5-health-3", "text": "First aid and CPR basics" },
+      { "id": "b5-health-4", "text": "Sexual and reproductive health", "sensitive": "body" }
+    ], "sampleQuiz": { "q": "Exam stress is overwhelming. A helpful first step is…", "options": ["Talk to someone you trust", "Stop sleeping to study more", "Keep it all inside"], "answer": 0, "hint": "Which choice gets you support?" } },
+
+    { "band": "b5", "subject": "digital", "outcomes": [
+      { "id": "b5-dig-1", "text": "Cybersecurity: two-factor authentication, phishing, account recovery" },
+      { "id": "b5-dig-2", "text": "Professional online presence and digital reputation" },
+      { "id": "b5-dig-3", "text": "Algorithms, filter bubbles and how feeds shape opinions" },
+      { "id": "b5-dig-4", "text": "Using AI responsibly: honesty, citing AI help, checking AI output" }
+    ], "sampleQuiz": { "q": "An email from 'your bank' asks you to click and enter your password. You should…", "options": ["Go to the bank's site yourself instead", "Click the link", "Reply with your password"], "answer": 0, "hint": "Can you trust a link you didn't ask for?" } },
+
+    { "band": "b5", "subject": "money", "outcomes": [
+      { "id": "b5-money-1", "text": "Opening a bank account, budgeting a monthly income" },
+      { "id": "b5-money-2", "text": "Credit, credit scores, loans and student finance" },
+      { "id": "b5-money-3", "text": "Taxes and payslips (general concepts)" },
+      { "id": "b5-money-4", "text": "Investing basics: risk, diversification, avoiding scams" },
+      { "id": "b5-money-5", "text": "Living skills: cooking, laundry, renting basics, travel safety" }
+    ], "sampleQuiz": { "q": "An investment promises 'guaranteed 50% returns every month'. This is most likely…", "options": ["A scam", "A great deal", "Normal"], "answer": 0, "hint": "High returns always come with high risk — 'guaranteed' is a warning sign." } },
+
+    { "band": "b5", "subject": "thinking", "outcomes": [
+      { "id": "b5-think-1", "text": "Evaluates arguments and evidence in news and research" },
+      { "id": "b5-think-2", "text": "Decision-making tools: pros/cons, cost-benefit, thinking about consequences" },
+      { "id": "b5-think-3", "text": "Understands cognitive biases (confirmation bias, anchoring)" },
+      { "id": "b5-think-4", "text": "Ethical reasoning about real dilemmas" }
+    ], "sampleQuiz": { "q": "Only reading news that agrees with you is called…", "options": ["Confirmation bias", "Open-mindedness", "Research"], "answer": 0, "hint": "It 'confirms' what you already think." } },
+
+    { "band": "b5", "subject": "arts", "outcomes": [
+      { "id": "b5-arts-1", "text": "Art, music and film criticism: analysing technique and meaning" },
+      { "id": "b5-arts-2", "text": "Builds a creative portfolio" },
+      { "id": "b5-arts-3", "text": "Copyright, Creative Commons and fair use for creators" }
+    ], "sampleQuiz": { "q": "A CC BY license means you can reuse the work if you…", "options": ["Give credit to the creator", "Pay a fee", "Never share it"], "answer": 0, "hint": "BY = attribution." } },
+
+    { "band": "b5", "subject": "computing", "outcomes": [
+      { "id": "b5-comp-1", "text": "Programming with data structures, algorithms and problem solving" },
+      { "id": "b5-comp-2", "text": "Databases and how apps store data" },
+      { "id": "b5-comp-3", "text": "Networks, security and encryption basics" },
+      { "id": "b5-comp-4", "text": "How machine learning works at a high level; ethics of AI" }
+    ], "sampleQuiz": { "q": "Searching a sorted list by checking the middle each time is called…", "options": ["Binary search", "Linear search", "Bubble sort"], "answer": 0, "hint": "It halves the list every step." } },
+
+    { "band": "b5", "subject": "careers", "outcomes": [
+      { "id": "b5-car-1", "text": "Explores career paths, required skills and education routes (college, vocational, apprenticeships)" },
+      { "id": "b5-car-2", "text": "Writes a CV and prepares for interviews" },
+      { "id": "b5-car-3", "text": "Study skills: planning, spaced repetition, active recall, exam technique" },
+      { "id": "b5-car-4", "text": "Finds free scholarships and free learning platforms (and spots fake ones)" },
+      { "id": "b5-car-5", "text": "Sets goals and reflects on strengths and interests" }
+    ], "sampleQuiz": { "q": "Which study method is proven to help memory most?", "options": ["Testing yourself (active recall)", "Re-reading many times", "Highlighting everything"], "answer": 0, "hint": "Your brain learns by pulling information out, not just putting it in." } }
+  ]
+}

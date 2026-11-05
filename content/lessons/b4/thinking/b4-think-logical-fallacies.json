@@ -1,0 +1,109 @@
+{
+  "id": "b4-think-logical-fallacies",
+  "title": "Spotting Bad Arguments",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-1",
+    "b4-think-2"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Fallacy",
+      "url": "https://en.wikipedia.org/wiki/Fallacy",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Straw man",
+      "url": "https://en.wikipedia.org/wiki/Straw_man",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: False dilemma",
+      "url": "https://en.wikipedia.org/wiki/False_dilemma",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Argumentum ad populum",
+      "url": "https://en.wikipedia.org/wiki/Argumentum_ad_populum",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A fallacy is a mistake in reasoning. It can make an argument sound convincing when it isn't. Spotting them protects you from being manipulated by ads, social media and even friends."
+    },
+    {
+      "type": "text",
+      "body": "Bandwagon: 'Everyone's doing it, so it must be right.' Popularity doesn't prove something is true or good."
+    },
+    {
+      "type": "text",
+      "body": "Straw man: twisting someone's argument into a weaker version, then attacking that. 'You want less homework? So you think school is pointless?'"
+    },
+    {
+      "type": "text",
+      "body": "False choice: pretending there are only two options when there are more. 'Either you're with us or against us.'"
+    },
+    {
+      "type": "text",
+      "body": "Attacking the person: criticising the speaker instead of their argument. 'Why listen to her about climate? She's only 14.'"
+    },
+    {
+      "type": "tryit",
+      "body": "Find one ad or online post this week that uses a fallacy. Which one is it?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "'Millions of people bought this energy drink, so it must be healthy.' Which fallacy?",
+      "options": [
+        "Bandwagon",
+        "Straw man",
+        "False choice"
+      ],
+      "answer": 0,
+      "hints": [
+        "What is being used as 'proof'?",
+        "Does popularity prove something is healthy?",
+        "Example: 'This song has a billion views, so it's the best song ever' uses the same move."
+      ],
+      "explain": "It uses popularity as proof, which is the bandwagon fallacy."
+    },
+    {
+      "q": "'You don't want a phone ban in class? So you want students on TikTok all day!' Which fallacy?",
+      "options": [
+        "Straw man",
+        "Bandwagon",
+        "Attacking the person"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is that what the person actually said?",
+        "The argument was changed into something more extreme.",
+        "Example: 'You want fewer cars downtown? So you hate cars!' twists the original view."
+      ],
+      "explain": "It twists the original view into an extreme one that's easy to attack: a straw man."
+    },
+    {
+      "q": "'Either we cancel the school trip or someone will get lost.' Why is this weak?",
+      "options": [
+        "It ignores other options, like more supervision",
+        "It is too short",
+        "It mentions a trip"
+      ],
+      "answer": 0,
+      "hints": [
+        "Are there really only two choices?",
+        "What else could the school do?",
+        "Example: 'Either you study all weekend or you'll fail' ignores studying a bit each day."
+      ],
+      "explain": "It's a false choice. There are other options, like more adults or a buddy system."
+    }
+  ]
+}

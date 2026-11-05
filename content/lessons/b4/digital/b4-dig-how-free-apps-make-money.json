@@ -1,0 +1,104 @@
+{
+  "id": "b4-dig-how-free-apps-make-money",
+  "title": "How Do Free Apps Make Money?",
+  "band": "b4",
+  "subject": "digital",
+  "outcomes": [
+    "b4-dig-1",
+    "b4-dig-3"
+  ],
+  "sensitive": null,
+  "minutes": 20,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Freemium",
+      "url": "https://en.wikipedia.org/wiki/Freemium",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Targeted advertising",
+      "url": "https://en.wikipedia.org/wiki/Targeted_advertising",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Dark pattern",
+      "url": "https://en.wikipedia.org/wiki/Dark_pattern",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Building an app costs money: developers, servers, designers. So when an app is free, it makes money some other way."
+    },
+    {
+      "type": "text",
+      "body": "Ads: the app shows you adverts. Advertisers pay more when they can target people precisely, so many apps collect data about what you like, where you are and who you talk to."
+    },
+    {
+      "type": "text",
+      "body": "In-app purchases: the app is free to start, but extra lives, skins or features cost money (often called 'freemium')."
+    },
+    {
+      "type": "text",
+      "body": "Your attention: the longer you stay, the more ads you see. That's why some apps use endless scrolling, autoplay and streaks. These designs are built to keep you hooked."
+    },
+    {
+      "type": "fact",
+      "body": "Honest Learn is funded by donations. We show no ads and never sell your data."
+    },
+    {
+      "type": "tryit",
+      "body": "Pick an app you use. Look at its privacy settings. What data does it collect? Can you turn some of it off?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "An app is free and shows targeted ads. Why does it collect data about you?",
+      "options": [
+        "Advertisers pay more for precise targeting",
+        "It is required by law",
+        "To make the app load faster"
+      ],
+      "answer": 0,
+      "hints": [
+        "Who pays the app money?",
+        "Why would an advertiser care what you like?",
+        "Example: a shoe brand would pay more to reach people who just searched for running shoes."
+      ],
+      "explain": "Data lets the app target ads precisely, and advertisers pay more for that."
+    },
+    {
+      "q": "Endless scroll and autoplay mainly help an app by…",
+      "options": [
+        "Keeping you on the app longer",
+        "Saving your battery",
+        "Protecting your privacy"
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens when there's never a natural stopping point?",
+        "More time on the app means more of what?",
+        "Example: a video platform that auto-starts the next episode wants you to keep watching. Why?"
+      ],
+      "explain": "They remove stopping points so you stay longer and see more ads."
+    },
+    {
+      "q": "Which is a healthy habit with apps?",
+      "options": [
+        "Turning off non-essential notifications",
+        "Keeping every streak no matter what",
+        "Accepting all permissions"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which choice gives YOU more control?",
+        "Notifications are designed to pull you back in.",
+        "Example: putting your phone in another room while studying removes the pull. Which option is like that?"
+      ],
+      "explain": "Turning off non-essential notifications reduces the pull to keep checking."
+    }
+  ]
+}

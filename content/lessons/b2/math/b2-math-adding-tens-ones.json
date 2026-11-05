@@ -1,0 +1,95 @@
+{
+  "id": "b2-math-adding-tens-ones",
+  "title": "Adding Big Numbers with Tens and Ones",
+  "band": "b2",
+  "subject": "math",
+  "outcomes": [
+    "b2-math-2",
+    "b2-math-1"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Positional notation",
+      "url": "https://en.wikipedia.org/wiki/Positional_notation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The number 23 has 2 tens and 3 ones."
+    },
+    {
+      "type": "text",
+      "body": "To add 23 + 15, add the tens first. 2 tens + 1 ten = 3 tens. That is 30."
+    },
+    {
+      "type": "text",
+      "body": "Then add the ones. 3 + 5 = 8. So 30 + 8 = 38!"
+    },
+    {
+      "type": "tryit",
+      "body": "Use bundles of 10 sticks and loose sticks to show 23 + 15."
+    },
+    {
+      "type": "parent",
+      "body": "Ask your child to say how many tens and ones are in each number before adding. Real objects (sticks, coins, blocks) make it concrete."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is 31 + 12?",
+      "options": [
+        "43",
+        "19",
+        "42"
+      ],
+      "answer": 0,
+      "hints": [
+        "Split each number into tens and ones.",
+        "Tens: 30 + 10 = ? Ones: 1 + 2 = ?",
+        "Example: 24 + 13 → tens 20 + 10 = 30, ones 4 + 3 = 7, so 37. Now try 31 + 12."
+      ],
+      "explain": "Tens: 30 + 10 = 40. Ones: 1 + 2 = 3. 40 + 3 = 43."
+    },
+    {
+      "q": "How many tens are in 56?",
+      "options": [
+        "5",
+        "6",
+        "56"
+      ],
+      "answer": 0,
+      "hints": [
+        "The left digit tells the tens.",
+        "56 is the same as 50 + 6.",
+        "In 34 there are 3 tens (30) and 4 ones. Use the same idea for 56."
+      ],
+      "explain": "56 = 50 + 6, so it has 5 tens and 6 ones."
+    },
+    {
+      "q": "Mia has 44 stickers. She gets 25 more. How many now?",
+      "options": [
+        "69",
+        "19",
+        "68"
+      ],
+      "answer": 0,
+      "hints": [
+        "'Gets more' means add.",
+        "Tens first: 40 + 20. Then ones: 4 + 5.",
+        "Example: 32 + 16 → 30 + 10 = 40, 2 + 6 = 8, total 48."
+      ],
+      "explain": "40 + 20 = 60 and 4 + 5 = 9, so 60 + 9 = 69 stickers."
+    }
+  ]
+}
