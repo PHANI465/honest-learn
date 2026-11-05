@@ -80,6 +80,21 @@
         "Ancient Egypt is known for pyramids. Which one is known for drains?"
       ],
       "explain": "The Indus Valley civilisation had well-planned cities with drains."
+    },
+    {
+      "q": "What was cuneiform?",
+      "options": [
+        "One of the first writing systems",
+        "A type of pyramid",
+        "A river in Egypt"
+      ],
+      "answer": 0,
+      "hints": [
+        "It comes from Mesopotamia, about 5,000 years ago.",
+        "People used it to record things, like messages and lists.",
+        "Example: pyramids are famous buildings from ancient Egypt, beside the Nile."
+      ],
+      "explain": "Cuneiform, from Mesopotamia, was one of the first writing systems. It began around 5,000 years ago."
     }
   ]
 }

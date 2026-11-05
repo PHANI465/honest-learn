@@ -66,6 +66,21 @@
         "A team's own website might only show their wins. Does that tell the whole story?"
       ],
       "explain": "Knowing who made it helps you spot a point of view or bias."
+    },
+    {
+      "q": "Which is a SECONDARY source about ancient Egypt?",
+      "options": [
+        "A documentary made in 2015",
+        "A pot made in ancient Egypt",
+        "A letter written by an ancient Egyptian"
+      ],
+      "answer": 0,
+      "hints": [
+        "Secondary sources were made later, about the past.",
+        "Which one was made long after ancient Egypt ended?",
+        "Example: a diary written during a famous flood is a primary source. It was made at the time."
+      ],
+      "explain": "The documentary was made thousands of years later, so it's secondary. The pot and letter are primary."
     }
   ]
 }

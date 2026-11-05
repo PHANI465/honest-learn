@@ -80,6 +80,21 @@
         "A. R. Rahman is known for Indian film music. Who's from Nigeria?"
       ],
       "explain": "Fela Kuti from Nigeria created Afrobeat."
+    },
+    {
+      "q": "Which artist from the lesson painted bold, colourful self-portraits?",
+      "options": [
+        "Frida Kahlo",
+        "Katsushika Hokusai",
+        "A. R. Rahman"
+      ],
+      "answer": 0,
+      "hints": [
+        "A self-portrait is a picture an artist makes of themselves.",
+        "Her paintings are full of Mexican culture. Who in the lesson is from Mexico?",
+        "Example: who composes film music heard around the world? A. R. Rahman, from India. Now find the painter."
+      ],
+      "explain": "Frida Kahlo, from Mexico, painted bold self-portraits full of colour and Mexican culture."
     }
   ]
 }

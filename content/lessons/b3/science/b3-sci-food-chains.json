@@ -70,6 +70,21 @@
         "If all the flowers vanished, bees would struggle to find food. Same idea."
       ],
       "explain": "Foxes would struggle to find food, because rabbits are part of their food chain."
+    },
+    {
+      "q": "What job do decomposers, like fungi and bacteria, do?",
+      "options": [
+        "Break down dead things",
+        "Make food from sunlight",
+        "Hunt and eat rabbits"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what happens to a fallen leaf over time.",
+        "Decomposers deal with living things after they have died.",
+        "Example: grass makes food from sunlight, so grass is a producer, not a decomposer."
+      ],
+      "explain": "Decomposers break down dead plants and animals. Producers make food, and consumers eat other living things."
     }
   ]
 }

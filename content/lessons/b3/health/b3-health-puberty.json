@@ -65,6 +65,21 @@
         "After football you shower and change clothes. Daily, during puberty, it's similar."
       ],
       "explain": "Washing every day, wearing clean clothes and using deodorant helps."
+    },
+    {
+      "q": "Who could you ask if you have questions about puberty?",
+      "options": [
+        "A parent, school nurse or another trusted adult",
+        "Nobody, because it's best to keep questions to yourself",
+        "Any website, even one you don't know"
+      ],
+      "answer": 0,
+      "hints": [
+        "Questions about growing up are normal.",
+        "Think of grown-ups whose job is to look after you and your health.",
+        "Example: with a question about a new medicine, you could ask a doctor or pharmacist."
+      ],
+      "explain": "Questions are normal. A parent, school nurse or trusted adult can help, and so can reliable health websites."
     }
   ]
 }

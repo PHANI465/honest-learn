@@ -70,6 +70,21 @@
         "'I jumped' happened yesterday. Which verb here ends in -ed?"
       ],
       "explain": "'Played' shows it already happened: past tense."
+    },
+    {
+      "q": "In 'A brave firefighter climbed the ladder', which word is the adjective?",
+      "options": [
+        "brave",
+        "climbed",
+        "firefighter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Adjectives describe nouns.",
+        "Which word tells you what the firefighter is like?",
+        "Example: in 'The red kite flew', 'red' describes the kite, so it's the adjective."
+      ],
+      "explain": "'Brave' describes the firefighter, which is a noun. So 'brave' is the adjective."
     }
   ]
 }

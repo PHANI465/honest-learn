@@ -75,6 +75,21 @@
         "Plants take in carbon dioxide. Humans take in the opposite one."
       ],
       "explain": "We breathe in oxygen and breathe out carbon dioxide."
+    },
+    {
+      "q": "What does your skull protect?",
+      "options": [
+        "The brain",
+        "The heart",
+        "The stomach"
+      ],
+      "answer": 0,
+      "hints": [
+        "The skull is part of the skeletal system.",
+        "Your skull is the bone inside your head.",
+        "Example: your ribs make a cage around your chest. They protect your heart and lungs."
+      ],
+      "explain": "The skull is a strong case of bone that protects the brain."
     }
   ]
 }

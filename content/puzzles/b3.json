@@ -172,6 +172,91 @@
         "At 9:00, 2 hours later it's 11:00."
       ],
       "explain": "3:00 + 5 hours = 8:00."
+    },
+    {
+      "id": "b3-p11",
+      "type": "sequence",
+      "q": "What comes next? 2, 3, 5, 8, 12, …",
+      "options": [
+        "17",
+        "16",
+        "20"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the gaps between the numbers.",
+        "The gaps are 1, 2, 3, 4… What is the next gap?",
+        "In 5, 6, 8, 11 the gaps are 1, 2, 3. The next gap is 4, so next is 15."
+      ],
+      "explain": "The gaps grow by one each time: +1, +2, +3, +4, then +5. 12 + 5 = 17."
+    },
+    {
+      "id": "b3-p12",
+      "type": "analogy",
+      "q": "Bird is to nest as bee is to…",
+      "options": [
+        "Hive",
+        "Honey",
+        "Flower"
+      ],
+      "answer": 0,
+      "hints": [
+        "What is a nest to a bird?",
+        "Think about where a bee lives.",
+        "Dog is to kennel as horse is to stable: an animal and its home."
+      ],
+      "explain": "A nest is a bird's home, and a hive is a bee's home."
+    },
+    {
+      "id": "b3-p13",
+      "type": "code",
+      "q": "In a code, A = 1, B = 2, C = 3 and so on. What word is 6, 9, 19, 8?",
+      "options": [
+        "FISH",
+        "FIRH",
+        "FITH"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count along the alphabet, starting with A as 1.",
+        "J is 10 and T is 20. Use those to find 19.",
+        "With this code, 3, 15, 23 spells COW: C = 3, O = 15, W = 23."
+      ],
+      "explain": "F = 6, I = 9, S = 19 and H = 8, so the word is FISH."
+    },
+    {
+      "id": "b3-p14",
+      "type": "spatial",
+      "q": "A window has 4 square panes in a 2 × 2 grid. How many squares of any size can you find?",
+      "options": [
+        "5",
+        "4",
+        "6"
+      ],
+      "answer": 0,
+      "hints": [
+        "Squares can be different sizes.",
+        "Count the small squares first. Then look for bigger squares.",
+        "A row of 3 small squares has just 3 squares, because no bigger square fits."
+      ],
+      "explain": "There are 4 small squares, plus 1 big square made of all four. 4 + 1 = 5."
+    },
+    {
+      "id": "b3-p15",
+      "type": "odd-one-out",
+      "q": "Which is the odd one out? Eagle, sparrow, bat, pigeon",
+      "options": [
+        "Bat",
+        "Pigeon",
+        "Eagle"
+      ],
+      "answer": 0,
+      "hints": [
+        "They can all fly, so that isn't the rule.",
+        "Think about feathers and fur.",
+        "In cat, dog, goldfish, rabbit, the goldfish is the odd one out. It's the only one that isn't a mammal."
+      ],
+      "explain": "A bat is a mammal with fur, and it feeds its babies milk. Eagles, sparrows and pigeons are birds."
     }
   ]
 }

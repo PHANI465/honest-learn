@@ -70,6 +70,21 @@
         "'Cats are pets. In contrast, lions are wild.' 'In contrast' signals a difference. Which option does the same job?"
       ],
       "explain": "'However' introduces a difference."
+    },
+    {
+      "q": "A sailor's diary and an encyclopedia page both describe a storm at sea. Which tells you how it FELT to be there?",
+      "options": [
+        "The sailor's diary",
+        "The encyclopedia page",
+        "Neither of them"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about who is telling each text.",
+        "Which one was written by someone who was really there?",
+        "Example: a holiday postcard says 'I loved it!'. A guidebook just lists hotels. The postcard shares feelings."
+      ],
+      "explain": "The diary is told from the sailor's point of view, so it shares feelings. The encyclopedia gives facts."
     }
   ]
 }

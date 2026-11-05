@@ -70,6 +70,21 @@
         "If you estimated a journey takes about 1 hour and worked out 10 hours, you'd re-check."
       ],
       "explain": "A big gap from your estimate means you should check your working."
+    },
+    {
+      "q": "A baker makes 4 trays of 15 cookies. She sells 23. How many cookies are left?",
+      "options": [
+        "37",
+        "60",
+        "83"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do you need to find first?",
+        "First find the total: 4 × 15. Then take away the cookies she sold.",
+        "Example: 3 boxes of 10 pens, and 8 are given away. 3 × 10 = 30, then 30 − 8 = 22 left."
+      ],
+      "explain": "4 × 15 = 60 cookies, and 60 − 23 = 37 left. Estimate: 60 − 20 = 40, so 37 is reasonable."
     }
   ]
 }

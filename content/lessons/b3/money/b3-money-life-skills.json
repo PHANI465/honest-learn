@@ -70,6 +70,21 @@
         "Before a trip you make a list of things to pack. Planning a day starts the same way."
       ],
       "explain": "List your must-dos and want-to-dos, then give each a time."
+    },
+    {
+      "q": "An adult is helping you bake. What should you use to take a hot tray out of the oven?",
+      "options": [
+        "Oven gloves",
+        "A wet cloth",
+        "Your hands, if you're quick"
+      ],
+      "answer": 0,
+      "hints": [
+        "A hot tray can burn your skin in a second.",
+        "You need something thick and dry that is made for this job.",
+        "Example: to stir a hot pan, you'd use a long wooden spoon, not your fingers."
+      ],
+      "explain": "Oven gloves are thick and made to protect your hands. A wet cloth lets heat through quickly."
     }
   ]
 }

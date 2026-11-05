@@ -67,6 +67,21 @@
         "If a pop star advertises a phone, does that mean it's the best phone?"
       ],
       "explain": "Celebrity endorsement makes products seem cool, but proves nothing about quality."
+    },
+    {
+      "q": "A headline says 'You WON'T BELIEVE what this cat did!' Why is it written like that?",
+      "options": [
+        "To make you curious so you click",
+        "To give you evidence",
+        "To prove the story is true"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does the headline tell you what actually happened?",
+        "It leaves out the details on purpose.",
+        "Example: 'Limited time only!' on an advert rushes you to buy. That trick uses pressure."
+      ],
+      "explain": "Headlines like this exaggerate to get clicks. They give no evidence at all."
     }
   ]
 }

@@ -75,6 +75,21 @@
         "Poles are cold because sunlight is weak there. What about the opposite place?"
       ],
       "explain": "Near the Equator, places are usually hot (tropical)."
+    },
+    {
+      "q": "A place is about halfway between the Equator and a pole. What is its climate usually called?",
+      "options": [
+        "Temperate",
+        "Tropical",
+        "Polar"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson names three climate zones.",
+        "Tropical is near the Equator, and polar is near the poles.",
+        "Example: a place next to the North Pole is very cold. Its climate is polar."
+      ],
+      "explain": "Between the hot tropics and the cold poles, the climate is usually temperate."
     }
   ]
 }
