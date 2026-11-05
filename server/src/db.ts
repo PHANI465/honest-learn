@@ -130,6 +130,13 @@ const TABLES = [
 /** Columns added after v0.1.0. Applied on start-up when the column is missing. */
 const MIGRATIONS: { table: string; column: string; sqlite: string[]; postgres: string[] }[] = [
   {
+    // ISO 3166-1 alpha-2 country, optional: lets Hoot name the right helpline in a safety reply.
+    table: "parents",
+    column: "country",
+    sqlite: ["ALTER TABLE parents ADD COLUMN country TEXT"],
+    postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS country TEXT"],
+  },
+  {
     table: "parents",
     column: "email_verified_at",
     sqlite: ["ALTER TABLE parents ADD COLUMN email_verified_at TEXT"],

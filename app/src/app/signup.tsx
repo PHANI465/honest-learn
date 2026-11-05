@@ -1,6 +1,7 @@
 import { router } from "expo-router";
 import { useState } from "react";
 import { Text, View, type TextStyle } from "react-native";
+import { CountryPicker } from "../components/CountryPicker";
 import { Banner, Button, Card, Field, H1, H2, P, Screen, Toggle } from "../components/ui";
 import { friendly } from "../lib/api";
 import { useSession } from "../lib/session";
@@ -16,6 +17,7 @@ export default function Signup() {
   const [pin2, setPin2] = useState("");
   const [adult, setAdult] = useState(false);
   const [consent, setConsent] = useState(false);
+  const [country, setCountry] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -26,7 +28,7 @@ export default function Signup() {
     setBusy(true);
     setError(null);
     try {
-      await signup({ email: email.trim(), password, pin });
+      await signup({ email: email.trim(), password, pin, country });
       router.replace("/parent/add-child");
     } catch (e) {
       setError(friendly(e));
@@ -49,6 +51,11 @@ export default function Signup() {
         <P muted size={14}>A 4–6 digit PIN that only grown-ups know. It's needed to change settings, unlock sensitive topics, read chats and open outside links.</P>
         <Field label="PIN" value={pin} onChangeText={(t) => setPin(t.replace(/\D/g, ""))} keyboardType="number-pad" secureTextEntry maxLength={6} />
         <Field label="Repeat PIN" value={pin2} onChangeText={(t) => setPin2(t.replace(/\D/g, ""))} keyboardType="number-pad" secureTextEntry maxLength={6} hint={pin2 && pin !== pin2 ? "PINs don't match yet." : undefined} />
+      </Card>
+      <Card>
+        <H2>Your country (optional)</H2>
+        <P muted size={14}>Only used so Hoot can point to the right children's helpline if your child ever says they feel unsafe. You can change it later.</P>
+        <CountryPicker value={country} onChange={setCountry} />
       </Card>
       <Card>
         <Toggle label="I am a parent or legal guardian, aged 18 or over" value={adult} onChange={setAdult} />

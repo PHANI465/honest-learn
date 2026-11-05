@@ -444,6 +444,31 @@ describe("family data rights", () => {
   });
 });
 
+describe("family country and safety replies", () => {
+  test("country is optional, validated, editable with the PIN, and used for helplines", async () => {
+    const { call } = makeApp();
+    assert.equal((await call("POST", "/auth/signup", { ...signup, country: "Narnia" })).status, 400);
+    const fam = (await call("POST", "/auth/signup", { ...signup, country: "in" })).json.familyToken;
+    assert.equal((await call("GET", "/family", undefined, fam)).json.parent.country, "IN");
+    const countries = (await call("GET", "/content/countries")).json.countries;
+    assert.ok(countries.some((x: any) => x.code === "IN" && x.name === "India"));
+
+    const par = (await call("POST", "/auth/parent-unlock", { pin: "2468" }, fam)).json.parentToken;
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 12 }, par)).json.child.id;
+    const r = await call("POST", `/children/${kid}/tutor/b4-math-linear-equations`, { message: "I want to hurt myself, call me on 98765 43210" }, fam);
+    assert.equal(r.json.flagged, true);
+    assert.match(r.json.reply, /1098/, "India's child helpline is named");
+    assert.equal(r.json.yourMessage, "[removed: personal information]", "phone number removed even in a wellbeing message");
+
+    assert.equal((await call("PATCH", "/parent/settings", { country: "GB" }, fam)).status, 403, "changing country needs the PIN");
+    assert.equal((await call("PATCH", "/parent/settings", { country: "GB" }, par)).json.country, "GB");
+    assert.equal((await call("PATCH", "/parent/settings", { country: null }, par)).json.country, null);
+    const ex = await call("GET", "/parent/export", undefined, par);
+    assert.ok(Array.isArray(ex.json.usageMinutes) && Array.isArray(ex.json.solvedQuizQuestions));
+    assert.equal(ex.json.parent.country, null);
+  });
+});
+
 describe("practice quizzes, puzzles and weekly stats", () => {
   test("practice quiz mixes questions from the subject; answers check through the lesson endpoint", async () => {
     const { call } = makeApp();

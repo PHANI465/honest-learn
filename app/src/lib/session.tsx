@@ -12,9 +12,11 @@ interface Session {
   parentToken: string | null;
   parentEmail: string | null;
   emailVerified: boolean;
+  /** Optional ISO country code, used only for helpline info. */
+  country: string | null;
   children: Child[];
   map: ContentMap | null;
-  signup(input: { email: string; password: string; pin: string }): Promise<void>;
+  signup(input: { email: string; password: string; pin: string; country: string | null }): Promise<void>;
   login(email: string, password: string): Promise<void>;
   logout(): Promise<void>;
   /** Sign in with a token from a password reset. */
@@ -37,12 +39,14 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
   const [parentToken, setParentToken] = useState<string | null>(null);
   const [parentEmail, setParentEmail] = useState<string | null>(null);
   const [emailVerified, setEmailVerified] = useState(true);
+  const [country, setCountry] = useState<string | null>(null);
   const [children, setChildren] = useState<Child[]>([]);
   const [map, setMap] = useState<ContentMap | null>(null);
   const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const loadFamily = useCallback(async (token: string) => {
-    const fam = await api<{ parent: { email: string; emailVerified: boolean }; children: Child[] }>("GET", "/family", token);
+    const fam = await api<{ parent: { email: string; emailVerified: boolean; country?: string | null }; children: Child[] }>("GET", "/family", token);
+    setCountry(fam.parent.country ?? null);
     setParentEmail(fam.parent.email);
     setEmailVerified(fam.parent.emailVerified);
     setChildren(fam.children);
@@ -102,15 +106,17 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
       parentToken,
       parentEmail,
       emailVerified,
+      country,
       children,
       map,
-      async signup({ email, password, pin }) {
+      async signup({ email, password, pin, country: chosen }) {
         const r = await api<{ familyToken: string }>("POST", "/auth/signup", null, {
           email,
           password,
           pin,
           confirmAdult: true,
           consentVersion: map?.consentVersion,
+          ...(chosen ? { country: chosen } : {}),
         });
         await adopt(r.familyToken);
         // A new parent goes straight into the parent area to add a child, so unlock it now.
@@ -159,7 +165,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         }
       },
     }),
-    [ready, familyToken, parentToken, parentEmail, emailVerified, children, map, adopt, lockParent, loadFamily],
+    [ready, familyToken, parentToken, parentEmail, emailVerified, country, children, map, adopt, lockParent, loadFamily],
   );
 
   return <Ctx.Provider value={value}>{kids}</Ctx.Provider>;

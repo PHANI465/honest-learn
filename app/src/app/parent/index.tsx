@@ -1,6 +1,7 @@
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
-import { Alert, Linking, Platform, Text, View } from "react-native";
+import { Alert, Linking, Platform, Share, Text, View } from "react-native";
+import { CountryPicker } from "../../components/CountryPicker";
 import { Banner, Button, Card, Emoji, Field, H1, H2, P, Pill, Screen } from "../../components/ui";
 import { friendly, type Child } from "../../lib/api";
 import { useSession } from "../../lib/session";
@@ -29,7 +30,7 @@ function confirm(title: string, message: string): Promise<boolean> {
 }
 
 export default function ParentHome() {
-  const { parentApi, parentEmail, emailVerified, verifyEmail, resendVerification, map, lockParent, logout, refreshFamily } = useSession();
+  const { parentApi, parentEmail, emailVerified, verifyEmail, resendVerification, country, map, lockParent, logout, refreshFamily } = useSession();
   const [code, setCode] = useState("");
   const [note, setNote] = useState<string | null>(null);
   const [data, setData] = useState<Overview | null>(null);
@@ -53,7 +54,8 @@ export default function ParentHome() {
         a.download = "honest-learn-family-data.json";
         a.click();
       } else {
-        Alert.alert("Your data", text.slice(0, 1500) + (text.length > 1500 ? "\n…" : ""));
+        // Phones: hand the full file to the system share sheet (save to Files, email it, etc.).
+        await Share.share({ title: "Honest Learn family data", message: text });
       }
     } catch (e) {
       setError(friendly(e));
@@ -130,6 +132,22 @@ export default function ParentHome() {
         );
       })}
       <Button title="+ Add a child" kind="secondary" onPress={() => router.push("/parent/add-child")} />
+
+      <H2>Country</H2>
+      <Card>
+        <P muted size={14}>Optional. Used only so Hoot can name the right children's helpline in a safety reply.</P>
+        <CountryPicker
+          value={country}
+          onChange={async (code) => {
+            try {
+              await parentApi("PATCH", "/settings", { country: code });
+              await refreshFamily();
+            } catch (e) {
+              setError(friendly(e));
+            }
+          }}
+        />
+      </Card>
 
       <H2>Account</H2>
       <Card style={{ gap: 10 }}>

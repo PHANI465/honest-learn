@@ -17,7 +17,7 @@ import {
   type BandId,
   type Scope,
 } from "./security.ts";
-import { precheck, type TutorProvider, type TutorTurn } from "./tutor.ts";
+import { detectPersonalInfo, loadHelplines, precheck, type TutorProvider, type TutorTurn } from "./tutor.ts";
 import { lessonWikiTitle, WikiClient, wikiHostFor } from "./wiki.ts";
 import { optionOrder } from "./shuffle.ts";
 import { createMailer, type Mailer } from "./mailer.ts";
@@ -36,6 +36,7 @@ interface ParentRow {
   login_failed: number;
   login_locked_until: string | null;
   email_verified_at: string | null;
+  country: string | null;
   consent_at: string;
   created_at: string;
 }
@@ -54,6 +55,8 @@ interface ChildRow {
 
 const Email = z.string().trim().toLowerCase().email().max(200);
 const Pin = z.string().regex(/^\d{4,6}$/, "PIN must be 4–6 digits");
+/** ISO 3166-1 alpha-2 country code, e.g. "IN", "US", "GB". */
+const Country = z.string().trim().toUpperCase().regex(/^[A-Z]{2}$/, "Choose a country from the list");
 const Password = z.string().min(8, "Password must be at least 8 characters").max(200);
 const AVATARS = ["owl", "fox", "cat", "dog", "panda", "turtle", "rabbit", "lion"] as const;
 
@@ -266,6 +269,19 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
   // ---------------------------------------------------------------- public
   app.get("/health", (c) => c.json({ ok: true, lessons: content.lessons.size, tutor: config.tutor.mode, demo: db.demo }));
 
+  /** Countries with verified helpline info, for the optional country picker at sign-up. */
+  app.get("/content/countries", (c) => {
+    try {
+      const h = loadHelplines();
+      const countries = Object.entries(h.countries)
+        .map(([code, v]) => ({ code, name: v.name }))
+        .sort((x, y) => x.name.localeCompare(y.name));
+      return c.json({ countries });
+    } catch {
+      return c.json({ countries: [] });
+    }
+  });
+
   app.get("/content/map", (c) =>
     c.json({
       version: content.map.version,
@@ -285,13 +301,14 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
         pin: Pin,
         confirmAdult: z.literal(true, { message: "You must confirm you are a parent or guardian aged 18+" }),
         consentVersion: z.literal(CONSENT_VERSION, { message: "Please accept the current privacy notice" }),
+        country: Country.optional(),
       })
       .parse(await c.req.json());
     if (await getParentByEmail(body.email)) return c.json({ error: "email_taken" }, 409);
     const id = newId();
     await db.run(
-      "INSERT INTO parents (id, email, password_hash, pin_hash, consent_version, consent_at, created_at) VALUES (?,?,?,?,?,?,?)",
-      [id, body.email, hashSecret(body.password), hashSecret(body.pin), body.consentVersion, now(), now()],
+      "INSERT INTO parents (id, email, password_hash, pin_hash, consent_version, consent_at, created_at, country) VALUES (?,?,?,?,?,?,?,?)",
+      [id, body.email, hashSecret(body.password), hashSecret(body.pin), body.consentVersion, now(), now(), body.country ?? null],
     );
     await sendCode({ id, email: body.email }, "verify_email");
     return c.json({ familyToken: await issueToken(id, "family") }, 201);
@@ -399,7 +416,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
   fam.get("/family", async (c) => {
     const p = (await getParent(c.get("parentId")))!;
     const kids = (await listChildren(p.id)).map(childPublic);
-    return c.json({ parent: { email: p.email, emailVerified: !!p.email_verified_at }, children: kids });
+    return c.json({ parent: { email: p.email, emailVerified: !!p.email_verified_at, country: p.country }, children: kids });
   });
 
   fam.get("/children/:childId/home", async (c) => {
@@ -714,7 +731,8 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
       .slice(-12)
       .map((m): TutorTurn => ({ role: m.role, content: m.content }));
 
-    const pre = precheck(body.message, pub.band);
+    const family = (await getParent(c.get("parentId")))!;
+    const pre = precheck(body.message, pub.band, family.country ?? undefined);
     const result =
       pre ??
       (await tutor.reply({
@@ -729,7 +747,8 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
       }));
 
     // Personal info is never stored as typed.
-    const stored = result.flag === "personal_info" ? "[removed: personal information]" : body.message;
+    // Personal info is never stored as typed, even when the message was flagged for another reason.
+    const stored = result.flag === "personal_info" || detectPersonalInfo(body.message) ? "[removed: personal information]" : body.message;
     const userId = newId();
     const replyId = newId();
     await insertMsg(userId, r.child.id, r.lesson.id, "user", stored, result.flag, now());
@@ -899,13 +918,22 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
     };
     return c.json({
       exportedAt: now(),
-      parent: { email: p.email, consentAt: p.consent_at, createdAt: p.created_at },
+      parent: { email: p.email, country: p.country, emailVerified: !!p.email_verified_at, consentAt: p.consent_at, createdAt: p.created_at },
       children: kids.map(childPublic),
       progress: await per("SELECT * FROM progress WHERE child_id = ?"),
       // explicit columns: the internal ordering column (seq) is not part of the export
       tutorMessages: await per("SELECT id, child_id, lesson_id, role, content, flagged, created_at FROM tutor_messages WHERE child_id = ?"),
       reports: await db.all("SELECT * FROM reports WHERE parent_id = ?", [id]),
+      usageMinutes: await per("SELECT child_id, day, minutes, bonus FROM usage WHERE child_id = ?"),
+      solvedQuizQuestions: await per("SELECT child_id, lesson_id, q_index, solved_at FROM quiz_solved WHERE child_id = ?"),
     });
+  });
+
+  /** Family settings: currently just the (optional) country used for helpline information. */
+  par.patch("/settings", async (c) => {
+    const b = z.object({ country: Country.nullable() }).parse(await c.req.json());
+    await db.run("UPDATE parents SET country = ? WHERE id = ?", [b.country, c.get("parentId")]);
+    return c.json({ ok: true, country: b.country });
   });
 
   /** Right to erasure: deletes the parent and (via cascade) every child record. */
