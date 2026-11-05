@@ -70,6 +70,21 @@
         "A spare tyre in a car is there for surprise punctures. An emergency fund is like that for money."
       ],
       "explain": "An emergency fund covers unexpected costs so you don't have to borrow."
+    },
+    {
+      "q": "You want to put aside money you won't need for a year, and earn some interest on it. Which fits best?",
+      "options": [
+        "A savings account",
+        "A current/checking account",
+        "Cash kept in a drawer at home"
+      ],
+      "answer": 0,
+      "hints": [
+        "One kind of account is designed for everyday spending with a debit card; another is designed for money you're putting aside.",
+        "Which option is meant to pay interest on money you leave alone?",
+        "Worked example: your weekly bus fares and groceries are paid by debit card, so that money belongs in the account you spend from every day. Money you won't touch for a year has a different job."
+      ],
+      "explain": "A savings account is designed for money you don't need now and pays interest. A current/checking account is for everyday spending, and cash at home earns nothing and can be lost or stolen. Compare fees and interest rates before choosing."
     }
   ]
 }

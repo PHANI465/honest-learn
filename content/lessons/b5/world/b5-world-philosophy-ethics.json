@@ -85,6 +85,21 @@
         "Confucianism comes from China. Which tradition is from southern Africa?"
       ],
       "explain": "Ubuntu emphasises our shared humanity and community."
+    },
+    {
+      "q": "Facing a hard choice, which question would someone using VIRTUE ETHICS most likely ask?",
+      "options": [
+        "What would a person of good character do here?",
+        "Which option produces the best results for the most people?",
+        "Which rule or duty applies here, whatever the outcome?"
+      ],
+      "answer": 0,
+      "hints": [
+        "Virtue ethics focuses on the kind of person you are, not just on single actions or their results.",
+        "The lesson gives honesty, bravery and kindness as examples. Which question puts qualities like those at the centre?",
+        "Worked example: a consequentialist facing the same choice would compare likely outcomes and pick whichever does the most good overall. That's a different approach from the one this question asks about."
+      ],
+      "explain": "Virtue ethics centres on character: what would an honest, brave, kind person do? Asking about the best results for the most people is consequentialism, and asking which duty applies whatever happens is deontology."
     }
   ]
 }

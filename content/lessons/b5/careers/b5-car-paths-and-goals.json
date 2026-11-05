@@ -71,6 +71,21 @@
         "Electricians, chefs and pilots often train through routes other than a traditional degree."
       ],
       "explain": "There are many valid routes to a good career."
+    },
+    {
+      "q": "Your goal is 'Read 12 books by December.' By June you've read only 2. What's the most useful next step, based on the lesson?",
+      "options": [
+        "Reflect on what isn't working and change your plan",
+        "Give up, because the goal has already failed",
+        "Carry on exactly as before and hope it works out"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson's last tip is about checking in on your progress.",
+        "Ask yourself the lesson's three questions about what's working, what isn't, and what you'll do differently.",
+        "Worked example: someone aiming to run 5 km by March notices they keep skipping evening runs because they're tired after school. They switch to morning runs. The goal stays the same; the plan changes."
+      ],
+      "explain": "Regular reflection helps you spot what isn't working and adjust. Giving up throws away the progress you've made, and repeating what isn't working is unlikely to give a different result. You might also decide the target itself needs adjusting so it stays achievable."
     }
   ]
 }

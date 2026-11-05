@@ -66,6 +66,21 @@
         "OpenStax gives free textbooks. Which option is similar?"
       ],
       "explain": "MIT OpenCourseWare offers free course materials from MIT."
+    },
+    {
+      "q": "Which strategy gives you the best chance of winning a scholarship?",
+      "options": [
+        "Apply early, and to several scholarships",
+        "Wait until the deadline day and apply to just one",
+        "Only apply to the single biggest award you can find"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about timing, and about how many applications you send.",
+        "Scholarships are competitive and deadlines can arrive sooner than you expect, so it's risky to rely on a single result.",
+        "Worked example: a job seeker who sends ten tailored applications over a month usually has more chances of an offer than one who sends a single rushed application on the closing date."
+      ],
+      "explain": "The lesson says to apply early and to many. Applying early avoids missed deadlines and rushed work, and applying to several spreads your chances, because any one scholarship is competitive."
     }
   ]
 }

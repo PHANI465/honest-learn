@@ -70,6 +70,21 @@
         "If a friend twisted their ankle badly, you'd help them get to someone who can treat it."
       ],
       "explain": "Listen, take it seriously, and help them reach a trusted adult or professional."
+    },
+    {
+      "q": "Which statement about stress before exams matches the lesson?",
+      "options": [
+        "Some stress can help you focus, but too much makes it hard to think, sleep or eat",
+        "Any stress before an exam means something is wrong with you",
+        "The more stressed you feel, the better you'll perform"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is stress described as always good, always bad, or something in between?",
+        "The lesson contrasts a little stress with too much stress.",
+        "Worked example: a guitar string needs some tension to play a note, but too little and it's floppy, and too much and it can snap. The amount changes the effect."
+      ],
+      "explain": "A moderate amount of stress can sharpen focus, but too much makes it hard to think, sleep or eat. If stress feels overwhelming, use the coping strategies in the lesson and talk to someone you trust."
     }
   ]
 }

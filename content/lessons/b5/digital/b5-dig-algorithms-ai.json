@@ -76,6 +76,21 @@
         "If a friend helped proofread your essay, you'd acknowledge it if required. AI is the same."
       ],
       "explain": "Be open about AI help, and check everything it says."
+    },
+    {
+      "q": "Which action does the most to break out of a filter bubble?",
+      "options": [
+        "Following reliable sources from a range of perspectives",
+        "Liking more posts that match your views",
+        "Scrolling your feed for longer each day"
+      ],
+      "answer": 0,
+      "hints": [
+        "A filter bubble forms when you mostly see views you already agree with.",
+        "What would make your feed show more variety, rather than more of the same?",
+        "Worked example: if a music app only plays one genre because you only ever 'like' that genre, deliberately choosing playlists from other genres widens what it suggests."
+      ],
+      "explain": "Choosing reliable sources from different perspectives (and searching directly) widens what you see. Liking more of what you already agree with, or scrolling longer, teaches the algorithm to show you more of the same."
     }
   ]
 }

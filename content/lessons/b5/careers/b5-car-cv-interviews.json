@@ -66,6 +66,21 @@
         "Describe where you were, what you needed to do, what you did, and what happened."
       ],
       "explain": "STAR = Situation, Task, Action, Result."
+    },
+    {
+      "q": "At the end of an interview you're asked, 'Do you have any questions for us?' What's the best response?",
+      "options": [
+        "Ask one or two questions you prepared about the role or organisation",
+        "Say 'No, I think you've covered everything'",
+        "Ask what the organisation actually does"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson's interview checklist ends with something you prepare for this exact moment.",
+        "Good questions show you've researched the organisation and are genuinely interested in the job.",
+        "Worked example: at a university open day, asking 'What do first-year students on this course work on?' shows interest, while asking 'So what subjects do you teach here?' shows you didn't look at the website first."
+      ],
+      "explain": "The lesson suggests preparing 2 questions to ask. They show interest and research. Having none can seem uninterested, and asking what the organisation does shows you didn't research it."
     }
   ]
 }

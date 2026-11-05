@@ -70,6 +70,21 @@
         "If someone sold concert tickets but refused to show proof they exist, would you pay?"
       ],
       "explain": "Paying before viewing is a classic rental scam warning sign."
+    },
+    {
+      "q": "A white shirt washed with a new pair of dark jeans comes out blue-grey. Which laundry tip would have prevented this?",
+      "options": [
+        "Separate darks and lights",
+        "Don't overload the machine",
+        "Use more detergent"
+      ],
+      "answer": 0,
+      "hints": [
+        "Where did the colour on the shirt come from?",
+        "New, dark fabrics can release dye in the wash, and other clothes can absorb it.",
+        "Worked example: a wool jumper that shrank in a hot wash would have been saved by checking its care label first. Here the problem is different: colour moved from one item to another."
+      ],
+      "explain": "New, dark items (especially denim) can release dye in the wash. Washing darks and lights separately stops lighter clothes picking up that colour."
     }
   ]
 }

@@ -66,6 +66,21 @@
         "'I'm creative' is weak; 'I designed the school play's posters' shows it."
       ],
       "explain": "Specific achievements with evidence are far more convincing than general claims."
+    },
+    {
+      "q": "What's the most effective way to proofread an important application?",
+      "options": [
+        "Read it aloud and ask someone else to check it",
+        "Rely on spellcheck to catch everything",
+        "Read it once silently, straight after writing it"
+      ],
+      "answer": 0,
+      "hints": [
+        "When you read your own writing silently, it's easy to see what you meant to write rather than what's actually there.",
+        "The lesson suggests using your ears and a second pair of eyes.",
+        "Worked example: spellcheck won't flag 'I am excited to join there course', because 'there' is a real word, even though it should be 'their'."
+      ],
+      "explain": "Reading aloud helps you catch awkward phrasing and missing words, and another reader spots mistakes you've stopped seeing. Spellcheck misses real words used wrongly, like 'there' for 'their'."
     }
   ]
 }

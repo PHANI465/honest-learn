@@ -66,6 +66,21 @@
         "With adjacent and hypotenuse, you'd use cos (CAH). Which uses O and A?"
       ],
       "explain": "TOA: tan θ = opposite/adjacent."
+    },
+    {
+      "q": "A 10 m ladder leans against a wall, making a 75° angle with the flat ground. Which calculation gives how high up the wall it reaches?",
+      "options": [
+        "10 × sin 75°",
+        "10 × cos 75°",
+        "10 × tan 75°"
+      ],
+      "answer": 0,
+      "hints": [
+        "Label the sides relative to the 75° angle at the ground: which side is the wall height, and which is the ladder?",
+        "You know the hypotenuse and want the opposite side. Which part of SOH CAH TOA links those two? Then rearrange.",
+        "Worked example: a ramp is 5 m long (the hypotenuse) and rises at 30° to the ground. Its horizontal length is the adjacent side, so use cos: adjacent = 5 × cos 30° ≈ 4.33 m."
+      ],
+      "explain": "The wall height is opposite the 75° angle and the ladder is the hypotenuse, so sin 75° = height ÷ 10, giving height = 10 × sin 75° ≈ 9.66 m."
     }
   ]
 }

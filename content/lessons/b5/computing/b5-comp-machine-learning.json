@@ -71,6 +71,21 @@
         "If you learned what 'normal' food is only from one country's cookbooks, you'd think other cuisines were odd."
       ],
       "explain": "It may learn and repeat past bias, unfairly favouring one group."
+    },
+    {
+      "q": "A model scores 99% on its training data but only 60% on new test data. What is the most likely problem?",
+      "options": [
+        "Overfitting: it memorised the training examples instead of learning general patterns",
+        "The test data must be faulty, so 99% is its true accuracy",
+        "Nothing: a high training score proves the model works"
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare how it does on data it has seen with data it hasn't.",
+        "A big gap between those two scores is a warning sign the lesson names.",
+        "Worked example: a different model scores 70% on training data and 69% on test data. The scores are close, so it's doing about as well on new data as on familiar data. There's no sign of memorising, though it may need better data or a more capable model to improve overall."
+      ],
+      "explain": "A large gap between training (99%) and test (60%) performance is the classic sign of overfitting: the model memorised its training examples but doesn't generalise. The test score is the more honest guide to how it will perform in real use."
     }
   ]
 }
