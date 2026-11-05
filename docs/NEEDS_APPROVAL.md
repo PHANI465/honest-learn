@@ -1,6 +1,6 @@
 # Needs a second pair of eyes before launch
 
-Everything in Honest Learn was drafted with AI help and has **not yet been approved by a human expert**. This list ranks what to check, from most to least risky. Tick items off here (or in the [tracking issue](https://github.com/PHANI465/honest-learn/issues)) as reviewers approve them.
+Everything in Honest Learn was drafted with AI help and has **not yet been approved by a human expert**. This list ranks what to check, from most to least risky. Tick items off here (or in the [tracking issue PHANI465/honest-learn#1](https://github.com/PHANI465/honest-learn/issues/1)) as reviewers approve them.
 
 **How to approve a lesson:** a reviewer checks it against [`REVIEWER_GUIDE.md`](REVIEWER_GUIDE.md) (the spreadsheets in `docs/review/` make this easy). After **two** approvals, set `"status": "reviewed"` and add both reviewers to the lesson file.
 
