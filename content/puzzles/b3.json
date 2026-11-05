@@ -244,11 +244,11 @@
     {
       "id": "b3-p15",
       "type": "odd-one-out",
-      "q": "Which is the odd one out? Eagle, sparrow, bat, pigeon",
+      "q": "Which is the odd one out? Robin, sparrow, bat, pigeon",
       "options": [
         "Bat",
         "Pigeon",
-        "Eagle"
+        "Robin"
       ],
       "answer": 0,
       "hints": [
@@ -256,7 +256,7 @@
         "Think about feathers and fur.",
         "In cat, dog, goldfish, rabbit, the goldfish is the odd one out. It's the only one that isn't a mammal."
       ],
-      "explain": "A bat is a mammal with fur, and it feeds its babies milk. Eagles, sparrows and pigeons are birds."
+      "explain": "A bat is a mammal with fur, and it feeds its babies milk. Robins, sparrows and pigeons are birds with feathers."
     }
   ]
 }
