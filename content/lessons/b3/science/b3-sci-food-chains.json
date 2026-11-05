@@ -1,0 +1,75 @@
+{
+  "id": "b3-sci-food-chains",
+  "title": "Food Chains and Ecosystems",
+  "band": "b3",
+  "subject": "science",
+  "outcomes": [
+    "b3-sci-1"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Food chain",
+      "url": "https://en.wikipedia.org/wiki/Food_chain",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Ecosystem",
+      "url": "https://en.wikipedia.org/wiki/Ecosystem",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A FOOD CHAIN shows what eats what: grass → rabbit → fox. The arrows show where the energy goes."
+    },
+    {
+      "type": "text",
+      "body": "PRODUCERS (plants) make food from sunlight. CONSUMERS eat other living things. DECOMPOSERS (fungi, bacteria) break down dead things."
+    },
+    {
+      "type": "text",
+      "body": "An ECOSYSTEM is all the living things in an area plus their environment, all depending on each other."
+    },
+    {
+      "type": "fact",
+      "body": "If one part of a food chain disappears, the others are affected. Fewer rabbits can mean fewer foxes."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In grass → grasshopper → frog → snake, what is the producer?",
+      "options": [
+        "Grass",
+        "Frog",
+        "Snake"
+      ],
+      "answer": 0,
+      "hints": [
+        "Producers make their own food.",
+        "Which one uses sunlight to make food?",
+        "In seaweed → fish → seal, the producer is the seaweed."
+      ],
+      "explain": "Grass makes its own food from sunlight: it's the producer."
+    },
+    {
+      "q": "What would most likely happen to foxes if rabbits disappeared?",
+      "options": [
+        "Foxes would have less food",
+        "Foxes would have more food",
+        "Nothing"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do the foxes eat?",
+        "If their food disappears…",
+        "If all the flowers vanished, bees would struggle to find food. Same idea."
+      ],
+      "explain": "Foxes would struggle to find food, because rabbits are part of their food chain."
+    }
+  ]
+}

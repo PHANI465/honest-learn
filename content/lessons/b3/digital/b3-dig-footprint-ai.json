@@ -1,0 +1,76 @@
+{
+  "id": "b3-dig-footprint-ai",
+  "title": "Digital Footprints and How AI Works",
+  "band": "b3",
+  "subject": "digital",
+  "outcomes": [
+    "b3-dig-4",
+    "b3-dig-5"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Digital footprint",
+      "url": "https://en.wikipedia.org/wiki/Digital_footprint",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Large language model",
+      "url": "https://en.wikipedia.org/wiki/Large_language_model",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Your DIGITAL FOOTPRINT is the trail you leave online: posts, photos, comments, searches. It can last a very long time, even if you delete something."
+    },
+    {
+      "type": "text",
+      "body": "Before posting, ask: Would I be OK with my teacher, family or a future employer seeing this?"
+    },
+    {
+      "type": "text",
+      "body": "AI chatbots learn patterns from huge amounts of text, then predict likely next words. They don't 'know' things like people do."
+    },
+    {
+      "type": "text",
+      "body": "That's why AI can sound confident but still be WRONG. This is sometimes called 'hallucinating'. Always check important facts."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why should you think before posting a photo online?",
+      "options": [
+        "It might stay online for a very long time",
+        "Photos disappear after a day",
+        "Nobody ever sees posts"
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you always delete things completely?",
+        "Others can save or screenshot posts.",
+        "Writing in permanent marker is hard to rub out. Posting online can be like that."
+      ],
+      "explain": "Online posts can last a long time and be copied, even if you delete them."
+    },
+    {
+      "q": "Why can an AI chatbot give a wrong answer?",
+      "options": [
+        "It predicts likely words and can make mistakes",
+        "It never makes mistakes",
+        "It's a real person guessing"
+      ],
+      "answer": 0,
+      "hints": [
+        "How does an AI chatbot make its answers?",
+        "It works with patterns, not true understanding.",
+        "Autocomplete on a phone guesses your next word and is sometimes wrong. AI chatbots are a much bigger version of this idea."
+      ],
+      "explain": "AI predicts likely words from patterns, so it can sound sure and still be wrong."
+    }
+  ]
+}

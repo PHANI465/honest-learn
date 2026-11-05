@@ -1,0 +1,80 @@
+{
+  "id": "b3-world-maps-latitude",
+  "title": "Latitude, Longitude and the World",
+  "band": "b3",
+  "subject": "world",
+  "outcomes": [
+    "b3-world-1"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Latitude",
+      "url": "https://en.wikipedia.org/wiki/Latitude",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Longitude",
+      "url": "https://en.wikipedia.org/wiki/Longitude",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Climate zone",
+      "url": "https://en.wikipedia.org/wiki/Climate_zone",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Imaginary lines help us find places. LATITUDE lines run east–west and measure how far north or south you are. The EQUATOR is 0°."
+    },
+    {
+      "type": "text",
+      "body": "LONGITUDE lines run north–south from pole to pole. The Prime Meridian (0°) passes through Greenwich, London."
+    },
+    {
+      "type": "text",
+      "body": "Places near the equator are usually hot (tropical). Near the poles it's cold (polar). In between is temperate."
+    },
+    {
+      "type": "fact",
+      "body": "The world's longest river is either the Nile or the Amazon. Geographers still argue about how to measure them! The tallest mountain is Mount Everest (8,849 m)."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the Equator?",
+      "options": [
+        "The line of 0° latitude around the middle of the Earth",
+        "The North Pole",
+        "A mountain"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's an imaginary line.",
+        "It divides the Earth into north and south halves.",
+        "The Prime Meridian is 0° longitude. The line at 0° latitude is called the…?"
+      ],
+      "explain": "The Equator is 0° latitude, around the middle of the Earth."
+    },
+    {
+      "q": "Places near the Equator are usually…",
+      "options": [
+        "Hot",
+        "Freezing",
+        "Always snowy"
+      ],
+      "answer": 0,
+      "hints": [
+        "The Sun is strongest near the middle of the Earth.",
+        "Think of rainforests.",
+        "Poles are cold because sunlight is weak there. What about the opposite place?"
+      ],
+      "explain": "Near the Equator, places are usually hot (tropical)."
+    }
+  ]
+}

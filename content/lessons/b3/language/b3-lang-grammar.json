@@ -1,0 +1,75 @@
+{
+  "id": "b3-lang-grammar",
+  "title": "Word Jobs: Nouns, Verbs, Adjectives, Adverbs",
+  "band": "b3",
+  "subject": "language",
+  "outcomes": [
+    "b3-lang-4"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Part of speech",
+      "url": "https://en.wikipedia.org/wiki/Part_of_speech",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Grammatical tense",
+      "url": "https://en.wikipedia.org/wiki/Grammatical_tense",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "NOUNS name people, places or things: girl, city, pencil."
+    },
+    {
+      "type": "text",
+      "body": "VERBS are action or being words: run, think, is."
+    },
+    {
+      "type": "text",
+      "body": "ADJECTIVES describe nouns: a TALL tree. ADVERBS describe verbs, often ending in -ly: she ran QUICKLY."
+    },
+    {
+      "type": "text",
+      "body": "TENSE shows time: I walk (present), I walked (past), I will walk (future)."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In 'The happy dog barked loudly', which word is the adverb?",
+      "options": [
+        "loudly",
+        "happy",
+        "dog"
+      ],
+      "answer": 0,
+      "hints": [
+        "Adverbs describe how an action is done.",
+        "Which word describes HOW the dog barked?",
+        "In 'She sang sweetly', 'sweetly' describes how she sang. Find the -ly word here."
+      ],
+      "explain": "'Loudly' describes how the dog barked, so it's the adverb."
+    },
+    {
+      "q": "Which sentence is in the PAST tense?",
+      "options": [
+        "We played football.",
+        "We play football.",
+        "We will play football."
+      ],
+      "answer": 0,
+      "hints": [
+        "Past tense happened already.",
+        "Many past-tense verbs end in -ed.",
+        "'I jumped' happened yesterday. Which verb here ends in -ed?"
+      ],
+      "explain": "'Played' shows it already happened: past tense."
+    }
+  ]
+}

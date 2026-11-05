@@ -1,0 +1,71 @@
+{
+  "id": "b3-arts-rhythm-instruments",
+  "title": "Rhythm and Instrument Families",
+  "band": "b3",
+  "subject": "arts",
+  "outcomes": [
+    "b3-arts-2"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Note value",
+      "url": "https://en.wikipedia.org/wiki/Note_value",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Orchestra",
+      "url": "https://en.wikipedia.org/wiki/Orchestra",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "In music notation, a crotchet (quarter note) ♩ lasts 1 beat, a minim (half note) lasts 2 beats, and a semibreve (whole note) lasts 4 beats. Two quavers (eighth notes) ♫ share 1 beat."
+    },
+    {
+      "type": "text",
+      "body": "Instrument families: STRINGS (violin, guitar, sitar), WOODWIND (flute, clarinet), BRASS (trumpet, trombone), PERCUSSION (drums, xylophone, tabla)."
+    },
+    {
+      "type": "text",
+      "body": "You can sort instruments by how they make sound: plucked or bowed strings, blowing air, or hitting."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How many beats does a minim (half note) last?",
+      "options": [
+        "2",
+        "1",
+        "4"
+      ],
+      "answer": 0,
+      "hints": [
+        "A crotchet lasts 1 beat.",
+        "A minim is twice as long.",
+        "A semibreve lasts 4 beats, which is double a minim. So a minim is half of 4."
+      ],
+      "explain": "A minim lasts 2 beats."
+    },
+    {
+      "q": "A tabla is in which instrument family?",
+      "options": [
+        "Percussion",
+        "Brass",
+        "Woodwind"
+      ],
+      "answer": 0,
+      "hints": [
+        "How do you play a tabla?",
+        "You hit it with your hands.",
+        "Drums are hit to make sound. Which family are drums in?"
+      ],
+      "explain": "The tabla is played by hitting it, so it's percussion."
+    }
+  ]
+}

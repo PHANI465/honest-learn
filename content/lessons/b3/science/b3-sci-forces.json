@@ -1,0 +1,85 @@
+{
+  "id": "b3-sci-forces",
+  "title": "Forces: Push, Pull, Gravity, Friction",
+  "band": "b3",
+  "subject": "science",
+  "outcomes": [
+    "b3-sci-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Force",
+      "url": "https://en.wikipedia.org/wiki/Force",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Friction",
+      "url": "https://en.wikipedia.org/wiki/Friction",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Magnetism",
+      "url": "https://en.wikipedia.org/wiki/Magnetism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Simple machine",
+      "url": "https://en.wikipedia.org/wiki/Simple_machine",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A FORCE is a push or a pull. Forces can start, stop or change the direction of things."
+    },
+    {
+      "type": "text",
+      "body": "GRAVITY pulls things towards Earth. FRICTION slows things when surfaces rub. MAGNETS attract some metals, like iron."
+    },
+    {
+      "type": "text",
+      "body": "SIMPLE MACHINES make work easier: levers, pulleys, ramps, wheels and axles."
+    },
+    {
+      "type": "fact",
+      "body": "Ice is slippery because there's very little friction. That's why we sprinkle grit or sand on icy paths."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which force makes a dropped ball fall to the ground?",
+      "options": [
+        "Gravity",
+        "Friction",
+        "Magnetism"
+      ],
+      "answer": 0,
+      "hints": [
+        "Something pulls everything towards Earth.",
+        "Apples fall from trees because of it.",
+        "Friction slows things down; magnets attract iron. What pulls things down?"
+      ],
+      "explain": "Gravity pulls objects towards Earth."
+    },
+    {
+      "q": "Why are trainers with rubber soles good for running?",
+      "options": [
+        "They give more friction, so you don't slip",
+        "They have less gravity",
+        "They are magnetic"
+      ],
+      "answer": 0,
+      "hints": [
+        "What stops your feet slipping?",
+        "Grippy surfaces rub more.",
+        "Sand on an icy path stops slipping by adding friction. Rubber soles work the same way."
+      ],
+      "explain": "Rubber soles grip the ground (more friction), so you don't slip."
+    }
+  ]
+}

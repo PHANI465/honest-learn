@@ -1,0 +1,85 @@
+{
+  "id": "b3-world-ancient-civilisations",
+  "title": "Ancient Civilisations",
+  "band": "b3",
+  "subject": "world",
+  "outcomes": [
+    "b3-world-2"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Civilization",
+      "url": "https://en.wikipedia.org/wiki/Civilization",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Mesopotamia",
+      "url": "https://en.wikipedia.org/wiki/Mesopotamia",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Indus Valley civilisation",
+      "url": "https://en.wikipedia.org/wiki/Indus_Valley_civilisation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Ancient Egypt",
+      "url": "https://en.wikipedia.org/wiki/Ancient_Egypt",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Some of the earliest cities grew up beside big rivers, because rivers gave water and fertile soil for farming."
+    },
+    {
+      "type": "text",
+      "body": "Mesopotamia (Tigris and Euphrates, modern Iraq) gave us one of the first writing systems, cuneiform, around 5,000 years ago."
+    },
+    {
+      "type": "text",
+      "body": "Ancient Egypt (Nile) built pyramids. The Indus Valley civilisation (modern Pakistan and India) had planned cities with drains. Ancient China grew by the Yellow River."
+    },
+    {
+      "type": "text",
+      "body": "Later civilisations included Ancient Greece, Rome and the Maya in Central America, who built cities and made calendars."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why did many early civilisations grow near rivers?",
+      "options": [
+        "Rivers gave water and fertile soil for farming",
+        "Rivers were good for skiing",
+        "There were no other places"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do farmers need most?",
+        "Think about water and soil.",
+        "Even today, farms are often in flat river valleys. Why?"
+      ],
+      "explain": "Rivers provided water and rich soil for growing food."
+    },
+    {
+      "q": "Which civilisation is famous for planned cities with drains?",
+      "options": [
+        "The Indus Valley civilisation",
+        "The Maya",
+        "Ancient Greece"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson mentions drains and planned cities.",
+        "It's in modern Pakistan and India.",
+        "Ancient Egypt is known for pyramids. Which one is known for drains?"
+      ],
+      "explain": "The Indus Valley civilisation had well-planned cities with drains."
+    }
+  ]
+}

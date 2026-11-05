@@ -1,0 +1,70 @@
+{
+  "id": "b3-health-puberty",
+  "title": "Growing Up: Puberty",
+  "band": "b3",
+  "subject": "health",
+  "outcomes": [
+    "b3-health-5"
+  ],
+  "sensitive": "body",
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Puberty",
+      "url": "https://en.wikipedia.org/wiki/Puberty",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Puberty is when your body starts changing from a child's body into an adult's. It usually starts somewhere between about 8 and 14. Everyone's timing is different, and that's normal."
+    },
+    {
+      "type": "text",
+      "body": "Common changes for everyone: growth spurts, new body hair, more sweat (time for deodorant and daily washing), spots, and stronger feelings or mood changes."
+    },
+    {
+      "type": "text",
+      "body": "Many girls develop breasts and start having periods. Many boys' voices get deeper and their shoulders get broader."
+    },
+    {
+      "type": "text",
+      "body": "Questions are normal! Ask a parent, school nurse or another trusted adult. Reliable health websites can help too."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "When does puberty start?",
+      "options": [
+        "At different ages for different people, usually about 8–14",
+        "At exactly 10 for everyone",
+        "Only after 18"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is everyone's body the same?",
+        "The lesson gave a range of ages.",
+        "Children lose baby teeth at different ages. Puberty timing varies too."
+      ],
+      "explain": "It starts at different times for different people, usually between about 8 and 14."
+    },
+    {
+      "q": "During puberty you sweat more. What helps?",
+      "options": [
+        "Washing daily and using deodorant",
+        "Ignoring it",
+        "Wearing the same clothes all week"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about good hygiene.",
+        "Soap, water and clean clothes.",
+        "After football you shower and change clothes. Daily, during puberty, it's similar."
+      ],
+      "explain": "Washing every day, wearing clean clothes and using deodorant helps."
+    }
+  ]
+}

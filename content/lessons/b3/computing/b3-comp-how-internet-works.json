@@ -1,0 +1,75 @@
+{
+  "id": "b3-comp-how-internet-works",
+  "title": "How the Internet Works",
+  "band": "b3",
+  "subject": "computing",
+  "outcomes": [
+    "b3-comp-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Internet",
+      "url": "https://en.wikipedia.org/wiki/Internet",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Packet switching",
+      "url": "https://en.wikipedia.org/wiki/Packet_switching",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The internet is a giant network of computers connected by cables, Wi-Fi, phone signals and even undersea cables."
+    },
+    {
+      "type": "text",
+      "body": "When you send a message, it's split into small PACKETS. They travel separately and are put back together at the other end."
+    },
+    {
+      "type": "text",
+      "body": "Each device has an address (an IP address) so packets know where to go, a bit like a postal address."
+    },
+    {
+      "type": "fact",
+      "body": "Most internet data between continents travels through cables under the ocean, not through satellites."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What happens to a message sent over the internet?",
+      "options": [
+        "It's split into packets and put back together",
+        "It travels as one huge piece",
+        "It's posted by mail"
+      ],
+      "answer": 0,
+      "hints": [
+        "Big things are easier to send in pieces.",
+        "The pieces are called packets.",
+        "Moving house, you pack things into boxes and unpack them at the new home. Internet data works similarly."
+      ],
+      "explain": "Messages are split into packets, sent, then reassembled."
+    },
+    {
+      "q": "How does internet data mostly travel between continents?",
+      "options": [
+        "Undersea cables",
+        "Carrier pigeons",
+        "Satellites only"
+      ],
+      "answer": 0,
+      "hints": [
+        "The lesson's fact box mentions this.",
+        "It goes under the ocean.",
+        "Satellites are used sometimes, but most data uses something laid on the sea floor."
+      ],
+      "explain": "Most data between continents travels through undersea cables."
+    }
+  ]
+}

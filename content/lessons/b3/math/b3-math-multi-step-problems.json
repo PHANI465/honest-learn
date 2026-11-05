@@ -1,0 +1,75 @@
+{
+  "id": "b3-math-multi-step-problems",
+  "title": "Multi-Step Word Problems",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-5"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Word problem (mathematics education)",
+      "url": "https://en.wikipedia.org/wiki/Word_problem_(mathematics_education)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Estimation",
+      "url": "https://en.wikipedia.org/wiki/Estimation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Read the problem twice. Underline the numbers and the question."
+    },
+    {
+      "type": "text",
+      "body": "Decide the steps: what do you need to find first?"
+    },
+    {
+      "type": "text",
+      "body": "ESTIMATE first, then check that your answer is reasonable. If you estimated about 100 and got 1,000, check again!"
+    },
+    {
+      "type": "fact",
+      "body": "Example: 3 packs of 12 eggs, 5 broken. Step 1: 3 × 12 = 36. Step 2: 36 − 5 = 31. Estimate: about 35, so 31 is reasonable."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Tickets cost 8 each. 4 friends go, and they have 50 between them. How much is left after buying tickets?",
+      "options": [
+        "18",
+        "32",
+        "42"
+      ],
+      "answer": 0,
+      "hints": [
+        "First find the total cost of the tickets.",
+        "4 × 8 = 32. Then subtract from 50.",
+        "3 books at 6 each = 18. With 30, you'd have 30 − 18 = 12 left."
+      ],
+      "explain": "4 × 8 = 32, and 50 − 32 = 18 left."
+    },
+    {
+      "q": "You estimate an answer is about 60, but your working gives 600. What should you do?",
+      "options": [
+        "Check your working again",
+        "Write 600",
+        "Write 60"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is 600 close to 60?",
+        "A big difference means something may have gone wrong.",
+        "If you estimated a journey takes about 1 hour and worked out 10 hours, you'd re-check."
+      ],
+      "explain": "A big gap from your estimate means you should check your working."
+    }
+  ]
+}

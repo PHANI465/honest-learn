@@ -1,0 +1,71 @@
+{
+  "id": "b3-dig-checking-facts",
+  "title": "Is It True? Check 2 Sources",
+  "band": "b3",
+  "subject": "digital",
+  "outcomes": [
+    "b3-dig-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Fact-checking",
+      "url": "https://en.wikipedia.org/wiki/Fact-checking",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Information literacy",
+      "url": "https://en.wikipedia.org/wiki/Information_literacy",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Before you believe or share something, check it in at least 2 TRUSTED sources: a reliable encyclopedia, a museum, a science organisation, a well-known news outlet."
+    },
+    {
+      "type": "text",
+      "body": "Ask: Who wrote it? Do they have evidence? When was it written? Does it make me feel very angry or excited? Strong feelings can be a warning sign."
+    },
+    {
+      "type": "text",
+      "body": "Pictures can be edited or taken out of context. A reverse image search (with an adult) can show where a picture really came from."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You read a surprising 'fact' on a random website. What should you do?",
+      "options": [
+        "Check it in 2 trusted sources",
+        "Share it straight away",
+        "Believe it because it's online"
+      ],
+      "answer": 0,
+      "hints": [
+        "Anyone can make a website.",
+        "How many trusted sources should agree?",
+        "If a friend said there's no school tomorrow, you'd check with your teacher or school website before believing it."
+      ],
+      "explain": "Check it in at least 2 trusted sources first."
+    },
+    {
+      "q": "A post makes you feel VERY angry and says 'Share before it's deleted!'. This is…",
+      "options": [
+        "A warning sign it might be misleading",
+        "Proof it's true",
+        "Definitely from a scientist"
+      ],
+      "answer": 0,
+      "hints": [
+        "Why would someone want you to rush?",
+        "Strong feelings stop us thinking carefully.",
+        "Scam messages say 'Act now!' to stop people checking. This uses the same trick."
+      ],
+      "explain": "Pressure and strong emotion are warning signs. Slow down and check."
+    }
+  ]
+}

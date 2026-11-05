@@ -1,0 +1,75 @@
+{
+  "id": "b3-world-child-rights",
+  "title": "Children's Rights",
+  "band": "b3",
+  "subject": "world",
+  "outcomes": [
+    "b3-world-4"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Convention on the Rights of the Child",
+      "url": "https://en.wikipedia.org/wiki/Convention_on_the_Rights_of_the_Child",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Children's rights",
+      "url": "https://en.wikipedia.org/wiki/Children's_rights",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "In 1989 the United Nations agreed the Convention on the Rights of the Child. Almost every country in the world has signed it."
+    },
+    {
+      "type": "text",
+      "body": "It says every child has rights, including the right to education, health care, play, safety, a name and nationality, and to be heard."
+    },
+    {
+      "type": "text",
+      "body": "Rights come with responsibilities: respecting other people's rights too."
+    },
+    {
+      "type": "fact",
+      "body": "The Convention is the most widely ratified human rights treaty in history."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a right in the UN Convention on the Rights of the Child?",
+      "options": [
+        "The right to education",
+        "The right to unlimited sweets",
+        "The right to stay up all night"
+      ],
+      "answer": 0,
+      "hints": [
+        "Rights are about what every child needs to grow up well.",
+        "Think of school.",
+        "The right to health care is in the Convention. Which option is also about a basic need?"
+      ],
+      "explain": "Every child has the right to education."
+    },
+    {
+      "q": "What responsibility comes with having rights?",
+      "options": [
+        "Respecting other people's rights",
+        "Doing whatever you want",
+        "Nothing"
+      ],
+      "answer": 0,
+      "hints": [
+        "If you have rights, so does everyone else.",
+        "How should you treat others' rights?",
+        "If you have the right to be heard, others also have the right to be heard. What does that mean you should do?"
+      ],
+      "explain": "We should respect other people's rights as well as our own."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "b3-math-graphs-mean",
+  "title": "Graphs, Tables and the Mean",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-4"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Bar chart",
+      "url": "https://en.wikipedia.org/wiki/Bar_chart",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Arithmetic mean",
+      "url": "https://en.wikipedia.org/wiki/Arithmetic_mean",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A BAR CHART compares amounts. A LINE GRAPH shows change over time, like temperature through the day."
+    },
+    {
+      "type": "text",
+      "body": "Always read the title, the labels on each axis and the scale."
+    },
+    {
+      "type": "text",
+      "body": "The MEAN (average) = add all the values, then divide by how many there are."
+    },
+    {
+      "type": "fact",
+      "body": "Example: scores 4, 6 and 8. Sum = 18, and 18 ÷ 3 = 6. The mean is 6."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Find the mean of 2, 5, 5 and 8.",
+      "options": [
+        "5",
+        "20",
+        "4"
+      ],
+      "answer": 0,
+      "hints": [
+        "Add them up first.",
+        "2 + 5 + 5 + 8 = 20. How many numbers?",
+        "Mean of 3, 3, 6: (3 + 3 + 6) ÷ 3 = 4."
+      ],
+      "explain": "(2 + 5 + 5 + 8) ÷ 4 = 20 ÷ 4 = 5."
+    },
+    {
+      "q": "Which graph best shows how a plant's height changes over 4 weeks?",
+      "options": [
+        "A line graph",
+        "A pie chart",
+        "No graph"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it about change over time?",
+        "Which graph joins points across time?",
+        "Daily temperature across a week is usually shown with a line. Plant growth is similar."
+      ],
+      "explain": "A line graph shows change over time."
+    }
+  ]
+}

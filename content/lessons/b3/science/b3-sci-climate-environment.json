@@ -1,0 +1,80 @@
+{
+  "id": "b3-sci-climate-environment",
+  "title": "Climate and People",
+  "band": "b3",
+  "subject": "science",
+  "outcomes": [
+    "b3-sci-6"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Climate",
+      "url": "https://en.wikipedia.org/wiki/Climate",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Climate change",
+      "url": "https://en.wikipedia.org/wiki/Climate_change",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Greenhouse effect",
+      "url": "https://en.wikipedia.org/wiki/Greenhouse_effect",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "WEATHER is what happens day to day. CLIMATE is the usual pattern over many years."
+    },
+    {
+      "type": "text",
+      "body": "Gases like carbon dioxide trap heat around the Earth like a blanket. This is the greenhouse effect, and it keeps Earth warm enough to live on."
+    },
+    {
+      "type": "text",
+      "body": "Burning coal, oil and gas adds extra carbon dioxide, so the Earth is warming. Scientists agree this is mainly caused by human activity."
+    },
+    {
+      "type": "text",
+      "body": "Solutions include clean energy (sun, wind, water), saving energy, protecting forests and wasting less."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What's the difference between weather and climate?",
+      "options": [
+        "Weather is day to day; climate is the long-term pattern",
+        "They're the same",
+        "Climate changes every hour"
+      ],
+      "answer": 0,
+      "hints": [
+        "One is short-term, one is long-term.",
+        "'It's raining today' is about…?",
+        "'This city is usually hot in summer' describes years of patterns. What's that called?"
+      ],
+      "explain": "Weather is day-to-day; climate is the usual pattern over many years."
+    },
+    {
+      "q": "Which helps reduce extra carbon dioxide?",
+      "options": [
+        "Using solar or wind power",
+        "Burning more coal",
+        "Cutting down forests"
+      ],
+      "answer": 0,
+      "hints": [
+        "What adds carbon dioxide?",
+        "Clean energy doesn't burn fuel.",
+        "Turning off lights you're not using saves energy. Which option is also a clean choice?"
+      ],
+      "explain": "Solar and wind power make electricity without burning fuel."
+    }
+  ]
+}

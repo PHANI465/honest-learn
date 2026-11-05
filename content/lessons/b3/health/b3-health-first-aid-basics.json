@@ -1,0 +1,75 @@
+{
+  "id": "b3-health-first-aid-basics",
+  "title": "First Aid Basics",
+  "band": "b3",
+  "subject": "health",
+  "outcomes": [
+    "b3-health-2"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: First aid",
+      "url": "https://en.wikipedia.org/wiki/First_aid",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Burn",
+      "url": "https://en.wikipedia.org/wiki/Burn",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "First aid is the help you give before a doctor arrives. Always get an adult first if you can."
+    },
+    {
+      "type": "text",
+      "body": "Small CUT: wash hands, clean with clean water, press gently with a clean cloth to stop bleeding, cover with a plaster."
+    },
+    {
+      "type": "text",
+      "body": "BURN: cool it under cool (not icy) running water for 20 minutes. Don't use butter or ice. Tell an adult."
+    },
+    {
+      "type": "text",
+      "body": "SERIOUS emergency: call your local emergency number, say where you are and what happened, and follow instructions."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How should you treat a small burn?",
+      "options": [
+        "Cool it under cool running water",
+        "Put butter on it",
+        "Put ice directly on it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Heat needs to be taken away gently.",
+        "Running water helps, for a long time.",
+        "First aid guides say cool water, not ice or butter. Which option matches?"
+      ],
+      "explain": "Cool running water (about 20 minutes) is the right first aid. Never butter or ice."
+    },
+    {
+      "q": "When you call emergency services, what should you tell them?",
+      "options": [
+        "Where you are and what happened",
+        "Your favourite food",
+        "Nothing, just hang up"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do helpers need to know to come?",
+        "They need to find you and know how to help.",
+        "If you order a pizza delivery, they need your address. Emergency helpers need that and more."
+      ],
+      "explain": "Tell them where you are and what happened, and follow their instructions."
+    }
+  ]
+}

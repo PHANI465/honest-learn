@@ -1,0 +1,71 @@
+{
+  "id": "b3-world-primary-secondary-sources",
+  "title": "History Detectives: Sources",
+  "band": "b3",
+  "subject": "world",
+  "outcomes": [
+    "b3-world-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Primary source",
+      "url": "https://en.wikipedia.org/wiki/Primary_source",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Secondary source",
+      "url": "https://en.wikipedia.org/wiki/Secondary_source",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A PRIMARY source was made at the time by someone who was there: a diary, a photo, a letter, an object."
+    },
+    {
+      "type": "text",
+      "body": "A SECONDARY source was made later, about the past: a textbook, a documentary, an encyclopedia."
+    },
+    {
+      "type": "text",
+      "body": "Historians use both, and ask: Who made it? When? Why? Could it be one-sided?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a PRIMARY source about a 1950s school?",
+      "options": [
+        "A photo taken in that school in 1955",
+        "A textbook written in 2020",
+        "A film made last year"
+      ],
+      "answer": 0,
+      "hints": [
+        "Primary sources come from the time itself.",
+        "Which one was made in the 1950s?",
+        "A soldier's letter written during a war is a primary source. Which option was made at the time?"
+      ],
+      "explain": "A photo taken in 1955 was made at the time, so it's primary."
+    },
+    {
+      "q": "Why should historians ask who made a source?",
+      "options": [
+        "The maker might have a point of view or bias",
+        "To know their favourite colour",
+        "It doesn't matter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Could the maker want to show only one side?",
+        "Think about point of view.",
+        "A team's own website might only show their wins. Does that tell the whole story?"
+      ],
+      "explain": "Knowing who made it helps you spot a point of view or bias."
+    }
+  ]
+}

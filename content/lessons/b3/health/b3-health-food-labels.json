@@ -1,0 +1,75 @@
+{
+  "id": "b3-health-food-labels",
+  "title": "Reading Food Labels",
+  "band": "b3",
+  "subject": "health",
+  "outcomes": [
+    "b3-health-1"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Nutrition facts label",
+      "url": "https://en.wikipedia.org/wiki/Nutrition_facts_label",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Added sugar",
+      "url": "https://en.wikipedia.org/wiki/Added_sugar",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Food labels show what's inside: energy (calories), fat, sugar, salt and more, usually per 100 g and per portion."
+    },
+    {
+      "type": "text",
+      "body": "Ingredients are listed from MOST to LEAST. If sugar is first, there's more sugar than anything else!"
+    },
+    {
+      "type": "text",
+      "body": "Some countries use traffic-light colours: green = low, amber = medium, red = high."
+    },
+    {
+      "type": "fact",
+      "body": "The WHO recommends keeping 'free sugars' (added sugars, plus honey and fruit juice) to less than 10% of daily energy."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Ingredients are listed in what order?",
+      "options": [
+        "From most to least",
+        "Alphabetical order",
+        "Random order"
+      ],
+      "answer": 0,
+      "hints": [
+        "The first ingredient is the biggest part.",
+        "The list goes from biggest amount to smallest.",
+        "If flour is first in a bread label, there's more flour than anything else. What does that tell you about the order?"
+      ],
+      "explain": "Ingredients go from most to least by weight."
+    },
+    {
+      "q": "Cereal A: 30 g sugar per 100 g. Cereal B: 5 g per 100 g. Which has less sugar?",
+      "options": [
+        "Cereal B",
+        "Cereal A",
+        "They're the same"
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the same amount: 100 g.",
+        "Which number is smaller?",
+        "Drink X has 10 g sugar per 100 ml; drink Y has 2 g. Y has less."
+      ],
+      "explain": "Cereal B has much less sugar (5 g vs 30 g per 100 g)."
+    }
+  ]
+}

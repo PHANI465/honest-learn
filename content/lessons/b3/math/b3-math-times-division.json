@@ -1,0 +1,75 @@
+{
+  "id": "b3-math-times-division",
+  "title": "Times Tables and Division",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-1"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Multiplication table",
+      "url": "https://en.wikipedia.org/wiki/Multiplication_table",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Division (mathematics)",
+      "url": "https://en.wikipedia.org/wiki/Division_(mathematics)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Knowing times tables up to 10 × 10 makes harder math much faster."
+    },
+    {
+      "type": "text",
+      "body": "Division is the opposite of multiplication: if 6 × 7 = 42, then 42 ÷ 7 = 6."
+    },
+    {
+      "type": "text",
+      "body": "For big multiplication, split numbers: 23 × 4 = (20 × 4) + (3 × 4) = 80 + 12 = 92."
+    },
+    {
+      "type": "fact",
+      "body": "Trick for 9s: 9 × 7 = 63, and 6 + 3 = 9. The digits of the 9 times table (up to 9 × 10) always add to 9!"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is 34 × 3?",
+      "options": [
+        "102",
+        "92",
+        "912"
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 34 into 30 and 4.",
+        "30 × 3 = 90 and 4 × 3 = 12. Now add.",
+        "21 × 4 = (20 × 4) + (1 × 4) = 80 + 4 = 84."
+      ],
+      "explain": "(30 × 3) + (4 × 3) = 90 + 12 = 102."
+    },
+    {
+      "q": "If 8 × 6 = 48, what is 48 ÷ 6?",
+      "options": [
+        "8",
+        "6",
+        "42"
+      ],
+      "answer": 0,
+      "hints": [
+        "Division undoes multiplication.",
+        "Which number times 6 makes 48?",
+        "If 5 × 4 = 20, then 20 ÷ 4 = 5."
+      ],
+      "explain": "48 ÷ 6 = 8, because 8 × 6 = 48."
+    }
+  ]
+}

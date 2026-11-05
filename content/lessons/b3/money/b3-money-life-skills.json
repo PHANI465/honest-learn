@@ -1,0 +1,75 @@
+{
+  "id": "b3-money-life-skills",
+  "title": "Kitchen Safety and Planning Your Day",
+  "band": "b3",
+  "subject": "money",
+  "outcomes": [
+    "b3-money-4"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Kitchen",
+      "url": "https://en.wikipedia.org/wiki/Kitchen",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Time management",
+      "url": "https://en.wikipedia.org/wiki/Time_management",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "KITCHEN SAFETY: wash hands, ask an adult before using knives or the stove, turn pan handles inward, and use oven gloves."
+    },
+    {
+      "type": "text",
+      "body": "Simple no-cook recipes to start: sandwiches, fruit salad, yoghurt with fruit."
+    },
+    {
+      "type": "text",
+      "body": "PLANNING YOUR DAY: list what you must do (homework, chores), what you'd like to do (play, read), and give each a time."
+    },
+    {
+      "type": "tryit",
+      "body": "Write a plan for tomorrow after school. Did you stick to it?"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why turn pan handles inward on the stove?",
+      "options": [
+        "So nobody knocks the pan over",
+        "It looks nicer",
+        "It cooks faster"
+      ],
+      "answer": 0,
+      "hints": [
+        "What could happen if a handle sticks out?",
+        "Someone walking past could bump it.",
+        "We push chairs in so people don't trip. Pan handles go in for a similar reason."
+      ],
+      "explain": "So nobody bumps the handle and spills hot food."
+    },
+    {
+      "q": "What's a good first step in planning your afternoon?",
+      "options": [
+        "List what you must do and what you'd like to do",
+        "Start whatever you feel like",
+        "Do nothing"
+      ],
+      "answer": 0,
+      "hints": [
+        "Plans start with a list.",
+        "Separate must-do from want-to-do.",
+        "Before a trip you make a list of things to pack. Planning a day starts the same way."
+      ],
+      "explain": "List your must-dos and want-to-dos, then give each a time."
+    }
+  ]
+}

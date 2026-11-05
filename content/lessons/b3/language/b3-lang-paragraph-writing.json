@@ -1,0 +1,75 @@
+{
+  "id": "b3-lang-paragraph-writing",
+  "title": "Writing a Strong Paragraph",
+  "band": "b3",
+  "subject": "language",
+  "outcomes": [
+    "b3-lang-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Paragraph",
+      "url": "https://en.wikipedia.org/wiki/Paragraph",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Writing process",
+      "url": "https://en.wikipedia.org/wiki/Writing_process",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A paragraph is a group of sentences about ONE main idea."
+    },
+    {
+      "type": "text",
+      "body": "Start with a TOPIC SENTENCE that says the main idea. Add 2–4 SUPPORTING sentences with details or examples. End with a CONCLUDING sentence."
+    },
+    {
+      "type": "text",
+      "body": "Good writers PLAN (list ideas), DRAFT (write it), then EDIT (fix spelling, punctuation and unclear bits)."
+    },
+    {
+      "type": "tryit",
+      "body": "Write a paragraph about your favourite animal: one topic sentence, three facts, one ending sentence."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is the best topic sentence for a paragraph about why dogs make good pets?",
+      "options": [
+        "Dogs make loyal and friendly pets.",
+        "My dog is called Max.",
+        "Some dogs have spots."
+      ],
+      "answer": 0,
+      "hints": [
+        "A topic sentence states the MAIN idea.",
+        "Which sentence covers the whole paragraph, not just one detail?",
+        "For a paragraph about healthy breakfasts, 'A healthy breakfast gives you energy' is the topic sentence. 'I had toast' is a detail."
+      ],
+      "explain": "'Dogs make loyal and friendly pets' states the main idea. The others are details."
+    },
+    {
+      "q": "What's the right order for writing?",
+      "options": [
+        "Plan, draft, edit",
+        "Edit, plan, draft",
+        "Draft, plan, edit"
+      ],
+      "answer": 0,
+      "hints": [
+        "What do you do before you start writing?",
+        "You fix mistakes after you've written something.",
+        "Building a model: first look at the plan, then build, then fix wobbly parts."
+      ],
+      "explain": "Plan first, then draft, then edit."
+    }
+  ]
+}

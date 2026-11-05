@@ -1,0 +1,80 @@
+{
+  "id": "b3-math-area-perimeter-angles",
+  "title": "Perimeter, Area and Angles",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Perimeter",
+      "url": "https://en.wikipedia.org/wiki/Perimeter",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Area",
+      "url": "https://en.wikipedia.org/wiki/Area",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Angle",
+      "url": "https://en.wikipedia.org/wiki/Angle",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "PERIMETER is the distance all the way around a shape. Add up all the sides."
+    },
+    {
+      "type": "text",
+      "body": "AREA is the space inside. For a rectangle: length × width. It's measured in square units (cm²)."
+    },
+    {
+      "type": "text",
+      "body": "A right angle is 90° (like a square corner). Acute angles are smaller than 90°; obtuse angles are between 90° and 180°."
+    },
+    {
+      "type": "fact",
+      "body": "The angles inside any triangle always add up to 180°."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A rectangle is 5 cm long and 3 cm wide. What is its AREA?",
+      "options": [
+        "15 cm²",
+        "16 cm",
+        "8 cm²"
+      ],
+      "answer": 0,
+      "hints": [
+        "Area of a rectangle = length × width.",
+        "5 × 3 = ?",
+        "A 4 cm by 2 cm rectangle has area 4 × 2 = 8 cm²."
+      ],
+      "explain": "Area = 5 × 3 = 15 cm²."
+    },
+    {
+      "q": "Two angles of a triangle are 90° and 60°. What is the third?",
+      "options": [
+        "30°",
+        "60°",
+        "150°"
+      ],
+      "answer": 0,
+      "hints": [
+        "Angles in a triangle add to 180°.",
+        "90 + 60 = 150. What's left to make 180?",
+        "If two angles are 100° and 50°, the third is 180 − 150 = 30°. Try yours."
+      ],
+      "explain": "180 − (90 + 60) = 30°."
+    }
+  ]
+}

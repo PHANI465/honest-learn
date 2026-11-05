@@ -1,0 +1,72 @@
+{
+  "id": "b3-think-evidence-ads",
+  "title": "Reasons, Evidence and Advert Tricks",
+  "band": "b3",
+  "subject": "thinking",
+  "outcomes": [
+    "b3-think-2",
+    "b3-think-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Evidence",
+      "url": "https://en.wikipedia.org/wiki/Evidence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Advertising",
+      "url": "https://en.wikipedia.org/wiki/Advertising",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A strong opinion gives REASONS and EVIDENCE: 'School should have more breaks because studies show short breaks help concentration.'"
+    },
+    {
+      "type": "text",
+      "body": "Adverts use tricks: famous people, 'everyone has one!', tiny print, 'limited time only!', and pictures that look better than the real thing."
+    },
+    {
+      "type": "text",
+      "body": "Headlines can exaggerate to get clicks: 'You WON'T BELIEVE…'"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is the strongest argument for a school garden?",
+      "options": [
+        "It teaches science, and research shows gardening can improve wellbeing",
+        "Because I want one",
+        "Gardens are cool"
+      ],
+      "answer": 0,
+      "hints": [
+        "Which one gives a reason AND evidence?",
+        "Look for facts or research.",
+        "'We need a crossing because 3 accidents happened here this year' is strong. Find the one with evidence."
+      ],
+      "explain": "It gives reasons and mentions evidence, which makes it the strongest argument."
+    },
+    {
+      "q": "An advert shows a famous footballer eating a snack. What's the trick?",
+      "options": [
+        "Using a famous person to make you want it",
+        "Proving the snack is healthy",
+        "Showing the price"
+      ],
+      "answer": 0,
+      "hints": [
+        "Does the footballer prove the snack is good?",
+        "Why use someone famous?",
+        "If a pop star advertises a phone, does that mean it's the best phone?"
+      ],
+      "explain": "Celebrity endorsement makes products seem cool, but proves nothing about quality."
+    }
+  ]
+}

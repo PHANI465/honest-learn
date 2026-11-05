@@ -1,0 +1,75 @@
+{
+  "id": "b3-comp-scratch-game",
+  "title": "Make a Game in Scratch",
+  "band": "b3",
+  "subject": "computing",
+  "outcomes": [
+    "b3-comp-2"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Scratch (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Scratch_(programming_language)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Game design",
+      "url": "https://en.wikipedia.org/wiki/Game_design",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Scratch is a free block-coding tool from MIT. You make SPRITES (characters) and give them scripts."
+    },
+    {
+      "type": "text",
+      "body": "Events start scripts: 'when green flag clicked', 'when space key pressed'."
+    },
+    {
+      "type": "text",
+      "body": "A simple game: a cat catches falling apples. Use a loop to move the apple down, an IF to check 'touching cat?', and a VARIABLE to keep score."
+    },
+    {
+      "type": "tryit",
+      "body": "With a grown-up, open Scratch and make a sprite move with the arrow keys."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In Scratch, what keeps track of a player's score?",
+      "options": [
+        "A variable",
+        "A sprite",
+        "A backdrop"
+      ],
+      "answer": 0,
+      "hints": [
+        "Something that stores a number that changes.",
+        "It can go up when you catch an apple.",
+        "In maths, x can stand for a changing number. In coding, a ___ stores a changing value."
+      ],
+      "explain": "A variable stores a value like the score."
+    },
+    {
+      "q": "Which block starts a script when the game begins?",
+      "options": [
+        "When green flag clicked",
+        "Move 10 steps",
+        "Change score by 1"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's an event block.",
+        "It starts things off.",
+        "'When space key pressed' starts a script when you press space. Which one starts the game?"
+      ],
+      "explain": "'When green flag clicked' starts scripts at the beginning of the game."
+    }
+  ]
+}

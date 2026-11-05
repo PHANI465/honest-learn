@@ -1,0 +1,80 @@
+{
+  "id": "b3-money-banks-interest",
+  "title": "Banks, Saving Accounts and Interest",
+  "band": "b3",
+  "subject": "money",
+  "outcomes": [
+    "b3-money-2"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Bank",
+      "url": "https://en.wikipedia.org/wiki/Bank",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Savings account",
+      "url": "https://en.wikipedia.org/wiki/Savings_account",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Interest",
+      "url": "https://en.wikipedia.org/wiki/Interest",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A BANK keeps money safe. You can put money in (deposit) and take it out (withdraw)."
+    },
+    {
+      "type": "text",
+      "body": "A SAVINGS ACCOUNT may pay you INTEREST: extra money for keeping your money there."
+    },
+    {
+      "type": "fact",
+      "body": "Example: you save 100 at 5% interest a year. After a year you have 105."
+    },
+    {
+      "type": "text",
+      "body": "When people BORROW money from a bank, they pay interest to the bank. Borrowing costs money!"
+    }
+  ],
+  "quiz": [
+    {
+      "q": "You save 200 at 10% interest for one year. How much interest do you earn?",
+      "options": [
+        "20",
+        "10",
+        "210"
+      ],
+      "answer": 0,
+      "hints": [
+        "10% means 10 out of every 100.",
+        "How many 100s are in 200?",
+        "100 at 10% earns 10. 300 at 10% earns 30."
+      ],
+      "explain": "10% of 200 is 20."
+    },
+    {
+      "q": "When you borrow money, what usually happens?",
+      "options": [
+        "You pay back extra as interest",
+        "You pay back less",
+        "You never pay it back"
+      ],
+      "answer": 0,
+      "hints": [
+        "Banks charge for lending money.",
+        "Interest is extra money.",
+        "If you borrow a bike, you return it. If you borrow money from a bank, you return it plus…?"
+      ],
+      "explain": "When borrowing, you usually pay back more than you borrowed (interest)."
+    }
+  ]
+}

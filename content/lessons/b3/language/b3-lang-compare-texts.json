@@ -1,0 +1,75 @@
+{
+  "id": "b3-lang-compare-texts",
+  "title": "Comparing Two Texts",
+  "band": "b3",
+  "subject": "language",
+  "outcomes": [
+    "b3-lang-5"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Comparison",
+      "url": "https://en.wikipedia.org/wiki/Comparison",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Point of view (literature)",
+      "url": "https://en.wikipedia.org/wiki/Point_of_view_(literature)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Two texts about the same topic can be very different. A diary of a sailor and an encyclopedia page about ships both tell you about the sea, but in different ways."
+    },
+    {
+      "type": "text",
+      "body": "Compare: PURPOSE (to inform, entertain or persuade?), POINT OF VIEW (who is telling it?), and FACTS vs FEELINGS."
+    },
+    {
+      "type": "text",
+      "body": "Use words like 'Both…', 'However…', 'In contrast…' to compare."
+    },
+    {
+      "type": "tryit",
+      "body": "Read a news article and a story about the same animal. List one thing that's the same and one that's different."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A travel advert says a beach is 'paradise!'. A science article says the beach has 2 km of sand. What's the main difference?",
+      "options": [
+        "The advert persuades; the article informs",
+        "They're exactly the same",
+        "The article is fiction"
+      ],
+      "answer": 0,
+      "hints": [
+        "Why was each one written?",
+        "One wants you to visit. One gives facts.",
+        "A cereal advert says 'the tastiest cereal ever!'; a food label lists ingredients. Which persuades and which informs?"
+      ],
+      "explain": "The advert tries to persuade you; the science article gives information."
+    },
+    {
+      "q": "Which word helps show a DIFFERENCE between two texts?",
+      "options": [
+        "However",
+        "Also",
+        "Both"
+      ],
+      "answer": 0,
+      "hints": [
+        "Two of these show things are the same.",
+        "Which word introduces something contrasting?",
+        "'Cats are pets. In contrast, lions are wild.' 'In contrast' signals a difference. Which option does the same job?"
+      ],
+      "explain": "'However' introduces a difference."
+    }
+  ]
+}

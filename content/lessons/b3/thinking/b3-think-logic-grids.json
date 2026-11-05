@@ -1,0 +1,75 @@
+{
+  "id": "b3-think-logic-grids",
+  "title": "Logic Grids and Sequences",
+  "band": "b3",
+  "subject": "thinking",
+  "outcomes": [
+    "b3-think-4"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Logic puzzle",
+      "url": "https://en.wikipedia.org/wiki/Logic_puzzle",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Sequence",
+      "url": "https://en.wikipedia.org/wiki/Sequence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A LOGIC GRID helps solve 'who has what' puzzles. Mark ✓ for definitely yes and ✗ for definitely no."
+    },
+    {
+      "type": "text",
+      "body": "When one box gets a ✓, the rest of its row and column become ✗."
+    },
+    {
+      "type": "text",
+      "body": "Sequences: find the rule (add 3? double? alternate?), then test it on every number."
+    },
+    {
+      "type": "fact",
+      "body": "Example: Ana, Ben and Cy have a cat, dog and fish. Ana is allergic to fur. Ben's pet barks. So Ben has the dog, Ana the fish (no fur) and Cy the cat."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Mia, Raj and Tom have red, blue and green bikes. Raj's isn't red or blue. Mia's isn't red. What colour is Tom's?",
+      "options": [
+        "Red",
+        "Blue",
+        "Green"
+      ],
+      "answer": 0,
+      "hints": [
+        "Start with Raj: not red, not blue…",
+        "Raj has green. Mia isn't red, so Mia has…?",
+        "In the pets example, finding one person's answer first unlocked the others. Do Raj first."
+      ],
+      "explain": "Raj = green, Mia = blue (not red), so Tom = red."
+    },
+    {
+      "q": "What's the rule? 5, 8, 11, 14, …",
+      "options": [
+        "Add 3",
+        "Double",
+        "Add 5"
+      ],
+      "answer": 0,
+      "hints": [
+        "Check the gap between each pair.",
+        "8 − 5 = 3, 11 − 8 = …",
+        "In 2, 6, 10, 14 each gap is 4, so the rule is 'add 4'."
+      ],
+      "explain": "Each number goes up by 3, so the next is 17."
+    }
+  ]
+}

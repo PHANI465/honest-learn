@@ -1,0 +1,80 @@
+{
+  "id": "b3-sci-body-systems",
+  "title": "Body Systems Working Together",
+  "band": "b3",
+  "subject": "science",
+  "outcomes": [
+    "b3-sci-2"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Human body",
+      "url": "https://en.wikipedia.org/wiki/Human_body",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Circulatory system",
+      "url": "https://en.wikipedia.org/wiki/Circulatory_system",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Respiratory system",
+      "url": "https://en.wikipedia.org/wiki/Respiratory_system",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "DIGESTIVE system: breaks down food (mouth, stomach, intestines)."
+    },
+    {
+      "type": "text",
+      "body": "CIRCULATORY system: the heart pumps blood through blood vessels, carrying oxygen and food to every cell."
+    },
+    {
+      "type": "text",
+      "body": "RESPIRATORY system: lungs take in oxygen and breathe out carbon dioxide."
+    },
+    {
+      "type": "text",
+      "body": "SKELETAL system: 206 bones in an adult support you and protect organs (the skull protects the brain)."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which organ pumps blood around the body?",
+      "options": [
+        "The heart",
+        "The lungs",
+        "The stomach"
+      ],
+      "answer": 0,
+      "hints": [
+        "Feel your chest: something beats.",
+        "It's part of the circulatory system.",
+        "Lungs are for breathing. The stomach is for digestion. Blood pumping is the job of the…?"
+      ],
+      "explain": "The heart pumps blood around the body."
+    },
+    {
+      "q": "What gas do your lungs take in that your body needs?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Helium"
+      ],
+      "answer": 0,
+      "hints": [
+        "You breathe it in.",
+        "Your cells need it; you breathe out the other one.",
+        "Plants take in carbon dioxide. Humans take in the opposite one."
+      ],
+      "explain": "We breathe in oxygen and breathe out carbon dioxide."
+    }
+  ]
+}

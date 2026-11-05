@@ -1,0 +1,85 @@
+{
+  "id": "b3-arts-artists-world",
+  "title": "Artists and Musicians From Around the World",
+  "band": "b3",
+  "subject": "arts",
+  "outcomes": [
+    "b3-arts-3"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Frida Kahlo",
+      "url": "https://en.wikipedia.org/wiki/Frida_Kahlo",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Katsushika Hokusai",
+      "url": "https://en.wikipedia.org/wiki/Katsushika_Hokusai",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: A. R. Rahman",
+      "url": "https://en.wikipedia.org/wiki/A._R._Rahman",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Fela Kuti",
+      "url": "https://en.wikipedia.org/wiki/Fela_Kuti",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Frida Kahlo (Mexico) painted bold self-portraits full of colour and Mexican culture."
+    },
+    {
+      "type": "text",
+      "body": "Katsushika Hokusai (Japan) made 'The Great Wave off Kanagawa', a famous woodblock print."
+    },
+    {
+      "type": "text",
+      "body": "A. R. Rahman (India) composes film music heard around the world. Fela Kuti (Nigeria) created Afrobeat music."
+    },
+    {
+      "type": "text",
+      "body": "Art and music often show where the artist comes from: their landscape, stories and traditions."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Who made 'The Great Wave off Kanagawa'?",
+      "options": [
+        "Hokusai",
+        "Frida Kahlo",
+        "Fela Kuti"
+      ],
+      "answer": 0,
+      "hints": [
+        "It's a Japanese woodblock print.",
+        "The lesson names one Japanese artist.",
+        "Frida Kahlo is from Mexico; Fela Kuti from Nigeria. Who is from Japan?"
+      ],
+      "explain": "Hokusai, a Japanese artist, made The Great Wave."
+    },
+    {
+      "q": "Afrobeat music was created by…",
+      "options": [
+        "Fela Kuti",
+        "Hokusai",
+        "A. R. Rahman"
+      ],
+      "answer": 0,
+      "hints": [
+        "Afrobeat comes from Africa.",
+        "Which musician in the lesson is from Nigeria?",
+        "A. R. Rahman is known for Indian film music. Who's from Nigeria?"
+      ],
+      "explain": "Fela Kuti from Nigeria created Afrobeat."
+    }
+  ]
+}

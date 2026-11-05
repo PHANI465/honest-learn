@@ -1,0 +1,75 @@
+{
+  "id": "b3-sci-planning-fair-test",
+  "title": "Planning a Fair Test",
+  "band": "b3",
+  "subject": "science",
+  "outcomes": [
+    "b3-sci-5"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Scientific control",
+      "url": "https://en.wikipedia.org/wiki/Scientific_control",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Dependent and independent variables",
+      "url": "https://en.wikipedia.org/wiki/Dependent_and_independent_variables",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A fair test changes ONE thing (the variable you test) and keeps everything else the same."
+    },
+    {
+      "type": "text",
+      "body": "Decide what you MEASURE, then record results in a table."
+    },
+    {
+      "type": "text",
+      "body": "Repeat the test to make sure results are reliable, then write a CONCLUSION: what did you find out?"
+    },
+    {
+      "type": "fact",
+      "body": "Example: Does sugar dissolve faster in hot water? Change only the water temperature. Same amount of sugar, same cup, same stirring."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Testing whether plants grow taller with more light, what must you keep the same?",
+      "options": [
+        "Water, soil and plant type",
+        "The amount of light",
+        "Nothing"
+      ],
+      "answer": 0,
+      "hints": [
+        "Light is what you're testing.",
+        "Everything else should match.",
+        "Testing which paper towel is most absorbent: same water, same size towel. Only the brand changes."
+      ],
+      "explain": "Keep water, soil and plant type the same, and only change the light."
+    },
+    {
+      "q": "Why repeat an experiment?",
+      "options": [
+        "To check the results are reliable",
+        "To make it longer",
+        "Because the first one was boring"
+      ],
+      "answer": 0,
+      "hints": [
+        "Could one result be a fluke?",
+        "Doing it again checks if you get similar results.",
+        "If you flip a coin once and get heads, does that prove coins always land heads?"
+      ],
+      "explain": "Repeating checks your results weren't a one-off fluke."
+    }
+  ]
+}
