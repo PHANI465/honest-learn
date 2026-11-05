@@ -2,7 +2,8 @@ import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
 import { Text, View } from "react-native";
 import { Banner, Button, Card, H1, Loading, Pill, Screen } from "../../../../components/ui";
-import { api, friendly, type LessonSummary } from "../../../../lib/api";
+import { useExternalLink } from "../../../../components/ExternalLink";
+import { api, friendly, type FreeResource, type LessonSummary } from "../../../../lib/api";
 import { useChild, useSession } from "../../../../lib/session";
 import { bandTheme, colors, subjectEmoji } from "../../../../lib/theme";
 
@@ -12,6 +13,16 @@ export default function SubjectLessons() {
   const child = useChild(childId);
   const [data, setData] = useState<{ lessons: LessonSummary[]; lockedCount: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [resources, setResources] = useState<{ resources: FreeResource[]; opensWithParentPin: boolean } | null>(null);
+  const link = useExternalLink(resources?.opensWithParentPin ?? true);
+
+  useFocusEffect(
+    useCallback(() => {
+      api<{ resources: FreeResource[]; opensWithParentPin: boolean }>("GET", `/children/${childId}/resources?subject=${subjectId}`, familyToken)
+        .then(setResources)
+        .catch(() => {});
+    }, [childId, subjectId, familyToken]),
+  );
 
   useFocusEffect(
     useCallback(() => {
@@ -54,6 +65,23 @@ export default function SubjectLessons() {
       {data?.lockedCount ? (
         <Banner tone="info">🔒 {data.lockedCount} more lesson{data.lockedCount > 1 ? "s" : ""} here need a parent's permission. Ask your grown-up!</Banner>
       ) : null}
+
+      {resources?.resources.length ? (
+        <>
+          <Text style={{ fontSize: 20, fontWeight: "700", color: colors.ink, marginTop: 8 }}>🌐 More free learning</Text>
+          <Text style={{ color: colors.muted, fontSize: 14 }}>
+            Hand-picked free websites for your age.{resources.opensWithParentPin ? " A grown-up opens them with their PIN." : ""}
+          </Text>
+          {resources.resources.map((r) => (
+            <Card key={r.id} onPress={() => link.open(r.url)} label={`Open ${r.name}`} style={{ borderRadius: t.radius }}>
+              <Text style={{ fontWeight: "800", fontSize: 16, color: colors.ink }}>{r.name} ↗</Text>
+              <Text style={{ color: colors.muted, fontSize: 14, lineHeight: 20 }}>{r.description}</Text>
+              <Pill text={r.account === "none" ? "Free · no account" : `Free · account ${r.account}`} />
+            </Card>
+          ))}
+        </>
+      ) : null}
+      {link.modal}
     </Screen>
   );
 }

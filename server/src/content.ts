@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { z } from "zod";
 
@@ -15,6 +15,32 @@ export const QuizQuestion = z
   })
   .refine((q) => q.answer < q.options.length, { message: "answer index out of range" });
 
+export const Section = z
+  .object({
+    type: z.enum(["text", "tryit", "parent", "fact", "video"]),
+    /** For video sections: a caption explaining why we picked this video. */
+    body: z.string().min(1),
+    /** YouTube video id, played through the privacy-enhanced (no-cookie) player. */
+    videoId: z.string().regex(/^[\w-]{11}$/, "must be an 11-character YouTube id").optional(),
+    /** Date a reviewer ran scripts/check-videos.mjs and confirmed made-for-kids/embeddable status. */
+    videoCheckedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+    videoMinutes: z.number().positive().max(20).optional(),
+  })
+  .refine((s) => s.type !== "video" || !!s.videoId, { message: "video sections need a videoId" });
+
+export const Resource = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  name: z.string().min(1),
+  url: z.string().url().startsWith("https://"),
+  subjects: z.array(z.string()).min(1),
+  bands: z.array(z.enum(["b1", "b2", "b3", "b4", "b5"])).min(1),
+  description: z.string().min(1),
+  cost: z.literal("free"),
+  account: z.string(),
+  lastChecked: z.string().nullable(),
+});
+export type Resource = z.infer<typeof Resource>;
+
 export const Lesson = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   title: z.string().min(1),
@@ -26,9 +52,9 @@ export const Lesson = z.object({
   status: z.enum(["draft", "reviewed"]),
   reviewers: z.array(z.object({ initials: z.string(), role: z.string(), date: z.string() })),
   sources: z.array(z.object({ title: z.string(), url: z.string().url(), license: z.string() })),
-  sections: z
-    .array(z.object({ type: z.enum(["text", "tryit", "parent", "fact"]), body: z.string().min(1) }))
-    .min(1),
+  /** Wikipedia article for "Learn more" (ages 9+). Simple English Wikipedia is used for ages 9–11. */
+  wikiTitle: z.string().min(1).optional(),
+  sections: z.array(Section).min(1),
   quiz: z.array(QuizQuestion).min(1),
 });
 export type Lesson = z.infer<typeof Lesson>;
@@ -44,6 +70,7 @@ export interface KnowledgeMap {
 export interface ContentStore {
   map: KnowledgeMap;
   lessons: Map<string, Lesson>;
+  resources: Resource[];
 }
 
 function walk(dir: string): string[] {
@@ -81,10 +108,33 @@ export function loadContent(contentDir: string): ContentStore {
     if ((l.band === "b1" || l.band === "b2") && !l.sections.some((s) => s.type === "parent")) {
       problems.push(`${file}: ${l.band} lessons need a 'parent' section`);
     }
+    for (const s of l.sections) {
+      if (s.type === "video" && l.status === "reviewed" && !s.videoCheckedOn) {
+        problems.push(`${file}: reviewed lessons can only include videos with a videoCheckedOn date (run scripts/check-videos.mjs)`);
+      }
+    }
     lessons.set(l.id, l);
   }
+  const resources: Resource[] = [];
+  const resFile = join(contentDir, "resources.json");
+  if (existsSync(resFile)) {
+    const raw = JSON.parse(readFileSync(resFile, "utf8")) as { resources: unknown[] };
+    const ids = new Set<string>();
+    for (const r of raw.resources) {
+      const parsed = Resource.safeParse(r);
+      if (!parsed.success) {
+        problems.push(`resources.json: ${JSON.stringify((r as { id?: string }).id)} ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
+        continue;
+      }
+      if (ids.has(parsed.data.id)) problems.push(`resources.json: duplicate id ${parsed.data.id}`);
+      ids.add(parsed.data.id);
+      for (const subj of parsed.data.subjects) if (!subjectIds.has(subj)) problems.push(`resources.json: ${parsed.data.id} has unknown subject ${subj}`);
+      resources.push(parsed.data);
+    }
+  }
+
   if (problems.length) throw new Error("Content problems:\n- " + problems.join("\n- "));
-  return { map, lessons };
+  return { map, lessons, resources };
 }
 
 /** Lesson without quiz answers/explanations — what the app receives before answering. */

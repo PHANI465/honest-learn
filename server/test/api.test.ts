@@ -11,11 +11,26 @@ const { loadContent } = await import("../src/content.ts");
 const { createApp, CONSENT_VERSION, reviewIntervalDays } = await import("../src/app.ts");
 const { MockTutor, ClaudeTutor, precheck } = await import("../src/tutor.ts");
 const { bandForAge } = await import("../src/security.ts");
+const { WikiClient, lessonWikiTitle } = await import("../src/wiki.ts");
+
+/** Simulated Wikipedia: records requested URLs, knows two articles. */
+function fakeWiki() {
+  const calls: string[] = [];
+  const client = new WikiClient(async (url: string) => {
+    calls.push(url);
+    if (url.includes("Fraction")) {
+      return new Response(JSON.stringify({ type: "standard", title: "Fraction", extract: "A fraction is a part of a whole.", content_urls: { desktop: { page: "https://x/wiki/Fraction" } } }));
+    }
+    if (url.includes("Water_cycle")) return new Response(JSON.stringify({ type: "disambiguation", title: "Water cycle", extract: "may refer to" }));
+    return new Response("{}", { status: 404 });
+  });
+  return { client, calls };
+}
 
 const content = loadContent(config.contentDir);
 
-function makeApp(tutor = new MockTutor()) {
-  const app = createApp({ db: openDb(":memory:"), content, tutor });
+function makeApp(tutor = new MockTutor(), wiki = fakeWiki().client) {
+  const app = createApp({ db: openDb(":memory:"), content, tutor, wiki });
   const call = async (method: string, path: string, body?: unknown, token?: string) => {
     const res = await app.request(path, {
       method,
@@ -244,6 +259,50 @@ describe("AI tutor", () => {
     // once solved, a full explanation is allowed
     const solved = await new ClaudeTutor(fake("3/4 = 9/12 > 8/12", { safe_for_age: true, reveals_answer: true, reason: "x" })).reply({ ...req, questionSolved: true });
     assert.equal(solved.flag, null);
+  });
+});
+
+describe("free resources and Wikipedia", () => {
+  test("resources are filtered by the child's age and subject", async () => {
+    const { call } = makeApp();
+    const { fam, par } = await family(call);
+    const little = (await call("POST", "/parent/children", { nickname: "Tiny", birthYear: year - 4 }, par)).json.child.id;
+    const teen = (await call("POST", "/parent/children", { nickname: "Sam", birthYear: year - 16 }, par)).json.child.id;
+    const a = await call("GET", `/children/${little}/resources`, undefined, fam);
+    assert.ok(a.json.resources.length > 0);
+    assert.ok(a.json.resources.every((r: any) => r.bands.includes("b1")));
+    assert.equal(a.json.opensWithParentPin, true);
+    const b = await call("GET", `/children/${teen}/resources?subject=computing`, undefined, fam);
+    assert.ok(b.json.resources.some((r: any) => r.id === "freecodecamp"));
+    assert.ok(b.json.resources.every((r: any) => r.subjects.includes("computing") && r.bands.includes("b5")));
+    assert.equal(b.json.opensWithParentPin, false);
+  });
+
+  test("learn-more uses Simple English Wikipedia for 9–11, nothing under 9, and caches", async () => {
+    const w = fakeWiki();
+    const { call } = makeApp(new MockTutor(), w.client);
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 10 }, par)).json.child.id;
+    const r = await call("GET", `/children/${kid}/lessons/b3-math-comparing-fractions/learn-more`, undefined, fam);
+    assert.equal(r.json.available, true);
+    assert.equal(r.json.source, "Simple English Wikipedia");
+    assert.equal(r.json.license, "CC BY-SA 4.0");
+    assert.match(w.calls[0]!, /^https:\/\/simple\.wikipedia\.org\/api\/rest_v1\/page\/summary\/Fraction$/);
+    await call("GET", `/children/${kid}/lessons/b3-math-comparing-fractions/learn-more`, undefined, fam);
+    assert.equal(w.calls.length, 1, "second request is served from cache");
+
+    const dis = await call("GET", `/children/${kid}/lessons/b3-sci-water-cycle/learn-more`, undefined, fam);
+    assert.deepEqual(dis.json, { available: false, reason: "not_found" }, "disambiguation pages are skipped");
+
+    const little = (await call("POST", "/parent/children", { nickname: "Sam", birthYear: year - 7 }, par)).json.child.id;
+    const none = await call("GET", `/children/${little}/lessons/b2-sci-solid-liquid-gas/learn-more`, undefined, fam);
+    assert.equal(none.json.reason, "not_for_age");
+  });
+
+  test("lesson wiki title comes from wikiTitle or the first Wikipedia source", () => {
+    assert.equal(lessonWikiTitle({ wikiTitle: "Atom", sources: [] }), "Atom");
+    assert.equal(lessonWikiTitle({ sources: [{ url: "https://openstax.org/x" }, { url: "https://en.wikipedia.org/wiki/Water_cycle" }] }), "Water_cycle");
+    assert.equal(lessonWikiTitle({ sources: [{ url: "https://openstax.org/x" }] }), null);
   });
 });
 

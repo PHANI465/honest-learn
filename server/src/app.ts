@@ -16,6 +16,7 @@ import {
   type Scope,
 } from "./security.ts";
 import { precheck, type TutorProvider, type TutorTurn } from "./tutor.ts";
+import { lessonWikiTitle, WikiClient, wikiHostFor } from "./wiki.ts";
 
 export const CONSENT_VERSION = "2026-11-v1";
 
@@ -103,8 +104,9 @@ export function reviewIntervalDays(score: number, total: number, attempts: numbe
   return Math.min(3 * 2 ** (attempts - 1), 30);
 }
 
-export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorProvider }) {
+export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorProvider; wiki?: WikiClient }) {
   const { db, content, tutor } = deps;
+  const wiki = deps.wiki ?? new WikiClient();
   const app = new Hono<Env>();
 
   app.use("*", cors({ origin: config.corsOrigins.includes("*") ? "*" : config.corsOrigins }));
@@ -287,6 +289,30 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
       .prepare("SELECT q_index FROM quiz_solved WHERE child_id = ? AND lesson_id = ?")
       .all(r.child.id, r.lesson.id) as { q_index: number }[]).map((s) => s.q_index);
     return c.json({ lesson: publicLesson(r.lesson), solved });
+  });
+
+  /** Wikipedia summary for this lesson's topic (ages 9+; Simple English for 9–11). */
+  fam.get("/children/:childId/lessons/:lessonId/learn-more", async (c) => {
+    const r = lessonFor(c);
+    if (r instanceof Response) return r;
+    const band = childBand(r.child);
+    if (!wikiHostFor(band)) return c.json({ available: false, reason: "not_for_age" });
+    const title = lessonWikiTitle(r.lesson);
+    if (!title) return c.json({ available: false, reason: "no_article" });
+    const summary = await wiki.summary(band, title);
+    if (!summary) return c.json({ available: false, reason: "not_found" });
+    return c.json({ available: true, ...summary, opensWithParentPin: band === "b3" });
+  });
+
+  /** Curated free learning resources outside the app, for this child's age (and optionally one subject). */
+  fam.get("/children/:childId/resources", (c) => {
+    const child = loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const band = childBand(child);
+    const subject = c.req.query("subject");
+    const resources = content.resources.filter((r) => r.bands.includes(band) && (!subject || r.subjects.includes(subject)));
+    // Under-13s need a grown-up to open outside links (app-store kids rules); teens get a "leaving the app" notice.
+    return c.json({ resources, opensWithParentPin: band === "b1" || band === "b2" || band === "b3" });
   });
 
   const QuestionRef = z.object({ question: z.number().int().min(0) });

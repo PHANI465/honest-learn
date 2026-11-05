@@ -1,11 +1,12 @@
 import { router, useLocalSearchParams } from "expo-router";
 import * as Speech from "expo-speech";
 import { useEffect, useState } from "react";
-import { Linking, Pressable, Text, View } from "react-native";
-import { PinModal } from "../../../../components/PinPad";
+import { Pressable, Text, View } from "react-native";
+import { useExternalLink } from "../../../../components/ExternalLink";
+import { VideoEmbed } from "../../../../components/VideoEmbed";
 import { ReportSheet } from "../../../../components/ReportSheet";
 import { Banner, Button, Card, H1, Loading, P, Pill, Screen } from "../../../../components/ui";
-import { api, friendly, type Lesson } from "../../../../lib/api";
+import { api, friendly, type LearnMore, type Lesson } from "../../../../lib/api";
 import { useChild, useSession } from "../../../../lib/session";
 import { bandTheme, colors } from "../../../../lib/theme";
 
@@ -23,6 +24,7 @@ const freshQ = (): QState => ({ firstChoice: null, picked: null, correct: null, 
 const SECTION_STYLE: Record<string, { icon: string; bg: string }> = {
   text: { icon: "", bg: "#fff" },
   fact: { icon: "💡 Did you know?", bg: "#FFF7DB" },
+  video: { icon: "🎬 Watch", bg: "#fff" },
   tryit: { icon: "🙌 Try it!", bg: "#E6F6EC" },
   parent: { icon: "👪 For grown-ups", bg: "#EEF0F6" },
 };
@@ -38,7 +40,9 @@ export default function LessonScreen() {
   const [qs, setQs] = useState<QState[]>([]);
   const [result, setResult] = useState<{ score: number; total: number; reviewDays: number } | null>(null);
   const [report, setReport] = useState(false);
-  const [gateUrl, setGateUrl] = useState<string | null>(null);
+  const [more, setMore] = useState<LearnMore | null>(null);
+  // Under-13s need a parent's PIN to open outside links.
+  const sourceLink = useExternalLink(!child || child.band === "b1" || child.band === "b2" || child.band === "b3");
 
   const base = `/children/${childId}/lessons/${lessonId}`;
 
@@ -49,6 +53,7 @@ export default function LessonScreen() {
         setQs(r.lesson.quiz.map(freshQ));
       })
       .catch((e) => setError(friendly(e)));
+    api<LearnMore>("GET", `${base}/learn-more`, familyToken).then(setMore).catch(() => {});
     return () => {
       Speech.stop();
     };
@@ -132,24 +137,37 @@ export default function LessonScreen() {
           const st = SECTION_STYLE[s.type]!;
           return (
             <Card key={i} style={{ backgroundColor: st.bg, borderRadius: t.radius }}>
-              {st.icon ? <Text style={{ fontWeight: "800", color: colors.ink }}>{st.icon}</Text> : null}
+              {st.icon ? <Text style={{ fontWeight: "800", color: colors.ink }}>{st.icon}{s.videoMinutes ? ` (${s.videoMinutes} min)` : ""}</Text> : null}
+              {s.type === "video" && s.videoId ? <VideoEmbed videoId={s.videoId} title={s.body} /> : null}
               <Text style={{ fontSize: s.type === "parent" ? 15 : t.font, lineHeight: (s.type === "parent" ? 15 : t.font) * 1.45, color: colors.ink }}>{s.body}</Text>
             </Card>
           );
         })}
+        {more?.available ? (
+          <Card style={{ borderRadius: t.radius, backgroundColor: "#F7F9FC" }}>
+            <Text style={{ fontWeight: "800", color: colors.ink }}>📖 Learn more: {more.title}</Text>
+            <Text style={{ fontSize: t.font - 2, lineHeight: (t.font - 2) * 1.45, color: colors.ink }}>{more.extract}</Text>
+            <Pressable onPress={() => sourceLink.open(more.url)} accessibilityRole="link">
+              <Text style={{ color: colors.muted, fontSize: 12 }}>From {more.source} ({more.license}). <Text style={{ textDecorationLine: "underline" }}>Read the full article ↗</Text></Text>
+            </Pressable>
+          </Card>
+        ) : null}
+        {child.aiEnabled ? (
+          <Button title="🦉 Ask Hoot about this lesson" kind="secondary" color={t.accent} onPress={() => router.push(`/learn/${childId}/tutor/${lessonId}`)} />
+        ) : null}
         <Button big title={young ? "Let's play the quiz! 🎉" : "Start the quiz"} color={t.accent} onPress={() => setPhase("quiz")} />
         {lesson.sources.length ? (
           <Card>
             <Text style={{ fontWeight: "700", color: colors.ink }}>📚 Sources (for grown-ups)</Text>
             {lesson.sources.map((src) => (
-              <Pressable key={src.url} onPress={() => setGateUrl(src.url)} accessibilityRole="link">
+              <Pressable key={src.url} onPress={() => sourceLink.open(src.url)} accessibilityRole="link">
                 <Text style={{ color: colors.brand, fontSize: 14, textDecorationLine: "underline" }}>{src.title}</Text>
                 <Text style={{ color: colors.muted, fontSize: 12 }}>{src.license}</Text>
               </Pressable>
             ))}
           </Card>
         ) : null}
-        <PinModal visible={!!gateUrl} onClose={() => setGateUrl(null)} onSuccess={() => gateUrl && Linking.openURL(gateUrl)} subtitle="Outside links open only with a parent's PIN." />
+        {sourceLink.modal}
         <ReportSheet visible={report} onClose={() => setReport(false)} childId={child.id} lessonId={lesson.id} />
       </Screen>
     );

@@ -50,9 +50,22 @@ export interface LessonSummary {
 export interface Lesson extends Omit<LessonSummary, "questions" | "progress"> {
   outcomes: string[];
   sources: { title: string; url: string; license: string }[];
-  sections: { type: "text" | "tryit" | "parent" | "fact"; body: string }[];
+  sections: { type: "text" | "tryit" | "parent" | "fact" | "video"; body: string; videoId?: string; videoMinutes?: number }[];
   quiz: { q: string; options: string[] }[];
 }
+
+export interface FreeResource {
+  id: string;
+  name: string;
+  url: string;
+  description: string;
+  subjects: string[];
+  account: string;
+}
+
+export type LearnMore =
+  | { available: false; reason: string }
+  | { available: true; title: string; extract: string; url: string; source: string; license: string; opensWithParentPin: boolean };
 
 export interface ContentMap {
   version: string;
