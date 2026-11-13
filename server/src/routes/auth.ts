@@ -15,18 +15,13 @@ export function authRoutes(ctx: Ctx) {
   const { db, getParent, getParentByEmail, requireScope, isLocked, takeTry, wrongTry, PIN_TRIES, LOGIN_TRIES } = ctx;
   const r = new Hono<Env>();
 
-  // ---- per-IP rate limit (in memory: per server instance; the per-account limits below are in the database)
-  const hits = new Map<string, { count: number; resetAt: number }>();
+  // ---- per-IP rate limit, counted in the database so every server instance shares it
   r.use("*", async (c, next) => {
-    const ip = ctx.clientIp(c);
-    const t = Date.now();
-    const h = hits.get(ip);
-    if (!h || h.resetAt < t) hits.set(ip, { count: 1, resetAt: t + config.security.authRateWindowMinutes * 60_000 });
-    else if (++h.count > config.security.authRateLimit) {
-      c.header("retry-after", String(Math.ceil((h.resetAt - t) / 1000)));
+    const hit = await ctx.hitRateLimit(`auth:${ctx.clientIp(c)}`, config.security.authRateLimit, config.security.authRateWindowMinutes * 60_000);
+    if (!hit.allowed) {
+      c.header("retry-after", String(hit.retryAfterSec));
       return c.json({ error: "too_many_attempts" }, 429);
     }
-    if (hits.size > 10_000) for (const [k, v] of hits) if (v.resetAt < t) hits.delete(k);
     await next();
   });
 
@@ -87,7 +82,7 @@ export function authRoutes(ctx: Ctx) {
     if (!p || result !== "ok") return c.json({ error: result === "expired" ? "code_expired" : "wrong_code" }, 400);
     // A reset code proves access to the inbox, so it also verifies the email.
     await db.run(
-      "UPDATE parents SET password_hash = ?, login_failed = 0, login_locked_until = NULL, email_verified_at = COALESCE(email_verified_at, ?) WHERE id = ?",
+      "UPDATE parents SET password_hash = ?, login_failed = 0, login_locked_until = NULL, login_lock_level = 0, email_verified_at = COALESCE(email_verified_at, ?) WHERE id = ?",
       [hashSecret(body.newPassword), now(), p.id],
     );
     const version = await ctx.revokeSessions(p.id);
@@ -108,10 +103,10 @@ export function authRoutes(ctx: Ctx) {
       await wrongTry(LOGIN_TRIES, p.id, tryNo);
       return c.json({ error: "wrong_email_or_password" }, 401);
     }
-    await db.run("UPDATE parents SET pin_hash = ?, pin_failed = 0, pin_locked_until = NULL, login_failed = 0 WHERE id = ?", [
-      hashSecret(body.newPin),
-      p.id,
-    ]);
+    await db.run(
+      "UPDATE parents SET pin_hash = ?, pin_failed = 0, pin_locked_until = NULL, pin_lock_level = 0, login_failed = 0, login_lock_level = 0 WHERE id = ?",
+      [hashSecret(body.newPin), p.id],
+    );
     return c.json({ ok: true });
   });
 
@@ -132,7 +127,7 @@ export function authRoutes(ctx: Ctx) {
       await wrongTry(LOGIN_TRIES, p.id, tryNo);
       return c.json({ error: "wrong_email_or_password" }, 401);
     }
-    await db.run("UPDATE parents SET login_failed = 0, login_locked_until = NULL WHERE id = ?", [p.id]);
+    await db.run("UPDATE parents SET login_failed = 0, login_locked_until = NULL, login_lock_level = 0 WHERE id = ?", [p.id]);
     return c.json({ familyToken: await issueToken(p.id, "family", p.token_version ?? 0) });
   });
 
@@ -150,7 +145,7 @@ export function authRoutes(ctx: Ctx) {
       const lock = await wrongTry(PIN_TRIES, p.id, tryNo);
       return c.json({ error: "wrong_pin", attemptsLeft: lock ? 0 : PIN_TRIES.max() - tryNo, ...(lock ? { retryAt: lock } : {}) }, 401);
     }
-    await db.run("UPDATE parents SET pin_failed = 0, pin_locked_until = NULL WHERE id = ?", [p.id]);
+    await db.run("UPDATE parents SET pin_failed = 0, pin_locked_until = NULL, pin_lock_level = 0 WHERE id = ?", [p.id]);
     return c.json({
       parentToken: await issueToken(p.id, "parent", p.token_version ?? 0),
       expiresInSec: config.security.parentTokenMinutes * 60,

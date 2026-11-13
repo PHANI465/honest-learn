@@ -8,7 +8,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const read = (p) => readFileSync(join(root, p), "utf8");
+/** Line endings are normalised to LF so a Windows checkout (autocrlf) generates the same text as Linux. */
+const read = (p) => readFileSync(join(root, p), "utf8").replace(/\r\n/g, "\n");
 /** A template literal keeps the text readable (and diffable) in the generated file. */
 const literal = (s) => "`" + s.replace(/\\/g, "\\\\").replace(/`/g, "\\`").replace(/\$\{/g, "\\${") + "`";
 

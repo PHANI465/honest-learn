@@ -13,7 +13,7 @@ const { openPglite } = usePg ? await import("./pglite.ts") : { openPglite: null 
 const { MemoryMailer } = await import("../src/mailer.ts");
 const { loadContent } = await import("../src/content.ts");
 const { createApp, CONSENT_VERSION, reviewIntervalDays } = await import("../src/app.ts");
-const { MockTutor, ClaudeTutor, precheck } = await import("../src/tutor.ts");
+const { MockTutor, ClaudeTutor, precheck, singlesOutCorrectOption } = await import("../src/tutor.ts");
 const { bandForAge } = await import("../src/security.ts");
 const shuffleModule = await import("../src/shuffle.ts");
 const { WikiClient, lessonWikiTitle } = await import("../src/wiki.ts");
@@ -242,6 +242,30 @@ describe("AI tutor", () => {
     assert.equal(r?.flag, "wellbeing");
     assert.match(r!.reply, /trusted adult/);
     assert.equal(precheck("what is 3/4 of 12?", "b4"), null);
+  });
+
+  test("a wellbeing message emails the parent once a day, without the message", async () => {
+    const { call, mailer } = makeApp();
+    const { fam, par } = await family(call);
+    const kid = (await call("POST", "/parent/children", { nickname: "Ada", birthYear: year - 13 }, par)).json.child.id;
+    const path = `/children/${kid}/tutor/b4-math-linear-equations`;
+    const before = mailer.sent.length;
+    await call("POST", path, { message: "I want to hurt myself" }, fam);
+    await call("POST", path, { message: "I want to hurt myself again" }, fam);
+    const alerts = mailer.sent.slice(before).filter((m) => /check in with Ada/.test(m.subject));
+    assert.equal(alerts.length, 1);
+    assert.ok(!alerts[0]!.text.includes("hurt myself"));
+  });
+
+  test("a reply that names only the correct option is treated as an answer leak", () => {
+    const req = {
+      questionIndex: 0,
+      questionSolved: false,
+      lesson: { quiz: [{ options: ["5/6", "3/4", "They are equal"], answer: 0 }] },
+    } as unknown as Parameters<typeof singlesOutCorrectOption>[0];
+    assert.equal(singlesOutCorrectOption(req, "Think again: it's 5/6, isn't it?"), true);
+    assert.equal(singlesOutCorrectOption(req, "Try making 5/6 and 3/4 the same size first."), false);
+    assert.equal(singlesOutCorrectOption({ ...req, questionSolved: true }, "Yes, 5/6!"), false);
   });
 
   test("Claude replies that leak the answer or fail safety are replaced with a pre-written hint", async () => {

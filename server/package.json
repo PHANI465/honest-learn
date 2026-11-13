@@ -6,7 +6,7 @@
     "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts",
     "test": "tsx --test test/*.test.ts",
-    "test:pg": "TEST_DB=pglite tsx --test test/*.test.ts",
+    "test:pg": "node scripts/run-pg-tests.mjs",
     "typecheck": "tsc --noEmit",
     "validate": "tsx src/validate-content.ts",
     "redteam": "tsx src/hoot-redteam.ts",

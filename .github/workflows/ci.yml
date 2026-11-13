@@ -21,6 +21,9 @@ jobs:
       - run: npm ci
       - name: Validate lessons, resources and knowledge map
         run: npm run validate
+      - name: Document counts match content/
+        working-directory: .
+        run: node scripts/check-doc-counts.mjs
       - name: Knowledge-map document is up to date
         working-directory: .
         run: |

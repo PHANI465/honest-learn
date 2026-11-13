@@ -1,6 +1,7 @@
 // Shared shapes for the API: database rows, input validation and small pure helpers.
 import { z } from "zod";
 import { ageFromBirthYear, bandForAge, type BandId } from "./security.ts";
+import type { ContentStore, Lesson } from "./content.ts";
 
 /** Bump when the privacy notice changes: sign-up must accept the current version. */
 export const CONSENT_VERSION = "2026-11-v1";
@@ -108,4 +109,53 @@ export function childPublic(c: ChildRow) {
 export function reviewIntervalDays(score: number, total: number, attempts: number): number {
   if (score < total) return 1;
   return Math.min(3 * 2 ** (attempts - 1), 30);
+}
+
+// ---------------------------------------------------------------- what a child knows
+export type OutcomeStatus = "not_started" | "practising" | "strong";
+
+/**
+ * Where a child stands on every knowledge-map outcome for their age group, from lesson progress.
+ * Only lessons visible to the child count (so locked sensitive lessons never show up), and outcomes
+ * tagged with a sensitive topic are left out until a parent unlocks that topic.
+ *  - strong: a lesson covering it was finished with every question right on the first try
+ *  - practising: a lesson covering it was attempted, but none with a perfect score yet
+ *  - not_started: no visible lesson covering it has been attempted
+ */
+export function outcomeStatuses(
+  content: ContentStore,
+  child: ChildRow,
+  progress: { lesson_id: string; best_score: number; total: number }[],
+  visibleTo: (child: ChildRow, lesson: Lesson) => boolean,
+) {
+  const band = childBand(child);
+  const unlocked = JSON.parse(child.unlocked_topics) as string[];
+  const done = new Map(progress.map((p) => [p.lesson_id, p]));
+  const status = new Map<string, OutcomeStatus>();
+  const lessonCount = new Map<string, number>();
+  for (const l of content.lessons.values()) {
+    if (!visibleTo(child, l)) continue;
+    const p = done.get(l.id);
+    const s: OutcomeStatus | null = !p ? null : p.total > 0 && p.best_score >= p.total ? "strong" : "practising";
+    for (const o of l.outcomes) {
+      lessonCount.set(o, (lessonCount.get(o) ?? 0) + 1);
+      if (s && status.get(o) !== "strong") status.set(o, s);
+    }
+  }
+  const subjectName = new Map(content.map.subjects.map((s) => [s.id, s.name]));
+  const outcomes = content.map.cells
+    .filter((cell) => cell.band === band)
+    .flatMap((cell) =>
+      cell.outcomes
+        .filter((o) => !o.sensitive || unlocked.includes(o.sensitive))
+        .map((o) => ({
+          id: o.id,
+          text: o.text,
+          subject: cell.subject,
+          subjectName: subjectName.get(cell.subject) ?? cell.subject,
+          status: status.get(o.id) ?? ("not_started" as OutcomeStatus),
+          lessons: lessonCount.get(o.id) ?? 0,
+        })),
+    );
+  return { outcomes, status };
 }

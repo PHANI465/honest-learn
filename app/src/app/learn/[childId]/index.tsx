@@ -3,7 +3,7 @@ import { useCallback, useMemo, useState } from "react";
 import { Pressable, Text, TextInput, View, useWindowDimensions } from "react-native";
 import { OfflineBanner } from "../../../components/OfflineBanner";
 import { Banner, Button, Card, Emoji, H1, H2, Loading, P, ProgressBar, Screen } from "../../../components/ui";
-import { api, friendly, type Band, type Child, type LessonSummary, type Subject } from "../../../lib/api";
+import { api, friendly, type Band, type Child, type LessonSummary, type Subject, type SuggestedLesson } from "../../../lib/api";
 import { cachedGet, offlineMessage } from "../../../lib/offline";
 import { useSession } from "../../../lib/session";
 import { localDay, type Usage } from "../../../lib/timer";
@@ -15,6 +15,8 @@ interface Home {
   subjects: Subject[];
   reviewDue: LessonSummary[];
   next?: LessonSummary | null;
+  /** Gentle ideas for what to try next (older cached copies may not have it). */
+  suggested?: SuggestedLesson[];
   totals?: { lessons: number; completed: number; stars: number };
 }
 
@@ -64,6 +66,10 @@ export default function ChildHome() {
   const young = home.child.band === "b1" || home.child.band === "b2";
   const cols = width >= 1000 ? 4 : width >= 680 ? 3 : 2;
   const totals = home.totals;
+  // Don't repeat what the "Keep going" and "Quick review" cards above already show.
+  const shown = new Set([home.next?.id, ...home.reviewDue.slice(0, 3).map((l) => l.id)]);
+  const tryNext = (home.suggested ?? []).filter((l) => !shown.has(l.id));
+  const reasonText: Record<SuggestedLesson["reason"], string> = { review: "Look again", new: "New", practise: "Practise again" };
 
   return (
     <Screen wide>
@@ -115,6 +121,32 @@ export default function ChildHome() {
             <Button key={l.id} title={l.title} kind="secondary" color={t.accent} onPress={() => router.push(`/learn/${childId}/lesson/${l.id}`)} />
           ))}
         </Card>
+      ) : null}
+
+      {tryNext.length ? (
+        <View style={{ gap: 8 }} accessibilityLabel="Ideas to try next">
+          <Text style={{ fontWeight: "800", fontSize: young ? 20 : 17, color: colors.ink }} accessibilityRole="header">
+            {young ? "Try next 🌟" : "Try next"}
+          </Text>
+          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+            {tryNext.map((l) => (
+              <Card
+                key={l.id}
+                onPress={() => router.push(`/learn/${childId}/lesson/${l.id}`)}
+                label={`Try next: ${l.title}, ${reasonText[l.reason]}, ${l.minutes} minutes`}
+                style={{ flexGrow: 1, flexBasis: 200, minHeight: 64, borderRadius: t.radius, borderColor: t.accent, flexDirection: "row", alignItems: "center", gap: 10 }}
+              >
+                <Emoji size={young ? 30 : 24}>{subjectEmoji[l.subject] ?? "📘"}</Emoji>
+                <View style={{ flex: 1 }}>
+                  <Text style={{ fontWeight: "700", fontSize: young ? t.font : 16, color: colors.ink }}>{l.title}</Text>
+                  <Text style={{ color: colors.muted, fontSize: 13 }}>
+                    {reasonText[l.reason]} · {l.minutes} min
+                  </Text>
+                </View>
+              </Card>
+            ))}
+          </View>
+        </View>
       ) : null}
 
       {!young ? (

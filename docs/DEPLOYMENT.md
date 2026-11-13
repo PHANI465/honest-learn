@@ -17,7 +17,7 @@ The server is a single Node process with a SQLite file. Any host with a **persis
 | `SHOW_DRAFTS` | no | `true` before launch, `false` with `LAUNCH=true` | Keep `false` for the public. Use `true` on a staging server for reviewers. |
 | `CORS_ORIGINS` | no | `*` | Comma-separated web origins, e.g. `https://app.honestlearn.org`. |
 | `ANTHROPIC_API_KEY` | for AI | — | Turns on the real AI tutor. Without it, Hoot answers with the lesson's pre-written hints. |
-| `TUTOR_MODEL` | no | `claude-opus-5-5` | Model that writes Hoot's replies. |
+| `TUTOR_MODEL` | no | `claude-sonnet-5-5` | Model that writes Hoot's replies. |
 | `TUTOR_SAFETY_MODEL` | no | `claude-opus-5-5` | Model that checks every reply before a child sees it. |
 | `TUTOR_EFFORT` | no | `low` | `low` / `medium` / `high`. Higher means slower and more expensive. |
 | `TUTOR_DAILY_LIMIT` | no | `40` | Messages per child per day. |
@@ -93,6 +93,7 @@ Optional settings (Project → Settings → Environment Variables):
 | `TOKEN_SECRET` | Your own sign-in signing secret (otherwise one is generated and stored in the database). Changing it signs everyone out. |
 | `ANTHROPIC_API_KEY` | Turns on the real AI tutor. Without it, Hoot answers with the lessons' pre-written hints. |
 | `LAUNCH` | Set to `true` only for the public launch: hides unreviewed lessons and requires email verification. Then you also need `POSTMARK_TOKEN` + `MAIL_FROM` so emails are actually sent. |
+| `CRON_SECRET` | A long random string (e.g. `openssl rand -base64 32`). Vercel Cron sends it as `Authorization: Bearer <CRON_SECRET>` to the daily data-retention job. **Set it:** without it, the job refuses to run on Vercel. |
 | `SHOW_DRAFTS`, `REQUIRE_EMAIL_VERIFICATION`, `MAIL_MODE`, `TUTOR_MODE` | Override the pre-launch/launch defaults individually. |
 
 **Demo mode:** with no database connected, the API keeps everything in memory. It works, but accounts and progress disappear whenever Vercel starts a new instance. The welcome screen then shows "Demo mode: accounts and progress may reset". Connect Neon to make data stick.
@@ -111,7 +112,7 @@ v0 previews the app with `npm run dev`, which installs everything, builds the we
 
 ### Good to know
 
-- **Data retention** runs inside the function: each instance deletes expired data (old chats, codes, usage) at most once a day, on its first request.
+- **Data retention** is a Vercel Cron job (`vercel.json` → `crons`): every day at 03:17 UTC it calls `GET /api/cron/retention`, which deletes expired data (old chats, codes, usage, rate-limit rows) and returns `{ "removed": n }`. Set the `CRON_SECRET` environment variable (see the table above) and redeploy; the endpoint answers `401` to anyone without the matching `Authorization: Bearer` header, and also when `CRON_SECRET` is missing on Vercel. Cron jobs run on production deployments only; check **Settings → Cron Jobs** in the project.
 - **Rate limits** on sign-in are kept in memory per function instance, so they are looser than on a single server.
 - **Preview deployments** share the same Neon database unless you connect a separate Neon branch to Preview.
 - **Local development is unchanged:** `cd server && npm run dev` uses SQLite. To try Postgres locally, set `DATABASE_URL` to a Neon connection string. Tests run on SQLite (`npm test`) and on Postgres in-process (`npm run test:pg`, using PGlite).

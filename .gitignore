@@ -17,3 +17,6 @@ android/
 # agent worktrees (temporary)
 .claude/worktrees/
 .vercel/
+
+# graphify output (rebuild with /graphify)
+graphify-out/

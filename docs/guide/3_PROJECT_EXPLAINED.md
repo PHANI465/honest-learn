@@ -148,11 +148,11 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `models.ts` | Database row types, input rules, child helpers, spaced-repetition interval |
 | `routes/public.ts` | `/health`, `/content/map`, `/content/countries` |
 | `routes/auth.ts` | `/auth/signup`, `login`, `verify-email`, `resend-verification`, `forgot-password`, `reset-password`, `reset-pin`, `parent-unlock` |
-| `routes/learn.ts` | `/family`, `/children/:id/home`, `lessons`, `lessons/:lessonId` (+ `/hint`, `/check`, `/complete`, `/learn-more`), `resources`, `practice` |
+| `routes/learn.ts` | `/family`, `/children/:id/home` (includes up to 3 gentle "Try next" suggestions), `lessons`, `lessons/:lessonId` (+ `/hint`, `/check`, `/complete`, `/learn-more`), `resources`, `practice` |
 | `routes/puzzles.ts` | `/children/:id/puzzles` (+ `/hint`, `/check`, `/complete`) |
 | `routes/usage.ts` | `/children/:id/usage`, `/usage/tick` |
 | `routes/tutor.ts` | `/children/:id/tutor/:lessonId` (Hoot), `/reports` |
-| `routes/parent.ts` | `/parent/overview`, `children` (add, edit, delete, bonus time, chats), `reports`, `pin`, `settings`, `sign-out-everywhere`, `export`, `account` |
+| `routes/parent.ts` | `/parent/overview`, `children` (add, edit, delete, bonus time, chats), `children/:id/outcomes` (what the child knows, per goal: not started / practising / strong), `reports`, `pin`, `settings`, `sign-out-everywhere`, `export`, `account` |
 | `tutor.ts` | Hoot: pre-checks, Claude prompt, the second safety check, mock mode |
 | `content.ts` | Loads and validates `content/`, strips answers for the app |
 | `shuffle.ts` | Per-child option order |

@@ -6,7 +6,7 @@ import { config } from "../config.ts";
 import { now } from "../db.ts";
 import { newId } from "../security.ts";
 import { optionOrder } from "../shuffle.ts";
-import { detectPersonalInfo, precheck, type TutorTurn } from "../tutor.ts";
+import { detectPersonalInfo, precheckConversation, PERSONAL_INFO_PLACEHOLDER, type TutorResult, type TutorTurn } from "../tutor.ts";
 import { childPublic } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 
@@ -48,38 +48,84 @@ export function tutorRoutes(ctx: Ctx) {
 
     const since = new Date();
     since.setHours(0, 0, 0, 0);
-    const usedToday = (await db.get<{ n: number }>(
-      "SELECT CAST(COUNT(*) AS INTEGER) AS n FROM tutor_messages WHERE child_id = ? AND role = 'user' AND created_at >= ?",
-      [child.id, since.toISOString()],
-    ))!.n;
-    if (usedToday >= config.tutor.dailyMessageLimit) return c.json({ error: "daily_limit_reached" }, 429);
+    const sinceIso = since.toISOString();
 
     const solved =
       body.question !== null &&
       !!(await db.get("SELECT 1 FROM quiz_solved WHERE child_id = ? AND lesson_id = ? AND q_index = ?", [child.id, lesson.id, body.question]));
 
-    const turns = (await history(child.id, lesson.id)).slice(-12).map((m): TutorTurn => ({ role: m.role, content: m.content }));
+    const past = await history(child.id, lesson.id);
+    const turns = past.slice(-12).map((m): TutorTurn => ({ role: m.role, content: m.content }));
+    // Earlier messages Hoot has not already answered as a wellbeing/privacy concern, for the conversation-level check.
+    const earlier = past.filter((m) => m.role === "user" && m.flagged === null).map((m) => m.content);
 
     // Safety first: personal information and wellbeing messages are answered without any AI call.
-    const pre = precheck(body.message, pub.band, c.get("parent").country ?? undefined);
-    const result =
-      pre ??
-      (await tutor.reply({
-        band: pub.band,
-        nickname: pub.nickname,
-        lesson,
-        questionIndex: body.question,
-        optionOrder: body.question === null ? undefined : optionOrder(child.id, lesson.id, body.question, lesson.quiz[body.question]!.options.length),
-        questionSolved: solved,
-        history: turns,
-        message: body.message,
-      }));
+    // Wellbeing is also read across the child's last few messages, so a disclosure spread over them is caught.
+    const pre = precheckConversation(body.message, earlier, pub.band, c.get("parent").country ?? undefined);
 
     // Personal info is never stored as typed, even when the message was flagged for another reason.
-    const stored = result.flag === "personal_info" || detectPersonalInfo(body.message) ? "[removed: personal information]" : body.message;
+    const stored = pre?.flag === "personal_info" || detectPersonalInfo(body.message) ? PERSONAL_INFO_PLACEHOLDER : body.message;
+
+    // Daily limit, atomically: store the child's message first, then count today's messages including it.
+    // If that is over the limit the message is removed again. Parallel requests can only over-reject (when
+    // several arrive at the very limit), never exceed it, because every admitted message was counted
+    // together with all the admitted messages stored before it. Portable SQL: works on SQLite and Postgres.
+    const userMsgId = newId();
+    await insertMsg(userMsgId, child.id, lesson.id, "user", stored, pre?.flag ?? null, now());
+    const usedToday = (await db.get<{ n: number }>(
+      "SELECT CAST(COUNT(*) AS INTEGER) AS n FROM tutor_messages WHERE child_id = ? AND role = 'user' AND created_at >= ?",
+      [child.id, sinceIso],
+    ))!.n;
+    if (usedToday > config.tutor.dailyMessageLimit) {
+      await db.run("DELETE FROM tutor_messages WHERE id = ?", [userMsgId]);
+      return c.json({ error: "daily_limit_reached" }, 429);
+    }
+
+    let result: TutorResult;
+    try {
+      result =
+        pre ??
+        (await tutor.reply({
+          band: pub.band,
+          nickname: pub.nickname,
+          lesson,
+          questionIndex: body.question,
+          optionOrder: body.question === null ? undefined : optionOrder(child.id, lesson.id, body.question, lesson.quiz[body.question]!.options.length),
+          questionSolved: solved,
+          history: turns,
+          message: body.message,
+        }));
+    } catch (e) {
+      await db.run("DELETE FROM tutor_messages WHERE id = ?", [userMsgId]);
+      throw e;
+    }
+    if (result.flag !== (pre?.flag ?? null)) await db.run("UPDATE tutor_messages SET flagged = ? WHERE id = ?", [result.flag, userMsgId]);
+
     const replyId = newId();
-    await insertMsg(newId(), child.id, lesson.id, "user", stored, result.flag, now());
+    // Tell the parent (once per child per day, never including what the child wrote) so a wellbeing
+    // concern isn't only discoverable by opening the chat history.
+    const alreadyAlerted =
+      result.flag === "wellbeing" &&
+      !!(await db.get("SELECT 1 FROM tutor_messages WHERE child_id = ? AND flagged = 'wellbeing' AND created_at >= ? AND id != ?", [
+        child.id,
+        sinceIso,
+        userMsgId,
+      ]));
     await insertMsg(replyId, child.id, lesson.id, "assistant", result.reply, null, now());
+    if (result.flag === "wellbeing" && !alreadyAlerted) {
+      try {
+        await ctx.mailer.send(
+          c.get("parent").email,
+          "Honest Learn: please check in with " + pub.nickname,
+          `${pub.nickname} sent a message to Hoot that may mean they need support. Hoot replied with a kind message and, where we have one, a helpline for your country.
+
+` +
+            "We don't put the message in this email. You can read it in the parent area (enter your PIN) under Chats. Please talk with them soon, in a calm and caring way.",
+        );
+      } catch (e) {
+        console.error("parent alert failed", e);
+      }
+    }
     return c.json({ reply: result.reply, messageId: replyId, flagged: result.flag !== null, yourMessage: stored });
   });
 

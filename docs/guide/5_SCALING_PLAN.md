@@ -35,7 +35,7 @@ Where load comes from, in order:
 ### Stage 3: large (100,000+ families, several countries)
 - **Regions:** run the API and database in more than one region (Vercel functions per region; Neon read replicas), and keep each country's data where its law requires (for example EU families in an EU database).
 - **Content from a CDN:** publish lessons as versioned static files and let the API keep only answers, hints and explanations (still never sent early). Apps can then cache lessons for offline use without asking the API.
-- **Background jobs:** move the data-retention clean-up from "first request of the day" (today, in `server/src/vercel.ts`) to a scheduled job (Vercel Cron), and add any future daily work there.
+- **Background jobs:** the data-retention clean-up already runs as a daily Vercel Cron job (`GET /api/cron/retention`, protected by `CRON_SECRET`; see `server/src/cron.ts` and `vercel.json`). Add any future daily work there.
 - **Status page and on-call:** a public status page, alerting, and a small rota.
 
 ## Scaling the content

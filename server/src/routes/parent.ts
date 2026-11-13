@@ -5,7 +5,7 @@ import { z } from "zod";
 import { config } from "../config.ts";
 import { now } from "../db.ts";
 import { hashSecret, issueToken, newId } from "../security.ts";
-import { childBand, ChildCreate, ChildPatch, childPublic, Country, Day, Pin, plausibleDay, type ChildRow } from "../models.ts";
+import { childBand, ChildCreate, ChildPatch, childPublic, Country, Day, outcomeStatuses, Pin, plausibleDay, type ChildRow } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 import { usageFor } from "./usage.ts";
 
@@ -128,6 +128,30 @@ export function parentRoutes(ctx: Ctx) {
     if (!child) return c.json({ error: "child_not_found" }, 404);
     await db.run("DELETE FROM children WHERE id = ?", [child.id]);
     return c.json({ ok: true });
+  });
+
+  /** What this child knows: every knowledge-map outcome for their age group with a calm status (no scores, no ranking). */
+  r.get("/children/:childId/outcomes", async (c) => {
+    const child = await loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const progress = await db.all<{ lesson_id: string; best_score: number; total: number }>(
+      "SELECT lesson_id, best_score, total FROM progress WHERE child_id = ? AND lesson_id NOT LIKE 'puzzles-%'",
+      [child.id],
+    );
+    const { outcomes } = outcomeStatuses(content, child, progress, visibleTo);
+    const subjects = content.map.subjects
+      .map((s) => {
+        const os = outcomes.filter((o) => o.subject === s.id);
+        return {
+          id: s.id,
+          name: s.name,
+          strong: os.filter((o) => o.status === "strong").length,
+          practising: os.filter((o) => o.status === "practising").length,
+          notStarted: os.filter((o) => o.status === "not_started").length,
+        };
+      })
+      .filter((s) => s.strong + s.practising + s.notStarted > 0);
+    return c.json({ band: childBand(child), subjects, outcomes });
   });
 
   // ---- reviewing Hoot chats and reports

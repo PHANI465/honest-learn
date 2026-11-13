@@ -47,6 +47,29 @@ export interface LessonSummary {
   progress?: { best_score: number; total: number } | null;
 }
 
+/** A lesson the home screen gently suggests ("Try next"). */
+export interface SuggestedLesson extends LessonSummary {
+  reason: "review" | "new" | "practise";
+}
+
+export type OutcomeStatus = "not_started" | "practising" | "strong";
+
+/** Parent view of what a child knows: one knowledge-map outcome and where they are with it. */
+export interface OutcomeItem {
+  id: string;
+  text: string;
+  subject: string;
+  subjectName: string;
+  status: OutcomeStatus;
+  lessons: number;
+}
+
+export interface OutcomesResponse {
+  band: BandId;
+  subjects: { id: string; name: string; strong: number; practising: number; notStarted: number }[];
+  outcomes: OutcomeItem[];
+}
+
 export interface Lesson extends Omit<LessonSummary, "questions" | "progress"> {
   outcomes: string[];
   sources: { title: string; url: string; license: string }[];

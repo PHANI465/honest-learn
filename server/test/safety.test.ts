@@ -8,7 +8,7 @@ process.env.DB_PATH = ":memory:";
 process.env.TUTOR_MODE = "mock";
 
 const { config } = await import("../src/config.ts");
-const { precheck, detectWellbeing, detectPersonalInfo, helplineFor, loadHelplines, wellbeingReply } = await import("../src/tutor.ts");
+const { precheck, precheckConversation, detectWellbeing, detectPersonalInfo, helplineFor, loadHelplines, wellbeingReply } = await import("../src/tutor.ts");
 
 const each = (list: string[], fn: (m: string) => void) => {
   for (const m of list) fn(m);
@@ -209,6 +209,58 @@ describe("personal information", () => {
 
   test("wellbeing wins over personal info", () => {
     assert.equal(precheck("my dad hits me, I live at 12 Oak Street", "b4")?.flag, "wellbeing");
+  });
+});
+
+describe("pathological input (ReDoS)", () => {
+  // Children's messages are at most 500 characters, but a hostile client can send anything of that size.
+  const fit = (unit: string, n = 500) => unit.repeat(Math.ceil(n / unit.length)).slice(0, n);
+  const adversarial: [string, string][] = [
+    ["repeated word", fit("kill ")],
+    ["repeated 'a'", "a".repeat(500)],
+    ["repeated spaces", "my dad" + " ".repeat(494)],
+    ["spaces between letters", fit("a ")],
+    ["many 'he ' tokens", fit("he ")],
+    ["many 'he always ' tokens", fit("he always ")],
+    ["'he' then helper words, no verb", "he " + fit("always keeps sometimes often still really just ", 497)],
+    ["person then spaces", fit("my dad ")],
+    ["many 'always ' tokens", fit("always ")],
+    ["long digit run", "9".repeat(500)],
+    ["digits and spaces", fit("1 ")],
+    ["digit groups with dashes", fit("12-")],
+    ["brackets and digits", fit("(1) ")],
+    ["email-like characters", "a".repeat(499) + "@"],
+    ["dots and plus signs", fit("a.+")],
+    ["address-like", fit("12 oak ")],
+    ["school-like", "i go to " + fit("a b ", 492)],
+    ["repeated apostrophes", "'".repeat(500)],
+    ["leet characters", fit("k1ll ")],
+    ["repeated letters", fit("dieeeeeeee ")],
+    ["many 'my school is'", fit("my school is ")],
+    ["many password words", fit("my password is ")],
+    ["many 'how many'", fit("how many ")],
+    ["emoji run", fit("💀 ")],
+    ["unicode letters", fit("मरना ")],
+  ];
+
+  test("each 500-character input is checked in well under 200 ms", () => {
+    precheck("warm up", "b3"); // first call compiles the patterns
+    for (const [name, text] of adversarial) {
+      assert.equal(text.length, 500, name);
+      const start = performance.now();
+      precheck(text, "b3");
+      const ms = performance.now() - start;
+      assert.ok(ms < 200, `${name} took ${ms.toFixed(1)} ms`);
+    }
+  });
+
+  test("three 500-character messages read together are also fast", () => {
+    for (const [name, text] of adversarial) {
+      const start = performance.now();
+      precheckConversation(text, [text, text], "b3");
+      const ms = performance.now() - start;
+      assert.ok(ms < 200, `${name} (3 messages) took ${ms.toFixed(1)} ms`);
+    }
   });
 });
 

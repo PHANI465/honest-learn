@@ -26,6 +26,7 @@ type Purpose = "verify_email" | "reset_password";
 type Tries = {
   failed: "pin_failed" | "login_failed";
   lockedUntil: "pin_locked_until" | "login_locked_until";
+  level: "pin_lock_level" | "login_lock_level";
   max: () => number;
   lockMinutes: () => number;
 };
@@ -119,12 +120,14 @@ export function createContext(deps: Deps) {
   const PIN_TRIES: Tries = {
     failed: "pin_failed",
     lockedUntil: "pin_locked_until",
+    level: "pin_lock_level",
     max: () => config.security.pinMaxAttempts,
     lockMinutes: () => config.security.pinLockMinutes,
   };
   const LOGIN_TRIES: Tries = {
     failed: "login_failed",
     lockedUntil: "login_locked_until",
+    level: "login_lock_level",
     max: () => config.security.loginMaxAttempts,
     lockMinutes: () => config.security.loginLockMinutes,
   };
@@ -134,12 +137,53 @@ export function createContext(deps: Deps) {
     ]);
     return row!.n;
   }
-  /** After a wrong guess: locks once this was the last allowed try. Returns the lock end, or null. */
+  /** Minutes for the Nth lockout in a row (1-based): the base lock × the escalation step, capped at the last step. */
+  const lockMinutesFor = (t: Tries, lockoutNo: number) => {
+    const steps = config.security.lockEscalation;
+    return t.lockMinutes() * steps[Math.min(Math.max(lockoutNo, 1), steps.length) - 1]!;
+  };
+  /**
+   * After a wrong guess: locks once this was the last allowed try. Returns the lock end, or null.
+   * Each lockout in a row is longer (see lockEscalation); a successful sign-in or PIN resets the level.
+   */
   async function wrongTry(t: Tries, parentId: string, tryNo: number): Promise<string | null> {
     if (tryNo < t.max()) return null;
-    const lock = minutesFromNow(t.lockMinutes());
-    await db.run(`UPDATE parents SET ${t.failed} = 0, ${t.lockedUntil} = ? WHERE id = ?`, [lock, parentId]);
+    if (tryNo > t.max()) {
+      // A parallel request that slipped past the lock check: same lock as the request that took the last try.
+      const row = await db.get<{ until: string | null }>(`SELECT ${t.lockedUntil} AS until FROM parents WHERE id = ?`, [parentId]);
+      return row?.until ?? minutesFromNow(t.lockMinutes());
+    }
+    const row = await db.get<{ n: number }>(
+      `UPDATE parents SET ${t.failed} = 0, ${t.level} = ${t.level} + 1 WHERE id = ? RETURNING ${t.level} AS n`,
+      [parentId],
+    );
+    const lock = minutesFromNow(lockMinutesFor(t, row!.n));
+    await db.run(`UPDATE parents SET ${t.lockedUntil} = ? WHERE id = ?`, [lock, parentId]);
     return lock;
+  }
+
+  // ---------------------------------------------------------------- shared per-key rate limit
+  /**
+   * Counts one request against `key` in the database (so every server instance shares the count) in a fixed
+   * window that starts at the key's first request. One atomic upsert; works on SQLite and Postgres.
+   */
+  async function hitRateLimit(
+    key: string,
+    limit: number,
+    windowMs: number,
+    nowMs = Date.now(),
+  ): Promise<{ allowed: boolean; retryAfterSec: number }> {
+    const cutoff = new Date(nowMs - windowMs).toISOString();
+    const row = await db.get<{ count: number; window_start: string }>(
+      `INSERT INTO rate_limits (key, window_start, count) VALUES (?, ?, 1)
+       ON CONFLICT (key) DO UPDATE SET
+         count = CASE WHEN rate_limits.window_start < ? THEN 1 ELSE rate_limits.count + 1 END,
+         window_start = CASE WHEN rate_limits.window_start < ? THEN excluded.window_start ELSE rate_limits.window_start END
+       RETURNING count, window_start`,
+      [key, new Date(nowMs).toISOString(), cutoff, cutoff],
+    );
+    const resetAt = Date.parse(row!.window_start) + windowMs;
+    return { allowed: Number(row!.count) <= limit, retryAfterSec: Math.max(1, Math.ceil((resetAt - nowMs) / 1000)) };
   }
 
   // A real hash of a throwaway secret: checking a password for an unknown email costs the same time
@@ -223,6 +267,7 @@ export function createContext(deps: Deps) {
     LOGIN_TRIES,
     takeTry,
     wrongTry,
+    hitRateLimit,
     verifyAgainstNothing,
     revokeSessions,
     lastCodeSentAt,

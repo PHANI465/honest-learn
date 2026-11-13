@@ -3,7 +3,7 @@
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
 import { config } from "./config.ts";
-import { purgeOld } from "./db.ts";
+import { createCronRoutes } from "./cron.ts";
 import { openConfiguredDb } from "./open-db.ts";
 import { loadContent } from "./content.ts";
 import { createTutor } from "./tutor.ts";
@@ -16,22 +16,9 @@ const api = createApp({ db, content, tutor: createTutor() });
 
 export const app = new Hono().basePath("/api");
 
-// Data retention: there is no long-running process, so each instance purges at most once a day.
-let lastPurge = 0;
-app.use("*", async (_c, next) => {
-  if (Date.now() - lastPurge > 24 * 60 * 60 * 1000) {
-    lastPurge = Date.now();
-    try {
-      const n = await purgeOld(db, config.chatRetentionDays);
-      if (n) console.log(`retention: removed ${n} old rows`);
-    } catch (e) {
-      lastPurge = 0;
-      console.error("retention purge failed", e);
-    }
-  }
-  await next();
-});
-
+// Data retention: there is no long-running process, so Vercel Cron calls GET /api/cron/retention
+// daily (see vercel.json "crons"). It is protected by CRON_SECRET; see src/cron.ts.
+app.route("/", createCronRoutes(db));
 app.route("/", api);
 app.notFound((c) => c.json({ error: "not_found" }, 404));
 

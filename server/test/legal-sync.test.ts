@@ -3,17 +3,19 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 process.env.DB_PATH = ":memory:";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const script = join(root, "scripts", "build-legal.mjs");
-const { buildLegalModule } = (await import(script)) as { buildLegalModule: () => string };
+const { buildLegalModule } = (await import(pathToFileURL(script).href)) as { buildLegalModule: () => string };
 const { CONSENT_VERSION } = await import("../src/app.ts");
 
 test("the app's copy of the legal texts matches docs/legal (run: node scripts/build-legal.mjs)", () => {
-  assert.equal(readFileSync(join(root, "app", "src", "content", "legal.ts"), "utf8"), buildLegalModule());
+  // Compare ignoring CRLF/LF so a Windows checkout (autocrlf) behaves like Linux.
+  const onDisk = readFileSync(join(root, "app", "src", "content", "legal.ts"), "utf8").replace(/\r\n/g, "\n");
+  assert.equal(onDisk, buildLegalModule());
 });
 
 test("the legal texts' version matches the consent version parents agree to", () => {

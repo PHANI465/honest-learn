@@ -17,8 +17,8 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 - ✅ Parents can read every chat, see flagged messages, export all data and delete the account
 - ✅ Daily time limit with a break screen
 - ✅ Read-aloud for ages 3–8
-- ✅ 175 lessons, 391 quiz questions (all **draft**), covering **all 220** knowledge-map outcomes
-- ✅ 44 brain puzzles (IQ-style reasoning practice, honest framing, no IQ score) and mixed practice quizzes per subject
+- ✅ 175 lessons, 501 quiz questions (all **draft**), covering **all 220** knowledge-map outcomes
+- ✅ 68 brain puzzles (IQ-style reasoning practice, honest framing, no IQ score) and mixed practice quizzes per subject
 - ✅ Parent overview shows this week's lessons and minutes
 - ✅ Online research on what parents and kids like and dislike in learning apps (`docs/RESEARCH_USER_FEEDBACK.md`)
 - ✅ Ranked list of everything that needs expert approval (`docs/NEEDS_APPROVAL.md`)

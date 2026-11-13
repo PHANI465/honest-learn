@@ -11,7 +11,7 @@ Free, ad-free learning app for ages 3–18 (iOS, Android, web) with a parent-con
 
 ## Commands
 ```bash
-cd server && npm test            # API tests (SQLite); also `npm run test:pg` if present (Postgres via PGlite)
+cd server && npm test            # API tests (SQLite); `npm run test:pg` runs the same on Postgres via PGlite (one file at a time; works on Windows)
 cd server && npm run validate    # validates all content; warns on hints that contain the answer
 cd server && npx tsc --noEmit
 cd server && npm run dev         # API on :8787 (mock tutor unless ANTHROPIC_API_KEY is set)
@@ -21,6 +21,8 @@ cd app && npx expo start         # w = web; scan the QR code with Expo Go on a p
 node scripts/build-catalogue.mjs     # README "What's inside" (CI fails if stale)
 node scripts/export-review-sheet.mjs # docs/review/*.csv (CI fails if stale)
 node scripts/build-knowledge-doc.mjs # docs/KNOWLEDGE_MAP.md (CI fails if stale)
+node scripts/check-doc-counts.mjs    # docs must agree with content counts (CI)
+node scripts/seed-demo.mjs           # demo family on a running local API; see docs/TRY_IT.md
 ```
 After changing content, run all three generators before committing.
 

@@ -22,7 +22,20 @@ try {
       q.hints.forEach((h, k) => norm(h).includes(a) && leaks.push(`${l.id} Q${i + 1} hint ${k + 1} mentions "${q.options[q.answer]}"`));
     });
   }
+  // Reviewer aid: when the correct option is strictly the longest, children can guess it without reading the question.
+  const longest: string[] = [];
+  const checkLongest = (id: string, label: string, options: string[], answer: number) => {
+    const len = (o: string) => [...o].length;
+    const best = Math.max(...options.map(len));
+    if (len(options[answer]!) === best && options.filter((o) => len(o) === best).length === 1) {
+      longest.push(`${id} ${label}: correct option is the strictly longest ("${options[answer]}")`);
+    }
+  };
+  for (const l of lessons.values()) l.quiz.forEach((q, i) => checkLongest(l.id, `Q${i + 1}`, q.options, q.answer));
+  for (const set of puzzles.values()) for (const p of set.puzzles) checkLongest(p.id, "puzzle", p.options, p.answer);
+  if (longest.length) console.log(`⚠️  Correct answer is the longest option (may be fine, but check the wrong options are as detailed):\n   ${longest.join("\n   ")}`);
   if (leaks.length) console.log(`⚠️  Check these hints don't give the answer away (may be fine):\n   ${leaks.join("\n   ")}`);
+  console.log(`Warnings: ${leaks.length} hint(s) may contain the answer; ${longest.length} question(s) where the correct option is strictly the longest.`);
   console.log(
     `OK — ${lessons.size} lessons (${byStatus.reviewed} reviewed, ${byStatus.draft} draft). ` +
       `Outcomes covered: ${covered.size}/${totalOutcomes}. ` +

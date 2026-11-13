@@ -48,12 +48,15 @@ export const config = {
   tutor: {
     /** "claude" calls the Claude API; "mock" uses the lesson's pre-written hints (for dev/tests). */
     mode: env("TUTOR_MODE", process.env.ANTHROPIC_API_KEY ? "claude" : "mock") as "claude" | "mock",
-    model: env("TUTOR_MODEL", "claude-opus-5-5"),
+    model: env("TUTOR_MODEL", "claude-sonnet-5-5"),
     /** Model used to double-check every tutor reply for safety and answer leaks. */
     safetyModel: env("TUTOR_SAFETY_MODEL", "claude-opus-5-5"),
     effort: env("TUTOR_EFFORT", "low") as "low" | "medium" | "high",
     dailyMessageLimit: Number(env("TUTOR_DAILY_LIMIT", "40")),
     maxMessageChars: 500,
+    /** Replies are at most ~120 words; the safety verdict is a short JSON object. Generous caps, far below the old 16000. */
+    maxReplyTokens: Number(env("TUTOR_MAX_REPLY_TOKENS", "1000")),
+    maxCheckTokens: Number(env("TUTOR_MAX_CHECK_TOKENS", "400")),
   },
 
   security: {
@@ -61,6 +64,8 @@ export const config = {
     pinLockMinutes: 15,
     loginMaxAttempts: 8,
     loginLockMinutes: 15,
+    /** Repeated lockouts last longer: the Nth lockout in a row lasts (lock minutes × this step). A successful sign-in or PIN resets it. 15 min, 1 h, 6 h, 24 h. */
+    lockEscalation: [1, 4, 24, 96],
     familyTokenDays: 30,
     parentTokenMinutes: 10,
     codeMinutes: 15,

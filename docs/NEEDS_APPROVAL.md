@@ -44,21 +44,21 @@ Review for accuracy, balance and age-appropriateness. Ideally include reviewers 
 
 - [ ] **Money lessons with country-specific rules:** `b5-money-taxes-payslips`, `b5-money-credit-loans`, `b5-money-bank-budget`, `b5-money-investment-scams`, `b5-money-living-skills`, `b5-math-financial`
 - [ ] **Statistics and dates:** `b5-lang-public-speaking` ("more plastic than fish by 2050", a contested 2016 projection: consider replacing), `b3-world-maps-latitude` (Everest 8,849 m), `b3-world-child-rights`, `b4-world-history-cause-consequence`, `b5-world-globalisation`, `b3-sci-climate-environment`, `b4-sci-earth-climate-evidence`
-- [ ] **All 44 brain puzzles** (`content/puzzles/*.json`): a second person should solve each one to confirm there's exactly one correct answer. One was already found ambiguous and fixed (b3-p7); `b5-p10` (the truth-teller puzzle) deserves an extra check.
+- [ ] **All 68 brain puzzles** (`content/puzzles/*.json`): a second person should solve each one to confirm there's exactly one correct answer. One was already found ambiguous and fixed (b3-p7); `b5-p10` (the truth-teller puzzle) deserves an extra check.
 - [ ] **All 27 free resources** (`content/resources.json`): confirm each is still free, has no ads aimed at children and suits the listed ages; then set `lastChecked`. Run `node scripts/check-links.mjs --write` first.
 - [ ] **Validator warnings:** `npm run validate` (in `server/`) lists hints that mention the answer word-for-word. The current ones were checked and seem fine, but a reviewer should confirm.
 
 ## 🟡 Priority 3: standard two-reviewer check for everything else
 
 - [ ] **Digital safety lessons** (scams, privacy, AI): 13 lessons (`b*-dig-*`)
-- [ ] **All other lessons:** 175 lessons and 391 questions in total. Use `docs/review/lessons.csv` and `docs/review/questions.csv`.
+- [ ] **All other lessons:** 175 lessons and 501 questions in total. Use `docs/review/lessons.csv` and `docs/review/questions.csv`.
 - [ ] **Every quiz question's hints:** nudge → bigger hint → *similar* worked example, never the answer itself.
 
 ---
 
 ### Known limitations (not errors, but worth knowing)
 
-- Newer lessons have 2 quiz questions; earlier ones have 2–3. Reviewers may want to add a third to some.
+- The 24 lessons for ages 3–5 have 2 quiz questions; the other 151 have 3. Reviewers may want to add a third to the youngest ones. <!-- doc-counts:ignore -->
 - Lessons are English-only for now.
 - Wikipedia "Learn more", the link checker and the video checker were tested only with simulated responses, because the build environment had no internet access to those sites.
 

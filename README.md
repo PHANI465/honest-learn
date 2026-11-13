@@ -6,6 +6,7 @@ Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android an
 - **Helps, never cheats:** quizzes use a hint ladder (nudge → bigger hint → worked example of a *similar* problem). Hoot, the AI helper, never gives quiz answers, and an independent check reviews every reply before a child sees it.
 - **Parents in control:** a parent account is required. A parent PIN protects settings, sensitive topics (religion, body, politics), chat history, outside links and extra screen time.
 - **Honest by design:** no ads, no tracking and no data selling. Every lesson lists its sources and shows whether teachers have reviewed it. Families can export or delete all their data.
+- **Try it in 5 minutes:** [`docs/TRY_IT.md`](docs/TRY_IT.md) (a ready-made demo family and what to click).
 - **Documented:** [the guide](docs/guide/README.md) explains what's built, where it lives, how it works, how to navigate it and how it can scale.
 - **Points to the best free resources:** each subject lists hand-picked free websites for the child's age (Khan Academy, PhET, Scratch, NASA Space Place, OpenStax and more). Lessons for ages 9+ show a short Wikipedia summary (Simple English Wikipedia for 9–11). Lessons can include reviewed YouTube videos in the privacy-enhanced player. Outside links need a parent's PIN for under-13s.
 

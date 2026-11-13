@@ -377,6 +377,30 @@ export function precheck(message: string, band: BandId, country?: string): Tutor
   return null;
 }
 
+/** What is stored in place of a child's message that contained personal information. */
+export const PERSONAL_INFO_PLACEHOLDER = "[removed: personal information]";
+/** How many of the child's latest messages (this one included) are read together for wellbeing. */
+export const WELLBEING_WINDOW = 3;
+
+/**
+ * `precheck` plus a conversation-level wellbeing check: a disclosure spread over several messages
+ * ("my uncle" … "he touches me") is caught by reading the child's last few messages together.
+ *
+ * @param earlier the child's earlier messages in this chat, oldest first. Messages stored as the
+ *   personal-information placeholder are ignored, and so are messages that were already flagged (Hoot
+ *   has answered those, so they must not trigger the same reply again on the next harmless message).
+ */
+export function precheckConversation(message: string, earlier: string[], band: BandId, country?: string): TutorResult | null {
+  const single = precheck(message, band, country);
+  if (single?.flag === "wellbeing") return single;
+  const prior = earlier.filter((m) => m !== PERSONAL_INFO_PLACEHOLDER).slice(-(WELLBEING_WINDOW - 1));
+  if (prior.length > 0) {
+    const concern = detectWellbeing([...prior, message].join(" "));
+    if (concern) return { reply: wellbeingReply(band, concern, country), flag: "wellbeing" };
+  }
+  return single;
+}
+
 // ---------------------------------------------------------------------------
 // Prompts
 // ---------------------------------------------------------------------------
@@ -471,6 +495,24 @@ export function safeHint(req: TutorRequest): string {
   return `Here's a hint: ${q.hints[Math.min(asked, 2)]}`;
 }
 
+/**
+ * Cheap deterministic backstop for the model-based answer-leak check: on an unsolved question, a reply
+ * that names the correct option's text but none of the wrong ones singles the answer out. Talking about
+ * all the options together ("compare 5/6 and 3/4") is fine and is not flagged.
+ */
+export function singlesOutCorrectOption(req: TutorRequest, reply: string): boolean {
+  if (req.questionIndex === null || req.questionSolved) return false;
+  const q = req.lesson.quiz[req.questionIndex];
+  if (!q) return false;
+  const text = normalise(reply);
+  const has = (option: string) => {
+    const o = normalise(option);
+    return o.length >= 2 && text.includes(o);
+  };
+  if (!has(q.options[q.answer]!)) return false;
+  return !q.options.some((o, i) => i !== q.answer && has(o));
+}
+
 export class MockTutor implements TutorProvider {
   async reply(req: TutorRequest): Promise<TutorResult> {
     return { reply: safeHint(req), flag: null };
@@ -490,7 +532,7 @@ export class ClaudeTutor implements TutorProvider {
     try {
       const response = await this.client.beta.messages.create({
         model: config.tutor.model,
-        max_tokens: 16000,
+        max_tokens: config.tutor.maxReplyTokens,
         betas: ["server-side-fallback-2026-07-01"],
         fallbacks: "default",
         output_config: { effort: config.tutor.effort },
@@ -518,6 +560,7 @@ export class ClaudeTutor implements TutorProvider {
     if (!verdict) return { reply: safeHint(req), flag: "error" };
     if (!verdict.safe_for_age) return { reply: safeHint(req), flag: "unsafe_reply" };
     if (verdict.reveals_answer && !req.questionSolved) return { reply: safeHint(req), flag: "answer_leak" };
+    if (singlesOutCorrectOption(req, draft)) return { reply: safeHint(req), flag: "answer_leak" };
     return { reply: draft, flag: null };
   }
 
@@ -528,7 +571,7 @@ export class ClaudeTutor implements TutorProvider {
     try {
       const response = await this.client.beta.messages.create({
         model: config.tutor.safetyModel,
-        max_tokens: 16000,
+        max_tokens: config.tutor.maxCheckTokens,
         betas: ["server-side-fallback-2026-07-01"],
         fallbacks: "default",
         output_config: {

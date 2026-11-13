@@ -6,7 +6,7 @@ import { now } from "../db.ts";
 import { lessonSummary, publicLesson, type Lesson } from "../content.ts";
 import { lessonWikiTitle, wikiHostFor } from "../wiki.ts";
 import { optionOrder } from "../shuffle.ts";
-import { childBand, childPublic, Choices, reviewIntervalDays } from "../models.ts";
+import { childBand, childPublic, Choices, outcomeStatuses, reviewIntervalDays } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 
 const QuestionRef = z.object({ question: z.number().int().min(0).max(1000) });
@@ -57,7 +57,30 @@ export function learnRoutes(ctx: Ctx) {
       // a star for every lesson finished with every question right
       stars: done.filter((d) => visibleIds.has(d.lesson_id) && d.best_score === d.total).length,
     };
-    return c.json({ child: childPublic(child), band: bandInfo, subjects, reviewDue, next: next ? lessonSummary(next) : null, totals });
+    // "Try next": up to 3 gentle suggestions. Lessons due for review first, then lessons for outcomes
+    // that are still new or being practised (one to practise again, then new ones).
+    const { status } = outcomeStatuses(content, child, done, visibleTo);
+    const suggested: (ReturnType<typeof lessonSummary> & { reason: "review" | "new" | "practise" })[] = reviewDue
+      .slice(0, 3)
+      .map((l) => ({ ...l, reason: "review" as const }));
+    if (suggested.length < 3) {
+      const taken = new Set(suggested.map((l) => l.id));
+      const bestById = new Map(done.map((d) => [d.lesson_id, d]));
+      const open = visible
+        .filter((l) => !taken.has(l.id) && l.outcomes.some((o) => (status.get(o) ?? "not_started") !== "strong"))
+        .filter((l) => {
+          const p = bestById.get(l.id);
+          return !p || p.best_score < p.total;
+        });
+      const fresh = open.filter((l) => !bestById.has(l.id));
+      const again = open.filter((l) => bestById.has(l.id));
+      // one lesson to practise again leads, then new lessons, then any other lessons to practise
+      for (const l of [...again.slice(0, 1), ...fresh, ...again.slice(1)]) {
+        if (suggested.length >= 3) break;
+        suggested.push({ ...lessonSummary(l), reason: bestById.has(l.id) ? "practise" : "new" });
+      }
+    }
+    return c.json({ child: childPublic(child), band: bandInfo, subjects, reviewDue, next: next ? lessonSummary(next) : null, suggested, totals });
   });
 
   r.get("/children/:childId/lessons", async (c) => {

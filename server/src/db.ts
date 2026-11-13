@@ -136,6 +136,12 @@ const TABLES = [
   created_at  TEXT NOT NULL
 )`,
   `CREATE INDEX IF NOT EXISTS idx_reports_parent ON reports(parent_id)`,
+  // shared request counters (per-IP limit on /auth/*): one row per key, a fixed window from its first hit
+  `CREATE TABLE IF NOT EXISTS rate_limits (
+  key          TEXT PRIMARY KEY,
+  window_start TEXT NOT NULL,
+  count        INTEGER NOT NULL DEFAULT 0
+)`,
 ];
 
 /** Columns added after v0.1.0. Applied on start-up when the column is missing. */
@@ -170,6 +176,19 @@ const MIGRATIONS: { table: string; column: string; sqlite: string[]; postgres: s
     column: "token_version",
     sqlite: ["ALTER TABLE parents ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0"],
     postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS token_version INTEGER NOT NULL DEFAULT 0"],
+  },
+  {
+    // Escalating lockouts: how many lockouts in a row (no successful PIN since). Longer lock each time.
+    table: "parents",
+    column: "pin_lock_level",
+    sqlite: ["ALTER TABLE parents ADD COLUMN pin_lock_level INTEGER NOT NULL DEFAULT 0"],
+    postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS pin_lock_level INTEGER NOT NULL DEFAULT 0"],
+  },
+  {
+    table: "parents",
+    column: "login_lock_level",
+    sqlite: ["ALTER TABLE parents ADD COLUMN login_lock_level INTEGER NOT NULL DEFAULT 0"],
+    postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS login_lock_level INTEGER NOT NULL DEFAULT 0"],
   },
 ];
 
@@ -356,6 +375,8 @@ export async function purgeOld(db: DB, chatDays: number, nowMs = Date.now()): Pr
   n += (await db.run("DELETE FROM reports WHERE status != 'open' AND created_at < ?", [ago(365)])).changes;
   n += (await db.run("DELETE FROM usage WHERE day < ?", [ago(90).slice(0, 10)])).changes;
   n += (await db.run("DELETE FROM auth_codes WHERE expires_at < ?", [new Date(nowMs).toISOString()])).changes;
+  // rate-limit windows are minutes long; anything older than a day is long expired
+  n += (await db.run("DELETE FROM rate_limits WHERE window_start < ?", [ago(1)])).changes;
   return n;
 }
 
