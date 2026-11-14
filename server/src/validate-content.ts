@@ -5,7 +5,7 @@ import { loadContent } from "./content.ts";
 import { loadHelplines } from "./tutor.ts";
 
 try {
-  const { lessons, map, puzzles, resources } = loadContent(config.contentDir);
+  const { lessons, map, puzzles, resources, facts } = loadContent(config.contentDir);
   const helplines = loadHelplines(config.contentDir);
   const byStatus = { draft: 0, reviewed: 0 };
   for (const l of lessons.values()) byStatus[l.status]++;
@@ -35,11 +35,24 @@ try {
   for (const set of puzzles.values()) for (const p of set.puzzles) checkLongest(p.id, "puzzle", p.options, p.answer);
   if (longest.length) console.log(`⚠️  Correct answer is the longest option (may be fine, but check the wrong options are as detailed):\n   ${longest.join("\n   ")}`);
   if (leaks.length) console.log(`⚠️  Check these hints don't give the answer away (may be fine):\n   ${leaks.join("\n   ")}`);
+  // Facts: every one already has a source (the schema requires it); also check ids match the band and text is not repeated.
+  const factProblems: string[] = [];
+  const factTexts = new Set<string>();
+  for (const set of facts.values()) {
+    for (const f of set.facts) {
+      if (!f.id.startsWith(set.band + "-")) factProblems.push(`${f.id}: id should start with "${set.band}-"`);
+      const key = f.text.toLowerCase().replace(/\W+/g, " ").trim();
+      if (factTexts.has(key)) factProblems.push(`${f.id}: same text as another fact`);
+      factTexts.add(key);
+    }
+  }
+  if (factProblems.length) throw new Error("Fact problems:\n- " + factProblems.join("\n- "));
   console.log(`Warnings: ${leaks.length} hint(s) may contain the answer; ${longest.length} question(s) where the correct option is strictly the longest.`);
   console.log(
     `OK — ${lessons.size} lessons (${byStatus.reviewed} reviewed, ${byStatus.draft} draft). ` +
       `Outcomes covered: ${covered.size}/${totalOutcomes}. ` +
       `Puzzles: ${[...puzzles.values()].reduce((n, p) => n + p.puzzles.length, 0)} in ${puzzles.size} sets. Free resources: ${resources.length}. ` +
+      `Facts: ${[...facts.values()].reduce((n, f) => n + f.facts.length, 0)} in ${facts.size} sets. ` +
       `Helplines: ${Object.keys(helplines.countries).length} countries (${helplines.status}).`,
   );
 } catch (e) {

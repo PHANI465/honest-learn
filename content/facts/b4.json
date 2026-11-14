@@ -1,0 +1,366 @@
+{
+  "band": "b4",
+  "status": "draft",
+  "facts": [
+    {
+      "id": "b4-f1",
+      "subject": "language",
+      "text": "The word 'salary' comes from the Latin word for salt.",
+      "source": {
+        "title": "Wikipedia: Salary",
+        "url": "https://en.wikipedia.org/wiki/Salary"
+      }
+    },
+    {
+      "id": "b4-f2",
+      "subject": "language",
+      "text": "Esperanto, a language made on purpose so people everywhere could share it, was published in 1887 by L. L. Zamenhof.",
+      "source": {
+        "title": "Wikipedia: Esperanto",
+        "url": "https://en.wikipedia.org/wiki/Esperanto"
+      }
+    },
+    {
+      "id": "b4-f3",
+      "subject": "language",
+      "text": "The Rosetta Stone helped scholars learn to read ancient Egyptian hieroglyphs.",
+      "source": {
+        "title": "Wikipedia: Rosetta Stone",
+        "url": "https://en.wikipedia.org/wiki/Rosetta_Stone"
+      }
+    },
+    {
+      "id": "b4-f4",
+      "subject": "language",
+      "text": "Onomatopoeia are words that sound like what they mean, such as buzz and splash.",
+      "source": {
+        "title": "Wikipedia: Onomatopoeia",
+        "url": "https://en.wikipedia.org/wiki/Onomatopoeia"
+      }
+    },
+    {
+      "id": "b4-f5",
+      "subject": "math",
+      "text": "The Pythagorean theorem says that in a right-angled triangle, the square of the longest side equals the sum of the squares of the other two.",
+      "source": {
+        "title": "Wikipedia: Pythagorean theorem",
+        "url": "https://en.wikipedia.org/wiki/Pythagorean_theorem"
+      }
+    },
+    {
+      "id": "b4-f6",
+      "subject": "math",
+      "text": "Euclid's Elements was used as a maths textbook for more than 2,000 years.",
+      "source": {
+        "title": "Wikipedia: Euclid's Elements",
+        "url": "https://en.wikipedia.org/wiki/Euclid%27s_Elements"
+      }
+    },
+    {
+      "id": "b4-f7",
+      "subject": "math",
+      "text": "The golden ratio is about 1.618.",
+      "source": {
+        "title": "Wikipedia: Golden ratio",
+        "url": "https://en.wikipedia.org/wiki/Golden_ratio"
+      }
+    },
+    {
+      "id": "b4-f8",
+      "subject": "math",
+      "text": "Computers have worked out the digits of pi to trillions of places.",
+      "source": {
+        "title": "Wikipedia: Pi",
+        "url": "https://en.wikipedia.org/wiki/Pi"
+      }
+    },
+    {
+      "id": "b4-f9",
+      "subject": "science",
+      "text": "DNA has the shape of a double helix, like a twisted ladder.",
+      "source": {
+        "title": "Wikipedia: DNA",
+        "url": "https://en.wikipedia.org/wiki/DNA"
+      }
+    },
+    {
+      "id": "b4-f10",
+      "subject": "science",
+      "text": "Light travels at 299,792,458 metres per second in a vacuum.",
+      "source": {
+        "title": "Wikipedia: Speed of light",
+        "url": "https://en.wikipedia.org/wiki/Speed_of_light"
+      }
+    },
+    {
+      "id": "b4-f11",
+      "subject": "science",
+      "text": "The human body is made of tens of trillions of cells.",
+      "source": {
+        "title": "Wikipedia: Human body",
+        "url": "https://en.wikipedia.org/wiki/Human_body"
+      }
+    },
+    {
+      "id": "b4-f12",
+      "subject": "science",
+      "text": "Absolute zero, the coldest possible temperature, is about minus 273 degrees Celsius.",
+      "source": {
+        "title": "Wikipedia: Absolute zero",
+        "url": "https://en.wikipedia.org/wiki/Absolute_zero"
+      }
+    },
+    {
+      "id": "b4-f13",
+      "subject": "world",
+      "text": "The Silk Road was a network of trade routes linking China with the Mediterranean.",
+      "source": {
+        "title": "Wikipedia: Silk Road",
+        "url": "https://en.wikipedia.org/wiki/Silk_Road"
+      }
+    },
+    {
+      "id": "b4-f14",
+      "subject": "world",
+      "text": "The Mariana Trench in the Pacific Ocean is the deepest known part of the world's oceans.",
+      "source": {
+        "title": "Wikipedia: Mariana Trench",
+        "url": "https://en.wikipedia.org/wiki/Mariana_Trench"
+      }
+    },
+    {
+      "id": "b4-f15",
+      "subject": "world",
+      "text": "The United Nations was founded in 1945.",
+      "source": {
+        "title": "Wikipedia: United Nations",
+        "url": "https://en.wikipedia.org/wiki/United_Nations"
+      }
+    },
+    {
+      "id": "b4-f16",
+      "subject": "world",
+      "text": "More than 8 billion people live on Earth.",
+      "source": {
+        "title": "Wikipedia: World population",
+        "url": "https://en.wikipedia.org/wiki/World_population"
+      }
+    },
+    {
+      "id": "b4-f17",
+      "subject": "health",
+      "text": "A resting heart usually beats between 60 and 100 times a minute in adults.",
+      "source": {
+        "title": "Wikipedia: Heart rate",
+        "url": "https://en.wikipedia.org/wiki/Heart_rate"
+      }
+    },
+    {
+      "id": "b4-f18",
+      "subject": "health",
+      "text": "Antibiotics work against bacteria, not viruses.",
+      "source": {
+        "title": "Wikipedia: Antibiotic",
+        "url": "https://en.wikipedia.org/wiki/Antibiotic"
+      }
+    },
+    {
+      "id": "b4-f19",
+      "subject": "health",
+      "text": "Smallpox was the first human disease to be wiped out completely. This was declared in 1980.",
+      "source": {
+        "title": "Wikipedia: Smallpox",
+        "url": "https://en.wikipedia.org/wiki/Smallpox"
+      }
+    },
+    {
+      "id": "b4-f20",
+      "subject": "health",
+      "text": "A red blood cell lives for about 120 days.",
+      "source": {
+        "title": "Wikipedia: Red blood cell",
+        "url": "https://en.wikipedia.org/wiki/Red_blood_cell"
+      }
+    },
+    {
+      "id": "b4-f21",
+      "subject": "digital",
+      "text": "ARPANET, an early network that led to the internet, sent its first message in 1969.",
+      "source": {
+        "title": "Wikipedia: ARPANET",
+        "url": "https://en.wikipedia.org/wiki/ARPANET"
+      }
+    },
+    {
+      "id": "b4-f22",
+      "subject": "digital",
+      "text": "Multi-factor authentication protects an account with more than one proof that it is really you.",
+      "source": {
+        "title": "Wikipedia: Multi-factor authentication",
+        "url": "https://en.wikipedia.org/wiki/Multi-factor_authentication"
+      }
+    },
+    {
+      "id": "b4-f23",
+      "subject": "digital",
+      "text": "A deepfake is a fake photo, video or voice recording made with artificial intelligence.",
+      "source": {
+        "title": "Wikipedia: Deepfake",
+        "url": "https://en.wikipedia.org/wiki/Deepfake"
+      }
+    },
+    {
+      "id": "b4-f24",
+      "subject": "digital",
+      "text": "A cookie is a small piece of data a website stores in your browser.",
+      "source": {
+        "title": "Wikipedia: HTTP cookie",
+        "url": "https://en.wikipedia.org/wiki/HTTP_cookie"
+      }
+    },
+    {
+      "id": "b4-f25",
+      "subject": "money",
+      "text": "With compound interest, you earn interest on the interest you have already earned.",
+      "source": {
+        "title": "Wikipedia: Compound interest",
+        "url": "https://en.wikipedia.org/wiki/Compound_interest"
+      }
+    },
+    {
+      "id": "b4-f26",
+      "subject": "money",
+      "text": "Diversification means spreading money across different things to lower the risk of losing it all.",
+      "source": {
+        "title": "Wikipedia: Diversification (finance)",
+        "url": "https://en.wikipedia.org/wiki/Diversification_(finance)"
+      }
+    },
+    {
+      "id": "b4-f27",
+      "subject": "money",
+      "text": "Taxes help pay for public services such as roads and schools.",
+      "source": {
+        "title": "Wikipedia: Tax",
+        "url": "https://en.wikipedia.org/wiki/Tax"
+      }
+    },
+    {
+      "id": "b4-f28",
+      "subject": "money",
+      "text": "Bitcoin, the first widely used cryptocurrency, was launched in 2009.",
+      "source": {
+        "title": "Wikipedia: Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin"
+      }
+    },
+    {
+      "id": "b4-f29",
+      "subject": "thinking",
+      "text": "Occam's razor is the idea that the simplest explanation that fits the facts is usually the best place to start.",
+      "source": {
+        "title": "Wikipedia: Occam's razor",
+        "url": "https://en.wikipedia.org/wiki/Occam%27s_razor"
+      }
+    },
+    {
+      "id": "b4-f30",
+      "subject": "thinking",
+      "text": "In a placebo effect, people feel better after a treatment that has no active ingredient.",
+      "source": {
+        "title": "Wikipedia: Placebo",
+        "url": "https://en.wikipedia.org/wiki/Placebo"
+      }
+    },
+    {
+      "id": "b4-f31",
+      "subject": "thinking",
+      "text": "Correlation does not imply causation: two things happening together does not prove one causes the other.",
+      "source": {
+        "title": "Wikipedia: Correlation does not imply causation",
+        "url": "https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation"
+      }
+    },
+    {
+      "id": "b4-f32",
+      "subject": "thinking",
+      "text": "The bandwagon effect is when people do or believe something mainly because many others do.",
+      "source": {
+        "title": "Wikipedia: Bandwagon effect",
+        "url": "https://en.wikipedia.org/wiki/Bandwagon_effect"
+      }
+    },
+    {
+      "id": "b4-f33",
+      "subject": "arts",
+      "text": "Pablo Picasso helped to start the art movement called Cubism.",
+      "source": {
+        "title": "Wikipedia: Pablo Picasso",
+        "url": "https://en.wikipedia.org/wiki/Pablo_Picasso"
+      }
+    },
+    {
+      "id": "b4-f34",
+      "subject": "arts",
+      "text": "Hip-hop music and culture began in the Bronx, New York, in the 1970s.",
+      "source": {
+        "title": "Wikipedia: Hip-hop",
+        "url": "https://en.wikipedia.org/wiki/Hip-hop"
+      }
+    },
+    {
+      "id": "b4-f35",
+      "subject": "arts",
+      "text": "Bollywood is the name for the Hindi-language film industry based in Mumbai.",
+      "source": {
+        "title": "Wikipedia: Bollywood",
+        "url": "https://en.wikipedia.org/wiki/Bollywood"
+      }
+    },
+    {
+      "id": "b4-f36",
+      "subject": "arts",
+      "text": "The painter Frida Kahlo is famous for her many self-portraits.",
+      "source": {
+        "title": "Wikipedia: Frida Kahlo",
+        "url": "https://en.wikipedia.org/wiki/Frida_Kahlo"
+      }
+    },
+    {
+      "id": "b4-f37",
+      "subject": "computing",
+      "text": "Alan Turing described an imaginary machine, now called a Turing machine, that shows what any computer can and cannot compute.",
+      "source": {
+        "title": "Wikipedia: Alan Turing",
+        "url": "https://en.wikipedia.org/wiki/Alan_Turing"
+      }
+    },
+    {
+      "id": "b4-f38",
+      "subject": "computing",
+      "text": "Linus Torvalds began the Linux operating system in 1991.",
+      "source": {
+        "title": "Wikipedia: Linux",
+        "url": "https://en.wikipedia.org/wiki/Linux"
+      }
+    },
+    {
+      "id": "b4-f39",
+      "subject": "computing",
+      "text": "Moore's law is the observation that the number of transistors on a chip doubles about every two years.",
+      "source": {
+        "title": "Wikipedia: Moore's law",
+        "url": "https://en.wikipedia.org/wiki/Moore%27s_law"
+      }
+    },
+    {
+      "id": "b4-f40",
+      "subject": "computing",
+      "text": "Open-source software is software whose source code anyone can read and share.",
+      "source": {
+        "title": "Wikipedia: Open-source software",
+        "url": "https://en.wikipedia.org/wiki/Open-source_software"
+      }
+    }
+  ]
+}

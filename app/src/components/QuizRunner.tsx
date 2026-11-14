@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Animated, Pressable, Text, View } from "react-native";
 import { Pop, usePressScale, useShake } from "../lib/motion";
 import type { BandId } from "../lib/api";
@@ -99,6 +99,7 @@ export function QuizRunner({
   finish,
   onDone,
   doneNote,
+  after,
 }: {
   band: BandId;
   questions: RunnerQuestion[];
@@ -108,6 +109,8 @@ export function QuizRunner({
   finish?: (firstChoices: number[]) => Promise<{ score: number; total: number }>;
   onDone: () => void;
   doneNote?: string;
+  /** Shown under the score on the result screen (for example a FactCard). */
+  after?: ReactNode;
 }) {
   const t = scaledBandTheme(band);
   const young = band === "b1" || band === "b2";
@@ -127,6 +130,7 @@ export function QuizRunner({
         <Text style={{ fontSize: 34, textAlign: "center" }} accessibilityLabel={`${result.score} out of ${result.total} correct`}>{"⭐".repeat(result.score)}{"☆".repeat(Math.max(0, result.total - result.score))}</Text>
         <P center size={19}>You got {result.score} out of {result.total} on your first tries.</P>
         {doneNote ? <P center muted>{doneNote}</P> : null}
+        {after}
         <View style={{ width: "100%", gap: 10 }}>
           <Button big title="Done" color={t.accent} onPress={onDone} />
         </View>

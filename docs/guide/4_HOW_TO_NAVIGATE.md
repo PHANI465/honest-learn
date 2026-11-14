@@ -56,6 +56,7 @@ On the website every screen has an address, for example `/welcome`, `/profiles`,
 | Read or change a **lesson** | `content/lessons/<age>/<subject>/<lesson-id>.json` (ages: `b1` 3–5 … `b5` 15–18) |
 | Find which lesson teaches an **outcome** | `docs/KNOWLEDGE_MAP.md` (readable) or `content/knowledge-map.json` |
 | Change **brain puzzles** | `content/puzzles/b1.json` … `b5.json` |
+| Change **quick facts** (every fact needs a source link) | `content/facts/b1.json` … `b5.json`; check links with `node scripts/check-fact-sources.mjs` |
 | Add or remove a **free website** | `content/resources.json` |
 | Check **helpline** numbers | `content/helplines.json` |
 | See **everything in the app** at a glance | `README.md` → "What's inside" |

@@ -1,0 +1,366 @@
+{
+  "band": "b1",
+  "status": "draft",
+  "facts": [
+    {
+      "id": "b1-f1",
+      "subject": "language",
+      "text": "The word 'alphabet' comes from alpha and beta, the first two letters of the Greek alphabet.",
+      "source": {
+        "title": "Wikipedia: Alphabet",
+        "url": "https://en.wikipedia.org/wiki/Alphabet"
+      }
+    },
+    {
+      "id": "b1-f2",
+      "subject": "language",
+      "text": "The English alphabet has 26 letters.",
+      "source": {
+        "title": "Wikipedia: English alphabet",
+        "url": "https://en.wikipedia.org/wiki/English_alphabet"
+      }
+    },
+    {
+      "id": "b1-f3",
+      "subject": "language",
+      "text": "Some people read with their fingers. Braille uses raised dots that you feel.",
+      "source": {
+        "title": "Wikipedia: Braille",
+        "url": "https://en.wikipedia.org/wiki/Braille"
+      }
+    },
+    {
+      "id": "b1-f4",
+      "subject": "language",
+      "text": "Rhyming words end with the same sound, like cat and hat.",
+      "source": {
+        "title": "Wikipedia: Rhyme",
+        "url": "https://en.wikipedia.org/wiki/Rhyme"
+      }
+    },
+    {
+      "id": "b1-f5",
+      "subject": "math",
+      "text": "A triangle has 3 sides and 3 corners.",
+      "source": {
+        "title": "Wikipedia: Triangle",
+        "url": "https://en.wikipedia.org/wiki/Triangle"
+      }
+    },
+    {
+      "id": "b1-f6",
+      "subject": "math",
+      "text": "A square has 4 sides that are all the same length.",
+      "source": {
+        "title": "Wikipedia: Square",
+        "url": "https://en.wikipedia.org/wiki/Square"
+      }
+    },
+    {
+      "id": "b1-f7",
+      "subject": "math",
+      "text": "A dozen means 12.",
+      "source": {
+        "title": "Wikipedia: Dozen",
+        "url": "https://en.wikipedia.org/wiki/Dozen"
+      }
+    },
+    {
+      "id": "b1-f8",
+      "subject": "math",
+      "text": "A honeycomb is made of tiny six-sided shapes called hexagons.",
+      "source": {
+        "title": "Wikipedia: Honeycomb",
+        "url": "https://en.wikipedia.org/wiki/Honeycomb"
+      }
+    },
+    {
+      "id": "b1-f9",
+      "subject": "science",
+      "text": "An octopus has 3 hearts.",
+      "source": {
+        "title": "Wikipedia: Octopus",
+        "url": "https://en.wikipedia.org/wiki/Octopus"
+      }
+    },
+    {
+      "id": "b1-f10",
+      "subject": "science",
+      "text": "Bees visit flowers to drink a sweet liquid called nectar.",
+      "source": {
+        "title": "Wikipedia: Bee",
+        "url": "https://en.wikipedia.org/wiki/Bee"
+      }
+    },
+    {
+      "id": "b1-f11",
+      "subject": "science",
+      "text": "A rainbow appears when sunlight shines through raindrops.",
+      "source": {
+        "title": "Wikipedia: Rainbow",
+        "url": "https://en.wikipedia.org/wiki/Rainbow"
+      }
+    },
+    {
+      "id": "b1-f12",
+      "subject": "science",
+      "text": "The Sun is a star.",
+      "source": {
+        "title": "Wikipedia: Sun",
+        "url": "https://en.wikipedia.org/wiki/Sun"
+      }
+    },
+    {
+      "id": "b1-f13",
+      "subject": "world",
+      "text": "Penguins live mostly in the southern half of the world.",
+      "source": {
+        "title": "Wikipedia: Penguin",
+        "url": "https://en.wikipedia.org/wiki/Penguin"
+      }
+    },
+    {
+      "id": "b1-f14",
+      "subject": "world",
+      "text": "There are 7 continents on Earth.",
+      "source": {
+        "title": "Wikipedia: Continent",
+        "url": "https://en.wikipedia.org/wiki/Continent"
+      }
+    },
+    {
+      "id": "b1-f15",
+      "subject": "world",
+      "text": "Water covers most of the surface of the Earth.",
+      "source": {
+        "title": "Wikipedia: Earth",
+        "url": "https://en.wikipedia.org/wiki/Earth"
+      }
+    },
+    {
+      "id": "b1-f16",
+      "subject": "world",
+      "text": "It takes one year for the Earth to travel all the way around the Sun.",
+      "source": {
+        "title": "Wikipedia: Earth",
+        "url": "https://en.wikipedia.org/wiki/Earth"
+      }
+    },
+    {
+      "id": "b1-f17",
+      "subject": "health",
+      "text": "A grown-up has 206 bones.",
+      "source": {
+        "title": "Wikipedia: Human skeleton",
+        "url": "https://en.wikipedia.org/wiki/Human_skeleton"
+      }
+    },
+    {
+      "id": "b1-f18",
+      "subject": "health",
+      "text": "Your skin is the biggest organ of your body.",
+      "source": {
+        "title": "Wikipedia: Human skin",
+        "url": "https://en.wikipedia.org/wiki/Human_skin"
+      }
+    },
+    {
+      "id": "b1-f19",
+      "subject": "health",
+      "text": "The hard outside of your teeth is the hardest part of your body.",
+      "source": {
+        "title": "Wikipedia: Tooth enamel",
+        "url": "https://en.wikipedia.org/wiki/Tooth_enamel"
+      }
+    },
+    {
+      "id": "b1-f20",
+      "subject": "health",
+      "text": "Washing your hands with soap helps wash germs away.",
+      "source": {
+        "title": "Wikipedia: Hand washing",
+        "url": "https://en.wikipedia.org/wiki/Hand_washing"
+      }
+    },
+    {
+      "id": "b1-f21",
+      "subject": "digital",
+      "text": "The first website went online in 1991.",
+      "source": {
+        "title": "Wikipedia: World Wide Web",
+        "url": "https://en.wikipedia.org/wiki/World_Wide_Web"
+      }
+    },
+    {
+      "id": "b1-f22",
+      "subject": "digital",
+      "text": "Wi-Fi sends information through the air using radio waves.",
+      "source": {
+        "title": "Wikipedia: Wi-Fi",
+        "url": "https://en.wikipedia.org/wiki/Wi-Fi"
+      }
+    },
+    {
+      "id": "b1-f23",
+      "subject": "digital",
+      "text": "The word 'robot' was first used in a play in 1920.",
+      "source": {
+        "title": "Wikipedia: Robot",
+        "url": "https://en.wikipedia.org/wiki/Robot"
+      }
+    },
+    {
+      "id": "b1-f24",
+      "subject": "digital",
+      "text": "The first email was sent in 1971.",
+      "source": {
+        "title": "Wikipedia: Email",
+        "url": "https://en.wikipedia.org/wiki/Email"
+      }
+    },
+    {
+      "id": "b1-f25",
+      "subject": "money",
+      "text": "Long ago, people swapped things instead of paying with money. This is called bartering.",
+      "source": {
+        "title": "Wikipedia: Barter",
+        "url": "https://en.wikipedia.org/wiki/Barter"
+      }
+    },
+    {
+      "id": "b1-f26",
+      "subject": "money",
+      "text": "Paper money was first used in China.",
+      "source": {
+        "title": "Wikipedia: Banknote",
+        "url": "https://en.wikipedia.org/wiki/Banknote"
+      }
+    },
+    {
+      "id": "b1-f27",
+      "subject": "money",
+      "text": "Some of the first coins were made in a place called Lydia, a very long time ago.",
+      "source": {
+        "title": "Wikipedia: Coin",
+        "url": "https://en.wikipedia.org/wiki/Coin"
+      }
+    },
+    {
+      "id": "b1-f28",
+      "subject": "money",
+      "text": "A piggy bank is a place to save coins.",
+      "source": {
+        "title": "Wikipedia: Piggy bank",
+        "url": "https://en.wikipedia.org/wiki/Piggy_bank"
+      }
+    },
+    {
+      "id": "b1-f29",
+      "subject": "thinking",
+      "text": "Your brain is made of billions of tiny cells called neurons.",
+      "source": {
+        "title": "Wikipedia: Human brain",
+        "url": "https://en.wikipedia.org/wiki/Human_brain"
+      }
+    },
+    {
+      "id": "b1-f30",
+      "subject": "thinking",
+      "text": "A chess board has 64 squares.",
+      "source": {
+        "title": "Wikipedia: Chess",
+        "url": "https://en.wikipedia.org/wiki/Chess"
+      }
+    },
+    {
+      "id": "b1-f31",
+      "subject": "thinking",
+      "text": "A Rubik's Cube has six faces.",
+      "source": {
+        "title": "Wikipedia: Rubik's Cube",
+        "url": "https://en.wikipedia.org/wiki/Rubik%27s_Cube"
+      }
+    },
+    {
+      "id": "b1-f32",
+      "subject": "thinking",
+      "text": "A tangram is a puzzle made of 7 flat shapes.",
+      "source": {
+        "title": "Wikipedia: Tangram",
+        "url": "https://en.wikipedia.org/wiki/Tangram"
+      }
+    },
+    {
+      "id": "b1-f33",
+      "subject": "arts",
+      "text": "The three main colours in a paint box are red, yellow and blue.",
+      "source": {
+        "title": "Wikipedia: Primary color",
+        "url": "https://en.wikipedia.org/wiki/Primary_color"
+      }
+    },
+    {
+      "id": "b1-f34",
+      "subject": "arts",
+      "text": "A piano has 88 keys.",
+      "source": {
+        "title": "Wikipedia: Piano",
+        "url": "https://en.wikipedia.org/wiki/Piano"
+      }
+    },
+    {
+      "id": "b1-f35",
+      "subject": "arts",
+      "text": "A violin has 4 strings.",
+      "source": {
+        "title": "Wikipedia: Violin",
+        "url": "https://en.wikipedia.org/wiki/Violin"
+      }
+    },
+    {
+      "id": "b1-f36",
+      "subject": "arts",
+      "text": "Origami is the art of folding paper.",
+      "source": {
+        "title": "Wikipedia: Origami",
+        "url": "https://en.wikipedia.org/wiki/Origami"
+      }
+    },
+    {
+      "id": "b1-f37",
+      "subject": "computing",
+      "text": "ENIAC, one of the first computers, was 30 metres long.",
+      "source": {
+        "title": "Wikipedia: ENIAC",
+        "url": "https://en.wikipedia.org/wiki/ENIAC"
+      }
+    },
+    {
+      "id": "b1-f38",
+      "subject": "computing",
+      "text": "Computers store information using only two digits: 0 and 1.",
+      "source": {
+        "title": "Wikipedia: Binary number",
+        "url": "https://en.wikipedia.org/wiki/Binary_number"
+      }
+    },
+    {
+      "id": "b1-f39",
+      "subject": "computing",
+      "text": "Programmers call a mistake in a computer program a bug.",
+      "source": {
+        "title": "Wikipedia: Software bug",
+        "url": "https://en.wikipedia.org/wiki/Software_bug"
+      }
+    },
+    {
+      "id": "b1-f40",
+      "subject": "computing",
+      "text": "The computer mouse got its name because its cord looked like a tail.",
+      "source": {
+        "title": "Wikipedia: Computer mouse",
+        "url": "https://en.wikipedia.org/wiki/Computer_mouse"
+      }
+    }
+  ]
+}

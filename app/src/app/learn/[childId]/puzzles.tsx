@@ -1,3 +1,4 @@
+import { FactCard } from "../../../components/FactCard";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
@@ -60,6 +61,7 @@ export default function Puzzles() {
           hint={(i, level) => api<{ hint: string }>("POST", `${base}/hint`, familyToken, { question: i, level }).then((r) => r.hint)}
           finish={(choices) => api("POST", `${base}/complete`, familyToken, { choices })}
           onDone={() => setPlaying(false)}
+          after={<FactCard childId={child.id} band={child.band} />}
           doneNote="Puzzle skills grow with practice. Try again another day and see if you can solve more on your first try!"
         />
       </Screen>

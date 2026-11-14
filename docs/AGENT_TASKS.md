@@ -66,7 +66,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 |---|---|---|---|---|---|---|
 | T0 | Own-model layer for Hoot (Ollama, OpenAI-compatible) | Opus high | M | none | **done** 14 Nov 2026 | `server/src/tutor-openai.ts`, `docs/FREE_AGENTS.md` |
 | T1 | Accessibility audit and fixes | Sonnet medium | M | none | **done** 14 Nov 2026 | `docs/ACCESSIBILITY.md`; keyboard and screen reader passes still need a person |
-| T2 | Quick facts between lessons | Haiku low (content), Sonnet medium (code) | S + S | none | todo | |
+| T2 | Quick facts between lessons | Haiku low (content), Sonnet medium (code) | S + S | none | **done** 14 Nov 2026 | 200 facts (40 per band), all draft; `FactCard`; `scripts/check-fact-sources.mjs`. A person must spot-check 1 in 5 |
 | T3 | Daily spelling and vocabulary | Sonnet medium (code), Haiku low (word lists) | L | none | todo | |
 | T4 | Quantitative aptitude and reasoning lessons | Sonnet medium | L | none | **done** 14 Nov 2026 | 30 lessons across b2 to b5; every band needs a human maths check |
 | T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | todo | |
@@ -412,3 +412,14 @@ are private to that family and are included in export and deletion. **Sonnet med
   squaring, Doomsday in full + Zeller, syllogisms, seating, data sufficiency; outcomes `b5-math-6`..`13`, `b5-think-5`..`7`).
   Generators lived in the scratchpad and were not committed; to add lessons later copy the pattern: assert every number in
   code, hand-insert outcomes into `knowledge-map.json`, run the three generators, fix doc counts.
+- **T2 (done).** Content: `content/facts/b1.json` to `b5.json` (40 facts each, 4 per subject for 10 subjects, all `"draft"`, every
+  source a Wikipedia article); `content/facts/keywords.json` holds 1 to 3 key words per fact that must appear in the source
+  article, used by `node scripts/check-fact-sources.mjs --text` (needs internet; checks that every link opens and that the
+  key words appear; not run in CI). Server: `Fact`/`FactSet` in `server/src/content.ts` (a fact without an https source is
+  rejected on load), `GET /children/:childId/facts?count=1..5&seen=id,id` in `routes/learn.ts` (random, skips seen ones,
+  hides facts tagged `sensitive` until unlocked; none of the shipped facts use that tag), checks in `validate-content.ts`,
+  tests in `server/test/facts.test.ts`. App: `app/src/components/FactCard.tsx` on the lesson result, the puzzle and practice
+  results (via the new `after` prop of `QuizRunner`) and once on the child home; "Another fact" gives one more on request,
+  there is no feed. Not done: offline caching of facts (the card simply does not show offline), a visual check at phone
+  width, and the reviewer pass. The fact lists were written by Sonnet, not Haiku, and checked only for key words, so
+  accuracy still needs a person.

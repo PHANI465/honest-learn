@@ -1,7 +1,9 @@
 // What a child uses: home screen, lessons, quizzes (hint ladder), practice, "learn more" and free resources.
 // Needs a family token (checked in app.ts for /family, /children/* and /reports).
+import { randomInt } from "node:crypto";
 import { Hono } from "hono";
 import { z } from "zod";
+import { config } from "../config.ts";
 import { now } from "../db.ts";
 import { lessonSummary, publicLesson, type Lesson } from "../content.ts";
 import { lessonWikiTitle, wikiHostFor } from "../wiki.ts";
@@ -19,6 +21,32 @@ export function learnRoutes(ctx: Ctx) {
     const p = c.get("parent");
     const kids = (await ctx.listChildren(p.id)).map(childPublic);
     return c.json({ parent: { email: p.email, emailVerified: !!p.email_verified_at, country: p.country }, children: kids });
+  });
+
+  /**
+   * Quick facts for the child's age group, picked at random. `count` is 1 to 5; `seen` (comma-separated ids) skips
+   * facts the app has already shown. Facts hold no secrets. Facts tied to a sensitive topic need the parent's unlock.
+   */
+  r.get("/children/:childId/facts", async (c) => {
+    const child = await loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const q = z
+      .object({
+        count: z.coerce.number().int().min(1).max(5).default(1),
+        seen: z.string().max(2000).optional(),
+      })
+      .parse({ count: c.req.query("count") ?? undefined, seen: c.req.query("seen") ?? undefined });
+    const set = content.facts.get(childBand(child));
+    if (!set || (set.status !== "reviewed" && !config.showDrafts)) return c.json({ facts: [] });
+    const unlocked = JSON.parse(child.unlocked_topics) as string[];
+    const seen = new Set((q.seen ?? "").split(",").filter(Boolean));
+    let pool = set.facts.filter((f) => !f.sensitive || unlocked.includes(f.sensitive));
+    const fresh = pool.filter((f) => !seen.has(f.id));
+    if (fresh.length >= q.count) pool = fresh; // once everything was seen, repeat rather than run dry
+    const picked: typeof pool = [];
+    const rest = [...pool];
+    while (picked.length < q.count && rest.length) picked.push(rest.splice(randomInt(rest.length), 1)[0]!);
+    return c.json({ facts: picked.map((f) => ({ id: f.id, subject: f.subject, text: f.text, source: f.source })) });
   });
 
   r.get("/children/:childId/home", async (c) => {

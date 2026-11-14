@@ -61,6 +61,26 @@ export const PuzzleSet = z.object({
 });
 export type PuzzleSet = z.infer<typeof PuzzleSet>;
 
+/**
+ * Quick facts shown between activities. A fact holds no secrets, so it can be cached offline.
+ * Every fact needs a source a reviewer can open: facts without one are rejected on load.
+ */
+export const Fact = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  subject: z.string().min(1),
+  text: z.string().min(10).max(300),
+  source: z.object({ title: z.string().min(1), url: z.string().url().startsWith("https://") }),
+  /** Set if a parent must unlock the topic first; most facts leave this out. */
+  sensitive: SensitiveTopic.nullable().optional(),
+});
+export const FactSet = z.object({
+  band: z.enum(["b1", "b2", "b3", "b4", "b5"]),
+  status: z.enum(["draft", "reviewed"]),
+  facts: z.array(Fact).min(1),
+});
+export type Fact = z.infer<typeof Fact>;
+export type FactSet = z.infer<typeof FactSet>;
+
 export const Lesson = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   title: z.string().min(1),
@@ -92,6 +112,7 @@ export interface ContentStore {
   lessons: Map<string, Lesson>;
   resources: Resource[];
   puzzles: Map<string, PuzzleSet>;
+  facts: Map<string, FactSet>;
 }
 
 function walk(dir: string): string[] {
@@ -173,8 +194,29 @@ export function loadContent(contentDir: string): ContentStore {
     }
   }
 
+  const facts = new Map<string, FactSet>();
+  const factDir = join(contentDir, "facts");
+  if (existsSync(factDir)) {
+    // b1.json to b5.json only: the folder also holds keywords.json, the key words used by scripts/check-fact-sources.mjs.
+    for (const file of walk(factDir).filter((f) => /[\\/]b[1-5]\.json$/.test(f))) {
+      const parsed = FactSet.safeParse(JSON.parse(readFileSync(file, "utf8")));
+      if (!parsed.success) {
+        problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
+        continue;
+      }
+      if (facts.has(parsed.data.band)) problems.push(`${file}: second fact set for ${parsed.data.band}`);
+      const ids = new Set<string>();
+      for (const f of parsed.data.facts) {
+        if (ids.has(f.id)) problems.push(`${file}: duplicate fact id ${f.id}`);
+        ids.add(f.id);
+        if (!subjectIds.has(f.subject)) problems.push(`${file}: ${f.id} has unknown subject ${f.subject}`);
+      }
+      facts.set(parsed.data.band, parsed.data);
+    }
+  }
+
   if (problems.length) throw new Error("Content problems:\n- " + problems.join("\n- "));
-  return { map, lessons, resources, puzzles };
+  return { map, lessons, resources, puzzles, facts };
 }
 
 /**

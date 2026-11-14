@@ -1,0 +1,366 @@
+{
+  "band": "b5",
+  "status": "draft",
+  "facts": [
+    {
+      "id": "b5-f1",
+      "subject": "language",
+      "text": "Linguists debate whether the language you speak shapes how you think. This idea is called linguistic relativity.",
+      "source": {
+        "title": "Wikipedia: Linguistic relativity",
+        "url": "https://en.wikipedia.org/wiki/Linguistic_relativity"
+      }
+    },
+    {
+      "id": "b5-f2",
+      "subject": "language",
+      "text": "In most languages, the most common word is used about twice as often as the second most common one. This is called Zipf's law.",
+      "source": {
+        "title": "Wikipedia: Zipf's law",
+        "url": "https://en.wikipedia.org/wiki/Zipf%27s_law"
+      }
+    },
+    {
+      "id": "b5-f3",
+      "subject": "language",
+      "text": "English, Hindi, Spanish and Russian all come from one ancient ancestor language, Proto-Indo-European.",
+      "source": {
+        "title": "Wikipedia: Indo-European languages",
+        "url": "https://en.wikipedia.org/wiki/Indo-European_languages"
+      }
+    },
+    {
+      "id": "b5-f4",
+      "subject": "language",
+      "text": "Code-switching is when a speaker moves between two languages or ways of speaking in the same conversation.",
+      "source": {
+        "title": "Wikipedia: Code-switching",
+        "url": "https://en.wikipedia.org/wiki/Code-switching"
+      }
+    },
+    {
+      "id": "b5-f5",
+      "subject": "math",
+      "text": "In 1931, Kurt Gödel proved that in any consistent system of arithmetic there are true statements that cannot be proved.",
+      "source": {
+        "title": "Wikipedia: Gödel's incompleteness theorems",
+        "url": "https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems"
+      }
+    },
+    {
+      "id": "b5-f6",
+      "subject": "math",
+      "text": "Fermat's Last Theorem, posed in the 1600s, was finally proved by Andrew Wiles in the 1990s.",
+      "source": {
+        "title": "Wikipedia: Fermat's Last Theorem",
+        "url": "https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem"
+      }
+    },
+    {
+      "id": "b5-f7",
+      "subject": "math",
+      "text": "Euler's identity connects five of the most important numbers in maths: 0, 1, e, i and pi.",
+      "source": {
+        "title": "Wikipedia: Euler's identity",
+        "url": "https://en.wikipedia.org/wiki/Euler%27s_identity"
+      }
+    },
+    {
+      "id": "b5-f8",
+      "subject": "math",
+      "text": "Euclid proved more than 2,000 years ago that there are infinitely many prime numbers.",
+      "source": {
+        "title": "Wikipedia: Euclid's theorem",
+        "url": "https://en.wikipedia.org/wiki/Euclid%27s_theorem"
+      }
+    },
+    {
+      "id": "b5-f9",
+      "subject": "science",
+      "text": "Emmanuelle Charpentier and Jennifer Doudna won the 2020 Nobel Prize in Chemistry for CRISPR, a tool for editing genes.",
+      "source": {
+        "title": "Wikipedia: CRISPR",
+        "url": "https://en.wikipedia.org/wiki/CRISPR"
+      }
+    },
+    {
+      "id": "b5-f10",
+      "subject": "science",
+      "text": "The Higgs boson was discovered at CERN in 2012.",
+      "source": {
+        "title": "Wikipedia: Higgs boson",
+        "url": "https://en.wikipedia.org/wiki/Higgs_boson"
+      }
+    },
+    {
+      "id": "b5-f11",
+      "subject": "science",
+      "text": "The second law of thermodynamics says that entropy, a measure of disorder, tends to increase in an isolated system.",
+      "source": {
+        "title": "Wikipedia: Second law of thermodynamics",
+        "url": "https://en.wikipedia.org/wiki/Second_law_of_thermodynamics"
+      }
+    },
+    {
+      "id": "b5-f12",
+      "subject": "science",
+      "text": "Mitochondria make most of the chemical energy (ATP) that cells use.",
+      "source": {
+        "title": "Wikipedia: Mitochondrion",
+        "url": "https://en.wikipedia.org/wiki/Mitochondrion"
+      }
+    },
+    {
+      "id": "b5-f13",
+      "subject": "world",
+      "text": "In the 2015 Paris Agreement, countries agreed to try to keep global warming well below 2 degrees Celsius.",
+      "source": {
+        "title": "Wikipedia: Paris Agreement",
+        "url": "https://en.wikipedia.org/wiki/Paris_Agreement"
+      }
+    },
+    {
+      "id": "b5-f14",
+      "subject": "world",
+      "text": "The Human Development Index compares countries using life expectancy, education and income.",
+      "source": {
+        "title": "Wikipedia: Human Development Index",
+        "url": "https://en.wikipedia.org/wiki/Human_Development_Index"
+      }
+    },
+    {
+      "id": "b5-f15",
+      "subject": "world",
+      "text": "The Universal Declaration of Human Rights was adopted by the United Nations in 1948.",
+      "source": {
+        "title": "Wikipedia: Universal Declaration of Human Rights",
+        "url": "https://en.wikipedia.org/wiki/Universal_Declaration_of_Human_Rights"
+      }
+    },
+    {
+      "id": "b5-f16",
+      "subject": "world",
+      "text": "The Industrial Revolution began in Britain in the 18th century.",
+      "source": {
+        "title": "Wikipedia: Industrial Revolution",
+        "url": "https://en.wikipedia.org/wiki/Industrial_Revolution"
+      }
+    },
+    {
+      "id": "b5-f17",
+      "subject": "health",
+      "text": "The World Health Organization defines health as more than the absence of disease: it includes physical, mental and social well-being.",
+      "source": {
+        "title": "Wikipedia: World Health Organization",
+        "url": "https://en.wikipedia.org/wiki/World_Health_Organization"
+      }
+    },
+    {
+      "id": "b5-f18",
+      "subject": "health",
+      "text": "Your gut is home to trillions of microbes, called the gut microbiota.",
+      "source": {
+        "title": "Wikipedia: Human microbiome",
+        "url": "https://en.wikipedia.org/wiki/Human_microbiome"
+      }
+    },
+    {
+      "id": "b5-f19",
+      "subject": "health",
+      "text": "Your body clock, the circadian rhythm, runs on a cycle of about 24 hours.",
+      "source": {
+        "title": "Wikipedia: Circadian rhythm",
+        "url": "https://en.wikipedia.org/wiki/Circadian_rhythm"
+      }
+    },
+    {
+      "id": "b5-f20",
+      "subject": "health",
+      "text": "Antibiotic resistance happens when bacteria change so that medicines no longer kill them.",
+      "source": {
+        "title": "Wikipedia: Antimicrobial resistance",
+        "url": "https://en.wikipedia.org/wiki/Antimicrobial_resistance"
+      }
+    },
+    {
+      "id": "b5-f21",
+      "subject": "digital",
+      "text": "Public-key cryptography lets two people who have never met share secret messages safely.",
+      "source": {
+        "title": "Wikipedia: Public-key cryptography",
+        "url": "https://en.wikipedia.org/wiki/Public-key_cryptography"
+      }
+    },
+    {
+      "id": "b5-f22",
+      "subject": "digital",
+      "text": "Algorithmic bias is when a computer system gives unfair results, often because of the data it learned from.",
+      "source": {
+        "title": "Wikipedia: Algorithmic bias",
+        "url": "https://en.wikipedia.org/wiki/Algorithmic_bias"
+      }
+    },
+    {
+      "id": "b5-f23",
+      "subject": "digital",
+      "text": "The EU's General Data Protection Regulation (GDPR) came into force in 2018 and gives people rights over their personal data.",
+      "source": {
+        "title": "Wikipedia: General Data Protection Regulation",
+        "url": "https://en.wikipedia.org/wiki/General_Data_Protection_Regulation"
+      }
+    },
+    {
+      "id": "b5-f24",
+      "subject": "digital",
+      "text": "AI chatbots can state false things with confidence. This is often called hallucination, so important facts should be checked.",
+      "source": {
+        "title": "Wikipedia: Hallucination (artificial intelligence)",
+        "url": "https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)"
+      }
+    },
+    {
+      "id": "b5-f25",
+      "subject": "money",
+      "text": "Opportunity cost is the value of the next best choice you give up when you decide.",
+      "source": {
+        "title": "Wikipedia: Opportunity cost",
+        "url": "https://en.wikipedia.org/wiki/Opportunity_cost"
+      }
+    },
+    {
+      "id": "b5-f26",
+      "subject": "money",
+      "text": "The rule of 72 says that dividing 72 by an interest rate in percent gives roughly how many years it takes to double your money.",
+      "source": {
+        "title": "Wikipedia: Rule of 72",
+        "url": "https://en.wikipedia.org/wiki/Rule_of_72"
+      }
+    },
+    {
+      "id": "b5-f27",
+      "subject": "money",
+      "text": "In a market, when something is scarce and many people want it, its price tends to rise. This is supply and demand.",
+      "source": {
+        "title": "Wikipedia: Supply and demand",
+        "url": "https://en.wikipedia.org/wiki/Supply_and_demand"
+      }
+    },
+    {
+      "id": "b5-f28",
+      "subject": "money",
+      "text": "The symbol for the Indian rupee was officially adopted in 2010.",
+      "source": {
+        "title": "Wikipedia: Indian rupee",
+        "url": "https://en.wikipedia.org/wiki/Indian_rupee"
+      }
+    },
+    {
+      "id": "b5-f29",
+      "subject": "thinking",
+      "text": "The Dunning-Kruger effect is the finding that people with little skill at something often overestimate how good they are.",
+      "source": {
+        "title": "Wikipedia: Dunning–Kruger effect",
+        "url": "https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect"
+      }
+    },
+    {
+      "id": "b5-f30",
+      "subject": "thinking",
+      "text": "Survivorship bias is when we only look at the cases that survived. In World War II, Abraham Wald used this idea to decide where to armour aircraft.",
+      "source": {
+        "title": "Wikipedia: Survivorship bias",
+        "url": "https://en.wikipedia.org/wiki/Survivorship_bias"
+      }
+    },
+    {
+      "id": "b5-f31",
+      "subject": "thinking",
+      "text": "In the Monty Hall problem, switching doors wins two-thirds of the time.",
+      "source": {
+        "title": "Wikipedia: Monty Hall problem",
+        "url": "https://en.wikipedia.org/wiki/Monty_Hall_problem"
+      }
+    },
+    {
+      "id": "b5-f32",
+      "subject": "thinking",
+      "text": "The trolley problem is a famous thought experiment used to explore ethics.",
+      "source": {
+        "title": "Wikipedia: Trolley problem",
+        "url": "https://en.wikipedia.org/wiki/Trolley_problem"
+      }
+    },
+    {
+      "id": "b5-f33",
+      "subject": "arts",
+      "text": "Wolfgang Amadeus Mozart began composing music at the age of five.",
+      "source": {
+        "title": "Wikipedia: Wolfgang Amadeus Mozart",
+        "url": "https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart"
+      }
+    },
+    {
+      "id": "b5-f34",
+      "subject": "arts",
+      "text": "Impressionism got its name from a painting by Claude Monet called Impression, Sunrise.",
+      "source": {
+        "title": "Wikipedia: Impressionism",
+        "url": "https://en.wikipedia.org/wiki/Impressionism"
+      }
+    },
+    {
+      "id": "b5-f35",
+      "subject": "arts",
+      "text": "William Shakespeare wrote about 37 plays.",
+      "source": {
+        "title": "Wikipedia: William Shakespeare",
+        "url": "https://en.wikipedia.org/wiki/William_Shakespeare"
+      }
+    },
+    {
+      "id": "b5-f36",
+      "subject": "arts",
+      "text": "The Eiffel Tower in Paris was finished in 1889.",
+      "source": {
+        "title": "Wikipedia: Eiffel Tower",
+        "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+      }
+    },
+    {
+      "id": "b5-f37",
+      "subject": "computing",
+      "text": "Whether every problem whose answer can be checked quickly can also be solved quickly (P versus NP) is a Millennium Prize problem worth a million dollars.",
+      "source": {
+        "title": "Wikipedia: P versus NP problem",
+        "url": "https://en.wikipedia.org/wiki/P_versus_NP_problem"
+      }
+    },
+    {
+      "id": "b5-f38",
+      "subject": "computing",
+      "text": "A quantum computer uses qubits, which can be in a superposition of 0 and 1.",
+      "source": {
+        "title": "Wikipedia: Qubit",
+        "url": "https://en.wikipedia.org/wiki/Qubit"
+      }
+    },
+    {
+      "id": "b5-f39",
+      "subject": "computing",
+      "text": "Many computers count time as the seconds since 1 January 1970.",
+      "source": {
+        "title": "Wikipedia: Unix time",
+        "url": "https://en.wikipedia.org/wiki/Unix_time"
+      }
+    },
+    {
+      "id": "b5-f40",
+      "subject": "computing",
+      "text": "Git, a tool programmers use to track changes in code, was created by Linus Torvalds in 2005.",
+      "source": {
+        "title": "Wikipedia: Git",
+        "url": "https://en.wikipedia.org/wiki/Git"
+      }
+    }
+  ]
+}

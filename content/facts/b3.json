@@ -1,0 +1,366 @@
+{
+  "band": "b3",
+  "status": "draft",
+  "facts": [
+    {
+      "id": "b3-f1",
+      "subject": "language",
+      "text": "Louis Braille invented the Braille reading system when he was only 15 years old.",
+      "source": {
+        "title": "Wikipedia: Braille",
+        "url": "https://en.wikipedia.org/wiki/Braille"
+      }
+    },
+    {
+      "id": "b3-f2",
+      "subject": "language",
+      "text": "A palindrome is a word or phrase that reads the same backwards and forwards, like 'level'.",
+      "source": {
+        "title": "Wikipedia: Palindrome",
+        "url": "https://en.wikipedia.org/wiki/Palindrome"
+      }
+    },
+    {
+      "id": "b3-f3",
+      "subject": "language",
+      "text": "The word 'quarantine' comes from an Italian phrase meaning forty days.",
+      "source": {
+        "title": "Wikipedia: Quarantine",
+        "url": "https://en.wikipedia.org/wiki/Quarantine"
+      }
+    },
+    {
+      "id": "b3-f4",
+      "subject": "language",
+      "text": "Mandarin Chinese has more native speakers than any other language.",
+      "source": {
+        "title": "Wikipedia: List of languages by number of native speakers",
+        "url": "https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers"
+      }
+    },
+    {
+      "id": "b3-f5",
+      "subject": "math",
+      "text": "About 1,400 years ago, the Indian mathematician Brahmagupta wrote down rules for doing sums with zero.",
+      "source": {
+        "title": "Wikipedia: Brahmagupta",
+        "url": "https://en.wikipedia.org/wiki/Brahmagupta"
+      }
+    },
+    {
+      "id": "b3-f6",
+      "subject": "math",
+      "text": "In the Fibonacci sequence, each number is the sum of the two numbers before it: 1, 1, 2, 3, 5, 8, 13 ...",
+      "source": {
+        "title": "Wikipedia: Fibonacci sequence",
+        "url": "https://en.wikipedia.org/wiki/Fibonacci_sequence"
+      }
+    },
+    {
+      "id": "b3-f7",
+      "subject": "math",
+      "text": "A cube has 6 faces, 12 edges and 8 corners.",
+      "source": {
+        "title": "Wikipedia: Cube",
+        "url": "https://en.wikipedia.org/wiki/Cube"
+      }
+    },
+    {
+      "id": "b3-f8",
+      "subject": "math",
+      "text": "The digits 0 to 9 that we use today are called Hindu-Arabic numerals and were developed in India.",
+      "source": {
+        "title": "Wikipedia: Arabic numerals",
+        "url": "https://en.wikipedia.org/wiki/Arabic_numerals"
+      }
+    },
+    {
+      "id": "b3-f9",
+      "subject": "science",
+      "text": "Water is made of hydrogen and oxygen, which is why its chemical formula is H2O.",
+      "source": {
+        "title": "Wikipedia: Water",
+        "url": "https://en.wikipedia.org/wiki/Water"
+      }
+    },
+    {
+      "id": "b3-f10",
+      "subject": "science",
+      "text": "Light from the Sun takes about 8 minutes to reach the Earth.",
+      "source": {
+        "title": "Wikipedia: Sun",
+        "url": "https://en.wikipedia.org/wiki/Sun"
+      }
+    },
+    {
+      "id": "b3-f11",
+      "subject": "science",
+      "text": "The blue whale is the largest animal known to have ever lived.",
+      "source": {
+        "title": "Wikipedia: Blue whale",
+        "url": "https://en.wikipedia.org/wiki/Blue_whale"
+      }
+    },
+    {
+      "id": "b3-f12",
+      "subject": "science",
+      "text": "Diamonds and pencil lead (graphite) are both made of the same element: carbon.",
+      "source": {
+        "title": "Wikipedia: Carbon",
+        "url": "https://en.wikipedia.org/wiki/Carbon"
+      }
+    },
+    {
+      "id": "b3-f13",
+      "subject": "world",
+      "text": "Africa has 54 countries.",
+      "source": {
+        "title": "Wikipedia: Africa",
+        "url": "https://en.wikipedia.org/wiki/Africa"
+      }
+    },
+    {
+      "id": "b3-f14",
+      "subject": "world",
+      "text": "Indonesia is made up of more than 17,000 islands.",
+      "source": {
+        "title": "Wikipedia: Indonesia",
+        "url": "https://en.wikipedia.org/wiki/Indonesia"
+      }
+    },
+    {
+      "id": "b3-f15",
+      "subject": "world",
+      "text": "The Pacific Ocean is the largest and deepest ocean on Earth.",
+      "source": {
+        "title": "Wikipedia: Pacific Ocean",
+        "url": "https://en.wikipedia.org/wiki/Pacific_Ocean"
+      }
+    },
+    {
+      "id": "b3-f16",
+      "subject": "world",
+      "text": "The Great Wall of China is more than 20,000 kilometres long when all its sections are counted.",
+      "source": {
+        "title": "Wikipedia: Great Wall of China",
+        "url": "https://en.wikipedia.org/wiki/Great_Wall_of_China"
+      }
+    },
+    {
+      "id": "b3-f17",
+      "subject": "health",
+      "text": "Your brain uses about 20 percent of the energy your body makes, even though it is a small part of your body.",
+      "source": {
+        "title": "Wikipedia: Human brain",
+        "url": "https://en.wikipedia.org/wiki/Human_brain"
+      }
+    },
+    {
+      "id": "b3-f18",
+      "subject": "health",
+      "text": "Red blood cells carry oxygen around your body.",
+      "source": {
+        "title": "Wikipedia: Red blood cell",
+        "url": "https://en.wikipedia.org/wiki/Red_blood_cell"
+      }
+    },
+    {
+      "id": "b3-f19",
+      "subject": "health",
+      "text": "A vaccine teaches your immune system to recognise a germ before you meet it.",
+      "source": {
+        "title": "Wikipedia: Vaccine",
+        "url": "https://en.wikipedia.org/wiki/Vaccine"
+      }
+    },
+    {
+      "id": "b3-f20",
+      "subject": "health",
+      "text": "Your body has three kinds of muscle: skeletal muscle that moves your bones, smooth muscle in places like your stomach, and heart muscle.",
+      "source": {
+        "title": "Wikipedia: Muscle",
+        "url": "https://en.wikipedia.org/wiki/Muscle"
+      }
+    },
+    {
+      "id": "b3-f21",
+      "subject": "digital",
+      "text": "Tim Berners-Lee invented the World Wide Web in 1989.",
+      "source": {
+        "title": "Wikipedia: World Wide Web",
+        "url": "https://en.wikipedia.org/wiki/World_Wide_Web"
+      }
+    },
+    {
+      "id": "b3-f22",
+      "subject": "digital",
+      "text": "Phishing is when someone sends a fake message to trick you into giving away a password or other private information.",
+      "source": {
+        "title": "Wikipedia: Phishing",
+        "url": "https://en.wikipedia.org/wiki/Phishing"
+      }
+    },
+    {
+      "id": "b3-f23",
+      "subject": "digital",
+      "text": "A longer password is usually harder to guess than a short one with tricky symbols.",
+      "source": {
+        "title": "Wikipedia: Password strength",
+        "url": "https://en.wikipedia.org/wiki/Password_strength"
+      }
+    },
+    {
+      "id": "b3-f24",
+      "subject": "digital",
+      "text": "Wikipedia is written and edited by volunteers.",
+      "source": {
+        "title": "Wikipedia: Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Wikipedia"
+      }
+    },
+    {
+      "id": "b3-f25",
+      "subject": "money",
+      "text": "The first cash machine (ATM) was put into use in 1967.",
+      "source": {
+        "title": "Wikipedia: Automated teller machine",
+        "url": "https://en.wikipedia.org/wiki/Automated_teller_machine"
+      }
+    },
+    {
+      "id": "b3-f26",
+      "subject": "money",
+      "text": "Inflation means that prices rise over time, so the same money buys less.",
+      "source": {
+        "title": "Wikipedia: Inflation",
+        "url": "https://en.wikipedia.org/wiki/Inflation"
+      }
+    },
+    {
+      "id": "b3-f27",
+      "subject": "money",
+      "text": "The Riksbank in Sweden, founded in 1668, is the oldest central bank still working.",
+      "source": {
+        "title": "Wikipedia: Sveriges Riksbank",
+        "url": "https://en.wikipedia.org/wiki/Sveriges_Riksbank"
+      }
+    },
+    {
+      "id": "b3-f28",
+      "subject": "money",
+      "text": "A budget is a plan for how you will spend and save your money.",
+      "source": {
+        "title": "Wikipedia: Budget",
+        "url": "https://en.wikipedia.org/wiki/Budget"
+      }
+    },
+    {
+      "id": "b3-f29",
+      "subject": "thinking",
+      "text": "A Rubik's Cube can be twisted into more than 43 quintillion different positions.",
+      "source": {
+        "title": "Wikipedia: Rubik's Cube",
+        "url": "https://en.wikipedia.org/wiki/Rubik%27s_Cube"
+      }
+    },
+    {
+      "id": "b3-f30",
+      "subject": "thinking",
+      "text": "A Venn diagram uses overlapping circles to show what different groups have in common.",
+      "source": {
+        "title": "Wikipedia: Venn diagram",
+        "url": "https://en.wikipedia.org/wiki/Venn_diagram"
+      }
+    },
+    {
+      "id": "b3-f31",
+      "subject": "thinking",
+      "text": "Confirmation bias is when we pay more attention to facts that agree with what we already believe.",
+      "source": {
+        "title": "Wikipedia: Confirmation bias",
+        "url": "https://en.wikipedia.org/wiki/Confirmation_bias"
+      }
+    },
+    {
+      "id": "b3-f32",
+      "subject": "thinking",
+      "text": "The board game Go has been played for more than 2,500 years.",
+      "source": {
+        "title": "Wikipedia: Go (game)",
+        "url": "https://en.wikipedia.org/wiki/Go_(game)"
+      }
+    },
+    {
+      "id": "b3-f33",
+      "subject": "arts",
+      "text": "Leonardo da Vinci painted the Mona Lisa and also drew designs for flying machines.",
+      "source": {
+        "title": "Wikipedia: Leonardo da Vinci",
+        "url": "https://en.wikipedia.org/wiki/Leonardo_da_Vinci"
+      }
+    },
+    {
+      "id": "b3-f34",
+      "subject": "arts",
+      "text": "The composer Ludwig van Beethoven kept writing music even after he went deaf.",
+      "source": {
+        "title": "Wikipedia: Ludwig van Beethoven",
+        "url": "https://en.wikipedia.org/wiki/Ludwig_van_Beethoven"
+      }
+    },
+    {
+      "id": "b3-f35",
+      "subject": "arts",
+      "text": "A haiku is a short Japanese poem. In English, haiku often have three lines.",
+      "source": {
+        "title": "Wikipedia: Haiku",
+        "url": "https://en.wikipedia.org/wiki/Haiku"
+      }
+    },
+    {
+      "id": "b3-f36",
+      "subject": "arts",
+      "text": "The Taj Mahal, in India, was built from white marble by order of the emperor Shah Jahan.",
+      "source": {
+        "title": "Wikipedia: Taj Mahal",
+        "url": "https://en.wikipedia.org/wiki/Taj_Mahal"
+      }
+    },
+    {
+      "id": "b3-f37",
+      "subject": "computing",
+      "text": "The programming language Python is named after the comedy group Monty Python.",
+      "source": {
+        "title": "Wikipedia: Python (programming language)",
+        "url": "https://en.wikipedia.org/wiki/Python_(programming_language)"
+      }
+    },
+    {
+      "id": "b3-f38",
+      "subject": "computing",
+      "text": "Grace Hopper helped create the first compiler, a program that turns code into instructions a computer can run.",
+      "source": {
+        "title": "Wikipedia: Grace Hopper",
+        "url": "https://en.wikipedia.org/wiki/Grace_Hopper"
+      }
+    },
+    {
+      "id": "b3-f39",
+      "subject": "computing",
+      "text": "A pixel is the smallest dot that makes up a picture on a screen.",
+      "source": {
+        "title": "Wikipedia: Pixel",
+        "url": "https://en.wikipedia.org/wiki/Pixel"
+      }
+    },
+    {
+      "id": "b3-f40",
+      "subject": "computing",
+      "text": "An algorithm is a set of steps for solving a problem.",
+      "source": {
+        "title": "Wikipedia: Algorithm",
+        "url": "https://en.wikipedia.org/wiki/Algorithm"
+      }
+    }
+  ]
+}

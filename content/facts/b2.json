@@ -1,0 +1,366 @@
+{
+  "band": "b2",
+  "status": "draft",
+  "facts": [
+    {
+      "id": "b2-f1",
+      "subject": "language",
+      "text": "The word 'pyjamas' comes from words in Hindi and Urdu.",
+      "source": {
+        "title": "Wikipedia: Pajamas",
+        "url": "https://en.wikipedia.org/wiki/Pajamas"
+      }
+    },
+    {
+      "id": "b2-f2",
+      "subject": "language",
+      "text": "The word 'emoji' comes from Japanese.",
+      "source": {
+        "title": "Wikipedia: Emoji",
+        "url": "https://en.wikipedia.org/wiki/Emoji"
+      }
+    },
+    {
+      "id": "b2-f3",
+      "subject": "language",
+      "text": "Sign languages are real languages that use hands, faces and bodies instead of sound.",
+      "source": {
+        "title": "Wikipedia: Sign language",
+        "url": "https://en.wikipedia.org/wiki/Sign_language"
+      }
+    },
+    {
+      "id": "b2-f4",
+      "subject": "language",
+      "text": "Thousands of languages are spoken around the world.",
+      "source": {
+        "title": "Wikipedia: Language",
+        "url": "https://en.wikipedia.org/wiki/Language"
+      }
+    },
+    {
+      "id": "b2-f5",
+      "subject": "math",
+      "text": "A googol is the number 1 followed by 100 zeros.",
+      "source": {
+        "title": "Wikipedia: Googol",
+        "url": "https://en.wikipedia.org/wiki/Googol"
+      }
+    },
+    {
+      "id": "b2-f6",
+      "subject": "math",
+      "text": "The equals sign (=) was first used in 1557 by a Welsh mathematician called Robert Recorde.",
+      "source": {
+        "title": "Wikipedia: Equals sign",
+        "url": "https://en.wikipedia.org/wiki/Equals_sign"
+      }
+    },
+    {
+      "id": "b2-f7",
+      "subject": "math",
+      "text": "Going around a circle is a bit more than 3 times as far as going across it. This number is called pi.",
+      "source": {
+        "title": "Wikipedia: Pi",
+        "url": "https://en.wikipedia.org/wiki/Pi"
+      }
+    },
+    {
+      "id": "b2-f8",
+      "subject": "math",
+      "text": "A prime number can only be divided exactly by 1 and by itself. 7 is a prime number.",
+      "source": {
+        "title": "Wikipedia: Prime number",
+        "url": "https://en.wikipedia.org/wiki/Prime_number"
+      }
+    },
+    {
+      "id": "b2-f9",
+      "subject": "science",
+      "text": "Spiders are not insects. A spider has eight legs.",
+      "source": {
+        "title": "Wikipedia: Spider",
+        "url": "https://en.wikipedia.org/wiki/Spider"
+      }
+    },
+    {
+      "id": "b2-f10",
+      "subject": "science",
+      "text": "Sharks have skeletons made of cartilage, not bone.",
+      "source": {
+        "title": "Wikipedia: Shark",
+        "url": "https://en.wikipedia.org/wiki/Shark"
+      }
+    },
+    {
+      "id": "b2-f11",
+      "subject": "science",
+      "text": "Mars looks red because of iron oxide, a kind of rust, in its dust.",
+      "source": {
+        "title": "Wikipedia: Mars",
+        "url": "https://en.wikipedia.org/wiki/Mars"
+      }
+    },
+    {
+      "id": "b2-f12",
+      "subject": "science",
+      "text": "A bolt of lightning is hotter than the surface of the Sun.",
+      "source": {
+        "title": "Wikipedia: Lightning",
+        "url": "https://en.wikipedia.org/wiki/Lightning"
+      }
+    },
+    {
+      "id": "b2-f13",
+      "subject": "world",
+      "text": "Mount Everest is the highest mountain above sea level.",
+      "source": {
+        "title": "Wikipedia: Mount Everest",
+        "url": "https://en.wikipedia.org/wiki/Mount_Everest"
+      }
+    },
+    {
+      "id": "b2-f14",
+      "subject": "world",
+      "text": "Antarctica is the coldest continent.",
+      "source": {
+        "title": "Wikipedia: Antarctica",
+        "url": "https://en.wikipedia.org/wiki/Antarctica"
+      }
+    },
+    {
+      "id": "b2-f15",
+      "subject": "world",
+      "text": "The Sahara is the largest hot desert in the world.",
+      "source": {
+        "title": "Wikipedia: Sahara",
+        "url": "https://en.wikipedia.org/wiki/Sahara"
+      }
+    },
+    {
+      "id": "b2-f16",
+      "subject": "world",
+      "text": "Russia is the biggest country in the world by area.",
+      "source": {
+        "title": "Wikipedia: Russia",
+        "url": "https://en.wikipedia.org/wiki/Russia"
+      }
+    },
+    {
+      "id": "b2-f17",
+      "subject": "health",
+      "text": "About 60 percent of the human body is water.",
+      "source": {
+        "title": "Wikipedia: Body water",
+        "url": "https://en.wikipedia.org/wiki/Body_water"
+      }
+    },
+    {
+      "id": "b2-f18",
+      "subject": "health",
+      "text": "Every person has different fingerprints, even twins.",
+      "source": {
+        "title": "Wikipedia: Fingerprint",
+        "url": "https://en.wikipedia.org/wiki/Fingerprint"
+      }
+    },
+    {
+      "id": "b2-f19",
+      "subject": "health",
+      "text": "At rest, a grown-up's heart beats about 72 times a minute.",
+      "source": {
+        "title": "Wikipedia: Heart",
+        "url": "https://en.wikipedia.org/wiki/Heart"
+      }
+    },
+    {
+      "id": "b2-f20",
+      "subject": "health",
+      "text": "Brushing your teeth helps remove plaque, which can cause tooth decay.",
+      "source": {
+        "title": "Wikipedia: Tooth brushing",
+        "url": "https://en.wikipedia.org/wiki/Tooth_brushing"
+      }
+    },
+    {
+      "id": "b2-f21",
+      "subject": "digital",
+      "text": "Douglas Engelbart gave the first public demonstration of a computer mouse in 1968.",
+      "source": {
+        "title": "Wikipedia: Computer mouse",
+        "url": "https://en.wikipedia.org/wiki/Computer_mouse"
+      }
+    },
+    {
+      "id": "b2-f22",
+      "subject": "digital",
+      "text": "A byte is made of 8 bits.",
+      "source": {
+        "title": "Wikipedia: Byte",
+        "url": "https://en.wikipedia.org/wiki/Byte"
+      }
+    },
+    {
+      "id": "b2-f23",
+      "subject": "digital",
+      "text": "The first text message was sent in 1992 and said 'Merry Christmas'.",
+      "source": {
+        "title": "Wikipedia: SMS",
+        "url": "https://en.wikipedia.org/wiki/SMS"
+      }
+    },
+    {
+      "id": "b2-f24",
+      "subject": "digital",
+      "text": "The name Google comes from the word googol, a very large number.",
+      "source": {
+        "title": "Wikipedia: Google",
+        "url": "https://en.wikipedia.org/wiki/Google"
+      }
+    },
+    {
+      "id": "b2-f25",
+      "subject": "money",
+      "text": "In parts of Africa and Asia, cowrie shells were once used as money.",
+      "source": {
+        "title": "Wikipedia: Cowrie",
+        "url": "https://en.wikipedia.org/wiki/Cowrie"
+      }
+    },
+    {
+      "id": "b2-f26",
+      "subject": "money",
+      "text": "A mint is a place where coins are made.",
+      "source": {
+        "title": "Wikipedia: Mint (facility)",
+        "url": "https://en.wikipedia.org/wiki/Mint_(facility)"
+      }
+    },
+    {
+      "id": "b2-f27",
+      "subject": "money",
+      "text": "When you save money in a bank, the bank may pay you a little extra called interest.",
+      "source": {
+        "title": "Wikipedia: Interest",
+        "url": "https://en.wikipedia.org/wiki/Interest"
+      }
+    },
+    {
+      "id": "b2-f28",
+      "subject": "money",
+      "text": "The first paper money was used in China many hundreds of years ago.",
+      "source": {
+        "title": "Wikipedia: Banknote",
+        "url": "https://en.wikipedia.org/wiki/Banknote"
+      }
+    },
+    {
+      "id": "b2-f29",
+      "subject": "thinking",
+      "text": "Chess comes from an Indian game called chaturanga, played about 1,400 years ago.",
+      "source": {
+        "title": "Wikipedia: Chess",
+        "url": "https://en.wikipedia.org/wiki/Chess"
+      }
+    },
+    {
+      "id": "b2-f30",
+      "subject": "thinking",
+      "text": "In noughts and crosses (tic-tac-toe), if both players play perfectly, the game is a draw.",
+      "source": {
+        "title": "Wikipedia: Tic-tac-toe",
+        "url": "https://en.wikipedia.org/wiki/Tic-tac-toe"
+      }
+    },
+    {
+      "id": "b2-f31",
+      "subject": "thinking",
+      "text": "A Sudoku puzzle uses the numbers 1 to 9.",
+      "source": {
+        "title": "Wikipedia: Sudoku",
+        "url": "https://en.wikipedia.org/wiki/Sudoku"
+      }
+    },
+    {
+      "id": "b2-f32",
+      "subject": "thinking",
+      "text": "An optical illusion is a picture that tricks your brain into seeing something that is not really there.",
+      "source": {
+        "title": "Wikipedia: Optical illusion",
+        "url": "https://en.wikipedia.org/wiki/Optical_illusion"
+      }
+    },
+    {
+      "id": "b2-f33",
+      "subject": "arts",
+      "text": "The Mona Lisa is a painting that hangs in a museum in Paris called the Louvre.",
+      "source": {
+        "title": "Wikipedia: Mona Lisa",
+        "url": "https://en.wikipedia.org/wiki/Mona_Lisa"
+      }
+    },
+    {
+      "id": "b2-f34",
+      "subject": "arts",
+      "text": "Vincent van Gogh painted The Starry Night in 1889.",
+      "source": {
+        "title": "Wikipedia: The Starry Night",
+        "url": "https://en.wikipedia.org/wiki/The_Starry_Night"
+      }
+    },
+    {
+      "id": "b2-f35",
+      "subject": "arts",
+      "text": "A cartoon is made of many drawings shown one after another very fast.",
+      "source": {
+        "title": "Wikipedia: Animation",
+        "url": "https://en.wikipedia.org/wiki/Animation"
+      }
+    },
+    {
+      "id": "b2-f36",
+      "subject": "arts",
+      "text": "A big orchestra can have more than 100 players.",
+      "source": {
+        "title": "Wikipedia: Orchestra",
+        "url": "https://en.wikipedia.org/wiki/Orchestra"
+      }
+    },
+    {
+      "id": "b2-f37",
+      "subject": "computing",
+      "text": "Ada Lovelace is often called the first computer programmer.",
+      "source": {
+        "title": "Wikipedia: Ada Lovelace",
+        "url": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+      }
+    },
+    {
+      "id": "b2-f38",
+      "subject": "computing",
+      "text": "Long ago, the word 'computer' meant a person who did sums for a job.",
+      "source": {
+        "title": "Wikipedia: Computer",
+        "url": "https://en.wikipedia.org/wiki/Computer"
+      }
+    },
+    {
+      "id": "b2-f39",
+      "subject": "computing",
+      "text": "Scratch, a free way to learn coding with colourful blocks, was made at a university called MIT.",
+      "source": {
+        "title": "Wikipedia: Scratch (programming language)",
+        "url": "https://en.wikipedia.org/wiki/Scratch_(programming_language)"
+      }
+    },
+    {
+      "id": "b2-f40",
+      "subject": "computing",
+      "text": "The brain of a computer is a chip called the CPU.",
+      "source": {
+        "title": "Wikipedia: Central processing unit",
+        "url": "https://en.wikipedia.org/wiki/Central_processing_unit"
+      }
+    }
+  ]
+}

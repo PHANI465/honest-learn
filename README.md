@@ -201,7 +201,7 @@ Anything you add is your responsibility to check, just like the lessons that shi
 |---|---|
 | `app/` | The app: website, Android and iPhone from one Expo (React Native) codebase. Screens are in `app/src/app/`. |
 | `server/` | The API (Node + Hono): accounts, PIN, lessons, quizzes and hints, Hoot, screen time. Routes are in `server/src/routes/`. SQLite locally, Postgres (Neon) when deployed. |
-| `content/` | The curriculum as JSON: `knowledge-map.json`, `lessons/<age>/<subject>/*.json` (175 lessons, all drafts), `puzzles/`, `resources.json`, `helplines.json`, `hoot-redteam.json`. |
+| `content/` | The curriculum as JSON: `knowledge-map.json`, `lessons/<age>/<subject>/*.json` (205 lessons, all drafts), `puzzles/`, `facts/` (quick facts with sources), `resources.json`, `helplines.json`, `hoot-redteam.json`. |
 | `docs/` | Documents. **Start with [`docs/guide/`](docs/guide/README.md)**: what's built, where it lives, how it works, how to navigate, how it scales. |
 | `docs/NEEDS_APPROVAL.md` | **What needs a human expert's approval**, ranked by risk. |
 | `docs/SECURITY.md` | How families are protected, and the latest security review. |

@@ -1,3 +1,4 @@
+import { FactCard } from "../../../../components/FactCard";
 import { router, useLocalSearchParams } from "expo-router";
 import * as Speech from "expo-speech";
 import { useEffect, useState } from "react";
@@ -311,6 +312,7 @@ export default function LessonScreen() {
           <P center size={20}>You got {result.score} out of {result.total} on your first tries.</P>
           <P center muted>{perfect ? `This lesson will pop back for a quick review in ${days} days, to help you remember it.` : "We'll bring this lesson back tomorrow so you can practise. Mistakes help your brain grow! 🧠"}</P>
         </View>
+        <FactCard childId={child.id} band={child.band} />
         <Button big title="More lessons" color={t.accent} onPress={() => router.back()} />
         <Button title="Try again" kind="secondary" color={t.accent} onPress={() => { setQs(lesson.quiz.map(freshQ)); setQi(0); setNote(null); setPhase("quiz"); }} />
       </Screen>

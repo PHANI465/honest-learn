@@ -1,3 +1,4 @@
+import { FactCard } from "../../../components/FactCard";
 import { stagger } from "../../../lib/motion";
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useMemo, useState } from "react";
@@ -101,6 +102,8 @@ export default function ChildHome() {
           <P size={13} muted>Get every question right on your first try to earn a star. No streaks, no pressure: learn at your own pace.</P>
         </Card>
       ) : null}
+
+      <FactCard childId={home.child.id} band={home.child.band} />
 
       {home.next ? (
         <Card onPress={() => router.push(`/learn/${childId}/lesson/${home.next!.id}`)} label={`Keep going: ${home.next.title}`} style={{ backgroundColor: t.accent, borderColor: t.accent, borderRadius: t.radius, flexDirection: "row", alignItems: "center", gap: 12 }}>

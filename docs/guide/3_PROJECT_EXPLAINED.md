@@ -148,7 +148,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `models.ts` | Database row types, input rules, child helpers, spaced-repetition interval |
 | `routes/public.ts` | `/health`, `/content/map`, `/content/countries` |
 | `routes/auth.ts` | `/auth/signup`, `login`, `verify-email`, `resend-verification`, `forgot-password`, `reset-password`, `reset-pin`, `parent-unlock` |
-| `routes/learn.ts` | `/family`, `/children/:id/home` (includes up to 3 gentle "Try next" suggestions), `lessons`, `lessons/:lessonId` (+ `/hint`, `/check`, `/complete`, `/learn-more`), `resources`, `practice` |
+| `routes/learn.ts` | `/family`, `/children/:id/home` (includes up to 3 gentle "Try next" suggestions), `lessons`, `lessons/:lessonId` (+ `/hint`, `/check`, `/complete`, `/learn-more`), `resources`, `practice`, `facts` (random quick facts with a source link; no secrets) |
 | `routes/puzzles.ts` | `/children/:id/puzzles` (+ `/hint`, `/check`, `/complete`) |
 | `routes/usage.ts` | `/children/:id/usage`, `/usage/tick` |
 | `routes/tutor.ts` | `/children/:id/tutor/:lessonId` (Hoot), `/reports` |

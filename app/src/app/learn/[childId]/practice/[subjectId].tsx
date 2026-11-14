@@ -1,3 +1,4 @@
+import { FactCard } from "../../../../components/FactCard";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { QuizRunner } from "../../../../components/QuizRunner";
@@ -54,6 +55,7 @@ export default function Practice() {
               api<{ hint: string }>("POST", `/children/${childId}/lessons/${qs[i]!.lessonId}/hint`, familyToken, { question: qs[i]!.question, level }).then((r) => r.hint)
             }
             onDone={() => router.back()}
+            after={<FactCard childId={child.id} band={child.band} />}
           />
         </>
       )}
