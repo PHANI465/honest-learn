@@ -189,7 +189,12 @@
       { "id": "b3-math-2", "text": "Understands, compares and adds fractions; links fractions, decimals and percentages" },
       { "id": "b3-math-3", "text": "Calculates perimeter and area of rectangles; knows angles and types of triangles" },
       { "id": "b3-math-4", "text": "Reads and makes bar charts, line graphs and tables; finds the mean" },
-      { "id": "b3-math-5", "text": "Solves multi-step word problems and checks if the answer is reasonable" }
+      { "id": "b3-math-5", "text": "Solves multi-step word problems and checks if the answer is reasonable" },
+      { "id": "b3-math-6", "text": "Uses divisibility rules for 2, 3, 5, 9 and 10" },
+      { "id": "b3-math-7", "text": "Multiplies a two-digit number by 11 with a mental shortcut" },
+      { "id": "b3-math-8", "text": "Estimates by rounding before calculating, and uses it to check answers" },
+      { "id": "b3-math-9", "text": "Understands a simple ratio and uses it to scale a recipe or group" },
+      { "id": "b3-math-10", "text": "Uses the 7-day cycle of the calendar to find a day weeks ahead" }
     ], "sampleQuiz": { "q": "Which fraction is bigger: 3/4 or 2/3?", "options": ["3/4", "2/3", "They are equal"], "answer": 0, "hint": "Try changing both to twelfths." } },
 
     { "band": "b3", "subject": "science", "outcomes": [

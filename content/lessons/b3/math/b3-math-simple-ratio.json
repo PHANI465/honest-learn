@@ -1,0 +1,94 @@
+{
+  "id": "b3-math-simple-ratio",
+  "title": "Ratio: Comparing Two Amounts",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-9"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Ratio",
+      "url": "https://en.wikipedia.org/wiki/Ratio",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A ratio compares two amounts. A bag has 2 red and 3 blue marbles. We say the ratio of red to blue is 2 to 3, written 2 : 3. The order matters: blue to red is 3 : 2."
+    },
+    {
+      "type": "text",
+      "body": "Ratios help with recipes. If a recipe uses 1 cup of rice for every 2 cups of water, the ratio of rice to water is 1 : 2. For 3 cups of rice you need 3 × 2 = 6 cups of water. Multiply both parts by the same number."
+    },
+    {
+      "type": "text",
+      "body": "Try 2 : 3 with a bigger bag. If there are 8 red marbles, 8 is 4 groups of 2. So there are 4 groups of 3 blue, which is 12 blue marbles."
+    },
+    {
+      "type": "tryit",
+      "body": "Make a pattern of 2 red counters and 3 blue counters. Repeat it three times. How many red and blue are there now? Is the ratio still 2 : 3?"
+    },
+    {
+      "type": "parent",
+      "body": "Keep ratios hands-on: cooking, mixing paint, or sorting buttons. A common mistake is adding instead of multiplying: 2 : 3 becomes 4 : 6, not 4 : 5."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A bag has 3 red and 5 blue marbles. What is the ratio of red to blue?",
+      "options": [
+        "3 : 5",
+        "5 : 3",
+        "3 : 8"
+      ],
+      "answer": 0,
+      "hints": [
+        "Write the amount of red first, then blue.",
+        "Red is 3 and blue is 5. Keep that order.",
+        "Example: 2 apples and 7 pears gives apples to pears as 2 : 7. Write red to blue the same way."
+      ],
+      "explain": "Red to blue is 3 : 5. The order follows the question: red first."
+    },
+    {
+      "q": "A recipe uses 2 cups of flour for every 1 cup of sugar. How many cups of flour go with 3 cups of sugar?",
+      "options": [
+        "6",
+        "5",
+        "9"
+      ],
+      "answer": 0,
+      "hints": [
+        "The flour is always double the sugar.",
+        "Multiply both parts of 2 : 1 by 3.",
+        "Example: 3 cups of water for every 1 cup of rice, with 4 cups of rice, needs 4 × 3 = 12 cups of water. Use the same idea with 2 and 3."
+      ],
+      "explain": "3 cups of sugar is 3 times as much as 1. So the flour is 3 times as much too: 2 × 3 = 6 cups."
+    },
+    {
+      "q": "The ratio of boys to girls in a club is 2 : 3. There are 8 boys. How many girls?",
+      "options": [
+        "12",
+        "11",
+        "16"
+      ],
+      "answer": 0,
+      "hints": [
+        "How many groups of 2 boys are in 8?",
+        "8 boys is 4 groups of 2. Each group goes with 3 girls.",
+        "Example: pencils to pens is 1 : 4. With 5 pencils there are 5 × 4 = 20 pens. Use the same idea."
+      ],
+      "explain": "8 boys is 4 groups of 2. Each group has 3 girls, so 4 × 3 = 12 girls."
+    }
+  ]
+}

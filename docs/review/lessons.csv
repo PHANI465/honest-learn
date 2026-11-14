@@ -816,6 +816,19 @@ Wikipedia: Writing process — https://en.wikipedia.org/wiki/Writing_process (CC
 [fact] The angles inside any triangle always add up to 180°.","Wikipedia: Perimeter — https://en.wikipedia.org/wiki/Perimeter (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Area — https://en.wikipedia.org/wiki/Area (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Angle — https://en.wikipedia.org/wiki/Angle (CC BY-SA 4.0 (reference; text is original))","content\lessons\b3\math\b3-math-area-perimeter-angles.json","","","","","",""
+"b3-math-calendar-repeats","The Calendar Repeats Every 7 Days","Discoverers (9–11)","Math","b3-math-10: Uses the 7-day cycle of the calendar to find a day weeks ahead","","10","draft","[text] The days of the week repeat in a cycle of 7. If today is Monday, then 7 days later it is Monday again. So is 14 days later, 21 days later and 28 days later.
+
+[text] This gives a shortcut. To find the day after many days, find how many days are left over after taking away whole weeks. Divide by 7 and look at the remainder.
+
+[text] Example: today is Friday. What day is it in 9 days? 9 ÷ 7 = 1 remainder 2. One whole week brings us back to Friday, then 2 more days: Saturday, Sunday. It is Sunday.
+
+[text] Another: today is Wednesday and we want 15 days on. 15 ÷ 7 = 2 remainder 1. Two weeks bring us back to Wednesday. One more day is Thursday.
+
+[tryit] Pick any day of the week and a number of days, such as 25. Find the remainder after dividing by 7, then count on that many days from your day. Check with a real calendar.
+
+[parent] This is the idea behind 'clock arithmetic' (modular arithmetic) and prepares for the Doomsday method later. Start with small numbers and a real calendar, then try bigger jumps.","Wikipedia: Week — https://en.wikipedia.org/wiki/Week (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Modular arithmetic — https://en.wikipedia.org/wiki/Modular_arithmetic (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b3\math\b3-math-calendar-repeats.json","","","","","",""
 "b3-math-comparing-fractions","Which Fraction Is Bigger?","Discoverers (9–11)","Math","b3-math-2: Understands, compares and adds fractions; links fractions, decimals and percentages","","15","draft","[text] A fraction like 3/4 means 3 parts out of 4 equal parts. The bottom number (denominator) says how many parts the whole is cut into.
 
 [text] Same denominator? Just compare the tops. 5/8 is bigger than 3/8 because 5 pieces is more than 3 pieces of the same size.
@@ -826,6 +839,30 @@ Wikipedia: Angle — https://en.wikipedia.org/wiki/Angle (CC BY-SA 4.0 (referenc
 
 [tryit] Fold two paper strips the same length. Fold one into 3 parts and one into 4. Shade 2/3 and 3/4 and compare.","Wikipedia: Fraction — https://en.wikipedia.org/wiki/Fraction (CC BY-SA 4.0 (reference; text is original))
 OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b3\math\b3-math-comparing-fractions.json","","","","","",""
+"b3-math-divisibility-rules","Divisibility Rules: Is It Divisible?","Discoverers (9–11)","Math","b3-math-6: Uses divisibility rules for 2, 3, 5, 9 and 10","","10","draft","[text] A number is divisible by another if you can share it out with none left over. 12 is divisible by 3, because 12 ÷ 3 = 4. Divisibility rules let you check without dividing.
+
+[text] Rules for 2, 5 and 10 only need the last digit. Divisible by 2: the last digit is 0, 2, 4, 6 or 8. Divisible by 5: the last digit is 0 or 5. Divisible by 10: the last digit is 0.
+
+[text] Rules for 3 and 9 use the digit sum. Add up all the digits. If the sum is in the 3 times table, the number is divisible by 3. If the sum is in the 9 times table, the number is divisible by 9. Try 48: 4 + 8 = 12. 12 is in the 3 times table, so 48 is divisible by 3. It is not in the 9 times table, so 48 is not divisible by 9.
+
+[text] Try a big one: 5,724. The digit sum is 5 + 7 + 2 + 4 = 18. 18 is in the 9 times table, so 5,724 is divisible by 9 (and by 3).
+
+[tryit] Pick any 3-digit number. Use the rules to test it for 2, 3, 5, 9 and 10. Then check one answer with a calculator.
+
+[parent] These rules save time when simplifying fractions and checking sums. Ask your child to explain why a number ending in 5 can never be divisible by 2. Rules for 3 and 9 work because 10, 100 and 1,000 are each one more than a multiple of 9.","Wikipedia: Divisibility rule — https://en.wikipedia.org/wiki/Divisibility_rule (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b3\math\b3-math-divisibility-rules.json","","","","","",""
+"b3-math-estimate-first","Estimate Before You Calculate","Discoverers (9–11)","Math","b3-math-8: Estimates by rounding before calculating, and uses it to check answers","","9","draft","[text] An estimate is a good guess that is close to the real answer. Estimating first helps you spot a mistake before you give your answer.
+
+[text] To estimate, round the numbers to easy ones. For 29 + 22, round to the nearest 10: 30 + 20 = 50. The real answer is 51, so the estimate is very close.
+
+[text] For bigger numbers, round to the nearest 100. For 312 + 189: 300 + 200 = 500. The real answer is 501.
+
+[text] Estimating works for times, too. 41 × 5 is about 40 × 5 = 200. If someone says 41 × 5 = 2,050, your estimate shows that is far too big.
+
+[tryit] Before using a calculator, estimate 58 + 33 and 197 + 304. Then check how close you were.
+
+[parent] Make estimating a habit before every calculation, especially shopping totals and measurements. The goal is a sense of 'does this answer make sense', not a perfect guess.","Wikipedia: Estimation — https://en.wikipedia.org/wiki/Estimation (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b3\math\b3-math-estimate-first.json","","","","","",""
 "b3-math-graphs-mean","Graphs, Tables and the Mean","Discoverers (9–11)","Math","b3-math-4: Reads and makes bar charts, line graphs and tables; finds the mean","","15","draft","[text] A BAR CHART compares amounts. A LINE GRAPH shows change over time, like temperature through the day.
 
 [text] Always read the title, the labels on each axis and the scale.
@@ -842,6 +879,26 @@ Wikipedia: Arithmetic mean — https://en.wikipedia.org/wiki/Arithmetic_mean (CC
 
 [fact] Example: 3 packs of 12 eggs, 5 broken. Step 1: 3 × 12 = 36. Step 2: 36 − 5 = 31. Estimate: about 35, so 31 is reasonable.","Wikipedia: Word problem (mathematics education) — https://en.wikipedia.org/wiki/Word_problem_(mathematics_education) (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Estimation — https://en.wikipedia.org/wiki/Estimation (CC BY-SA 4.0 (reference; text is original))","content\lessons\b3\math\b3-math-multi-step-problems.json","","","","","",""
+"b3-math-multiply-by-11","A Quick Trick for Multiplying by 11","Discoverers (9–11)","Math","b3-math-7: Multiplies a two-digit number by 11 with a mental shortcut","","9","draft","[text] Here is a trick for any two-digit number times 11. Take 23 × 11. Write the first digit, 2. Write the last digit, 3, at the end. Put the sum of the two digits in the middle: 2 + 3 = 5. The answer is 253.
+
+[text] Why does it work? 23 × 11 is the same as 23 × 10 + 23 × 1 = 230 + 23 = 253. The middle digit is just the two digits added together.
+
+[text] What if the middle sum is 10 or more? Try 78 × 11. Middle: 7 + 8 = 15. Write 5 in the middle and carry the 1 to the first digit: 7 + 1 = 8. The answer is 858.
+
+[tryit] Use the trick for 41 × 11, 62 × 11 and 95 × 11. Check each one with 'times 10, then add the number'.
+
+[parent] The trick is a shortcut for 'times 10 plus the number'. Let your child check with that longer method first, so they see the trick is not magic. The carry step is where mistakes happen.","Wikipedia: Mental calculation — https://en.wikipedia.org/wiki/Mental_calculation (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b3\math\b3-math-multiply-by-11.json","","","","","",""
+"b3-math-simple-ratio","Ratio: Comparing Two Amounts","Discoverers (9–11)","Math","b3-math-9: Understands a simple ratio and uses it to scale a recipe or group","","10","draft","[text] A ratio compares two amounts. A bag has 2 red and 3 blue marbles. We say the ratio of red to blue is 2 to 3, written 2 : 3. The order matters: blue to red is 3 : 2.
+
+[text] Ratios help with recipes. If a recipe uses 1 cup of rice for every 2 cups of water, the ratio of rice to water is 1 : 2. For 3 cups of rice you need 3 × 2 = 6 cups of water. Multiply both parts by the same number.
+
+[text] Try 2 : 3 with a bigger bag. If there are 8 red marbles, 8 is 4 groups of 2. So there are 4 groups of 3 blue, which is 12 blue marbles.
+
+[tryit] Make a pattern of 2 red counters and 3 blue counters. Repeat it three times. How many red and blue are there now? Is the ratio still 2 : 3?
+
+[parent] Keep ratios hands-on: cooking, mixing paint, or sorting buttons. A common mistake is adding instead of multiplying: 2 : 3 becomes 4 : 6, not 4 : 5.","Wikipedia: Ratio — https://en.wikipedia.org/wiki/Ratio (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b3\math\b3-math-simple-ratio.json","","","","","",""
 "b3-math-times-division","Times Tables and Division","Discoverers (9–11)","Math","b3-math-1: Knows all times tables to 10×10; multiplies and divides multi-digit numbers (GPF G4–6)","","15","draft","[text] Knowing times tables up to 10 × 10 makes harder math much faster.
 
 [text] Division is the opposite of multiplication: if 6 × 7 = 42, then 42 ÷ 7 = 6.

@@ -1,0 +1,103 @@
+{
+  "id": "b3-math-calendar-repeats",
+  "title": "The Calendar Repeats Every 7 Days",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-10"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Week",
+      "url": "https://en.wikipedia.org/wiki/Week",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Modular arithmetic",
+      "url": "https://en.wikipedia.org/wiki/Modular_arithmetic",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The days of the week repeat in a cycle of 7. If today is Monday, then 7 days later it is Monday again. So is 14 days later, 21 days later and 28 days later."
+    },
+    {
+      "type": "text",
+      "body": "This gives a shortcut. To find the day after many days, find how many days are left over after taking away whole weeks. Divide by 7 and look at the remainder."
+    },
+    {
+      "type": "text",
+      "body": "Example: today is Friday. What day is it in 9 days? 9 ÷ 7 = 1 remainder 2. One whole week brings us back to Friday, then 2 more days: Saturday, Sunday. It is Sunday."
+    },
+    {
+      "type": "text",
+      "body": "Another: today is Wednesday and we want 15 days on. 15 ÷ 7 = 2 remainder 1. Two weeks bring us back to Wednesday. One more day is Thursday."
+    },
+    {
+      "type": "tryit",
+      "body": "Pick any day of the week and a number of days, such as 25. Find the remainder after dividing by 7, then count on that many days from your day. Check with a real calendar."
+    },
+    {
+      "type": "parent",
+      "body": "This is the idea behind 'clock arithmetic' (modular arithmetic) and prepares for the Doomsday method later. Start with small numbers and a real calendar, then try bigger jumps."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Today is Tuesday. What day will it be in 21 days?",
+      "options": [
+        "Tuesday",
+        "Wednesday",
+        "Monday"
+      ],
+      "answer": 0,
+      "hints": [
+        "21 days is a number of whole weeks. How many?",
+        "21 ÷ 7 = 3 weeks, with nothing left over.",
+        "Example: from Sunday, 14 days on is 2 whole weeks, so it is the same day again. Do the same with 21 days."
+      ],
+      "explain": "21 is 3 whole weeks with no days left over, so it is the same day of the week."
+    },
+    {
+      "q": "Today is Monday. What day will it be in 10 days?",
+      "options": [
+        "Thursday",
+        "Wednesday",
+        "Friday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Take away one whole week first (7 days).",
+        "10 ÷ 7 = 1 remainder 3. Count on 3 days from today.",
+        "Example: from Friday, 9 days on is 1 week and 2 days, so you count 2 days on. Now count the extra days from Monday."
+      ],
+      "explain": "10 ÷ 7 = 1 remainder 3. After 1 week it is Monday again. Three more days: Tuesday, Wednesday, Thursday."
+    },
+    {
+      "q": "It is Saturday. What day will it be in 30 days?",
+      "options": [
+        "Monday",
+        "Sunday",
+        "Tuesday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide 30 by 7 and look at the remainder.",
+        "30 ÷ 7 = 4 remainder 2. Count on that many days.",
+        "Example: from Thursday, 40 days on: 40 ÷ 7 = 5 remainder 5, so count 5 days on. Count on from Saturday here."
+      ],
+      "explain": "30 ÷ 7 = 4 remainder 2. Four weeks later it is Saturday again. Two more days: Sunday, Monday."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "b3-math-estimate-first",
+  "title": "Estimate Before You Calculate",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-8"
+  ],
+  "sensitive": null,
+  "minutes": 9,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Estimation",
+      "url": "https://en.wikipedia.org/wiki/Estimation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "An estimate is a good guess that is close to the real answer. Estimating first helps you spot a mistake before you give your answer."
+    },
+    {
+      "type": "text",
+      "body": "To estimate, round the numbers to easy ones. For 29 + 22, round to the nearest 10: 30 + 20 = 50. The real answer is 51, so the estimate is very close."
+    },
+    {
+      "type": "text",
+      "body": "For bigger numbers, round to the nearest 100. For 312 + 189: 300 + 200 = 500. The real answer is 501."
+    },
+    {
+      "type": "text",
+      "body": "Estimating works for times, too. 41 × 5 is about 40 × 5 = 200. If someone says 41 × 5 = 2,050, your estimate shows that is far too big."
+    },
+    {
+      "type": "tryit",
+      "body": "Before using a calculator, estimate 58 + 33 and 197 + 304. Then check how close you were."
+    },
+    {
+      "type": "parent",
+      "body": "Make estimating a habit before every calculation, especially shopping totals and measurements. The goal is a sense of 'does this answer make sense', not a perfect guess."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "About how much is 48 + 53?",
+      "options": [
+        "100",
+        "90",
+        "120"
+      ],
+      "answer": 0,
+      "hints": [
+        "Round each number to the nearest 10.",
+        "48 is close to 50. What is 53 close to?",
+        "Example: 29 + 22 → 30 + 20 = 50. Now round 48 and 53 and add."
+      ],
+      "explain": "48 rounds to 50 and 53 rounds to 50. 50 + 50 = 100. The exact answer, 101, is close."
+    },
+    {
+      "q": "About how much is 298 + 405?",
+      "options": [
+        "700",
+        "600",
+        "800"
+      ],
+      "answer": 0,
+      "hints": [
+        "Round each number to the nearest 100.",
+        "298 is close to 300. What is 405 close to?",
+        "Example: 312 + 189 → 300 + 200 = 500. Now round 298 and 405 and add."
+      ],
+      "explain": "298 rounds to 300 and 405 rounds to 400. 300 + 400 = 700. The exact answer is 703."
+    },
+    {
+      "q": "A pack has 19 stickers. About how many stickers are in 6 packs?",
+      "options": [
+        "120",
+        "100",
+        "140"
+      ],
+      "answer": 0,
+      "hints": [
+        "Round 19 to the nearest 10 first.",
+        "19 is close to 20. Then multiply by 6.",
+        "Example: 41 × 5 → 40 × 5 = 200. Round 19 and multiply by 6 the same way."
+      ],
+      "explain": "19 is about 20. 20 × 6 = 120. The exact answer is 114, so 120 is a good estimate."
+    }
+  ]
+}

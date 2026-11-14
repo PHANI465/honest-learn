@@ -1,0 +1,94 @@
+{
+  "id": "b3-math-multiply-by-11",
+  "title": "A Quick Trick for Multiplying by 11",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-7"
+  ],
+  "sensitive": null,
+  "minutes": 9,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Mental calculation",
+      "url": "https://en.wikipedia.org/wiki/Mental_calculation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Here is a trick for any two-digit number times 11. Take 23 × 11. Write the first digit, 2. Write the last digit, 3, at the end. Put the sum of the two digits in the middle: 2 + 3 = 5. The answer is 253."
+    },
+    {
+      "type": "text",
+      "body": "Why does it work? 23 × 11 is the same as 23 × 10 + 23 × 1 = 230 + 23 = 253. The middle digit is just the two digits added together."
+    },
+    {
+      "type": "text",
+      "body": "What if the middle sum is 10 or more? Try 78 × 11. Middle: 7 + 8 = 15. Write 5 in the middle and carry the 1 to the first digit: 7 + 1 = 8. The answer is 858."
+    },
+    {
+      "type": "tryit",
+      "body": "Use the trick for 41 × 11, 62 × 11 and 95 × 11. Check each one with 'times 10, then add the number'."
+    },
+    {
+      "type": "parent",
+      "body": "The trick is a shortcut for 'times 10 plus the number'. Let your child check with that longer method first, so they see the trick is not magic. The carry step is where mistakes happen."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is 45 × 11?",
+      "options": [
+        "495",
+        "485",
+        "405"
+      ],
+      "answer": 0,
+      "hints": [
+        "Write the first digit, then the sum of the digits, then the last digit.",
+        "The first digit is 4 and the last digit is 5. What is 4 + 5?",
+        "Example: 32 × 11 → 3, then 3 + 2 = 5, then 2, so 352. Do the same with the digits of 45."
+      ],
+      "explain": "First digit 4, middle 4 + 5 = 9, last digit 5. The answer is 495."
+    },
+    {
+      "q": "A box holds 11 pencils. How many pencils are in 36 boxes?",
+      "options": [
+        "396",
+        "386",
+        "366"
+      ],
+      "answer": 0,
+      "hints": [
+        "Boxes of 11 means 36 × 11.",
+        "Use the trick: first digit, sum of the digits, last digit.",
+        "Example: 52 × 11 → 5, then 5 + 2 = 7, then 2, so 572. Now do 36 × 11."
+      ],
+      "explain": "36 × 11: first digit 3, middle 3 + 6 = 9, last digit 6. That makes 396 pencils."
+    },
+    {
+      "q": "What is 57 × 11?",
+      "options": [
+        "627",
+        "5127",
+        "617"
+      ],
+      "answer": 0,
+      "hints": [
+        "The middle sum is 10 or more this time, so you need to carry.",
+        "5 + 7 = 12. Write the 2 in the middle and add the 1 to the first digit.",
+        "Example: 78 × 11 → middle 7 + 8 = 15, write 5, carry 1 to make 8, so 858. Now do 57 × 11."
+      ],
+      "explain": "Middle 5 + 7 = 12: write 2 and carry 1. First digit 5 + 1 = 6. The answer is 627."
+    }
+  ]
+}

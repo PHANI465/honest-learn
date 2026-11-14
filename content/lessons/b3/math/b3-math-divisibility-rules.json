@@ -1,0 +1,98 @@
+{
+  "id": "b3-math-divisibility-rules",
+  "title": "Divisibility Rules: Is It Divisible?",
+  "band": "b3",
+  "subject": "math",
+  "outcomes": [
+    "b3-math-6"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Divisibility rule",
+      "url": "https://en.wikipedia.org/wiki/Divisibility_rule",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A number is divisible by another if you can share it out with none left over. 12 is divisible by 3, because 12 ÷ 3 = 4. Divisibility rules let you check without dividing."
+    },
+    {
+      "type": "text",
+      "body": "Rules for 2, 5 and 10 only need the last digit. Divisible by 2: the last digit is 0, 2, 4, 6 or 8. Divisible by 5: the last digit is 0 or 5. Divisible by 10: the last digit is 0."
+    },
+    {
+      "type": "text",
+      "body": "Rules for 3 and 9 use the digit sum. Add up all the digits. If the sum is in the 3 times table, the number is divisible by 3. If the sum is in the 9 times table, the number is divisible by 9. Try 48: 4 + 8 = 12. 12 is in the 3 times table, so 48 is divisible by 3. It is not in the 9 times table, so 48 is not divisible by 9."
+    },
+    {
+      "type": "text",
+      "body": "Try a big one: 5,724. The digit sum is 5 + 7 + 2 + 4 = 18. 18 is in the 9 times table, so 5,724 is divisible by 9 (and by 3)."
+    },
+    {
+      "type": "tryit",
+      "body": "Pick any 3-digit number. Use the rules to test it for 2, 3, 5, 9 and 10. Then check one answer with a calculator."
+    },
+    {
+      "type": "parent",
+      "body": "These rules save time when simplifying fractions and checking sums. Ask your child to explain why a number ending in 5 can never be divisible by 2. Rules for 3 and 9 work because 10, 100 and 1,000 are each one more than a multiple of 9."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which number is divisible by 3?",
+      "options": [
+        "126",
+        "124",
+        "125"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use the digit sum rule: add up the digits.",
+        "Add the digits of each number. Is the sum in the 3 times table?",
+        "Example: 45 → 4 + 5 = 9, and 9 is in the 3 times table, so 45 is divisible by 3. Try each number here."
+      ],
+      "explain": "1 + 2 + 6 = 9, and 9 is in the 3 times table. 124 gives 7 and 125 gives 8, so they are not."
+    },
+    {
+      "q": "Which number can be divided by 9 with none left over?",
+      "options": [
+        "738",
+        "739",
+        "740"
+      ],
+      "answer": 0,
+      "hints": [
+        "The rule for 9 uses the digit sum too.",
+        "Add up the digits. Is the sum in the 9 times table (9, 18, 27 ...)?",
+        "Example: 63 → 6 + 3 = 9, so 63 is divisible by 9. Add the digits of each number here."
+      ],
+      "explain": "7 + 3 + 8 = 18, and 18 is in the 9 times table. 739 gives 19 and 740 gives 11."
+    },
+    {
+      "q": "Which number is divisible by both 2 and 5?",
+      "options": [
+        "360",
+        "365",
+        "362"
+      ],
+      "answer": 0,
+      "hints": [
+        "Both rules use only the last digit.",
+        "A number divisible by 2 ends in 0, 2, 4, 6 or 8. A number divisible by 5 ends in 0 or 5. Which digit is on both lists?",
+        "Example: 70 ends in 0, so it is divisible by 2 and by 5. Look for the same last digit here."
+      ],
+      "explain": "A number ending in 0 is divisible by 2 and by 5 (and by 10). 365 ends in 5 (not even) and 362 ends in 2 (not 0 or 5)."
+    }
+  ]
+}

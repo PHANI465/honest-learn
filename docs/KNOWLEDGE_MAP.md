@@ -2,7 +2,7 @@
 
 > **Status:** draft — every outcome needs review by two subject reviewers before publishing
 
-**5 age bands · 11 subjects · 51 cells · 223 learning outcomes**
+**5 age bands · 11 subjects · 51 cells · 228 learning outcomes**
 
 This is the minimum knowledge every learner should have at each age, before college. It is **universal** (not tied to one country) and is the brief for content writers and reviewers.
 
@@ -257,6 +257,11 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b3-math-3` Calculates perimeter and area of rectangles; knows angles and types of triangles
 - [ ] `b3-math-4` Reads and makes bar charts, line graphs and tables; finds the mean
 - [ ] `b3-math-5` Solves multi-step word problems and checks if the answer is reasonable
+- [ ] `b3-math-6` Uses divisibility rules for 2, 3, 5, 9 and 10
+- [ ] `b3-math-7` Multiplies a two-digit number by 11 with a mental shortcut
+- [ ] `b3-math-8` Estimates by rounding before calculating, and uses it to check answers
+- [ ] `b3-math-9` Understands a simple ratio and uses it to scale a recipe or group
+- [ ] `b3-math-10` Uses the 7-day cycle of the calendar to find a day weeks ahead
 
 *Sample question:* Which fraction is bigger: 3/4 or 2/3? — **3/4** ✓ / 2/3 / They are equal  
 *Hint:* Try changing both to twelfths.
