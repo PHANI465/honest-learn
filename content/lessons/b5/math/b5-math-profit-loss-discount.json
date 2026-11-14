@@ -1,0 +1,98 @@
+{
+  "id": "b5-math-profit-loss-discount",
+  "title": "Profit, Loss and Discount",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-7"
+  ],
+  "sensitive": null,
+  "minutes": 11,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Profit (economics)",
+      "url": "https://en.wikipedia.org/wiki/Profit_(economics)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The cost price (CP) is what a seller paid. The selling price (SP) is what the buyer pays. If SP is more than CP the seller makes a profit. If SP is less, there is a loss."
+    },
+    {
+      "type": "text",
+      "body": "Profit = SP - CP. Profit percent = profit ÷ CP × 100. It is always out of the cost price, not the selling price. If CP is 40 and SP is 50, profit is 10 and the profit percent is 10 ÷ 40 × 100 = 25%."
+    },
+    {
+      "type": "text",
+      "body": "To find SP from a profit percent, multiply the cost by (1 + percent/100). A 20% profit on 500 gives SP = 500 × 1.2 = 600. To go the other way and find the cost, divide: 600 ÷ 1.2 = 500."
+    },
+    {
+      "type": "text",
+      "body": "A discount is taken off the marked price. 10% off a marked price of 500 gives 500 × 0.9 = 450. A discount is out of the marked price."
+    },
+    {
+      "type": "tryit",
+      "body": "Find a real price tag. Work out the selling price after 15% off, and decide what profit percent a shop would make if its cost were 20% below the marked price."
+    },
+    {
+      "type": "parent",
+      "body": "Always ask 'out of what?'. Profit is a percent of cost, discount is a percent of the marked price. These are practice numbers, not business advice."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A shop buys a bag for 250 and sells it for 300. What is the profit percent?",
+      "options": [
+        "20%",
+        "16.7%",
+        "50%"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the profit in money first, then compare it with the cost price.",
+        "Profit = 300 - 250. Divide it by the cost (250) and multiply by 100.",
+        "Example: cost 40, sold at 50 → profit 10, and 10 ÷ 40 × 100 = 25%. Use the same steps."
+      ],
+      "explain": "Profit = 50. 50 ÷ 250 × 100 = 20%."
+    },
+    {
+      "q": "A jacket is marked at 800 and sold at a 15% discount. What does the buyer pay?",
+      "options": [
+        "680",
+        "785",
+        "120"
+      ],
+      "answer": 0,
+      "hints": [
+        "The buyer pays what is left after the discount.",
+        "Find 15% of 800, then subtract it. Or multiply by 0.85.",
+        "Example: marked 500 with 10% off → 500 × 0.9 = 450. Use the same idea with 800 and 15%."
+      ],
+      "explain": "15% of 800 is 120. 800 - 120 = 680."
+    },
+    {
+      "q": "A trader sells a clock for 600 and makes a 20% profit. What did the clock cost?",
+      "options": [
+        "500",
+        "480",
+        "520"
+      ],
+      "answer": 0,
+      "hints": [
+        "The selling price is the cost plus 20% of the cost.",
+        "So SP = cost × 1.2. Divide SP by 1.2 to get the cost.",
+        "Example: sold for 750 at a 25% profit → cost = 750 ÷ 1.25 = 600. Do the same with the new numbers."
+      ],
+      "explain": "Cost = 600 ÷ 1.2 = 500. Check: 20% of 500 is 100, and 500 + 100 = 600."
+    }
+  ]
+}

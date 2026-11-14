@@ -1,0 +1,103 @@
+{
+  "id": "b5-math-permutations-combinations",
+  "title": "Permutations and Combinations",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-9"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Permutation",
+      "url": "https://en.wikipedia.org/wiki/Permutation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Combination",
+      "url": "https://en.wikipedia.org/wiki/Combination",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Intermediate Algebra 2e",
+      "url": "https://openstax.org/details/books/intermediate-algebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Counting arrangements: with 3 books on a shelf, there are 3 choices for the first spot, 2 for the second and 1 for the last. That is 3 × 2 × 1 = 6 orders. We write this as 3! ('3 factorial'). In general, n things can be put in order in n! ways."
+    },
+    {
+      "type": "text",
+      "body": "A permutation is an ordered choice. Picking gold, silver and bronze from 5 runners: 5 × 4 × 3 = 60 ways, because order matters. Picking 2 prizes from 5 runners: 5 × 4 = 20."
+    },
+    {
+      "type": "text",
+      "body": "A combination is an unordered choice, where only who is chosen matters, not the order. Choosing 2 people from 5 for a team: first count ordered pairs, 5 × 4 = 20, then divide by the 2! = 2 orders of each pair. That gives 10."
+    },
+    {
+      "type": "text",
+      "body": "The rule: choosing r from n in order gives n × (n-1) × ... for r terms; for a combination, divide that by r!. So choosing 2 from 6: 6 × 5 ÷ 2 = 15."
+    },
+    {
+      "type": "tryit",
+      "body": "List all the ways to choose 2 friends from a group of 4 to share a seat. Check that you get 6, then see if 4 × 3 ÷ 2 gives the same."
+    },
+    {
+      "type": "parent",
+      "body": "The deciding question is 'does the order matter?'. Prizes and passwords: yes. Teams and handfuls of sweets: no. Listing small cases by hand shows why the formulas work."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In how many different orders can 4 books be placed on a shelf?",
+      "options": [
+        "24",
+        "16",
+        "10"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count choices for each spot, one after another.",
+        "There are 4 choices for the first spot, then fewer for the next.",
+        "Example: 3 books → 3 × 2 × 1 = 6 orders. Use the same idea with 4 books."
+      ],
+      "explain": "4 × 3 × 2 × 1 = 24."
+    },
+    {
+      "q": "A class of 6 pupils must choose 2 to be a team. How many different teams are possible?",
+      "options": [
+        "15",
+        "30",
+        "12"
+      ],
+      "answer": 0,
+      "hints": [
+        "The order of the two does not matter, so this is a combination.",
+        "Count ordered pairs (6 × 5), then divide by the number of orders of each pair.",
+        "Example: 2 from 5 → 5 × 4 = 20 ordered pairs, ÷ 2 = 10 teams. Use 6 instead of 5."
+      ],
+      "explain": "6 × 5 = 30 ordered pairs. Each team is counted twice, so 30 ÷ 2 = 15."
+    },
+    {
+      "q": "8 runners race. In how many ways can first, second and third place be given?",
+      "options": [
+        "336",
+        "56",
+        "210"
+      ],
+      "answer": 0,
+      "hints": [
+        "The places are different prizes, so order matters.",
+        "Choices: 8 for first, then fewer for second and third.",
+        "Example: 2 prizes from 5 runners → 5 × 4 = 20 ways. Use three places and 8 runners."
+      ],
+      "explain": "8 × 7 × 6 = 336."
+    }
+  ]
+}

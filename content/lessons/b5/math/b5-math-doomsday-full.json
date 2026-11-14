@@ -1,0 +1,111 @@
+{
+  "id": "b5-math-doomsday-full",
+  "title": "Weekday of Any Date: Doomsday in Full and Zeller's Formula",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-13"
+  ],
+  "sensitive": null,
+  "minutes": 15,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Doomsday rule",
+      "url": "https://en.wikipedia.org/wiki/Doomsday_rule",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Zeller's congruence",
+      "url": "https://en.wikipedia.org/wiki/Zeller%27s_congruence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Gregorian calendar",
+      "url": "https://en.wikipedia.org/wiki/Gregorian_calendar",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The Doomsday method works in any century. Only the starting day changes with the century. These are the century anchors: 1700s Sunday, 1800s Friday, 1900s Wednesday, 2000s Tuesday, 2100s Sunday. The pattern repeats every 400 years, so 1600s and 2000s both start on Tuesday."
+    },
+    {
+      "type": "text",
+      "body": "To find the doomsday of a year, split it into the century and the last two digits y. Take a = y ÷ 12 (whole part), b = y mod 12 (the remainder), c = b ÷ 4 (whole part). Then doomsday = century anchor + a + b + c, counted in days of the week from the anchor."
+    },
+    {
+      "type": "text",
+      "body": "The doomsday dates in any year share one weekday: 4/4, 6/6, 8/8, 10/10, 12/12; 5/9, 9/5, 7/11, 11/7; 3/14; the last day of February (28, or 29 in a leap year); and 3 January (4 January in a leap year)."
+    },
+    {
+      "type": "text",
+      "body": "Worked example: 20 July 1969. The 1900s anchor is Wednesday. y = 69: a = 5, b = 9, c = 2, total 16. 16 leaves 2 after whole weeks, so the doomsday is Wednesday + 2 = Friday. 11 July (7/11) was a Friday, and 20 July is 9 days later: 9 leaves 2, so it was a Sunday."
+    },
+    {
+      "type": "text",
+      "body": "Zeller's formula does the same with one calculation. For the Gregorian calendar, with day d, month m, year split as K (last two digits) and J (first two digits), where January and February count as months 13 and 14 of the year before: h = (d + floor(13(m + 1) / 5) + K + floor(K / 4) + floor(J / 4) + 5J) mod 7. Here h = 0 means Saturday, 1 Sunday, 2 Monday ... 6 Friday."
+    },
+    {
+      "type": "text",
+      "body": "A warning about history: countries changed from the Julian to the Gregorian calendar at different times, from 1582 onwards. These methods count the Gregorian calendar backwards, so they can be wrong for old dates in places that had not changed yet."
+    },
+    {
+      "type": "tryit",
+      "body": "Find the weekday of 1 January 2000 with Zeller's formula (use m = 13 and the year 1999), then check it with a calendar."
+    },
+    {
+      "type": "parent",
+      "body": "Every anchor, rule and example here was checked by computer against a calendar for the years 1600 to 2199 (and Zeller's formula for samples through the year 2399). Start with the doomsday dates and the 2000s, as in the earlier lesson, before using other centuries."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "The 1900s anchor is Wednesday. What is the doomsday of 1969?",
+      "options": [
+        "Friday",
+        "Wednesday",
+        "Sunday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use y = 69. Find a (69 ÷ 12, whole part), b (the remainder) and c (b ÷ 4, whole part).",
+        "a + b + c is the number of days to count on from the anchor. Drop whole weeks of 7.",
+        "Example: for 2023, y = 23 gives a = 1, b = 11, c = 2, total 14, which is 0 after whole weeks, so it is the anchor day of the 2000s (Tuesday). Do the same for 69."
+      ],
+      "explain": "a = 5, b = 9, c = 2, total 16. 16 - 14 = 2 days on from Wednesday is Friday."
+    },
+    {
+      "q": "The doomsday of 1969 is a Friday. What weekday was 20 July 1969, the day of the Moon landing?",
+      "options": [
+        "Sunday",
+        "Friday",
+        "Saturday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use the nearest doomsday date in July. Which date is it?",
+        "7/11 is a doomsday date, so 11 July 1969 was a Friday. How many days from 11 July to 20 July? Find the remainder after whole weeks.",
+        "Example: if a doomsday were Tuesday, then 10 days after it is 3 days on (10 leaves 3), a Friday. Count the days from 11 July to 20 July the same way."
+      ],
+      "explain": "20 - 11 = 9 days. 9 leaves 2 after one whole week, so 2 days after Friday is Sunday."
+    },
+    {
+      "q": "The 1700s anchor is Sunday. The United States Declaration of Independence was signed on 4 July 1776. What weekday was that?",
+      "options": [
+        "Thursday",
+        "Wednesday",
+        "Tuesday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the doomsday of 1776 first. Use y = 76.",
+        "a = 76 ÷ 12 (whole part), b is the remainder, c = b ÷ 4 (whole part). Add them to the anchor. Then see how 4 July relates to 7/11 or 6/6.",
+        "Example: for 1969, a = 5, b = 9, c = 2, total 16, leaving 2, so the doomsday is the anchor plus 2. Use y = 76 and anchor Sunday. 4 July is exactly one week before 11 July (7/11)."
+      ],
+      "explain": "a = 6, b = 4, c = 1, total 11, leaving 4. Sunday + 4 = Thursday, the doomsday of 1776. And 4 July (7/4) was a Thursday: 11 July is a doomsday date, and 4 July is 7 days earlier."
+    }
+  ]
+}

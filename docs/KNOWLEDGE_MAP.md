@@ -2,7 +2,7 @@
 
 > **Status:** draft — every outcome needs review by two subject reviewers before publishing
 
-**5 age bands · 11 subjects · 51 cells · 238 learning outcomes**
+**5 age bands · 11 subjects · 51 cells · 249 learning outcomes**
 
 This is the minimum knowledge every learner should have at each age, before college. It is **universal** (not tied to one country) and is the brief for content writers and reviewers.
 
@@ -486,6 +486,14 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b5-math-3` Statistics: distributions, sampling, correlation vs causation
 - [ ] `b5-math-4` Introduction to calculus ideas (rates of change)
 - [ ] `b5-math-5` Financial maths: loans, inflation, percentages in real life
+- [ ] `b5-math-6` Solves time-and-work problems using rates and worker-days
+- [ ] `b5-math-7` Works out profit, loss and discount percentages
+- [ ] `b5-math-8` Calculates compound interest and compares it with simple interest
+- [ ] `b5-math-9` Counts arrangements and selections with permutations and combinations
+- [ ] `b5-math-10` Combines probabilities with AND and 'at least one' rules
+- [ ] `b5-math-11` Reads tables and charts and works out percent change
+- [ ] `b5-math-12` Squares quickly in the head and explains why each trick works with algebra
+- [ ] `b5-math-13` Names the weekday of any date using the full Doomsday method and Zeller's formula
 
 *Sample question:* Ice-cream sales and sunburns both rise in summer. This shows… — **Correlation, not causation** ✓ / Ice cream causes sunburn / Sunburn causes ice cream  
 *Hint:* Is there a third thing causing both?
@@ -548,6 +556,9 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b5-think-2` Decision-making tools: pros/cons, cost-benefit, thinking about consequences
 - [ ] `b5-think-3` Understands cognitive biases (confirmation bias, anchoring)
 - [ ] `b5-think-4` Ethical reasoning about real dilemmas
+- [ ] `b5-think-5` Judges whether a conclusion follows from premises (syllogisms)
+- [ ] `b5-think-6` Solves seating arrangement puzzles in rows and circles
+- [ ] `b5-think-7` Decides whether given information is enough to answer a question
 
 *Sample question:* Only reading news that agrees with you is called… — **Confirmation bias** ✓ / Open-mindedness / Research  
 *Hint:* It 'confirms' what you already think.

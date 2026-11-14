@@ -1730,6 +1730,20 @@ Wikipedia: Glossophobia — https://en.wikipedia.org/wiki/Glossophobia (CC BY-SA
 
 [text] Critical reading asks: What is the writer trying to make me feel or do? Which appeals are strongest? What's left out?","Wikipedia: Rhetoric — https://en.wikipedia.org/wiki/Rhetoric (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Modes of persuasion — https://en.wikipedia.org/wiki/Modes_of_persuasion (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\language\b5-lang-rhetoric.json","","","","","",""
+"b5-math-compound-interest","Compound Interest","Builders (15–18)","Math","b5-math-8: Calculates compound interest and compares it with simple interest","","12","draft","[text] With simple interest, interest is paid only on the starting amount. With compound interest, each year's interest is added to the amount, and next year's interest is worked out on the bigger amount. Interest earns interest.
+
+[text] The formula is A = P × (1 + r/100)^n, where P is the starting amount, r the yearly percent and n the number of years. For 400 at 10% for 2 years: A = 400 × 1.1 × 1.1 = 484.
+
+[text] Example, year by year, for 1,000 at 10%. Year 1: 1,000 + 100 = 1,100. Year 2: 1,100 + 110 = 1,210. Year 3: 1,210 + 121 = 1,331. Simple interest would give 1,300 after 3 years. The gap grows with time.
+
+[text] Compound interest works against you on loans in the same way. Unpaid interest is added to what you owe, which then earns more interest.
+
+[text] These rates are made up for practice. Real rates and rules vary by country and by account.
+
+[tryit] Use a calculator to find 100 at 5% a year for 1, 2, 3 and 4 years with compound interest. Does the extra amount each year stay the same?
+
+[parent] Compare simple and compound interest in a table. This lesson is maths practice, not financial advice. Read the real terms of any account or loan together, including fees and how often interest is added.","Wikipedia: Compound interest — https://en.wikipedia.org/wiki/Compound_interest (CC BY-SA 4.0 (reference; text is original))
+OpenStax Intermediate Algebra 2e — https://openstax.org/details/books/intermediate-algebra-2e (CC BY 4.0 (reference))","content\lessons\b5\math\b5-math-compound-interest.json","","","","","",""
 "b5-math-correlation-causation","Correlation Is Not Causation","Builders (15–18)","Math","b5-math-3: Statistics: distributions, sampling, correlation vs causation","","25","draft","[text] Two things are correlated when they tend to change together. That doesn't mean one causes the other.
 
 [text] Confounding variable: a third factor causing both. Ice-cream sales and drownings both rise in summer. Ice cream doesn't cause drowning. Hot weather increases both swimming and ice-cream buying.
@@ -1743,6 +1757,52 @@ Wikipedia: Modes of persuasion — https://en.wikipedia.org/wiki/Modes_of_persua
 [tryit] Find a news headline that says 'X linked to Y'. List one possible confounder and one possible reverse-causation story.","Wikipedia: Correlation does not imply causation — https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Confounding — https://en.wikipedia.org/wiki/Confounding (CC BY-SA 4.0 (reference; text is original))
 OpenStax Introductory Statistics 2e — https://openstax.org/details/books/introductory-statistics-2e (CC BY 4.0 (reference))","content\lessons\b5\math\b5-math-correlation-causation.json","","","","","",""
+"b5-math-data-interpretation","Data Interpretation: Reading Tables and Charts","Builders (15–18)","Math","b5-math-11: Reads tables and charts and works out percent change","","12","draft","[text] Data interpretation means answering questions from a table or chart. Read the title, the labels and the units first. Then read only the numbers the question needs.
+
+[text] Here is a made-up table of a shop's monthly sales (units sold): January 100, February 150, March 120, April 180. The data is invented for practice.
+
+[text] Change from one value to another: percent change = (new - old) ÷ old × 100. January to February: (150 - 100) ÷ 100 × 100 = 50% increase. February to March: (120 - 150) ÷ 150 × 100 = -20%, a 20% decrease.
+
+[text] Always divide by the OLD value. A rise from 50 to 60 is 20%. A fall from 60 to 50 is about 16.7%, a different percent, because the starting value is different.
+
+[text] In a pie chart, a slice's angle is its share of 360 degrees. A quarter of the data has an angle of 25% × 360 = 90 degrees.
+
+[tryit] Find a table in a newspaper or school book. Write three questions about it: one about a percent change, one about a total, one about the biggest change.
+
+[parent] Ask 'what is this chart really showing?' before doing any sums. Check the units and the start of the axis. Invented data keeps this a maths exercise, not a claim about any real shop.","Wikipedia: Data and information visualization — https://en.wikipedia.org/wiki/Data_and_information_visualization (CC BY-SA 4.0 (reference; text is original))
+OpenStax Intermediate Algebra 2e — https://openstax.org/details/books/intermediate-algebra-2e (CC BY 4.0 (reference))","content\lessons\b5\math\b5-math-data-interpretation.json","","","","","",""
+"b5-math-doomsday-full","Weekday of Any Date: Doomsday in Full and Zeller's Formula","Builders (15–18)","Math","b5-math-13: Names the weekday of any date using the full Doomsday method and Zeller's formula","","15","draft","[text] The Doomsday method works in any century. Only the starting day changes with the century. These are the century anchors: 1700s Sunday, 1800s Friday, 1900s Wednesday, 2000s Tuesday, 2100s Sunday. The pattern repeats every 400 years, so 1600s and 2000s both start on Tuesday.
+
+[text] To find the doomsday of a year, split it into the century and the last two digits y. Take a = y ÷ 12 (whole part), b = y mod 12 (the remainder), c = b ÷ 4 (whole part). Then doomsday = century anchor + a + b + c, counted in days of the week from the anchor.
+
+[text] The doomsday dates in any year share one weekday: 4/4, 6/6, 8/8, 10/10, 12/12; 5/9, 9/5, 7/11, 11/7; 3/14; the last day of February (28, or 29 in a leap year); and 3 January (4 January in a leap year).
+
+[text] Worked example: 20 July 1969. The 1900s anchor is Wednesday. y = 69: a = 5, b = 9, c = 2, total 16. 16 leaves 2 after whole weeks, so the doomsday is Wednesday + 2 = Friday. 11 July (7/11) was a Friday, and 20 July is 9 days later: 9 leaves 2, so it was a Sunday.
+
+[text] Zeller's formula does the same with one calculation. For the Gregorian calendar, with day d, month m, year split as K (last two digits) and J (first two digits), where January and February count as months 13 and 14 of the year before: h = (d + floor(13(m + 1) / 5) + K + floor(K / 4) + floor(J / 4) + 5J) mod 7. Here h = 0 means Saturday, 1 Sunday, 2 Monday ... 6 Friday.
+
+[text] A warning about history: countries changed from the Julian to the Gregorian calendar at different times, from 1582 onwards. These methods count the Gregorian calendar backwards, so they can be wrong for old dates in places that had not changed yet.
+
+[tryit] Find the weekday of 1 January 2000 with Zeller's formula (use m = 13 and the year 1999), then check it with a calendar.
+
+[parent] Every anchor, rule and example here was checked by computer against a calendar for the years 1600 to 2199 (and Zeller's formula for samples through the year 2399). Start with the doomsday dates and the 2000s, as in the earlier lesson, before using other centuries.","Wikipedia: Doomsday rule — https://en.wikipedia.org/wiki/Doomsday_rule (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Zeller's congruence — https://en.wikipedia.org/wiki/Zeller%27s_congruence (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Gregorian calendar — https://en.wikipedia.org/wiki/Gregorian_calendar (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\math\b5-math-doomsday-full.json","","","","","",""
+"b5-math-fast-squaring","Fast Squaring and Why the Tricks Work","Builders (15–18)","Math","b5-math-12: Squares quickly in the head and explains why each trick works with algebra","","12","draft","[text] Some mental maths tricks are sold as ancient secrets. They are really algebra in disguise, and when you know the algebra you can trust them, extend them and spot when they stop working.
+
+[text] Trick 1: squaring a number that ends in 5. Take the number before the 5 (call it n), multiply n by (n + 1), and write 25 after it. For 65²: n = 6, 6 × 7 = 42, so 4225. For 25²: 2 × 3 = 6, so 625. Why? (10n + 5)² = 100n² + 100n + 25 = 100 × n(n+1) + 25.
+
+[text] Trick 2: squaring a number just below 100. For 97, the gap from 100 is d = 3. Take 3 off the number: 97 - 3 = 94. Then write d² as two digits: 09. The answer is 9409. For 96: d = 4, 96 - 4 = 92, and 4² = 16 gives 9216. Why? (100 - d)² = 10,000 - 200d + d² = 100 × (100 - 2d) + d², and 100 - 2d is the number minus d.
+
+[text] Trick 3: squaring a number near 50. For 50 + d, add d to 25 for the first part, then write d² as two digits. For 53: d = 3, 25 + 3 = 28 and 3² = 09, so 2809. Why? (50 + d)² = 2,500 + 100d + d² = 100 × (25 + d) + d².
+
+[text] Bonus, difference of squares: a × b where a and b are the same distance from a round number m. 47 × 53 = 50² - 3² = 2,500 - 9 = 2,491. This comes from (m - d)(m + d) = m² - d².
+
+[tryit] Use trick 1 to find 85² and then check on a calculator. Then try to prove the trick for 85 using (10n + 5)² with n = 8.
+
+[parent] Each trick is a short algebra identity. Let your child expand the brackets themselves to see why it works. The tricks need the number to fit the pattern, so point out where they stop being useful.","Wikipedia: Vedic Mathematics — https://en.wikipedia.org/wiki/Vedic_Mathematics (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Difference of two squares — https://en.wikipedia.org/wiki/Difference_of_two_squares (CC BY-SA 4.0 (reference; text is original))
+OpenStax Intermediate Algebra 2e — https://openstax.org/details/books/intermediate-algebra-2e (CC BY 4.0 (reference))","content\lessons\b5\math\b5-math-fast-squaring.json","","","","","",""
 "b5-math-financial","Real-Life Money Maths: Loans, Inflation, Percentages","Builders (15–18)","Math","b5-math-5: Financial maths: loans, inflation, percentages in real life","","25","draft","[text] INFLATION means prices rise over time, so money buys less. With 5% inflation, something costing 100 costs about 105 next year.
 
 [text] Loans charge interest. The APR (annual percentage rate) includes fees, so it's the fairest number to compare loans by.
@@ -1758,12 +1818,61 @@ Wikipedia: Annual percentage rate — https://en.wikipedia.org/wiki/Annual_perce
 [text] A LOGARITHM asks 'what power?': log₂(32) = 5 because 2⁵ = 32. Logs turn multiplication into addition and appear in sound (decibels), earthquakes and pH.","Wikipedia: Quadratic equation — https://en.wikipedia.org/wiki/Quadratic_equation (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Exponentiation — https://en.wikipedia.org/wiki/Exponentiation (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Logarithm — https://en.wikipedia.org/wiki/Logarithm (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\math\b5-math-functions-logs.json","","","","","",""
+"b5-math-permutations-combinations","Permutations and Combinations","Builders (15–18)","Math","b5-math-9: Counts arrangements and selections with permutations and combinations","","12","draft","[text] Counting arrangements: with 3 books on a shelf, there are 3 choices for the first spot, 2 for the second and 1 for the last. That is 3 × 2 × 1 = 6 orders. We write this as 3! ('3 factorial'). In general, n things can be put in order in n! ways.
+
+[text] A permutation is an ordered choice. Picking gold, silver and bronze from 5 runners: 5 × 4 × 3 = 60 ways, because order matters. Picking 2 prizes from 5 runners: 5 × 4 = 20.
+
+[text] A combination is an unordered choice, where only who is chosen matters, not the order. Choosing 2 people from 5 for a team: first count ordered pairs, 5 × 4 = 20, then divide by the 2! = 2 orders of each pair. That gives 10.
+
+[text] The rule: choosing r from n in order gives n × (n-1) × ... for r terms; for a combination, divide that by r!. So choosing 2 from 6: 6 × 5 ÷ 2 = 15.
+
+[tryit] List all the ways to choose 2 friends from a group of 4 to share a seat. Check that you get 6, then see if 4 × 3 ÷ 2 gives the same.
+
+[parent] The deciding question is 'does the order matter?'. Prizes and passwords: yes. Teams and handfuls of sweets: no. Listing small cases by hand shows why the formulas work.","Wikipedia: Permutation — https://en.wikipedia.org/wiki/Permutation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Combination — https://en.wikipedia.org/wiki/Combination (CC BY-SA 4.0 (reference; text is original))
+OpenStax Intermediate Algebra 2e — https://openstax.org/details/books/intermediate-algebra-2e (CC BY 4.0 (reference))","content\lessons\b5\math\b5-math-permutations-combinations.json","","","","","",""
+"b5-math-probability-rules","Probability: Rules for Combining Events","Builders (15–18)","Math","b5-math-10: Combines probabilities with AND and 'at least one' rules","","12","draft","[text] Probability = favourable outcomes ÷ total equally likely outcomes. It lies between 0 (impossible) and 1 (certain). Two fair dice have 6 × 6 = 36 equally likely outcomes. Only 2 give a total of 3 (1+2 and 2+1), so the chance is 2/36 = 1/18.
+
+[text] AND rule for independent events: multiply. Chance of two heads in a row is 1/2 × 1/2 = 1/4. When picking without putting back, the second chance changes: from a bag of 3 red and 2 blue, two reds is 3/5 × 2/4 = 6/20 = 3/10.
+
+[text] The 'at least one' trick: work out the chance of none, and take it from 1. At least one head in 2 flips = 1 - chance of no heads = 1 - 1/4 = 3/4.
+
+[text] The gambler's mistake: after five heads in a row, the next flip of a fair coin is still 1/2. Past flips do not change a fair coin's next flip.
+
+[tryit] Roll two dice 36 times and count how many totals are 7. Is it close to 6? Why might it not be exactly 6?
+
+[parent] Listing outcomes in a table is the safest way to start. Probability describes what happens over many tries, not what must happen next. This lesson is maths, not a guide to gambling.","Wikipedia: Probability — https://en.wikipedia.org/wiki/Probability (CC BY-SA 4.0 (reference; text is original))
+OpenStax Intermediate Algebra 2e — https://openstax.org/details/books/intermediate-algebra-2e (CC BY 4.0 (reference))","content\lessons\b5\math\b5-math-probability-rules.json","","","","","",""
+"b5-math-profit-loss-discount","Profit, Loss and Discount","Builders (15–18)","Math","b5-math-7: Works out profit, loss and discount percentages","","11","draft","[text] The cost price (CP) is what a seller paid. The selling price (SP) is what the buyer pays. If SP is more than CP the seller makes a profit. If SP is less, there is a loss.
+
+[text] Profit = SP - CP. Profit percent = profit ÷ CP × 100. It is always out of the cost price, not the selling price. If CP is 40 and SP is 50, profit is 10 and the profit percent is 10 ÷ 40 × 100 = 25%.
+
+[text] To find SP from a profit percent, multiply the cost by (1 + percent/100). A 20% profit on 500 gives SP = 500 × 1.2 = 600. To go the other way and find the cost, divide: 600 ÷ 1.2 = 500.
+
+[text] A discount is taken off the marked price. 10% off a marked price of 500 gives 500 × 0.9 = 450. A discount is out of the marked price.
+
+[tryit] Find a real price tag. Work out the selling price after 15% off, and decide what profit percent a shop would make if its cost were 20% below the marked price.
+
+[parent] Always ask 'out of what?'. Profit is a percent of cost, discount is a percent of the marked price. These are practice numbers, not business advice.","Wikipedia: Profit (economics) — https://en.wikipedia.org/wiki/Profit_(economics) (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b5\math\b5-math-profit-loss-discount.json","","","","","",""
 "b5-math-rates-of-change","Intro to Calculus: Rates of Change","Builders (15–18)","Math","b5-math-4: Introduction to calculus ideas (rates of change)","","25","draft","[text] Calculus studies change. The GRADIENT of a curve at a point tells you how fast something is changing right then, like speed from a distance–time graph.
 
 [text] The DERIVATIVE gives that rate. For y = xⁿ, the derivative is nxⁿ⁻¹. So y = x² has derivative 2x, and at x = 3 the slope is 6.
 
 [text] Calculus is used in physics, economics, medicine (drug doses), engineering and machine learning.","Wikipedia: Derivative — https://en.wikipedia.org/wiki/Derivative (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Calculus — https://en.wikipedia.org/wiki/Calculus (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\math\b5-math-rates-of-change.json","","","","","",""
+"b5-math-time-and-work","Time and Work","Builders (15–18)","Math","b5-math-6: Solves time-and-work problems using rates and worker-days","","12","draft","[text] Think of a job as 1 whole. If someone does it alone in 6 days, they do 1/6 of the job each day. That is their rate of work. Rates of people working together add up.
+
+[text] Example: A takes 6 days and B takes 12 days. Together they do 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4 of the job per day. So together they take 4 days.
+
+[text] You can work backwards. If A and B together take 6 days, and A alone takes 10 days, then B's rate is 1/6 - 1/10 = 5/30 - 3/30 = 2/30 = 1/15. So B alone takes 15 days.
+
+[text] If every worker works at the same rate, use worker-days. 5 workers take 6 days, so the job is 30 worker-days. With 10 workers it takes 30 ÷ 10 = 3 days. More workers means fewer days, and the product stays the same.
+
+[tryit] A tap fills a tank in 4 hours and another tap fills it in 12 hours. How long do they take together? Check by finding the fraction filled in one hour.
+
+[parent] The key step is turning 'takes n days' into '1/n of the job per day'. Draw a bar divided into days if fractions are shaky. Problems with a leak or drain use a subtraction instead of addition.","Wikipedia: Rate (mathematics) — https://en.wikipedia.org/wiki/Rate_(mathematics) (CC BY-SA 4.0 (reference; text is original))
+OpenStax Intermediate Algebra 2e — https://openstax.org/details/books/intermediate-algebra-2e (CC BY 4.0 (reference))","content\lessons\b5\math\b5-math-time-and-work.json","","","","","",""
 "b5-math-trigonometry","Trigonometry and Geometric Proof","Builders (15–18)","Math","b5-math-2: Trigonometry and geometry proofs","","25","draft","[text] In a right-angled triangle: sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent. Memory aid: SOH CAH TOA.
 
 [text] Use trig to find unknown sides or angles, for example the height of a tree from its shadow.
@@ -1865,6 +1974,18 @@ b5-think-1: Evaluates arguments and evidence in news and research","","20","draf
 Wikipedia: Confirmation bias — https://en.wikipedia.org/wiki/Confirmation_bias (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Anchoring effect — https://en.wikipedia.org/wiki/Anchoring_effect (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Availability heuristic — https://en.wikipedia.org/wiki/Availability_heuristic (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\thinking\b5-think-cognitive-biases.json","","","","","",""
+"b5-think-data-sufficiency","Data Sufficiency: Is There Enough Information?","Builders (15–18)","Thinking Skills","b5-think-7: Decides whether given information is enough to answer a question","","12","draft","[text] Data sufficiency questions do not ask for the answer. They ask: is there enough information to find it? You are shown a question and two statements. You decide whether the first statement alone, the second alone, both together, or neither gives one clear answer.
+
+[text] Steps: 1. Read the question and say exactly what you need. 2. Test statement 1 alone. Can you answer with certainty? 3. Test statement 2 alone, forgetting statement 1. 4. If neither works alone, test them together. 5. If still unclear, the data is not enough.
+
+[text] A statement is sufficient only if it gives ONE definite answer. 'The number is a multiple of 3' does not tell you if it is even: 6 is even, 9 is odd.
+
+[text] You do not need to find the actual answer, only decide if it could be found. This skill is also useful in real life: asking 'what else do I need to know?' before making a decision.
+
+[tryit] Make up a question where two clues together are enough, but neither clue alone is enough. Test it on a friend.
+
+[parent] Cover the second statement while testing the first, and the other way round, so they do not mix. Examples with ages, prices or odd and even numbers work well.","Wikipedia: Sufficient condition — https://en.wikipedia.org/wiki/Necessity_and_sufficiency (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Logic — https://en.wikipedia.org/wiki/Logic (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\thinking\b5-think-data-sufficiency.json","","","","","",""
 "b5-think-decisions-ethics","Decision-Making Tools and Ethical Dilemmas","Builders (15–18)","Thinking Skills","b5-think-2: Decision-making tools: pros/cons, cost-benefit, thinking about consequences
 b5-think-4: Ethical reasoning about real dilemmas","","25","draft","[text] Decision tools: PROS AND CONS lists, COST–BENEFIT analysis (put rough values on outcomes), and '10-10-10' (how will I feel in 10 minutes, 10 months, 10 years?).
 
@@ -1875,6 +1996,30 @@ b5-think-4: Ethical reasoning about real dilemmas","","25","draft","[text] Decis
 [text] Good ethical reasoning: identify who is affected, consider different principles, and be willing to explain and change your view.","Wikipedia: Decision-making — https://en.wikipedia.org/wiki/Decision-making (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Cost–benefit analysis — https://en.wikipedia.org/wiki/Cost–benefit_analysis (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Trolley problem — https://en.wikipedia.org/wiki/Trolley_problem (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\thinking\b5-think-decisions-ethics.json","","","","","",""
+"b5-think-seating-arrangements","Seating Arrangement Puzzles","Builders (15–18)","Thinking Skills","b5-think-6: Solves seating arrangement puzzles in rows and circles","","12","draft","[text] Seating puzzles give clues about who sits where and ask you to place everyone. In a row, positions are numbered left to right. At a round table, people sit in a circle, and 'opposite' means halfway round.
+
+[text] Method: draw empty seats. Then use the clues with the most certainty first, such as 'sits at the left end'. Fix those people. Then use clues like 'next to' or 'not next to' to rule seats out.
+
+[text] Check every clue at the end. A valid answer must satisfy all clues, and a good puzzle has exactly one solution. For a round table of 6, the person opposite you is 3 seats away.
+
+[text] Example: four people P, Q, R, S in a row. 'P is at the left end. R sits next to P. S does not sit next to R.' P is in seat 1, R in seat 2. S cannot be in seat 3 (next to R), so S is in seat 4 and Q is in seat 3.
+
+[tryit] Make up a puzzle for four family members in a row with three clues. Check it has only one answer by trying the other orders.
+
+[parent] Let your child physically move cards or cups. Writing the clues as a list and ticking them off stops mistakes. Every puzzle here was checked by computer to have exactly one answer.","Wikipedia: Permutation — https://en.wikipedia.org/wiki/Permutation (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Logic puzzle — https://en.wikipedia.org/wiki/Logic_puzzle (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\thinking\b5-think-seating-arrangements.json","","","","","",""
+"b5-think-syllogisms","Syllogisms: Does the Conclusion Follow?","Builders (15–18)","Thinking Skills","b5-think-5: Judges whether a conclusion follows from premises (syllogisms)","","12","draft","[text] A syllogism has two statements (premises) and a conclusion. The question is: if the premises are true, must the conclusion be true? If yes, the argument is valid.
+
+[text] Validity is about the shape of the reasoning, not whether the statements are true in real life. 'All birds can fly. Penguins are birds. So penguins can fly.' The shape is valid, but the first statement is false, so the conclusion is false. A valid argument with a false premise can have a false conclusion.
+
+[text] Use circles (Venn diagrams). 'All A are B' puts circle A completely inside circle B. 'No A are B' keeps the circles apart. 'Some A are B' means the circles overlap. A conclusion follows only if every possible drawing agrees with it.
+
+[text] Typical mistake: 'All dogs are animals. All cats are animals. So all dogs are cats.' Both premises are true, but the circles for dogs and cats can sit separately inside the animals circle, so the conclusion does not follow.
+
+[tryit] Draw circles for: 'All squares are rectangles. All rectangles have four sides.' What must be true about squares?
+
+[parent] Ask 'can I draw a picture where both premises are true and the conclusion is false?'. If yes, the conclusion does not follow. Practise with silly statements so facts do not get in the way.","Wikipedia: Syllogism — https://en.wikipedia.org/wiki/Syllogism (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Validity (logic) — https://en.wikipedia.org/wiki/Validity_(logic) (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\thinking\b5-think-syllogisms.json","","","","","",""
 "b5-world-citizenship","Citizenship, Elections and Political Claims","Builders (15–18)","Our World","b5-world-4: Citizenship, elections, rights and how to evaluate political claims","politics","25","draft","[text] Citizens usually have rights (vote, free speech, fair trial) and responsibilities (follow laws, pay taxes, serve on juries in some countries). These vary by country.
 
 [text] Elections work in different ways: first-past-the-post, proportional representation and others. Each has trade-offs.

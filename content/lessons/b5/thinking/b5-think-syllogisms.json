@@ -1,0 +1,98 @@
+{
+  "id": "b5-think-syllogisms",
+  "title": "Syllogisms: Does the Conclusion Follow?",
+  "band": "b5",
+  "subject": "thinking",
+  "outcomes": [
+    "b5-think-5"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Syllogism",
+      "url": "https://en.wikipedia.org/wiki/Syllogism",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Validity (logic)",
+      "url": "https://en.wikipedia.org/wiki/Validity_(logic)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A syllogism has two statements (premises) and a conclusion. The question is: if the premises are true, must the conclusion be true? If yes, the argument is valid."
+    },
+    {
+      "type": "text",
+      "body": "Validity is about the shape of the reasoning, not whether the statements are true in real life. 'All birds can fly. Penguins are birds. So penguins can fly.' The shape is valid, but the first statement is false, so the conclusion is false. A valid argument with a false premise can have a false conclusion."
+    },
+    {
+      "type": "text",
+      "body": "Use circles (Venn diagrams). 'All A are B' puts circle A completely inside circle B. 'No A are B' keeps the circles apart. 'Some A are B' means the circles overlap. A conclusion follows only if every possible drawing agrees with it."
+    },
+    {
+      "type": "text",
+      "body": "Typical mistake: 'All dogs are animals. All cats are animals. So all dogs are cats.' Both premises are true, but the circles for dogs and cats can sit separately inside the animals circle, so the conclusion does not follow."
+    },
+    {
+      "type": "tryit",
+      "body": "Draw circles for: 'All squares are rectangles. All rectangles have four sides.' What must be true about squares?"
+    },
+    {
+      "type": "parent",
+      "body": "Ask 'can I draw a picture where both premises are true and the conclusion is false?'. If yes, the conclusion does not follow. Practise with silly statements so facts do not get in the way."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "All cats are animals. All animals need water. Conclusion: All cats need water. Is the argument valid?",
+      "options": [
+        "Valid",
+        "Not valid",
+        "Cannot say"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw the circle for cats inside the circle for animals.",
+        "Now draw the animals circle inside the circle for things that need water. Where does the cats circle end up?",
+        "Example: all roses are flowers and all flowers are plants. The roses circle is inside plants, so all roses are plants. Try the same picture."
+      ],
+      "explain": "The cats circle is inside animals, which is inside 'need water'. So every cat needs water."
+    },
+    {
+      "q": "All birds have wings. Some animals have wings. Conclusion: Some animals are birds. Is the argument valid?",
+      "options": [
+        "Not valid",
+        "Valid",
+        "Cannot say"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw the birds circle inside the wings circle.",
+        "The animals circle overlaps wings, but it could overlap a part of wings where there are no birds. Can you draw that?",
+        "Example: all pens write. Some tools write. Conclusion: some tools are pens. The tools could be markers or chalk only, so it does not have to be true. Test the new argument with a picture."
+      ],
+      "explain": "Animals with wings might be bats or insects, not birds. The circles can be drawn so the conclusion is false, so it does not follow."
+    },
+    {
+      "q": "No fish are mammals. All whales are mammals. Conclusion: No whale is a fish. Is the argument valid?",
+      "options": [
+        "Valid",
+        "Not valid",
+        "Cannot say"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw the fish circle apart from the mammals circle.",
+        "Put the whales circle inside mammals. Can it touch the fish circle?",
+        "Example: no cars are bicycles, and all taxis are cars, so no taxi is a bicycle. Check this picture, then draw the whale one."
+      ],
+      "explain": "Whales are inside mammals, and mammals are completely apart from fish. So whales cannot be fish."
+    }
+  ]
+}

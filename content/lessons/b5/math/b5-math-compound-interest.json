@@ -1,0 +1,102 @@
+{
+  "id": "b5-math-compound-interest",
+  "title": "Compound Interest",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-8"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Compound interest",
+      "url": "https://en.wikipedia.org/wiki/Compound_interest",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Intermediate Algebra 2e",
+      "url": "https://openstax.org/details/books/intermediate-algebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "With simple interest, interest is paid only on the starting amount. With compound interest, each year's interest is added to the amount, and next year's interest is worked out on the bigger amount. Interest earns interest."
+    },
+    {
+      "type": "text",
+      "body": "The formula is A = P × (1 + r/100)^n, where P is the starting amount, r the yearly percent and n the number of years. For 400 at 10% for 2 years: A = 400 × 1.1 × 1.1 = 484."
+    },
+    {
+      "type": "text",
+      "body": "Example, year by year, for 1,000 at 10%. Year 1: 1,000 + 100 = 1,100. Year 2: 1,100 + 110 = 1,210. Year 3: 1,210 + 121 = 1,331. Simple interest would give 1,300 after 3 years. The gap grows with time."
+    },
+    {
+      "type": "text",
+      "body": "Compound interest works against you on loans in the same way. Unpaid interest is added to what you owe, which then earns more interest."
+    },
+    {
+      "type": "text",
+      "body": "These rates are made up for practice. Real rates and rules vary by country and by account."
+    },
+    {
+      "type": "tryit",
+      "body": "Use a calculator to find 100 at 5% a year for 1, 2, 3 and 4 years with compound interest. Does the extra amount each year stay the same?"
+    },
+    {
+      "type": "parent",
+      "body": "Compare simple and compound interest in a table. This lesson is maths practice, not financial advice. Read the real terms of any account or loan together, including fees and how often interest is added."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "2,000 is saved at 5% compound interest a year for 2 years. How much is there at the end?",
+      "options": [
+        "2,205",
+        "2,200",
+        "2,100"
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply by 1.05 for each year.",
+        "A = 2,000 × 1.05 × 1.05. Work out 2,000 × 1.05 first.",
+        "Example: 400 at 10% for 2 years → 400 × 1.1 = 440, then 440 × 1.1 = 484. Use the same steps with 1.05."
+      ],
+      "explain": "2,000 × 1.05 = 2,100. Then 2,100 × 1.05 = 2,205."
+    },
+    {
+      "q": "500 is saved at 10% for 2 years. How much MORE does compound interest give than simple interest?",
+      "options": [
+        "5",
+        "10",
+        "50"
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out the final amount both ways.",
+        "Simple: 500 × 10 × 2 ÷ 100 = 100 interest. Compound: 500 × 1.1 × 1.1.",
+        "Example: 200 at 5% for 2 years → compound 220.50, simple 220, so the difference is 0.50. Use the same method."
+      ],
+      "explain": "Compound: 500 × 1.21 = 605, so interest 105. Simple interest is 100. The difference is 5."
+    },
+    {
+      "q": "1,000 grows at 10% compound interest a year. How much is there after 3 years?",
+      "options": [
+        "1,331",
+        "1,300",
+        "1,030"
+      ],
+      "answer": 0,
+      "hints": [
+        "Add 10% each year to the new amount.",
+        "Year 1: 1,000 × 1.1. Year 2: multiply the result by 1.1 again. Then once more.",
+        "Example: 200 at 5% → 210 after year 1, 220.50 after year 2, 231.53 (rounded) after year 3. Use 1.1 each time."
+      ],
+      "explain": "1,000 → 1,100 → 1,210 → 1,331."
+    }
+  ]
+}

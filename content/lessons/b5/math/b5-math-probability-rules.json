@@ -1,0 +1,98 @@
+{
+  "id": "b5-math-probability-rules",
+  "title": "Probability: Rules for Combining Events",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-10"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Probability",
+      "url": "https://en.wikipedia.org/wiki/Probability",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Intermediate Algebra 2e",
+      "url": "https://openstax.org/details/books/intermediate-algebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Probability = favourable outcomes ÷ total equally likely outcomes. It lies between 0 (impossible) and 1 (certain). Two fair dice have 6 × 6 = 36 equally likely outcomes. Only 2 give a total of 3 (1+2 and 2+1), so the chance is 2/36 = 1/18."
+    },
+    {
+      "type": "text",
+      "body": "AND rule for independent events: multiply. Chance of two heads in a row is 1/2 × 1/2 = 1/4. When picking without putting back, the second chance changes: from a bag of 3 red and 2 blue, two reds is 3/5 × 2/4 = 6/20 = 3/10."
+    },
+    {
+      "type": "text",
+      "body": "The 'at least one' trick: work out the chance of none, and take it from 1. At least one head in 2 flips = 1 - chance of no heads = 1 - 1/4 = 3/4."
+    },
+    {
+      "type": "text",
+      "body": "The gambler's mistake: after five heads in a row, the next flip of a fair coin is still 1/2. Past flips do not change a fair coin's next flip."
+    },
+    {
+      "type": "tryit",
+      "body": "Roll two dice 36 times and count how many totals are 7. Is it close to 6? Why might it not be exactly 6?"
+    },
+    {
+      "type": "parent",
+      "body": "Listing outcomes in a table is the safest way to start. Probability describes what happens over many tries, not what must happen next. This lesson is maths, not a guide to gambling."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Two fair dice are rolled. What is the probability that the total is 7?",
+      "options": [
+        "1/6",
+        "1/12",
+        "7/36"
+      ],
+      "answer": 0,
+      "hints": [
+        "List all 36 pairs, or think of how many pairs make the total.",
+        "Pairs that make 7: (1,6), (2,5), (3,4) and the reverse of each. Count them.",
+        "Example: total 3 has 2 pairs, so the chance is 2/36 = 1/18. Count the pairs for the new total and simplify."
+      ],
+      "explain": "There are 6 pairs that total 7 out of 36. 6/36 = 1/6."
+    },
+    {
+      "q": "A bag has 4 red and 6 blue counters. Two are taken out without putting any back. What is the chance both are red?",
+      "options": [
+        "2/15",
+        "4/25",
+        "1/5"
+      ],
+      "answer": 0,
+      "hints": [
+        "The first pick and the second pick are linked. The bag changes.",
+        "First pick: 4/10. Then 3 reds are left among 9 counters. Multiply the two chances.",
+        "Example: 3 red and 2 blue → 3/5 × 2/4 = 3/10. Use 4 red among 10, then 3 red among 9."
+      ],
+      "explain": "4/10 × 3/9 = 12/90 = 2/15."
+    },
+    {
+      "q": "A fair coin is flipped 3 times. What is the probability of getting at least one head?",
+      "options": [
+        "7/8",
+        "1/8",
+        "3/8"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the chance of the opposite: no heads at all.",
+        "No heads means tails three times: 1/2 × 1/2 × 1/2. Take that from 1.",
+        "Example: at least one head in 2 flips → 1 - 1/4 = 3/4. Use 3 flips."
+      ],
+      "explain": "No heads has probability 1/8. So at least one head is 1 - 1/8 = 7/8."
+    }
+  ]
+}

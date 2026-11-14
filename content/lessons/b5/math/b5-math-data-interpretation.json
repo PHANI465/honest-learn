@@ -1,0 +1,102 @@
+{
+  "id": "b5-math-data-interpretation",
+  "title": "Data Interpretation: Reading Tables and Charts",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-11"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Data and information visualization",
+      "url": "https://en.wikipedia.org/wiki/Data_and_information_visualization",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Intermediate Algebra 2e",
+      "url": "https://openstax.org/details/books/intermediate-algebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Data interpretation means answering questions from a table or chart. Read the title, the labels and the units first. Then read only the numbers the question needs."
+    },
+    {
+      "type": "text",
+      "body": "Here is a made-up table of a shop's monthly sales (units sold): January 100, February 150, March 120, April 180. The data is invented for practice."
+    },
+    {
+      "type": "text",
+      "body": "Change from one value to another: percent change = (new - old) ÷ old × 100. January to February: (150 - 100) ÷ 100 × 100 = 50% increase. February to March: (120 - 150) ÷ 150 × 100 = -20%, a 20% decrease."
+    },
+    {
+      "type": "text",
+      "body": "Always divide by the OLD value. A rise from 50 to 60 is 20%. A fall from 60 to 50 is about 16.7%, a different percent, because the starting value is different."
+    },
+    {
+      "type": "text",
+      "body": "In a pie chart, a slice's angle is its share of 360 degrees. A quarter of the data has an angle of 25% × 360 = 90 degrees."
+    },
+    {
+      "type": "tryit",
+      "body": "Find a table in a newspaper or school book. Write three questions about it: one about a percent change, one about a total, one about the biggest change."
+    },
+    {
+      "type": "parent",
+      "body": "Ask 'what is this chart really showing?' before doing any sums. Check the units and the start of the axis. Invented data keeps this a maths exercise, not a claim about any real shop."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A shop sold 100 units in January and 150 units in February. What is the percent increase?",
+      "options": [
+        "50%",
+        "33.3%",
+        "150%"
+      ],
+      "answer": 0,
+      "hints": [
+        "Percent change = change ÷ old value × 100.",
+        "The change is 150 - 100. The old value is the January figure.",
+        "Example: from 50 to 60 is a rise of 10, and 10 ÷ 50 × 100 = 20%. Use the same steps."
+      ],
+      "explain": "Change = 50. 50 ÷ 100 × 100 = 50%."
+    },
+    {
+      "q": "Sales were Jan 100, Feb 150, Mar 120, Apr 180. Which month had the biggest rise from the month before?",
+      "options": [
+        "April",
+        "February",
+        "March"
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out the change from the previous month for each month after the first.",
+        "Feb: +50. Mar: 120 - 150. Apr: 180 - 120. Which is largest?",
+        "Example: values 10, 14, 11, 20 → changes +4, -3, +9, so the last month had the biggest rise. Compare the changes here."
+      ],
+      "explain": "February +50, March -30, April +60. April is the biggest rise."
+    },
+    {
+      "q": "Sales fell from 150 in February to 120 in March. What is the percent decrease?",
+      "options": [
+        "20%",
+        "25%",
+        "30%"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the fall in units, then divide by the old value.",
+        "The old value is the February figure. 150 - 120 is the fall.",
+        "Example: 200 falling to 150 is a fall of 50, and 50 ÷ 200 × 100 = 25%. Use 150 as the old value."
+      ],
+      "explain": "Fall = 30. 30 ÷ 150 × 100 = 20%."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "b5-math-time-and-work",
+  "title": "Time and Work",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-6"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Rate (mathematics)",
+      "url": "https://en.wikipedia.org/wiki/Rate_(mathematics)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Intermediate Algebra 2e",
+      "url": "https://openstax.org/details/books/intermediate-algebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Think of a job as 1 whole. If someone does it alone in 6 days, they do 1/6 of the job each day. That is their rate of work. Rates of people working together add up."
+    },
+    {
+      "type": "text",
+      "body": "Example: A takes 6 days and B takes 12 days. Together they do 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4 of the job per day. So together they take 4 days."
+    },
+    {
+      "type": "text",
+      "body": "You can work backwards. If A and B together take 6 days, and A alone takes 10 days, then B's rate is 1/6 - 1/10 = 5/30 - 3/30 = 2/30 = 1/15. So B alone takes 15 days."
+    },
+    {
+      "type": "text",
+      "body": "If every worker works at the same rate, use worker-days. 5 workers take 6 days, so the job is 30 worker-days. With 10 workers it takes 30 ÷ 10 = 3 days. More workers means fewer days, and the product stays the same."
+    },
+    {
+      "type": "tryit",
+      "body": "A tap fills a tank in 4 hours and another tap fills it in 12 hours. How long do they take together? Check by finding the fraction filled in one hour."
+    },
+    {
+      "type": "parent",
+      "body": "The key step is turning 'takes n days' into '1/n of the job per day'. Draw a bar divided into days if fractions are shaky. Problems with a leak or drain use a subtraction instead of addition."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A can finish a job in 10 days and B can finish it in 15 days. How long do they take working together?",
+      "options": [
+        "6 days",
+        "12.5 days",
+        "25 days"
+      ],
+      "answer": 0,
+      "hints": [
+        "Turn each time into a fraction of the job done in one day.",
+        "A does 1/10 per day and B does 1/15 per day. Add the fractions.",
+        "Example: 4 days and 12 days → 1/4 + 1/12 = 1/3 per day, so 3 days. Add 1/10 and 1/15 the same way, then flip the answer."
+      ],
+      "explain": "1/10 + 1/15 = 3/30 + 2/30 = 5/30 = 1/6 of the job per day, so the job takes 6 days."
+    },
+    {
+      "q": "A alone can do a job in 12 days. A and B together do it in 8 days. How long would B take alone?",
+      "options": [
+        "24 days",
+        "4 days",
+        "20 days"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the rate of A and the rate of A + B together.",
+        "Together: 1/8 per day. A alone: 1/12 per day. Subtract to get B's rate.",
+        "Example: together 6 days, A alone 10 days → 1/6 - 1/10 = 1/15, so B takes 15 days. Do 1/8 - 1/12 and flip it."
+      ],
+      "explain": "1/8 - 1/12 = 3/24 - 2/24 = 1/24 per day, so B alone takes 24 days."
+    },
+    {
+      "q": "3 workers build a wall in 12 days. How long would 4 workers take, working at the same rate?",
+      "options": [
+        "9 days",
+        "16 days",
+        "8 days"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the total amount of work in worker-days.",
+        "3 workers × 12 days is the size of the job. Divide by the new number of workers.",
+        "Example: 5 workers × 6 days = 30 worker-days, so 10 workers take 3 days. Use the same steps."
+      ],
+      "explain": "The job is 3 × 12 = 36 worker-days. With 4 workers: 36 ÷ 4 = 9 days."
+    }
+  ]
+}

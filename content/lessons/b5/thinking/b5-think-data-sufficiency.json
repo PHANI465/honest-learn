@@ -1,0 +1,98 @@
+{
+  "id": "b5-think-data-sufficiency",
+  "title": "Data Sufficiency: Is There Enough Information?",
+  "band": "b5",
+  "subject": "thinking",
+  "outcomes": [
+    "b5-think-7"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sufficient condition",
+      "url": "https://en.wikipedia.org/wiki/Necessity_and_sufficiency",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Logic",
+      "url": "https://en.wikipedia.org/wiki/Logic",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Data sufficiency questions do not ask for the answer. They ask: is there enough information to find it? You are shown a question and two statements. You decide whether the first statement alone, the second alone, both together, or neither gives one clear answer."
+    },
+    {
+      "type": "text",
+      "body": "Steps: 1. Read the question and say exactly what you need. 2. Test statement 1 alone. Can you answer with certainty? 3. Test statement 2 alone, forgetting statement 1. 4. If neither works alone, test them together. 5. If still unclear, the data is not enough."
+    },
+    {
+      "type": "text",
+      "body": "A statement is sufficient only if it gives ONE definite answer. 'The number is a multiple of 3' does not tell you if it is even: 6 is even, 9 is odd."
+    },
+    {
+      "type": "text",
+      "body": "You do not need to find the actual answer, only decide if it could be found. This skill is also useful in real life: asking 'what else do I need to know?' before making a decision."
+    },
+    {
+      "type": "tryit",
+      "body": "Make up a question where two clues together are enough, but neither clue alone is enough. Test it on a friend."
+    },
+    {
+      "type": "parent",
+      "body": "Cover the second statement while testing the first, and the other way round, so they do not mix. Examples with ages, prices or odd and even numbers work well."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the price of one pen? (1) 6 pens cost 30. (2) A pen costs less than 10. Which is enough?",
+      "options": [
+        "Statement 1 alone",
+        "Statement 2 alone",
+        "Both statements together"
+      ],
+      "answer": 0,
+      "hints": [
+        "Test each statement alone. Does it give one single price?",
+        "From statement 1, divide the cost by the number of pens. Statement 2 only gives a limit.",
+        "Example: 'what is the price of a book? (1) 4 books cost 20. (2) it costs less than 10'. Only (1) gives a single price. Test these statements the same way."
+      ],
+      "explain": "Statement 1 gives 30 ÷ 6 = 5. Statement 2 allows many prices, such as 3 or 7, so it is not enough."
+    },
+    {
+      "q": "How old is Tara? (1) Tara is 4 years older than Raj. (2) Raj is 10 years old. Which is enough?",
+      "options": [
+        "Both together",
+        "Statement 1 alone",
+        "Statement 2 alone"
+      ],
+      "answer": 0,
+      "hints": [
+        "Test statement 1 alone. Does it give Tara's age, or only a link to Raj?",
+        "Statement 2 alone says nothing about Tara. Put the two statements together.",
+        "Example: 'How tall is Ben? (1) Ben is 5 cm taller than Ali. (2) Ali is 140 cm.' Neither alone gives Ben's height; together they do. Check the new question the same way."
+      ],
+      "explain": "Together: Raj is 10 and Tara is 4 older, so Tara is 14. Neither statement alone gives her age."
+    },
+    {
+      "q": "Is the whole number n even? (1) n is a multiple of 3. (2) n is a multiple of 6. Which is enough?",
+      "options": [
+        "Statement 2 alone",
+        "Statement 1 alone",
+        "Neither statement is enough"
+      ],
+      "answer": 0,
+      "hints": [
+        "Test statement 1 with examples: is 3 even? is 6 even?",
+        "Statement 1 gives both answers, so it is not definite. Now test statement 2 with multiples of 6.",
+        "Example: 'Is m a whole number that ends in 5? (1) m is a multiple of 5. (2) m is a multiple of 15.' Both statements allow 30, which ends in 0, so neither is enough. Test the even question the same way."
+      ],
+      "explain": "Multiples of 3 can be odd (9) or even (6). Every multiple of 6 is even, so statement 2 alone is enough."
+    }
+  ]
+}

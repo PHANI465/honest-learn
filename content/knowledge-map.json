@@ -354,7 +354,15 @@
       { "id": "b5-math-2", "text": "Trigonometry and geometry proofs" },
       { "id": "b5-math-3", "text": "Statistics: distributions, sampling, correlation vs causation" },
       { "id": "b5-math-4", "text": "Introduction to calculus ideas (rates of change)" },
-      { "id": "b5-math-5", "text": "Financial maths: loans, inflation, percentages in real life" }
+      { "id": "b5-math-5", "text": "Financial maths: loans, inflation, percentages in real life" },
+      { "id": "b5-math-6", "text": "Solves time-and-work problems using rates and worker-days" },
+      { "id": "b5-math-7", "text": "Works out profit, loss and discount percentages" },
+      { "id": "b5-math-8", "text": "Calculates compound interest and compares it with simple interest" },
+      { "id": "b5-math-9", "text": "Counts arrangements and selections with permutations and combinations" },
+      { "id": "b5-math-10", "text": "Combines probabilities with AND and 'at least one' rules" },
+      { "id": "b5-math-11", "text": "Reads tables and charts and works out percent change" },
+      { "id": "b5-math-12", "text": "Squares quickly in the head and explains why each trick works with algebra" },
+      { "id": "b5-math-13", "text": "Names the weekday of any date using the full Doomsday method and Zeller's formula" }
     ], "sampleQuiz": { "q": "Ice-cream sales and sunburns both rise in summer. This shows…", "options": ["Correlation, not causation", "Ice cream causes sunburn", "Sunburn causes ice cream"], "answer": 0, "hint": "Is there a third thing causing both?" } },
 
     { "band": "b5", "subject": "science", "outcomes": [
@@ -398,7 +406,10 @@
       { "id": "b5-think-1", "text": "Evaluates arguments and evidence in news and research" },
       { "id": "b5-think-2", "text": "Decision-making tools: pros/cons, cost-benefit, thinking about consequences" },
       { "id": "b5-think-3", "text": "Understands cognitive biases (confirmation bias, anchoring)" },
-      { "id": "b5-think-4", "text": "Ethical reasoning about real dilemmas" }
+      { "id": "b5-think-4", "text": "Ethical reasoning about real dilemmas" },
+      { "id": "b5-think-5", "text": "Judges whether a conclusion follows from premises (syllogisms)" },
+      { "id": "b5-think-6", "text": "Solves seating arrangement puzzles in rows and circles" },
+      { "id": "b5-think-7", "text": "Decides whether given information is enough to answer a question" }
     ], "sampleQuiz": { "q": "Only reading news that agrees with you is called…", "options": ["Confirmation bias", "Open-mindedness", "Research"], "answer": 0, "hint": "It 'confirms' what you already think." } },
 
     { "band": "b5", "subject": "arts", "outcomes": [

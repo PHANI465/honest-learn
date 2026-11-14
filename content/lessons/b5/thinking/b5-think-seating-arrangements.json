@@ -1,0 +1,98 @@
+{
+  "id": "b5-think-seating-arrangements",
+  "title": "Seating Arrangement Puzzles",
+  "band": "b5",
+  "subject": "thinking",
+  "outcomes": [
+    "b5-think-6"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Permutation",
+      "url": "https://en.wikipedia.org/wiki/Permutation",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Logic puzzle",
+      "url": "https://en.wikipedia.org/wiki/Logic_puzzle",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Seating puzzles give clues about who sits where and ask you to place everyone. In a row, positions are numbered left to right. At a round table, people sit in a circle, and 'opposite' means halfway round."
+    },
+    {
+      "type": "text",
+      "body": "Method: draw empty seats. Then use the clues with the most certainty first, such as 'sits at the left end'. Fix those people. Then use clues like 'next to' or 'not next to' to rule seats out."
+    },
+    {
+      "type": "text",
+      "body": "Check every clue at the end. A valid answer must satisfy all clues, and a good puzzle has exactly one solution. For a round table of 6, the person opposite you is 3 seats away."
+    },
+    {
+      "type": "text",
+      "body": "Example: four people P, Q, R, S in a row. 'P is at the left end. R sits next to P. S does not sit next to R.' P is in seat 1, R in seat 2. S cannot be in seat 3 (next to R), so S is in seat 4 and Q is in seat 3."
+    },
+    {
+      "type": "tryit",
+      "body": "Make up a puzzle for four family members in a row with three clues. Check it has only one answer by trying the other orders."
+    },
+    {
+      "type": "parent",
+      "body": "Let your child physically move cards or cups. Writing the clues as a list and ticking them off stops mistakes. Every puzzle here was checked by computer to have exactly one answer."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Four friends P, Q, R, S sit in a row. P is at the left end. R sits next to P. S does not sit next to R. Who sits in the third seat from the left?",
+      "options": [
+        "Q",
+        "R",
+        "S"
+      ],
+      "answer": 0,
+      "hints": [
+        "Put P in seat 1. Who can be in seat 2?",
+        "R must be next to P, so R is in seat 2. Seat 3 is next to R, so who cannot be there?",
+        "Example: A is at the left end, B is next to A, and C is not next to B. Then C is in seat 4 and D is in seat 3. Use the same steps."
+      ],
+      "explain": "P, R are in seats 1 and 2. S is not next to R, so S is in seat 4. Q is in seat 3."
+    },
+    {
+      "q": "Five people sit in a row: Ana, Bo, Cy, Di and Eli. Eli is at the right end. Bo is immediately left of Eli. Ana is not at either end. Cy sits to the left of Di. Ana sits next to Cy. Who is at the far left?",
+      "options": [
+        "Cy",
+        "Ana",
+        "Di"
+      ],
+      "answer": 0,
+      "hints": [
+        "Place Eli and Bo first.",
+        "Eli is in seat 5 and Bo is in seat 4. The other three fill seats 1 to 3. Use the 'left of' clue and the 'next to' clue to put them in order.",
+        "Example: with 4 seats, X is at the right end, Y is immediately left of X, and Z is not at either end. Then Z is in seat 2 and the last person is in seat 1."
+      ],
+      "explain": "Seats 1 to 3 hold Ana, Cy and Di. Cy is left of Di and Ana is next to Cy, so the order is Cy, Ana, Di. Cy is at the far left."
+    },
+    {
+      "q": "Six people A to F sit around a round table. A sits opposite D. B sits immediately clockwise of A. F sits next to A. C sits next to D. E does not sit next to F. Who sits opposite C?",
+      "options": [
+        "B",
+        "E",
+        "F"
+      ],
+      "answer": 0,
+      "hints": [
+        "Put A at the top. D is halfway round, so D is in the opposite seat.",
+        "The seat clockwise from A is taken by one friend. F is next to A on the other side. Then place the person who sits next to D, and the last person.",
+        "Example: at a table of 4, if M is opposite N and O is next to M, then P is the last seat, opposite O. Place the people here step by step."
+      ],
+      "explain": "Seats clockwise from A: A, B, E, D, C, F. C is opposite the second seat, which is B."
+    }
+  ]
+}

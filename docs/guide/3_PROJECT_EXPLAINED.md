@@ -51,7 +51,7 @@ flowchart LR
 |---|---|---|
 | **App** | Everything people see and tap. One codebase (Expo / React Native) builds the website, the Android app and the iPhone app. | `app/` |
 | **API server** | The brain: accounts, PIN, which lessons a child may see, checking answers, giving hints, Hoot, screen time, parent reports. Keeps every answer secret. | `server/` |
-| **Content** | The curriculum as plain JSON files: the knowledge map, 194 lessons, 68 puzzles, 27 free resources, helplines, Hoot safety tests. Loaded by the server when it starts. | `content/` |
+| **Content** | The curriculum as plain JSON files: the knowledge map, 205 lessons, 68 puzzles, 27 free resources, helplines, Hoot safety tests. Loaded by the server when it starts. | `content/` |
 | **Database** | Families, children, progress, chats and settings. SQLite on a computer; Postgres (Neon) when deployed. | created automatically |
 | **Outside services** | Claude (Hoot, optional), Postmark (email, at launch), Wikipedia (summaries for 9+), YouTube privacy-enhanced player (videos). | — |
 

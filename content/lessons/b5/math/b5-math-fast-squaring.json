@@ -1,0 +1,107 @@
+{
+  "id": "b5-math-fast-squaring",
+  "title": "Fast Squaring and Why the Tricks Work",
+  "band": "b5",
+  "subject": "math",
+  "outcomes": [
+    "b5-math-12"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Vedic Mathematics",
+      "url": "https://en.wikipedia.org/wiki/Vedic_Mathematics",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Difference of two squares",
+      "url": "https://en.wikipedia.org/wiki/Difference_of_two_squares",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Intermediate Algebra 2e",
+      "url": "https://openstax.org/details/books/intermediate-algebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Some mental maths tricks are sold as ancient secrets. They are really algebra in disguise, and when you know the algebra you can trust them, extend them and spot when they stop working."
+    },
+    {
+      "type": "text",
+      "body": "Trick 1: squaring a number that ends in 5. Take the number before the 5 (call it n), multiply n by (n + 1), and write 25 after it. For 65²: n = 6, 6 × 7 = 42, so 4225. For 25²: 2 × 3 = 6, so 625. Why? (10n + 5)² = 100n² + 100n + 25 = 100 × n(n+1) + 25."
+    },
+    {
+      "type": "text",
+      "body": "Trick 2: squaring a number just below 100. For 97, the gap from 100 is d = 3. Take 3 off the number: 97 - 3 = 94. Then write d² as two digits: 09. The answer is 9409. For 96: d = 4, 96 - 4 = 92, and 4² = 16 gives 9216. Why? (100 - d)² = 10,000 - 200d + d² = 100 × (100 - 2d) + d², and 100 - 2d is the number minus d."
+    },
+    {
+      "type": "text",
+      "body": "Trick 3: squaring a number near 50. For 50 + d, add d to 25 for the first part, then write d² as two digits. For 53: d = 3, 25 + 3 = 28 and 3² = 09, so 2809. Why? (50 + d)² = 2,500 + 100d + d² = 100 × (25 + d) + d²."
+    },
+    {
+      "type": "text",
+      "body": "Bonus, difference of squares: a × b where a and b are the same distance from a round number m. 47 × 53 = 50² - 3² = 2,500 - 9 = 2,491. This comes from (m - d)(m + d) = m² - d²."
+    },
+    {
+      "type": "tryit",
+      "body": "Use trick 1 to find 85² and then check on a calculator. Then try to prove the trick for 85 using (10n + 5)² with n = 8."
+    },
+    {
+      "type": "parent",
+      "body": "Each trick is a short algebra identity. Let your child expand the brackets themselves to see why it works. The tricks need the number to fit the pattern, so point out where they stop being useful."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Use the trick for numbers ending in 5. What is 65²?",
+      "options": [
+        "4225",
+        "3625",
+        "4025"
+      ],
+      "answer": 0,
+      "hints": [
+        "Take the digit(s) before the 5. Multiply it by the next whole number.",
+        "The digit is 6. Multiply it by 7, then write 25 on the end.",
+        "Example: 25² → 2 × 3 = 6, then 25, giving 625. Do the same with 6 and 7."
+      ],
+      "explain": "6 × 7 = 42, then write 25: 4225."
+    },
+    {
+      "q": "What is 98²? (Think of how far 98 is below 100.)",
+      "options": [
+        "9604",
+        "9804",
+        "9096"
+      ],
+      "answer": 0,
+      "hints": [
+        "98 is 2 below 100. Take 2 off the number for the first part.",
+        "First part: 98 - 2. Second part: 2² written as two digits.",
+        "Example: 96² → 96 - 4 = 92 and 4² = 16, so 9216. Use 2 instead of 4."
+      ],
+      "explain": "98 - 2 = 96, and 2² = 04. The answer is 9604."
+    },
+    {
+      "q": "What is 52²? (52 is 2 above 50.)",
+      "options": [
+        "2704",
+        "2504",
+        "2604"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use the near-50 trick: add the gap to 25 for the first part.",
+        "The gap is 2. First part: 25 + 2. Second part: 2² as two digits.",
+        "Example: 53² → 25 + 3 = 28 and 3² = 09, so 2809. Use 2 instead of 3."
+      ],
+      "explain": "25 + 2 = 27 and 2² = 04. The answer is 2704. Check: (50 + 2)² = 2,500 + 200 + 4."
+    }
+  ]
+}

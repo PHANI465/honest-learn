@@ -8,7 +8,7 @@ How the project can grow from a test site to millions of families, more language
 |---|---|---|
 | Hosting | Vercel: static website + one API function | Serverless: Vercel starts more copies of the API when traffic grows; the website is served from a global CDN. |
 | Database | Neon Postgres (serverless) | Grows storage and compute on demand; supports read replicas and connection pooling. |
-| Content | 194 lessons as JSON (≈1 MB), loaded into memory at start-up | Reading from memory is instant; fine up to a few thousand lessons. |
+| Content | 205 lessons as JSON (≈1 MB), loaded into memory at start-up | Reading from memory is instant; fine up to a few thousand lessons. |
 | AI | Optional; 2 calls per Hoot message (reply + safety check); 40 messages per child per day | The daily limit caps cost per child; mock mode costs nothing. |
 | Apps | One codebase for website, Android and iPhone | New features ship everywhere at once. |
 | Quality | 62 automated tests on two databases; CI on every push | Safe to change quickly. |
@@ -44,7 +44,7 @@ Content is the real bottleneck: every lesson needs two human reviewers before la
 
 | Need | Today | Next step |
 |---|---|---|
-| More lessons per outcome | 194 lessons for 238 outcomes | Aim for 2–3 lessons per outcome (different ways in, revision), plus more practice questions per lesson |
+| More lessons per outcome | 205 lessons for 249 outcomes | Aim for 2–3 lessons per outcome (different ways in, revision), plus more practice questions per lesson |
 | Faster reviewing | CSV spreadsheets + GitHub | A small **review tool**: reviewers sign in, read a lesson as a child sees it, approve or comment; two approvals flip it to `reviewed`. Keeps the JSON format as the source |
 | Volunteer or paid reviewers | The reviewer guide | A reviewer programme (teachers, subject experts, child-safety and cultural reviewers for sensitive topics), credited by name on each lesson |
 | Freshness | Link and video checkers | Run `scripts/check-links.mjs` and `check-videos.mjs` weekly in CI; review lessons yearly |
