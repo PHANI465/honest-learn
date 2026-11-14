@@ -1,0 +1,94 @@
+{
+  "id": "b2-think-number-patterns",
+  "title": "Number Patterns: Find the Rule",
+  "band": "b2",
+  "subject": "thinking",
+  "outcomes": [
+    "b2-think-5"
+  ],
+  "sensitive": null,
+  "minutes": 9,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Arithmetic progression",
+      "url": "https://en.wikipedia.org/wiki/Arithmetic_progression",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A number pattern follows a rule. Look at 2, 4, 6, 8. Each number is 2 more than the one before. The rule is 'add 2'."
+    },
+    {
+      "type": "text",
+      "body": "To find the rule, check the jump between each pair of numbers. If the jump is always the same, you have found the rule. Then you can say what comes next: after 8 comes 10."
+    },
+    {
+      "type": "text",
+      "body": "Patterns can go down too. 20, 17, 14, 11 has the rule 'take away 3'. Counting in 2s, 5s and 10s makes number patterns."
+    },
+    {
+      "type": "tryit",
+      "body": "Make your own pattern. Pick a start number and a jump. Write five numbers and ask a friend to find your rule."
+    },
+    {
+      "type": "parent",
+      "body": "Skip counting is the base of the times tables. Ask your child to find patterns in the hundred square, such as the last digits of the 5 times table."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What comes next? 3, 6, 9, 12, ?",
+      "options": [
+        "15",
+        "14",
+        "16"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the jump from one number to the next.",
+        "3 to 6 is a jump of 3. Is it the same each time?",
+        "Example: 2, 4, 6, 8 has jumps of 2, so the next number is 8 + 2 = 10. Now find the next number after 12."
+      ],
+      "explain": "Each number is 3 more than the one before. 12 + 3 = 15."
+    },
+    {
+      "q": "What comes next? 50, 40, 30, 20, ?",
+      "options": [
+        "10",
+        "15",
+        "0"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the pattern going up or down?",
+        "50 to 40 is a jump down of 10. Is every jump the same?",
+        "Example: 30, 27, 24 goes down by 3, so the next number is 24 - 3 = 21. Now find the next number after 20."
+      ],
+      "explain": "The rule is 'take away 10'. 20 - 10 = 10."
+    },
+    {
+      "q": "What is the rule for this pattern? 5, 10, 15, 20",
+      "options": [
+        "Add 5",
+        "Add 10",
+        "Add 4"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the jump between two numbers next to each other.",
+        "Work out 10 - 5. Then check 15 - 10.",
+        "Example: 4, 8, 12, 16 has jumps of 4, so its rule is 'add 4'. Find the jump in this pattern."
+      ],
+      "explain": "5 to 10 is 5 more, 10 to 15 is 5 more, and 15 to 20 is 5 more. The rule is 'add 5'."
+    }
+  ]
+}

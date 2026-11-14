@@ -1,0 +1,99 @@
+{
+  "id": "b2-math-days-calendar",
+  "title": "Days of the Week and the Calendar",
+  "band": "b2",
+  "subject": "math",
+  "outcomes": [
+    "b2-math-8"
+  ],
+  "sensitive": null,
+  "minutes": 9,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Week",
+      "url": "https://en.wikipedia.org/wiki/Week",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Calendar",
+      "url": "https://en.wikipedia.org/wiki/Calendar",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "There are 7 days in a week: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday. After Sunday, the week starts again with Monday. (In some countries a week starts on Sunday. Both ways have 7 days.)"
+    },
+    {
+      "type": "text",
+      "body": "A calendar shows the days in rows of 7. Each row is one week. A year has 12 months. Move down one row and you move 7 days on, to the same day of the week."
+    },
+    {
+      "type": "text",
+      "body": "To count on, say the days in order. If today is Friday, then in 2 days it is Sunday: Saturday is 1, Sunday is 2. Two weeks is 7 + 7 = 14 days."
+    },
+    {
+      "type": "tryit",
+      "body": "Look at a real calendar. Put your finger on today. Move down one row. What day is it? How many days did you move?"
+    },
+    {
+      "type": "parent",
+      "body": "Use your own calendar at home: mark one family event and count the days until it, first in ones, then in weeks. Later lessons show that the calendar repeats every 7 days."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which day comes after Sunday?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Sunday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Say the days in order. What happens after the last day of the week?",
+        "The week starts again from the beginning.",
+        "Example: the day after Saturday is Sunday. Use the same steps, but remember the week starts again after its last day."
+      ],
+      "explain": "After Sunday the week starts again, so the next day is Monday."
+    },
+    {
+      "q": "Today is Monday. What day will it be in 3 days?",
+      "options": [
+        "Thursday",
+        "Wednesday",
+        "Friday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count on from today. Do not count today itself.",
+        "Say 'Tuesday is 1', then keep counting up to 3.",
+        "Example: from Saturday, 2 days on is Monday (Sunday is 1, Monday is 2). Count 3 days on from Monday."
+      ],
+      "explain": "Tuesday is 1, Wednesday is 2, Thursday is 3. It will be Thursday."
+    },
+    {
+      "q": "How many days are in 2 weeks?",
+      "options": [
+        "14",
+        "12",
+        "9"
+      ],
+      "answer": 0,
+      "hints": [
+        "How many days are in one week?",
+        "Two weeks is two groups of 7.",
+        "Example: 3 weeks is 7 + 7 + 7 = 21 days. Now do it for 2 weeks."
+      ],
+      "explain": "One week has 7 days. 7 + 7 = 14 days."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "b2-math-odd-even-tricks",
+  "title": "Odd and Even Number Tricks",
+  "band": "b2",
+  "subject": "math",
+  "outcomes": [
+    "b2-math-7"
+  ],
+  "sensitive": null,
+  "minutes": 8,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Parity (mathematics)",
+      "url": "https://en.wikipedia.org/wiki/Parity_(mathematics)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Even numbers can be shared into two equal groups with none left over. 6 is even: 3 and 3. Odd numbers always have one left over. 7 is odd: 3 and 3 and 1 extra."
+    },
+    {
+      "type": "text",
+      "body": "Here is a trick. Look only at the last digit! If it is 0, 2, 4, 6 or 8, the number is even. If it is 1, 3, 5, 7 or 9, the number is odd. So 84 is even and 85 is odd."
+    },
+    {
+      "type": "text",
+      "body": "Adding makes more tricks. Even + even is even. Odd + odd is even too, because the two extras make a pair. Odd + even is odd."
+    },
+    {
+      "type": "tryit",
+      "body": "Take 9 counters. Try to put them in two equal rows. What is left over? Now try 10 counters."
+    },
+    {
+      "type": "parent",
+      "body": "Ask your child to name any number and tell you odd or even by looking at the last digit only. Then try adding two numbers and guessing odd or even before working it out."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Is 47 odd or even?",
+      "options": [
+        "Odd",
+        "Even",
+        "Both"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look only at the last digit.",
+        "Is the last digit one of 0, 2, 4, 6, 8, or one of 1, 3, 5, 7, 9?",
+        "Example: 38 ends in 8, and 8 is on the even list, so 38 is even. Now check the last digit of 47."
+      ],
+      "explain": "47 ends in 7. Numbers that end in 1, 3, 5, 7 or 9 are odd."
+    },
+    {
+      "q": "Which of these numbers is even?",
+      "options": [
+        "58",
+        "63",
+        "71"
+      ],
+      "answer": 0,
+      "hints": [
+        "Check the last digit of each number.",
+        "Even numbers end in 0, 2, 4, 6 or 8.",
+        "Example: of 25, 30 and 49, only 30 ends in 0, so 30 is the even one. Do the same here."
+      ],
+      "explain": "58 ends in 8, so it is even. 63 and 71 end in 3 and 1, so they are odd."
+    },
+    {
+      "q": "Zara adds 15 + 9. Will the answer be odd or even?",
+      "options": [
+        "Even",
+        "Odd",
+        "It depends"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the last digit of 15 and of 9.",
+        "Two odd numbers each have one extra. What do the two extras make together?",
+        "Example: 7 + 3 are two odd numbers, and they make 10, which can be shared into two equal groups. Use the same idea for 15 + 9."
+      ],
+      "explain": "15 and 9 are both odd. Odd + odd is even. Check: 15 + 9 = 24, and 24 is even."
+    }
+  ]
+}

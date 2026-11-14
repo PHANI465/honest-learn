@@ -2,7 +2,7 @@
 
 > **Status:** draft — every outcome needs review by two subject reviewers before publishing
 
-**5 age bands · 11 subjects · 51 cells · 220 learning outcomes**
+**5 age bands · 11 subjects · 51 cells · 223 learning outcomes**
 
 This is the minimum knowledge every learner should have at each age, before college. It is **universal** (not tied to one country) and is the brief for content writers and reviewers.
 
@@ -149,6 +149,8 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b2-math-4` Tells time to the hour and half hour; recognises coins and notes
 - [ ] `b2-math-5` Measures length with a ruler; reads a simple picture graph
 - [ ] `b2-math-6` Understands halves and quarters of a shape
+- [ ] `b2-math-7` Tells odd from even numbers by the last digit; knows the odd and even add-up rules
+- [ ] `b2-math-8` Names the days of the week in order and counts days on a calendar
 
 *Sample question:* Mia has 23 stickers. She gets 15 more. How many now? — **38** ✓ / 8 / 33  
 *Hint:* Add the tens first, then the ones.
@@ -212,6 +214,7 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b2-think-2` Tells fact from opinion in simple sentences
 - [ ] `b2-think-3` Solves simple logic puzzles and explains how
 - [ ] `b2-think-4` Tries again after a mistake (growth mindset)
+- [ ] `b2-think-5` Finds the rule in a number pattern that goes up or down by the same step
 
 *Sample question:* Which is an OPINION? — **Pizza is the best food** ✓ / Pizza is round / Pizza has cheese on it  
 *Hint:* Which one could someone disagree with?

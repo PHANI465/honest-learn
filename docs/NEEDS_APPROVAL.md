@@ -51,7 +51,8 @@ Review for accuracy, balance and age-appropriateness. Ideally include reviewers 
 ## 🟡 Priority 3: standard two-reviewer check for everything else
 
 - [ ] **Digital safety lessons** (scams, privacy, AI): 13 lessons (`b*-dig-*`)
-- [ ] **All other lessons:** 175 lessons and 501 questions in total. Use `docs/review/lessons.csv` and `docs/review/questions.csv`.
+- [ ] **All other lessons:** 179 lessons and 513 questions in total. Use `docs/review/lessons.csv` and `docs/review/questions.csv`.
+- [ ] **Quant and reasoning lessons (T4, band b2):** `b2-math-odd-even-tricks`, `b2-math-adding-nine-quick`, `b2-think-number-patterns`, `b2-math-days-calendar`. Every number was computed in code; check wording for ages 6 to 8 and that the 'week starts on Monday or Sunday' note suits all regions.
 - [ ] **Every quiz question's hints:** nudge → bigger hint → *similar* worked example, never the answer itself.
 
 ---

@@ -113,7 +113,9 @@
       { "id": "b2-math-3", "text": "Understands multiplication as equal groups; knows 2, 5 and 10 times tables" },
       { "id": "b2-math-4", "text": "Tells time to the hour and half hour; recognises coins and notes" },
       { "id": "b2-math-5", "text": "Measures length with a ruler; reads a simple picture graph" },
-      { "id": "b2-math-6", "text": "Understands halves and quarters of a shape" }
+      { "id": "b2-math-6", "text": "Understands halves and quarters of a shape" },
+      { "id": "b2-math-7", "text": "Tells odd from even numbers by the last digit; knows the odd and even add-up rules" },
+      { "id": "b2-math-8", "text": "Names the days of the week in order and counts days on a calendar" }
     ], "sampleQuiz": { "q": "Mia has 23 stickers. She gets 15 more. How many now?", "options": ["38", "8", "33"], "answer": 0, "hint": "Add the tens first, then the ones." } },
 
     { "band": "b2", "subject": "science", "outcomes": [
@@ -158,7 +160,8 @@
       { "id": "b2-think-1", "text": "Finds and continues number and shape patterns" },
       { "id": "b2-think-2", "text": "Tells fact from opinion in simple sentences" },
       { "id": "b2-think-3", "text": "Solves simple logic puzzles and explains how" },
-      { "id": "b2-think-4", "text": "Tries again after a mistake (growth mindset)" }
+      { "id": "b2-think-4", "text": "Tries again after a mistake (growth mindset)" },
+      { "id": "b2-think-5", "text": "Finds the rule in a number pattern that goes up or down by the same step" }
     ], "sampleQuiz": { "q": "Which is an OPINION?", "options": ["Pizza is the best food", "Pizza is round", "Pizza has cheese on it"], "answer": 0, "hint": "Which one could someone disagree with?" } },
 
     { "band": "b2", "subject": "arts", "outcomes": [
