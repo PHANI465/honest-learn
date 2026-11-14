@@ -190,6 +190,31 @@ const MIGRATIONS: { table: string; column: string; sqlite: string[]; postgres: s
     sqlite: ["ALTER TABLE parents ADD COLUMN login_lock_level INTEGER NOT NULL DEFAULT 0"],
     postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS login_lock_level INTEGER NOT NULL DEFAULT 0"],
   },
+  {
+    // Reading and display settings, chosen by the parent per child (docs/ACCESSIBILITY.md).
+    table: "children",
+    column: "text_scale",
+    sqlite: ["ALTER TABLE children ADD COLUMN text_scale REAL NOT NULL DEFAULT 1"],
+    postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS text_scale REAL NOT NULL DEFAULT 1"],
+  },
+  {
+    table: "children",
+    column: "dyslexia_font",
+    sqlite: ["ALTER TABLE children ADD COLUMN dyslexia_font INTEGER NOT NULL DEFAULT 0"],
+    postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS dyslexia_font INTEGER NOT NULL DEFAULT 0"],
+  },
+  {
+    table: "children",
+    column: "high_contrast",
+    sqlite: ["ALTER TABLE children ADD COLUMN high_contrast INTEGER NOT NULL DEFAULT 0"],
+    postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS high_contrast INTEGER NOT NULL DEFAULT 0"],
+  },
+  {
+    table: "children",
+    column: "read_aloud_auto",
+    sqlite: ["ALTER TABLE children ADD COLUMN read_aloud_auto INTEGER NOT NULL DEFAULT 0"],
+    postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS read_aloud_auto INTEGER NOT NULL DEFAULT 0"],
+  },
 ];
 
 /** SQLite has no sequences outside INTEGER PRIMARY KEY, so a trigger numbers new chat messages. */

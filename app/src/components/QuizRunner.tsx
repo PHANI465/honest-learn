@@ -3,7 +3,7 @@ import { Animated, Pressable, Text, View } from "react-native";
 import { Pop, usePressScale, useShake } from "../lib/motion";
 import type { BandId } from "../lib/api";
 import { isOfflineError } from "../lib/offline";
-import { bandTheme, colors } from "../lib/theme";
+import { scaledBandTheme, colors } from "../lib/theme";
 import { Banner, Button, Card, Emoji, H1, P, ProgressBar } from "./ui";
 import { OfflineBanner } from "./OfflineBanner";
 
@@ -109,7 +109,7 @@ export function QuizRunner({
   onDone: () => void;
   doneNote?: string;
 }) {
-  const t = bandTheme[band];
+  const t = scaledBandTheme(band);
   const young = band === "b1" || band === "b2";
   const [i, setI] = useState(0);
   const [qs, setQs] = useState<QState[]>(() => questions.map(fresh));

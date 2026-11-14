@@ -94,7 +94,8 @@ export function parentRoutes(ctx: Ctx) {
     const b = ChildPatch.parse(await c.req.json());
     await db.run(
       `UPDATE children SET nickname = ?, birth_year = ?, avatar = ?, band_override = ?, unlocked_topics = ?,
-         ai_enabled = ?, daily_minutes = ? WHERE id = ?`,
+         ai_enabled = ?, daily_minutes = ?, text_scale = ?, dyslexia_font = ?, high_contrast = ?,
+         read_aloud_auto = ? WHERE id = ?`,
       [
         b.nickname ?? child.nickname,
         b.birthYear ?? child.birth_year,
@@ -103,6 +104,10 @@ export function parentRoutes(ctx: Ctx) {
         b.unlockedTopics ? JSON.stringify([...new Set(b.unlockedTopics)]) : child.unlocked_topics,
         b.aiEnabled === undefined ? child.ai_enabled : b.aiEnabled ? 1 : 0,
         b.dailyMinutes ?? child.daily_minutes,
+        b.textScale ?? child.text_scale ?? 1,
+        b.dyslexiaFont === undefined ? child.dyslexia_font : b.dyslexiaFont ? 1 : 0,
+        b.highContrast === undefined ? child.high_contrast : b.highContrast ? 1 : 0,
+        b.readAloudAuto === undefined ? child.read_aloud_auto : b.readAloudAuto ? 1 : 0,
         child.id,
       ],
     );

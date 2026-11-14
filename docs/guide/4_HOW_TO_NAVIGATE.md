@@ -31,7 +31,7 @@ flowchart TD
 2. **Add a child:** nickname (a nickname is safest), birth year, an animal avatar.
 3. **Parent area** (from the profile screen: *🔒 Parent area* + PIN). It locks itself after 10 minutes.
    - Each child's card shows this week, lessons done, quiz score, puzzles, Hoot on/off, daily minutes and per-subject progress bars. Tap a card for that child's **settings**.
-   - **Child settings:** nickname, learning level (match age, or choose another group), sensitive topics (religion, body, politics), Hoot on/off, daily minutes, *Read chats* (Hoot history), *Delete this profile*.
+   - **Child settings:** nickname, learning level (match age, or choose another group), sensitive topics (religion, body, politics), Hoot on/off, reading and display (text size, dyslexia-friendly font, high contrast, automatic read-aloud), daily minutes, *Read chats* (Hoot history), *Delete this profile*.
    - **Extra time:** when a child's time is up, their screen offers "+15 minutes" for a grown-up with the PIN.
    - **Country:** for helpline information in Hoot's safety replies.
    - **Account:** download all data, lock the parent area, sign out of this device, **sign out all other devices**, delete the account.

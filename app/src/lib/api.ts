@@ -17,6 +17,11 @@ export interface Child {
   aiEnabled: boolean;
   aiAllowedForAge: boolean;
   dailyMinutes: number;
+  /** Reading and display (parent chooses): see lib/theme.ts. */
+  textScale: number;
+  dyslexiaFont: boolean;
+  highContrast: boolean;
+  readAloudAuto: boolean;
 }
 
 export interface Band {

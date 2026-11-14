@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FadeInUp, Pulse, useEnter, useGlide, usePressScale } from "../lib/motion";
-import { colors, surfaces } from "../lib/theme";
+import { colors, displayColors, spacingFor, surfaces, useChildDisplay } from "../lib/theme";
 
 /** A Pressable that can carry animated styles (press feedback). */
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
@@ -28,14 +28,24 @@ export function Screen({ children, scroll = true, style, wide }: { children: Rea
 }
 
 export function H1({ children, size = 28 }: { children: ReactNode; size?: number }) {
-  return <Text style={[styles.h1, { fontSize: size }]} accessibilityRole="header">{children}</Text>;
+  const d = useChildDisplay();
+  const c = displayColors(d);
+  const { letterSpacing } = spacingFor(d);
+  const fs = size * d.textScale;
+  return <Text style={[styles.h1, { fontSize: fs, color: c.ink }, letterSpacing ? { letterSpacing } : null]} accessibilityRole="header">{children}</Text>;
 }
 export function H2({ children }: { children: ReactNode }) {
-  return <Text style={styles.h2} accessibilityRole="header">{children}</Text>;
+  const d = useChildDisplay();
+  const { letterSpacing } = spacingFor(d);
+  return <Text style={[styles.h2, { fontSize: 20 * d.textScale, color: displayColors(d).ink }, letterSpacing ? { letterSpacing } : null]} accessibilityRole="header">{children}</Text>;
 }
 export function P({ children, muted, size = 16, center }: { children: ReactNode; muted?: boolean; size?: number; center?: boolean }) {
+  const d = useChildDisplay();
+  const c = displayColors(d);
+  const { letterSpacing, lineGain } = spacingFor(d);
+  const fs = size * d.textScale;
   return (
-    <Text style={[styles.p, { fontSize: size, lineHeight: size * 1.45 }, muted && { color: colors.muted }, center && { textAlign: "center" }]}>
+    <Text style={[styles.p, { fontSize: fs, lineHeight: fs * (1.45 + lineGain), color: c.ink }, letterSpacing ? { letterSpacing } : null, muted && { color: c.muted }, center && { textAlign: "center" }]}>
       {children}
     </Text>
   );
@@ -49,9 +59,11 @@ export function Card({ children, style, onPress, label, enterDelay }: { children
   const enter = useEnter(enterDelay);
   const press = usePressScale(0.98);
   const entering = enter.on ? { opacity: enter.opacity } : null;
+  const d = useChildDisplay();
+  const edge = d.highContrast ? { borderColor: displayColors(d).line, borderWidth: 2 } : null;
   if (!onPress) {
-    if (!enter.on) return <View style={[styles.card, style]}>{children}</View>;
-    return <Animated.View style={[styles.card, style, entering, { transform: [{ translateY: enter.translateY }] }]}>{children}</Animated.View>;
+    if (!enter.on) return <View style={[styles.card, edge, style]}>{children}</View>;
+    return <Animated.View style={[styles.card, edge, style, entering, { transform: [{ translateY: enter.translateY }] }]}>{children}</Animated.View>;
   }
   return (
     <AnimatedPressable
@@ -59,7 +71,7 @@ export function Card({ children, style, onPress, label, enterDelay }: { children
       {...press.handlers}
       accessibilityRole="button"
       accessibilityLabel={label}
-      style={[styles.card, style, entering, { transform: [{ translateY: enter.translateY }, ...press.style.transform] }]}
+      style={[styles.card, edge, style, entering, { transform: [{ translateY: enter.translateY }, ...press.style.transform] }]}
     >
       {children}
     </AnimatedPressable>
@@ -127,6 +139,8 @@ export function Button({
   const isBack = kind === "ghost" && title.trim().startsWith("‹");
   const fg = kind === "primary" || kind === "danger" ? "#fff" : color;
   const press = usePressScale(0.97);
+  const d = useChildDisplay();
+  const { letterSpacing } = spacingFor(d);
   return (
     <AnimatedPressable
       onPress={onPress}
@@ -146,17 +160,18 @@ export function Button({
         press.style,
       ]}
     >
-      {loading ? <ActivityIndicator color={fg} /> : <Text style={[styles.btnText, { color: fg }, big && { fontSize: 19 }]}>{title}</Text>}
+      {loading ? <ActivityIndicator color={fg} /> : <Text style={[styles.btnText, { color: fg, fontSize: (big ? 19 : 17) * d.textScale }, letterSpacing ? { letterSpacing } : null]}>{title}</Text>}
     </AnimatedPressable>
   );
 }
 
 export function Field({ label, hint, ...props }: TextInputProps & { label: string; hint?: string }) {
+  const d = useChildDisplay();
   return (
     <View style={{ gap: 6 }}>
-      <Text style={styles.label}>{label}</Text>
-      <TextInput placeholderTextColor={colors.placeholder} style={styles.input} accessibilityLabel={label} accessibilityHint={hint} {...props} />
-      {hint ? <Text style={styles.hint}>{hint}</Text> : null}
+      <Text style={[styles.label, { fontSize: 15 * d.textScale }]}>{label}</Text>
+      <TextInput placeholderTextColor={displayColors(d).placeholder} style={[styles.input, { fontSize: 17 * d.textScale }]} accessibilityLabel={label} accessibilityHint={hint} {...props} />
+      {hint ? <Text style={[styles.hint, { fontSize: 13 * d.textScale, lineHeight: 18 * d.textScale }]}>{hint}</Text> : null}
     </View>
   );
 }
@@ -164,22 +179,25 @@ export function Field({ label, hint, ...props }: TextInputProps & { label: strin
 export function Banner({ children, tone = "warn" }: { children: ReactNode; tone?: "warn" | "good" | "info" }) {
   const bg = tone === "warn" ? colors.warnSoft : tone === "good" ? colors.goodSoft : colors.brandSoft;
   const fg = tone === "warn" ? colors.warn : tone === "good" ? colors.good : colors.brand;
+  const d = useChildDisplay();
   return (
     <View style={[styles.banner, { backgroundColor: bg }]} accessibilityRole="alert">
-      <Text style={{ color: fg, fontSize: 15, lineHeight: 21 }}>{children}</Text>
+      <Text style={{ color: fg, fontSize: 15 * d.textScale, lineHeight: 21 * d.textScale }}>{children}</Text>
     </View>
   );
 }
 
 export function Pill({ text, color = colors.muted, bg = surfaces.pill }: { text: string; color?: string; bg?: string }) {
+  const d = useChildDisplay();
   return (
     <View style={{ backgroundColor: bg, paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999, alignSelf: "flex-start" }}>
-      <Text style={{ color, fontSize: 13, fontWeight: "600" }}>{text}</Text>
+      <Text style={{ color, fontSize: 13 * d.textScale, fontWeight: "600" }}>{text}</Text>
     </View>
   );
 }
 
 export function Toggle({ label, value, onChange, description }: { label: string; value: boolean; onChange: (v: boolean) => void; description?: string }) {
+  const d = useChildDisplay();
   const t = useGlide(value ? 1 : 0, 260);
   const translateX = t.interpolate({ inputRange: [0, 1], outputRange: [0, 20] });
   return (
@@ -191,8 +209,8 @@ export function Toggle({ label, value, onChange, description }: { label: string;
       style={styles.toggleRow}
     >
       <View style={{ flex: 1, gap: 2 }}>
-        <Text style={{ fontSize: 16, color: colors.ink, fontWeight: "600" }}>{label}</Text>
-        {description ? <Text style={styles.hint}>{description}</Text> : null}
+        <Text style={{ fontSize: 16 * d.textScale, color: colors.ink, fontWeight: "600" }}>{label}</Text>
+        {description ? <Text style={[styles.hint, { fontSize: 13 * d.textScale, lineHeight: 18 * d.textScale }]}>{description}</Text> : null}
       </View>
       <View style={[styles.track, value && { backgroundColor: colors.brand }]}>
         <Animated.View style={[styles.knob, { transform: [{ translateX }] }]} />

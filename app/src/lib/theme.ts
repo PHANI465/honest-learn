@@ -1,3 +1,5 @@
+import { useSyncExternalStore } from "react";
+import { Platform } from "react-native";
 import type { BandId } from "./api";
 
 // Every text/background pair here meets WCAG AA (4.5:1 for text, 3:1 for borders and controls).
@@ -72,3 +74,80 @@ export const topicLabels: Record<string, { label: string; emoji: string }> = {
   body: { label: "Body, puberty & relationships", emoji: "🌱" },
   politics: { label: "Politics & contested history", emoji: "🏛️" },
 };
+
+// ---------------------------------------------------------------- reading and display
+// The parent chooses these per child (parent/child/[id].tsx). The learning layout calls setChildDisplay() with the
+// open child's settings and clears them on the way out, so the parent area always uses the standard look.
+
+export interface ChildDisplay {
+  /** 1, 1.15 or 1.3: multiplies body text sizes. */
+  textScale: number;
+  /** Dyslexia-friendly font (OpenDyslexic) on the website; looser letter and line spacing everywhere. */
+  dyslexiaFont: boolean;
+  /** Black text and darker borders. */
+  highContrast: boolean;
+  /** Read lessons aloud when they open (and offer the read-aloud button at every age). */
+  readAloudAuto: boolean;
+}
+
+export const DEFAULT_DISPLAY: ChildDisplay = { textScale: 1, dyslexiaFont: false, highContrast: false, readAloudAuto: false };
+
+let current: ChildDisplay = DEFAULT_DISPLAY;
+const listeners = new Set<() => void>();
+
+/** Builds the display settings from what the API returns for a child. */
+export function displayOf(c: Partial<ChildDisplay> | undefined): ChildDisplay {
+  if (!c) return DEFAULT_DISPLAY;
+  return {
+    textScale: c.textScale === 1.15 || c.textScale === 1.3 ? c.textScale : 1,
+    dyslexiaFont: !!c.dyslexiaFont,
+    highContrast: !!c.highContrast,
+    readAloudAuto: !!c.readAloudAuto,
+  };
+}
+
+export function getChildDisplay(): ChildDisplay {
+  return current;
+}
+
+export function setChildDisplay(next: ChildDisplay) {
+  if (next.textScale === current.textScale && next.dyslexiaFont === current.dyslexiaFont && next.highContrast === current.highContrast && next.readAloudAuto === current.readAloudAuto) return;
+  current = next;
+  // On the website one CSS rule in index.html swaps the typeface for everything under #root.
+  if (Platform.OS === "web" && typeof document !== "undefined") {
+    if (next.dyslexiaFont) document.documentElement.setAttribute("data-dyslexia", "true");
+    else document.documentElement.removeAttribute("data-dyslexia");
+  }
+  listeners.forEach((l) => l());
+}
+
+/** The open child's reading and display settings (the standard ones outside the learning area). */
+export function useChildDisplay(): ChildDisplay {
+  return useSyncExternalStore(
+    (cb) => {
+      listeners.add(cb);
+      return () => {
+        listeners.delete(cb);
+      };
+    },
+    getChildDisplay,
+    getChildDisplay,
+  );
+}
+
+/** Colours for the current settings. High contrast uses black text and darker lines (still on the same backgrounds). */
+export function displayColors(d: ChildDisplay) {
+  if (!d.highContrast) return colors;
+  return { ...colors, ink: "#000000", muted: "#2B303B", line: "#6B665E", brand: "#1F5038", placeholder: "#4A515E" };
+}
+
+/** Extra letter and line spacing for the dyslexia setting (the font itself is swapped by CSS on the web). */
+export function spacingFor(d: ChildDisplay) {
+  return d.dyslexiaFont ? { letterSpacing: 0.6, lineGain: 0.2 } : { letterSpacing: 0, lineGain: 0 };
+}
+
+/** A band's theme with its font size scaled for the open child. Not reactive: settings change outside the learning flow. */
+export function scaledBandTheme(band: BandId) {
+  const t = bandTheme[band];
+  return { ...t, font: Math.round(t.font * getChildDisplay().textScale * 10) / 10 };
+}

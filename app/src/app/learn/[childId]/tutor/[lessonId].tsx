@@ -7,7 +7,7 @@ import { Banner, Button, Emoji } from "../../../../components/ui";
 import { api, friendly, type ChatMessage } from "../../../../lib/api";
 import { isOfflineError } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
-import { bandTheme, colors } from "../../../../lib/theme";
+import { scaledBandTheme, colors } from "../../../../lib/theme";
 
 /** Hoot chats are never saved on the device, so Hoot needs the internet. */
 const hootError = (e: unknown) => (isOfflineError(e) ? "Hoot needs the internet. You can still read your saved lessons while you're offline." : friendly(e));
@@ -30,7 +30,7 @@ export default function Tutor() {
   }, [path, familyToken]);
 
   if (!child) return null;
-  const t = bandTheme[child.band];
+  const t = scaledBandTheme(child.band);
 
   async function send() {
     const msg = text.trim();

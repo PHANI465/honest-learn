@@ -1,12 +1,12 @@
 import { Redirect, Stack, router, useLocalSearchParams } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { PinModal } from "../../../components/PinPad";
 import { Button, H1, P, Screen } from "../../../components/ui";
 import { useChild, useSession } from "../../../lib/session";
 import { api } from "../../../lib/api";
 import { localDay, useDailyUsage, type Usage } from "../../../lib/timer";
-import { colors } from "../../../lib/theme";
+import { colors, displayOf, setChildDisplay, useChildDisplay } from "../../../lib/theme";
 
 /** Wraps every learning screen: checks the profile and enforces the parent's daily time limit. */
 export default function LearnLayout() {
@@ -16,9 +16,21 @@ export default function LearnLayout() {
   const { usage, setUsage } = useDailyUsage(childId, familyToken);
   const [pin, setPin] = useState(false);
 
+  // The parent's reading and display choices for this child apply on every learning screen, and stop applying when leaving.
+  const display = child ? displayOf(child) : null;
+  const { textScale, dyslexiaFont, highContrast, readAloudAuto } = display ?? {};
+  const live = useChildDisplay();
+  const displayKey = `${textScale}|${dyslexiaFont}|${highContrast}|${readAloudAuto}`;
+  useEffect(() => {
+    if (display) setChildDisplay(display);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayKey]);
+  useEffect(() => () => setChildDisplay(displayOf(undefined)), []);
+
   if (ready && !familyToken) return <Redirect href="/welcome" />;
   if (ready && !child) return <Redirect href="/profiles" />;
-  if (!child) return null;
+  // Learning screens read the display settings when they draw, so wait until they are in place (one frame).
+  if (!child || !display || `${live.textScale}|${live.dyslexiaFont}|${live.highContrast}|${live.readAloudAuto}` !== displayKey) return null;
 
   if (usage && usage.remaining <= 0) {
     return (

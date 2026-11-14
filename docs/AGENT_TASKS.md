@@ -65,7 +65,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | Id | Task | Agent, effort | Size | Depends on | Status | Notes |
 |---|---|---|---|---|---|---|
 | T0 | Own-model layer for Hoot (Ollama, OpenAI-compatible) | Opus high | M | none | **done** 14 Nov 2026 | `server/src/tutor-openai.ts`, `docs/FREE_AGENTS.md` |
-| T1 | Accessibility audit and fixes | Sonnet medium | M | none | todo | |
+| T1 | Accessibility audit and fixes | Sonnet medium | M | none | **done** 14 Nov 2026 | `docs/ACCESSIBILITY.md`; keyboard and screen reader passes still need a person |
 | T2 | Quick facts between lessons | Haiku low (content), Sonnet medium (code) | S + S | none | todo | |
 | T3 | Daily spelling and vocabulary | Sonnet medium (code), Haiku low (word lists) | L | none | todo | |
 | T4 | Quantitative aptitude and reasoning lessons | Sonnet medium | L | none | todo | |
@@ -395,3 +395,10 @@ are private to that family and are included in export and deletion. **Sonnet med
   active and whether it is tested. Not done in T0: a warning banner in the parent area that reads `/content/hoot`
   (small; fold into T6), and running the red-team set against a local model (T7). The provider was tested with a fake
   model server only; **no real Ollama was run**.
+- **T1 (done).** Per-child display settings (`textScale`, `dyslexiaFont`, `highContrast`, `readAloudAuto`) live in
+  `children` (migrations in `server/src/db.ts`), `ChildPatch`/`childPublic`, and `useChildDisplay()` in
+  `app/src/lib/theme.ts`. `app/src/app/learn/[childId]/_layout.tsx` applies them and holds back the screens one frame
+  until they are in place; new learning screens should use `scaledBandTheme(band)` instead of `bandTheme[band]`, and the
+  `ui.tsx` components so the settings apply. OpenDyslexic (OFL) is web-only (`app/public/fonts`, rule in
+  `app/public/index.html`); phones get wider spacing. Not done: native font bundling, a real keyboard-only and screen
+  reader pass (needs a person), text scaling on the landing/sign-in screens. T9 must add captions/text for sign videos.

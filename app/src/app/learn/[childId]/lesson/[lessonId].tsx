@@ -11,7 +11,7 @@ import { Banner, Button, Card, Emoji, H1, Loading, P, Pill, ProgressBar, Screen 
 import { api, friendly, type LearnMore, type Lesson } from "../../../../lib/api";
 import { cachedGet, isOffline, isOfflineError, offlineMessage, queueCompletion } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
-import { bandTheme, colors, subjectEmoji, surfaces } from "../../../../lib/theme";
+import { getChildDisplay, scaledBandTheme, colors, subjectEmoji, surfaces } from "../../../../lib/theme";
 
 interface QState {
   firstChoice: number | null; // what counts for the score (honest scoring: first try)
@@ -30,6 +30,11 @@ const freshQ = (): QState => ({ firstChoice: null, picked: null, correct: null, 
  * Lesson text with its lead-in term in bold, e.g. "1. Evaporation: the Sun heats…" → **1. Evaporation:** the Sun heats…
  * Only short lead-ins count, so ordinary sentences with a colon stay as they are.
  */
+/** The lesson as one block of speech: everything the child reads, without the grown-up note. */
+function spokenLesson(lesson: Lesson): string {
+  return lesson.sections.filter((s) => s.type !== "parent").map((s) => s.body).join(". ").replace(/[\p{Extended_Pictographic}]/gu, "");
+}
+
 function LessonText({ body, style }: { body: string; style: object }) {
   const m = /^((?:\d+\.\s+)?[A-Z][^.:!?\n]{1,32}:)\s/.exec(body);
   if (!m) return <Text style={style}>{body}</Text>;
@@ -84,6 +89,11 @@ export default function LessonScreen() {
         setLesson(r.data.lesson);
         setQs(r.data.lesson.quiz.map(freshQ));
         setFromCache(r.fromCache);
+        // The parent can ask for lessons to be read aloud as they open.
+        if (getChildDisplay().readAloudAuto) {
+          Speech.stop();
+          Speech.speak(spokenLesson(r.data.lesson), { rate: 0.9 });
+        }
       })
       .catch((e) => setError(offlineMessage(e, friendly(e))));
     cachedGet<LearnMore>(childId, `${base}/learn-more`, familyToken)
@@ -97,12 +107,13 @@ export default function LessonScreen() {
   if (error) return <Screen><Banner>{error}</Banner><Button title="Back" onPress={() => router.back()} /></Screen>;
   if (!lesson || !child) return <Loading />;
 
-  const t = bandTheme[child.band];
+  const t = scaledBandTheme(child.band);
   const young = child.band === "b1" || child.band === "b2";
   const readAloud = (text: string) => {
     Speech.stop();
     Speech.speak(text.replace(/[\p{Extended_Pictographic}]/gu, ""), { rate: 0.9 });
   };
+  const canReadAloud = young || child.readAloudAuto;
   const update = (i: number, patch: Partial<QState>) => setQs((all) => all.map((q, j) => (j === i ? { ...q, ...patch } : q)));
   const quizStarted = qs.some((q) => q.firstChoice !== null);
 
@@ -213,8 +224,11 @@ export default function LessonScreen() {
           <Pill text={`🎯 ${lesson.quiz.length} questions`} />
           {lesson.status === "draft" ? <Pill text="✏️ Draft: being checked by teachers" color={colors.warn} bg={colors.warnSoft} /> : <Pill text="✓ Reviewed by teachers" color={colors.good} bg={colors.goodSoft} />}
         </View>
-        {young ? (
-          <Button title="🔊 Read it to me" kind="secondary" color={t.accent} onPress={() => readAloud(lesson.sections.filter((s) => s.type !== "parent").map((s) => s.body).join(". "))} />
+        {canReadAloud ? (
+          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
+            <Button title="🔊 Read it to me" kind="secondary" color={t.accent} onPress={() => readAloud(spokenLesson(lesson))} />
+            <Button title="Stop reading" kind="ghost" color={colors.muted} onPress={() => Speech.stop()} />
+          </View>
         ) : null}
         {lesson.sections.map((s, i) => {
           const st = SECTION_STYLE[s.type]!;
@@ -244,7 +258,7 @@ export default function LessonScreen() {
         {child.aiEnabled ? (
           <Button title="🦉 Ask Hoot about this lesson" kind="secondary" color={t.accent} onPress={() => router.push(`/learn/${childId}/tutor/${lessonId}`)} />
         ) : null}
-        <Button big title={quizStarted ? "Back to the quiz →" : young ? "Let's play the quiz! 🎉" : "Start the quiz"} color={t.accent} onPress={() => setPhase("quiz")} />
+        <Button big title={quizStarted ? "Back to the quiz →" : young ? "Let's play the quiz! 🎉" : "Start the quiz"} color={t.accent} onPress={() => { Speech.stop(); setPhase("quiz"); }} />
         {lesson.sources.length ? (
           <Card>
             <Text style={{ fontWeight: "700", color: colors.ink }}>📚 Sources (for grown-ups)</Text>

@@ -5,7 +5,7 @@ import { Banner, Button, H1, Loading, P, Screen } from "../../../../components/u
 import { api, friendly } from "../../../../lib/api";
 import { isOfflineError } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
-import { bandTheme, subjectEmoji } from "../../../../lib/theme";
+import { scaledBandTheme, subjectEmoji } from "../../../../lib/theme";
 
 interface PracticeQ {
   lessonId: string;
@@ -32,7 +32,7 @@ export default function Practice() {
   }, [childId, subjectId, familyToken]);
 
   if (!child) return null;
-  const t = bandTheme[child.band];
+  const t = scaledBandTheme(child.band);
   const subject = map?.subjects.find((s) => s.id === subjectId);
   if (error) return <Screen><Banner tone="info">{error}</Banner><Button title="Back" onPress={() => router.back()} /></Screen>;
   if (!qs) return <Loading />;

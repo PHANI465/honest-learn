@@ -7,7 +7,7 @@ import { Banner, Button, Card, Emoji, H1, Loading, P, Pill, Screen } from "../..
 import { api, friendly } from "../../../lib/api";
 import { cachedGet, offlineMessage } from "../../../lib/offline";
 import { useChild, useSession } from "../../../lib/session";
-import { bandTheme, colors, surfaces } from "../../../lib/theme";
+import { scaledBandTheme, colors, surfaces } from "../../../lib/theme";
 
 interface PuzzleSet {
   available: boolean;
@@ -42,7 +42,7 @@ export default function Puzzles() {
   }, [childId, base, familyToken, playing]);
 
   if (!child) return null;
-  const t = bandTheme[child.band];
+  const t = scaledBandTheme(child.band);
   const young = child.band === "b1" || child.band === "b2";
 
   if (error) return <Screen><Banner>{error}</Banner><Button title="Back" onPress={() => router.back()} /></Screen>;

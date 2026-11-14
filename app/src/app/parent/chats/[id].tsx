@@ -46,7 +46,7 @@ export default function Chats() {
                 <Text style={{ fontSize: 15, color: colors.ink, lineHeight: 21 }}>{m.content}</Text>
               </View>
               {m.flagged ? <Pill text={`⚠️ ${FLAG_TEXT[m.flagged] ?? m.flagged}`} color={colors.warn} bg={colors.warnSoft} /> : null}
-              <Text style={{ fontSize: 11, color: colors.muted }}>{new Date(m.created_at).toLocaleString()}</Text>
+              <Text style={{ fontSize: 12, color: colors.muted }}>{new Date(m.created_at).toLocaleString()}</Text>
             </View>
           ))}
         </Card>

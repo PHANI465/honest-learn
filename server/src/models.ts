@@ -32,6 +32,10 @@ export interface ChildRow {
   unlocked_topics: string;
   ai_enabled: number;
   daily_minutes: number;
+  text_scale: number;
+  dyslexia_font: number;
+  high_contrast: number;
+  read_aloud_auto: number;
   created_at: string;
 }
 
@@ -69,6 +73,11 @@ export const ChildPatch = z.object({
   unlockedTopics: z.array(z.enum(TOPICS)).max(TOPICS.length * 2).optional(),
   aiEnabled: z.boolean().optional(),
   dailyMinutes: z.number().int().min(5).max(240).optional(),
+  /** Reading and display: text size 1, 1.15 or 1.3 times, dyslexia-friendly font, high contrast, read lessons aloud. */
+  textScale: z.union([z.literal(1), z.literal(1.15), z.literal(1.3)]).optional(),
+  dyslexiaFont: z.boolean().optional(),
+  highContrast: z.boolean().optional(),
+  readAloudAuto: z.boolean().optional(),
 });
 
 /** A quiz answer list: one on-screen position per question. */
@@ -102,6 +111,10 @@ export function childPublic(c: ChildRow) {
     aiEnabled: c.ai_enabled === 1 && band !== "b1",
     aiAllowedForAge: band !== "b1",
     dailyMinutes: c.daily_minutes,
+    textScale: c.text_scale ?? 1,
+    dyslexiaFont: c.dyslexia_font === 1,
+    highContrast: c.high_contrast === 1,
+    readAloudAuto: c.read_aloud_auto === 1,
   };
 }
 

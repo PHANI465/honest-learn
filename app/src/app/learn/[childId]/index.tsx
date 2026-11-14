@@ -8,7 +8,7 @@ import { api, friendly, type Band, type Child, type LessonSummary, type Subject,
 import { cachedGet, offlineMessage } from "../../../lib/offline";
 import { useSession } from "../../../lib/session";
 import { localDay, type Usage } from "../../../lib/timer";
-import { avatars, bandTheme, colors, subjectEmoji } from "../../../lib/theme";
+import { avatars, scaledBandTheme, colors, subjectEmoji } from "../../../lib/theme";
 
 interface Home {
   child: Child;
@@ -63,7 +63,7 @@ export default function ChildHome() {
 
   if (error) return <Screen><Banner>{error}</Banner><Button title="Back" onPress={() => router.replace("/profiles")} /></Screen>;
   if (!home) return <Loading />;
-  const t = bandTheme[home.child.band];
+  const t = scaledBandTheme(home.child.band);
   const young = home.child.band === "b1" || home.child.band === "b2";
   const cols = width >= 1000 ? 4 : width >= 680 ? 3 : 2;
   const totals = home.totals;

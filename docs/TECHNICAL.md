@@ -112,7 +112,7 @@ See [`FREE_AGENTS.md`](FREE_AGENTS.md) for connecting Ollama or a hosted service
 | Table | Key | Purpose |
 |---|---|---|
 | `parents` | `id` | Email, scrypt password and PIN hashes, lock counters and levels, `token_version`, consent, country |
-| `children` | `id` → `parents` (cascade) | Nickname, birth year, avatar, band override, unlocked topics, `ai_enabled`, daily minutes |
+| `children` | `id` → `parents` (cascade) | Nickname, birth year, avatar, band override, unlocked topics, `ai_enabled`, daily minutes, reading and display settings |
 | `progress` | `(child_id, lesson_id)` | Best score, attempts, completion and next review date |
 | `quiz_solved` | `(child_id, lesson_id, q_index)` | Which questions were solved (lets Hoot explain afterwards) |
 | `hints_seen` | `(child_id, item_id, q_index)` | Highest hint level opened: the ladder's source of truth |

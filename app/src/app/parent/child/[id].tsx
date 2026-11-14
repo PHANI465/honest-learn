@@ -7,6 +7,7 @@ import { useChild, useSession } from "../../../lib/session";
 import { colors, subjectEmoji, surfaces, topicLabels } from "../../../lib/theme";
 
 const MINUTES = [15, 30, 45, 60, 90];
+const TEXT_SIZES = [{ value: 1, name: "Standard" }, { value: 1.15, name: "Large" }, { value: 1.3, name: "Extra large" }];
 
 export default function ChildSettings() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -40,6 +41,10 @@ function SettingsForm({ child }: { child: Child }) {
         unlockedTopics: draft.unlockedTopics,
         aiEnabled: draft.aiEnabled,
         dailyMinutes: draft.dailyMinutes,
+        textScale: draft.textScale,
+        dyslexiaFont: draft.dyslexiaFont,
+        highContrast: draft.highContrast,
+        readAloudAuto: draft.readAloudAuto,
       });
       await refreshFamily();
       setSaved(true);
@@ -107,6 +112,29 @@ function SettingsForm({ child }: { child: Child }) {
         ) : (
           <P muted size={14}>Hoot isn't available for ages 3–5. Little Explorers learn with read-aloud lessons and a grown-up beside them.</P>
         )}
+      </Card>
+
+      <H2>Reading and display</H2>
+      <Card>
+        <P muted size={14}>These apply on {draft.nickname}'s learning screens. They help with low vision, dyslexia and reading support.</P>
+        <Text style={{ fontWeight: "600", color: colors.ink }} accessibilityRole="header">Text size</Text>
+        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }} accessibilityRole="radiogroup">
+          {TEXT_SIZES.map((o) => {
+            const selected = draft.textScale === o.value;
+            return (
+              <Pressable key={o.value} onPress={() => set({ textScale: o.value })} accessibilityRole="radio" accessibilityLabel={`${o.name} text`} accessibilityState={{ selected, checked: selected }}
+                style={{ paddingHorizontal: 14, paddingVertical: 8, minHeight: 44, minWidth: 44, justifyContent: "center", borderRadius: 999, borderWidth: 2, borderColor: selected ? colors.brand : colors.line, backgroundColor: selected ? colors.brandSoft : colors.card }}>
+                <Text style={{ fontWeight: "600", color: colors.ink }}>{o.name}</Text>
+              </Pressable>
+            );
+          })}
+        </View>
+        <Toggle label="Dyslexia-friendly font" value={draft.dyslexiaFont} onChange={(v) => set({ dyslexiaFont: v })}
+          description="Uses the OpenDyslexic typeface on the website. On phones it gives wider letter and line spacing instead." />
+        <Toggle label="High contrast" value={draft.highContrast} onChange={(v) => set({ highContrast: v })}
+          description="Black text and darker outlines on cards." />
+        <Toggle label="Read lessons aloud automatically" value={draft.readAloudAuto} onChange={(v) => set({ readAloudAuto: v })}
+          description="Lessons start reading as they open, at every age. There is always a Stop reading button." />
       </Card>
 
       <H2>Daily time</H2>

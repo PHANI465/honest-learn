@@ -8,7 +8,7 @@ import { OfflineBanner } from "../../../../components/OfflineBanner";
 import { friendly, type FreeResource, type LessonSummary } from "../../../../lib/api";
 import { cachedGet, offlineMessage } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
-import { bandTheme, colors, subjectEmoji } from "../../../../lib/theme";
+import { scaledBandTheme, colors, subjectEmoji } from "../../../../lib/theme";
 
 export default function SubjectLessons() {
   const { childId, subjectId } = useLocalSearchParams<{ childId: string; subjectId: string }>();
@@ -43,7 +43,7 @@ export default function SubjectLessons() {
   );
 
   if (!child) return null;
-  const t = bandTheme[child.band];
+  const t = scaledBandTheme(child.band);
   const subject = map?.subjects.find((s) => s.id === subjectId);
 
   return (
