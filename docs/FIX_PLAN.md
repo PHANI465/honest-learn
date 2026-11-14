@@ -94,7 +94,7 @@ Severity: **H** high, **M** medium, **L** low. None of these is known to be expl
 
 ## Part 2: functional gaps
 
-- [ ] **G1 Missing contrast checker.** `app/src/lib/theme.ts` tells people to run
+- [x] **G1 Missing contrast checker.** `app/src/lib/theme.ts` tells people to run
   `node scripts/check-contrast.mjs`, which does not exist.
   **How:** write the script: read the colour pairs from `theme.ts` (and the landing tokens in
   `app/src/landing/styles.ts`), compute WCAG contrast, fail under 4.5:1 for text and 3:1 for controls.
@@ -103,10 +103,11 @@ Severity: **H** high, **M** medium, **L** low. None of these is known to be expl
 - [ ] **G2 Loading states are a bare spinner.** `Loading` in `app/src/components/ui.tsx`.
   **How:** replaced by skeleton cards as part of U3.
 
-- [ ] **G3 Wikipedia thumbnails are blocked on the website.** The CSP allows images only from this site,
+- [x] **G3 Wikipedia thumbnails are blocked on the website.** The CSP allows images only from this site,
   so "Learn more" thumbnails from `upload.wikimedia.org` never show.
   **How:** add `https://upload.wikimedia.org` to `img-src` in `web-headers.ts` and `vercel.json`, only if
   the lesson screen renders the thumbnail (check `lesson/[lessonId].tsx`); otherwise stop returning it.
+  **Result:** the app never renders the thumbnail, so nothing is blocked and the CSP stays strict. No change needed.
 
 - [ ] **G4 Sharing preview image.** `app/public/index.html` has no `og:image` because the site address is
   not known. **How:** add it at deployment (`https://<domain>/icons/icon-512.png`). Owner task.
@@ -181,3 +182,4 @@ All motion is built with React Native's built-in `Animated` API (no new dependen
 | Date | Task | Result | By |
 |---|---|---|---|
 | 13 Nov 2026 | S1 to S10 | Done. Server: 106 tests pass (new `server/test/hardening.test.ts`). App: type check and lint clean. Account deletion and password change forms are in `app/src/app/parent/index.tsx`. | Claude |
+| 13 Nov 2026 | G1, G3 | G1 done: `scripts/check-contrast.mjs` checks 73 colour pairs and runs in CI. G3 needed no change (thumbnails are not shown). G2 is done with U3. G4 is an owner task at deployment. | Claude |
