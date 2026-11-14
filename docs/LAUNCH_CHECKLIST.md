@@ -4,7 +4,7 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 
 ## Built so far
 
-- ✅ Knowledge map: 5 age groups × 11 subjects, 228 outcomes, aligned to the UNESCO Global Proficiency Framework for reading and math
+- ✅ Knowledge map: 5 age groups × 11 subjects, 238 outcomes, aligned to the UNESCO Global Proficiency Framework for reading and math
 - ✅ Reviewer guide (writing rules per age, hint-ladder rules, licensing, review checklist)
 - ✅ Mandatory parent account (18+ confirmation + privacy-notice consent recorded with version and time)
 - ✅ Parent PIN (hashed, 5 wrong tries → 15-minute lock) protecting: profiles, levels, sensitive topics, Hoot on/off, chat review, outside links, extra screen time, export/delete
@@ -17,7 +17,7 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 - ✅ Parents can read every chat, see flagged messages, export all data and delete the account
 - ✅ Daily time limit with a break screen
 - ✅ Read-aloud for ages 3–8
-- ✅ 184 lessons, 528 quiz questions (all **draft**), covering **all 228** knowledge-map outcomes
+- ✅ 194 lessons, 558 quiz questions (all **draft**), covering **all 238** knowledge-map outcomes
 - ✅ 68 brain puzzles (IQ-style reasoning practice, honest framing, no IQ score) and mixed practice quizzes per subject
 - ✅ Parent overview shows this week's lessons and minutes
 - ✅ Online research on what parents and kids like and dislike in learning apps (`docs/RESEARCH_USER_FEEDBACK.md`)
@@ -34,7 +34,7 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 - ✅ Offline mode: lessons, lesson lists, puzzles and free resources a child has opened are saved on the device (never answers, parent-area data or Hoot chats) and shown with a "You're offline" notice; lessons finished and minutes learned offline are sent once when back online
 - ✅ Install the website: web app manifest, home-screen icons and a service worker, so the website can be added to a phone's home screen and opens without internet
 
-- ✅ v0.4: third quiz question on every lesson for ages 6–18 (528 questions), 68 brain puzzles
+- ✅ v0.4: third quiz question on every lesson for ages 6–18 (558 questions), 68 brain puzzles
 - ✅ API runs on Postgres (Neon) or SQLite; tests pass on both; Vercel project layout (website + API on one domain) with a demo mode
 - ✅ Verified helplines for 15 countries + fallback; parents can choose a country so Hoot names the right helpline
 - ✅ Stronger safety/personal-info detection with 92 written test cases; `npm run redteam` for live AI testing
@@ -44,7 +44,7 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 
 - ⬜ Hire or recruit reviewers (2 per lesson: subject expert + age/safety)
 - ⬜ Work through `docs/NEEDS_APPROVAL.md`: Priority 1 first (medical, safeguarding, sensitive topics, legal)
-- ⬜ Review all 184 lessons and mark them `reviewed` (start with `docs/review/*.csv`)
+- ⬜ Review all 194 lessons and mark them `reviewed` (start with `docs/review/*.csv`)
 - ⬜ **Medical review** of `b5-health-first-aid-cpr` and all health lessons
 - ⬜ Add a third quiz question to newer lessons where reviewers think it helps
 - ⬜ Check every entry in `content/resources.json` (free, no ads aimed at children, right ages) and set `lastChecked`

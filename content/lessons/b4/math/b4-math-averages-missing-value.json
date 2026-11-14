@@ -1,0 +1,94 @@
+{
+  "id": "b4-math-averages-missing-value",
+  "title": "Averages: Finding the Missing Value",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-9"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Average",
+      "url": "https://en.wikipedia.org/wiki/Average",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The mean (the average) is the total divided by how many numbers there are. So the total is the mean times the count: total = mean × count. This lets you work backwards."
+    },
+    {
+      "type": "text",
+      "body": "Example: the mean of 4 numbers is 8. The total must be 8 × 4 = 32. If three of them are 6, 7 and 9, they add up to 22. So the fourth number is 32 - 22 = 10."
+    },
+    {
+      "type": "text",
+      "body": "Example: you want an average of 80 over 4 tests and you have 72, 85 and 79. The total needed is 80 × 4 = 320. You have 72 + 85 + 79 = 236. You need 320 - 236 = 84 on the last test."
+    },
+    {
+      "type": "tryit",
+      "body": "Your friend's last three scores were 6, 8 and 7. What score on the fourth game gives a mean of 8?"
+    },
+    {
+      "type": "parent",
+      "body": "The trick is to turn the mean back into a total. Ask your child to write 'total needed' and 'total so far' as two lines before subtracting."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "The mean of 5 numbers is 14. Four of them are 10, 12, 13 and 18. What is the fifth?",
+      "options": [
+        "17",
+        "14",
+        "53"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the total of all 5 numbers using total = mean × count.",
+        "5 × 14 gives the total. Add up the four known numbers and subtract.",
+        "Example: mean 8 of 4 numbers, with three known as 6, 7 and 9: total 32, known 22, so the fourth is 10. Use the same steps here."
+      ],
+      "explain": "Total = 5 × 14 = 70. The four known add to 53. 70 - 53 = 17."
+    },
+    {
+      "q": "Lee scored 72, 85 and 79 in three tests. What must he score in the fourth to have a mean of 80?",
+      "options": [
+        "84",
+        "80",
+        "236"
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out the total points needed for four tests.",
+        "4 × 80 is the total. Take away what Lee already has.",
+        "Example: for a mean of 70 over 3 tests with 60 and 65 so far, the total is 210, he has 125, so he needs 85. Use the same steps."
+      ],
+      "explain": "Total needed: 4 × 80 = 320. So far: 236. 320 - 236 = 84."
+    },
+    {
+      "q": "The mean age of three friends is 10. Two are 8 and 9. How old is the third?",
+      "options": [
+        "13",
+        "10",
+        "17"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the total of the three ages.",
+        "3 × 10 is the total. Add the two known ages and subtract.",
+        "Example: mean 5 for 6 numbers means total 30; if 24 is already counted, 6 is missing. Use the same steps with 3 friends."
+      ],
+      "explain": "Total = 3 × 10 = 30. Known: 8 + 9 = 17. 30 - 17 = 13."
+    }
+  ]
+}

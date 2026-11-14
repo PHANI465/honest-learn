@@ -1,0 +1,98 @@
+{
+  "id": "b4-think-coding-decoding",
+  "title": "Coding and Decoding",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-6"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Caesar cipher",
+      "url": "https://en.wikipedia.org/wiki/Caesar_cipher",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Substitution cipher",
+      "url": "https://en.wikipedia.org/wiki/Substitution_cipher",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A code replaces letters or numbers using a rule. To decode, find the rule and use it backwards."
+    },
+    {
+      "type": "text",
+      "body": "Shift code: move each letter forward in the alphabet by the same number. With a shift of 1, A becomes B, B becomes C and so on. So BIG becomes CJH. The alphabet wraps round: with a shift of 1, Z becomes A."
+    },
+    {
+      "type": "text",
+      "body": "Number code: give each letter its place in the alphabet, A = 1, B = 2, C = 3 ... Then BED = 2 + 5 + 4 = 11."
+    },
+    {
+      "type": "text",
+      "body": "To decode a shift code, shift backwards. If the code uses a shift of 3, SUN becomes VXQ, so VXQ decodes back to SUN."
+    },
+    {
+      "type": "tryit",
+      "body": "Write your name in a shift-1 code. Ask a friend to decode it, then try a shift of 2."
+    },
+    {
+      "type": "parent",
+      "body": "These are called Caesar or substitution ciphers. They are fun but not secure: anyone can break them by trying every shift. Remind your child that real security uses much stronger methods."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In a code each letter moves 1 forward. What is the code for CAT?",
+      "options": [
+        "DBU",
+        "BZS",
+        "DBS"
+      ],
+      "answer": 0,
+      "hints": [
+        "Move each letter one place forward in the alphabet.",
+        "C moves to the letter after C. Do the same for A and T.",
+        "Example: BIG with the same code → each letter moves one forward → CJH. Now do CAT."
+      ],
+      "explain": "C → D, A → B, T → U. The code is DBU."
+    },
+    {
+      "q": "If A = 1, B = 2, C = 3 and so on, what is the total value of the letters in CAB?",
+      "options": [
+        "6",
+        "5",
+        "7"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the number for each letter.",
+        "C is 3, A is 1. What is B? Then add the three numbers.",
+        "Example: BED → 2 + 5 + 4 = 11. Do the same for C, A and B."
+      ],
+      "explain": "C = 3, A = 1, B = 2. 3 + 1 + 2 = 6."
+    },
+    {
+      "q": "In a code each letter moves 2 forward. What is the code for HELP?",
+      "options": [
+        "JGNR",
+        "GDKO",
+        "JGMQ"
+      ],
+      "answer": 0,
+      "hints": [
+        "Move every letter two places forward in the alphabet.",
+        "H → J. Now do E, L and P.",
+        "Example: with a shift of 3, SUN becomes VXQ (S → V, U → X, N → Q). Use a shift of 2 on HELP."
+      ],
+      "explain": "H → J, E → G, L → N, P → R. The code is JGNR."
+    }
+  ]
+}

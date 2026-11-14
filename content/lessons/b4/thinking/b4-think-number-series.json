@@ -1,0 +1,98 @@
+{
+  "id": "b4-think-number-series",
+  "title": "Number Series: Find the Rule",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-5"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sequence",
+      "url": "https://en.wikipedia.org/wiki/Sequence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Fibonacci sequence",
+      "url": "https://en.wikipedia.org/wiki/Fibonacci_sequence",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "In a number series, each number follows a rule. Start by checking the difference between neighbours. If it is always the same, the rule is add or subtract that number."
+    },
+    {
+      "type": "text",
+      "body": "If the differences change, try multiplying. In 3, 6, 12, 24 each number is double the one before, so the next is 48. In 2, 6, 18, 54 each number is 3 times the one before."
+    },
+    {
+      "type": "text",
+      "body": "Look for special numbers. 1, 4, 9, 16, 25 are the square numbers (1×1, 2×2, 3×3 ...). 1, 8, 27, 64, 125 are the cubes (1×1×1, 2×2×2 ...)."
+    },
+    {
+      "type": "text",
+      "body": "Some series add the two numbers before. In 2, 3, 5, 8 each number is the sum of the two before it (2 + 3 = 5, 3 + 5 = 8), so the next is 13. This is the Fibonacci pattern, found in many places in nature."
+    },
+    {
+      "type": "tryit",
+      "body": "Write a series of six numbers using a rule you make up. Swap with a friend and find each other's rule."
+    },
+    {
+      "type": "parent",
+      "body": "When stuck, try this order: differences, multiplying, squares and cubes, adding the two before. Ask your child to say the rule in words, not just the next number."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What comes next? 2, 6, 18, 54, ?",
+      "options": [
+        "162",
+        "108",
+        "72"
+      ],
+      "answer": 0,
+      "hints": [
+        "Check the differences. Are they the same?",
+        "Try multiplying. What do you multiply 2 by to get 6? Does the same work for 6 to 18?",
+        "Example: 3, 6, 12, 24 → each number doubles, so the next is 48. Find the multiplier for this series."
+      ],
+      "explain": "Each number is 3 times the one before. 54 × 3 = 162."
+    },
+    {
+      "q": "What comes next? 1, 4, 9, 16, 25, ?",
+      "options": [
+        "36",
+        "30",
+        "35"
+      ],
+      "answer": 0,
+      "hints": [
+        "The differences are 3, 5, 7, 9 ... they grow.",
+        "These numbers are special: 1×1, 2×2, 3×3, and so on.",
+        "Example: the cubes are 1, 8, 27, 64, so the next one is 125. This series uses squares instead. What is 6 × 6?"
+      ],
+      "explain": "These are square numbers. The next is 6 × 6 = 36."
+    },
+    {
+      "q": "What comes next? 3, 5, 8, 13, 21, ?",
+      "options": [
+        "34",
+        "29",
+        "42"
+      ],
+      "answer": 0,
+      "hints": [
+        "The differences are 2, 3, 5, 8 ... try adding two numbers.",
+        "Does 3 + 5 give 8? Does 5 + 8 give 13?",
+        "Example: 2, 3, 5, 8 → 5 + 8 = 13 is next. Add the last two numbers here."
+      ],
+      "explain": "Each number is the sum of the two before it. 13 + 21 = 34."
+    }
+  ]
+}

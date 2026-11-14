@@ -1,0 +1,102 @@
+{
+  "id": "b4-math-percentages-three-ways",
+  "title": "Percentages Three Ways",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-6"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Percentage",
+      "url": "https://en.wikipedia.org/wiki/Percentage",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A percent means 'out of 100'. 40% is 40 out of 100. It can be written three ways: as a fraction, 40/100 (which simplifies to 2/5); as a decimal, 0.4; and as a percent, 40%."
+    },
+    {
+      "type": "text",
+      "body": "Way 1: the 10% method. 10% of a number is the number divided by 10. 5% is half of that. So 15% of 60 is 6 + 3 = 9. Build any percent from 10%, 5% and 1%."
+    },
+    {
+      "type": "text",
+      "body": "Way 2: the decimal method. Turn the percent into a decimal and multiply. 25% is 0.25, so 25% of 80 is 0.25 × 80 = 20."
+    },
+    {
+      "type": "text",
+      "body": "Way 3: the fraction method. Some percents are easy fractions: 50% is 1/2, 25% is 1/4, 10% is 1/10. To take 25% off a price of 80, find 1/4 of 80, which is 20, then subtract: 80 - 20 = 60."
+    },
+    {
+      "type": "text",
+      "body": "To turn one amount out of another into a percent, divide and multiply by 100. 14 out of 20 is 14 ÷ 20 = 0.7, which is 70%."
+    },
+    {
+      "type": "tryit",
+      "body": "Find 15% of 80 using the 10% method, then check it with the decimal method. Do both ways give the same answer?"
+    },
+    {
+      "type": "parent",
+      "body": "Switch between the three ways: the 'best' way is whichever is quickest for the numbers. Shop sales are a good place to practise. Let your child predict the sale price before looking at the tag."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is 15% of 240?",
+      "options": [
+        "36",
+        "24",
+        "38"
+      ],
+      "answer": 0,
+      "hints": [
+        "Build 15% from 10% and 5%.",
+        "Find 10% of 240 (divide by 10). 5% is half of that. Then add them.",
+        "Example: 15% of 60 → 10% is 6, 5% is 3, so 6 + 3 = 9. Use the same steps with 240."
+      ],
+      "explain": "10% of 240 is 24 and 5% is 12. 24 + 12 = 36."
+    },
+    {
+      "q": "A coat costs 80. It is 25% off. What is the sale price?",
+      "options": [
+        "60",
+        "20",
+        "55"
+      ],
+      "answer": 0,
+      "hints": [
+        "25% is the same as one quarter.",
+        "Find 25% of 80, then take it away from 80.",
+        "Example: a 50 item with 20% off → 10% is 5, so 20% is 10, and 50 - 10 = 40. Use the same steps with 80 and 25%."
+      ],
+      "explain": "25% of 80 is 20. The sale price is 80 - 20 = 60."
+    },
+    {
+      "q": "In a quiz, Ana got 36 out of 48 right. What percent is that?",
+      "options": [
+        "75%",
+        "70%",
+        "80%"
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide the score by the total, then multiply by 100.",
+        "36 ÷ 48 gives a decimal. Turn it into a percent.",
+        "Example: 14 out of 20 → 14 ÷ 20 = 0.7, which is 70%. Do 36 ÷ 48 the same way."
+      ],
+      "explain": "36 ÷ 48 = 0.75, which is 75%."
+    }
+  ]
+}

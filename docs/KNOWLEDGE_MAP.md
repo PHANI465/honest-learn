@@ -2,7 +2,7 @@
 
 > **Status:** draft — every outcome needs review by two subject reviewers before publishing
 
-**5 age bands · 11 subjects · 51 cells · 228 learning outcomes**
+**5 age bands · 11 subjects · 51 cells · 238 learning outcomes**
 
 This is the minimum knowledge every learner should have at each age, before college. It is **universal** (not tied to one country) and is the brief for content writers and reviewers.
 
@@ -370,6 +370,12 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b4-math-3` Plots points and straight-line graphs on coordinate axes
 - [ ] `b4-math-4` Area/volume of shapes; Pythagoras' theorem
 - [ ] `b4-math-5` Probability and statistics: mean, median, mode, range; misleading graphs
+- [ ] `b4-math-6` Finds percentages by the 10% method, decimals and fractions; works out sale prices
+- [ ] `b4-math-7` Shares an amount in a ratio and solves proportion problems with the unitary method
+- [ ] `b4-math-8` Solves speed, distance and time problems with matching units
+- [ ] `b4-math-9` Finds a missing value from a mean by working with the total
+- [ ] `b4-math-10` Calculates simple interest and the total amount
+- [ ] `b4-math-11` Names the weekday of any date this century with the Doomsday method
 
 *Sample question:* Solve: 3x + 4 = 19 — **x = 5** ✓ / x = 7 / x = 15  
 *Hint:* First undo the +4 on both sides.
@@ -434,6 +440,10 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b4-think-2` Builds an argument: claim, evidence, reasoning
 - [ ] `b4-think-3` Considers other viewpoints before deciding
 - [ ] `b4-think-4` Uses estimation and 'back of the envelope' reasoning
+- [ ] `b4-think-5` Finds the rule in number series (differences, multiples, squares, sums of the two before)
+- [ ] `b4-think-6` Solves coding and decoding puzzles
+- [ ] `b4-think-7` Solves family relation puzzles by drawing a family tree
+- [ ] `b4-think-8` Solves direction sense puzzles, including straight-line distance
 
 *Sample question:* 'Everyone is buying this phone, so it must be the best.' This is… — **Bandwagon fallacy** ✓ / A strong argument / A fact  
 *Hint:* Does popularity prove quality?

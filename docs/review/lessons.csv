@@ -1228,12 +1228,36 @@ b4-lang-5: Speaks and listens in discussions; disagrees respectfully","","20","d
 
 [text] Respectful disagreement: 'I see it differently because…' rather than 'That's stupid.'","Wikipedia: Summary — https://en.wikipedia.org/wiki/Summary (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Active listening — https://en.wikipedia.org/wiki/Active_listening (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\language\b4-lang-summarise-discuss.json","","","","","",""
+"b4-math-averages-missing-value","Averages: Finding the Missing Value","Thinkers (12–14)","Math","b4-math-9: Finds a missing value from a mean by working with the total","","10","draft","[text] The mean (the average) is the total divided by how many numbers there are. So the total is the mean times the count: total = mean × count. This lets you work backwards.
+
+[text] Example: the mean of 4 numbers is 8. The total must be 8 × 4 = 32. If three of them are 6, 7 and 9, they add up to 22. So the fourth number is 32 - 22 = 10.
+
+[text] Example: you want an average of 80 over 4 tests and you have 72, 85 and 79. The total needed is 80 × 4 = 320. You have 72 + 85 + 79 = 236. You need 320 - 236 = 84 on the last test.
+
+[tryit] Your friend's last three scores were 6, 8 and 7. What score on the fourth game gives a mean of 8?
+
+[parent] The trick is to turn the mean back into a total. Ask your child to write 'total needed' and 'total so far' as two lines before subtracting.","Wikipedia: Average — https://en.wikipedia.org/wiki/Average (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b4\math\b4-math-averages-missing-value.json","","","","","",""
 "b4-math-coordinates-graphs","Coordinates and Straight-Line Graphs","Thinkers (12–14)","Math","b4-math-3: Plots points and straight-line graphs on coordinate axes","","20","draft","[text] A point is written (x, y): go along the x-axis first, then up or down the y-axis. 'Along the corridor, then up the stairs.'
 
 [text] A straight-line graph can be written y = mx + c. m is the GRADIENT (steepness) and c is where the line crosses the y-axis.
 
 [fact] In y = 2x + 1, when x = 3, y = 2(3) + 1 = 7. So the point (3, 7) is on the line.","Wikipedia: Cartesian coordinate system — https://en.wikipedia.org/wiki/Cartesian_coordinate_system (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Linear equation — https://en.wikipedia.org/wiki/Linear_equation (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\math\b4-math-coordinates-graphs.json","","","","","",""
+"b4-math-doomsday-weekday","Name the Weekday of Any Date (Doomsday Method)","Thinkers (12–14)","Math","b4-math-11: Names the weekday of any date this century with the Doomsday method","","12","draft","[text] The mathematician John Conway invented a way to find the weekday of any date in your head. It uses the 'doomsday' of a year: a weekday that many easy-to-remember dates share. This lesson covers the years 2000 to 2099.
+
+[text] The doomsday dates in any year all fall on the same weekday: 4 April, 6 June, 8 August, 10 October and 12 December (4/4, 6/6, 8/8, 10/10, 12/12); and 9 May and 5 September, 11 July and 7 November (the pairs 9-5 and 7-11); and 14 March (Pi day, 3/14). In February, use the last day: 28 February, or 29 in a leap year. In January use 3 January, or 4 January in a leap year.
+
+[text] How to find the doomsday of a year from 2000 to 2099. Take the last two digits, y. Step 1: divide y by 12 and write the whole number part, a. Step 2: write the remainder, b. Step 3: divide b by 4 and write the whole number part, c. Add a + b + c. Count that many days on from Tuesday (the doomsday of 2000). Dropping whole weeks of 7 first makes this easier.
+
+[text] Example, 2023. y = 23. 23 ÷ 12 = 1 remainder 11, so a = 1 and b = 11. 11 ÷ 4 = 2 (whole part), so c = 2. a + b + c = 14, which is 2 whole weeks, leaving 0. So the doomsday of 2023 is Tuesday. Check: 4 April 2023 was a Tuesday.
+
+[text] Example, 2024. y = 24. a = 2, b = 0, c = 0. Total 2. Two days on from Tuesday is Thursday. Doomsday 2024 is Thursday. So 8 August 2024 was a Thursday. To find 12 August 2024, count 4 days on from Thursday: Friday, Saturday, Sunday, Monday. It was a Monday.
+
+[tryit] Find the doomsday of the current year. Then name the weekday of your birthday this year. Check with a calendar.
+
+[parent] Every worked example here was checked with a computer for all years 2000 to 2099. The method needs practice, so start by remembering the pairs 4/4, 6/6, 8/8, 10/10, 12/12, then add the rest slowly. A later lesson extends the method to other centuries.","Wikipedia: Doomsday rule — https://en.wikipedia.org/wiki/Doomsday_rule (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: John Horton Conway — https://en.wikipedia.org/wiki/John_Horton_Conway (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\math\b4-math-doomsday-weekday.json","","","","","",""
 "b4-math-linear-equations","Solving Linear Equations","Thinkers (12–14)","Math","b4-math-2: Writes and solves linear equations; understands variables","","20","draft","[text] An equation is a balance: both sides are equal. To find the unknown (x), do the same thing to both sides until x is alone.
 
 [text] Undo operations in reverse order. In 3x + 4 = 19, x was multiplied by 3 and then 4 was added. So first subtract 4, then divide by 3.
@@ -1244,6 +1268,20 @@ Wikipedia: Linear equation — https://en.wikipedia.org/wiki/Linear_equation (CC
 
 [tryit] Make up your own equation: pick a secret number, multiply it, add something, and challenge a friend to solve it.","Wikipedia: Linear equation — https://en.wikipedia.org/wiki/Linear_equation (CC BY-SA 4.0 (reference; text is original))
 OpenStax Elementary Algebra 2e — https://openstax.org/details/books/elementary-algebra-2e (CC BY 4.0 (reference))","content\lessons\b4\math\b4-math-linear-equations.json","","","","","",""
+"b4-math-percentages-three-ways","Percentages Three Ways","Thinkers (12–14)","Math","b4-math-6: Finds percentages by the 10% method, decimals and fractions; works out sale prices","","10","draft","[text] A percent means 'out of 100'. 40% is 40 out of 100. It can be written three ways: as a fraction, 40/100 (which simplifies to 2/5); as a decimal, 0.4; and as a percent, 40%.
+
+[text] Way 1: the 10% method. 10% of a number is the number divided by 10. 5% is half of that. So 15% of 60 is 6 + 3 = 9. Build any percent from 10%, 5% and 1%.
+
+[text] Way 2: the decimal method. Turn the percent into a decimal and multiply. 25% is 0.25, so 25% of 80 is 0.25 × 80 = 20.
+
+[text] Way 3: the fraction method. Some percents are easy fractions: 50% is 1/2, 25% is 1/4, 10% is 1/10. To take 25% off a price of 80, find 1/4 of 80, which is 20, then subtract: 80 - 20 = 60.
+
+[text] To turn one amount out of another into a percent, divide and multiply by 100. 14 out of 20 is 14 ÷ 20 = 0.7, which is 70%.
+
+[tryit] Find 15% of 80 using the 10% method, then check it with the decimal method. Do both ways give the same answer?
+
+[parent] Switch between the three ways: the 'best' way is whichever is quickest for the numbers. Shop sales are a good place to practise. Let your child predict the sale price before looking at the tag.","Wikipedia: Percentage — https://en.wikipedia.org/wiki/Percentage (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b4\math\b4-math-percentages-three-ways.json","","","","","",""
 "b4-math-pythagoras-area-volume","Pythagoras, Area and Volume","Thinkers (12–14)","Math","b4-math-4: Area/volume of shapes; Pythagoras' theorem","","20","draft","[text] In a right-angled triangle, a² + b² = c², where c is the HYPOTENUSE (the longest side, opposite the right angle).
 
 [text] Area of a triangle = ½ × base × height. Area of a circle = πr².
@@ -1261,6 +1299,45 @@ Wikipedia: Volume — https://en.wikipedia.org/wiki/Volume (CC BY-SA 4.0 (refere
 [fact] A RATE compares different units, like km per hour or price per kg.","Wikipedia: Negative number — https://en.wikipedia.org/wiki/Negative_number (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Ratio — https://en.wikipedia.org/wiki/Ratio (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Percentage — https://en.wikipedia.org/wiki/Percentage (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\math\b4-math-ratio-percent-negatives.json","","","","","",""
+"b4-math-ratio-proportion","Sharing in a Ratio and Proportion","Thinkers (12–14)","Math","b4-math-7: Shares an amount in a ratio and solves proportion problems with the unitary method","","10","draft","[text] To share an amount in a ratio, follow three steps. Say 36 is shared in the ratio 1 : 2. Step 1: add the parts, 1 + 2 = 3. Step 2: find one part, 36 ÷ 3 = 12. Step 3: multiply, so the shares are 12 and 24. Check: 12 + 24 = 36.
+
+[text] Proportion means two amounts change together at the same rate. If 4 books cost 20, then 1 book costs 20 ÷ 4 = 5. So 7 books cost 7 × 5 = 35. Finding the cost of one first is called the unitary method.
+
+[text] A map scale is a ratio. If 1 cm on a map stands for 2 km, then 6 cm stands for 6 × 2 = 12 km.
+
+[tryit] Share 45 sweets between two friends in the ratio 4 : 5. Check that the two shares add back to 45.
+
+[parent] Ratio problems are everywhere: cooking, mixing paint, maps. Ask your child to say what one 'part' is before multiplying. Checking that the shares add up to the total catches most mistakes.","Wikipedia: Ratio — https://en.wikipedia.org/wiki/Ratio (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Proportionality (mathematics) — https://en.wikipedia.org/wiki/Proportionality_(mathematics) (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b4\math\b4-math-ratio-proportion.json","","","","","",""
+"b4-math-simple-interest","Simple Interest","Thinkers (12–14)","Math","b4-math-10: Calculates simple interest and the total amount","","10","draft","[text] Interest is money paid for the use of money. If you save money in a bank, the bank pays you interest. If you borrow, you pay interest. Simple interest is worked out only on the starting amount, called the principal.
+
+[text] The formula is: interest = principal × rate × time ÷ 100, with the rate as a percent per year and the time in years. For 200 at 5% for 2 years: 200 × 5 × 2 ÷ 100 = 20.
+
+[text] The total amount is the principal plus the interest. For 300 at 10% for 1 year, the interest is 30, so the total is 330.
+
+[text] You can also work backwards. If the interest on 200 at 5% was 40, then 40 = 200 × 5 × time ÷ 100. So time = 40 × 100 ÷ (200 × 5) = 4 years.
+
+[text] The rates in these examples are made up to practise the maths. Real rates differ by country and change over time, and real accounts often use compound interest, which is a later topic.
+
+[tryit] Work out the simple interest on 100 at 6% for 5 years. How much is the total at the end?
+
+[parent] These are practice numbers, not financial advice. Talk about why people pay interest and why comparing rates matters. Check the rates and rules for your own country before using any real account.","Wikipedia: Interest — https://en.wikipedia.org/wiki/Interest (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b4\math\b4-math-simple-interest.json","","","","","",""
+"b4-math-speed-distance-time","Speed, Distance and Time","Thinkers (12–14)","Math","b4-math-8: Solves speed, distance and time problems with matching units","","10","draft","[text] Speed tells how far something goes in one unit of time. A car at 40 km/h goes 40 km in one hour. The three connected facts are: distance = speed × time; speed = distance ÷ time; time = distance ÷ speed.
+
+[text] Example: 40 km/h for 3 hours. Distance = 40 × 3 = 120 km.
+
+[text] Example: a bus goes 100 km in 4 hours. Speed = 100 ÷ 4 = 25 km/h.
+
+[text] Example: a trip of 200 km at 40 km/h takes 200 ÷ 40 = 5 hours.
+
+[text] Units must match. If the speed is in km/h, time must be in hours and distance in km. To change km/h into metres per second, multiply by 1,000 and divide by 3,600. So 36 km/h is 36,000 ÷ 3,600 = 10 m/s.
+
+[tryit] Time how long you take to walk 20 steps. Work out your steps per second. How many steps would you take in a minute?
+
+[parent] Cover the one you want in the 'speed-distance-time triangle' to see the formula. Ask your child to say the units out loud: km, hours, km per hour. Mixing minutes with hours is the most common mistake.","Wikipedia: Speed — https://en.wikipedia.org/wiki/Speed (CC BY-SA 4.0 (reference; text is original))
+OpenStax Prealgebra 2e — https://openstax.org/details/books/prealgebra-2e (CC BY 4.0 (reference))","content\lessons\b4\math\b4-math-speed-distance-time.json","","","","","",""
 "b4-math-statistics","Averages, Spread and Misleading Graphs","Thinkers (12–14)","Math","b4-math-5: Probability and statistics: mean, median, mode, range; misleading graphs","","20","draft","[text] MEAN = total ÷ how many. MEDIAN = the middle value when sorted. MODE = the most common. RANGE = biggest − smallest.
 
 [text] One extreme value can pull the mean a lot, but barely moves the median.
@@ -1343,6 +1420,44 @@ Wikipedia: Electrical network — https://en.wikipedia.org/wiki/Electrical_netwo
 
 [text] Bias can sneak in: small samples, measuring only what you expect, or wanting a certain result. Good scientists repeat tests, use controls and let others check.","Wikipedia: Scientific method — https://en.wikipedia.org/wiki/Scientific_method (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Observer bias — https://en.wikipedia.org/wiki/Observer_bias (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\science\b4-sci-scientific-method.json","","","","","",""
+"b4-think-coding-decoding","Coding and Decoding","Thinkers (12–14)","Thinking Skills","b4-think-6: Solves coding and decoding puzzles","","10","draft","[text] A code replaces letters or numbers using a rule. To decode, find the rule and use it backwards.
+
+[text] Shift code: move each letter forward in the alphabet by the same number. With a shift of 1, A becomes B, B becomes C and so on. So BIG becomes CJH. The alphabet wraps round: with a shift of 1, Z becomes A.
+
+[text] Number code: give each letter its place in the alphabet, A = 1, B = 2, C = 3 ... Then BED = 2 + 5 + 4 = 11.
+
+[text] To decode a shift code, shift backwards. If the code uses a shift of 3, SUN becomes VXQ, so VXQ decodes back to SUN.
+
+[tryit] Write your name in a shift-1 code. Ask a friend to decode it, then try a shift of 2.
+
+[parent] These are called Caesar or substitution ciphers. They are fun but not secure: anyone can break them by trying every shift. Remind your child that real security uses much stronger methods.","Wikipedia: Caesar cipher — https://en.wikipedia.org/wiki/Caesar_cipher (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Substitution cipher — https://en.wikipedia.org/wiki/Substitution_cipher (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-coding-decoding.json","","","","","",""
+"b4-think-direction-sense","Direction Sense Puzzles","Thinkers (12–14)","Thinking Skills","b4-think-8: Solves direction sense puzzles, including straight-line distance","","10","draft","[text] Direction puzzles say how someone walks and ask where they end up. The four main directions are North, East, South and West. Facing North, your right hand points East.
+
+[text] Turns: a right turn goes North → East → South → West → North. A left turn goes the other way round. Two turns in the same direction make a half turn, so you face the opposite way.
+
+[text] Always draw a quick map. Put a dot for the start, then add each walk as an arrow. Moving East then West along the same line cancels out. Walk 5 m East, 2 m South, then 5 m West: you end 2 m South of where you began.
+
+[text] To find the straight-line distance, use Pythagoras when the paths make a right angle. Walk 5 km West and 12 km North: the distance is the square root of 5² + 12² = 25 + 144 = 169, which is 13 km.
+
+[tryit] Draw a map of a walk from your door: 4 steps forward, turn right, 3 steps, turn right, 4 steps. Where are you compared with the start?
+
+[parent] Use a real compass or a playground to act the puzzles out. Walking the route is the best way to see why a quick sketch helps.","Wikipedia: Cardinal direction — https://en.wikipedia.org/wiki/Cardinal_direction (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Pythagorean theorem — https://en.wikipedia.org/wiki/Pythagorean_theorem (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-direction-sense.json","","","","","",""
+"b4-think-family-relations","Family Relation Puzzles","Thinkers (12–14)","Thinking Skills","b4-think-7: Solves family relation puzzles by drawing a family tree","","10","draft","[text] Family relation puzzles give you clues about who is related to whom. The skill is to build a small family tree and read the answer off it.
+
+[text] Useful words: your parent's brother or sister is your uncle or aunt. Their children are your cousins. Your parent's parent is your grandparent. Your sibling's child is your niece or nephew.
+
+[text] Method: draw one person at a time. Put parents above and children below. Join brothers and sisters side by side. Take the clues one by one, in order.
+
+[text] Example: 'Kofi's mother is Ama. Ama's sister is Esi.' Esi is Kofi's aunt (his mother's sister).
+
+[text] Names alone do not tell you whether someone is a boy or a girl, so a puzzle must say it, or you must not guess.
+
+[tryit] Draw your own family tree for three generations. Write one puzzle sentence about it and ask someone to solve it.
+
+[parent] Families differ around the world and many children live with step-relatives, carers or foster families. These puzzles are about words for relatives, not about what makes a family. Adapt the examples to your own family if that helps.","Wikipedia: Kinship — https://en.wikipedia.org/wiki/Kinship (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Family tree — https://en.wikipedia.org/wiki/Family_tree (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-family-relations.json","","","","","",""
 "b4-think-logical-fallacies","Spotting Bad Arguments","Thinkers (12–14)","Thinking Skills","b4-think-1: Identifies common logical fallacies (straw man, false choice, bandwagon)
 b4-think-2: Builds an argument: claim, evidence, reasoning","","20","draft","[text] A fallacy is a mistake in reasoning. It can make an argument sound convincing when it isn't. Spotting them protects you from being manipulated by ads, social media and even friends.
 
@@ -1358,6 +1473,18 @@ b4-think-2: Builds an argument: claim, evidence, reasoning","","20","draft","[te
 Wikipedia: Straw man — https://en.wikipedia.org/wiki/Straw_man (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: False dilemma — https://en.wikipedia.org/wiki/False_dilemma (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Argumentum ad populum — https://en.wikipedia.org/wiki/Argumentum_ad_populum (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-logical-fallacies.json","","","","","",""
+"b4-think-number-series","Number Series: Find the Rule","Thinkers (12–14)","Thinking Skills","b4-think-5: Finds the rule in number series (differences, multiples, squares, sums of the two before)","","10","draft","[text] In a number series, each number follows a rule. Start by checking the difference between neighbours. If it is always the same, the rule is add or subtract that number.
+
+[text] If the differences change, try multiplying. In 3, 6, 12, 24 each number is double the one before, so the next is 48. In 2, 6, 18, 54 each number is 3 times the one before.
+
+[text] Look for special numbers. 1, 4, 9, 16, 25 are the square numbers (1×1, 2×2, 3×3 ...). 1, 8, 27, 64, 125 are the cubes (1×1×1, 2×2×2 ...).
+
+[text] Some series add the two numbers before. In 2, 3, 5, 8 each number is the sum of the two before it (2 + 3 = 5, 3 + 5 = 8), so the next is 13. This is the Fibonacci pattern, found in many places in nature.
+
+[tryit] Write a series of six numbers using a rule you make up. Swap with a friend and find each other's rule.
+
+[parent] When stuck, try this order: differences, multiplying, squares and cubes, adding the two before. Ask your child to say the rule in words, not just the next number.","Wikipedia: Sequence — https://en.wikipedia.org/wiki/Sequence (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Fibonacci sequence — https://en.wikipedia.org/wiki/Fibonacci_sequence (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-number-series.json","","","","","",""
 "b4-think-viewpoints-estimation","Other Viewpoints and Smart Estimates","Thinkers (12–14)","Thinking Skills","b4-think-3: Considers other viewpoints before deciding
 b4-think-4: Uses estimation and 'back of the envelope' reasoning","","20","draft","[text] Before deciding, try 'steelmanning': state the other side's argument in its strongest form. If you can't, you may not understand it yet.
 

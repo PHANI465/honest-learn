@@ -1,0 +1,102 @@
+{
+  "id": "b4-math-doomsday-weekday",
+  "title": "Name the Weekday of Any Date (Doomsday Method)",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-11"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Doomsday rule",
+      "url": "https://en.wikipedia.org/wiki/Doomsday_rule",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: John Horton Conway",
+      "url": "https://en.wikipedia.org/wiki/John_Horton_Conway",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The mathematician John Conway invented a way to find the weekday of any date in your head. It uses the 'doomsday' of a year: a weekday that many easy-to-remember dates share. This lesson covers the years 2000 to 2099."
+    },
+    {
+      "type": "text",
+      "body": "The doomsday dates in any year all fall on the same weekday: 4 April, 6 June, 8 August, 10 October and 12 December (4/4, 6/6, 8/8, 10/10, 12/12); and 9 May and 5 September, 11 July and 7 November (the pairs 9-5 and 7-11); and 14 March (Pi day, 3/14). In February, use the last day: 28 February, or 29 in a leap year. In January use 3 January, or 4 January in a leap year."
+    },
+    {
+      "type": "text",
+      "body": "How to find the doomsday of a year from 2000 to 2099. Take the last two digits, y. Step 1: divide y by 12 and write the whole number part, a. Step 2: write the remainder, b. Step 3: divide b by 4 and write the whole number part, c. Add a + b + c. Count that many days on from Tuesday (the doomsday of 2000). Dropping whole weeks of 7 first makes this easier."
+    },
+    {
+      "type": "text",
+      "body": "Example, 2023. y = 23. 23 ÷ 12 = 1 remainder 11, so a = 1 and b = 11. 11 ÷ 4 = 2 (whole part), so c = 2. a + b + c = 14, which is 2 whole weeks, leaving 0. So the doomsday of 2023 is Tuesday. Check: 4 April 2023 was a Tuesday."
+    },
+    {
+      "type": "text",
+      "body": "Example, 2024. y = 24. a = 2, b = 0, c = 0. Total 2. Two days on from Tuesday is Thursday. Doomsday 2024 is Thursday. So 8 August 2024 was a Thursday. To find 12 August 2024, count 4 days on from Thursday: Friday, Saturday, Sunday, Monday. It was a Monday."
+    },
+    {
+      "type": "tryit",
+      "body": "Find the doomsday of the current year. Then name the weekday of your birthday this year. Check with a calendar."
+    },
+    {
+      "type": "parent",
+      "body": "Every worked example here was checked with a computer for all years 2000 to 2099. The method needs practice, so start by remembering the pairs 4/4, 6/6, 8/8, 10/10, 12/12, then add the rest slowly. A later lesson extends the method to other centuries."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which date always falls on the same weekday as 6 June in the same year?",
+      "options": [
+        "8 August",
+        "7 July",
+        "9 September"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of the doomsday dates: pairs of matching numbers.",
+        "6/6 is one. Which date here is also a matching pair, like 4/4 or 10/10?",
+        "Example: 4 April and 10 October share a weekday in every year, as do 12 December. Which one here is a matching pair?"
+      ],
+      "explain": "8/8 is a doomsday date, so 8 August has the same weekday as 6 June."
+    },
+    {
+      "q": "The doomsday of 2024 is Thursday. What weekday was 8 August 2024?",
+      "options": [
+        "Thursday",
+        "Friday",
+        "Wednesday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is 8 August a doomsday date?",
+        "Yes, 8/8 is one. Doomsday dates share the weekday of the doomsday.",
+        "Example: 2023's doomsday is Tuesday, so 4 April 2023 was a Tuesday, because 4/4 is a doomsday date. Use the same idea for 8/8."
+      ],
+      "explain": "8/8 is a doomsday date, so it falls on the doomsday weekday, Thursday."
+    },
+    {
+      "q": "The doomsday of 2024 is Thursday. What weekday was 12 August 2024?",
+      "options": [
+        "Monday",
+        "Sunday",
+        "Saturday"
+      ],
+      "answer": 0,
+      "hints": [
+        "Start from the nearest doomsday date in the same month.",
+        "8 August is a doomsday date, so it was a Thursday. Count on 4 days to reach 12 August.",
+        "Example: 2023's doomsday is Tuesday. 6 June is a doomsday date, so 10 June is 4 days on: a Saturday. Count on from 8 August in the same way."
+      ],
+      "explain": "8 August 2024 was a Thursday. 4 days on: Friday, Saturday, Sunday, Monday."
+    }
+  ]
+}

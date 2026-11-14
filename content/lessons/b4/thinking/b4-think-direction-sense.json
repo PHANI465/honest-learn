@@ -1,0 +1,98 @@
+{
+  "id": "b4-think-direction-sense",
+  "title": "Direction Sense Puzzles",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-8"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Cardinal direction",
+      "url": "https://en.wikipedia.org/wiki/Cardinal_direction",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Pythagorean theorem",
+      "url": "https://en.wikipedia.org/wiki/Pythagorean_theorem",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Direction puzzles say how someone walks and ask where they end up. The four main directions are North, East, South and West. Facing North, your right hand points East."
+    },
+    {
+      "type": "text",
+      "body": "Turns: a right turn goes North → East → South → West → North. A left turn goes the other way round. Two turns in the same direction make a half turn, so you face the opposite way."
+    },
+    {
+      "type": "text",
+      "body": "Always draw a quick map. Put a dot for the start, then add each walk as an arrow. Moving East then West along the same line cancels out. Walk 5 m East, 2 m South, then 5 m West: you end 2 m South of where you began."
+    },
+    {
+      "type": "text",
+      "body": "To find the straight-line distance, use Pythagoras when the paths make a right angle. Walk 5 km West and 12 km North: the distance is the square root of 5² + 12² = 25 + 144 = 169, which is 13 km."
+    },
+    {
+      "type": "tryit",
+      "body": "Draw a map of a walk from your door: 4 steps forward, turn right, 3 steps, turn right, 4 steps. Where are you compared with the start?"
+    },
+    {
+      "type": "parent",
+      "body": "Use a real compass or a playground to act the puzzles out. Walking the route is the best way to see why a quick sketch helps."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Sam walks 4 km North and then 3 km East. How far is he from where he started, in a straight line?",
+      "options": [
+        "5 km",
+        "7 km",
+        "12 km"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw the two walks. They meet at a right angle.",
+        "Use Pythagoras: the square root of (4² + 3²).",
+        "Example: 6 km West and 8 km North → 36 + 64 = 100, whose square root is 10. Use 4 and 3."
+      ],
+      "explain": "4² + 3² = 16 + 9 = 25. The square root of 25 is 5 km."
+    },
+    {
+      "q": "Priya faces North. She turns right, then right again. Which way does she face now?",
+      "options": [
+        "South",
+        "North",
+        "East"
+      ],
+      "answer": 0,
+      "hints": [
+        "Turn one step at a time: right of North is?",
+        "North → East after the first right turn. Turn right once more.",
+        "Example: facing East and turning left once → you face North. Take the two turns one at a time."
+      ],
+      "explain": "North → East → South. Two right turns make a half turn."
+    },
+    {
+      "q": "Ben walks 10 m East, then 6 m North, then 10 m West. Where is he compared with the start?",
+      "options": [
+        "6 m North",
+        "6 m East",
+        "26 m North"
+      ],
+      "answer": 0,
+      "hints": [
+        "East and West on the same line cancel each other.",
+        "10 m East then 10 m West gets you back to the same east-west spot. What is left?",
+        "Example: 5 m East, 2 m South, 5 m West leaves you 2 m South. Use the same cancelling idea."
+      ],
+      "explain": "10 m East and 10 m West cancel out. Only the 6 m North is left."
+    }
+  ]
+}

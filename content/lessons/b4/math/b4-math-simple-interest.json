@@ -1,0 +1,102 @@
+{
+  "id": "b4-math-simple-interest",
+  "title": "Simple Interest",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-10"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Interest",
+      "url": "https://en.wikipedia.org/wiki/Interest",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Interest is money paid for the use of money. If you save money in a bank, the bank pays you interest. If you borrow, you pay interest. Simple interest is worked out only on the starting amount, called the principal."
+    },
+    {
+      "type": "text",
+      "body": "The formula is: interest = principal × rate × time ÷ 100, with the rate as a percent per year and the time in years. For 200 at 5% for 2 years: 200 × 5 × 2 ÷ 100 = 20."
+    },
+    {
+      "type": "text",
+      "body": "The total amount is the principal plus the interest. For 300 at 10% for 1 year, the interest is 30, so the total is 330."
+    },
+    {
+      "type": "text",
+      "body": "You can also work backwards. If the interest on 200 at 5% was 40, then 40 = 200 × 5 × time ÷ 100. So time = 40 × 100 ÷ (200 × 5) = 4 years."
+    },
+    {
+      "type": "text",
+      "body": "The rates in these examples are made up to practise the maths. Real rates differ by country and change over time, and real accounts often use compound interest, which is a later topic."
+    },
+    {
+      "type": "tryit",
+      "body": "Work out the simple interest on 100 at 6% for 5 years. How much is the total at the end?"
+    },
+    {
+      "type": "parent",
+      "body": "These are practice numbers, not financial advice. Talk about why people pay interest and why comparing rates matters. Check the rates and rules for your own country before using any real account."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the simple interest on 500 at 4% a year for 3 years?",
+      "options": [
+        "60",
+        "20",
+        "600"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use interest = principal × rate × time ÷ 100.",
+        "Multiply 500 × 4 × 3, then divide by 100.",
+        "Example: 200 at 5% for 2 years → 200 × 5 × 2 ÷ 100 = 20. Use the same formula with 500, 4 and 3."
+      ],
+      "explain": "500 × 4 × 3 ÷ 100 = 60."
+    },
+    {
+      "q": "Mia puts 800 in a savings account at 5% simple interest for 2 years. How much is in the account at the end?",
+      "options": [
+        "880",
+        "80",
+        "840"
+      ],
+      "answer": 0,
+      "hints": [
+        "First find the interest. Then add it to the starting amount.",
+        "Interest = 800 × 5 × 2 ÷ 100. Then add 800.",
+        "Example: 300 at 10% for 1 year → interest 30, total 300 + 30 = 330. Use the same steps with 800."
+      ],
+      "explain": "Interest = 800 × 5 × 2 ÷ 100 = 80. Total = 800 + 80 = 880."
+    },
+    {
+      "q": "The simple interest on 600 at 5% a year was 90. For how many years was it saved?",
+      "options": [
+        "3",
+        "5",
+        "18"
+      ],
+      "answer": 0,
+      "hints": [
+        "Put the numbers into the formula and look for the time.",
+        "90 = 600 × 5 × time ÷ 100. What is 600 × 5 ÷ 100?",
+        "Example: interest 40 on 200 at 5% → each year earns 10, so 40 ÷ 10 = 4 years. Work out how much 600 at 5% earns in one year, then divide 90 by it."
+      ],
+      "explain": "One year earns 600 × 5 ÷ 100 = 30. 90 ÷ 30 = 3 years."
+    }
+  ]
+}

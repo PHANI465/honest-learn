@@ -270,7 +270,13 @@
       { "id": "b4-math-2", "text": "Writes and solves linear equations; understands variables" },
       { "id": "b4-math-3", "text": "Plots points and straight-line graphs on coordinate axes" },
       { "id": "b4-math-4", "text": "Area/volume of shapes; Pythagoras' theorem" },
-      { "id": "b4-math-5", "text": "Probability and statistics: mean, median, mode, range; misleading graphs" }
+      { "id": "b4-math-5", "text": "Probability and statistics: mean, median, mode, range; misleading graphs" },
+      { "id": "b4-math-6", "text": "Finds percentages by the 10% method, decimals and fractions; works out sale prices" },
+      { "id": "b4-math-7", "text": "Shares an amount in a ratio and solves proportion problems with the unitary method" },
+      { "id": "b4-math-8", "text": "Solves speed, distance and time problems with matching units" },
+      { "id": "b4-math-9", "text": "Finds a missing value from a mean by working with the total" },
+      { "id": "b4-math-10", "text": "Calculates simple interest and the total amount" },
+      { "id": "b4-math-11", "text": "Names the weekday of any date this century with the Doomsday method" }
     ], "sampleQuiz": { "q": "Solve: 3x + 4 = 19", "options": ["x = 5", "x = 7", "x = 15"], "answer": 0, "hint": "First undo the +4 on both sides." } },
 
     { "band": "b4", "subject": "science", "outcomes": [
@@ -316,7 +322,11 @@
       { "id": "b4-think-1", "text": "Identifies common logical fallacies (straw man, false choice, bandwagon)" },
       { "id": "b4-think-2", "text": "Builds an argument: claim, evidence, reasoning" },
       { "id": "b4-think-3", "text": "Considers other viewpoints before deciding" },
-      { "id": "b4-think-4", "text": "Uses estimation and 'back of the envelope' reasoning" }
+      { "id": "b4-think-4", "text": "Uses estimation and 'back of the envelope' reasoning" },
+      { "id": "b4-think-5", "text": "Finds the rule in number series (differences, multiples, squares, sums of the two before)" },
+      { "id": "b4-think-6", "text": "Solves coding and decoding puzzles" },
+      { "id": "b4-think-7", "text": "Solves family relation puzzles by drawing a family tree" },
+      { "id": "b4-think-8", "text": "Solves direction sense puzzles, including straight-line distance" }
     ], "sampleQuiz": { "q": "'Everyone is buying this phone, so it must be the best.' This is…", "options": ["Bandwagon fallacy", "A strong argument", "A fact"], "answer": 0, "hint": "Does popularity prove quality?" } },
 
     { "band": "b4", "subject": "arts", "outcomes": [

@@ -1,0 +1,99 @@
+{
+  "id": "b4-math-ratio-proportion",
+  "title": "Sharing in a Ratio and Proportion",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-7"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Ratio",
+      "url": "https://en.wikipedia.org/wiki/Ratio",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Proportionality (mathematics)",
+      "url": "https://en.wikipedia.org/wiki/Proportionality_(mathematics)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "To share an amount in a ratio, follow three steps. Say 36 is shared in the ratio 1 : 2. Step 1: add the parts, 1 + 2 = 3. Step 2: find one part, 36 ÷ 3 = 12. Step 3: multiply, so the shares are 12 and 24. Check: 12 + 24 = 36."
+    },
+    {
+      "type": "text",
+      "body": "Proportion means two amounts change together at the same rate. If 4 books cost 20, then 1 book costs 20 ÷ 4 = 5. So 7 books cost 7 × 5 = 35. Finding the cost of one first is called the unitary method."
+    },
+    {
+      "type": "text",
+      "body": "A map scale is a ratio. If 1 cm on a map stands for 2 km, then 6 cm stands for 6 × 2 = 12 km."
+    },
+    {
+      "type": "tryit",
+      "body": "Share 45 sweets between two friends in the ratio 4 : 5. Check that the two shares add back to 45."
+    },
+    {
+      "type": "parent",
+      "body": "Ratio problems are everywhere: cooking, mixing paint, maps. Ask your child to say what one 'part' is before multiplying. Checking that the shares add up to the total catches most mistakes."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "40 stickers are shared between Jo and Sam in the ratio 3 : 5. How many does Jo get?",
+      "options": [
+        "15",
+        "25",
+        "24"
+      ],
+      "answer": 0,
+      "hints": [
+        "Add the parts of the ratio first.",
+        "3 + 5 = 8 parts. Divide the total by the number of parts to find one part.",
+        "Example: 36 shared in 1 : 2 → 3 parts, one part is 12, so the shares are 12 and 24. Now use 3 : 5 with 40."
+      ],
+      "explain": "8 parts, so one part is 40 ÷ 8 = 5. Jo has 3 parts: 3 × 5 = 15 (Sam gets 25)."
+    },
+    {
+      "q": "5 pens cost 30. How much do 8 pens cost?",
+      "options": [
+        "48",
+        "40",
+        "6"
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the cost of one pen first.",
+        "30 ÷ 5 gives the cost of 1 pen. Then multiply by 8.",
+        "Example: 4 books cost 20, so 1 book costs 5 and 7 books cost 35. Use the same steps with pens."
+      ],
+      "explain": "1 pen costs 30 ÷ 5 = 6. So 8 pens cost 8 × 6 = 48."
+    },
+    {
+      "q": "On a map, 1 cm stands for 5 km. A road is 7 cm long on the map. How long is it really?",
+      "options": [
+        "35 km",
+        "12 km",
+        "7 km"
+      ],
+      "answer": 0,
+      "hints": [
+        "Each centimetre on the map is the same real distance.",
+        "Multiply the map length by the scale.",
+        "Example: if 1 cm stands for 2 km, a 6 cm road is 6 × 2 = 12 km. Use the same idea with 5 km."
+      ],
+      "explain": "7 cm × 5 km = 35 km."
+    }
+  ]
+}

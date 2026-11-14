@@ -1,0 +1,102 @@
+{
+  "id": "b4-think-family-relations",
+  "title": "Family Relation Puzzles",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-7"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Kinship",
+      "url": "https://en.wikipedia.org/wiki/Kinship",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Family tree",
+      "url": "https://en.wikipedia.org/wiki/Family_tree",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Family relation puzzles give you clues about who is related to whom. The skill is to build a small family tree and read the answer off it."
+    },
+    {
+      "type": "text",
+      "body": "Useful words: your parent's brother or sister is your uncle or aunt. Their children are your cousins. Your parent's parent is your grandparent. Your sibling's child is your niece or nephew."
+    },
+    {
+      "type": "text",
+      "body": "Method: draw one person at a time. Put parents above and children below. Join brothers and sisters side by side. Take the clues one by one, in order."
+    },
+    {
+      "type": "text",
+      "body": "Example: 'Kofi's mother is Ama. Ama's sister is Esi.' Esi is Kofi's aunt (his mother's sister)."
+    },
+    {
+      "type": "text",
+      "body": "Names alone do not tell you whether someone is a boy or a girl, so a puzzle must say it, or you must not guess."
+    },
+    {
+      "type": "tryit",
+      "body": "Draw your own family tree for three generations. Write one puzzle sentence about it and ask someone to solve it."
+    },
+    {
+      "type": "parent",
+      "body": "Families differ around the world and many children live with step-relatives, carers or foster families. These puzzles are about words for relatives, not about what makes a family. Adapt the examples to your own family if that helps."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Asha's mother has a brother, Dev. Dev has a son, Kiran. How is Kiran related to Asha?",
+      "options": [
+        "Cousin",
+        "Brother",
+        "Uncle"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw Asha's mother and her brother side by side.",
+        "Dev is the brother of Asha's mother. His child is in the same generation as Asha.",
+        "Example: Kofi's mother is Ama, and Ama's sister is Esi. Esi is Kofi's aunt. Now find Kiran's place."
+      ],
+      "explain": "Kiran is the child of Asha's mother's brother. The children of two siblings are cousins."
+    },
+    {
+      "q": "Mina is the sister of Raj. Raj is the father of Tara. How is Mina related to Tara?",
+      "options": [
+        "Aunt",
+        "Mother",
+        "Cousin"
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw Raj and Mina as brother and sister.",
+        "Tara is Raj's child. Mina is the sister of Tara's father.",
+        "Example: Ali's father is Omar, and Omar's brother is Sam. Sam is Ali's uncle. Find the matching word for Mina and Tara."
+      ],
+      "explain": "Mina is the sister of Tara's father, so she is Tara's aunt."
+    },
+    {
+      "q": "Lena's father is Omar. Omar's mother is Hana. How is Hana related to Lena?",
+      "options": [
+        "Grandmother",
+        "Great-grandmother",
+        "Mother"
+      ],
+      "answer": 0,
+      "hints": [
+        "Go up one generation at a time from Lena.",
+        "Lena's father is one step up. His mother is one more step up.",
+        "Example: Ben's mother is Cara and Cara's father is Dan. Two steps up through his mother gives Ben's grandfather. Do the same for Lena."
+      ],
+      "explain": "Hana is the mother of Lena's father. That makes her Lena's grandmother."
+    }
+  ]
+}

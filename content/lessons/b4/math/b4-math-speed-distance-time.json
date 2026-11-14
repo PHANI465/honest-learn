@@ -1,0 +1,102 @@
+{
+  "id": "b4-math-speed-distance-time",
+  "title": "Speed, Distance and Time",
+  "band": "b4",
+  "subject": "math",
+  "outcomes": [
+    "b4-math-8"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Speed",
+      "url": "https://en.wikipedia.org/wiki/Speed",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "OpenStax Prealgebra 2e",
+      "url": "https://openstax.org/details/books/prealgebra-2e",
+      "license": "CC BY 4.0 (reference)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Speed tells how far something goes in one unit of time. A car at 40 km/h goes 40 km in one hour. The three connected facts are: distance = speed × time; speed = distance ÷ time; time = distance ÷ speed."
+    },
+    {
+      "type": "text",
+      "body": "Example: 40 km/h for 3 hours. Distance = 40 × 3 = 120 km."
+    },
+    {
+      "type": "text",
+      "body": "Example: a bus goes 100 km in 4 hours. Speed = 100 ÷ 4 = 25 km/h."
+    },
+    {
+      "type": "text",
+      "body": "Example: a trip of 200 km at 40 km/h takes 200 ÷ 40 = 5 hours."
+    },
+    {
+      "type": "text",
+      "body": "Units must match. If the speed is in km/h, time must be in hours and distance in km. To change km/h into metres per second, multiply by 1,000 and divide by 3,600. So 36 km/h is 36,000 ÷ 3,600 = 10 m/s."
+    },
+    {
+      "type": "tryit",
+      "body": "Time how long you take to walk 20 steps. Work out your steps per second. How many steps would you take in a minute?"
+    },
+    {
+      "type": "parent",
+      "body": "Cover the one you want in the 'speed-distance-time triangle' to see the formula. Ask your child to say the units out loud: km, hours, km per hour. Mixing minutes with hours is the most common mistake."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A train travels at 60 km/h for 2.5 hours. How far does it go?",
+      "options": [
+        "150 km",
+        "120 km",
+        "62.5 km"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use distance = speed × time.",
+        "Multiply 60 by 2.5. Try 60 × 2 first, then add half of 60.",
+        "Example: 40 km/h for 3 hours → 40 × 3 = 120 km. Use the same formula with 60 and 2.5."
+      ],
+      "explain": "60 × 2.5 = 150 km."
+    },
+    {
+      "q": "A cyclist rides 180 km in 3 hours. What is the average speed?",
+      "options": [
+        "60 km/h",
+        "540 km/h",
+        "30 km/h"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use speed = distance ÷ time.",
+        "Divide the distance by the hours.",
+        "Example: 100 km in 4 hours → 100 ÷ 4 = 25 km/h. Divide 180 by 3 the same way."
+      ],
+      "explain": "180 ÷ 3 = 60 km/h."
+    },
+    {
+      "q": "A bus travels 150 km at 50 km/h. How long does it take?",
+      "options": [
+        "3 hours",
+        "7,500 hours",
+        "100 hours"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use time = distance ÷ speed.",
+        "How many lots of 50 fit into 150?",
+        "Example: 200 km at 40 km/h takes 200 ÷ 40 = 5 hours. Divide 150 by 50 the same way."
+      ],
+      "explain": "150 ÷ 50 = 3 hours."
+    }
+  ]
+}
