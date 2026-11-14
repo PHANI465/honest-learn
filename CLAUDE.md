@@ -4,7 +4,7 @@ Free, ad-free learning app for ages 3–18 (iOS, Android, web) with a parent-con
 
 ## Layout
 - `server/`: Hono API on Node 22 (TypeScript via tsx). `src/app.ts` wires shared protections and mounts `src/routes/*` (public, auth, learn, puzzles, usage, tutor, parent); shared helpers in `src/context.ts`, shapes and input rules in `src/models.ts`. SQLite locally; Postgres (Neon) when `DATABASE_URL`/`POSTGRES_URL` is set; in-memory demo DB on Vercel without one.
-- `app/`: Expo SDK 58 + expo-router (routes in `app/src/app`). Web export in `app/dist`.
+- `app/`: Expo SDK 58 + expo-router (routes in `app/src/app`). Web export in `app/dist`. The website landing page is `welcome.web.tsx` (+ `src/landing/`); the native app uses `welcome.tsx`. Landing copy may only use facts from the app's content or docs.
 - `content/`: the curriculum as JSON: `knowledge-map.json` (5 age bands × 11 subjects, 220 outcomes), `lessons/<band>/<subject>/*.json`, `puzzles/<band>.json`, `resources.json`, `helplines.json`, `hoot-redteam.json`.
 - `docs/`: `guide/` (what's built, where it lives, how it works, navigation, scaling), `SECURITY.md`, reviewer guide, approval list, launch checklist, deployment, legal drafts, research.
 - `scripts/`: generators and checkers (see below).

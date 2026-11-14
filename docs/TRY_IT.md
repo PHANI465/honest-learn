@@ -26,7 +26,11 @@ It prints the sign-in details and adds five children, one per age group (Mini 4,
 
 Open http://localhost:3000, choose **Sign in**, and use the email and password it printed. The parent PIN is in the same output.
 
-## 3. What to click, and what you should see
+## 3. See the landing page
+
+Open http://localhost:3000 while signed out (it opens `/welcome`). The page is `app/src/app/welcome.web.tsx`, styled by `app/src/landing/styles.ts`, built to the rules in the "landing-page-design" skill (https://github.com/elayadesign/ai-design-skills). Phones and tablets in the native app keep the shorter `welcome.tsx`. Try it in light and dark mode, at phone width, and with the keyboard (Tab shows focus rings; the first Tab stop is "Skip to content"). Every number on the page comes from the app's content; there are no testimonials because the app has not launched.
+
+## 4. What to click, and what you should see
 
 | Try this | You should see |
 |---|---|
@@ -41,7 +45,7 @@ Open http://localhost:3000, choose **Sign in**, and use the email and password i
 
 Notes: the cleanup job (`/api/cron/retention`) exists only on Vercel; the local server cleans old data when it starts. On Windows use **PowerShell** for the Postgres test run: `$env:TEST_DB="pglite"; npx tsx --test test/api.test.ts` (run test files one at a time, running them all together can run out of memory).
 
-## 4. Run the automatic checks
+## 5. Run the automatic checks
 
 ```bash
 cd server
@@ -55,7 +59,7 @@ cd ..
 node scripts/check-doc-counts.mjs   # docs agree with the content counts
 ```
 
-## 5. Try Hoot with the real AI (optional)
+## 6. Try Hoot with the real AI (optional)
 
 ```bash
 cd server
@@ -64,6 +68,6 @@ ANTHROPIC_API_KEY=your-key npm run dev
 
 Then run `npm run redteam` and read every reply (see `docs/HOOT_SAFETY_TESTS.md`). This is the step the review list says must happen before launch.
 
-## 6. Start fresh
+## 7. Start fresh
 
 Stop the server and delete `server/data/` (the local database). Run step 1 and 2 again.
