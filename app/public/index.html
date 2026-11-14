@@ -21,6 +21,16 @@
     <meta name="apple-mobile-web-app-title" content="Honest Learn" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <!-- One typeface for the whole website: Manrope, served from this site (no outside font requests). -->
+    <style id="hl-font">
+      @font-face { font-family: "Manrope"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/manrope-400.woff2") format("woff2"); }
+      @font-face { font-family: "Manrope"; font-weight: 500; font-style: normal; font-display: swap; src: url("/fonts/manrope-500.woff2") format("woff2"); }
+      @font-face { font-family: "Manrope"; font-weight: 600 800; font-style: normal; font-display: swap; src: url("/fonts/manrope-600.woff2") format("woff2"); }
+      #root, #root * { font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji"; }
+      /* keyboard users always see where they are */
+      #root [role="button"]:focus-visible, #root [role="switch"]:focus-visible, #root [role="link"]:focus-visible, #root a:focus-visible { outline: 2px solid #1F2430; outline-offset: 2px; }
+      #root input:focus-visible, #root textarea:focus-visible { outline: 2px solid #2F6B4F; outline-offset: 1px; }
+    </style>
     <style id="expo-reset">
       /* These styles make the body full-height */
       html,

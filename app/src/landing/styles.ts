@@ -1,11 +1,9 @@
 // Styles for the website landing page (welcome.web.tsx), written to the "landing-page-design" rules:
 // spacing only from the token table, Tailwind type and radius steps, one typeface (Manrope, weights 400 to 600),
 // flat backgrounds, one gradient (hero heading text), the shared easing curve, transform and opacity motion only.
+// The Manrope @font-face rules live in app/public/index.html (shared with the rest of the web app).
 // The CSS is injected in a <style> tag; the Content-Security-Policy allows inline styles (style-src 'unsafe-inline').
 export const LANDING_CSS = `
-@font-face { font-family: "Manrope"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/manrope-400.woff2") format("woff2"); }
-@font-face { font-family: "Manrope"; font-weight: 500; font-style: normal; font-display: swap; src: url("/fonts/manrope-500.woff2") format("woff2"); }
-@font-face { font-family: "Manrope"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/manrope-600.woff2") format("woff2"); }
 
 .hl {
   /* spacing tokens */

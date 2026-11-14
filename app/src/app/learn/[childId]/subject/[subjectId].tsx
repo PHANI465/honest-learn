@@ -1,3 +1,4 @@
+import { stagger } from "../../../../lib/motion";
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
 import { Text, View } from "react-native";
@@ -64,11 +65,11 @@ export default function SubjectLessons() {
           </View>
         );
       })() : null}
-      {data?.lessons.map((l) => {
+      {data?.lessons.map((l, index) => {
         const done = !!l.progress;
         const perfect = done && l.progress!.best_score === l.progress!.total;
         return (
-          <Card key={l.id} onPress={() => router.push(`/learn/${childId}/lesson/${l.id}`)} label={`${l.title}, ${l.minutes} minutes${done ? ", done" : ""}`} style={{ borderRadius: t.radius, borderLeftWidth: 6, borderLeftColor: done ? colors.good : t.accent }}>
+          <Card key={l.id} enterDelay={stagger(index)} onPress={() => router.push(`/learn/${childId}/lesson/${l.id}`)} label={`${l.title}, ${l.minutes} minutes${done ? ", done" : ""}`} style={{ borderRadius: t.radius, borderLeftWidth: 6, borderLeftColor: done ? colors.good : t.accent }}>
             <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
               <Emoji size={26}>{perfect ? "⭐" : done ? "✅" : "▶️"}</Emoji>
               <View style={{ flex: 1, gap: 4 }}>

@@ -1,3 +1,4 @@
+import { stagger } from "../../../lib/motion";
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useMemo, useState } from "react";
 import { Pressable, Text, TextInput, View, useWindowDimensions } from "react-native";
@@ -187,13 +188,14 @@ export default function ChildHome() {
 
       <H2>{young ? "What do you want to learn? 🌟" : "Subjects"}</H2>
       <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
-        {home.subjects.map((s) => {
+        {home.subjects.map((s, index) => {
           const empty = s.lessonCount === 0;
           const pct = s.lessonCount ? s.completed / s.lessonCount : 0;
           const doneAll = !empty && s.completed === s.lessonCount;
           return (
             <Card
               key={s.id}
+              enterDelay={empty ? undefined : stagger(index)}
               onPress={empty ? undefined : () => router.push(`/learn/${childId}/subject/${s.id}`)}
               label={empty ? undefined : `${s.name}, ${s.completed} of ${s.lessonCount} lessons done`}
               style={{ width: `${100 / cols - 3}%`, flexGrow: 1, minWidth: 140, borderRadius: t.radius, opacity: empty ? 0.55 : 1, borderColor: empty ? colors.line : t.accent, borderWidth: empty ? 1 : 2 }}

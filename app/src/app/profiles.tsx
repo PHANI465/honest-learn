@@ -1,3 +1,4 @@
+import { stagger } from "../lib/motion";
 import { Redirect, router } from "expo-router";
 import { Text, View } from "react-native";
 import { DemoBanner } from "../components/DemoBanner";
@@ -18,11 +19,11 @@ export default function Profiles() {
         <H1>Who's learning today?</H1>
       </View>
       <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 14, justifyContent: "center" }}>
-        {children.map((c) => {
+        {children.map((c, index) => {
           const t = bandTheme[c.band];
           const band = map?.bands.find((b) => b.id === c.band);
           return (
-            <Card key={c.id} onPress={() => router.push(`/learn/${c.id}`)} label={`Learn as ${c.nickname}`} style={{ width: 150, alignItems: "center", backgroundColor: t.soft, borderColor: t.accent, borderWidth: 2 }}>
+            <Card key={c.id} enterDelay={stagger(index)} onPress={() => router.push(`/learn/${c.id}`)} label={`Learn as ${c.nickname}`} style={{ width: 150, alignItems: "center", backgroundColor: t.soft, borderColor: t.accent, borderWidth: 2 }}>
               <Text style={{ fontSize: 56 }}>{avatars[c.avatar] ?? "🦉"}</Text>
               <Text style={{ fontSize: 20, fontWeight: "800", color: colors.ink }}>{c.nickname}</Text>
               <Text style={{ fontSize: 13, color: t.accent, fontWeight: "700" }}>{band?.name ?? ""}</Text>

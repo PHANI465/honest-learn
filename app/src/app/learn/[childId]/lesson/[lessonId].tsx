@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { useExternalLink } from "../../../../components/ExternalLink";
 import { OfflineBanner } from "../../../../components/OfflineBanner";
+import { QuizOption } from "../../../../components/QuizRunner";
 import { VideoEmbed } from "../../../../components/VideoEmbed";
 import { ReportSheet } from "../../../../components/ReportSheet";
 import { Banner, Button, Card, Emoji, H1, Loading, P, Pill, ProgressBar, Screen } from "../../../../components/ui";
@@ -328,23 +329,19 @@ export default function LessonScreen() {
           const isWrong = isPicked && st.correct === false;
           const isSaved = isPicked && st.unchecked;
           return (
-            <Pressable
-              key={i}
+            <QuizOption
+              key={`${qi}-${i}`}
+              text={opt}
+              right={!!isRight}
+              wrong={isWrong}
+              picked={isPicked}
+              locked={answered}
+              big={young}
+              fontSize={young ? 24 : t.font}
+              radius={t.radius}
+              saved={isSaved ? { accent: t.accent, soft: t.soft } : null}
               onPress={() => choose(i)}
-              disabled={answered}
-              accessibilityRole="button"
-              accessibilityLabel={isRight ? `${opt}, correct` : isWrong ? `${opt}, not quite` : isSaved ? `${opt}, chosen, not checked yet` : opt}
-              accessibilityState={{ disabled: answered, selected: isPicked }}
-              style={({ pressed }) => [
-                { padding: young ? 20 : 16, minHeight: 56, justifyContent: "center", borderRadius: t.radius, borderWidth: 2, backgroundColor: colors.card, borderColor: colors.line },
-                isSaved && { borderColor: t.accent, backgroundColor: t.soft },
-                isRight && { borderColor: colors.good, backgroundColor: colors.goodSoft },
-                isWrong && { borderColor: colors.warn, backgroundColor: colors.warnSoft },
-                pressed && { opacity: 0.85 },
-              ]}
-            >
-              <Text style={{ fontSize: young ? 24 : t.font, color: colors.ink, fontWeight: "600" }}>{isRight ? "✅ " : isWrong ? "🤔 " : isSaved ? "📌 " : ""}{opt}</Text>
-            </Pressable>
+            />
           );
         })}
       </View>
@@ -352,13 +349,13 @@ export default function LessonScreen() {
       {note ? <Banner tone="info">{note}</Banner> : null}
       {st.correct === false && st.revealed === null ? <Banner>Good try! Not quite. Have another think, or get a hint.</Banner> : null}
       {st.hints.map((h, i) => (
-        <Card key={i} style={{ backgroundColor: t.soft, borderColor: t.accent }}>
+        <Card key={`${qi}-${i}`} enterDelay={0} style={{ backgroundColor: t.soft, borderColor: t.accent }}>
           <Text style={{ fontWeight: "800", color: t.accent }}>{["💭 Hint", "🔎 Bigger hint", "🧩 Worked example"][i]}</Text>
           <Text style={{ fontSize: t.font - 1, color: colors.ink, lineHeight: (t.font - 1) * 1.45 }}>{h}</Text>
         </Card>
       ))}
       {st.explain ? (
-        <Card style={{ backgroundColor: colors.goodSoft, borderColor: colors.good }}>
+        <Card enterDelay={0} style={{ backgroundColor: colors.goodSoft, borderColor: colors.good }}>
           <Text style={{ fontWeight: "800", color: colors.good }}>{st.correct ? "🎉 Yes! Here's why:" : "📖 Let's learn it:"}</Text>
           <Text style={{ fontSize: t.font - 1, color: colors.ink, lineHeight: (t.font - 1) * 1.45 }}>{st.explain}</Text>
         </Card>

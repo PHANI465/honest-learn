@@ -1,3 +1,4 @@
+import { stagger } from "../../lib/motion";
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { Alert, Platform, Share, Text, View } from "react-native";
@@ -153,10 +154,10 @@ export default function ParentHome() {
 
       <H2>Your children</H2>
       {data?.children.length === 0 ? <Banner tone="info">Add your first child to get started.</Banner> : null}
-      {data?.children.map((c) => {
+      {data?.children.map((c, index) => {
         const band = map?.bands.find((b) => b.id === c.band);
         return (
-          <Card key={c.id} onPress={() => router.push(`/parent/child/${c.id}`)} label={`Settings for ${c.nickname}`}>
+          <Card key={c.id} enterDelay={stagger(index)} onPress={() => router.push(`/parent/child/${c.id}`)} label={`Settings for ${c.nickname}`}>
             <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
               <Emoji size={40}>{avatars[c.avatar]}</Emoji>
               <View style={{ flex: 1 }}>

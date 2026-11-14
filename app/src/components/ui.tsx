@@ -1,6 +1,7 @@
-import { type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   ActivityIndicator,
+  Animated,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -11,10 +12,14 @@ import {
   type ViewStyle,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { FadeInUp, Pulse, useEnter, useGlide, usePressScale } from "../lib/motion";
 import { colors, surfaces } from "../lib/theme";
 
+/** A Pressable that can carry animated styles (press feedback). */
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
 export function Screen({ children, scroll = true, style, wide }: { children: ReactNode; scroll?: boolean; style?: ViewStyle; wide?: boolean }) {
-  const inner = <View style={[styles.inner, wide && { maxWidth: 1080 }, style]}>{children}</View>;
+  const inner = <FadeInUp distance={8} style={[styles.inner, wide && { maxWidth: 1080 }, style]}>{children}</FadeInUp>;
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
       {scroll ? <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">{inner}</ScrollView> : inner}
@@ -36,17 +41,28 @@ export function P({ children, muted, size = 16, center }: { children: ReactNode;
   );
 }
 
-export function Card({ children, style, onPress, label }: { children: ReactNode; style?: ViewStyle | ViewStyle[]; onPress?: () => void; label?: string }) {
-  if (!onPress) return <View style={[styles.card, style]}>{children}</View>;
+/**
+ * A card. With `onPress` it is a button that shrinks slightly while pressed. `enterDelay` (milliseconds) makes it
+ * fade and rise in when it first appears; give list items `stagger(index)` so they arrive one after another.
+ */
+export function Card({ children, style, onPress, label, enterDelay }: { children: ReactNode; style?: ViewStyle | ViewStyle[]; onPress?: () => void; label?: string; enterDelay?: number }) {
+  const enter = useEnter(enterDelay);
+  const press = usePressScale(0.98);
+  const entering = enter.on ? { opacity: enter.opacity } : null;
+  if (!onPress) {
+    if (!enter.on) return <View style={[styles.card, style]}>{children}</View>;
+    return <Animated.View style={[styles.card, style, entering, { transform: [{ translateY: enter.translateY }] }]}>{children}</Animated.View>;
+  }
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={onPress}
+      {...press.handlers}
       accessibilityRole="button"
       accessibilityLabel={label}
-      style={({ pressed }) => [styles.card, style, pressed && { opacity: 0.85, transform: [{ scale: 0.99 }] }]}
+      style={[styles.card, style, entering, { transform: [{ translateY: enter.translateY }, ...press.style.transform] }]}
     >
       {children}
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 
@@ -58,14 +74,19 @@ export function spokenLabel(text: string): string {
 /** A thin progress bar (value 0–1) with an accessible description. */
 export function ProgressBar({ value, color = colors.brand, label, height = 10 }: { value: number; color?: string; label: string; height?: number }) {
   const pct = Math.max(0, Math.min(1, value || 0));
+  // The fill is as wide as the track and slides in from the left, so only a transform is animated.
+  const [width, setWidth] = useState(0);
+  const t = useGlide(pct, 600);
+  const translateX = t.interpolate({ inputRange: [0, 1], outputRange: [-width, 0] });
   return (
     <View
       accessibilityRole="progressbar"
       accessibilityLabel={label}
       accessibilityValue={{ min: 0, max: 100, now: Math.round(pct * 100) }}
+      onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
       style={{ height, borderRadius: height, backgroundColor: surfaces.pill, overflow: "hidden" }}
     >
-      <View style={{ width: `${pct * 100}%`, height: "100%", backgroundColor: color, borderRadius: height }} />
+      {width > 0 ? <Animated.View style={{ width, height: "100%", backgroundColor: color, borderRadius: height, transform: [{ translateX }] }} /> : null}
     </View>
   );
 }
@@ -105,26 +126,28 @@ export function Button({
   // "‹ Back"-style buttons sit at the top-left, where people look for them.
   const isBack = kind === "ghost" && title.trim().startsWith("‹");
   const fg = kind === "primary" || kind === "danger" ? "#fff" : color;
+  const press = usePressScale(0.97);
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={onPress}
+      {...press.handlers}
       disabled={disabled || loading}
       accessibilityRole="button"
       accessibilityLabel={label ?? spokenLabel(title)}
       accessibilityHint={hint}
       accessibilityState={{ disabled: !!(disabled || loading), busy: !!loading }}
-      style={({ pressed }) => [
+      style={[
         styles.btn,
         isBack && { alignSelf: "flex-start", paddingHorizontal: 8, minWidth: 44 },
         big && { paddingVertical: 18 },
         { backgroundColor: bg, borderColor: kind === "secondary" ? color : "transparent" },
         kind === "secondary" && { borderWidth: 2 },
         (disabled || loading) && { opacity: 0.5 },
-        pressed && { opacity: 0.8 },
+        press.style,
       ]}
     >
       {loading ? <ActivityIndicator color={fg} /> : <Text style={[styles.btnText, { color: fg }, big && { fontSize: 19 }]}>{title}</Text>}
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 
@@ -157,6 +180,8 @@ export function Pill({ text, color = colors.muted, bg = surfaces.pill }: { text:
 }
 
 export function Toggle({ label, value, onChange, description }: { label: string; value: boolean; onChange: (v: boolean) => void; description?: string }) {
+  const t = useGlide(value ? 1 : 0, 260);
+  const translateX = t.interpolate({ inputRange: [0, 1], outputRange: [0, 20] });
   return (
     <Pressable
       onPress={() => onChange(!value)}
@@ -170,16 +195,28 @@ export function Toggle({ label, value, onChange, description }: { label: string;
         {description ? <Text style={styles.hint}>{description}</Text> : null}
       </View>
       <View style={[styles.track, value && { backgroundColor: colors.brand }]}>
-        <View style={[styles.knob, value && { transform: [{ translateX: 20 }] }]} />
+        <Animated.View style={[styles.knob, { transform: [{ translateX }] }]} />
       </View>
     </Pressable>
   );
 }
 
+/** Loading placeholder shaped like a real screen (a title and a few cards) that breathes softly. */
 export function Loading() {
+  const bar = (width: number | `${number}%`, height: number) => <View style={{ width, height, borderRadius: 8, backgroundColor: surfaces.pill }} />;
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: 40, backgroundColor: colors.bg }}>
-      <ActivityIndicator size="large" color={colors.brand} />
+    <View style={{ flex: 1, backgroundColor: colors.bg }} accessible accessibilityRole="progressbar" accessibilityLabel="Loading">
+      <Pulse style={[styles.inner, { flex: 0 }]}>
+        {bar("55%", 30)}
+        {bar("80%", 16)}
+        {[0, 1, 2].map((i) => (
+          <View key={i} style={[styles.card, { gap: 12 }]}>
+            {bar("45%", 18)}
+            {bar("90%", 12)}
+            {bar("70%", 12)}
+          </View>
+        ))}
+      </Pulse>
     </View>
   );
 }

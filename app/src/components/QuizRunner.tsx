@@ -1,10 +1,65 @@
-import { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Animated, Pressable, Text, View } from "react-native";
+import { Pop, usePressScale, useShake } from "../lib/motion";
 import type { BandId } from "../lib/api";
 import { isOfflineError } from "../lib/offline";
 import { bandTheme, colors } from "../lib/theme";
 import { Banner, Button, Card, Emoji, H1, P, ProgressBar } from "./ui";
 import { OfflineBanner } from "./OfflineBanner";
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+/** One answer choice. It shrinks a little while pressed, shakes gently when the try was wrong, and its tick pops when right. */
+export function QuizOption({
+  text,
+  right,
+  wrong,
+  picked,
+  locked,
+  big,
+  fontSize,
+  radius,
+  onPress,
+  saved,
+}: {
+  text: string;
+  right: boolean;
+  wrong: boolean;
+  picked: boolean;
+  locked: boolean;
+  big: boolean;
+  fontSize: number;
+  radius: number;
+  onPress: () => void;
+  /** Chosen while offline and not checked yet: the accent and soft tint to mark it with. */
+  saved?: { accent: string; soft: string } | null;
+}) {
+  const press = usePressScale(0.98);
+  const { shake, style: shakeStyle } = useShake();
+  useEffect(() => {
+    if (wrong) shake();
+  }, [wrong, shake]);
+  return (
+    <AnimatedPressable
+      onPress={onPress}
+      {...(locked ? {} : press.handlers)}
+      disabled={locked}
+      accessibilityRole="button"
+      accessibilityLabel={right ? `${text}, correct` : wrong ? `${text}, not quite` : saved ? `${text}, chosen, not checked yet` : text}
+      accessibilityState={{ disabled: locked, selected: picked }}
+      style={[
+        { padding: big ? 18 : 15, minHeight: 56, flexDirection: "row", alignItems: "center", gap: 8, borderRadius: radius, borderWidth: 2, backgroundColor: colors.card, borderColor: colors.line },
+        saved ? { borderColor: saved.accent, backgroundColor: saved.soft } : null,
+        right && { borderColor: colors.good, backgroundColor: colors.goodSoft },
+        wrong && { borderColor: colors.warn, backgroundColor: colors.warnSoft },
+        { transform: [...shakeStyle.transform, ...press.style.transform] },
+      ]}
+    >
+      {right ? <Pop><Text style={{ fontSize }}>✅</Text></Pop> : wrong ? <Text style={{ fontSize }}>🤔</Text> : saved ? <Text style={{ fontSize }}>📌</Text> : null}
+      <Text style={{ flex: 1, fontSize, color: colors.ink, fontWeight: "600" }}>{text}</Text>
+    </AnimatedPressable>
+  );
+}
 
 const offlineNote = (e: unknown, what: string) =>
   isOfflineError(e) ? `Connect to the internet to ${what}.` : "Something went wrong. Please try again.";
@@ -67,7 +122,7 @@ export function QuizRunner({
     const perfect = result.score === result.total;
     return (
       <View style={{ gap: 14, alignItems: "center", marginTop: 20 }}>
-        <Emoji size={72}>{perfect ? "🏆" : "🌱"}</Emoji>
+        <Pop><Emoji size={72}>{perfect ? "🏆" : "🌱"}</Emoji></Pop>
         <H1>{perfect ? "Amazing!" : "Nice work!"}</H1>
         <Text style={{ fontSize: 34, textAlign: "center" }} accessibilityLabel={`${result.score} out of ${result.total} correct`}>{"⭐".repeat(result.score)}{"☆".repeat(Math.max(0, result.total - result.score))}</Text>
         <P center size={19}>You got {result.score} out of {result.total} on your first tries.</P>
@@ -128,7 +183,8 @@ export function QuizRunner({
         {i + 1} of {questions.length}{q.label ? ` · ${q.label}` : ""}
       </Text>
       <ProgressBar value={(i + 1) / questions.length} color={t.accent} height={8} label={`Question ${i + 1} of ${questions.length}`} />
-      <Card style={{ borderRadius: t.radius }}>
+      {/* keyed by question so each new question arrives with a soft fade */}
+      <Card key={i} enterDelay={0} style={{ borderRadius: t.radius }}>
         <Text style={{ fontSize: t.font + 3, fontWeight: "800", color: colors.ink, lineHeight: (t.font + 3) * 1.35 }} accessibilityRole="header">{q.q}</Text>
       </Card>
       <View style={{ gap: 10 }}>
@@ -137,34 +193,20 @@ export function QuizRunner({
           const right = (picked && s.correct) || s.revealed === k;
           const wrong = picked && s.correct === false;
           return (
-            <Pressable
-              key={k}
-              onPress={() => choose(k)}
-              disabled={locked}
-              accessibilityRole="button"
-              accessibilityLabel={right ? `${opt}, correct` : wrong ? `${opt}, not quite` : opt}
-              accessibilityState={{ disabled: locked, selected: picked }}
-              style={[
-                { padding: young ? 18 : 15, minHeight: 56, justifyContent: "center", borderRadius: t.radius, borderWidth: 2, backgroundColor: colors.card, borderColor: colors.line },
-                right && { borderColor: colors.good, backgroundColor: colors.goodSoft },
-                wrong && { borderColor: colors.warn, backgroundColor: colors.warnSoft },
-              ]}
-            >
-              <Text style={{ fontSize: young ? 22 : t.font, color: colors.ink, fontWeight: "600" }}>{right ? "✅ " : wrong ? "🤔 " : ""}{opt}</Text>
-            </Pressable>
+            <QuizOption key={`${i}-${k}`} text={opt} right={!!right} wrong={wrong} picked={picked} locked={locked} big={young} fontSize={young ? 22 : t.font} radius={t.radius} onPress={() => choose(k)} />
           );
         })}
       </View>
       {note ? <Banner tone="info">{note}</Banner> : null}
       {s.correct === false && s.revealed === null ? <Banner>Good try! Not quite. Think again, or take a hint.</Banner> : null}
       {s.hints.map((h, k) => (
-        <Card key={k} style={{ backgroundColor: t.soft, borderColor: t.accent }}>
+        <Card key={`${i}-${k}`} enterDelay={0} style={{ backgroundColor: t.soft, borderColor: t.accent }}>
           <Text style={{ fontWeight: "800", color: t.accent }}>{["💭 Hint", "🔎 Bigger hint", "🧩 Worked example"][k]}</Text>
           <Text style={{ fontSize: t.font - 1, color: colors.ink, lineHeight: (t.font - 1) * 1.45 }}>{h}</Text>
         </Card>
       ))}
       {s.explain ? (
-        <Card style={{ backgroundColor: colors.goodSoft, borderColor: colors.good }}>
+        <Card enterDelay={0} style={{ backgroundColor: colors.goodSoft, borderColor: colors.good }}>
           <Text style={{ fontWeight: "800", color: colors.good }}>{s.correct ? "🎉 Yes! Here's why:" : "📖 Let's learn it:"}</Text>
           <Text style={{ fontSize: t.font - 1, color: colors.ink, lineHeight: (t.font - 1) * 1.45 }}>{s.explain}</Text>
         </Card>

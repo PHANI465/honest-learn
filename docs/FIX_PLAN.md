@@ -100,7 +100,7 @@ Severity: **H** high, **M** medium, **L** low. None of these is known to be expl
   `app/src/landing/styles.ts`), compute WCAG contrast, fail under 4.5:1 for text and 3:1 for controls.
   Add it to `.github/workflows/ci.yml`.
 
-- [ ] **G2 Loading states are a bare spinner.** `Loading` in `app/src/components/ui.tsx`.
+- [x] **G2 Loading states are a bare spinner.** `Loading` in `app/src/components/ui.tsx`.
   **How:** replaced by skeleton cards as part of U3.
 
 - [x] **G3 Wikipedia thumbnails are blocked on the website.** The CSP allows images only from this site,
@@ -141,38 +141,41 @@ Honest Learn is a calm learning app for children and a trust product for parents
 
 All motion is built with React Native's built-in `Animated` API (no new dependency; works on phones and web).
 
-- [ ] **U1 Motion kit.** New file `app/src/lib/motion.tsx`:
+- [x] **U1 Motion kit.** New file `app/src/lib/motion.tsx`:
   `useReducedMotion()`, `EASE`, `FadeInUp` (opacity 0→1, translateY 12→0, `delay` prop for staggering),
   `PressScale` (wraps Pressable, scales to 0.97 on press with a spring back), `Shake` (imperative gentle
   horizontal shake for a wrong try), `Pop` (scale 0.9→1 with fade, for a correct answer or a star),
   `Pulse` (opacity loop for skeletons, off under reduced motion).
+  **As built:** press feedback and shake are hooks (`usePressScale`, `useShake`); also `useEnter` (a card animates itself, keeping its own width), `useGlide` (progress bars, switches) and `stagger(index)`. Animated values are kept with `useState`, not `useRef` (the React lint rule forbids reading refs during render).
 
-- [ ] **U2 Buttons, cards and toggles feel pressed.** In `app/src/components/ui.tsx`: `Button` and pressable
+- [x] **U2 Buttons, cards and toggles feel pressed.** In `app/src/components/ui.tsx`: `Button` and pressable
   `Card` use `PressScale`; `Toggle` knob slides with a spring instead of jumping; `ProgressBar` fills with an
   animated scaleX from its previous value; add a visible focus ring on web for `Button` and `Card`.
 
-- [ ] **U3 Skeleton loading.** `Loading` in `ui.tsx` becomes a column of pulsing skeleton cards shaped like
+- [x] **U3 Skeleton loading.** `Loading` in `ui.tsx` becomes a column of pulsing skeleton cards shaped like
   the real layout (title bar, three cards), with `accessibilityLabel="Loading"`. Fixes G2.
 
-- [ ] **U4 Screens arrive softly.** `Screen` in `ui.tsx` fades and rises its content once on mount. Lists
+- [x] **U4 Screens arrive softly.** `Screen` in `ui.tsx` fades and rises its content once on mount. Lists
   stagger: child home subject cards (`learn/[childId]/index.tsx`), subject lesson list, profile picker
   (`profiles.tsx`), parent overview cards. Stagger 50 ms per item, capped at 8 items.
 
-- [ ] **U5 Quiz feedback.** `app/src/components/QuizRunner.tsx`: the chosen option gently shakes when wrong
+- [x] **U5 Quiz feedback.** `app/src/components/QuizRunner.tsx`: the chosen option gently shakes when wrong
   and pops with a tick when right; a newly opened hint fades and slides in; the explanation fades in; the
   finish card pops once. No sounds, no confetti.
+  **As built:** the answer option is one shared component, `QuizOption` in `QuizRunner.tsx`, also used by the lesson screen (`learn/[childId]/lesson/[lessonId].tsx`), which used to have its own copy.
 
-- [ ] **U6 PIN pad.** `app/src/components/PinPad.tsx`: each dot pops as a digit is entered, the dot row
+- [x] **U6 PIN pad.** `app/src/components/PinPad.tsx`: each dot pops as a digit is entered, the dot row
   shakes on a wrong PIN, keys use `PressScale`, the modal sheet keeps its slide.
 
-- [ ] **U7 Website typeface.** Add the three Manrope `@font-face` rules to `app/public/index.html` and make
+- [x] **U7 Website typeface.** Add the three Manrope `@font-face` rules to `app/public/index.html` and make
   it the font for the whole web app (`#root, #root * { font-family: "Manrope", system-ui, sans-serif }`),
   then remove the duplicate `@font-face` from `app/src/landing/styles.ts`. Check headings still fit at 390 px.
+  **As built:** the same style block adds visible keyboard focus rings for buttons, switches, links and text fields on the website.
 
 - [ ] **U8 (later, needs a new dependency) Manrope on phones** with `expo-font`, and animated screen
   transitions tuned per age group. Not started on purpose: adding native dependencies needs a device test.
 
-- [ ] **U9 Check everything in the browser** at 390 px and desktop, in light mode, with reduced motion on
+- [x] **U9 Check everything in the browser** at 390 px and desktop, in light mode, with reduced motion on
   and off, and with the keyboard. Record the result in the log.
 
 ---
@@ -182,4 +185,14 @@ All motion is built with React Native's built-in `Animated` API (no new dependen
 | Date | Task | Result | By |
 |---|---|---|---|
 | 13 Nov 2026 | S1 to S10 | Done. Server: 106 tests pass (new `server/test/hardening.test.ts`). App: type check and lint clean. Account deletion and password change forms are in `app/src/app/parent/index.tsx`. | Claude |
-| 13 Nov 2026 | G1, G3 | G1 done: `scripts/check-contrast.mjs` checks 73 colour pairs and runs in CI. G3 needed no change (thumbnails are not shown). G2 is done with U3. G4 is an owner task at deployment. | Claude |
+| 13 Nov 2026 | G1, G3 | G1 done: `scripts/check-contrast.mjs` checks 72 colour pairs and runs in CI. G3 needed no change (thumbnails are not shown). G2 is done with U3. G4 is an owner task at deployment. | Claude |
+| 13 Nov 2026 | U1 to U7, G2 | Done. Motion kit in `app/src/lib/motion.tsx`; buttons, cards, switches, progress bars, loading skeletons, staggered lists, quiz options, hints and the PIN pad use it. Website uses Manrope everywhere. App type check and lint clean; contrast check passes (72 pairs). | Claude |
+| 13 Nov 2026 | U9 | Checked in the browser at 390 px, light mode: sign in, profile picker, child home, a lesson quiz (wrong answer, hint, right answer), PIN pad, and the delete account form. All worked. **Not checked:** reduced motion on, dark mode for app screens (the app has a light theme only), keyboard-only use, a real phone, and the change password form end to end in the browser (it is covered by a server test). | Claude |
+| 13 Nov 2026 | All | Server: 106 tests pass on SQLite, all 9 test files pass on Postgres (PGlite). | Claude |
+
+## What is left
+
+- **U8** Manrope on phones and per age transitions (needs `expo-font` and a device test).
+- **G4** `og:image` once the site address is known.
+- The owner tasks listed at the end of Part 2.
+- From the U9 note: test with reduced motion switched on, with the keyboard only, and on a real phone.

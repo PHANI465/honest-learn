@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Pop, usePressScale, useShake } from "../lib/motion";
 import { router } from "expo-router";
-import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { Animated, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { friendly } from "../lib/api";
 import { useSession } from "../lib/session";
 import { colors } from "../lib/theme";
@@ -12,6 +13,7 @@ export function PinPad({ title = "Grown-ups only", subtitle, onSuccess, onCancel
   const [pin, setPin] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const { shake, style: shakeStyle } = useShake();
 
   async function submit(value: string) {
     setBusy(true);
@@ -22,6 +24,7 @@ export function PinPad({ title = "Grown-ups only", subtitle, onSuccess, onCancel
       onSuccess(token);
     } catch (e) {
       setError(friendly(e));
+      shake();
       setPin("");
     } finally {
       setBusy(false);
@@ -40,20 +43,19 @@ export function PinPad({ title = "Grown-ups only", subtitle, onSuccess, onCancel
       <Text style={{ fontSize: 44 }} aria-hidden accessibilityElementsHidden importantForAccessibility="no-hide-descendants">🔒</Text>
       <H1 size={26}>{title}</H1>
       <P muted center>{subtitle ?? "Enter your parent PIN to continue."}</P>
-      <View style={s.dots} accessible accessibilityRole="text" accessibilityLabel={`${pin.length} digits entered`} accessibilityLiveRegion="polite">
-        {Array.from({ length: Math.max(4, pin.length) }).map((_, i) => (
-          <View key={i} style={[s.dot, i < pin.length && s.dotOn]} />
-        ))}
-      </View>
+      <Animated.View style={[s.dots, shakeStyle]} accessible accessibilityRole="text" accessibilityLabel={`${pin.length} digits entered`} accessibilityLiveRegion="polite">
+        {Array.from({ length: Math.max(4, pin.length) }).map((_, i) =>
+          // a filled dot pops in as its digit is typed
+          i < pin.length ? <Pop key={`on-${i}`} style={[s.dot, s.dotOn]}>{null}</Pop> : <View key={`off-${i}`} style={s.dot} />,
+        )}
+      </Animated.View>
       {error ? <Text style={s.error} accessibilityRole="alert">{error}</Text> : null}
       <View style={s.grid}>
         {["1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", "⌫"].map((d, i) =>
           d === "" ? (
             <View key={i} style={s.key} />
           ) : (
-            <Pressable key={i} onPress={() => press(d)} style={({ pressed }) => [s.key, s.keyOn, pressed && { backgroundColor: colors.brandSoft }]} accessibilityRole="button" accessibilityLabel={d === "⌫" ? "Delete" : d}>
-              <Text style={s.keyText}>{d}</Text>
-            </Pressable>
+            <Key key={i} label={d} onPress={() => press(d)} />
           ),
         )}
       </View>
@@ -65,6 +67,18 @@ export function PinPad({ title = "Grown-ups only", subtitle, onSuccess, onCancel
         </Pressable>
       </View>
     </View>
+  );
+}
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+/** One number key: it dips slightly while pressed. */
+function Key({ label, onPress }: { label: string; onPress: () => void }) {
+  const press = usePressScale(0.94);
+  return (
+    <AnimatedPressable onPress={onPress} {...press.handlers} style={[s.key, s.keyOn, press.style]} accessibilityRole="button" accessibilityLabel={label === "⌫" ? "Delete" : label}>
+      <Text style={s.keyText}>{label}</Text>
+    </AnimatedPressable>
   );
 }
 
