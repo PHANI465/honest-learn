@@ -1,9 +1,10 @@
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
-import { Alert, Linking, Platform, Share, Text, View } from "react-native";
+import { Alert, Platform, Share, Text, View } from "react-native";
 import { CountryPicker } from "../../components/CountryPicker";
 import { Banner, Button, Card, Emoji, Field, H1, H2, P, Pill, ProgressBar, Screen } from "../../components/ui";
 import { friendly, type Child } from "../../lib/api";
+import { openSafely, safeUrl } from "../../lib/links";
 import { useSession } from "../../lib/session";
 import { avatars, bandTheme, colors, subjectEmoji } from "../../lib/theme";
 
@@ -18,7 +19,7 @@ interface Overview {
   })[];
 }
 
-const DONATE_URL = process.env.EXPO_PUBLIC_DONATE_URL;
+const DONATE_URL = safeUrl(process.env.EXPO_PUBLIC_DONATE_URL);
 
 function confirm(title: string, message: string, action = "Delete"): Promise<boolean> {
   if (Platform.OS === "web") return Promise.resolve(globalThis.confirm?.(`${title}\n\n${message}`) ?? false);
@@ -31,7 +32,19 @@ function confirm(title: string, message: string, action = "Delete"): Promise<boo
 }
 
 export default function ParentHome() {
-  const { parentApi, parentEmail, emailVerified, verifyEmail, resendVerification, country, map, lockParent, logout, refreshFamily, signOutEverywhere } = useSession();
+  const { parentApi, parentEmail, emailVerified, verifyEmail, resendVerification, country, map, lockParent, logout, refreshFamily, signOutEverywhere, changePassword } = useSession();
+  // Account forms: which one is open, and what was typed. Passwords are cleared as soon as a form closes.
+  const [form, setForm] = useState<"password" | "delete" | null>(null);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [formError, setFormError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const closeForm = () => {
+    setForm(null);
+    setCurrentPassword("");
+    setNewPassword("");
+    setFormError(null);
+  };
   const [code, setCode] = useState("");
   const [note, setNote] = useState<string | null>(null);
   const [done, setDone] = useState<string | null>(null);
@@ -82,12 +95,29 @@ export default function ParentHome() {
   async function deleteAccount() {
     const ok = await confirm("Delete your account?", "This permanently deletes your account, every child profile, all progress and all chats. This cannot be undone.");
     if (!ok) return;
+    setBusy(true);
     try {
-      await parentApi("DELETE", "/account");
+      await parentApi("DELETE", "/account", { password: currentPassword });
       await logout();
       router.replace("/welcome");
     } catch (e) {
-      setError(friendly(e));
+      setFormError(friendly(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function savePassword() {
+    setBusy(true);
+    setFormError(null);
+    try {
+      await changePassword(currentPassword, newPassword);
+      closeForm();
+      setDone("Password changed. Every other device is signed out. This one stays signed in.");
+    } catch (e) {
+      setFormError(friendly(e));
+    } finally {
+      setBusy(false);
     }
   }
 
@@ -182,11 +212,29 @@ export default function ParentHome() {
       {done ? <Banner tone="info">{done}</Banner> : null}
       <Card style={{ gap: 10 }}>
         <Button title="Download all our data" kind="secondary" onPress={exportData} />
-        {DONATE_URL ? <Button title="💚 Donate to keep Honest Learn free" kind="secondary" onPress={() => Linking.openURL(DONATE_URL)} /> : null}
+        {DONATE_URL ? <Button title="💚 Donate to keep Honest Learn free" kind="secondary" onPress={() => openSafely(DONATE_URL)} /> : null}
         <Button title="Lock parent area" kind="ghost" onPress={() => { lockParent(); router.replace("/profiles"); }} />
         <Button title="Sign out of this device" kind="ghost" onPress={async () => { await logout(); router.replace("/welcome"); }} />
         <Button title="Sign out all other devices" kind="ghost" onPress={signOutOthers} label="Sign out all other devices, for example a lost phone" />
-        <Button title="Delete account and all data" kind="danger" onPress={deleteAccount} />
+        <Button title="Change password" kind="ghost" onPress={() => (form === "password" ? closeForm() : (closeForm(), setForm("password")))} />
+        {form === "password" ? (
+          <View style={{ gap: 10 }}>
+            <Field label="Current password" value={currentPassword} onChangeText={setCurrentPassword} secureTextEntry autoCapitalize="none" autoComplete="current-password" />
+            <Field label="New password" hint="At least 8 characters." value={newPassword} onChangeText={setNewPassword} secureTextEntry autoCapitalize="none" autoComplete="new-password" />
+            {formError ? <Banner>{formError}</Banner> : null}
+            <Button title="Save new password" onPress={savePassword} loading={busy} disabled={!currentPassword || newPassword.length < 8} />
+          </View>
+        ) : null}
+        <Button title="Delete account and all data" kind="danger" onPress={() => (form === "delete" ? closeForm() : (closeForm(), setForm("delete")))} />
+        {form === "delete" ? (
+          <View style={{ gap: 10 }}>
+            <P size={14}>To delete everything, enter your account password. The PIN alone is not enough.</P>
+            <Field label="Account password" value={currentPassword} onChangeText={setCurrentPassword} secureTextEntry autoCapitalize="none" autoComplete="current-password" />
+            {formError ? <Banner>{formError}</Banner> : null}
+            <Button title="Delete everything for good" kind="danger" onPress={deleteAccount} loading={busy} disabled={!currentPassword} />
+            <Button title="Keep my account" kind="ghost" onPress={closeForm} />
+          </View>
+        ) : null}
       </Card>
       {data?.children.length ? <Button big title="Back to learning →" onPress={() => { lockParent(); router.replace("/profiles"); }} /> : null}
     </Screen>

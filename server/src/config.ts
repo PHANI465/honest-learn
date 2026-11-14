@@ -32,12 +32,19 @@ export const config = {
   /**
    * Secret used to sign session tokens. Set TOKEN_SECRET to control it. If it's missing in production or on
    * Vercel, a strong random secret is generated once and kept in the database (see ensureTokenSecret in app.ts).
-   * Local development falls back to a fixed dev secret.
+   * The same happens in local development. Only automated tests (NODE_ENV=test or an in-memory database) use a
+   * fixed secret, so a forgotten setting on a real host can never leave tokens signed with a public string.
    */
-  tokenSecret: process.env.TOKEN_SECRET || (isProd || isVercel ? "" : "dev-only-insecure-secret-change-me"),
+  tokenSecret:
+    process.env.TOKEN_SECRET ||
+    (process.env.NODE_ENV === "test" || process.env.DB_PATH === ":memory:" ? "test-only-secret-never-used-on-a-real-host" : ""),
   /** Show lessons with status "draft". On before launch (everything is a draft); off after LAUNCH=true. */
   showDrafts: env("SHOW_DRAFTS", launched ? "false" : "true") === "true",
-  corsOrigins: env("CORS_ORIGINS", "*").split(",").map((s) => s.trim()),
+  /** Other websites allowed to call the API. Open before launch; after LAUNCH=true only the origins you list (none by default: the website and API share one address). */
+  corsOrigins: env("CORS_ORIGINS", launched ? "" : "*")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean),
   /** Parents must verify their email before adding children. On by default in production. */
   requireEmailVerification: env("REQUIRE_EMAIL_VERIFICATION", launched ? "true" : "false") === "true",
   /** Trust X-Forwarded-For (only behind a reverse proxy you control). Vercel sets it to the real client IP. */

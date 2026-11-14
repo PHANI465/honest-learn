@@ -38,10 +38,16 @@ export function authRoutes(ctx: Ctx) {
       .parse(await c.req.json());
     if (await getParentByEmail(body.email)) return c.json({ error: "email_taken" }, 409);
     const id = newId();
-    await db.run(
-      "INSERT INTO parents (id, email, password_hash, pin_hash, consent_version, consent_at, created_at, country) VALUES (?,?,?,?,?,?,?,?)",
-      [id, body.email, hashSecret(body.password), hashSecret(body.pin), body.consentVersion, now(), now(), body.country ?? null],
-    );
+    try {
+      await db.run(
+        "INSERT INTO parents (id, email, password_hash, pin_hash, consent_version, consent_at, created_at, country) VALUES (?,?,?,?,?,?,?,?)",
+        [id, body.email, hashSecret(body.password), hashSecret(body.pin), body.consentVersion, now(), now(), body.country ?? null],
+      );
+    } catch (e) {
+      // Two sign-ups with the same email at the same moment: the second one loses to the UNIQUE rule.
+      if (await getParentByEmail(body.email)) return c.json({ error: "email_taken" }, 409);
+      throw e;
+    }
     await ctx.sendCode({ id, email: body.email }, "verify_email");
     return c.json({ familyToken: await issueToken(id, "family") }, 201);
   });

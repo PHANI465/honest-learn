@@ -152,7 +152,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `routes/puzzles.ts` | `/children/:id/puzzles` (+ `/hint`, `/check`, `/complete`) |
 | `routes/usage.ts` | `/children/:id/usage`, `/usage/tick` |
 | `routes/tutor.ts` | `/children/:id/tutor/:lessonId` (Hoot), `/reports` |
-| `routes/parent.ts` | `/parent/overview`, `children` (add, edit, delete, bonus time, chats), `children/:id/outcomes` (what the child knows, per goal: not started / practising / strong), `reports`, `pin`, `settings`, `sign-out-everywhere`, `export`, `account` |
+| `routes/parent.ts` | `/parent/overview`, `children` (add, edit, delete, bonus time, chats), `children/:id/outcomes` (what the child knows, per goal: not started / practising / strong), `reports`, `pin`, `settings`, `password` (change it; needs the current one), `sign-out-everywhere`, `export`, `account` (delete; needs the account password) |
 | `tutor.ts` | Hoot: pre-checks, Claude prompt, the second safety check, mock mode |
 | `content.ts` | Loads and validates `content/`, strips answers for the app |
 | `shuffle.ts` | Per-child option order |

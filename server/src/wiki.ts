@@ -26,6 +26,16 @@ export function wikiHostFor(band: BandId): string | null {
   return band === "b3" ? "simple.wikipedia.org" : "en.wikipedia.org";
 }
 
+/** Only https addresses on wikipedia.org are passed on to the app as "read more" links. */
+function wikipediaUrl(url: string | undefined): string | null {
+  try {
+    const u = new URL(url ?? "");
+    return u.protocol === "https:" && (u.hostname === "wikipedia.org" || u.hostname.endsWith(".wikipedia.org")) ? u.toString() : null;
+  } catch {
+    return null;
+  }
+}
+
 export class WikiClient {
   private cache = new Map<string, { at: number; value: WikiSummary | null }>();
 
@@ -58,7 +68,7 @@ export class WikiClient {
           value = {
             title: j.title,
             extract,
-            url: j.content_urls?.desktop?.page ?? `https://${host}/wiki/${encodeURIComponent(title)}`,
+            url: wikipediaUrl(j.content_urls?.desktop?.page) ?? `https://${host}/wiki/${encodeURIComponent(title)}`,
             source: host.startsWith("simple") ? "Simple English Wikipedia" : "Wikipedia",
             license: "CC BY-SA 4.0",
             thumbnail: j.thumbnail?.source ?? null,

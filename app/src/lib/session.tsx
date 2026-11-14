@@ -28,6 +28,8 @@ interface Session {
   lockParent(): void;
   /** Signs out every other phone, tablet and browser (keeps this one signed in and unlocked). */
   signOutEverywhere(): Promise<void>;
+  /** Changes the account password (needs the current one). Every other device is signed out; this one stays signed in. */
+  changePassword(currentPassword: string, newPassword: string): Promise<void>;
   refreshFamily(): Promise<void>;
   /** Calls the API with the parent token; if it expired, clears it so the PIN screen shows again. */
   parentApi<T>(method: string, path: string, body?: unknown): Promise<T>;
@@ -165,6 +167,16 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         const r = await api<{ familyToken: string; parentToken: string; expiresInSec: number }>("POST", "/parent/sign-out-everywhere", parentToken, {});
         // Swap both tokens in the same render: the old ones stopped working the moment the call succeeded,
         // and a screen that refreshed in between would otherwise lock itself with the old parent token.
+        setParentToken(r.parentToken);
+        setFamilyToken(r.familyToken);
+        await storage.set(FAMILY_KEY, r.familyToken);
+        await loadFamily(r.familyToken);
+        if (lockTimer.current) clearTimeout(lockTimer.current);
+        lockTimer.current = setTimeout(() => setParentToken(null), (r.expiresInSec - 5) * 1000);
+      },
+      async changePassword(currentPassword: string, newPassword: string) {
+        const r = await api<{ familyToken: string; parentToken: string; expiresInSec: number }>("PATCH", "/parent/password", parentToken, { currentPassword, newPassword });
+        // same swap as signOutEverywhere: the old tokens stopped working when the call succeeded
         setParentToken(r.parentToken);
         setFamilyToken(r.familyToken);
         await storage.set(FAMILY_KEY, r.familyToken);

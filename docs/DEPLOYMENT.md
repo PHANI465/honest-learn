@@ -15,7 +15,7 @@ The server is a single Node process with a SQLite file. Any host with a **persis
 | `DATABASE_URL` (or `POSTGRES_URL`) | no | — | Postgres connection string. When set, the server uses Postgres (via Neon's HTTPS driver) instead of SQLite. Tables are created on first use. |
 | `CONTENT_DIR` | no | `../content` | Folder with `knowledge-map.json` and `lessons/`. |
 | `SHOW_DRAFTS` | no | `true` before launch, `false` with `LAUNCH=true` | Keep `false` for the public. Use `true` on a staging server for reviewers. |
-| `CORS_ORIGINS` | no | `*` | Comma-separated web origins, e.g. `https://app.honestlearn.org`. |
+| `CORS_ORIGINS` | no | `*` before launch; none after `LAUNCH=true` | Comma-separated web origins allowed to call the API from another address, e.g. `https://app.honestlearn.org`. The website and API share one address on Vercel, so most deployments leave this unset. |
 | `ANTHROPIC_API_KEY` | for AI | — | Turns on the real AI tutor. Without it, Hoot answers with the lesson's pre-written hints. |
 | `TUTOR_MODEL` | no | `claude-sonnet-5-5` | Model that writes Hoot's replies. |
 | `TUTOR_SAFETY_MODEL` | no | `claude-opus-5-5` | Model that checks every reply before a child sees it. |

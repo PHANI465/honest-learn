@@ -29,7 +29,7 @@ Windows notes: use `npm run test:pg` for the Postgres run; `npm run build:web` (
 
 Severity: **H** high, **M** medium, **L** low. None of these is known to be exploited; the app is pre launch.
 
-- [ ] **S1 (M) Fixed token secret outside production.**
+- [x] **S1 (M) Fixed token secret outside production.**
   `server/src/config.ts` falls back to the public string `dev-only-insecure-secret-change-me` whenever
   `NODE_ENV` is not `production` and the host is not Vercel. Anyone who deploys on another host and forgets
   `NODE_ENV` gets forgeable sign-in tokens.
@@ -39,41 +39,41 @@ Severity: **H** high, **M** medium, **L** low. None of these is known to be expl
   (`server/package.json`, `server/scripts/run-pg-tests.mjs`) or tests set the secret themselves.
   **Verify:** `npm test`; start `npm run dev` twice and confirm a sign-in survives a restart.
 
-- [ ] **S2 (M) Deleting the whole account needs only the PIN.**
+- [x] **S2 (M) Deleting the whole account needs only the PIN.**
   `DELETE /parent/account` (`server/src/routes/parent.ts`) accepts a parent token, which a 4 digit PIN
   unlocks. A child who has seen the PIN can erase the family. The same is true for changing the PIN.
   **How:** require `{ password }` in the body of `DELETE /parent/account` and check it with `verifySecret`
   using the same `takeTry`/`wrongTry` login limiter as `/auth/reset-pin`. Update `api.ts` and the delete
   button in `app/src/app/parent/index.tsx` to ask for the password. Add a test in `server/test/api.test.ts`.
 
-- [ ] **S3 (M) No limit on reports.**
+- [x] **S3 (M) No limit on reports.**
   `POST /reports` (`server/src/routes/tutor.ts`) stores up to 1000 characters per call with no cap, so a
   signed-in device can fill the database.
   **How:** call `ctx.hitRateLimit("reports:" + parentId, 20, 24h)` and answer 429 `too_many_reports` when over.
   Add the friendly message in `app/src/lib/api.ts` (`friendly`). Add a test.
 
-- [ ] **S4 (L) Sign-up race returns a server error.**
+- [x] **S4 (L) Sign-up race returns a server error.**
   Two sign-ups with the same email at once: the second insert hits the UNIQUE constraint and returns 500.
   **How:** wrap the insert in `routes/auth.ts` in try/catch; on failure re-check `getParentByEmail` and
   return 409 `email_taken`.
 
-- [ ] **S5 (L) Rate limit trusts the first X-Forwarded-For value.**
+- [x] **S5 (L) Rate limit trusts the first X-Forwarded-For value.**
   `clientIp` in `context.ts` takes the left-most address, which the caller controls on hosts that append
   rather than replace the header. That lets one attacker spread auth attempts across fake addresses.
   **How:** when `trustProxy` is on prefer `x-vercel-forwarded-for`, then `x-real-ip`, then the **last**
   entry of `x-forwarded-for` (the one added by the nearest proxy). Add a unit test.
 
-- [ ] **S6 (L) Website responses have no HSTS header.**
+- [x] **S6 (L) Website responses have no HSTS header.**
   The API sends HSTS (hono secureHeaders) but `server/src/web-headers.ts` and `vercel.json` do not.
   **How:** add `Strict-Transport-Security: max-age=63072000; includeSubDomains` to both lists (the test
   `server/test/web-headers.test.ts` checks they match).
 
-- [ ] **S7 (L) CORS stays open (`*`) at launch unless someone remembers to set it.**
+- [x] **S7 (L) CORS stays open (`*`) at launch unless someone remembers to set it.**
   **How:** in `config.ts`, when `LAUNCH=true` and `CORS_ORIGINS` is unset, default to no cross-origin
   access (empty list) instead of `*`. The website and API share one origin on Vercel, so nothing breaks.
   Update `docs/DEPLOYMENT.md` (native apps need their origin listed only for web builds on other domains).
 
-- [ ] **S8 (L) Outside links are opened without checking the address.**
+- [x] **S8 (L) Outside links are opened without checking the address.**
   `app/src/components/ExternalLink.tsx` and the donate button pass any string to `Linking.openURL`. The
   addresses come from our content and Wikipedia's API today, but a bad value (for example `javascript:` or
   `file:`) should never be opened.
@@ -81,13 +81,13 @@ Severity: **H** high, **M** medium, **L** low. None of these is known to be expl
   `https:`; use it in `ExternalLink.tsx` and for the donate link. On the server, in `wiki.ts`, only accept
   `content_urls.desktop.page` when its host ends with `wikipedia.org`.
 
-- [ ] **S9 (L) No password change while signed in.**
+- [x] **S9 (L) No password change while signed in.**
   A parent can only change the password through "forgot password".
   **How:** add `PATCH /parent/password` with `{ currentPassword, newPassword }`, same limiter as S2, then
   `revokeSessions` and return fresh tokens (like `/parent/sign-out-everywhere`). Add a small form in the
   parent area and a test.
 
-- [ ] **S10 (doc) Update `docs/SECURITY.md`** with findings 11 to 19 (S1 to S9) once fixed, plus the two
+- [x] **S10 (doc) Update `docs/SECURITY.md`** with findings 11 to 19 (S1 to S9) once fixed, plus the two
   accepted risks found in this review: (a) repeated wrong passwords can lock a known email out for up to
   24 hours (a password reset clears it), (b) screen time is counted from the app's own ticks, so a
   modified app could under-report.
@@ -180,3 +180,4 @@ All motion is built with React Native's built-in `Animated` API (no new dependen
 
 | Date | Task | Result | By |
 |---|---|---|---|
+| 13 Nov 2026 | S1 to S10 | Done. Server: 106 tests pass (new `server/test/hardening.test.ts`). App: type check and lint clean. Account deletion and password change forms are in `app/src/app/parent/index.tsx`. | Claude |

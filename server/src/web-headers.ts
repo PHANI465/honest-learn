@@ -30,6 +30,8 @@ export const WEB_SECURITY_HEADERS: Record<string, string> = {
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
   "Cross-Origin-Opener-Policy": "same-origin",
+  // browsers that have seen the site once only ever use HTTPS for it (ignored on http://localhost)
+  "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
   // lessons are unreviewed drafts: keep search engines out until launch
   "X-Robots-Tag": "noindex, nofollow",
 };

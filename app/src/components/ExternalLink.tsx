@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Alert, Linking, Platform } from "react-native";
+import { Alert, Platform } from "react-native";
+import { openSafely, safeUrl } from "../lib/links";
 import { PinModal } from "./PinPad";
 
 /**
@@ -11,15 +12,16 @@ export function useExternalLink(needsParent: boolean) {
   const [pending, setPending] = useState<string | null>(null);
 
   function open(url: string) {
+    if (!safeUrl(url)) return; // only ordinary https websites are ever opened
     if (needsParent) return setPending(url);
     const msg = "You're leaving Honest Learn to visit another website. Other sites have their own rules. Be careful what you share.";
     if (Platform.OS === "web") {
-      if (globalThis.confirm?.(msg)) Linking.openURL(url);
+      if (globalThis.confirm?.(msg)) openSafely(url);
       return;
     }
     Alert.alert("Leaving Honest Learn", msg, [
       { text: "Stay", style: "cancel" },
-      { text: "Open", onPress: () => Linking.openURL(url) },
+      { text: "Open", onPress: () => openSafely(url) },
     ]);
   }
 
@@ -27,7 +29,7 @@ export function useExternalLink(needsParent: boolean) {
     <PinModal
       visible={!!pending}
       onClose={() => setPending(null)}
-      onSuccess={() => pending && Linking.openURL(pending)}
+      onSuccess={() => openSafely(pending)}
       subtitle="Outside websites open only with a parent's PIN."
     />
   );

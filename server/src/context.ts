@@ -186,6 +186,22 @@ export function createContext(deps: Deps) {
     return { allowed: Number(row!.count) <= limit, retryAfterSec: Math.max(1, Math.ceil((resetAt - nowMs) / 1000)) };
   }
 
+  /** Checks the account password with the same attempt limit as signing in. Used before destructive account actions. */
+  async function checkPassword(p: ParentRow, password: string): Promise<"ok" | "wrong" | "locked"> {
+    if (isLocked(p.login_locked_until)) return "locked";
+    const tryNo = await takeTry(LOGIN_TRIES, p.id);
+    if (tryNo > LOGIN_TRIES.max()) {
+      await wrongTry(LOGIN_TRIES, p.id, tryNo);
+      return "locked";
+    }
+    if (!verifySecret(password, p.password_hash)) {
+      await wrongTry(LOGIN_TRIES, p.id, tryNo);
+      return "wrong";
+    }
+    await db.run("UPDATE parents SET login_failed = 0, login_lock_level = 0 WHERE id = ?", [p.id]);
+    return "ok";
+  }
+
   // A real hash of a throwaway secret: checking a password for an unknown email costs the same time
   // as for a real account, so response times don't reveal who has an account.
   let dummyHash: string | null = null;
@@ -238,8 +254,12 @@ export function createContext(deps: Deps) {
   // ---------------------------------------------------------------- client address (rate limits)
   function clientIp(c: Context): string {
     if (config.trustProxy) {
+      // Prefer headers the platform sets itself. In X-Forwarded-For only the last entry was added by the
+      // nearest proxy; earlier ones are whatever the caller sent, so they must not decide the rate limit key.
+      const direct = c.req.header("x-vercel-forwarded-for") ?? c.req.header("x-real-ip");
+      if (direct) return direct.split(",")[0]!.trim();
       const fwd = c.req.header("x-forwarded-for");
-      if (fwd) return fwd.split(",")[0]!.trim();
+      if (fwd) return fwd.split(",").pop()!.trim();
     }
     try {
       return getConnInfo(c).remote.address ?? "unknown";
@@ -269,6 +289,7 @@ export function createContext(deps: Deps) {
     wrongTry,
     hitRateLimit,
     verifyAgainstNothing,
+    checkPassword,
     revokeSessions,
     lastCodeSentAt,
     sendCode,

@@ -129,6 +129,8 @@ export function friendly(err: unknown): string {
     email_taken: "An account with this email already exists. Try signing in.",
     wrong_email_or_password: "That email and password don't match.",
     too_many_attempts: "Too many tries. Please wait 15 minutes and try again.",
+    wrong_password: "That password isn't right.",
+    too_many_reports: "You've sent a lot of reports today. Thank you. Please try again tomorrow.",
     wrong_pin: `Wrong PIN. ${err.body.attemptsLeft ?? 0} tries left.`,
     parent_pin_required: "A parent needs to enter their PIN.",
     needs_parent_permission: "This lesson needs a parent's permission.",

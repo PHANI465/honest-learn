@@ -1,6 +1,6 @@
 # Security
 
-How Honest Learn protects children and families, what the last security review found and fixed, and what is still open. Last reviewed: 5 November 2026.
+How Honest Learn protects children and families, what the last security review found and fixed, and what is still open. Last reviewed: 13 November 2026.
 
 ## How the app protects families
 
@@ -39,12 +39,30 @@ How Honest Learn protects children and families, what the last security review f
 | 9 | The per-IP rate limit on `/auth/*` was counted in each server instance's memory, so on Vercel every function instance had its own count. | Low–medium | The count now lives in the database (`rate_limits`, one atomic upsert per request), shared by all instances; old rows are removed by the retention purge. |
 | 10 | A lockout was a flat 15 minutes however often it repeated, so a patient attacker could keep guessing about 20 PINs an hour. | Low–medium | Escalating lockouts: 15 minutes, 1 hour, 6 hours, 24 hours; reset by a successful sign-in or PIN. |
 
-Each fix has an automated test in `server/test/api.test.ts` ("security hardening"); findings 9 and 10 are tested in `server/test/lockout.test.ts`.
+## Review of 13 November 2026: findings and fixes
+
+| # | Finding | Risk | Fix |
+|---|---|---|---|
+| 11 | Outside production the sign-in token secret fell back to a fixed, public string. A host set up without `NODE_ENV=production` would have had forgeable tokens. | Medium | The fixed secret is used only by automated tests. Everywhere else a random secret is generated once and kept in the database. |
+| 12 | Deleting the whole account needed only the parent PIN, which a child may have seen. | Medium | Deleting the account now also needs the account password, with the same attempt limit as signing in. |
+| 13 | Reports had no limit, so one signed-in device could fill the database. | Medium | 20 reports per family per 24 hours. |
+| 14 | Two sign-ups with the same email at the same moment returned a server error. | Low | The second one gets "email taken". |
+| 15 | The per-address limit used the first `X-Forwarded-For` value, which the caller can invent on some hosts. | Low | Uses the platform's own header, or the last entry (added by the nearest proxy). |
+| 16 | Website pages had no HSTS header (the API did). | Low | Added to the preview server and `vercel.json`. |
+| 17 | Cross-origin access stayed open (`*`) at launch unless `CORS_ORIGINS` was set. | Low | After `LAUNCH=true` the default is no cross-origin access. |
+| 18 | Outside links were opened without checking the address. | Low | Only `https` addresses are opened; "read more" links must be on wikipedia.org. |
+| 19 | The password could only be changed through "forgot password". | Low | New **Change password** in the parent area (needs the current password, signs out other devices). |
+
+Findings 11 to 19 are tested in `server/test/hardening.test.ts`.
+
+Each earlier fix has an automated test in `server/test/api.test.ts` ("security hardening"); findings 9 and 10 are tested in `server/test/lockout.test.ts`.
 
 ## Known and accepted
 
 - **Expo build tools** (`npm audit` in `app/`): 5 moderate advisories in `glob`/`minimatch`, used only by Expo's command-line tools on the build machine. They are not part of the app that families download. The suggested fix would downgrade Expo by six major versions, so we wait for Expo to update them. The server has **0** known vulnerabilities.
-- **`CORS_ORIGINS` defaults to `*`.** Safe here because sign-in uses bearer tokens, not cookies, so other websites can't act as a signed-in user. Set it to the real site address at launch anyway.
+- **`CORS_ORIGINS` is `*` before launch.** Safe here because sign-in uses bearer tokens, not cookies, so other websites can't act as a signed-in user. After `LAUNCH=true` it defaults to no cross-origin access.
+- **Locking someone out on purpose.** Anyone who knows a parent's email can enter wrong passwords until the account locks (up to 24 hours after repeated lockouts). A password reset by email clears the lock. We accept this in exchange for strong guessing limits.
+- **Screen time is counted from the app's own ticks.** A modified app could report less time. The limit is a family tool, not a security boundary.
 - **Web storage.** In the browser the family token is kept in local storage (standard for web apps). The strict CSP is the main protection against scripts that could read it.
 - **Hoot red-team.** The 92 attack cases in `content/hoot-redteam.json` must be run against the real AI (`cd server && npm run redteam` with `ANTHROPIC_API_KEY` set) and reviewed by a child-safety expert before launch. See `docs/HOOT_SAFETY_TESTS.md`.
 

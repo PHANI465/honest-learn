@@ -5,7 +5,7 @@ import { z } from "zod";
 import { config } from "../config.ts";
 import { now } from "../db.ts";
 import { hashSecret, issueToken, newId } from "../security.ts";
-import { childBand, ChildCreate, ChildPatch, childPublic, Country, Day, outcomeStatuses, Pin, plausibleDay, type ChildRow } from "../models.ts";
+import { childBand, ChildCreate, ChildPatch, childPublic, Country, Day, outcomeStatuses, Password, Pin, plausibleDay, Secret, type ChildRow } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 import { usageFor } from "./usage.ts";
 
@@ -176,6 +176,22 @@ export function parentRoutes(ctx: Ctx) {
     return c.json({ ok: true });
   });
 
+  /** Change the password while signed in. Needs the current one; signs out every other device. */
+  r.patch("/password", async (c) => {
+    const b = z.object({ currentPassword: Secret, newPassword: Password }).parse(await c.req.json());
+    const id = c.get("parentId");
+    const check = await ctx.checkPassword(c.get("parent"), b.currentPassword);
+    if (check === "locked") return c.json({ error: "too_many_attempts" }, 429);
+    if (check === "wrong") return c.json({ error: "wrong_password" }, 401);
+    await db.run("UPDATE parents SET password_hash = ? WHERE id = ?", [hashSecret(b.newPassword), id]);
+    const version = await ctx.revokeSessions(id);
+    return c.json({
+      familyToken: await issueToken(id, "family", version),
+      parentToken: await issueToken(id, "parent", version),
+      expiresInSec: config.security.parentTokenMinutes * 60,
+    });
+  });
+
   /** Lost a phone? Signs out every device, then returns a fresh sign-in (and parent unlock) for this one. */
   r.post("/sign-out-everywhere", async (c) => {
     const id = c.get("parentId");
@@ -220,6 +236,11 @@ export function parentRoutes(ctx: Ctx) {
 
   /** Right to erasure: deletes the parent and (via cascade) every child record. */
   r.delete("/account", async (c) => {
+    // The PIN alone is not enough to erase a family: a child may have seen it. Ask for the account password too.
+    const { password } = z.object({ password: Secret }).parse(await c.req.json().catch(() => ({})));
+    const check = await ctx.checkPassword(c.get("parent"), password);
+    if (check === "locked") return c.json({ error: "too_many_attempts" }, 429);
+    if (check === "wrong") return c.json({ error: "wrong_password" }, 401);
     await db.run("DELETE FROM parents WHERE id = ?", [c.get("parentId")]);
     return c.json({ ok: true });
   });

@@ -11,6 +11,8 @@ import { childPublic } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 
 const Id = z.string().max(100);
+/** Reports one family may send in 24 hours. */
+export const REPORTS_PER_DAY = 20;
 
 export function tutorRoutes(ctx: Ctx) {
   const { db, tutor, lessonFor } = ctx;
@@ -141,6 +143,9 @@ export function tutorRoutes(ctx: Ctx) {
       })
       .parse(await c.req.json());
     if (body.childId && !(await ctx.getChild(body.childId, c.get("parentId")))) return c.json({ error: "child_not_found" }, 404);
+    // A family sends a handful of reports at most; a cap stops a device from filling the database.
+    const hit = await ctx.hitRateLimit(`reports:${c.get("parentId")}`, REPORTS_PER_DAY, 86_400_000);
+    if (!hit.allowed) return c.json({ error: "too_many_reports" }, 429);
     await db.run(
       "INSERT INTO reports (id, parent_id, child_id, lesson_id, message_id, reason, details, created_at) VALUES (?,?,?,?,?,?,?,?)",
       [newId(), c.get("parentId"), body.childId ?? null, body.lessonId ?? null, body.messageId ?? null, body.reason, body.details ?? null, now()],

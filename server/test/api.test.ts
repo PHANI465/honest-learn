@@ -536,7 +536,10 @@ describe("family data rights", () => {
     assert.equal(ex.json.children.length, 1);
     assert.equal(ex.json.parent.email, "parent@example.com");
     assert.ok(!JSON.stringify(ex.json).includes("scrypt$"), "hashes are never exported");
-    assert.equal((await call("DELETE", "/parent/account", undefined, par)).status, 200);
+    // the PIN alone is not enough: the account password is needed too
+    assert.equal((await call("DELETE", "/parent/account", undefined, par)).status, 400);
+    assert.equal((await call("DELETE", "/parent/account", { password: "not it" }, par)).json.error, "wrong_password");
+    assert.equal((await call("DELETE", "/parent/account", { password: signup.password }, par)).status, 200);
     assert.equal((await call("GET", "/family", undefined, fam)).status, 401);
   });
 });
