@@ -8,6 +8,7 @@ Free, ad-free learning app for ages 3–18 (iOS, Android, web) with a parent-con
 - `content/`: the curriculum as JSON: `knowledge-map.json` (5 age bands × 11 subjects, 220 outcomes), `lessons/<band>/<subject>/*.json`, `puzzles/<band>.json`, `resources.json`, `helplines.json`, `hoot-redteam.json`.
 - `docs/`: `guide/` (what's built, where it lives, how it works, navigation, scaling), `SECURITY.md`, reviewer guide, approval list, launch checklist, deployment, legal drafts, research.
 - `scripts/`: generators and checkers (see below).
+- **Next work:** `docs/AGENT_TASKS.md` (status board, one section per task, which model and effort to use). Technical overview: `docs/TECHNICAL.md`. Own-model setup for Hoot (`TUTOR_MODE=openai`, Ollama etc.): `docs/FREE_AGENTS.md`, code in `server/src/tutor-openai.ts`.
 
 ## Commands
 ```bash

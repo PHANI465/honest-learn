@@ -12,6 +12,16 @@ export function publicRoutes(ctx: Ctx) {
 
   r.get("/health", (c) => c.json({ ok: true, lessons: content.lessons.size, tutor: config.tutor.mode, demo: db.demo }));
 
+  /** Which helper answers Hoot's questions, so the parent area can warn about untested models. Never includes keys or addresses. */
+  r.get("/content/hoot", (c) =>
+    c.json({
+      mode: config.tutor.mode,
+      model: config.tutor.mode === "claude" ? config.tutor.model : config.tutor.mode === "openai" ? config.tutor.openai.model : null,
+      // only the default model has been through this project's safety test set; everything else is the family's own choice
+      tested: config.tutor.mode !== "openai",
+    }),
+  );
+
   /** Countries with verified helpline info, for the optional country picker at sign-up. */
   r.get("/content/countries", (c) => {
     try {

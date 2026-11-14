@@ -1,3 +1,4 @@
+import { OpenAICompatTutor } from "./tutor-openai.ts";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
@@ -598,5 +599,7 @@ export class ClaudeTutor implements TutorProvider {
 }
 
 export function createTutor(): TutorProvider {
-  return config.tutor.mode === "claude" ? new ClaudeTutor() : new MockTutor();
+  if (config.tutor.mode === "claude") return new ClaudeTutor();
+  if (config.tutor.mode === "openai") return new OpenAICompatTutor();
+  return new MockTutor();
 }

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Honest Learn: architecture on one page</title>
+<style>
+  :root {
+    --bg: #fbf8f3; --card: #ffffff; --ink: #1f2430; --muted: #5e6573; --line: #d9d2c6;
+    --client: #e1ecfb; --client-ink: #1d4f96; --server: #e3f0e8; --server-ink: #24553e;
+    --data: #fdebd9; --data-ink: #7d4410; --ai: #ece7fa; --ai-ink: #4c3696; --stop: #fbe3e2; --stop-ink: #8f201c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #181818; --card: #1f1f1f; --ink: #f2f2f2; --muted: #ababab; --line: #3a3a3a;
+      --client: #1c2c44; --client-ink: #a9c8f5; --server: #1b3327; --server-ink: #9fd8b8;
+      --data: #3a2a17; --data-ink: #f1c08a; --ai: #2a2344; --ai-ink: #c6b8f5; --stop: #3d1d1c; --stop-ink: #f3aaa6;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  h2 { font-size: 19px; margin: 40px 0 4px; }
+  p.lead, p.note { color: var(--muted); margin: 0 0 16px; max-width: 760px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+  .chip { padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; overflow-x: auto; }
+  .row { display: flex; align-items: stretch; gap: 8px; min-width: 640px; }
+  .col { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .box { flex: 1; border-radius: 12px; padding: 10px 12px; border: 1px solid transparent; min-width: 120px; }
+  .box b { display: block; font-size: 14px; }
+  .box span { display: block; font-size: 12.5px; opacity: 0.9; }
+  .box code { font-size: 12px; }
+  .client { background: var(--client); color: var(--client-ink); border-color: var(--client-ink); }
+  .server { background: var(--server); color: var(--server-ink); border-color: var(--server-ink); }
+  .data { background: var(--data); color: var(--data-ink); border-color: var(--data-ink); }
+  .ai { background: var(--ai); color: var(--ai-ink); border-color: var(--ai-ink); }
+  .stop { background: var(--stop); color: var(--stop-ink); border-color: var(--stop-ink); }
+  .arrow { flex: 0 0 34px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 20px; }
+  .down { text-align: center; color: var(--muted); font-size: 18px; line-height: 1; margin: 2px 0; }
+  .steps { counter-reset: s; display: flex; flex-direction: column; gap: 6px; min-width: 560px; }
+  .step { display: flex; gap: 10px; align-items: flex-start; border-radius: 12px; padding: 8px 12px; border: 1px solid transparent; }
+  .step::before { counter-increment: s; content: counter(s); flex: 0 0 24px; height: 24px; border-radius: 999px; background: var(--card); color: inherit; border: 1px solid currentColor; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+  .step b { font-size: 14px; } .step span { font-size: 13px; display: block; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 13.5px; }
+  th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; }
+  .grid2 { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+  footer { color: var(--muted); font-size: 13px; margin-top: 40px; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Honest Learn: architecture on one page</h1>
+  <p class="lead">A visual summary of <a href="TECHNICAL.md">TECHNICAL.md</a>. One client, one API, static curriculum, one database, and an AI helper behind several safety layers.</p>
+  <div class="legend">
+    <span class="chip client">Client (untrusted)</span>
+    <span class="chip server">Server (owns the rules)</span>
+    <span class="chip data">Data and content</span>
+    <span class="chip ai">AI model</span>
+    <span class="chip stop">Stops and replaces</span>
+  </div>
+
+  <h2>1. System overview</h2>
+  <p class="note">The same Expo code runs on iOS, Android and the web. Every rule that matters runs on the server.</p>
+  <div class="panel">
+    <div class="row">
+      <div class="col">
+        <div class="box client"><b>Expo app</b><span>iOS · Android · web (<code>app/</code>)</span><span>expo-router screens, offline cache without answers</span></div>
+        <div class="box client"><b>Landing page</b><span><code>welcome.web.tsx</code></span></div>
+      </div>
+      <div class="arrow">⇄</div>
+      <div class="col">
+        <div class="box server"><b>Hono API</b><span><code>server/src/app.ts</code> → <code>routes/*</code></span><span>auth · visibility · hint ladder · screen time · Hoot pipeline</span></div>
+        <div class="box server"><b>Hosts</b><span>Local: <code>preview.ts</code> (site + API, one port)</span><span>Vercel: static <code>app/dist</code> + function <code>/api</code> + daily cron</span></div>
+      </div>
+      <div class="arrow">⇄</div>
+      <div class="col">
+        <div class="box data"><b>Database</b><span>SQLite locally · Postgres (Neon) when deployed</span><span>one <code>DB</code> interface</span></div>
+        <div class="box data"><b>Curriculum JSON</b><span><code>content/</code>: 175 lessons, 501 questions, 68 puzzles</span><span>loaded into memory at start</span></div>
+        <div class="box ai"><b>AI model (optional)</b><span>Claude · Ollama / LM Studio · any OpenAI-compatible service · none</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2>2. Who may call what</h2>
+      <p class="note">Two tokens. The parent token is short-lived and comes only from the PIN.</p>
+      <div class="panel">
+        <div class="steps">
+          <div class="step client"><div><b>Email + password</b><span><code>POST /auth/login</code> (8 tries, then escalating lock)</span></div></div>
+          <div class="step server"><div><b>Family token, 30 days</b><span>Lessons, quizzes, puzzles, Hoot, usage, reports</span></div></div>
+          <div class="step client"><div><b>Parent PIN</b><span><code>POST /auth/parent-unlock</code> (5 tries, then lock)</span></div></div>
+          <div class="step server"><div><b>Parent token, 10 minutes</b><span><code>/parent/*</code>: profiles, sensitive topics, chats, export</span></div></div>
+          <div class="step stop"><div><b>Password again</b><span>Delete account · change password. Every token carries a session version; raising it signs out all devices.</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>3. The hint ladder</h2>
+      <p class="note">Invariant: an answer leaves the server only after a correct try or all three hints, in order.</p>
+      <div class="panel">
+        <div class="steps">
+          <div class="step data"><div><b>Lesson is sent without answers</b><span><code>publicLesson()</code> strips <code>answer</code>, <code>hints</code>, <code>explain</code>; options shuffled per child</span></div></div>
+          <div class="step client"><div><b>Child tries</b><span><code>POST …/check</code> → correct or not, nothing else</span></div></div>
+          <div class="step server"><div><b>Hint 1 → 2 → 3</b><span><code>POST …/hint</code>; skipping is refused; level saved in <code>hints_seen</code></span></div></div>
+          <div class="step server"><div><b>Reveal check</b><span><code>mayReveal()</code> reads <code>hints_seen</code>, not the app's claim</span></div></div>
+          <div class="step data"><div><b>Explanation, then review date</b><span><code>…/complete</code> scores first tries; spaced repetition</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>4. Hoot: what happens to one message</h2>
+  <p class="note">Red steps can stop the message or replace the reply with the lesson's own pre-written hint. Steps 2, 6 and 8 use no AI.</p>
+  <div class="panel">
+    <div class="steps">
+      <div class="step server"><div><b>Gates</b><span>Lesson visible · age 6+ · Hoot switched on by the parent · 500 characters at most</span></div></div>
+      <div class="step stop"><div><b>Built-in checks (no AI)</b><span>Personal information → removed, fixed reply. Self-harm or abuse (read across the last 3 messages) → kind fixed reply with a helpline, email to the parent without the child's words.</span></div></div>
+      <div class="step stop"><div><b>Daily limit</b><span>40 messages per child, counted atomically</span></div></div>
+      <div class="step ai"><div><b>Model writes a draft</b><span>System instructions for the age band + lesson context (including the secret answer and whether the question is solved) + the last 12 turns</span></div></div>
+      <div class="step ai"><div><b>Own models only: rule reminder</b><span>Key rules and worked examples placed last; private <code>&lt;think&gt;</code> text removed</span></div></div>
+      <div class="step stop"><div><b>Fixed checks (no AI)</b><span>No links · length limit by age · must not name only the correct option</span></div></div>
+      <div class="step ai"><div><b>Second model call judges the draft</b><span><code>{ safe_for_age, reveals_answer }</code></span></div></div>
+      <div class="step stop"><div><b>Fail closed</b><span>Unsafe, leaking, unreadable verdict, timeout or error → pre-written hint, message flagged for the parent</span></div></div>
+      <div class="step client"><div><b>Child sees the reply</b><span>Parent can read every chat with the PIN</span></div></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2>5. Data</h2>
+      <div class="panel">
+        <table>
+          <tr><th>Table</th><th>Holds</th></tr>
+          <tr><td><code>parents</code></td><td>Email, password and PIN hashes (scrypt), locks, session version</td></tr>
+          <tr><td><code>children</code></td><td>Nickname, birth year, unlocked topics, Hoot on/off, daily minutes</td></tr>
+          <tr><td><code>progress</code></td><td>Best score, attempts, next review date</td></tr>
+          <tr><td><code>hints_seen</code></td><td>Highest hint opened per question</td></tr>
+          <tr><td><code>quiz_solved</code></td><td>Solved questions</td></tr>
+          <tr><td><code>usage</code></td><td>Minutes per day, bonus minutes</td></tr>
+          <tr><td><code>tutor_messages</code></td><td>Hoot chats and flags (deleted after 365 days)</td></tr>
+          <tr><td><code>reports</code> · <code>auth_codes</code> · <code>rate_limits</code></td><td>Reports, email codes, shared counters</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h2>6. Choosing the AI</h2>
+      <div class="panel">
+        <table>
+          <tr><th>Setting</th><th>Hoot uses</th></tr>
+          <tr><td>none</td><td>Pre-written hints (<code>MockTutor</code>)</td></tr>
+          <tr><td><code>ANTHROPIC_API_KEY</code></td><td>Claude (<code>ClaudeTutor</code>)</td></tr>
+          <tr><td><code>TUTOR_MODE=openai</code><br><code>LLM_BASE_URL</code>, <code>LLM_MODEL</code></td><td>Ollama, LM Studio, OpenRouter, Groq… (<code>OpenAICompatTutor</code>)</td></tr>
+        </table>
+        <p class="note" style="margin-top:10px">Guide: <a href="FREE_AGENTS.md">FREE_AGENTS.md</a></p>
+      </div>
+      <h2>7. What is planned</h2>
+      <div class="panel">
+        <table>
+          <tr><th>Area</th><th>Task</th></tr>
+          <tr><td>Accessibility, quick facts, spelling, quant, games, sign language</td><td>T1 to T5, T9</td></tr>
+          <tr><td>Own key in the app, phone app with no server, store builds</td><td>T6, T8, T11</td></tr>
+        </table>
+        <p class="note" style="margin-top:10px">Details and agent handover: <a href="AGENT_TASKS.md">AGENT_TASKS.md</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>Lessons are unreviewed drafts written with AI help. Verify content yourself before relying on it. Updated 14 November 2026.</footer>
+</main>
+</body>
+</html>

@@ -53,8 +53,25 @@ export const config = {
   chatRetentionDays: Number(env("CHAT_RETENTION_DAYS", "365")),
 
   tutor: {
-    /** "claude" calls the Claude API; "mock" uses the lesson's pre-written hints (for dev/tests). */
-    mode: env("TUTOR_MODE", process.env.ANTHROPIC_API_KEY ? "claude" : "mock") as "claude" | "mock",
+    /**
+     * "claude" calls the Claude API (ANTHROPIC_API_KEY). "openai" calls any OpenAI-compatible server: a free local
+     * model in Ollama or LM Studio, or a hosted one (LLM_BASE_URL, LLM_MODEL, optional LLM_API_KEY; see
+     * docs/FREE_AGENTS.md). "mock" uses the lesson's pre-written hints and needs no AI at all.
+     */
+    mode: env("TUTOR_MODE", process.env.ANTHROPIC_API_KEY ? "claude" : process.env.LLM_BASE_URL || process.env.LLM_MODEL ? "openai" : "mock") as
+      | "claude"
+      | "openai"
+      | "mock",
+    /** Settings for TUTOR_MODE=openai. The default address is Ollama on this computer. */
+    openai: {
+      baseUrl: env("LLM_BASE_URL", "http://localhost:11434/v1"),
+      apiKey: process.env.LLM_API_KEY ?? "",
+      model: env("LLM_MODEL", "llama3.2"),
+      /** Model for the second safety check; defaults to the same model. A stronger one here is the best upgrade. */
+      safetyModel: env("LLM_SAFETY_MODEL", process.env.LLM_MODEL ?? "llama3.2"),
+      /** Local models on a laptop can be slow: wait up to this long for each call. */
+      timeoutMs: Number(env("LLM_TIMEOUT_MS", "60000")),
+    },
     model: env("TUTOR_MODEL", "claude-sonnet-5-5"),
     /** Model used to double-check every tutor reply for safety and answer leaks. */
     safetyModel: env("TUTOR_SAFETY_MODEL", "claude-opus-5-5"),

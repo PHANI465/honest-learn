@@ -2,6 +2,13 @@
 
 Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android and the web, and has no ads.
 
+> **⚠️ Please read: the content has not been fully tested or reviewed.**
+> Every lesson, quiz, puzzle and hint in this project was drafted with AI help and is marked as a **draft**. No teacher,
+> doctor, child-safety specialist or lawyer has approved it yet, and the AI helper has not been through an independent
+> safety review. Treat everything as unverified: **check the lessons yourself before relying on them or giving them to a
+> child**, especially health, safety and sensitive topics. What still needs an expert is listed in
+> [`docs/NEEDS_APPROVAL.md`](docs/NEEDS_APPROVAL.md). The software is provided as it is, with no guarantee.
+
 - **Right for every age:** 5 age groups, 11 subjects and 220 "minimum knowledge" outcomes (see [`docs/KNOWLEDGE_MAP.md`](docs/KNOWLEDGE_MAP.md)).
 - **Helps, never cheats:** quizzes use a hint ladder (nudge → bigger hint → worked example of a *similar* problem). Hoot, the AI helper, never gives quiz answers, and an independent check reviews every reply before a child sees it.
 - **Parents in control:** a parent account is required. A parent PIN protects settings, sensitive topics (religion, body, politics), chat history, outside links and extra screen time.
@@ -9,6 +16,55 @@ Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android an
 - **Try it in 5 minutes:** [`docs/TRY_IT.md`](docs/TRY_IT.md) (a ready-made demo family and what to click).
 - **Documented:** [the guide](docs/guide/README.md) explains what's built, where it lives, how it works, how to navigate it and how it can scale.
 - **Points to the best free resources:** each subject lists hand-picked free websites for the child's age (Khan Academy, PhET, Scratch, NASA Space Place, OpenStax and more). Lessons for ages 9+ show a short Wikipedia summary (Simple English Wikipedia for 9–11). Lessons can include reviewed YouTube videos in the privacy-enhanced player. Outside links need a parent's PIN for under-13s.
+
+## Run it yourself, with your own AI or none
+
+You do not need the project owner, a hosted service or a paid account. Download the project and run it on your own
+computer:
+
+```bash
+git clone https://github.com/PHANI465/honest-learn.git
+cd honest-learn
+npm run dev          # installs, builds the website and serves it with the API at http://localhost:3000
+```
+
+Out of the box, **Hoot the helper needs no AI at all**: it answers with each lesson's own pre-written hints. If you
+want an AI model behind Hoot, you choose it and you control it:
+
+| You want | What to do |
+|---|---|
+| **A free model on your own computer** (nothing leaves it) | Install [Ollama](https://ollama.com) or LM Studio and point Honest Learn at it |
+| **Your own API key** for a hosted service (OpenRouter, Groq, OpenAI, Claude, …) | Put the key in `server/.env` (copy [`server/.env.example`](server/.env.example)) |
+| **Another local agent or model server** | Anything with an OpenAI-compatible address works |
+
+**Step by step: [`docs/FREE_AGENTS.md`](docs/FREE_AGENTS.md)** (the free-agent guide). It also explains what protects
+children whichever model you choose, and why small free models need a grown-up to read the chats.
+
+On a phone today: open your own computer's address from the same Wi-Fi and use *Add to Home Screen*, or build the
+Android app yourself (see "How to see the app" below). A phone app that needs no server at all is planned
+([`docs/AGENT_TASKS.md`](docs/AGENT_TASKS.md), task T8).
+
+## Make it yours
+
+This is your copy. Shape the learning to your family, class or community:
+
+- **Add lessons and whole chapters you think are needed.** A lesson is one small JSON file in
+  `content/lessons/<age group>/<subject>/`. Copy an existing one, change the text, the quiz and the three hints, and run
+  `cd server && npm run validate`. See "Adding content" below. A parent can add anything they want their child to learn:
+  family history, a home language, faith or values lessons, local geography, extra practice for a weak spot.
+- **Add a subject** in `content/knowledge-map.json`, or remove lessons you do not want by deleting their files.
+- **Change the rules for your child** in the parent area: daily minutes, Hoot on or off, which sensitive topics are unlocked.
+- **Change how Hoot talks** in `server/src/tutor.ts` (`tutorSystemPrompt`) and `server/src/tutor-openai.ts`.
+
+Anything you add is your responsibility to check, just like the lessons that ship with the project.
+
+## For engineers and AI agents
+
+- [`docs/TECHNICAL.md`](docs/TECHNICAL.md): the technical explanation of the whole system.
+- [`docs/architecture.html`](docs/architecture.html): the same on one page, as diagrams (open it in a browser).
+- [`docs/AGENT_TASKS.md`](docs/AGENT_TASKS.md): planned work (accessibility, sign language, games, spelling, quantitative
+  aptitude, quick facts, own key in the app, phone app without a server), written so any AI agent can pick up the next
+  task. It includes a ready prompt to paste into a new session.
 
 ## What's inside
 
@@ -169,7 +225,7 @@ Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android an
 You need Node 22+.
 
 ```bash
-# 1. API (uses the mock tutor unless ANTHROPIC_API_KEY is set)
+# 1. API (Hoot uses pre-written hints unless you connect a model: see docs/FREE_AGENTS.md)
 cd server && npm install && npm run dev        # http://localhost:8787
 
 # 2. App (in a second terminal)
