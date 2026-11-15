@@ -10,6 +10,17 @@ Version 2026-11-v1 (draft). Last updated 5 November 2026.
 - No ads. We never sell your data or share it for advertising. We don't use third-party analytics or tracking tools.
 - You are in control. With your parent PIN you can see your children's progress and Hoot chats, download your family's data, and delete a profile or your whole account at any time.
 - Hoot, the AI helper, is optional. When it is on, your child's messages are processed by our AI provider, Anthropic, to write and safety-check each reply.
+- In the phone app you can choose to use Honest Learn **on that phone only**. Then everything stays on the phone and nothing is sent to us (see below).
+
+## Using the app on one phone only
+
+The phone app can run Honest Learn entirely on the phone, with no account on any server ("On this phone only", chosen when the app first opens). In that case:
+
+- Your email (used only as your sign-in name), password and PIN (stored as scrambled hashes), your children's profiles, their learning progress and Hoot chats are kept **only on that phone**, in the app's private storage. **We never receive any of it**, so the rest of this notice about what we store on our servers does not apply to that information.
+- No emails are sent. Instead of resetting your password by email, you get a recovery phrase when you create the account. Only a scrambled hash of it is kept; keep the phrase itself safe on paper. If Hoot notices a message about your child's wellbeing, the parent area shows a notice instead of sending an email.
+- Hoot uses each lesson's own pre-written hints, unless you connect your own AI model in the parent area. Then your child's messages go to the model or service you chose, as described under "Hoot, the AI helper".
+- You can download a copy of your family's data, or delete everything, from the parent area. Removing the app also removes the data. If the phone is lost, the data is lost with it: there is no copy anywhere else, and we cannot recover it.
+- [Lawyer: confirm how the controller and operator roles apply when the organisation never receives the data.]
 
 ## Who we are
 

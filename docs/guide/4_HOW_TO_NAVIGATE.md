@@ -27,7 +27,8 @@ flowchart TD
 ```
 
 ### As a parent
-1. **Welcome → "I'm a parent — create an account."** Email, password, a 4–6 digit PIN, optional country. You land in the parent area to add your first child.
+0. **Phone app, first run:** choose **On this phone only** (no server, no email; everything stays on the phone) or **Connect to a server**. You can change it later on the welcome screen while signed out. See `docs/STANDALONE.md`.
+1. **Welcome → "I'm a parent — create an account."** Email, password, a 4–6 digit PIN, optional country. On this phone only, you then get a **recovery phrase** to write down (it resets a forgotten password, because there is no email). You land in the parent area to add your first child.
 2. **Add a child:** nickname (a nickname is safest), birth year, an animal avatar.
 3. **Parent area** (from the profile screen: *🔒 Parent area* + PIN). It locks itself after 10 minutes.
    - Each child's card shows this week, lessons done, quiz score, puzzles, Hoot on/off, daily minutes and per-subject progress bars. Tap a card for that child's **settings**.
@@ -35,8 +36,9 @@ flowchart TD
    - **Extra time:** when a child's time is up, their screen offers "+15 minutes" for a grown-up with the PIN.
    - **Lessons you add:** write your own lessons (title, age group, subject, text, optional quiz with three hints per question). Only your family sees them; they appear marked "Added by your family". Up to 100 lessons of 20 KB.
    - **Hoot's AI** (Account card): connect your own model (Ollama, LM Studio, OpenRouter, Groq or any OpenAI-compatible address) with an optional key. Saving needs the account password and turns Hoot off for every child until you turn it on again; **Test the connection** sends one harmless message. The key is never shown again, only its last four characters.
+   - **"Please check in with …"**: shown at the top when Hoot answered one of a child's messages as a wellbeing concern. *Read the chat* or *I have checked in* (hides it until the next one). The profile screen then says only that a grown-up should open the parent area.
    - **Country:** for helpline information in Hoot's safety replies.
-   - **Account:** download all data, lock the parent area, sign out of this device, **sign out all other devices**, delete the account.
+   - **Account:** download all data, lock the parent area, sign out of this device, **sign out all other devices**, delete the account. On this phone only: **make a new recovery phrase**.
 4. **Back to learning →** returns to "Who's learning today?".
 
 ### As a child
@@ -87,7 +89,7 @@ On the website every screen has an address, for example `/welcome`, `/profiles`,
 honest-learn/
 ├── app/                         the app (website + Android + iPhone)
 │   ├── src/app/                 screens: one file per screen (expo-router)
-│   │   ├── welcome, signup, login, forgot, reset-pin, privacy, terms, profiles
+│   │   ├── start (phone first run), server, welcome, signup, login, forgot, recover, reset-pin, privacy, terms, profiles
 │   │   ├── learn/[childId]/     child home, subject, lesson, practice, puzzles, tutor (Hoot)
 │   │   └── parent/              parent area, add child, child settings, chats
 │   ├── src/components/          shared building blocks (ui, QuizRunner, PinPad, VideoEmbed…)

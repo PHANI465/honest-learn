@@ -21,7 +21,14 @@ export function learnRoutes(ctx: Ctx) {
   r.get("/family", async (c) => {
     const p = c.get("parent");
     const kids = (await ctx.listChildren(p.id)).map(childPublic);
-    return c.json({ parent: { email: p.email, emailVerified: !!p.email_verified_at, country: p.country }, children: kids });
+    // A wellbeing alert the parent has not seen yet. This screen is open to children, so it says only that a grown-up should open
+    // the parent area: never which child, never what was written.
+    const attention = !!(await db.get(
+      `SELECT 1 AS x FROM tutor_messages m JOIN children k ON k.id = m.child_id
+        WHERE k.parent_id = ? AND m.role = 'user' AND m.flagged = 'wellbeing' AND m.created_at > COALESCE(k.wellbeing_seen_at, '') LIMIT 1`,
+      [p.id],
+    ));
+    return c.json({ parent: { email: p.email, emailVerified: !!p.email_verified_at, country: p.country }, children: kids, attention });
   });
 
   /**

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { View } from "react-native";
 import { Banner, Button, Card, Field, H1, Screen } from "../components/ui";
 import { friendly } from "../lib/api";
+import { isDeviceMode } from "../lib/server";
 import { useSession } from "../lib/session";
 
 export default function Login() {
@@ -35,7 +36,7 @@ export default function Login() {
       </Card>
       <View style={{ gap: 10 }}>
         <Button big title="Sign in" onPress={submit} disabled={!email || !password} loading={busy} />
-        <Button title="Forgot password?" kind="ghost" onPress={() => router.push("/forgot")} />
+        <Button title="Forgot password?" kind="ghost" onPress={() => router.push(isDeviceMode() ? "/recover" : "/forgot")} />
         <Button title="Back" kind="ghost" onPress={() => router.back()} />
       </View>
     </Screen>

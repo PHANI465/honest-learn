@@ -1,6 +1,7 @@
 // Thin typed client for the Honest Learn API (see server/src/app.ts).
 
-import { apiBase } from "./server";
+import { localRequest } from "./local-backend";
+import { apiBase, isDeviceMode } from "./server";
 
 /** The server address: chosen on a phone (see lib/server.ts), built in, or localhost for the website and development. */
 export { apiBase };
@@ -157,6 +158,9 @@ export function friendly(err: unknown): string {
     not_found: "We couldn't find that.",
     hint_out_of_order: "Open the hints one at a time, starting with the first.",
     too_large: "That's too long to send. Please make it shorter.",
+    wrong_recovery_phrase: "That email and recovery phrase don't match.",
+    not_on_this_device: "This needs email, which the app doesn't use when it runs on this phone only.",
+    device_storage_error: "The app couldn't read its own storage on this phone. Close the app and open it again.",
   };
   return map[err.code] ?? "Something went wrong. Please try again.";
 }
@@ -172,12 +176,26 @@ const report = (reachable: boolean) => reachability.forEach((fn) => fn(reachable
 
 export async function api<T>(method: string, path: string, token?: string | null, body?: unknown): Promise<T> {
   let res: Response;
+  const init: RequestInit = {
+    method,
+    headers: { "content-type": "application/json", ...(token ? { authorization: `Bearer ${token}` } : {}) },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  };
+  if (isDeviceMode()) {
+    // Standalone mode: the API inside the app answers (lib/local-backend.native.ts). There is no network to lose.
+    try {
+      res = await localRequest(path, init);
+    } catch (e) {
+      console.error("the app's own database could not answer", e);
+      throw new ApiError(500, "device_storage_error", {});
+    }
+    report(true);
+    const json = (await res.json().catch(() => ({}))) as Record<string, unknown>;
+    if (!res.ok) throw new ApiError(res.status, String(json.error ?? "server_error"), json);
+    return json as T;
+  }
   try {
-    res = await fetch(apiBase() + path, {
-      method,
-      headers: { "content-type": "application/json", ...(token ? { authorization: `Bearer ${token}` } : {}) },
-      body: body === undefined ? undefined : JSON.stringify(body),
-    });
+    res = await fetch(apiBase() + path, init);
   } catch {
     report(false);
     throw new Error("network");

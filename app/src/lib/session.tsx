@@ -18,8 +18,11 @@ interface Session {
   /** Optional ISO country code, used only for helpline info. */
   country: string | null;
   children: Child[];
+  /** A wellbeing alert the parent has not seen yet: the profile picker asks a grown-up to open the parent area (no details). */
+  attention: boolean;
   map: ContentMap | null;
-  signup(input: { email: string; password: string; pin: string; country: string | null }): Promise<void>;
+  /** Returns the recovery phrase in standalone mode (shown once; there is no email to reset a password). */
+  signup(input: { email: string; password: string; pin: string; country: string | null }): Promise<{ recoveryPhrase?: string }>;
   login(email: string, password: string): Promise<void>;
   logout(): Promise<void>;
   /** Sign in with a token from a password reset. */
@@ -54,11 +57,13 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
   const [emailVerified, setEmailVerified] = useState(true);
   const [country, setCountry] = useState<string | null>(null);
   const [children, setChildren] = useState<Child[]>([]);
+  const [attention, setAttention] = useState(false);
   const [map, setMap] = useState<ContentMap | null>(null);
   const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const loadFamily = useCallback(async (token: string) => {
-    const fam = await api<{ parent: { email: string; emailVerified: boolean; country?: string | null }; children: Child[] }>("GET", "/family", token);
+    const fam = await api<{ parent: { email: string; emailVerified: boolean; country?: string | null }; children: Child[]; attention?: boolean }>("GET", "/family", token);
+    setAttention(!!fam.attention);
     setCountry(fam.parent.country ?? null);
     setParentEmail(fam.parent.email);
     setEmailVerified(fam.parent.emailVerified);
@@ -127,9 +132,10 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
       emailVerified,
       country,
       children,
+      attention,
       map,
       async signup({ email, password, pin, country: chosen }) {
-        const r = await api<{ familyToken: string }>("POST", "/auth/signup", null, {
+        const r = await api<{ familyToken: string; recoveryPhrase?: string }>("POST", "/auth/signup", null, {
           email,
           password,
           pin,
@@ -141,6 +147,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         // A new parent goes straight into the parent area to add a child, so unlock it now.
         const p = await api<{ parentToken: string; expiresInSec: number }>("POST", "/auth/parent-unlock", r.familyToken, { pin });
         setParentToken(p.parentToken);
+        return { recoveryPhrase: r.recoveryPhrase };
       },
       async login(email, password) {
         const r = await api<{ familyToken: string }>("POST", "/auth/login", null, { email, password });
@@ -201,7 +208,8 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         try {
           return await api<T>(method, "/parent" + path, used, body);
         } catch (e) {
-          if (e instanceof ApiError && (e.status === 401 || e.status === 403)) {
+          // A mistyped account password (in a form that asks for it) is not an expired PIN session: keep the parent area open.
+          if (e instanceof ApiError && (e.status === 401 || e.status === 403) && e.code !== "wrong_password") {
             // The token was replaced while this request was on its way (e.g. "sign out all other devices"): retry once.
             const latest = parentTokenRef.current;
             if (latest && latest !== used) return api<T>(method, "/parent" + path, latest, body);
@@ -211,7 +219,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         }
       },
     }),
-    [ready, reloadContent, familyToken, parentToken, parentEmail, emailVerified, country, children, map, adopt, lockParent, loadFamily, setParentToken],
+    [ready, reloadContent, familyToken, parentToken, parentEmail, emailVerified, country, children, attention, map, adopt, lockParent, loadFamily, setParentToken],
   );
 
   return <Ctx.Provider value={value}>{kids}</Ctx.Provider>;

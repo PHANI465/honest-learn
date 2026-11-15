@@ -22,6 +22,24 @@ export function verifySecret(secret: string, stored: string): boolean {
 
 export const newId = () => pf().randomUUID();
 
+// ---- recovery phrase (standalone mode, where there is no email to reset a password)
+// 24 characters from Crockford's base 32 (no I, L, O or U, so nothing looks alike): 120 random bits, shown as six groups of four.
+const CROCKFORD = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+
+export function newRecoveryPhrase(): string {
+  const chars = Array.from({ length: 24 }, () => CROCKFORD[pf().randomInt(32)]!).join("");
+  return chars.match(/.{4}/g)!.join("-");
+}
+
+/** What is hashed and compared: upper case, no spaces or dashes; O read as 0 and I or L as 1, as Crockford intends. */
+export function normaliseRecoveryPhrase(typed: string): string {
+  return typed
+    .toUpperCase()
+    .replace(/[^0-9A-Z]/g, "")
+    .replace(/O/g, "0")
+    .replace(/[IL]/g, "1");
+}
+
 // ---- session tokens ----
 // "family" token: the signed-in device. Lets a child use the app (learn, quiz, tutor).
 // "parent" token: short-lived, issued only after the parent enters their PIN.

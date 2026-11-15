@@ -2,6 +2,7 @@ import { router } from "expo-router";
 import { Platform, Text, View } from "react-native";
 import { DemoBanner } from "../components/DemoBanner";
 import { Button, Card, H1, P, Screen } from "../components/ui";
+import { apiBase, chosenServerAddress, isDeviceMode } from "../lib/server";
 import { colors } from "../lib/theme";
 
 const PROMISES = [
@@ -36,7 +37,12 @@ export default function Welcome() {
         <Button title="I already have an account" kind="secondary" onPress={() => router.push("/login")} />
       </View>
       <P muted center size={13}>A parent or guardian (18+) creates the account. Children use profiles inside it.</P>
-      {Platform.OS !== "web" ? <Button title="Server settings" kind="ghost" onPress={() => router.push("/server")} hint="Choose which Honest Learn server this app uses" /> : null}
+      {Platform.OS !== "web" ? (
+        <View style={{ gap: 4 }}>
+          <P muted center size={13}>{isDeviceMode() ? "Using Honest Learn on this phone only." : `Using the server ${chosenServerAddress() ?? apiBase()}.`}</P>
+          <Button title="Change how this app is set up" kind="ghost" onPress={() => router.push("/start")} hint="On this phone only, or connected to a server" />
+        </View>
+      ) : null}
     </Screen>
   );
 }

@@ -20,6 +20,8 @@ export interface Deps {
   tutor: TutorProvider;
   wiki: WikiClient;
   mailer: Mailer;
+  /** True when the API runs inside the app on one phone (standalone mode): no email, a recovery phrase instead. */
+  device?: boolean;
 }
 
 type Purpose = "verify_email" | "reset_password";

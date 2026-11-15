@@ -3,9 +3,11 @@ import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { Alert, Platform, Share, Text, View } from "react-native";
 import { CountryPicker } from "../../components/CountryPicker";
+import { RecoveryPhrase } from "../../components/RecoveryPhrase";
 import { Banner, Button, Card, Emoji, Field, H1, H2, P, Pill, ProgressBar, Screen } from "../../components/ui";
 import { friendly, type Child } from "../../lib/api";
 import { openSafely, safeUrl } from "../../lib/links";
+import { isDeviceMode } from "../../lib/server";
 import { useSession } from "../../lib/session";
 import { avatars, bandTheme, colors, subjectEmoji } from "../../lib/theme";
 
@@ -16,6 +18,8 @@ interface Overview {
     puzzles: { best_score: number; total: number } | null;
     subjects?: { id: string; name: string; total: number; completed: number }[];
     flaggedMessages: number;
+    /** Messages Hoot answered as a wellbeing concern that the parent has not marked as seen. */
+    wellbeingAlerts?: number;
     recent: { lesson_id: string; title: string; best_score: number; total: number }[];
   })[];
 }
@@ -35,13 +39,16 @@ function confirm(title: string, message: string, action = "Delete"): Promise<boo
 export default function ParentHome() {
   const { parentApi, parentEmail, emailVerified, verifyEmail, resendVerification, country, map, lockParent, logout, refreshFamily, signOutEverywhere, changePassword } = useSession();
   // Account forms: which one is open, and what was typed. Passwords are cleared as soon as a form closes.
-  const [form, setForm] = useState<"password" | "delete" | null>(null);
+  const [form, setForm] = useState<"password" | "delete" | "recovery" | null>(null);
+  /** Standalone mode: a new recovery phrase, shown once. */
+  const [newPhrase, setNewPhrase] = useState<string | null>(null);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const closeForm = () => {
     setForm(null);
+    setNewPhrase(null);
     setCurrentPassword("");
     setNewPassword("");
     setFormError(null);
@@ -108,6 +115,31 @@ export default function ParentHome() {
     }
   }
 
+  /** The parent has read the wellbeing alerts for this child: the notice goes until the next one. */
+  async function checkedIn(childId: string) {
+    try {
+      await parentApi("POST", `/children/${childId}/wellbeing-seen`);
+      setData(await parentApi<Overview>("GET", "/overview"));
+      await refreshFamily();
+    } catch (e) {
+      setError(friendly(e));
+    }
+  }
+
+  async function makeRecoveryPhrase() {
+    setBusy(true);
+    setFormError(null);
+    try {
+      const r = await parentApi<{ recoveryPhrase: string }>("POST", "/recovery-phrase", { password: currentPassword });
+      setCurrentPassword("");
+      setNewPhrase(r.recoveryPhrase);
+    } catch (e) {
+      setFormError(friendly(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+
   async function savePassword() {
     setBusy(true);
     setFormError(null);
@@ -131,7 +163,8 @@ export default function ParentHome() {
       <P muted size={14}>Signed in as {parentEmail}. This area locks itself after 10 minutes.</P>
       {error ? <Banner>{error}</Banner> : null}
 
-      {!emailVerified && map?.emailSending !== false ? (
+      {/* Standalone mode has no email to verify (the recovery phrase replaces it). */}
+      {!emailVerified && map?.emailSending !== false && !isDeviceMode() ? (
         <Card style={{ borderColor: colors.warn, backgroundColor: colors.warnSoft }}>
           <Text style={{ fontWeight: "800", color: colors.ink, fontSize: 16 }}>✉️ Please verify your email</Text>
           <P size={14}>We sent a 6-digit code to {parentEmail}. Verifying lets you reset your password if you forget it.</P>
@@ -151,6 +184,24 @@ export default function ParentHome() {
           </View>
         </Card>
       ) : null}
+
+      {data?.children
+        .filter((c) => (c.wellbeingAlerts ?? 0) > 0)
+        .map((c) => (
+          <Card key={`wellbeing-${c.id}`} style={{ borderColor: colors.warn, backgroundColor: colors.warnSoft, gap: 10 }}>
+            <Text accessibilityRole="header" style={{ fontWeight: "800", color: colors.ink, fontSize: 17 }}>
+              💛 Please check in with {c.nickname}
+            </Text>
+            <P size={14}>
+              {c.nickname} sent Hoot {c.wellbeingAlerts === 1 ? "a message" : `${c.wellbeingAlerts} messages`} that may mean they need support. Hoot
+              replied with a kind message{country ? " and a helpline for your country" : ""}. Please talk with them soon, in a calm and caring way.
+            </P>
+            <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
+              <Button title="Read the chat" onPress={() => router.push(`/parent/chats/${c.id}`)} label={`Read ${c.nickname}'s chats with Hoot`} />
+              <Button title="I have checked in" kind="secondary" onPress={() => checkedIn(c.id)} label={`I have checked in with ${c.nickname}: hide this notice`} />
+            </View>
+          </Card>
+        ))}
 
       <H2>Your children</H2>
       {data?.children.length === 0 ? <Banner tone="info">Add your first child to get started.</Banner> : null}
@@ -232,6 +283,28 @@ export default function ParentHome() {
             {formError ? <Banner>{formError}</Banner> : null}
             <Button title="Save new password" onPress={savePassword} loading={busy} disabled={!currentPassword || newPassword.length < 8} />
           </View>
+        ) : null}
+        {isDeviceMode() ? (
+          <Button title="Make a new recovery phrase" kind="ghost" onPress={() => (form === "recovery" ? closeForm() : (closeForm(), setForm("recovery")))} />
+        ) : null}
+        {form === "recovery" ? (
+          newPhrase ? (
+            <RecoveryPhrase
+              phrase={newPhrase}
+              doneTitle="Done"
+              onDone={() => {
+                closeForm();
+                setDone("Your new recovery phrase is saved. The old one no longer works.");
+              }}
+            />
+          ) : (
+            <View style={{ gap: 10 }}>
+              <P size={14}>A new phrase replaces the old one, which then stops working. Enter your account password: the PIN alone is not enough.</P>
+              <Field label="Account password" value={currentPassword} onChangeText={setCurrentPassword} secureTextEntry autoCapitalize="none" autoComplete="current-password" />
+              {formError ? <Banner>{formError}</Banner> : null}
+              <Button title="Show my new phrase" onPress={makeRecoveryPhrase} loading={busy} disabled={!currentPassword} />
+            </View>
+          )
         ) : null}
         <Button title="Delete account and all data" kind="danger" onPress={() => (form === "delete" ? closeForm() : (closeForm(), setForm("delete")))} />
         {form === "delete" ? (

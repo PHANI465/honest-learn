@@ -24,7 +24,7 @@ import type { DB } from "./db.ts";
 import type { ContentStore } from "./content.ts";
 import type { TutorProvider } from "./tutor.ts";
 import { WikiClient } from "./wiki.ts";
-import { createMailer, type Mailer } from "./mailer.ts";
+import { createMailer, NoMailer, type Mailer } from "./mailer.ts";
 import { createContext, type Env } from "./context.ts";
 import { publicRoutes } from "./routes/public.ts";
 import { authRoutes } from "./routes/auth.ts";
@@ -54,7 +54,8 @@ export function createApp(deps: {
    */
   device?: boolean;
 }) {
-  const ctx = createContext({ ...deps, wiki: deps.wiki ?? new WikiClient(), mailer: deps.mailer ?? createMailer() });
+  // Standalone mode has no email: verification, password reset and the wellbeing email are replaced (routes/auth.ts, the parent-area notice).
+  const ctx = createContext({ ...deps, wiki: deps.wiki ?? new WikiClient(), mailer: deps.mailer ?? (deps.device ? new NoMailer() : createMailer()) });
   const { db } = ctx;
   const app = new Hono<Env>();
 

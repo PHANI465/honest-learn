@@ -1,8 +1,9 @@
-import { router } from "expo-router";
+import { Redirect, router } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
 import { Banner, Button, Card, Field, H1, P, Screen } from "../components/ui";
 import { api, friendly } from "../lib/api";
+import { isDeviceMode } from "../lib/server";
 import { useSession } from "../lib/session";
 
 export default function Forgot() {
@@ -13,6 +14,9 @@ export default function Forgot() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+
+  // On this phone only there is no email: the recovery phrase resets the password.
+  if (isDeviceMode()) return <Redirect href="/recover" />;
 
   async function sendCode() {
     setBusy(true);

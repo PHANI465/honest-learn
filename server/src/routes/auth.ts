@@ -1,11 +1,11 @@
 // Accounts: sign up, sign in, email codes, password and PIN resets, and the parent PIN unlock.
 // Mounted at /auth. Every route here is rate limited per IP address on top of the per-account limits.
-import { Hono } from "hono";
+import { Hono, type Context, type Next } from "hono";
 import { z } from "zod";
 import { config } from "../config.ts";
 import { now } from "../db.ts";
-import { hashSecret, issueToken, newId, verifySecret } from "../security.ts";
-import { Code, CONSENT_VERSION, Country, Email, Password, Pin, Secret } from "../models.ts";
+import { hashSecret, issueToken, newId, newRecoveryPhrase, normaliseRecoveryPhrase, verifySecret } from "../security.ts";
+import { Code, CONSENT_VERSION, Country, Email, Password, Pin, RecoveryPhrase, Secret } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 
 /** One email of each kind per account per minute (stops inbox flooding). */
@@ -25,6 +25,10 @@ export function authRoutes(ctx: Ctx) {
     await next();
   });
 
+  // Email exists only on a server; the recovery phrase only in standalone mode (the app on one phone, task T8c).
+  const serverOnly = async (c: Context<Env>, next: Next) => (ctx.device ? c.json({ error: "not_on_this_device" }, 404) : next());
+  const deviceOnly = async (c: Context<Env>, next: Next) => (ctx.device ? next() : c.json({ error: "not_found" }, 404));
+
   r.post("/signup", async (c) => {
     const body = z
       .object({
@@ -38,21 +42,63 @@ export function authRoutes(ctx: Ctx) {
       .parse(await c.req.json());
     if (await getParentByEmail(body.email)) return c.json({ error: "email_taken" }, 409);
     const id = newId();
+    // Standalone mode: a recovery phrase instead of email. Shown once, here; only its hash is kept.
+    const recoveryPhrase = ctx.device ? newRecoveryPhrase() : null;
     try {
       await db.run(
-        "INSERT INTO parents (id, email, password_hash, pin_hash, consent_version, consent_at, created_at, country) VALUES (?,?,?,?,?,?,?,?)",
-        [id, body.email, hashSecret(body.password), hashSecret(body.pin), body.consentVersion, now(), now(), body.country ?? null],
+        "INSERT INTO parents (id, email, password_hash, pin_hash, consent_version, consent_at, created_at, country, recovery_hash) VALUES (?,?,?,?,?,?,?,?,?)",
+        [
+          id,
+          body.email,
+          hashSecret(body.password),
+          hashSecret(body.pin),
+          body.consentVersion,
+          now(),
+          now(),
+          body.country ?? null,
+          recoveryPhrase ? hashSecret(normaliseRecoveryPhrase(recoveryPhrase)) : null,
+        ],
       );
     } catch (e) {
       // Two sign-ups with the same email at the same moment: the second one loses to the UNIQUE rule.
       if (await getParentByEmail(body.email)) return c.json({ error: "email_taken" }, 409);
       throw e;
     }
+    if (recoveryPhrase) return c.json({ familyToken: await issueToken(id, "family"), recoveryPhrase }, 201);
     await ctx.sendCode({ id, email: body.email }, "verify_email");
     return c.json({ familyToken: await issueToken(id, "family") }, 201);
   });
 
-  r.post("/verify-email", requireScope("family"), async (c) => {
+  /**
+   * Standalone mode: a forgotten password is reset with the recovery phrase. Same attempt limit as signing in; signs out every
+   * other session. The PIN can then be reset with the new password (/auth/reset-pin).
+   */
+  r.post("/recover", deviceOnly, async (c) => {
+    const body = z.object({ email: Email, phrase: RecoveryPhrase, newPassword: Password }).parse(await c.req.json());
+    const p = await getParentByEmail(body.email);
+    if (!p || !p.recovery_hash) {
+      ctx.verifyAgainstNothing(body.phrase);
+      return c.json({ error: "wrong_recovery_phrase" }, 401);
+    }
+    if (isLocked(p.login_locked_until)) return c.json({ error: "too_many_attempts", retryAt: p.login_locked_until }, 429);
+    const tryNo = await takeTry(LOGIN_TRIES, p.id);
+    if (tryNo > LOGIN_TRIES.max()) {
+      const lock = await wrongTry(LOGIN_TRIES, p.id, tryNo);
+      return c.json({ error: "too_many_attempts", retryAt: lock }, 429);
+    }
+    if (!verifySecret(normaliseRecoveryPhrase(body.phrase), p.recovery_hash)) {
+      await wrongTry(LOGIN_TRIES, p.id, tryNo);
+      return c.json({ error: "wrong_recovery_phrase" }, 401);
+    }
+    await db.run("UPDATE parents SET password_hash = ?, login_failed = 0, login_locked_until = NULL, login_lock_level = 0 WHERE id = ?", [
+      hashSecret(body.newPassword),
+      p.id,
+    ]);
+    const version = await ctx.revokeSessions(p.id);
+    return c.json({ familyToken: await issueToken(p.id, "family", version) });
+  });
+
+  r.post("/verify-email", serverOnly, requireScope("family"), async (c) => {
     const { code } = z.object({ code: Code }).parse(await c.req.json());
     const result = await ctx.useCode(c.get("parentId"), "verify_email", code);
     if (result !== "ok") return c.json({ error: result === "expired" ? "code_expired" : "wrong_code" }, 400);
@@ -60,7 +106,7 @@ export function authRoutes(ctx: Ctx) {
     return c.json({ ok: true });
   });
 
-  r.post("/resend-verification", requireScope("family"), async (c) => {
+  r.post("/resend-verification", serverOnly, requireScope("family"), async (c) => {
     const p = c.get("parent");
     if (p.email_verified_at) return c.json({ ok: true, alreadyVerified: true });
     const last = await ctx.lastCodeSentAt(p.id, "verify_email");
@@ -70,7 +116,7 @@ export function authRoutes(ctx: Ctx) {
   });
 
   /** Always answers the same way, so it can't be used to discover which emails have accounts. */
-  r.post("/forgot-password", async (c) => {
+  r.post("/forgot-password", serverOnly, async (c) => {
     const { email } = z.object({ email: Email }).parse(await c.req.json());
     const p = await getParentByEmail(email);
     if (p) {
@@ -81,7 +127,7 @@ export function authRoutes(ctx: Ctx) {
   });
 
   /** A new password signs out every other device (someone else may have had the old one). */
-  r.post("/reset-password", async (c) => {
+  r.post("/reset-password", serverOnly, async (c) => {
     const body = z.object({ email: Email, code: Code, newPassword: Password }).parse(await c.req.json());
     const p = await getParentByEmail(body.email);
     const result = p ? await ctx.useCode(p.id, "reset_password", body.code) : "invalid";

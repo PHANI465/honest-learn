@@ -73,7 +73,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku, 5b chess and 5c memory games done 14 Nov 2026. 5d play chess against the computer: todo (needs an engine and licence decision) |
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | **done** 14 Nov 2026 | `parent/ai.tsx`, `ai-settings.ts`; no real model or hosted key tried; DNS rebinding open (`SECURITY.md`) |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
-| T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **in progress** | 8a and 8b done 14 Nov 2026 (shared API runs without Node; expo-sqlite adapter, bundled content, `openDeviceApi()`; [`STANDALONE.md`](STANDALONE.md)). Next: 8c (Sonnet medium), then 8d. Not yet run on a phone |
+| T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **in progress** | 8a, 8b and 8c done 14 Nov 2026 ("On this phone only" works end to end: first-run choice, recovery phrase, wellbeing notice; [`STANDALONE.md`](STANDALONE.md)). Next: 8d (Opus high). **Not yet run on a phone** |
 | T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | todo | Needs a Deaf reviewer |
 | T10 | "Add your own lessons" for parents | Sonnet medium | M | none | **done** 14 Nov 2026 | `parent/lessons.tsx`; private to the family; no look at it in a browser yet |
 | T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | **in progress** | Code and `docs/MOBILE.md` done 14 Nov 2026; accounts, signed builds and store forms need a person |
@@ -564,6 +564,25 @@ are private to that family and are included in export and deletion. **Sonnet med
   the existing Server address screen); emails print to the console in device mode (replace with the recovery phrase and the in-app wellbeing
   notice); move the token secret to expo-secure-store. **Never verified:** a real phone or emulator (Hermes, the real expo-sqlite, scrypt
   speed, `URL`, `TextDecoder`, `AbortSignal.timeout`): the first thing 8c should do is run `openDeviceApi()` once in Expo Go.
+- **T8c (done, by Opus at the owner's go-ahead).** Owner's decision (14 Nov 2026): the wellbeing alert is **in-app only**, no phone notification
+  (a child could read it on a shared phone; it would need expo-notifications and a permission prompt; Apple's Kids Category). Server
+  (all behind `createApp({ device: true })`, i.e. `ctx.device`): sign-up returns `recoveryPhrase` and sends no email; `POST /auth/recover`;
+  `POST /parent/recovery-phrase` (PIN + password); email routes 404 `not_on_this_device`; `NoMailer`. Both modes: `wellbeingAlerts` per
+  child in `/parent/overview`, `POST /parent/children/:id/wellbeing-seen`, `attention` in `GET /family`. Migrations: `parents.recovery_hash`,
+  `children.wellbeing_seen_at`. App: `lib/server.ts` now holds the mode (`hl.mode`: `device` or `server`; a phone with a saved server address
+  from before keeps `server`), `needsSetup()` replaces `needsServerAddress()`; `lib/api.ts` sends device-mode requests to
+  `lib/local-backend.native.ts` (opens `local/device.ts` on first use; the `.ts` twin for the web rejects, so the website bundle is unchanged:
+  checked, same 862 modules); `local/device.ts` keeps the token and AI-key secrets in expo-secure-store and passes them to `createLocalApi`
+  (`secrets`). Screens: `start.tsx` (first-run choice), `recover.tsx`, `components/RecoveryPhrase.tsx` (shown after sign-up and in the
+  parent area), sign-up and login wording for the phone, the wellbeing card in `parent/index.tsx`, a neutral line on `profiles.tsx`.
+  Fixed in passing: `parentApi` treated a mistyped account password (401 `wrong_password`) as an expired PIN and locked the parent area.
+  The privacy notice has a new "Using the app on one phone only" section (lawyer question added). Tests: `server/test/standalone.test.ts`
+  (8, on SQLite, PGlite and the portable crypto); the proof is now 26 steps. Looked at in a browser at phone width (server mode, the only
+  mode the website has): the neutral line on the profile picker, the notice in the parent area, "I have checked in" clearing both.
+  **Not tested:** every standalone screen on a phone (start, sign-up with the phrase, recover, the parent-area phrase form): they are
+  type-checked and linted only, because the website cannot enter standalone mode. **First thing for 8d or a person:** install the app in
+  Expo Go (`cd app && npx expo start`, scan the QR code), choose "On this phone only", sign up, write down the phrase, add a child, do a
+  lesson, ask Hoot something worrying, check the notice, then reset the password with the phrase.
 - **T11 (in progress: everything an agent can do is done).** `T8` is not done, so the phone app still needs a server; the guide's step 4 (a first-run server
   address) is built: `app/src/lib/server-address.ts` (pure rules: normalising, `https` outside the home network and `http` only for localhost and
   private addresses, finding the server at the root or under `/api`, a `/health` probe with a timeout; tested in `server/test/server-address.test.ts`),

@@ -18,6 +18,8 @@ export interface ParentRow {
   email_verified_at: string | null;
   country: string | null;
   token_version: number | null;
+  /** Standalone mode only: hash of the recovery phrase. */
+  recovery_hash?: string | null;
   consent_at: string;
   created_at: string;
 }
@@ -36,6 +38,8 @@ export interface ChildRow {
   dyslexia_font: number;
   high_contrast: number;
   read_aloud_auto: number;
+  /** When the parent last confirmed seeing this child's wellbeing alerts. */
+  wellbeing_seen_at?: string | null;
   created_at: string;
 }
 
@@ -45,6 +49,8 @@ export const Pin = z.string().regex(/^\d{4,6}$/, "PIN must be 4–6 digits");
 /** ISO 3166-1 alpha-2 country code, e.g. "IN", "US", "GB". */
 export const Country = z.string().trim().toUpperCase().regex(/^[A-Z]{2}$/, "Choose a country from the list");
 export const Password = z.string().min(8, "Password must be at least 8 characters").max(200);
+/** A recovery phrase as typed: spaces, dashes and lower case are fine (see normaliseRecoveryPhrase). */
+export const RecoveryPhrase = z.string().trim().min(10, "Type the whole recovery phrase").max(100);
 /** A password or PIN being checked (not set): bounded so huge inputs never reach the hash function. */
 export const Secret = z.string().max(200);
 export const Code = z.string().regex(/^\d{6}$/, "Enter the 6-digit code");

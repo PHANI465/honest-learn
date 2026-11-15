@@ -7,7 +7,7 @@ import { useSession } from "../lib/session";
 import { avatars, bandTheme, colors } from "../lib/theme";
 
 export default function Profiles() {
-  const { ready, familyToken, children, map } = useSession();
+  const { ready, familyToken, children, map, attention } = useSession();
   if (!ready) return <Loading />;
   if (!familyToken) return <Redirect href="/welcome" />;
 
@@ -33,6 +33,8 @@ export default function Profiles() {
       </View>
       {children.length === 0 ? <P muted center>No profiles yet. A parent can add one.</P> : null}
       <View style={{ marginTop: "auto", gap: 8 }}>
+        {/* Children see this screen: it names no child and says nothing about why. The details are behind the PIN. */}
+        {attention ? <P center size={14}>A grown-up should open the parent area soon.</P> : null}
         <Button title="🔒 Parent area" kind="secondary" onPress={() => router.push("/parent")} />
       </View>
     </Screen>

@@ -51,7 +51,7 @@ export default function ServerAddress() {
   return (
     <Screen>
       <H1>Connect to your server</H1>
-      <P>Honest Learn needs a server to keep accounts and progress. Type the address of the one your family runs or trusts.</P>
+      <P>Type the address of the Honest Learn server your family runs or trusts. It keeps your account and your children's progress.</P>
       <Card>
         <Field
           label="Server address"
@@ -73,6 +73,7 @@ export default function ServerAddress() {
       </Card>
       <Banner tone="info">Only use a server you run yourself or trust. Everything you type in the app, including sign-in details and your child's progress, is sent to it.</Banner>
       {hasDefaultServer() ? <Button title="Use the default server" kind="ghost" onPress={useDefault} /> : null}
+      <Button title="‹ Other ways to use the app" kind="ghost" onPress={() => router.replace("/start")} />
     </Screen>
   );
 }

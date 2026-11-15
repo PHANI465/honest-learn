@@ -2,8 +2,10 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { Text, View, type TextStyle } from "react-native";
 import { CountryPicker } from "../components/CountryPicker";
+import { RecoveryPhrase } from "../components/RecoveryPhrase";
 import { Banner, Button, Card, Field, H1, H2, P, Screen, Toggle } from "../components/ui";
 import { friendly } from "../lib/api";
+import { isDeviceMode } from "../lib/server";
 import { useSession } from "../lib/session";
 import { colors } from "../lib/theme";
 
@@ -20,6 +22,8 @@ export default function Signup() {
   const [country, setCountry] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [phrase, setPhrase] = useState<string | null>(null);
+  const onPhone = isDeviceMode();
 
   const pinOk = /^\d{4,6}$/.test(pin) && pin === pin2;
   const canSubmit = email.includes("@") && password.length >= 8 && pinOk && adult && consent;
@@ -28,8 +32,10 @@ export default function Signup() {
     setBusy(true);
     setError(null);
     try {
-      await signup({ email: email.trim(), password, pin, country });
-      router.replace("/parent/add-child");
+      const r = await signup({ email: email.trim(), password, pin, country });
+      // standalone mode: the recovery phrase first (shown only now), then the first child
+      if (r.recoveryPhrase) setPhrase(r.recoveryPhrase);
+      else router.replace("/parent/add-child");
     } catch (e) {
       setError(friendly(e));
     } finally {
@@ -37,13 +43,31 @@ export default function Signup() {
     }
   }
 
+  if (phrase) {
+    return (
+      <Screen>
+        <H1>One more thing</H1>
+        <RecoveryPhrase phrase={phrase} onDone={() => router.replace("/parent/add-child")} doneTitle="Continue: add a child" />
+      </Screen>
+    );
+  }
+
   return (
     <Screen>
       <H1>Create your family account</H1>
       <P muted>You'll add your children as profiles next. Kids never need an email or password.</P>
+      {onPhone ? <Banner tone="info">This account is only on this phone. Nothing you type here is sent anywhere.</Banner> : null}
       {error ? <Banner>{error}</Banner> : null}
       <Card>
-        <Field label="Your email" value={email} onChangeText={setEmail} autoCapitalize="none" keyboardType="email-address" autoComplete="email" />
+        <Field
+          label="Your email"
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          autoComplete="email"
+          hint={onPhone ? "Used only as your sign-in name on this phone. No email is ever sent." : undefined}
+        />
         <Field label="Password" value={password} onChangeText={setPassword} secureTextEntry hint="At least 8 characters." autoComplete="new-password" />
       </Card>
       <Card>
@@ -63,7 +87,11 @@ export default function Signup() {
           label="I agree to the privacy notice and terms"
           value={consent}
           onChange={setConsent}
-          description="We store only: your email, your children's nicknames and birth years, learning progress, and Hoot chats (so you can review them). No ads, no tracking, no selling data. You can export or delete everything at any time from the parent area."
+          description={
+            onPhone
+              ? "Kept only on this phone: your email, your children's nicknames and birth years, learning progress, and Hoot chats (so you can review them). Nothing is sent to us. No ads, no tracking. You can download or delete everything at any time from the parent area."
+              : "We store only: your email, your children's nicknames and birth years, learning progress, and Hoot chats (so you can review them). No ads, no tracking, no selling data. You can export or delete everything at any time from the parent area."
+          }
         />
         <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 16 }}>
           <Text accessibilityRole="link" onPress={() => router.push("/privacy")} style={linkStyle}>

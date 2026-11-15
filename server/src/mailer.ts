@@ -13,6 +13,11 @@ export class ConsoleMailer implements Mailer {
   }
 }
 
+/** Standalone mode (the app on one phone, task T8): there is no email. Nothing is sent or kept. */
+export class NoMailer implements Mailer {
+  async send() {}
+}
+
 /** Keeps sent mail in memory — used by tests. */
 export class MemoryMailer implements Mailer {
   sent: { to: string; subject: string; text: string }[] = [];

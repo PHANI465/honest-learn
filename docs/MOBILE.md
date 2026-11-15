@@ -5,13 +5,16 @@ app finds a server. Written for task T11 in [`AGENT_TASKS.md`](AGENT_TASKS.md), 
 
 **What exists today.** One Expo (React Native) codebase builds the website, Android and iPhone. `app/eas.json` has build profiles
 (`development`, `preview`, `production`), `app/app.json` has the app's name, icons and ids (`org.honestlearn.app`), and the phone app has a
-**Server address** screen so a family can point it at their own server. What does **not** exist yet: a store listing, developer accounts,
-signed builds, and a phone app that works with no server (that is task T8).
+**Server address** screen so a family can point it at their own server. Since task T8 (14 Nov 2026) the phone app can also run with
+no server at all ("On this phone only", see [`STANDALONE.md`](STANDALONE.md)); that mode has not been tried on a real phone yet. What does
+**not** exist yet: a store listing, developer accounts and signed builds.
 
 ## 1. The server address (why a phone app asks for one)
 
-The website talks to its own server. A phone app has no website to talk to, so the first time it opens it asks for the address of an
-Honest Learn server the family runs or trusts. This is built (`app/src/app/server.tsx`, `app/src/lib/server.ts`).
+The website talks to its own server. The first time the phone app opens it asks how the family will use it (`app/src/app/start.tsx`):
+**On this phone only** (no server; see [`STANDALONE.md`](STANDALONE.md)) or **Connect to a server**, which asks for the address of an
+Honest Learn server the family runs or trusts (`app/src/app/server.tsx`, `app/src/lib/server.ts`). The rest of this section is about the server way.
+For the store forms: in "on this phone only" mode the app sends nothing to the project (no account on a server, no email).
 
 - **On the home Wi-Fi:** run the server on your computer (see [`TRY_IT.md`](TRY_IT.md) and [`DEPLOYMENT.md`](DEPLOYMENT.md)) and type its
   address, like `192.168.1.20:8787`. The server listens on all network interfaces by default, so the only extras are allowing it through your computer's firewall and keeping the phone on the same Wi-Fi (find your computer's address in its network settings).

@@ -4,7 +4,7 @@ import { Hono } from "hono";
 import { z } from "zod";
 import { config } from "../config.ts";
 import { now } from "../db.ts";
-import { hashSecret, issueToken, newId } from "../security.ts";
+import { hashSecret, issueToken, newId, newRecoveryPhrase, normaliseRecoveryPhrase } from "../security.ts";
 import { childBand, ChildCreate, ChildPatch, childPublic, Country, Day, outcomeStatuses, Password, Pin, plausibleDay, Secret, type ChildRow } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 import { usageFor } from "./usage.ts";
@@ -56,6 +56,12 @@ export function parentRoutes(ctx: Ctx) {
           [k.id],
         ),
         flaggedMessages: await count("SELECT CAST(COUNT(*) AS INTEGER) AS n FROM tutor_messages WHERE child_id = ? AND flagged IS NOT NULL", [k.id]),
+        // Messages Hoot answered as a wellbeing concern that the parent has not yet said they have seen. On a server the parent also
+        // gets an email; on a phone (standalone mode) this notice is the only alert.
+        wellbeingAlerts: await count(
+          "SELECT CAST(COUNT(*) AS INTEGER) AS n FROM tutor_messages WHERE child_id = ? AND role = 'user' AND flagged = 'wellbeing' AND created_at > ?",
+          [k.id, k.wellbeing_seen_at ?? ""],
+        ),
         thisWeek: {
           lessons: await count(
             "SELECT CAST(COUNT(*) AS INTEGER) AS n FROM progress WHERE child_id = ? AND completed_at >= ? AND lesson_id NOT LIKE 'puzzles-%'",
@@ -98,6 +104,14 @@ export function parentRoutes(ctx: Ctx) {
       now(),
     ]);
     return c.json({ child: childPublic((await getChild(id, c.get("parentId")))!) }, 201);
+  });
+
+  /** The parent has read the wellbeing alerts for this child (and, we hope, checked in): the notice goes away until the next one. */
+  r.post("/children/:childId/wellbeing-seen", async (c) => {
+    const child = await loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    await db.run("UPDATE children SET wellbeing_seen_at = ? WHERE id = ?", [now(), child.id]);
+    return c.json({ ok: true });
   });
 
   r.patch("/children/:childId", async (c) => {
@@ -225,6 +239,21 @@ export function parentRoutes(ctx: Ctx) {
   });
 
   /** Lost a phone? Signs out every device, then returns a fresh sign-in (and parent unlock) for this one. */
+  /**
+   * Standalone mode: a new recovery phrase (the old one stops working). Needs the account password as well as the PIN, because
+   * the phrase can reset the password. Shown once, in this answer.
+   */
+  r.post("/recovery-phrase", async (c) => {
+    if (!ctx.device) return c.json({ error: "not_found" }, 404);
+    const { password } = z.object({ password: Secret }).parse(await c.req.json().catch(() => ({})));
+    const check = await ctx.checkPassword(c.get("parent"), password);
+    if (check === "locked") return c.json({ error: "too_many_attempts" }, 429);
+    if (check === "wrong") return c.json({ error: "wrong_password" }, 401);
+    const recoveryPhrase = newRecoveryPhrase();
+    await db.run("UPDATE parents SET recovery_hash = ? WHERE id = ?", [hashSecret(normaliseRecoveryPhrase(recoveryPhrase)), c.get("parentId")]);
+    return c.json({ recoveryPhrase });
+  });
+
   r.post("/sign-out-everywhere", async (c) => {
     const id = c.get("parentId");
     const version = await ctx.revokeSessions(id);

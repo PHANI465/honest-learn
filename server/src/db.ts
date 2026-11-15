@@ -264,6 +264,20 @@ const MIGRATIONS: { table: string; column: string; sqlite: string[]; postgres: s
     sqlite: ["ALTER TABLE children ADD COLUMN read_aloud_auto INTEGER NOT NULL DEFAULT 0"],
     postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS read_aloud_auto INTEGER NOT NULL DEFAULT 0"],
   },
+  {
+    // Standalone mode (no email, task T8c): the scrypt hash of the recovery phrase shown once at sign-up. Never on a server.
+    table: "parents",
+    column: "recovery_hash",
+    sqlite: ["ALTER TABLE parents ADD COLUMN recovery_hash TEXT"],
+    postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS recovery_hash TEXT"],
+  },
+  {
+    // When the parent last said they had seen this child's wellbeing alerts (the notice in the parent area).
+    table: "children",
+    column: "wellbeing_seen_at",
+    sqlite: ["ALTER TABLE children ADD COLUMN wellbeing_seen_at TEXT"],
+    postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS wellbeing_seen_at TEXT"],
+  },
 ];
 
 /** SQLite has no sequences outside INTEGER PRIMARY KEY, so a trigger numbers new chat messages. */

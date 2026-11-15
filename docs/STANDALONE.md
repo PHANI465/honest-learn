@@ -1,12 +1,33 @@
 # Standalone mode: the API inside the app
 
 How the phone app will work with no server at all (task T8 in [`AGENT_TASKS.md`](AGENT_TASKS.md)): the app runs the server's own
-code on the device. Written for **T8a** and **T8b** (14 November 2026). 8c (first-run choice, recovery phrase, local wellbeing
-notice) and 8d (security review) build on it.
+code on the device. Written for **T8a**, **T8b** and **T8c** (14 November 2026). 8d (security review) builds on it.
 
-**Status.** The shared code runs without Node.js; the phone's database (expo-sqlite), random numbers (expo-crypto) and bundled
-content are wired up in `app/src/local/device.ts` (`openDeviceApi()`). Nothing in the app calls it yet, so a family cannot use
-standalone mode until 8c adds the first-run choice and points the app's requests at it.
+**Status.** Built end to end, not yet tried on a phone. On first run the phone app asks how the family will use it (`app/start.tsx`):
+**On this phone only** (standalone mode) or **Connect to a server**. In standalone mode every request goes to the API inside the
+app (`lib/api.ts` → `lib/local-backend.native.ts` → `local/device.ts`), with no email: a recovery phrase replaces the password reset,
+and a wellbeing alert is a notice in the parent area. Nobody has run it in Expo Go, an emulator or a phone yet (section 5).
+
+## 0. What a family sees
+
+1. **First run** (`app/start.tsx`): two cards, "On this phone only" and "Connect to a server", each saying plainly what it means
+   (for example: if the phone is lost, the data is gone). It can be changed later from the welcome screen, but only while signed
+   out; each way has its own accounts. A phone that was already pointed at a server before 8c keeps using it without asking.
+2. **Sign-up on the phone**: the same form; the email is only the sign-in name ("no email is ever sent"). Afterwards the
+   **recovery phrase** is shown once (`components/RecoveryPhrase.tsx`): 24 letters and numbers in six groups, with "I have
+   written down my recovery phrase" before Continue. Only its scrypt hash is kept (`parents.recovery_hash`).
+3. **Forgot password** on the phone goes to `app/recover.tsx`: email + phrase + new password (`POST /auth/recover`, same attempt
+   limit as signing in, signs out every other session). Case, spaces and dashes do not matter, and O/I/L are read as 0/1. A forgotten
+   PIN is then reset with the new password, as before. Lost the phrase too: the account cannot be opened again, and the screen says so.
+   A new phrase can be made in the parent area (Account card; needs the PIN and the password; the old phrase stops working).
+4. **Wellbeing alert** (both modes, task T8c; the owner chose in-app only, no phone notification, 14 Nov 2026): when Hoot answers a
+   message as a wellbeing concern, the parent area shows "💛 Please check in with <name>" with **Read the chat** and **I have
+   checked in** (`POST /parent/children/:id/wellbeing-seen`). The profile picker, which children see, says only "A grown-up should
+   open the parent area soon", with no name and no details (`GET /family` returns `attention: true|false`). On a server the parent
+   also still gets the email. Why no notification: on a shared family phone the child it is about could read it, it needs a new
+   native module and a permission prompt, and Apple's Kids Category is strict about notifications.
+5. Email-only routes (`/auth/forgot-password`, `reset-password`, `verify-email`, `resend-verification`) answer
+   `404 not_on_this_device` in standalone mode; the email verification card is hidden. Phrase routes answer 404 on a server.
 
 ## 1. The decision: no `core/` package, the app imports `server/src`
 
@@ -31,9 +52,10 @@ How it is wired:
 | Everything together on a phone | `app/src/local/device.ts`: `openDeviceApi()` (database file `honest-learn.db` in the app's private storage; random bytes from expo-crypto's `getRandomValues`, never `getRandomBytes`, which falls back to `Math.random` in development) |
 | CI installs the server's packages in the app job, because `tsc` in `app/` now checks the shared API too | `.github/workflows/ci.yml` |
 
-`app/src/local/` is not imported by any screen yet, so the website and phone bundles are unchanged until 8c wires it in. When it
-is, the phone app grows by roughly the API plus the content: `device.ts` alone bundles to about 2.6 MB minified for Android, React
-Native included. expo-sqlite and expo-crypto are both in Expo Go. Standalone mode is for phones only: expo-sqlite on the web needs
+The phone app reaches `app/src/local/` only through `lib/local-backend.native.ts`; the website uses `lib/local-backend.ts`, which
+does not import it, so the website bundle is unchanged (862 modules, checked). The whole Android app now bundles to about 3.5 MB
+minified (1,697 modules: React Native, the screens, the API and the content), measured 14 Nov 2026 with `expo export:embed`.
+The device code and content load on the first request in standalone mode, not at start-up. expo-sqlite and expo-crypto are both in Expo Go. Standalone mode is for phones only: expo-sqlite on the web needs
 WebAssembly and extra HTTP headers, and the website always has its server.
 
 ## 2. The platform: the one place that touches the machine
@@ -84,7 +106,7 @@ Bytes are `Uint8Array` everywhere; `server/src/bytes.ts` replaces `Buffer` (text
 | Database contract | same (`test/db-contract.test.ts`) | SQLite, Postgres (PGlite), a hand-written adapter and the app's expo-sqlite adapter (over a node:sqlite stand-in that behaves like expo-sqlite: foreign keys off until switched on, `null` for no row) behave the same; the expo-sqlite adapter refuses a database where foreign keys stay off |
 | No Node in the shared API | same (`test/portable-core.test.ts`) | The bundle for a browser target has no Node imports or globals; a family's main paths work with the portable platform and content handed in as files |
 | Whole suite on the portable crypto | `cd server && npm run test:portable` | All API tests with the phone's crypto, tokens and IP parsing (files and DNS still from Node) |
-| **The app's own bundle runs without Node** | `cd app && npm run proof:local` | Expo's bundler (`expo export:embed --platform android`, the Android build's Metro and Babel) bundles `createLocalApi`; the bundle runs in a sandbox with only what React Native has (no `process`, `Buffer`, `require`, streams or `crypto.subtle`; `Request`/`Response` from `whatwg-fetch`, React Native's own polyfill). The bundle holds the content and the expo-sqlite adapter; only the expo-sqlite database is a stand-in. 20 steps: sign-up, PIN, a child, a lesson without answers, the hint ladder, Hoot and its pre-check, an own AI key, the data download, deleting the child and checking nothing about them is left |
+| **The app's own bundle runs without Node** | `cd app && npm run proof:local` | Expo's bundler (`expo export:embed --platform android`, the Android build's Metro and Babel) bundles `createLocalApi`; the bundle runs in a sandbox with only what React Native has (no `process`, `Buffer`, `require`, streams or `crypto.subtle`; `Request`/`Response` from `whatwg-fetch`, React Native's own polyfill). The bundle holds the content and the expo-sqlite adapter; only the expo-sqlite database is a stand-in. 26 steps: sign-up with a recovery phrase and no email, PIN, a child, a lesson without answers, the hint ladder, Hoot and its pre-check, the wellbeing notice, an own AI key, the data download, deleting the child and checking nothing about them is left, and resetting the password with the recovery phrase |
 
 All of these run in CI.
 
@@ -96,11 +118,13 @@ All of these run in CI.
 | Content | `content/` folder | bundled through `content-files.generated.ts` | done (8b) |
 | Random bytes | Node | expo-crypto's `getRandomValues` | done (8b) |
 | Backup | the server's database | the data download exists (`GET /parent/export`); importing it back, and moving a family between a phone and a server, does not | later |
-| Email (verification, password reset, wellbeing alert) | Postmark | none: codes would only be printed to the console. Replace with the PIN plus a recovery phrase and an in-app notice | 8c |
-| Token secret and AI key secret | environment or database | generated into the device database today; should move to expo-secure-store (Keychain/Keystore) | 8c, 8d |
+| Email (verification, password reset, wellbeing alert) | Postmark | none (`NoMailer`): recovery phrase, parent-area notice | done (8c) |
+| Token secret and AI key secret | environment or database | generated on first use into expo-secure-store (Keychain/Keystore), `hl.device.tokenSecret` and `hl.device.aiKeySecret`, so a copy of the database file alone cannot forge a sign-in | done (8c) |
+| Recovery phrase | none | 120 random bits, only its scrypt hash stored; guessing is limited like the password | 8d to review |
 | CORS | on | off (no other website can call an in-app API) | done |
 | Own model address | written address checked, then resolved and checked before every request | written address checked only: a phone has no DNS lookup to call | 8d to review |
-| Sign-in rate limit per address | per client IP | all requests count as one address ("unknown"): 30 sign-in requests per 10 minutes on the device | 8c, 8d |
+| Sign-in rate limit per address | per client IP | all requests count as one address ("unknown"): 30 sign-in requests per 10 minutes on the device (PIN unlocks count too; the per-account PIN and password limits are unchanged) | 8d |
+| Moving a family between a phone and a server | | not possible yet: the data download exists, an import does not | later |
 | Who can read the answers | only the server | anyone who can open the app's files (by design: the family's own phone, see the guide) | 8d |
 
 **Not verified yet (needs a real phone or emulator; nobody has run `openDeviceApi()` on one):** Hermes itself (the proof runs the Android bundle in Node's V8 with React

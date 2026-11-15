@@ -41,6 +41,9 @@ async function run(opts: { expoDb: ExpoSqliteLike }): Promise<ProofStep[]> {
   const signup = await call("POST", "/auth/signup", { email: "phone@example.com", password: "correct horse", pin: "2468", confirmAdult: true, consentVersion: map.json.consentVersion });
   check("sign up (scrypt and a signed token on the device)", signup.status === 201 && typeof signup.json.familyToken === "string", signup.status);
   const fam = signup.json.familyToken as string;
+  const phrase = signup.json.recoveryPhrase as string | undefined;
+  check("sign-up shows a recovery phrase instead of sending email", /^([0-9A-HJKMNP-TV-Z]{4}-){5}[0-9A-HJKMNP-TV-Z]{4}$/.test(phrase ?? ""));
+  check("email routes say they are not on this device", (await call("POST", "/auth/forgot-password", { email: "phone@example.com" })).json.error === "not_on_this_device");
   const wrongPin = await call("POST", "/auth/parent-unlock", { pin: "1111" }, fam);
   check("a wrong PIN is refused", wrongPin.status === 401, wrongPin.json);
   const par = (await call("POST", "/auth/parent-unlock", { pin: "2468" }, fam)).json.parentToken as string;
@@ -70,6 +73,12 @@ async function run(opts: { expoDb: ExpoSqliteLike }): Promise<ProofStep[]> {
   check("Hoot answers with the lesson's own hint (no AI)", hoot.status === 200 && typeof hoot.json.reply === "string", hoot.json.reply);
   const pii = await call("POST", `/children/${kid}/tutor/b3-math-comparing-fractions`, { message: "my phone number is 555 123 4567" }, fam);
   check("Hoot's pre-check catches personal information", pii.json.flagged === true, pii.json);
+  await call("POST", `/children/${kid}/tutor/b3-math-comparing-fractions`, { message: "I want to hurt myself" }, fam);
+  const alerts = (await call("GET", "/parent/overview", undefined, par)).json.children?.[0]?.wellbeingAlerts;
+  const attention = (await call("GET", "/family", undefined, fam)).json.attention;
+  check("a wellbeing message shows the parent-area notice (no email on a phone)", alerts === 1 && attention === true, { alerts, attention });
+  await call("POST", `/parent/children/${kid}/wellbeing-seen`, undefined, par);
+  check("the notice goes once the parent has checked in", (await call("GET", "/family", undefined, fam)).json.attention === false);
 
   const aiKey = await call("PUT", "/parent/ai", { password: "correct horse", provider: "custom", baseUrl: "https://models.example.org/v1", model: "llama3.2", apiKey: "sk-phone-key-1234567890" }, par);
   check("an own AI key is sealed with AES-GCM on the device and never returned", aiKey.status === 200 && aiKey.json.settings?.keyLast4 === "7890" && !JSON.stringify(aiKey.json).includes("sk-phone-key"), aiKey.status);
@@ -80,6 +89,11 @@ async function run(opts: { expoDb: ExpoSqliteLike }): Promise<ProofStep[]> {
   check("the data download works and holds no password hash", exp.status === 200 && !JSON.stringify(exp.json).includes("password_hash"));
   // last: the host then checks that the child's hints, solved questions and Hoot chats went with them (ON DELETE CASCADE)
   check("deleting the child", (await call("DELETE", `/parent/children/${kid}`, undefined, par)).status === 200);
+
+  // very last, because it signs out every session: the recovery phrase resets a forgotten password
+  const recovered = await call("POST", "/auth/recover", { email: "phone@example.com", phrase: (phrase ?? "").toLowerCase(), newPassword: "a brand new password" });
+  check("the recovery phrase resets the password and signs out the old session", recovered.status === 200 && (await call("GET", "/family", undefined, fam)).status === 401, recovered.status);
+  check("the new password signs in", (await call("POST", "/auth/login", { email: "phone@example.com", password: "a brand new password" })).status === 200);
   return steps;
 }
 
