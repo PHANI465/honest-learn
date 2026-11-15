@@ -46,6 +46,7 @@ This notice is for parents and legal guardians aged 18 or over. Children can't c
 
 - **Email address**: to sign you in, send verification and password-reset codes, and contact you about your account.
 - **Password and parent PIN**: stored only as scrambled one-way "hashes" (scrypt), never in readable form. We can't see them.
+- **Your country (optional)** and **your spelling choice**: the country lets Hoot name the right children's helpline, and suggests a sign language and British or American spelling for your children (you can choose those yourself, and "Automatic" follows the country). Only the country code is kept, never an address or location.
 - **Your agreement**: which version of this notice you agreed to and when. To sign up you must also confirm you are a parent or legal guardian aged 18 or over.
 - **Account security records**: when you verified your email, how many wrong password or PIN attempts were made recently, and any temporary lock. Verification and reset codes are stored as hashes and expire after 15 minutes.
 - **When you created your account.**

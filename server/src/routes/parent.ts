@@ -5,7 +5,9 @@ import { z } from "zod";
 import { config } from "../config.ts";
 import { now } from "../db.ts";
 import { hashSecret, issueToken, newId, newRecoveryPhrase, normaliseRecoveryPhrase } from "../security.ts";
-import { childBand, ChildCreate, ChildPatch, childPublic, Country, Day, outcomeStatuses, Password, Pin, plausibleDay, Secret, type ChildRow } from "../models.ts";
+import { childBand, ChildCreate, ChildPatch, childPublic, childSpellingVariant, Country, Day, outcomeStatuses, Password, Pin, plausibleDay, Secret, spellingVariantFor, type ChildRow } from "../models.ts";
+import { SPELLING_VARIANTS } from "../content.ts";
+import { usableWords } from "../spelling.ts";
 import type { Ctx, Env } from "../context.ts";
 import { usageFor } from "./usage.ts";
 import {
@@ -86,7 +88,10 @@ export function parentRoutes(ctx: Ctx) {
         ).map((p) => ({ ...p, title: content.lessons.get(p.lesson_id)?.title ?? familyTitles.get(p.lesson_id) ?? p.lesson_id })),
       });
     }
-    return c.json({ children });
+    const p = c.get("parent");
+    // family-wide settings the parent screen shows: how words that differ between British and American English are spelled
+    const hasVariantWords = [...content.spelling.values()].some((s) => s.words.some((w) => w.uk));
+    return c.json({ children, settings: { spellingVariant: p.spelling_variant ?? null, spellingVariantNow: spellingVariantFor(p.spelling_variant, p.country), hasVariantWords } });
   });
 
   // ---- child profiles
@@ -173,7 +178,7 @@ export function parentRoutes(ctx: Ctx) {
       available: !!set,
       learned: rows.filter((x) => x.box >= 2).length,
       practising: rows.filter((x) => x.box < 2).length,
-      total: set?.words.length ?? 0,
+      total: set ? usableWords(set, childSpellingVariant(child)).length : 0,
     });
   });
 
@@ -265,11 +270,20 @@ export function parentRoutes(ctx: Ctx) {
     });
   });
 
-  /** Family settings: currently just the (optional) country used for helpline information. */
+  /**
+   * Family settings: the (optional) country, used for helpline information and as the default for sign language and spelling,
+   * and how words that differ between British and American English are spelled (null = by country). Send either or both.
+   */
   r.patch("/settings", async (c) => {
-    const b = z.object({ country: Country.nullable() }).parse(await c.req.json());
-    await db.run("UPDATE parents SET country = ? WHERE id = ?", [b.country, c.get("parentId")]);
-    return c.json({ ok: true, country: b.country });
+    const b = z
+      .object({ country: Country.nullable().optional(), spellingVariant: z.enum(SPELLING_VARIANTS).nullable().optional() })
+      .refine((x) => x.country !== undefined || x.spellingVariant !== undefined, "Send a country or a spelling")
+      .parse(await c.req.json());
+    const p = c.get("parent");
+    const country = b.country === undefined ? p.country : b.country;
+    const variant = b.spellingVariant === undefined ? p.spelling_variant ?? null : b.spellingVariant;
+    await db.run("UPDATE parents SET country = ?, spelling_variant = ? WHERE id = ?", [country, variant, c.get("parentId")]);
+    return c.json({ ok: true, country, spellingVariant: variant, spellingVariantNow: spellingVariantFor(variant, country) });
   });
 
   /** Data portability: everything we hold about this family. */
@@ -287,7 +301,7 @@ export function parentRoutes(ctx: Ctx) {
       format: "honest-learn-export",
       version: 1,
       exportedAt: now(),
-      parent: { email: p.email, country: p.country, emailVerified: !!p.email_verified_at, consentAt: p.consent_at, createdAt: p.created_at },
+      parent: { email: p.email, country: p.country, spellingVariant: p.spelling_variant ?? null, emailVerified: !!p.email_verified_at, consentAt: p.consent_at, createdAt: p.created_at },
       children: kids.map(childPublic),
       progress: await per("SELECT * FROM progress WHERE child_id = ?"),
       // explicit columns: the internal ordering column (seq) is not part of the export

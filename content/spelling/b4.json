@@ -154,7 +154,7 @@
       "word": "challenge",
       "level": 1,
       "meaning": "something difficult that tests your ability",
-      "sentence": "The maths puzzle was a real challenge."
+      "sentence": "The puzzle was a real challenge."
     },
     {
       "word": "character",
@@ -215,7 +215,7 @@
       "word": "discipline",
       "level": 1,
       "meaning": "training yourself to follow rules and keep trying",
-      "sentence": "It takes discipline to practise every day."
+      "sentence": "It takes discipline to train every day."
     },
     {
       "word": "dissolve",
@@ -763,6 +763,62 @@
       "level": 3,
       "meaning": "a meeting at an agreed time and place",
       "sentence": "We planned a rendezvous at the station."
+    },
+    {
+      "word": "behavior",
+      "uk": "behaviour",
+      "level": 2,
+      "meaning": "the way a person or an animal acts",
+      "sentence": "Her kind behavior made everyone smile."
+    },
+    {
+      "word": "humor",
+      "uk": "humour",
+      "level": 2,
+      "meaning": "the quality that makes things funny",
+      "sentence": "He has a good sense of humor."
+    },
+    {
+      "word": "organize",
+      "uk": "organise",
+      "level": 2,
+      "meaning": "to arrange things in a neat and sensible order",
+      "sentence": "Please organize your books by size."
+    },
+    {
+      "word": "realize",
+      "uk": "realise",
+      "level": 2,
+      "meaning": "to suddenly understand or notice something",
+      "sentence": "I realize now that I left my bag at school."
+    },
+    {
+      "word": "liter",
+      "uk": "litre",
+      "level": 2,
+      "meaning": "a unit for measuring how much liquid there is",
+      "sentence": "The bottle holds one liter of water."
+    },
+    {
+      "word": "armor",
+      "uk": "armour",
+      "level": 3,
+      "meaning": "a metal covering that protected a knight in battle",
+      "sentence": "The knight wore shiny armor."
+    },
+    {
+      "word": "favor",
+      "uk": "favour",
+      "level": 3,
+      "meaning": "a kind thing you do to help someone",
+      "sentence": "Can you do me a favor?"
+    },
+    {
+      "word": "defense",
+      "uk": "defence",
+      "level": 3,
+      "meaning": "protection against an attack",
+      "sentence": "The castle wall was a strong defense."
     }
   ]
 }

@@ -3,7 +3,7 @@
 // Words move through Leitner boxes. A correct spelling moves the word up a box and it comes back after 1, 3, 7 or 16 days.
 // A miss sends it back to box 0 and it comes back tomorrow. A day's words are chosen once and then kept, so reloading
 // never changes the set. No streaks: a missed day is never mentioned.
-import type { SpellingSet, SpellingWord } from "./content.ts";
+import type { SpellingSet, SpellingVariant, SpellingWord } from "./content.ts";
 import type { BandId } from "./security.ts";
 import { seededShuffle } from "./shuffle.ts";
 
@@ -15,6 +15,21 @@ export const MAX_BOX = BOX_DAYS.length;
 export const LEVEL_UP_SHARE = 0.8;
 
 export type Activity = "type" | "choose" | "unscramble" | "fill";
+
+// ---------------------------------------------------------------- British and American spelling
+// A word that differs (color / colour) has its American spelling in `word` (also its key, so progress survives a change of setting)
+// and the British one in `uk`. A family whose spelling is not known gets only the words that are spelled the same.
+/** The words a family's children can be asked. */
+export const usableWords = (set: SpellingSet, variant: SpellingVariant | null): SpellingWord[] => set.words.filter((w) => !w.uk || variant !== null);
+/** How this word is spelled for this family. */
+export const spellingOf = (w: SpellingWord, variant: SpellingVariant | null): string => (w.uk && variant === "uk" ? w.uk : w.word);
+/** The other country's spelling of a word that differs, or null. A child who types it has not made a mistake somewhere else. */
+export const otherSpelling = (w: SpellingWord, variant: SpellingVariant | null): string | null => (w.uk && variant ? (variant === "uk" ? w.word : w.uk) : null);
+/** The sentence written with the family's spelling (the sentences are stored with the American one). */
+export const sentenceFor = (w: SpellingWord, variant: SpellingVariant | null): string => {
+  const spelled = spellingOf(w, variant);
+  return spelled === w.word ? w.sentence : w.sentence.replace(new RegExp(`\\b${w.word}\\b`, "gi"), spelled);
+};
 
 export function addDays(day: string, n: number): string {
   const d = new Date(`${day}T12:00:00Z`);
@@ -70,8 +85,10 @@ export function pickDay(set: SpellingSet, band: BandId, childId: string, day: st
 }
 
 /** Which kind of exercise a word gets today. Short words and the youngest group only get the easy kinds. */
-export function activityFor(band: BandId, childId: string, day: string, index: number, word: string): Activity {
-  const kinds: Activity[] = band === "b1" ? ["choose", "unscramble"] : word.length < 4 ? ["type", "choose"] : ["type", "choose", "unscramble", "fill"];
+export function activityFor(band: BandId, childId: string, day: string, index: number, word: string, other: string | null = null): Activity {
+  let kinds: Activity[] = band === "b1" ? ["choose", "unscramble"] : word.length < 4 ? ["type", "choose"] : ["type", "choose", "unscramble", "fill"];
+  // centre and center use the same letters: putting them in order could not tell which spelling the child meant
+  if (other && [...other].sort().join("") === [...word].sort().join("")) kinds = kinds.filter((k) => k !== "unscramble");
   return seededShuffle(`${childId}:${day}:${index}:kind`, kinds)[0]!;
 }
 
@@ -81,9 +98,9 @@ export function blankSentence(sentence: string, word: string): string {
 }
 
 /** Two wrong spellings that look plausible: swapped letters, a doubled or single letter, a changed vowel. */
-export function distractors(word: string, seed: string): [string, string] {
+export function distractors(word: string, seed: string, avoid: readonly string[] = []): [string, string] {
   const out: string[] = [];
-  const add = (w: string) => w !== word && w.length >= 2 && !out.includes(w) && out.push(w);
+  const add = (w: string) => w !== word && w.length >= 2 && !out.includes(w) && !avoid.includes(w) && out.push(w);
   const swaps: string[] = [];
   for (let i = 1; i < word.length - 1; i++) {
     if (word[i] !== word[i + 1]) swaps.push(word.slice(0, i) + word[i + 1] + word[i] + word.slice(i + 2));

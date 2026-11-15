@@ -1,7 +1,7 @@
 // Shared shapes for the API: database rows, input validation and small pure helpers.
 import { z } from "zod";
 import { ageFromBirthYear, bandForAge, type BandId } from "./security.ts";
-import { defaultSignLanguage, SIGN_LANGUAGES, type ContentStore, type Lesson, type SignLanguage } from "./content.ts";
+import { defaultSignLanguage, defaultSpellingVariant, SIGN_LANGUAGES, SPELLING_VARIANTS, type ContentStore, type Lesson, type SignLanguage, type SpellingVariant } from "./content.ts";
 
 /** Bump when the privacy notice changes: sign-up must accept the current version. */
 export const CONSENT_VERSION = "2026-11-v1";
@@ -17,6 +17,8 @@ export interface ParentRow {
   login_locked_until: string | null;
   email_verified_at: string | null;
   country: string | null;
+  /** "uk" or "us", or null for "decided by the country" (see content.ts defaultSpellingVariant). */
+  spelling_variant?: string | null;
   token_version: number | null;
   /** Standalone mode only: hash of the recovery phrase. */
   recovery_hash?: string | null;
@@ -47,6 +49,8 @@ export interface ChildRow {
   sign_language?: string | null;
   /** The parent's country, joined in when a child is loaded (ctx.getChild, ctx.listChildren). */
   parent_country?: string | null;
+  /** The parent's spelling choice, joined in the same way. */
+  parent_spelling_variant?: string | null;
   /** The child's id in the data download this child was imported from (routes/parent-import.ts), if any. */
   imported_from?: string | null;
   created_at: string;
@@ -117,6 +121,13 @@ export function childSignLanguage(c: ChildRow): SignLanguage | null {
   const chosen = (SIGN_LANGUAGES as readonly string[]).includes(c.sign_language ?? "") ? (c.sign_language as SignLanguage) : null;
   return chosen ?? defaultSignLanguage(c.parent_country);
 }
+
+/** The spelling a family uses: the parent's choice, else the one the family's country suggests, else null (words that differ are left out). */
+export function spellingVariantFor(choice: string | null | undefined, country: string | null | undefined): SpellingVariant | null {
+  const chosen = (SPELLING_VARIANTS as readonly string[]).includes(choice ?? "") ? (choice as SpellingVariant) : null;
+  return chosen ?? defaultSpellingVariant(country);
+}
+export const childSpellingVariant = (c: ChildRow): SpellingVariant | null => spellingVariantFor(c.parent_spelling_variant, c.parent_country);
 
 /** What the app sees about a child (never the parent id or raw flags). */
 export function childPublic(c: ChildRow) {

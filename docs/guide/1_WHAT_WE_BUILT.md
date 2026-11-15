@@ -32,7 +32,7 @@ The owner made these decisions at the start:
 | Chess | **32 chess problems** in three levels (checkmate in one, forks and skewers, checkmate in two) for ages 6 and up, on a tap-to-move board with a three-step hint ladder, and **eight chess lessons**. Every puzzle is proven sound by computer (legal, the goal really happens, only one first move works) |
 | Memory and logic games | **Pairs**, **Copy the pattern**, **Which one changed?**, **Slide the tiles** (3x3 and 4x4) and, for ages 12 and up, **Nonograms** (5x5 and 7x7, every puzzle has exactly one solution). They run on the device with no server and no timer, score or ranking; the app only counts how many times a game was finished on that device |
 | Games | **Sudoku** (4x4 for ages 3 to 8, 6x6 for 9 to 11, 9x9 for 12 and up, three levels, endless puzzles, notes, undo, a three-step hint ladder, no clock or score) and five Sudoku lessons |
-| Daily spelling | **605** words in 5 age lists of 120+ (3 to 10 words a day by age, three levels, missed words come back), all draft |
+| Daily spelling | **637** words in 5 age lists of 120+ (3 to 10 words a day by age, three levels, missed words come back), all draft; 32 of them differ between British and American spelling and follow a per-family setting ([SPELLING.md](../SPELLING.md)) |
 | Quick facts | **200** short true facts (40 per age group), each with a source link, shown after a lesson or quiz and on the child home (draft until reviewed) |
 | Free resources | **27** hand-picked free websites (Khan Academy, PhET, Scratch, NASA Space Place, OpenStax…) |
 | Helplines | **15** countries, for Hoot's safety replies (to be verified before launch) |

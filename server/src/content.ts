@@ -30,6 +30,20 @@ const SIGN_DEFAULT_BY_COUNTRY: Record<string, SignLanguage> = { US: "asl", GB: "
 /** The sign language a family's country suggests, or null (any other country, or none given: the parent chooses). */
 export const defaultSignLanguage = (country: string | null | undefined): SignLanguage | null => SIGN_DEFAULT_BY_COUNTRY[(country ?? "").toUpperCase()] ?? null;
 
+// ---------------------------------------------------------------- spelling variants (British and American)
+// A family chooses how its children spell words that differ (colour/color). Left on "automatic", the family's country decides; a
+// country with no clear answer (or no country) gets none, and the few words that differ are then simply not asked. Everything
+// else in the lists is spelled the same in both. See docs/SPELLING.md.
+export const SPELLING_VARIANTS = ["uk", "us"] as const;
+export type SpellingVariant = (typeof SPELLING_VARIANTS)[number];
+export const SPELLING_VARIANT_NAMES: Record<SpellingVariant, string> = { uk: "British spelling (colour)", us: "American spelling (color)" };
+const SPELLING_DEFAULT_BY_COUNTRY: Record<string, SpellingVariant> = {
+  US: "us", PH: "us",
+  GB: "uk", UK: "uk", IE: "uk", AU: "uk", NZ: "uk", IN: "uk", ZA: "uk", SG: "uk", MY: "uk", PK: "uk", BD: "uk", LK: "uk", KE: "uk", NG: "uk", GH: "uk",
+};
+/** The spelling a family's country suggests, or null (another country, a mixed one such as Canada, or none given: the parent chooses). */
+export const defaultSpellingVariant = (country: string | null | undefined): SpellingVariant | null => SPELLING_DEFAULT_BY_COUNTRY[(country ?? "").toUpperCase()] ?? null;
+
 /** How many quiz questions follow a sign language video: under 2 minutes 2, 2 to 5 minutes 3, 5 to 10 minutes 4, longer 5. */
 export const signQuizLength = (videoMinutes: number): number => (videoMinutes < 2 ? 2 : videoMinutes < 5 ? 3 : videoMinutes < 10 ? 4 : 5);
 
@@ -107,7 +121,10 @@ export type FactSet = z.infer<typeof FactSet>;
  * meaning and sentence are what the child sees first. `word` is lower-case letters only.
  */
 export const SpellingWord = z.object({
+  /** The American spelling when `uk` is given (it is also the word's key, so progress stays when a family changes its setting). */
   word: z.string().regex(/^[a-z]{2,20}$/),
+  /** The British spelling, only for a word that differs (color/colour). Such a word is asked only once a family's spelling is known. */
+  uk: z.string().regex(/^[a-z]{2,20}$/).optional(),
   level: z.number().int().min(1).max(3),
   meaning: z.string().min(3).max(160),
   /** A sentence that contains the word. The app shows it with the word blanked out. */
@@ -303,6 +320,7 @@ export function loadContent(contentDir: string): ContentStore {
   }
 
   const spelling = new Map<string, SpellingSet>();
+  const spellingFiles = new Map<string, string>();
   if (src.exists(contentDir, "spelling")) {
     for (const rel of src.listJson(contentDir, "spelling")) {
       const file = label(rel);
@@ -319,8 +337,31 @@ export function loadContent(contentDir: string): ContentStore {
         // The sentence must contain the word (so it can be blanked) and the meaning must not (it would give the word away).
         if (!new RegExp(`\\b${w.word}\\b`, "i").test(w.sentence)) problems.push(`${file}: the sentence for "${w.word}" does not contain it`);
         if (new RegExp(`\\b${w.word}\\b`, "i").test(w.meaning)) problems.push(`${file}: the meaning of "${w.word}" contains the word`);
+        if (w.uk) {
+          // A word that differs: the British spelling must really differ, and neither spelling may appear in the text a child reads
+          // (it would give the answer away, or show a family the spelling it did not choose).
+          if (w.uk === w.word) problems.push(`${file}: "${w.word}" has a British spelling that is the same`);
+          if (seenWords.has(w.uk)) problems.push(`${file}: "${w.uk}" is listed as a word and as the British spelling of "${w.word}"`);
+          seenWords.add(w.uk);
+          if (new RegExp(`\\b${w.uk}\\b`, "i").test(`${w.sentence} ${w.meaning}`)) problems.push(`${file}: the text for "${w.word}" contains the British spelling "${w.uk}"`);
+        }
+      }
+      for (const w of parsed.data.words) {
+        if (w.uk && w.tip) problems.push(`${file}: "${w.word}" differs between British and American spelling, so it has no tip (a tip is shown whichever spelling the family uses)`);
       }
       spelling.set(parsed.data.band, parsed.data);
+      spellingFiles.set(parsed.data.band, file);
+    }
+    // Neither spelling of any word that differs may turn up in the text of any other word, in any list: a family would see the
+    // spelling it did not choose (a sentence with "color" would show a British family the American spelling).
+    const bothSpellings = [...spelling.values()].flatMap((set) => set.words.flatMap((w) => (w.uk ? [w.word, w.uk] : [])));
+    for (const set of spelling.values()) {
+      for (const w of set.words) {
+        for (const other of bothSpellings) {
+          if (other === w.word || other === w.uk) continue;
+          if (new RegExp(`\\b${other}\\b`, "i").test(`${w.sentence} ${w.meaning} ${w.tip ?? ""}`)) problems.push(`${spellingFiles.get(set.band)}: the text for "${w.word}" contains "${other}", a word that is spelled differently in British and American English`);
+        }
+      }
     }
   }
 

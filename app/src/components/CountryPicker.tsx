@@ -9,8 +9,8 @@ interface Country {
 }
 
 /**
- * Optional country choice. It's only used so Hoot can name the right child helpline if a child
- * ever says they feel unsafe. `null` means "not set / other".
+ * Optional country choice. Hoot uses it to name the right child helpline if a child ever says they feel unsafe; it is also
+ * the default for the family's sign language and British or American spelling (the parent can choose those). `null` means "not set / other".
  */
 export function CountryPicker({ value, onChange }: { value: string | null; onChange: (code: string | null) => void }) {
   const [countries, setCountries] = useState<Country[]>([]);

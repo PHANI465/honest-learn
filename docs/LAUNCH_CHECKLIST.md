@@ -46,7 +46,7 @@ Details and what is still unverified for each are in the handover notes in [`AGE
 
 - ✅ **Security hardening** ([`SECURITY.md`](SECURITY.md)): escalating lockouts, signing out other devices, changing the password, deleting the account needs the password, rate limits shared across servers, strict headers
 - ✅ **Accessibility settings per child** (T1): text size, dyslexia-friendly font, high contrast, automatic read-aloud ([`ACCESSIBILITY.md`](ACCESSIBILITY.md)); a screen reader and keyboard pass still needs a person
-- ✅ **Quick facts** between activities (T2): 200 facts, each with a source link; **daily spelling** (T3): 605 words with spaced review; **30 quantitative and reasoning lessons** (T4). All draft
+- ✅ **Quick facts** between activities (T2): 200 facts, each with a source link; **daily spelling** (T3): 637 words with spaced review and a British or American spelling setting; **30 quantitative and reasoning lessons** (T4). All draft
 - ✅ **Games** (T5): Sudoku (generated, one solution each, server-checked hints), chess problems (32, each proven in code), **play chess against the computer** on the device, memory games (pairs, patterns, spot the change, sliding tiles, nonograms), and 13 lessons for them. No timers, scores or rankings
 - ✅ **Parents can add their own lessons** (T10), private to the family
 - ✅ **A family's own AI model and key** (T0, T6, T7): Ollama, LM Studio, OpenRouter, Groq or any compatible address; the key is stored encrypted and never shown; an address guard against server-side request forgery; Hoot is switched off for children when a model is connected; `npm run redteam` tests any model. No real model has been connected yet

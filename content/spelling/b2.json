@@ -11,7 +11,7 @@
       "word": "said",
       "level": 1,
       "meaning": "spoke, like when you tell someone something",
-      "sentence": "Mum said it is time for tea."
+      "sentence": "Dad said it is time for dinner."
     },
     {
       "word": "were",
@@ -305,7 +305,7 @@
     {
       "word": "clothes",
       "level": 2,
-      "meaning": "the things you wear, like shirts and trousers",
+      "meaning": "the things you wear, like shirts and socks",
       "sentence": "I put my clothes in the drawer."
     },
     {
@@ -700,7 +700,7 @@
       "word": "stomach",
       "level": 3,
       "meaning": "the part inside your body where food goes after you swallow",
-      "sentence": "My stomach hurts after too many sweets."
+      "sentence": "My stomach hurts after eating too fast."
     },
     {
       "word": "strange",
@@ -739,6 +739,48 @@
       "meaning": "the start of something",
       "sentence": "The beginning of the film was funny.",
       "tip": "Two 'n's in the middle."
+    },
+    {
+      "word": "favorite",
+      "uk": "favourite",
+      "level": 1,
+      "meaning": "the one you like best of all",
+      "sentence": "Pizza is my favorite food."
+    },
+    {
+      "word": "neighbor",
+      "uk": "neighbour",
+      "level": 2,
+      "meaning": "a person who lives next door or very near you",
+      "sentence": "Our neighbor has a friendly dog."
+    },
+    {
+      "word": "center",
+      "uk": "centre",
+      "level": 2,
+      "meaning": "the part in the middle of something",
+      "sentence": "Stand in the center of the circle."
+    },
+    {
+      "word": "pajamas",
+      "uk": "pyjamas",
+      "level": 2,
+      "meaning": "soft clothes you wear to sleep in",
+      "sentence": "I put on my pajamas at bedtime."
+    },
+    {
+      "word": "cozy",
+      "uk": "cosy",
+      "level": 2,
+      "meaning": "warm, soft and comfortable",
+      "sentence": "The blanket made the room feel cozy."
+    },
+    {
+      "word": "theater",
+      "uk": "theatre",
+      "level": 3,
+      "meaning": "a building where you watch plays or films",
+      "sentence": "We watched a play at the theater."
     }
   ]
 }

@@ -41,12 +41,12 @@ export function createContext(deps: Deps) {
   const getParentByEmail = (email: string) => db.get<ParentRow>("SELECT * FROM parents WHERE email = ?", [email]);
   const getChild = (id: string, parentId: string) =>
     db.get<ChildRow>(
-      "SELECT c.*, p.country AS parent_country FROM children c JOIN parents p ON p.id = c.parent_id WHERE c.id = ? AND c.parent_id = ?",
+      "SELECT c.*, p.country AS parent_country, p.spelling_variant AS parent_spelling_variant FROM children c JOIN parents p ON p.id = c.parent_id WHERE c.id = ? AND c.parent_id = ?",
       [id, parentId],
     );
   const listChildren = (parentId: string) =>
     db.all<ChildRow>(
-      "SELECT c.*, p.country AS parent_country FROM children c JOIN parents p ON p.id = c.parent_id WHERE c.parent_id = ? ORDER BY c.created_at",
+      "SELECT c.*, p.country AS parent_country, p.spelling_variant AS parent_spelling_variant FROM children c JOIN parents p ON p.id = c.parent_id WHERE c.parent_id = ? ORDER BY c.created_at",
       [parentId],
     );
 

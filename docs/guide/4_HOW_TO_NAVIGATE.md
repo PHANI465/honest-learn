@@ -38,7 +38,8 @@ flowchart TD
    - **Sign language** (only once sign language lessons exist): which sign language this child's lessons use; "Automatic" follows your country.
    - **Hoot's AI** (Account card): connect your own model (Ollama, LM Studio, OpenRouter, Groq or any OpenAI-compatible address) with an optional key. Saving needs the account password and turns Hoot off for every child until you turn it on again; **Test the connection** sends one harmless message. The key is never shown again, only its last four characters.
    - **"Please check in with …"**: shown at the top when Hoot answered one of a child's messages as a wellbeing concern. *Read the chat* or *I have checked in* (hides it until the next one). The profile screen then says only that a grown-up should open the parent area.
-   - **Country:** for helpline information in Hoot's safety replies.
+   - **Country:** for helpline information in Hoot's safety replies, and as the default for sign language and spelling.
+   - **Spelling:** *Automatic* (follows the country), *British* or *American*, for the few words that differ (colour/color). With no country and no choice, those words are not asked.
    - **Account:** download all data, **move your family to or from another place** (restore a download on the website, or send or bring a family between this app and a server, choosing which children and whether to include Hoot chats), lock the parent area, sign out of this device, **sign out all other devices**, delete the account. On this phone only: **make a new recovery phrase**.
 4. **Back to learning →** returns to "Who's learning today?".
 

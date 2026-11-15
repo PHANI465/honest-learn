@@ -1,7 +1,7 @@
 import { stagger } from "../../lib/motion";
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
-import { Alert, Platform, Share, Text, View } from "react-native";
+import { Alert, Platform, Pressable, Share, Text, View } from "react-native";
 import { CountryPicker } from "../../components/CountryPicker";
 import { RecoveryPhrase } from "../../components/RecoveryPhrase";
 import { Banner, Button, Card, Emoji, Field, H1, H2, P, Pill, ProgressBar, Screen } from "../../components/ui";
@@ -22,7 +22,11 @@ interface Overview {
     wellbeingAlerts?: number;
     recent: { lesson_id: string; title: string; best_score: number; total: number }[];
   })[];
+  /** Family-wide settings. The spelling choice is null when it follows the country; Now is what is used today (null = words that differ are left out). */
+  settings?: { spellingVariant: SpellingChoice; spellingVariantNow: SpellingChoice; hasVariantWords: boolean };
 }
+type SpellingChoice = "uk" | "us" | null;
+const SPELLING_LABELS: Record<"uk" | "us", string> = { uk: "British spelling (colour, favourite)", us: "American spelling (color, favorite)" };
 
 const DONATE_URL = safeUrl(process.env.EXPO_PUBLIC_DONATE_URL);
 
@@ -65,6 +69,15 @@ export default function ParentHome() {
       refreshFamily().catch(() => {});
     }, [parentApi, refreshFamily]),
   );
+
+  async function saveSpelling(value: SpellingChoice) {
+    try {
+      await parentApi("PATCH", "/settings", { spellingVariant: value });
+      setData(await parentApi<Overview>("GET", "/overview"));
+    } catch (e) {
+      setError(friendly(e));
+    }
+  }
 
   async function exportData() {
     try {
@@ -252,7 +265,7 @@ export default function ParentHome() {
 
       <H2>Country</H2>
       <Card>
-        <P muted size={14}>Optional. Used only so Hoot can name the right children's helpline in a safety reply.</P>
+        <P muted size={14}>Optional. Hoot uses it to name the right children's helpline in a safety reply. It also suggests a sign language and British or American spelling, which you can choose yourself.</P>
         <CountryPicker
           value={country}
           onChange={async (code) => {
@@ -265,6 +278,28 @@ export default function ParentHome() {
           }}
         />
       </Card>
+
+      {data?.settings?.hasVariantWords ? (
+        <>
+          <H2>Spelling</H2>
+          <Card>
+            <P muted size={14}>How your children spell the few words that differ between British and American English. Everything else in the spelling practice is the same. "Automatic" follows your country.</P>
+            <View style={{ gap: 8 }} accessibilityRole="radiogroup">
+              {([null, "uk", "us"] as SpellingChoice[]).map((value) => {
+                const selected = data.settings!.spellingVariant === value;
+                const now = data.settings!.spellingVariantNow;
+                const label = value ? SPELLING_LABELS[value] : `Automatic${selected ? (now ? `: ${SPELLING_LABELS[now]}` : ": none for your country, so those words are left out") : ""}`;
+                return (
+                  <Pressable key={value ?? "auto"} onPress={() => saveSpelling(value)} accessibilityRole="radio" accessibilityLabel={label} accessibilityState={{ selected, checked: selected }}
+                    style={{ paddingHorizontal: 14, paddingVertical: 10, minHeight: 44, justifyContent: "center", borderRadius: 14, borderWidth: 2, borderColor: selected ? colors.brand : colors.line, backgroundColor: selected ? colors.brandSoft : colors.card }}>
+                    <Text style={{ fontWeight: "600", color: colors.ink }}>{label}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </Card>
+        </>
+      ) : null}
 
       <H2>Account</H2>
       {done ? <Banner tone="info">{done}</Banner> : null}

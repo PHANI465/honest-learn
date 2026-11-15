@@ -279,6 +279,13 @@ const MIGRATIONS: { table: string; column: string; sqlite: string[]; postgres: s
     postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS recovery_hash TEXT"],
   },
   {
+    // How the family's children spell words that differ between British and American English ("uk" or "us"); null = by country.
+    table: "parents",
+    column: "spelling_variant",
+    sqlite: ["ALTER TABLE parents ADD COLUMN spelling_variant TEXT"],
+    postgres: ["ALTER TABLE parents ADD COLUMN IF NOT EXISTS spelling_variant TEXT"],
+  },
+  {
     // When the parent last said they had seen this child's wellbeing alerts (the notice in the parent area).
     table: "children",
     column: "wellbeing_seen_at",

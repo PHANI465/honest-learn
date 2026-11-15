@@ -102,7 +102,7 @@
       "word": "pot",
       "level": 1,
       "meaning": "a deep round pan for cooking",
-      "sentence": "Mum put the soup in a big pot.",
+      "sentence": "Dad put the soup in a big pot.",
       "emoji": "🍲"
     },
     {
@@ -836,6 +836,30 @@
       "meaning": "a big instrument with black and white keys",
       "sentence": "She played a tune on the piano.",
       "emoji": "🎹"
+    },
+    {
+      "word": "color",
+      "uk": "colour",
+      "level": 1,
+      "meaning": "red, blue and green are each one of these",
+      "sentence": "What color is the sky?",
+      "emoji": "🎨"
+    },
+    {
+      "word": "mom",
+      "uk": "mum",
+      "level": 1,
+      "meaning": "a name you call your mother",
+      "sentence": "My mom reads me a story at night.",
+      "emoji": "👩"
+    },
+    {
+      "word": "gray",
+      "uk": "grey",
+      "level": 2,
+      "meaning": "the shade of a rain cloud, between black and white",
+      "sentence": "The little mouse has soft gray fur.",
+      "emoji": "🐭"
     }
   ]
 }

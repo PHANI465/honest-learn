@@ -738,6 +738,62 @@
       "level": 3,
       "meaning": "showing off wealth in a way that grabs attention",
       "sentence": "The ostentatious car shone in the sun."
+    },
+    {
+      "word": "analyze",
+      "uk": "analyse",
+      "level": 2,
+      "meaning": "to study something closely in order to understand it",
+      "sentence": "Scientists analyze the results of an experiment."
+    },
+    {
+      "word": "rumor",
+      "uk": "rumour",
+      "level": 2,
+      "meaning": "a story passed from person to person that may not be true",
+      "sentence": "I heard a rumor, but it was not true."
+    },
+    {
+      "word": "license",
+      "uk": "licence",
+      "level": 2,
+      "meaning": "an official paper that lets you do something, such as drive a car",
+      "sentence": "She passed her test and got her driver's license."
+    },
+    {
+      "word": "labor",
+      "uk": "labour",
+      "level": 3,
+      "meaning": "hard work, especially physical work",
+      "sentence": "Building the wall took years of hard labor."
+    },
+    {
+      "word": "vapor",
+      "uk": "vapour",
+      "level": 3,
+      "meaning": "a gas that forms when a liquid is heated",
+      "sentence": "Steam is water in the form of vapor."
+    },
+    {
+      "word": "catalog",
+      "uk": "catalogue",
+      "level": 3,
+      "meaning": "a list of things, such as the books a library has",
+      "sentence": "The library keeps a catalog of all its books."
+    },
+    {
+      "word": "aluminum",
+      "uk": "aluminium",
+      "level": 3,
+      "meaning": "a light, silvery metal used to make cans and foil",
+      "sentence": "The drink can is made of aluminum."
+    },
+    {
+      "word": "skeptic",
+      "uk": "sceptic",
+      "level": 3,
+      "meaning": "a person who doubts a claim until they see evidence",
+      "sentence": "A good skeptic asks for evidence."
     }
   ]
 }

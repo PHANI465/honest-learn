@@ -751,6 +751,55 @@
       "level": 3,
       "meaning": "one special thing and not any other",
       "sentence": "I like this particular song."
+    },
+    {
+      "word": "flavor",
+      "uk": "flavour",
+      "level": 1,
+      "meaning": "the taste of a food or drink",
+      "sentence": "The ice cream has a strawberry flavor."
+    },
+    {
+      "word": "harbor",
+      "uk": "harbour",
+      "level": 2,
+      "meaning": "a safe place by the sea where boats stay",
+      "sentence": "The fishing boats stayed in the harbor."
+    },
+    {
+      "word": "traveling",
+      "uk": "travelling",
+      "level": 2,
+      "meaning": "going from one place to another, often far away",
+      "sentence": "We are traveling by train today."
+    },
+    {
+      "word": "meter",
+      "uk": "metre",
+      "level": 2,
+      "meaning": "a unit for measuring length, a little longer than a yard",
+      "sentence": "The table is one meter long."
+    },
+    {
+      "word": "jewelry",
+      "uk": "jewellery",
+      "level": 3,
+      "meaning": "rings, necklaces and bracelets that people wear",
+      "sentence": "She keeps her jewelry in a small box."
+    },
+    {
+      "word": "mold",
+      "uk": "mould",
+      "level": 3,
+      "meaning": "a soft, fuzzy growth that appears on old food",
+      "sentence": "There was mold on the old bread."
+    },
+    {
+      "word": "plow",
+      "uk": "plough",
+      "level": 3,
+      "meaning": "a farm tool pulled across a field to turn over the soil",
+      "sentence": "The farmer used a plow before planting."
     }
   ]
 }

@@ -76,7 +76,7 @@ checking easy; the writing rules are in `REVIEWER_GUIDE.md`).
 - [ ] **All 218 lessons** marked `reviewed` by two people each (a subject expert plus an age and safety reviewer).
 - [ ] **Maths:** a person checks every quantitative lesson, by age group (ages 6 to 18), especially the Doomsday and Zeller calendar lessons, compound interest and probability.
 - [ ] **Quick facts:** spot-check at least 1 fact in 5 against its Wikipedia source (200 facts; each has a source link).
-- [ ] **Spelling lists:** 605 words; check meanings and sentences, and words that differ between British and American spelling (`NEEDS_APPROVAL.md`).
+- [ ] **Spelling lists:** 637 words; check meanings and sentences, and the 32 words that differ between British and American spelling, which are new and written by Claude (`NEEDS_APPROVAL.md`, `SPELLING.md`).
 - [ ] **Chess and Sudoku lessons and the 32 chess puzzles:** a chess player checks the lessons' explanations (the positions were proven by code, the teaching was not).
 - [ ] **Free resources:** check each of the 27 websites (free, no ads aimed at children, right ages) and set `lastChecked`.
 - [ ] **Quiz fairness:** `npm run validate` warns about 265 questions where the correct option is the longest, so children can guess it. Reviewers should rebalance these.
@@ -159,7 +159,7 @@ None of these needs a person's expertise, only a decision to start.
 | **Fix the stale lines in `LAUNCH_CHECKLIST.md`** ("Built so far" stops at v0.3.0, and the README and `docs/README.md` said 220 outcomes instead of 262) | Docs only; the two README counts are fixed with this page | Haiku or Sonnet |
 | **Stop a family's AI address being re-pointed between the check and the request** (DNS rebinding) | Pin the checked address for the connection (`SECURITY.md`, accepted risk) | Opus, high |
 | **Show on the child side** that Hoot is using a family's own, untested model | `GET /content/hoot` only knows the default helper | Sonnet, medium |
-| **Spelling: a British or American setting** per family | Lists currently avoid or include words that differ | Sonnet, medium |
+| ~~Spelling: a British or American setting~~ **done 15 Nov 2026** | A per-family setting, 32 words that differ, `docs/SPELLING.md`. Open: a reviewer for the new words (part 3) | Sonnet, medium |
 | **Save an unfinished chess game**; hints that point at a piece | Games are lost if the child leaves the screen | Sonnet, medium |
 | ~~Move a family between a phone and a server~~ **done 15 Nov 2026** | `POST /parent/import` and the transfer screen. Open: try it between a real phone and a real server (part 2) | Opus, high |
 | **A splash screen** | After you agree to the package (part 1) | Sonnet, low |
