@@ -1,0 +1,107 @@
+{
+  "id": "b5-think-chess-patterns",
+  "title": "Chess Patterns and Planning: Common Checkmates",
+  "band": "b5",
+  "subject": "thinking",
+  "outcomes": [
+    "b5-think-9"
+  ],
+  "sensitive": null,
+  "minutes": 14,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Chess",
+      "url": "https://en.wikipedia.org/wiki/Chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Back-rank checkmate",
+      "url": "https://en.wikipedia.org/wiki/Back-rank_checkmate",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Smothered mate",
+      "url": "https://en.wikipedia.org/wiki/Smothered_mate",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Strong players recognise patterns. When you have seen a checkmate pattern a few times, you spot it in a game within seconds. Here are some common ones."
+    },
+    {
+      "type": "text",
+      "body": "BACK-RANK MATE: the enemy king is stuck on its first row behind its own pawns. A rook or queen that reaches that row gives check, and the king cannot escape. The fix, if you are the one in danger, is to make a little escape square for your king with a pawn move such as h3."
+    },
+    {
+      "type": "text",
+      "body": "SMOTHERED MATE: the king is surrounded by its own pieces, so it has no squares. A knight gives check, and because a knight's check cannot be blocked, it is mate. It often ends with the king in a corner."
+    },
+    {
+      "type": "text",
+      "body": "QUEEN AND KING MATE: with the queen protected by your king, she can give check right next to the enemy king, which cannot capture her."
+    },
+    {
+      "type": "text",
+      "body": "Planning matters as much as patterns. Before every move ask three questions: What did my opponent's last move threaten? What are my pieces and my opponent's king doing? Which move improves my position or makes a threat without leaving a piece undefended?"
+    },
+    {
+      "type": "tryit",
+      "body": "Look at the three checkmate puzzles in the app. For each, write down the pattern name and what trapped the king."
+    },
+    {
+      "type": "parent",
+      "body": "Naming the pattern is a lasting skill: it turns puzzles into recognition. The mate-in-one puzzles in the app use these patterns, and the explanation after each one names it."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A black king on g8 sits behind pawns on f7, g7 and h7. A white rook gives check on the back row and cannot be blocked. What is this pattern?",
+      "options": [
+        "Back-rank mate",
+        "Smothered mate",
+        "Stalemate"
+      ],
+      "answer": 0,
+      "hints": [
+        "Where is the king, and what is stopping it from stepping forward?",
+        "Its own pawns trap it on its back row.",
+        "Example: a king trapped in a corner by its own rook and pawns, and mated by a knight, is a different pattern. Name the pattern that uses a rook on the back row."
+      ],
+      "explain": "The king's own pawns shut it in on the back rank, and the rook gives check along that rank: a back-rank mate."
+    },
+    {
+      "q": "A king in the corner is surrounded by its own rook and pawns. A white knight gives check, and no piece can capture it. Which pattern is this?",
+      "options": [
+        "Smothered mate",
+        "Back-rank mate",
+        "A fork"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at what stops the king moving.",
+        "The king is smothered by its own pieces.",
+        "Example: with pawns in front and a rook beside it, the king has no free squares. Name the mate where a knight delivers the check."
+      ],
+      "explain": "The king cannot move because its own pieces fill the squares around it, and the knight's check cannot be blocked. This is a smothered mate."
+    },
+    {
+      "q": "Before you move, which question is the most useful habit?",
+      "options": [
+        "What did my opponent's last move threaten?",
+        "Which piece have I not moved yet in this game so far?",
+        "Can I move my queen to the centre of the board?"
+      ],
+      "answer": 0,
+      "hints": [
+        "Good players check for danger first.",
+        "A move that ignores your opponent's threat can lose a piece.",
+        "Example: if your opponent moved a knight next to your queen, the first thing to notice is that the queen may be attacked. Pick the question that looks for that kind of danger."
+      ],
+      "explain": "Checking what your opponent just threatened stops you walking into tactics. It is the best habit in chess."
+    }
+  ]
+}

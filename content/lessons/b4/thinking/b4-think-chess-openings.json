@@ -1,0 +1,102 @@
+{
+  "id": "b4-think-chess-openings",
+  "title": "Chess: How to Start a Game",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-11"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Chess",
+      "url": "https://en.wikipedia.org/wiki/Chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Chess opening theory",
+      "url": "https://en.wikipedia.org/wiki/Chess_opening_theory",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The first moves of a game are called the opening. You do not need to memorise lots of moves. A few ideas will take you a long way."
+    },
+    {
+      "type": "text",
+      "body": "1. Control the centre. The four squares in the middle (d4, e4, d5, e5) give your pieces room. Moving a centre pawn forward on your first move, such as e4 or d4, is a common start."
+    },
+    {
+      "type": "text",
+      "body": "2. Develop your pieces. 'Develop' means moving knights and bishops off the back row to squares where they do something. Knights usually come out before bishops. Try not to move the same piece twice in the opening without a good reason."
+    },
+    {
+      "type": "text",
+      "body": "3. Castle early. Castling puts your king in a safer corner and brings a rook into play."
+    },
+    {
+      "type": "text",
+      "body": "4. Do not bring your queen out too soon. A queen that attacks early can be chased by smaller pieces, which gives your opponent free moves. Before each move, check what your opponent's last move threatens."
+    },
+    {
+      "type": "tryit",
+      "body": "Play a short practice game and write down your first eight moves. Count how many knights and bishops you developed and whether you castled."
+    },
+    {
+      "type": "parent",
+      "body": "These ideas are guidelines. There are exceptions, and strong players break them for good reasons, but beginners do well to follow them. Replaying a game and asking 'what was my plan here?' is better than learning memorised lines."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which is a good idea in the opening?",
+      "options": [
+        "Control the centre and develop knights and bishops",
+        "Move the queen out as early as possible to start attacking",
+        "Move the same piece many times in a row"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the four opening ideas in the lesson.",
+        "Look for the option that gets your pieces working together.",
+        "Example: bringing a knight from the back row to a central square is developing it. Spot the option that matches the lesson's advice."
+      ],
+      "explain": "Controlling the centre and developing knights and bishops helps all your pieces work. The other two waste time or expose your queen."
+    },
+    {
+      "q": "Why is it usually a good idea to castle early?",
+      "options": [
+        "It makes the king safer and brings a rook into play",
+        "It wins a pawn from your opponent and stops them castling",
+        "It stops the other player from ever castling later"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what castling does for the king and the rook.",
+        "Castling moves the king towards a corner and the rook next to it.",
+        "Example: a king in the middle of the board is easier to attack than one tucked behind pawns. Pick the option about safety."
+      ],
+      "explain": "Castling tucks the king away and moves a rook towards the centre."
+    },
+    {
+      "q": "Why is it risky to bring your queen out on move one or two?",
+      "options": [
+        "Smaller pieces can chase it, giving your opponent free moves",
+        "A queen is not allowed to move early in the game, by the rules",
+        "It makes your pawns weaker in the middle"
+      ],
+      "answer": 0,
+      "hints": [
+        "The queen is your most valuable piece. What can attack it?",
+        "Knights and pawns are worth less, so they can attack it safely.",
+        "Example: if a pawn attacks your queen, you must move her again, and your opponent develops a piece for free. Find the option about being chased."
+      ],
+      "explain": "Cheaper pieces can attack your queen. Each time she moves, your opponent gets a free development move."
+    }
+  ]
+}

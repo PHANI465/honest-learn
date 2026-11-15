@@ -162,7 +162,8 @@
       { "id": "b2-think-3", "text": "Solves simple logic puzzles and explains how" },
       { "id": "b2-think-4", "text": "Tries again after a mistake (growth mindset)" },
       { "id": "b2-think-5", "text": "Finds the rule in a number pattern that goes up or down by the same step" },
-      { "id": "b2-think-6", "text": "Knows the rules of 4 by 4 Sudoku and finds the missing number in a row or box" }
+      { "id": "b2-think-6", "text": "Knows the rules of 4 by 4 Sudoku and finds the missing number in a row or box" },
+      { "id": "b2-think-7", "text": "Knows how each chess piece moves and how the board is laid out" }
     ], "sampleQuiz": { "q": "Which is an OPINION?", "options": ["Pizza is the best food", "Pizza is round", "Pizza has cheese on it"], "answer": 0, "hint": "Which one could someone disagree with?" } },
 
     { "band": "b2", "subject": "arts", "outcomes": [
@@ -243,7 +244,10 @@
       { "id": "b3-think-2", "text": "Gives reasons and evidence for an opinion" },
       { "id": "b3-think-3", "text": "Spots simple tricks in ads and headlines" },
       { "id": "b3-think-4", "text": "Solves logic grids and sequence puzzles" },
-      { "id": "b3-think-5", "text": "Scans a row, column and box to find the one number that fits in a 6 by 6 Sudoku" }
+      { "id": "b3-think-5", "text": "Scans a row, column and box to find the one number that fits in a 6 by 6 Sudoku" },
+      { "id": "b3-think-6", "text": "Tells check, checkmate and stalemate apart" },
+      { "id": "b3-think-7", "text": "Knows castling, en passant and promotion" },
+      { "id": "b3-think-8", "text": "Uses piece values to judge a trade in chess" }
     ], "sampleQuiz": { "q": "An ad says '9 out of 10 kids love it!' What should you ask?", "options": ["Which 10 kids were asked?", "Nothing, it's true", "What colour is it?"], "answer": 0, "hint": "Could the result depend on who they asked?" } },
 
     { "band": "b3", "subject": "arts", "outcomes": [
@@ -330,7 +334,10 @@
       { "id": "b4-think-7", "text": "Solves family relation puzzles by drawing a family tree" },
       { "id": "b4-think-8", "text": "Solves direction sense puzzles, including straight-line distance" },
       { "id": "b4-think-9", "text": "Finds naked and hidden singles in a 9 by 9 Sudoku" },
-      { "id": "b4-think-10", "text": "Uses naked pairs to remove candidates in a Sudoku" }
+      { "id": "b4-think-10", "text": "Uses naked pairs to remove candidates in a Sudoku" },
+      { "id": "b4-think-11", "text": "Follows the basic opening principles in chess" },
+      { "id": "b4-think-12", "text": "Recognises forks, pins, skewers and discovered attacks" },
+      { "id": "b4-think-13", "text": "Knows which pieces can checkmate alone and how to avoid stalemate" }
     ], "sampleQuiz": { "q": "'Everyone is buying this phone, so it must be the best.' This is…", "options": ["Bandwagon fallacy", "A strong argument", "A fact"], "answer": 0, "hint": "Does popularity prove quality?" } },
 
     { "band": "b4", "subject": "arts", "outcomes": [
@@ -414,7 +421,8 @@
       { "id": "b5-think-5", "text": "Judges whether a conclusion follows from premises (syllogisms)" },
       { "id": "b5-think-6", "text": "Solves seating arrangement puzzles in rows and circles" },
       { "id": "b5-think-7", "text": "Decides whether given information is enough to answer a question" },
-      { "id": "b5-think-8", "text": "Follows the logic of an X-wing in a hard Sudoku" }
+      { "id": "b5-think-8", "text": "Follows the logic of an X-wing in a hard Sudoku" },
+      { "id": "b5-think-9", "text": "Recognises common checkmate patterns and plans before moving" }
     ], "sampleQuiz": { "q": "Only reading news that agrees with you is called…", "options": ["Confirmation bias", "Open-mindedness", "Research"], "answer": 0, "hint": "It 'confirms' what you already think." } },
 
     { "band": "b5", "subject": "arts", "outcomes": [

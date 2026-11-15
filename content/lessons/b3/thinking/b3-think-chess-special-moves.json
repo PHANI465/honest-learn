@@ -1,0 +1,108 @@
+{
+  "id": "b3-think-chess-special-moves",
+  "title": "Chess: Castling, En Passant and Promotion",
+  "band": "b3",
+  "subject": "thinking",
+  "outcomes": [
+    "b3-think-7"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Chess",
+      "url": "https://en.wikipedia.org/wiki/Chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Castling",
+      "url": "https://en.wikipedia.org/wiki/Castling",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: En passant",
+      "url": "https://en.wikipedia.org/wiki/En_passant",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Promotion (chess)",
+      "url": "https://en.wikipedia.org/wiki/Promotion_(chess)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Three special moves are worth knowing. CASTLING moves the king two squares towards a rook, and the rook jumps to the other side of the king. It is the only time two pieces move at once. It helps keep your king safe."
+    },
+    {
+      "type": "text",
+      "body": "To castle, the king and that rook must not have moved before, the squares between them must be empty, the king must not be in check, and it must not pass through or land on a square that is attacked."
+    },
+    {
+      "type": "text",
+      "body": "PROMOTION: when a pawn reaches the far end of the board, it must become another piece. You can choose a queen, rook, bishop or knight. It cannot stay a pawn and it cannot become a king. Most players choose a queen."
+    },
+    {
+      "type": "text",
+      "body": "EN PASSANT (French for 'in passing'): if an enemy pawn moves two squares forward from its start and lands right beside your pawn, you may capture it as if it had moved only one square. You must do it at once, on the very next move, or the chance is gone."
+    },
+    {
+      "type": "tryit",
+      "body": "Set up a white pawn on e5 and a black pawn on d7. Move the black pawn to d5. Can your pawn capture it? Which square does your pawn end on?"
+    },
+    {
+      "type": "parent",
+      "body": "Special rules are easy to forget, so check them together on a real board. The chess puzzles in the app never need castling or en passant, but your child will meet them in real games."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A white pawn reaches the last row of the board. What can it become?",
+      "options": [
+        "A queen, rook, bishop or knight, as you choose",
+        "Only a queen, because it is the strongest piece",
+        "A king, because that is the most important piece"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what a pawn can turn into when it is promoted.",
+        "It must change into a piece, and you get to choose which one.",
+        "Example: a player may pick a knight if it gives check at once. That shows there is more than one choice. List which pieces are allowed."
+      ],
+      "explain": "A promoted pawn becomes a queen, rook, bishop or knight, never a king and never a pawn."
+    },
+    {
+      "q": "Which one stops a player from castling?",
+      "options": [
+        "The king is in check",
+        "The queen has moved",
+        "A pawn is on the second row"
+      ],
+      "answer": 0,
+      "hints": [
+        "Castling involves the king and one rook.",
+        "A player cannot castle out of check.",
+        "Example: a king that has already moved can never castle, even if it comes back. Look for the option about the king's safety."
+      ],
+      "explain": "You cannot castle out of check. The king and the rook must not have moved, but what the queen or the pawns have done does not matter."
+    },
+    {
+      "q": "Black plays a pawn two squares from d7 to d5, landing next to a white pawn on e5. What can White do?",
+      "options": [
+        "Capture it en passant, moving the pawn to d6",
+        "Nothing at all, because it is already too late to do anything",
+        "Capture it on d5 with a rook straight away"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at where the white pawn stands compared to the black pawn.",
+        "En passant lets you capture a pawn that jumped two squares, as if it had stepped only one.",
+        "Example: if a pawn moves from b7 to b5 beside a white pawn on a5, White may capture on b6. Decide which square is passed over here."
+      ],
+      "explain": "The black pawn jumped over d6 and landed next to White's pawn. White can capture it en passant, moving to d6, but only on the very next move."
+    }
+  ]
+}

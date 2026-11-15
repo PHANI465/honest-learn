@@ -51,7 +51,7 @@ flowchart LR
 |---|---|---|
 | **App** | Everything people see and tap. One codebase (Expo / React Native) builds the website, the Android app and the iPhone app. | `app/` |
 | **API server** | The brain: accounts, PIN, which lessons a child may see, checking answers, giving hints, Hoot, screen time, parent reports. Keeps every answer secret. | `server/` |
-| **Content** | The curriculum as plain JSON files: the knowledge map, 210 lessons, 68 puzzles, 27 free resources, helplines, Hoot safety tests. Loaded by the server when it starts. | `content/` |
+| **Content** | The curriculum as plain JSON files: the knowledge map, 218 lessons, 68 puzzles, 27 free resources, helplines, Hoot safety tests. Loaded by the server when it starts. | `content/` |
 | **Database** | Families, children, progress, chats and settings. SQLite on a computer; Postgres (Neon) when deployed. | created automatically |
 | **Outside services** | Claude (Hoot, optional), Postmark (email, at launch), Wikipedia (summaries for 9+), YouTube privacy-enhanced player (videos). | — |
 
@@ -151,7 +151,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `routes/learn.ts` | `/family`, `/children/:id/home` (includes up to 3 gentle "Try next" suggestions), `lessons`, `lessons/:lessonId` (+ `/hint`, `/check`, `/complete`, `/learn-more`), `resources`, `practice`, `facts` (random quick facts with a source link; no secrets) |
 | `routes/puzzles.ts` | `/children/:id/puzzles` (+ `/hint`, `/check`, `/complete`) |
 | (no server) | Pairs, pattern, picture-spotting, sliding tiles and nonograms are in the app only: `app/src/lib/games/` |
-| `routes/games.ts` | `/children/:id/games/sudoku` (+ `/:n`, `/:n/check`, `/:n/hint`): Sudoku puzzles, checks and the hint ladder |
+| `routes/games.ts` | `/children/:id/games/sudoku` (+ `/:n`, `/:n/check`, `/:n/hint`): Sudoku puzzles, checks and the hint ladder; `/children/:id/games/chess` (+ `/:puzzleId`, `/:puzzleId/move`, `/:puzzleId/hint`): chess puzzles checked one move at a time |
 | `routes/spelling.ts` | `/children/:id/spelling/today`, `/spelling/check` (daily words, Leitner boxes) |
 | `routes/usage.ts` | `/children/:id/usage`, `/usage/tick` |
 | `routes/tutor.ts` | `/children/:id/tutor/:lessonId` (Hoot), `/reports` |

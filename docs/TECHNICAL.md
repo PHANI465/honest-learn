@@ -20,7 +20,7 @@ web export is served as static files and the API runs as one serverless function
 | Local server | `@hono/node-server` | `server/src/index.ts` (API only), `server/src/preview.ts` (API + static site on one port) | `npm run dev` at the root uses `preview.ts`. |
 | Vercel function | — | `api/index.ts` → `server/src/vercel.ts` | Also mounts `server/src/cron.ts` (data retention job). |
 | Database | `node:sqlite`, or Postgres via `@neondatabase/serverless`; PGlite in tests | `server/src/db.ts`, `db-neon.ts`, `open-db.ts` | One `DB` interface: `get`, `all`, `run`, `exec`. SQL is written to run on both. |
-| Curriculum | JSON validated with zod | `server/src/content.ts` (`loadContent`) | `content/knowledge-map.json`, `lessons/`, `puzzles/`, `facts/`, `spelling/`, `resources.json`, `helplines.json`. |
+| Curriculum | JSON validated with zod | `server/src/content.ts` (`loadContent`) | `content/knowledge-map.json`, `lessons/`, `puzzles/`, `facts/`, `spelling/`, `chess/`, `resources.json`, `helplines.json`. |
 | AI helper ("Hoot") | Anthropic SDK, or any OpenAI-compatible server | `server/src/tutor.ts`, `server/src/tutor-openai.ts` | Selected by `TUTOR_MODE` (`claude`, `openai`, `mock`). |
 
 ## 3. Request path and trust model

@@ -1,0 +1,103 @@
+{
+  "id": "b4-think-chess-endgames",
+  "title": "Chess Endgames: Checkmating With Few Pieces",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-13"
+  ],
+  "sensitive": null,
+  "minutes": 14,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Chess",
+      "url": "https://en.wikipedia.org/wiki/Chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Chess endgame",
+      "url": "https://en.wikipedia.org/wiki/Chess_endgame",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Draw (chess)",
+      "url": "https://en.wikipedia.org/wiki/Draw_(chess)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "An endgame is the last part of a game when few pieces are left. Knowing basic endgames helps you turn an advantage into a win."
+    },
+    {
+      "type": "text",
+      "body": "Which pieces can force checkmate against a lone king? A king and queen can. A king and rook can. A king and a single knight cannot, and neither can a king and a single bishop. With so little material, the game is a draw."
+    },
+    {
+      "type": "text",
+      "body": "The method is to push the enemy king to the edge of the board, because a king in the middle has too many squares. Use your king to help: it must come close to take squares away from the enemy king."
+    },
+    {
+      "type": "text",
+      "body": "The great danger is stalemate. If you give the lone king no moves while not giving check, the game is drawn. A good habit before each move: 'Does the enemy king still have a legal move, or is it in check?'"
+    },
+    {
+      "type": "tryit",
+      "body": "Set up a king and queen against a king and practise driving the enemy king to the edge. After each move, check that you have not stalemated."
+    },
+    {
+      "type": "parent",
+      "body": "Drawn endgames and stalemate tricks are very common in beginners' games. If your child keeps drawing won positions, practise king and queen against king over and over."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which of these can force checkmate against a lone king?",
+      "options": [
+        "A king and a queen",
+        "A king and a single knight",
+        "A king and a single bishop"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about which pieces control a lot of squares.",
+        "A lone knight or a lone bishop is not enough, on its own.",
+        "Example: with a king and rook against a king you can force mate by driving the king to the edge. Decide which option is that strong."
+      ],
+      "explain": "A king and queen can force checkmate. A king and one knight, or a king and one bishop, cannot."
+    },
+    {
+      "q": "You have a king and queen against a lone king. Black's king on h8 has no legal move, but is not in check. What is the result of the game?",
+      "options": [
+        "A draw by stalemate",
+        "A win for White by checkmate",
+        "A win for Black"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is Black's king being attacked?",
+        "It is not in check, and it has no legal move.",
+        "Example: a king that is attacked and cannot escape is checkmated. Is that this case, or the other case where the king is simply stuck?"
+      ],
+      "explain": "Black is not in check and has no legal moves. That is stalemate, a draw, even though White has far more pieces."
+    },
+    {
+      "q": "Why is it a good idea to drive the lone enemy king to the edge of the board?",
+      "options": [
+        "On the edge it has fewer squares to run to, so it is easier to trap",
+        "The edge squares are worth more points than the squares in the middle of the board",
+        "Kings are not allowed to stay in the middle of the board"
+      ],
+      "answer": 0,
+      "hints": [
+        "Count how many squares a king can reach in the middle, then at the edge.",
+        "A king in the middle can step to 8 squares. On the edge it has fewer.",
+        "Example: a king in a corner can step to only 3 squares. Think about why that helps you."
+      ],
+      "explain": "A king on the edge has fewer squares, so it is easier to take them all away and give checkmate."
+    }
+  ]
+}

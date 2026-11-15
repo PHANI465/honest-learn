@@ -1,0 +1,98 @@
+{
+  "id": "b2-think-chess-pieces",
+  "title": "Chess: The Board and How the Pieces Move",
+  "band": "b2",
+  "subject": "thinking",
+  "outcomes": [
+    "b2-think-7"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Chess",
+      "url": "https://en.wikipedia.org/wiki/Chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Rules of chess",
+      "url": "https://en.wikipedia.org/wiki/Rules_of_chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Chess is a game for two players. One plays White and one plays Black. The board has 64 squares, 8 rows by 8 columns, in two colours. Each player starts with 16 pieces and takes turns to move one piece."
+    },
+    {
+      "type": "text",
+      "body": "The rook moves in straight lines, forwards, backwards and sideways, as far as it likes. The bishop moves along diagonals. The queen moves like a rook and a bishop together. The king moves one square in any direction."
+    },
+    {
+      "type": "text",
+      "body": "The knight jumps in an L shape: two squares one way and one square to the side. It is the only piece that can jump over others. A pawn moves forward one square (two squares on its very first move) and captures one square diagonally forward."
+    },
+    {
+      "type": "text",
+      "body": "The aim of the game is checkmate: attacking the other player's king so that it cannot escape."
+    },
+    {
+      "type": "tryit",
+      "body": "Put a coin on any square of a chessboard. Which squares could a rook reach? A bishop? A knight? Try each in turn."
+    },
+    {
+      "type": "parent",
+      "body": "Play with a real board if you can, and let your child say each move out loud, for example 'knight from g1 to f3'. The chess puzzles in the app only check moves one at a time, so they pair well with a board at the table."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "How many squares are on a chessboard?",
+      "options": [
+        "64",
+        "32",
+        "100"
+      ],
+      "answer": 0,
+      "hints": [
+        "The board is a square of rows and columns.",
+        "There are 8 rows and 8 columns. Multiply them.",
+        "Example: a grid of 3 rows and 4 columns has 3 times 4 = 12 squares. Use 8 and 8."
+      ],
+      "explain": "8 rows times 8 columns is 64 squares."
+    },
+    {
+      "q": "A rook stands on a1 with nothing in its way. Which move can it make?",
+      "options": [
+        "To a8, straight up",
+        "To b2, one step on the diagonal",
+        "To h8, across to the far corner"
+      ],
+      "answer": 0,
+      "hints": [
+        "Remember how a rook moves: only in straight lines.",
+        "A rook goes along a row or along a column. It never goes diagonally.",
+        "Example: a bishop on c1 can go to h6 because that is a diagonal. A rook cannot, because it must stay on its own row or column. Check which option stays on the same column as a1."
+      ],
+      "explain": "The rook moves in straight lines. From a1 it can go up the a-column to a8. Going to b2 or h8 would need a diagonal move or a turn."
+    },
+    {
+      "q": "A knight stands on g1. Which square can it jump to?",
+      "options": [
+        "f3",
+        "g3",
+        "g2"
+      ],
+      "answer": 0,
+      "hints": [
+        "A knight moves in an L shape.",
+        "The L is two squares in one direction and one square to the side.",
+        "Example: a knight on b1 can jump to c3, which is two up and one across. Use the same L shape from g1."
+      ],
+      "explain": "From g1 the L shape reaches f3 (two up, one left). g3 and g2 are straight up the board, which a knight cannot do."
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 # Honest Learn: notes for Claude Code
 
-Free, ad-free learning app for ages 3–18 (iOS, Android, web) with a parent-controlled account, a hint-only AI helper ("Hoot") and 210 draft lessons. Owner: PHANI465. Nothing is public-launch ready until humans approve the content (see `docs/NEEDS_APPROVAL.md` and issue #1).
+Free, ad-free learning app for ages 3–18 (iOS, Android, web) with a parent-controlled account, a hint-only AI helper ("Hoot") and 218 draft lessons. Owner: PHANI465. Nothing is public-launch ready until humans approve the content (see `docs/NEEDS_APPROVAL.md` and issue #1).
 
 ## Layout
 - `server/`: Hono API on Node 22 (TypeScript via tsx). `src/app.ts` wires shared protections and mounts `src/routes/*` (public, auth, learn, puzzles, usage, tutor, parent); shared helpers in `src/context.ts`, shapes and input rules in `src/models.ts`. SQLite locally; Postgres (Neon) when `DATABASE_URL`/`POSTGRES_URL` is set; in-memory demo DB on Vercel without one.
 - `app/`: Expo SDK 58 + expo-router (routes in `app/src/app`). Web export in `app/dist`. The website landing page is `welcome.web.tsx` (+ `src/landing/`); the native app uses `welcome.tsx`. Landing copy may only use facts from the app's content or docs.
-- `content/`: the curriculum as JSON: `knowledge-map.json` (5 age bands × 11 subjects, 254 outcomes), `lessons/<band>/<subject>/*.json`, `puzzles/<band>.json`, `facts/<band>.json` (quick facts, each with a source link), `spelling/<band>.json` (daily spelling words), `resources.json`, `helplines.json`, `hoot-redteam.json`.
+- `content/`: the curriculum as JSON: `knowledge-map.json` (5 age bands × 11 subjects, 262 outcomes), `lessons/<band>/<subject>/*.json`, `puzzles/<band>.json`, `facts/<band>.json` (quick facts, each with a source link), `spelling/<band>.json` (daily spelling words), `chess/l1-l3.json` (chess puzzles, composed and proven by `server/src/games/`), `resources.json`, `helplines.json`, `hoot-redteam.json`.
 - `docs/`: `guide/` (what's built, where it lives, how it works, navigation, scaling), `SECURITY.md`, reviewer guide, approval list, launch checklist, deployment, legal drafts, research.
 - `scripts/`: generators and checkers (see below).
 - **Next work:** `docs/AGENT_TASKS.md` (status board, one section per task, which model and effort to use). Technical overview: `docs/TECHNICAL.md`. Own-model setup for Hoot (`TUTOR_MODE=openai`, Ollama etc.): `docs/FREE_AGENTS.md`, code in `server/src/tutor-openai.ts`.

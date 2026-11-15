@@ -1,0 +1,94 @@
+{
+  "id": "b3-think-chess-values",
+  "title": "Chess: What Are the Pieces Worth?",
+  "band": "b3",
+  "subject": "thinking",
+  "outcomes": [
+    "b3-think-8"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Chess",
+      "url": "https://en.wikipedia.org/wiki/Chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Chess piece relative value",
+      "url": "https://en.wikipedia.org/wiki/Chess_piece_relative_value",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Players give each piece a number to help them decide whether a trade is good. These are guides, not rules. A pawn is worth 1, a knight 3, a bishop 3, a rook 5 and a queen 9. The king cannot be traded, because losing it ends the game."
+    },
+    {
+      "type": "text",
+      "body": "Count the points when you trade. If you capture a rook (5) and lose a knight (3), you gain 2 points. That is a good trade. If you give up a queen (9) for a rook (5), you lose 4 points."
+    },
+    {
+      "type": "text",
+      "body": "The numbers are only a guide. Checkmate beats everything: a player who can give checkmate does not mind losing a queen. Sometimes position matters more than points."
+    },
+    {
+      "type": "tryit",
+      "body": "Write down the point value of everything you captured and everything you lost in your last game. Who was ahead?"
+    },
+    {
+      "type": "parent",
+      "body": "Point values help beginners avoid giving away pieces. Ask your child to count before every capture: 'what do I win, and what might I lose?'."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which piece is worth more, a rook or a bishop?",
+      "options": [
+        "A rook (about 5 points)",
+        "A bishop (about 5 points)",
+        "They are worth the same"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how many points each piece is worth.",
+        "A bishop is worth about 3. What is a rook worth?",
+        "Example: a knight is worth 3 and a queen is worth 9, so the queen is worth more. Compare the rook and the bishop in the same way."
+      ],
+      "explain": "A rook is worth about 5 points and a bishop about 3."
+    },
+    {
+      "q": "About how many pawns is a queen worth?",
+      "options": [
+        "9",
+        "5",
+        "3"
+      ],
+      "answer": 0,
+      "hints": [
+        "A pawn is worth 1 point.",
+        "Look at the queen's point value in the lesson.",
+        "Example: a rook is worth 5 points, so it is worth 5 pawns. Use the queen's value instead."
+      ],
+      "explain": "A queen is worth about 9 points, which is about 9 pawns."
+    },
+    {
+      "q": "You capture a rook (5) and then lose your knight (3) in return. What is the result in points?",
+      "options": [
+        "You gain 2 points",
+        "You lose 2 points",
+        "It is equal"
+      ],
+      "answer": 0,
+      "hints": [
+        "Add up what you won, then take away what you lost.",
+        "5 won, 3 lost. Subtract.",
+        "Example: winning a bishop (3) and losing a pawn (1) gives 3 - 1 = 2 points gained. Do the same with 5 and 3."
+      ],
+      "explain": "You won 5 points and lost 3, so you are 2 points ahead."
+    }
+  ]
+}

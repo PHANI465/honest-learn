@@ -1,0 +1,170 @@
+{
+  "level": 3,
+  "status": "draft",
+  "title": "Checkmate in two",
+  "source": "Original positions composed for this project by games/compose-chess.ts and verified with chess.js (not taken from any game or puzzle database).",
+  "puzzles": [
+    {
+      "id": "l3-01",
+      "fen": "6k1/8/8/8/7R/8/5K2/R7 w - - 0 1",
+      "theme": "Two rooks: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Ra7",
+        "Kf8",
+        "Rh8#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your rook.",
+        "Play Ra7."
+      ],
+      "explain": "After Ra7, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Ra7 Kf8 Rh8#."
+    },
+    {
+      "id": "l3-02",
+      "fen": "2k5/8/8/5K2/8/8/8/3RQ3 w - - 0 1",
+      "theme": "Rook and queen: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Qe7",
+        "Kb8",
+        "Rd8#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your queen.",
+        "Play Qe7."
+      ],
+      "explain": "After Qe7, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Qe7 Kb8 Rd8#."
+    },
+    {
+      "id": "l3-03",
+      "fen": "6R1/8/R3K3/p7/k7/8/8/8 w - - 0 1",
+      "theme": "Two rooks: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Rb8",
+        "Ka3",
+        "Rxa5#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your rook.",
+        "Play Rb8."
+      ],
+      "explain": "After Rb8, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Rb8 Ka3 Rxa5#."
+    },
+    {
+      "id": "l3-04",
+      "fen": "1R6/6Q1/8/3K4/8/8/8/4k3 w - - 0 1",
+      "theme": "Rook and queen: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Qg2",
+        "Kd1",
+        "Rb1#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your queen.",
+        "Play Qg2."
+      ],
+      "explain": "After Qg2, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Qg2 Kd1 Rb1#."
+    },
+    {
+      "id": "l3-05",
+      "fen": "6k1/8/4K3/8/8/8/8/7Q w - - 0 1",
+      "theme": "Queen and king: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Kf6",
+        "Kf8",
+        "Qa8#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your king.",
+        "Play Kf6."
+      ],
+      "explain": "After Kf6, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Kf6 Kf8 Qa8#."
+    },
+    {
+      "id": "l3-06",
+      "fen": "2R5/8/1K6/8/3R4/8/8/k7 w - - 0 1",
+      "theme": "Two rooks: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Rb4",
+        "Ka2",
+        "Ra8#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your rook.",
+        "Play Rb4."
+      ],
+      "explain": "After Rb4, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Rb4 Ka2 Ra8#."
+    },
+    {
+      "id": "l3-07",
+      "fen": "8/8/5Q2/8/5K2/7k/8/8 w - - 0 1",
+      "theme": "Queen and king: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Qb2",
+        "Kh4",
+        "Qh8#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your queen.",
+        "Play Qb2."
+      ],
+      "explain": "After Qb2, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Qb2 Kh4 Qh8#."
+    },
+    {
+      "id": "l3-08",
+      "fen": "8/8/8/8/2K5/8/k7/7Q w - - 0 1",
+      "theme": "Queen and king: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Kc3",
+        "Ka3",
+        "Qa8#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your king.",
+        "Play Kc3."
+      ],
+      "explain": "After Kc3, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Kc3 Ka3 Qa8#."
+    },
+    {
+      "id": "l3-09",
+      "fen": "8/5Q2/4p3/8/2K5/8/8/k7 w - - 0 1",
+      "theme": "Queen and king: mate in two",
+      "goal": "mate",
+      "solverMoves": 2,
+      "solution": [
+        "Kb3",
+        "e5",
+        "Qf1#"
+      ],
+      "hints": [
+        "Look for a move that does not give check yet, but takes away the king's squares so that any reply allows mate next move.",
+        "Use your king.",
+        "Play Kb3."
+      ],
+      "explain": "After Kb3, the black king is trapped: whatever Black plays, White has checkmate on the next move. For example Kb3 e5 Qf1#."
+    }
+  ]
+}

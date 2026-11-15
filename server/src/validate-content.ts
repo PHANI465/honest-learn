@@ -3,9 +3,10 @@
 import { config } from "./config.ts";
 import { loadContent } from "./content.ts";
 import { loadHelplines } from "./tutor.ts";
+import { verifyPuzzle, type ChessPuzzle } from "./games/chess.ts";
 
 try {
-  const { lessons, map, puzzles, resources, facts, spelling } = loadContent(config.contentDir);
+  const { lessons, map, puzzles, resources, facts, spelling, chess } = loadContent(config.contentDir);
   const helplines = loadHelplines(config.contentDir);
   const byStatus = { draft: 0, reviewed: 0 };
   for (const l of lessons.values()) byStatus[l.status]++;
@@ -47,6 +48,15 @@ try {
     }
   }
   if (factProblems.length) throw new Error("Fact problems:\n- " + factProblems.join("\n- "));
+  // Chess: every puzzle must be proven sound (legal, the goal really happens, unique first move); see games/chess.ts
+  const chessProblems: string[] = [];
+  for (const set of chess.values()) {
+    for (const p of set.puzzles) {
+      const v = verifyPuzzle(p as ChessPuzzle);
+      for (const msg of v.problems) chessProblems.push(`${p.id}: ${msg}`);
+    }
+  }
+  if (chessProblems.length) throw new Error("Chess puzzle problems:" + String.fromCharCode(10) + "- " + chessProblems.join(String.fromCharCode(10) + "- "));
   // Spelling: every group should reach 120 words (T3); a shorter list still works but repeats sooner.
   for (const set of spelling.values()) {
     if (set.words.length < 120) console.log(`⚠️  Spelling list for ${set.band} has ${set.words.length} words (the target is at least 120).`);
@@ -57,6 +67,7 @@ try {
       `Outcomes covered: ${covered.size}/${totalOutcomes}. ` +
       `Puzzles: ${[...puzzles.values()].reduce((n, p) => n + p.puzzles.length, 0)} in ${puzzles.size} sets. Free resources: ${resources.length}. ` +
       `Facts: ${[...facts.values()].reduce((n, f) => n + f.facts.length, 0)} in ${facts.size} sets. ` +
+      `Chess puzzles: ${[...chess.values()].reduce((n, c) => n + c.puzzles.length, 0)} (all verified). ` +
       `Spelling words: ${[...spelling.values()].reduce((n, s) => n + s.words.length, 0)} in ${spelling.size} lists. ` +
       `Helplines: ${Object.keys(helplines.countries).length} countries (${helplines.status}).`,
   );

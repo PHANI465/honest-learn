@@ -1,0 +1,121 @@
+{
+  "id": "b4-think-chess-tactics",
+  "title": "Chess Tactics: Forks, Pins, Skewers and Discovered Attacks",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-12"
+  ],
+  "sensitive": null,
+  "minutes": 14,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Chess",
+      "url": "https://en.wikipedia.org/wiki/Chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Fork (chess)",
+      "url": "https://en.wikipedia.org/wiki/Fork_(chess)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Pin (chess)",
+      "url": "https://en.wikipedia.org/wiki/Pin_(chess)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Skewer (chess)",
+      "url": "https://en.wikipedia.org/wiki/Skewer_(chess)",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Discovered attack",
+      "url": "https://en.wikipedia.org/wiki/Discovered_attack",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A TACTIC is a short combination of moves that wins material or checkmate by force. Here are four of the most common."
+    },
+    {
+      "type": "text",
+      "body": "A FORK is a move that attacks two pieces at once. A knight is especially good at forking because it attacks in an L shape. The opponent can save only one piece, so you win the other. A fork that includes the king is the strongest: the king must answer the check and the other piece is lost."
+    },
+    {
+      "type": "text",
+      "body": "A PIN is an attack on a piece that cannot move without exposing a more valuable piece behind it. If the piece behind is the king, the pinned piece may not move at all, because that would be illegal."
+    },
+    {
+      "type": "text",
+      "body": "A SKEWER is like a pin the other way round. You attack a valuable piece, often the king, and when it moves out of the way you capture the piece behind it."
+    },
+    {
+      "type": "text",
+      "body": "A DISCOVERED ATTACK happens when you move one piece out of the way so that another piece behind it attacks. The piece you moved can make a threat of its own at the same time."
+    },
+    {
+      "type": "text",
+      "body": "Example fork: White's knight on h2 jumps to f3 with check. It attacks the black king on e1 and also the black queen on h4. Black must deal with the check and White captures the queen."
+    },
+    {
+      "type": "tryit",
+      "body": "Set up a white knight and a black king and queen so the knight can fork them. Where must the knight land?"
+    },
+    {
+      "type": "parent",
+      "body": "Tactics are the most fun part of chess to learn. The Winning tactics puzzles in the app have forks and skewers. Encourage your child to ask 'what does this move attack?' and 'what does it leave undefended?' on every move."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A move that attacks two enemy pieces at the same time is called a...",
+      "options": [
+        "Fork",
+        "Stalemate",
+        "Promotion"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of the tool with two prongs.",
+        "The opponent can only save one of the two pieces.",
+        "Example: a pin attacks one piece that is stuck in front of another. This question is about a move that attacks two pieces at once. Name it."
+      ],
+      "explain": "A fork attacks two pieces at once. The opponent can save only one."
+    },
+    {
+      "q": "How is a skewer different from a pin?",
+      "options": [
+        "The valuable piece is in front and must move, so you capture the one behind it",
+        "The cheaper piece is in front and cannot move, because moving it would expose the king",
+        "A skewer only works with pawns, and only on the second row of the board"
+      ],
+      "answer": 0,
+      "hints": [
+        "Both attacks use a line with two pieces on it.",
+        "Look at which of the two pieces is in front in each tactic.",
+        "Example: in a pin the cheaper piece is in front and cannot safely move. A skewer is the reverse. Find the option that says so."
+      ],
+      "explain": "In a skewer, the valuable piece in front has to move, and then you capture the piece behind it. In a pin it is the other way round."
+    },
+    {
+      "q": "White's knight jumps from h2 to f3, giving check to the black king on e1. What else does that knight attack?",
+      "options": [
+        "The black queen on h4",
+        "A pawn on the f2 square next to the white king",
+        "Nothing, it only gives check"
+      ],
+      "answer": 0,
+      "hints": [
+        "A knight attacks squares an L shape away.",
+        "From f3, one L-shaped jump reaches h4. Look at what is standing there.",
+        "Example: a knight on c3 attacks e4, e2, d5, b5, a4 and a2. Work out the L-shaped squares from f3."
+      ],
+      "explain": "From f3 a knight attacks h4 as well as e1, so it forks the king and the queen."
+    }
+  ]
+}

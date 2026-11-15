@@ -105,6 +105,29 @@ export const SpellingSet = z.object({
 export type SpellingWord = z.infer<typeof SpellingWord>;
 export type SpellingSet = z.infer<typeof SpellingSet>;
 
+/**
+ * Chess puzzles (see games/chess.ts for how each one is proven sound). `fen` is a position; `solution` is the main line in SAN,
+ * starting with the move the child must find. The solution is never sent to the app before the child has earned it.
+ */
+export const ChessPuzzleSchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  fen: z.string().min(10),
+  theme: z.string().min(1),
+  goal: z.enum(["mate", "win"]),
+  solverMoves: z.number().int().min(1).max(3),
+  solution: z.array(z.string().min(2)).min(1).max(7),
+  hints: z.tuple([z.string().min(1), z.string().min(1), z.string().min(1)]),
+  explain: z.string().min(1),
+});
+export const ChessSet = z.object({
+  level: z.number().int().min(1).max(3),
+  status: z.enum(["draft", "reviewed"]),
+  title: z.string().min(1),
+  source: z.string().min(1),
+  puzzles: z.array(ChessPuzzleSchema).min(1),
+});
+export type ChessSet = z.infer<typeof ChessSet>;
+
 export const Lesson = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   title: z.string().min(1),
@@ -138,6 +161,8 @@ export interface ContentStore {
   puzzles: Map<string, PuzzleSet>;
   facts: Map<string, FactSet>;
   spelling: Map<string, SpellingSet>;
+  /** Chess puzzle sets by level number ("1", "2", "3"). */
+  chess: Map<string, ChessSet>;
 }
 
 function walk(dir: string): string[] {
@@ -262,8 +287,27 @@ export function loadContent(contentDir: string): ContentStore {
     }
   }
 
+  const chess = new Map<string, ChessSet>();
+  const chessDir = join(contentDir, "chess");
+  if (existsSync(chessDir)) {
+    const seenIds = new Set<string>();
+    for (const file of walk(chessDir)) {
+      const parsed = ChessSet.safeParse(JSON.parse(readFileSync(file, "utf8")));
+      if (!parsed.success) {
+        problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
+        continue;
+      }
+      if (chess.has(String(parsed.data.level))) problems.push(`${file}: second chess set for level ${parsed.data.level}`);
+      for (const p of parsed.data.puzzles) {
+        if (seenIds.has(p.id)) problems.push(`${file}: duplicate chess puzzle id ${p.id}`);
+        seenIds.add(p.id);
+      }
+      chess.set(String(parsed.data.level), parsed.data);
+    }
+  }
+
   if (problems.length) throw new Error("Content problems:\n- " + problems.join("\n- "));
-  return { map, lessons, resources, puzzles, facts, spelling };
+  return { map, lessons, resources, puzzles, facts, spelling, chess };
 }
 
 /**

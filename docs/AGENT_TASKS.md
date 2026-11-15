@@ -69,7 +69,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T2 | Quick facts between lessons | Haiku low (content), Sonnet medium (code) | S + S | none | **done** 14 Nov 2026 | 200 facts (40 per band), all draft; `FactCard`; `scripts/check-fact-sources.mjs`. A person must spot-check 1 in 5 |
 | T3 | Daily spelling and vocabulary | Sonnet medium (code), Haiku low (word lists) | L | none | **done** 14 Nov 2026 | Server, screen and 605 words (120+ per band). Open: spellingVariant, reviewer pass |
 | T4 | Quantitative aptitude and reasoning lessons | Sonnet medium | L | none | **done** 14 Nov 2026 | 30 lessons across b2 to b5; every band needs a human maths check |
-| T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku and 5c memory games done 14 Nov 2026. 5b chess and 5d play chess: todo |
+| T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku, 5b chess and 5c memory games done 14 Nov 2026. 5d play chess against the computer: todo (needs an engine and licence decision) |
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | todo | Security sensitive |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | todo | |
@@ -489,3 +489,22 @@ are private to that family and are included in export and deletion. **Sonnet med
   size; no screen reader or keyboard pass; no sound; reduced-motion has nothing to disable because nothing moves, but the pattern
   highlight timing (750 ms, 1,000 ms for ages 3 to 5) has not been tried with real children; the in-memory shuffle uses
   `Math.random` so games are not repeatable (only the tests seed them).
+- **T5b chess lessons and puzzles (done).** Dependency: `chess.js` 1.4.0 added to `server` and `app` (pinned; **licence is BSD-2-Clause, not MIT as
+  this guide first said**; permissive, no dependencies, ~720 KB unpacked, pure JavaScript, no network). Server: `server/src/games/chess.ts`
+  (puzzle type, `verifyPuzzle` exhaustive proof, `playStep` one-move-at-a-time checking, level by age: none at 3 to 5, level 1 at 6 to 8,
+  levels 1 and 2 at 9 to 11, all three from 12), `server/src/games/compose-chess.ts` (`npm run compose:chess [seed] [levels]` rebuilds
+  `content/chess/l1-l3.json` from named patterns: back-rank, queen/rook/two-rook mates, smothered mate, knight forks, skewers, queen/rook mates in
+  two; each candidate is thrown away unless `verifyPuzzle` passes), routes `GET /children/:id/games/chess`, `.../chess/:puzzleId`,
+  `POST .../move` (body `{step, from, to, promotion?}`; `fen` is the position after the child's move, `fenAfterReply` after Black's reply),
+  `POST .../hint` (`{step, level}`; the puzzle's own three hints for the first move, then generic ones made from the line), solved puzzles in
+  `games_solved` (game `chess`). The last move of a mate puzzle accepts ANY checkmating move. `npm run validate` and `test/chess.test.ts` re-prove
+  all 32 puzzles. App: `app/src/components/ChessBoard.tsx` (8x8 tappable squares, Unicode pieces, legal squares shown, spoken labels like
+  "White knight on g1") and `app/src/app/learn/[childId]/games/chess.tsx` (list, board, hints, explanation, next puzzle). Lessons:
+  `server/src/games/gen-chess-lessons.ts` (`npm run compose:chess-lessons`) writes eight lessons and outcomes `b2-think-7`, `b3-think-6` to `8`,
+  `b4-think-11` to `13`, `b5-think-9`, asserting every positional claim with chess.js first. Looked at in a real browser at phone width:
+  list, mate in one (wrong move, all three hints, right move), mate in two (the reply, then the mate), a fork (explanation). A bug found
+  and fixed there: the server first returned the position after Black's reply as `fen`, which the screen then tried to replay.
+  **Not done:** castling, en passant and promotion are never needed by the puzzles (the board auto-promotes to a queen); no sound, no
+  screen reader or keyboard pass; no pins or discovered-attack puzzles (the verifier only proves mates and 4-ply material wins); many
+  positions are sparse endgames because they are composed, not taken from games; the Lichess puzzle database (CC0) was not used and could
+  add natural positions later; levels use "mate in two" only (no mate in three).

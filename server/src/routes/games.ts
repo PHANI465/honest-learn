@@ -5,7 +5,9 @@
 // hints_seen so the app cannot skip ahead). A puzzle always has exactly one solution (see games/sudoku.ts).
 import { Hono } from "hono";
 import { z } from "zod";
+import { config } from "../config.ts";
 import { now } from "../db.ts";
+import { autoHints, CHESS_LEVELS, LEVEL_NAMES, playStep, positionAt, type ChessPuzzle } from "../games/chess.ts";
 import { childBand } from "../models.ts";
 import { CLUES, generate, hintTexts, LEVELS, mistakeTexts, nextStep, specFor, type Puzzle } from "../games/sudoku.ts";
 import type { Ctx, Env } from "../context.ts";
@@ -110,6 +112,98 @@ export function gameRoutes(ctx: Ctx) {
     if (!(await ctx.openHint(child.id, item, chain, b.level))) return c.json({ error: "hint_out_of_order" }, 400);
     const texts = wrongAt >= 0 ? mistakeTexts(p.spec, wrongAt) : hintTexts(p.spec, step!);
     return c.json({ hint: texts[b.level], level: b.level, chain, isLast: b.level === 2 });
+  });
+
+  // ================================================================ chess puzzles
+  /** The puzzles this child may play: the levels offered for their age group, if the set is published (or drafts are shown). */
+  const chessFor = (child: Parameters<typeof childBand>[0]) => {
+    const out: { level: number; name: string; puzzles: ChessPuzzle[] }[] = [];
+    for (const level of CHESS_LEVELS[childBand(child)]) {
+      const set = ctx.content.chess.get(String(level));
+      if (set && (set.status === "reviewed" || config.showDrafts)) out.push({ level, name: LEVEL_NAMES[level] ?? set.title, puzzles: set.puzzles as ChessPuzzle[] });
+    }
+    return out;
+  };
+  const findPuzzle = (child: Parameters<typeof childBand>[0], id: string) => {
+    for (const l of chessFor(child)) {
+      const p = l.puzzles.find((x) => x.id === id);
+      if (p) return p;
+    }
+    return null;
+  };
+
+  r.get("/children/:childId/games/chess", async (c) => {
+    const child = await loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const solved = new Set((await db.all<{ key: string }>("SELECT puzzle_key AS key FROM games_solved WHERE child_id = ? AND game = 'chess'", [child.id])).map((x) => x.key));
+    return c.json({
+      available: chessFor(child).length > 0,
+      levels: chessFor(child).map((l) => ({ level: l.level, name: l.name, solved: l.puzzles.filter((p) => solved.has(p.id)).length, puzzles: l.puzzles.map((p) => ({ id: p.id, theme: p.theme, solved: solved.has(p.id) })) })),
+    });
+  });
+
+  r.get("/children/:childId/games/chess/:puzzleId", async (c) => {
+    const child = await loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const p = findPuzzle(child, c.req.param("puzzleId"));
+    if (!p) return c.json({ error: "puzzle_not_found" }, 404);
+    const done = await db.get("SELECT 1 AS x FROM games_solved WHERE child_id = ? AND game = 'chess' AND puzzle_key = ?", [child.id, p.id]);
+    // the position and what to achieve: never the moves
+    return c.json({ id: p.id, theme: p.theme, fen: p.fen, toMove: p.fen.split(" ")[1] === "b" ? "black" : "white", goal: p.goal, solverMoves: p.solverMoves, solved: !!done });
+  });
+
+  /** One move of the child's. A wrong move is just "wrong": it never says what the right move is. */
+  r.post("/children/:childId/games/chess/:puzzleId/move", async (c) => {
+    const child = await loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const p = findPuzzle(child, c.req.param("puzzleId"));
+    if (!p) return c.json({ error: "puzzle_not_found" }, 404);
+    const b = z.object({
+      step: z.number().int().min(0).max(8),
+      from: z.string().regex(/^[a-h][1-8]$/),
+      to: z.string().regex(/^[a-h][1-8]$/),
+      promotion: z.enum(["q", "r", "b", "n"]).optional(),
+    }).parse(await c.req.json());
+    const r1 = playStep(p, b.step, b);
+    if (!r1.ok) return c.json({ correct: false, reason: r1.reason });
+    if (r1.done) {
+      await db.run("INSERT INTO games_solved (child_id, game, puzzle_key, solved_at, hint_chains) VALUES (?,?,?,?,?) ON CONFLICT (child_id, game, puzzle_key) DO NOTHING", [
+        child.id,
+        "chess",
+        p.id,
+        now(),
+        (await db.get<{ n: number }>("SELECT CAST(COUNT(*) AS INTEGER) AS n FROM hints_seen WHERE child_id = ? AND item_id = ?", [child.id, `chess-${p.id}`]))?.n ?? 0,
+      ]);
+    }
+    return c.json({
+      correct: true,
+      san: r1.san,
+      reply: r1.reply ? { from: r1.reply.from, to: r1.reply.to, san: r1.reply.san } : null,
+      done: r1.done,
+      /** the position right after the child's move; `fenAfterReply` is the position once Black has replied */
+      fen: r1.fen,
+      fenAfterReply: r1.fenAfterReply,
+      // shown only once solved: what happens next in a "win" puzzle, and why it works
+      ...(r1.done ? { rest: r1.rest, explain: p.explain } : {}),
+    });
+  });
+
+  /** Hint ladder for the move at `step`: the puzzle's own hints for the first move, then plain ones made from the line. */
+  r.post("/children/:childId/games/chess/:puzzleId/hint", async (c) => {
+    const child = await loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const p = findPuzzle(child, c.req.param("puzzleId"));
+    if (!p) return c.json({ error: "puzzle_not_found" }, 404);
+    const b = z.object({ step: z.number().int().min(0).max(8), level: z.number().int().min(0).max(2) }).parse(await c.req.json());
+    if (b.step % 2 !== 0 || b.step >= p.solution.length) return c.json({ error: "invalid_input", details: ["step is not one of your moves"] }, 400);
+    if (!(await ctx.openHint(child.id, `chess-${p.id}`, b.step / 2, b.level))) return c.json({ error: "hint_out_of_order" }, 400);
+    let text: string;
+    if (b.step === 0) text = p.hints[b.level]!;
+    else {
+      const m = autoHints(p, b.step);
+      text = [p.goal === "mate" ? "Look for the move that gives checkmate." : "Look for the move that finishes the job.", `Use your ${m.piece}.`, `Play ${m.san}.`][b.level]!;
+    }
+    return c.json({ hint: text, level: b.level, isLast: b.level === 2 });
   });
 
   return r;

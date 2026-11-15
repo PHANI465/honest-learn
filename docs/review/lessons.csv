@@ -569,6 +569,18 @@ Wikipedia: Photosynthesis — https://en.wikipedia.org/wiki/Photosynthesis (CC B
 [tryit] With a grown-up: put an ice cube on a plate. Check it every 10 minutes. What happens?
 
 [parent] Supervise any activity with hot water or steam. Ask 'does it keep its shape?' to help your child sort things.","Wikipedia: State of matter — https://en.wikipedia.org/wiki/State_of_matter (CC BY-SA 4.0 (reference; text is original))","content\lessons\b2\science\b2-sci-solid-liquid-gas.json","","","","","",""
+"b2-think-chess-pieces","Chess: The Board and How the Pieces Move","Early Learners (6–8)","Thinking Skills","b2-think-7: Knows how each chess piece moves and how the board is laid out","","12","draft","[text] Chess is a game for two players. One plays White and one plays Black. The board has 64 squares, 8 rows by 8 columns, in two colours. Each player starts with 16 pieces and takes turns to move one piece.
+
+[text] The rook moves in straight lines, forwards, backwards and sideways, as far as it likes. The bishop moves along diagonals. The queen moves like a rook and a bishop together. The king moves one square in any direction.
+
+[text] The knight jumps in an L shape: two squares one way and one square to the side. It is the only piece that can jump over others. A pawn moves forward one square (two squares on its very first move) and captures one square diagonally forward.
+
+[text] The aim of the game is checkmate: attacking the other player's king so that it cannot escape.
+
+[tryit] Put a coin on any square of a chessboard. Which squares could a rook reach? A bishop? A knight? Try each in turn.
+
+[parent] Play with a real board if you can, and let your child say each move out loud, for example 'knight from g1 to f3'. The chess puzzles in the app only check moves one at a time, so they pair well with a board at the table.","Wikipedia: Chess — https://en.wikipedia.org/wiki/Chess (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Rules of chess — https://en.wikipedia.org/wiki/Rules_of_chess (CC BY-SA 4.0 (reference; text is original))","content\lessons\b2\thinking\b2-think-chess-pieces.json","","","","","",""
 "b2-think-fact-or-opinion","Fact or Opinion?","Early Learners (6–8)","Thinking Skills","b2-think-2: Tells fact from opinion in simple sentences","","10","draft","[text] A FACT is something we can check and prove is true. 'A week has seven days.'
 
 [text] An OPINION is what someone thinks or feels. 'Mondays are boring.' Others may disagree!
@@ -1012,6 +1024,43 @@ USGS Water Science School — https://www.usgs.gov/special-topics/water-science-
 
 [tryit] Pick a goal (like tidying your room or building a model). Break it into at least 5 small steps.","Wikipedia: Decomposition (computer science) — https://en.wikipedia.org/wiki/Decomposition_(computer_science) (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Problem solving — https://en.wikipedia.org/wiki/Problem_solving (CC BY-SA 4.0 (reference; text is original))","content\lessons\b3\thinking\b3-think-break-it-down.json","","","","","",""
+"b3-think-chess-check-mate","Chess: Check, Checkmate and Stalemate","Discoverers (9–11)","Thinking Skills","b3-think-6: Tells check, checkmate and stalemate apart","","12","draft","[text] When a piece attacks the enemy king, the king is in CHECK. A player in check must get out of it at once. There are three ways: move the king to a safe square, block the attack with another piece, or capture the piece that is giving check.
+
+[text] If the king is in check and none of those three ways works, it is CHECKMATE. The game is over and the player who gave checkmate wins.
+
+[text] STALEMATE is different. It happens when the player to move is NOT in check but has no legal move at all. A stalemate is a draw, not a win. Beware of it when you are winning: if you take away every square from the lone enemy king without giving check, you may draw by accident.
+
+[text] A back-rank checkmate is a common one: a king stuck on its first row behind its own pawns is attacked by a rook along that row, and has nowhere to go.
+
+[tryit] Set up a white king, a white queen and a black king. Can you checkmate? Then move the queen so that the black king has no move but is not in check. What happened?
+
+[parent] Stalemate surprises many beginners. Practise with a king and queen against a lone king: try to give checkmate without stalemating. The chess puzzles in the app have only checkmates and winning tactics, so they never end in a stalemate.","Wikipedia: Chess — https://en.wikipedia.org/wiki/Chess (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Checkmate — https://en.wikipedia.org/wiki/Checkmate (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Stalemate — https://en.wikipedia.org/wiki/Stalemate (CC BY-SA 4.0 (reference; text is original))","content\lessons\b3\thinking\b3-think-chess-check-mate.json","","","","","",""
+"b3-think-chess-special-moves","Chess: Castling, En Passant and Promotion","Discoverers (9–11)","Thinking Skills","b3-think-7: Knows castling, en passant and promotion","","12","draft","[text] Three special moves are worth knowing. CASTLING moves the king two squares towards a rook, and the rook jumps to the other side of the king. It is the only time two pieces move at once. It helps keep your king safe.
+
+[text] To castle, the king and that rook must not have moved before, the squares between them must be empty, the king must not be in check, and it must not pass through or land on a square that is attacked.
+
+[text] PROMOTION: when a pawn reaches the far end of the board, it must become another piece. You can choose a queen, rook, bishop or knight. It cannot stay a pawn and it cannot become a king. Most players choose a queen.
+
+[text] EN PASSANT (French for 'in passing'): if an enemy pawn moves two squares forward from its start and lands right beside your pawn, you may capture it as if it had moved only one square. You must do it at once, on the very next move, or the chance is gone.
+
+[tryit] Set up a white pawn on e5 and a black pawn on d7. Move the black pawn to d5. Can your pawn capture it? Which square does your pawn end on?
+
+[parent] Special rules are easy to forget, so check them together on a real board. The chess puzzles in the app never need castling or en passant, but your child will meet them in real games.","Wikipedia: Chess — https://en.wikipedia.org/wiki/Chess (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Castling — https://en.wikipedia.org/wiki/Castling (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: En passant — https://en.wikipedia.org/wiki/En_passant (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Promotion (chess) — https://en.wikipedia.org/wiki/Promotion_(chess) (CC BY-SA 4.0 (reference; text is original))","content\lessons\b3\thinking\b3-think-chess-special-moves.json","","","","","",""
+"b3-think-chess-values","Chess: What Are the Pieces Worth?","Discoverers (9–11)","Thinking Skills","b3-think-8: Uses piece values to judge a trade in chess","","10","draft","[text] Players give each piece a number to help them decide whether a trade is good. These are guides, not rules. A pawn is worth 1, a knight 3, a bishop 3, a rook 5 and a queen 9. The king cannot be traded, because losing it ends the game.
+
+[text] Count the points when you trade. If you capture a rook (5) and lose a knight (3), you gain 2 points. That is a good trade. If you give up a queen (9) for a rook (5), you lose 4 points.
+
+[text] The numbers are only a guide. Checkmate beats everything: a player who can give checkmate does not mind losing a queen. Sometimes position matters more than points.
+
+[tryit] Write down the point value of everything you captured and everything you lost in your last game. Who was ahead?
+
+[parent] Point values help beginners avoid giving away pieces. Ask your child to count before every capture: 'what do I win, and what might I lose?'.","Wikipedia: Chess — https://en.wikipedia.org/wiki/Chess (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Chess piece relative value — https://en.wikipedia.org/wiki/Chess_piece_relative_value (CC BY-SA 4.0 (reference; text is original))","content\lessons\b3\thinking\b3-think-chess-values.json","","","","","",""
 "b3-think-evidence-ads","Reasons, Evidence and Advert Tricks","Discoverers (9–11)","Thinking Skills","b3-think-2: Gives reasons and evidence for an opinion
 b3-think-3: Spots simple tricks in ads and headlines","","15","draft","[text] A strong opinion gives REASONS and EVIDENCE: 'School should have more breaks because studies show short breaks help concentration.'
 
@@ -1441,6 +1490,52 @@ Wikipedia: Electrical network — https://en.wikipedia.org/wiki/Electrical_netwo
 
 [text] Bias can sneak in: small samples, measuring only what you expect, or wanting a certain result. Good scientists repeat tests, use controls and let others check.","Wikipedia: Scientific method — https://en.wikipedia.org/wiki/Scientific_method (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Observer bias — https://en.wikipedia.org/wiki/Observer_bias (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\science\b4-sci-scientific-method.json","","","","","",""
+"b4-think-chess-endgames","Chess Endgames: Checkmating With Few Pieces","Thinkers (12–14)","Thinking Skills","b4-think-13: Knows which pieces can checkmate alone and how to avoid stalemate","","14","draft","[text] An endgame is the last part of a game when few pieces are left. Knowing basic endgames helps you turn an advantage into a win.
+
+[text] Which pieces can force checkmate against a lone king? A king and queen can. A king and rook can. A king and a single knight cannot, and neither can a king and a single bishop. With so little material, the game is a draw.
+
+[text] The method is to push the enemy king to the edge of the board, because a king in the middle has too many squares. Use your king to help: it must come close to take squares away from the enemy king.
+
+[text] The great danger is stalemate. If you give the lone king no moves while not giving check, the game is drawn. A good habit before each move: 'Does the enemy king still have a legal move, or is it in check?'
+
+[tryit] Set up a king and queen against a king and practise driving the enemy king to the edge. After each move, check that you have not stalemated.
+
+[parent] Drawn endgames and stalemate tricks are very common in beginners' games. If your child keeps drawing won positions, practise king and queen against king over and over.","Wikipedia: Chess — https://en.wikipedia.org/wiki/Chess (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Chess endgame — https://en.wikipedia.org/wiki/Chess_endgame (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Draw (chess) — https://en.wikipedia.org/wiki/Draw_(chess) (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-chess-endgames.json","","","","","",""
+"b4-think-chess-openings","Chess: How to Start a Game","Thinkers (12–14)","Thinking Skills","b4-think-11: Follows the basic opening principles in chess","","12","draft","[text] The first moves of a game are called the opening. You do not need to memorise lots of moves. A few ideas will take you a long way.
+
+[text] 1. Control the centre. The four squares in the middle (d4, e4, d5, e5) give your pieces room. Moving a centre pawn forward on your first move, such as e4 or d4, is a common start.
+
+[text] 2. Develop your pieces. 'Develop' means moving knights and bishops off the back row to squares where they do something. Knights usually come out before bishops. Try not to move the same piece twice in the opening without a good reason.
+
+[text] 3. Castle early. Castling puts your king in a safer corner and brings a rook into play.
+
+[text] 4. Do not bring your queen out too soon. A queen that attacks early can be chased by smaller pieces, which gives your opponent free moves. Before each move, check what your opponent's last move threatens.
+
+[tryit] Play a short practice game and write down your first eight moves. Count how many knights and bishops you developed and whether you castled.
+
+[parent] These ideas are guidelines. There are exceptions, and strong players break them for good reasons, but beginners do well to follow them. Replaying a game and asking 'what was my plan here?' is better than learning memorised lines.","Wikipedia: Chess — https://en.wikipedia.org/wiki/Chess (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Chess opening theory — https://en.wikipedia.org/wiki/Chess_opening_theory (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-chess-openings.json","","","","","",""
+"b4-think-chess-tactics","Chess Tactics: Forks, Pins, Skewers and Discovered Attacks","Thinkers (12–14)","Thinking Skills","b4-think-12: Recognises forks, pins, skewers and discovered attacks","","14","draft","[text] A TACTIC is a short combination of moves that wins material or checkmate by force. Here are four of the most common.
+
+[text] A FORK is a move that attacks two pieces at once. A knight is especially good at forking because it attacks in an L shape. The opponent can save only one piece, so you win the other. A fork that includes the king is the strongest: the king must answer the check and the other piece is lost.
+
+[text] A PIN is an attack on a piece that cannot move without exposing a more valuable piece behind it. If the piece behind is the king, the pinned piece may not move at all, because that would be illegal.
+
+[text] A SKEWER is like a pin the other way round. You attack a valuable piece, often the king, and when it moves out of the way you capture the piece behind it.
+
+[text] A DISCOVERED ATTACK happens when you move one piece out of the way so that another piece behind it attacks. The piece you moved can make a threat of its own at the same time.
+
+[text] Example fork: White's knight on h2 jumps to f3 with check. It attacks the black king on e1 and also the black queen on h4. Black must deal with the check and White captures the queen.
+
+[tryit] Set up a white knight and a black king and queen so the knight can fork them. Where must the knight land?
+
+[parent] Tactics are the most fun part of chess to learn. The Winning tactics puzzles in the app have forks and skewers. Encourage your child to ask 'what does this move attack?' and 'what does it leave undefended?' on every move.","Wikipedia: Chess — https://en.wikipedia.org/wiki/Chess (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Fork (chess) — https://en.wikipedia.org/wiki/Fork_(chess) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Pin (chess) — https://en.wikipedia.org/wiki/Pin_(chess) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Skewer (chess) — https://en.wikipedia.org/wiki/Skewer_(chess) (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Discovered attack — https://en.wikipedia.org/wiki/Discovered_attack (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-chess-tactics.json","","","","","",""
 "b4-think-coding-decoding","Coding and Decoding","Thinkers (12–14)","Thinking Skills","b4-think-6: Solves coding and decoding puzzles","","10","draft","[text] A code replaces letters or numbers using a rule. To decode, find the rule and use it backwards.
 
 [text] Shift code: move each letter forward in the alphabet by the same number. With a shift of 1, A becomes B, B becomes C and so on. So BIG becomes CJH. The alphabet wraps round: with a shift of 1, Z becomes A.
@@ -2004,6 +2099,21 @@ Wikipedia: Replication crisis — https://en.wikipedia.org/wiki/Replication_cris
 
 [tryit] Push a light box and a heavy box with the same effort. Which speeds up more? Which law explains it?","Wikipedia: Newton's laws of motion — https://en.wikipedia.org/wiki/Newton's_laws_of_motion (CC BY-SA 4.0 (reference; text is original))
 OpenStax College Physics 2e — https://openstax.org/details/books/college-physics-2e (CC BY 4.0 (reference))","content\lessons\b5\science\b5-sci-newtons-laws.json","","","","","",""
+"b5-think-chess-patterns","Chess Patterns and Planning: Common Checkmates","Builders (15–18)","Thinking Skills","b5-think-9: Recognises common checkmate patterns and plans before moving","","14","draft","[text] Strong players recognise patterns. When you have seen a checkmate pattern a few times, you spot it in a game within seconds. Here are some common ones.
+
+[text] BACK-RANK MATE: the enemy king is stuck on its first row behind its own pawns. A rook or queen that reaches that row gives check, and the king cannot escape. The fix, if you are the one in danger, is to make a little escape square for your king with a pawn move such as h3.
+
+[text] SMOTHERED MATE: the king is surrounded by its own pieces, so it has no squares. A knight gives check, and because a knight's check cannot be blocked, it is mate. It often ends with the king in a corner.
+
+[text] QUEEN AND KING MATE: with the queen protected by your king, she can give check right next to the enemy king, which cannot capture her.
+
+[text] Planning matters as much as patterns. Before every move ask three questions: What did my opponent's last move threaten? What are my pieces and my opponent's king doing? Which move improves my position or makes a threat without leaving a piece undefended?
+
+[tryit] Look at the three checkmate puzzles in the app. For each, write down the pattern name and what trapped the king.
+
+[parent] Naming the pattern is a lasting skill: it turns puzzles into recognition. The mate-in-one puzzles in the app use these patterns, and the explanation after each one names it.","Wikipedia: Chess — https://en.wikipedia.org/wiki/Chess (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Back-rank checkmate — https://en.wikipedia.org/wiki/Back-rank_checkmate (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Smothered mate — https://en.wikipedia.org/wiki/Smothered_mate (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\thinking\b5-think-chess-patterns.json","","","","","",""
 "b5-think-cognitive-biases","Cognitive Biases: Glitches in Thinking","Builders (15–18)","Thinking Skills","b5-think-3: Understands cognitive biases (confirmation bias, anchoring)
 b5-think-1: Evaluates arguments and evidence in news and research","","20","draft","[text] Cognitive biases are predictable shortcuts in thinking. They're usually helpful, but they can lead us to wrong conclusions. Everyone has them, including experts.
 

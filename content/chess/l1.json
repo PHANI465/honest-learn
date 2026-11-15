@@ -1,0 +1,232 @@
+{
+  "level": 1,
+  "status": "draft",
+  "title": "Checkmate in one",
+  "source": "Original positions composed for this project by games/compose-chess.ts and verified with chess.js (not taken from any game or puzzle database).",
+  "puzzles": [
+    {
+      "id": "l1-01",
+      "fen": "1k6/ppp5/8/8/5K2/8/8/6R1 w - - 0 1",
+      "theme": "Back-rank mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Rg8#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Rg8#."
+      ],
+      "explain": "The king is shut in by its own pawns, so it has no square to run to. The rook gives check along the back rank and nothing can block it or capture it. This is called a back-rank mate."
+    },
+    {
+      "id": "l1-02",
+      "fen": "6rk/6pp/7N/8/8/K7/8/8 w - - 0 1",
+      "theme": "Smothered mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Nf7#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your knight.",
+        "Play Nf7#."
+      ],
+      "explain": "The black king is surrounded by its own rook and pawns, so it cannot move. The knight gives check, and a knight's check cannot be blocked. This is called a smothered mate."
+    },
+    {
+      "id": "l1-03",
+      "fen": "k7/pp6/8/8/8/3K4/8/2R5 w - - 0 1",
+      "theme": "Back-rank mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Rc8#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Rc8#."
+      ],
+      "explain": "The king is shut in by its own pawns, so it has no square to run to. The rook gives check along the back rank and nothing can block it or capture it. This is called a back-rank mate."
+    },
+    {
+      "id": "l1-04",
+      "fen": "kr6/pp6/N7/8/1K6/8/8/8 w - - 0 1",
+      "theme": "Smothered mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Nc7#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your knight.",
+        "Play Nc7#."
+      ],
+      "explain": "The black king is surrounded by its own rook and pawns, so it cannot move. The knight gives check, and a knight's check cannot be blocked. This is called a smothered mate."
+    },
+    {
+      "id": "l1-05",
+      "fen": "2k5/1ppp4/8/8/5R2/6K1/8/8 w - - 0 1",
+      "theme": "Back-rank mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Rf8#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Rf8#."
+      ],
+      "explain": "The king is shut in by its own pawns, so it has no square to run to. The rook gives check along the back rank and nothing can block it or capture it. This is called a back-rank mate."
+    },
+    {
+      "id": "l1-06",
+      "fen": "4k3/6R1/8/8/8/7R/5K2/8 w - - 0 1",
+      "theme": "Two-rook mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Rh8#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Rh8#."
+      ],
+      "explain": "One rook controls the seventh rank so the king cannot step off the back rank. The other rook gives check along the back rank. There is no escape: checkmate."
+    },
+    {
+      "id": "l1-07",
+      "fen": "2k5/4R3/8/8/8/R7/1K6/8 w - - 0 1",
+      "theme": "Two-rook mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Ra8#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Ra8#."
+      ],
+      "explain": "One rook controls the seventh rank so the king cannot step off the back rank. The other rook gives check along the back rank. There is no escape: checkmate."
+    },
+    {
+      "id": "l1-08",
+      "fen": "6k1/5ppp/8/8/5K2/8/1R6/8 w - - 0 1",
+      "theme": "Back-rank mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Rb8#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Rb8#."
+      ],
+      "explain": "The king is shut in by its own pawns, so it has no square to run to. The rook gives check along the back rank and nothing can block it or capture it. This is called a back-rank mate."
+    },
+    {
+      "id": "l1-09",
+      "fen": "7k/5K2/8/8/3R4/8/8/8 w - - 0 1",
+      "theme": "Rook and king mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Rh4#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Rh4#."
+      ],
+      "explain": "The rook gives check along the edge of the board while White's king guards the squares in front of the black king. The black king has no way out, so it is checkmate."
+    },
+    {
+      "id": "l1-10",
+      "fen": "8/8/8/3R4/8/k1K5/8/8 w - - 0 1",
+      "theme": "Rook and king mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Ra5#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Ra5#."
+      ],
+      "explain": "The rook gives check along the edge of the board while White's king guards the squares in front of the black king. The black king has no way out, so it is checkmate."
+    },
+    {
+      "id": "l1-11",
+      "fen": "8/8/6R1/8/8/8/k1K5/8 w - - 0 1",
+      "theme": "Rook and king mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Ra6#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your rook.",
+        "Play Ra6#."
+      ],
+      "explain": "The rook gives check along the edge of the board while White's king guards the squares in front of the black king. The black king has no way out, so it is checkmate."
+    },
+    {
+      "id": "l1-12",
+      "fen": "8/8/4Q3/k1K5/8/8/8/8 w - - 0 1",
+      "theme": "Queen and king mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Qa2#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your queen.",
+        "Play Qa2#."
+      ],
+      "explain": "The queen gives check, and every square the king could go to is either attacked or blocked. The queen is protected, so the king cannot capture her. That is checkmate."
+    },
+    {
+      "id": "l1-13",
+      "fen": "8/8/8/Q7/8/5K1k/8/8 w - - 0 1",
+      "theme": "Queen and king mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Qh5#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your queen.",
+        "Play Qh5#."
+      ],
+      "explain": "The queen gives check, and every square the king could go to is either attacked or blocked. The queen is protected, so the king cannot capture her. That is checkmate."
+    },
+    {
+      "id": "l1-14",
+      "fen": "6k1/8/5K1Q/8/8/8/8/8 w - - 0 1",
+      "theme": "Queen and king mate",
+      "goal": "mate",
+      "solverMoves": 1,
+      "solution": [
+        "Qg7#"
+      ],
+      "hints": [
+        "Look for a move that gives check and leaves the king nowhere to go.",
+        "Use your queen.",
+        "Play Qg7#."
+      ],
+      "explain": "The queen gives check, and every square the king could go to is either attacked or blocked. The queen is protected, so the king cannot capture her. That is checkmate."
+    }
+  ]
+}

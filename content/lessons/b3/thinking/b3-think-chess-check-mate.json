@@ -1,0 +1,103 @@
+{
+  "id": "b3-think-chess-check-mate",
+  "title": "Chess: Check, Checkmate and Stalemate",
+  "band": "b3",
+  "subject": "thinking",
+  "outcomes": [
+    "b3-think-6"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Chess",
+      "url": "https://en.wikipedia.org/wiki/Chess",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Checkmate",
+      "url": "https://en.wikipedia.org/wiki/Checkmate",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Stalemate",
+      "url": "https://en.wikipedia.org/wiki/Stalemate",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "When a piece attacks the enemy king, the king is in CHECK. A player in check must get out of it at once. There are three ways: move the king to a safe square, block the attack with another piece, or capture the piece that is giving check."
+    },
+    {
+      "type": "text",
+      "body": "If the king is in check and none of those three ways works, it is CHECKMATE. The game is over and the player who gave checkmate wins."
+    },
+    {
+      "type": "text",
+      "body": "STALEMATE is different. It happens when the player to move is NOT in check but has no legal move at all. A stalemate is a draw, not a win. Beware of it when you are winning: if you take away every square from the lone enemy king without giving check, you may draw by accident."
+    },
+    {
+      "type": "text",
+      "body": "A back-rank checkmate is a common one: a king stuck on its first row behind its own pawns is attacked by a rook along that row, and has nowhere to go."
+    },
+    {
+      "type": "tryit",
+      "body": "Set up a white king, a white queen and a black king. Can you checkmate? Then move the queen so that the black king has no move but is not in check. What happened?"
+    },
+    {
+      "type": "parent",
+      "body": "Stalemate surprises many beginners. Practise with a king and queen against a lone king: try to give checkmate without stalemating. The chess puzzles in the app have only checkmates and winning tactics, so they never end in a stalemate."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Black's king is in check from a white queen, but the king can safely capture the queen. Is it checkmate?",
+      "options": [
+        "No, the king can escape by capturing",
+        "Yes, any check is always checkmate",
+        "Yes, because a queen is a very strong piece"
+      ],
+      "answer": 0,
+      "hints": [
+        "Checkmate means the king has NO way out.",
+        "Capturing the piece that gives check is one of the three ways out of check.",
+        "Example: a king in check that can step to a safe square is not mated. Decide if capturing the queen is a way out here."
+      ],
+      "explain": "Capturing the checking piece is one of the three ways to answer check. If it is safe to do, it is not checkmate."
+    },
+    {
+      "q": "It is Black's move. Black's king on h8 is not in check, but every square it could go to is attacked, and Black has no other pieces. What is the result?",
+      "options": [
+        "A draw by stalemate",
+        "Black loses by checkmate",
+        "Black wins"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the king in check?",
+        "No. The king has no legal move, but it is not attacked.",
+        "Example: a player in check with no escape is checkmated. A player NOT in check with no legal move is something else. Decide which case this is."
+      ],
+      "explain": "The player to move has no legal move and is not in check. That is stalemate, which is a draw."
+    },
+    {
+      "q": "A white rook gives check along the back row to a king hidden behind its own three pawns, and nothing can block or capture it. What is this called?",
+      "options": [
+        "A back-rank checkmate",
+        "A stalemate on the back row",
+        "A fork with the rook and king"
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at where the king is and what traps it.",
+        "The king's own pawns stop it from stepping forward, so the check along the back row cannot be escaped.",
+        "Example: a king surrounded by its own pieces cannot move to those squares. Name the mate that happens on the back row."
+      ],
+      "explain": "The king is trapped on its back row by its own pawns, and the rook attacks along that row. This is a back-rank mate."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 > **Status:** draft — every outcome needs review by two subject reviewers before publishing
 
-**5 age bands · 11 subjects · 51 cells · 254 learning outcomes**
+**5 age bands · 11 subjects · 51 cells · 262 learning outcomes**
 
 This is the minimum knowledge every learner should have at each age, before college. It is **universal** (not tied to one country) and is the brief for content writers and reviewers.
 
@@ -216,6 +216,7 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b2-think-4` Tries again after a mistake (growth mindset)
 - [ ] `b2-think-5` Finds the rule in a number pattern that goes up or down by the same step
 - [ ] `b2-think-6` Knows the rules of 4 by 4 Sudoku and finds the missing number in a row or box
+- [ ] `b2-think-7` Knows how each chess piece moves and how the board is laid out
 
 *Sample question:* Which is an OPINION? — **Pizza is the best food** ✓ / Pizza is round / Pizza has cheese on it  
 *Hint:* Which one could someone disagree with?
@@ -329,6 +330,9 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b3-think-3` Spots simple tricks in ads and headlines
 - [ ] `b3-think-4` Solves logic grids and sequence puzzles
 - [ ] `b3-think-5` Scans a row, column and box to find the one number that fits in a 6 by 6 Sudoku
+- [ ] `b3-think-6` Tells check, checkmate and stalemate apart
+- [ ] `b3-think-7` Knows castling, en passant and promotion
+- [ ] `b3-think-8` Uses piece values to judge a trade in chess
 
 *Sample question:* An ad says '9 out of 10 kids love it!' What should you ask? — **Which 10 kids were asked?** ✓ / Nothing, it's true / What colour is it?  
 *Hint:* Could the result depend on who they asked?
@@ -448,6 +452,9 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b4-think-8` Solves direction sense puzzles, including straight-line distance
 - [ ] `b4-think-9` Finds naked and hidden singles in a 9 by 9 Sudoku
 - [ ] `b4-think-10` Uses naked pairs to remove candidates in a Sudoku
+- [ ] `b4-think-11` Follows the basic opening principles in chess
+- [ ] `b4-think-12` Recognises forks, pins, skewers and discovered attacks
+- [ ] `b4-think-13` Knows which pieces can checkmate alone and how to avoid stalemate
 
 *Sample question:* 'Everyone is buying this phone, so it must be the best.' This is… — **Bandwagon fallacy** ✓ / A strong argument / A fact  
 *Hint:* Does popularity prove quality?
@@ -564,6 +571,7 @@ Outcomes marked 🔒 are hidden until a parent unlocks that topic for their chil
 - [ ] `b5-think-6` Solves seating arrangement puzzles in rows and circles
 - [ ] `b5-think-7` Decides whether given information is enough to answer a question
 - [ ] `b5-think-8` Follows the logic of an X-wing in a hard Sudoku
+- [ ] `b5-think-9` Recognises common checkmate patterns and plans before moving
 
 *Sample question:* Only reading news that agrees with you is called… — **Confirmation bias** ✓ / Open-mindedness / Research  
 *Hint:* It 'confirms' what you already think.

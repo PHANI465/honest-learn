@@ -1,0 +1,170 @@
+{
+  "level": 2,
+  "status": "draft",
+  "title": "Winning tactics: forks and skewers",
+  "source": "Original positions composed for this project by games/compose-chess.ts and verified with chess.js (not taken from any game or puzzle database).",
+  "puzzles": [
+    {
+      "id": "l2-01",
+      "fen": "8/8/8/8/7q/K7/7N/4k3 w - - 0 1",
+      "theme": "Knight fork",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Nf3+",
+        "Ke2",
+        "Nxh4"
+      ],
+      "hints": [
+        "Look for a knight move that attacks two valuable pieces at once.",
+        "Use your knight.",
+        "Play Nf3+."
+      ],
+      "explain": "A knight move that attacks two pieces at once is called a fork. This one attacks the king and the queen. Black can only deal with one of them, so White wins the other."
+    },
+    {
+      "id": "l2-02",
+      "fen": "6q1/K2k4/2p5/8/4N3/8/8/8 w - - 0 1",
+      "theme": "Knight fork",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Nf6+",
+        "Kc8",
+        "Nxg8"
+      ],
+      "hints": [
+        "Look for a knight move that attacks two valuable pieces at once.",
+        "Use your knight.",
+        "Play Nf6+."
+      ],
+      "explain": "A knight move that attacks two pieces at once is called a fork. This one attacks the king and the queen. Black can only deal with one of them, so White wins the other."
+    },
+    {
+      "id": "l2-03",
+      "fen": "8/8/6pK/8/N7/8/8/1q1k4 w - - 0 1",
+      "theme": "Knight fork",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Nc3+",
+        "Kc2",
+        "Nxb1"
+      ],
+      "hints": [
+        "Look for a knight move that attacks two valuable pieces at once.",
+        "Use your knight.",
+        "Play Nc3+."
+      ],
+      "explain": "A knight move that attacks two pieces at once is called a fork. This one attacks the king and the queen. Black can only deal with one of them, so White wins the other."
+    },
+    {
+      "id": "l2-04",
+      "fen": "8/7K/8/4N3/5p2/4q3/7k/8 w - - 0 1",
+      "theme": "Knight fork",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Ng4+",
+        "Kg3",
+        "Nxe3"
+      ],
+      "hints": [
+        "Look for a knight move that attacks two valuable pieces at once.",
+        "Use your knight.",
+        "Play Ng4+."
+      ],
+      "explain": "A knight move that attacks two pieces at once is called a fork. This one attacks the king and the queen. Black can only deal with one of them, so White wins the other."
+    },
+    {
+      "id": "l2-05",
+      "fen": "8/2K5/8/8/8/8/k3N3/1q6 w - - 0 1",
+      "theme": "Knight fork",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Nc3+",
+        "Ka3",
+        "Nxb1+"
+      ],
+      "hints": [
+        "Look for a knight move that attacks two valuable pieces at once.",
+        "Use your knight.",
+        "Play Nc3+."
+      ],
+      "explain": "A knight move that attacks two pieces at once is called a fork. This one attacks the king and the queen. Black can only deal with one of them, so White wins the other."
+    },
+    {
+      "id": "l2-06",
+      "fen": "8/8/K3R3/8/6k1/6q1/8/8 w - - 0 1",
+      "theme": "Skewer",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Rg6+",
+        "Kf5",
+        "Rxg3"
+      ],
+      "hints": [
+        "Look for a check that lines the king up in front of a more valuable piece.",
+        "Use your rook.",
+        "Play Rg6+."
+      ],
+      "explain": "The rook gives check along a line, and the black king stands in front of a more valuable piece. The king must move out of the way, and then the rook captures what was behind it. This is called a skewer."
+    },
+    {
+      "id": "l2-07",
+      "fen": "8/8/8/2q5/2k5/8/3R3K/8 w - - 0 1",
+      "theme": "Skewer",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Rc2+",
+        "Kb5",
+        "Rxc5+"
+      ],
+      "hints": [
+        "Look for a check that lines the king up in front of a more valuable piece.",
+        "Use your rook.",
+        "Play Rc2+."
+      ],
+      "explain": "The rook gives check along a line, and the black king stands in front of a more valuable piece. The king must move out of the way, and then the rook captures what was behind it. This is called a skewer."
+    },
+    {
+      "id": "l2-08",
+      "fen": "K1R5/8/7k/8/7q/8/8/8 w - - 0 1",
+      "theme": "Skewer",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Rh8+",
+        "Kg7",
+        "Rxh4"
+      ],
+      "hints": [
+        "Look for a check that lines the king up in front of a more valuable piece.",
+        "Use your rook.",
+        "Play Rh8+."
+      ],
+      "explain": "The rook gives check along a line, and the black king stands in front of a more valuable piece. The king must move out of the way, and then the rook captures what was behind it. This is called a skewer."
+    },
+    {
+      "id": "l2-09",
+      "fen": "6R1/8/3k4/8/3q4/8/2K5/8 w - - 0 1",
+      "theme": "Skewer",
+      "goal": "win",
+      "solverMoves": 1,
+      "solution": [
+        "Rd8+",
+        "Kc7",
+        "Rxd4"
+      ],
+      "hints": [
+        "Look for a check that lines the king up in front of a more valuable piece.",
+        "Use your rook.",
+        "Play Rd8+."
+      ],
+      "explain": "The rook gives check along a line, and the black king stands in front of a more valuable piece. The king must move out of the way, and then the rook captures what was behind it. This is called a skewer."
+    }
+  ]
+}

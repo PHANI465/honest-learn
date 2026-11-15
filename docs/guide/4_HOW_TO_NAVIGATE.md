@@ -57,6 +57,7 @@ On the website every screen has an address, for example `/welcome`, `/profiles`,
 | Read or change a **lesson** | `content/lessons/<age>/<subject>/<lesson-id>.json` (ages: `b1` 3–5 … `b5` 15–18) |
 | Find which lesson teaches an **outcome** | `docs/KNOWLEDGE_MAP.md` (readable) or `content/knowledge-map.json` |
 | Change **brain puzzles** | `content/puzzles/b1.json` … `b5.json` |
+| Change **chess puzzles** | `content/chess/l1.json` … `l3.json` are generated: edit `server/src/games/compose-chess.ts` and run `npm run compose:chess` in `server/`; every puzzle is re-proven by `npm run validate` and `npm test` |
 | Change the **memory and logic games** (sizes by age, pictures, shuffles) | `app/src/lib/games/*.ts` (rules, plain functions) and `app/src/app/learn/[childId]/games/*.tsx` (screens); tests in `server/test/memory-games.test.ts` |
 | Change **Sudoku** (grid sizes, clue counts, hints) | `server/src/games/sudoku.ts`; the screen is `app/src/app/learn/[childId]/games/sudoku.tsx` |
 | Change **spelling words** | `content/spelling/b1.json` … `b5.json` (lower-case words, a meaning, a sentence containing the word) |
