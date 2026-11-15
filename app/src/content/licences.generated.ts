@@ -465,6 +465,18 @@ export const licenceEntries: LicenceEntry[] = [
   },
   {
     "kind": "package",
+    "name": "expo-splash-screen",
+    "version": "58.0.14",
+    "licence": "MIT",
+    "textId": "1673fc9b",
+    "copyright": [
+      "Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)"
+    ],
+    "notice": null,
+    "note": null
+  },
+  {
+    "kind": "package",
     "name": "expo-sqlite",
     "version": "58.0.17",
     "licence": "MIT",

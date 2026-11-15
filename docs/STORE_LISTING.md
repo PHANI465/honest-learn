@@ -15,7 +15,7 @@ them; it cannot truthfully sign them. Where this page says "decide", it is the o
 | Android backup | `allowBackup` is on; expo-secure-store's rules keep the app's secret keys out of backups (see `SECURITY.md`) |
 | iOS Face ID text | `NSFaceIDUsageDescription` came from the secure-storage plugin's default although the app never uses biometrics; removed (`faceIDPermission: false`) |
 | iOS privacy manifest | `ios.privacyManifests` now declares tracking = false and the "required reason" APIs the installed libraries use (file timestamp, disk space, user defaults, system boot time), copied from those libraries' own `PrivacyInfo.xcprivacy` files. None of them declares tracking or collected data |
-| Icons | `icon.png` is 1024×1024 with no transparency (Apple's rule); Android adaptive icon layers present |
+| Icons | `icon.png` is 1024×1024 with no transparency (Apple's rule); Android adaptive icon layers present. **They are Expo's template placeholders, not Honest Learn artwork** |
 
 **Not checked:** a real EAS build, installing an APK, any iOS native project (it can only be generated on a Mac: the iOS settings were checked in the resolved config only), the app on any
 real phone, and the stores' own validators. Expo's tool also warns that `userInterfaceStyle: "light"` is not applied on Android unless `expo-system-ui` is installed (native dialogs may follow the phone's dark mode); the app's own screens are unaffected.
@@ -28,7 +28,7 @@ real phone, and the stores' own validators. Expo's tool also warns that `userInt
 | 2 | **Apple category.** The Kids Category is only for age bands 5 and under, 6 to 8 and 9 to 11. The app serves 3 to 18 | Choosing Kids means the app is judged as a kids-only app and teens are outside its bands. The alternative is a normal category (Education) with an age rating. Either way the rules for children's apps apply, so the no-ads and no-tracking facts matter in both |
 | 3 | **Export compliance.** `ITSAppUsesNonExemptEncryption` is `false` in `app.json`. The app uses HTTPS (standard) **and** its own encryption code (AES-GCM for a family's saved AI key, scrypt, HMAC), shipped in the app in standalone mode | Whether that counts as "non-exempt" encryption is a legal question; the answer should be confirmed before the first upload, not assumed. If it does count, Apple asks for documents on each build and some countries need a filing |
 | 4 | **Public web pages.** Google Play requires a privacy policy URL, and, for apps with accounts, a web page explaining how to delete the account and data. No public page exists yet | The website's privacy and terms pages need a public address; a short deletion page can say: parent area, Account, "Delete account and all data" (needs the password), or delete the app in standalone mode |
-| 5 | **A splash screen.** `splash-icon.png` exists but no splash package is installed, so the app shows Expo's default launch screen | A first-party `expo-splash-screen` would fix it; adding a package needs the owner's agreement |
+| 5 | **A splash screen and the logo.** Done in code on 15 Nov 2026 (`expo-splash-screen`, cream background, held until the app has loaded), but with a **placeholder badge**; **every icon in `app/assets/` and `app/public/icons/` is still Expo's template placeholder** | A real logo has to replace them before any store submission: see `PERSON_CHECKLIST.md` part 1 |
 | 6 | **Version and label.** The app is `0.5.0`. The README says all content is draft | Do not call it 1.0 before the lessons are approved. If a pre-review build is shared (a GitHub Release APK), its listing must say lessons are drafts |
 | 7 | **Support contact** and **organisation name** | Both stores show them; the privacy notice still has placeholders |
 
@@ -104,7 +104,7 @@ Other facts to put in the form or its notes: data is encrypted in transit on pub
 
 ## 6. Store assets a person must make
 
-- **Icon:** done (1024×1024). **Feature graphic** (Google Play, 1024×500): not made.
+- **Icon:** the right size, but the picture is Expo's placeholder (1024×1024). **Feature graphic** (Google Play, 1024×500): not made.
 - **Screenshots:** real ones from the app on a phone (Play needs at least two phone screenshots; with `supportsTablet: true` Apple also expects iPad screenshots; the stores list the exact sizes in their consoles). Suggested screens: the first-run choice, the profile picker, a lesson with its hint ladder, the games hub, chess against the computer, the parent area. Web renders are not app screenshots and should not be used as such.
 - **Privacy policy page, support page, account-deletion page** at public addresses (decision 4).
 - **Texts in other languages:** none yet; the app is English only.

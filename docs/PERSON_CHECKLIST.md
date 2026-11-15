@@ -33,7 +33,8 @@ Quick, and they unblock the rest.
 - [ ] **Who is "Honest Learn"?** Legal name and address of the organisation, a support email, a privacy email, a `security@` email (`SECURITY.md` asks for it), and for India a Grievance Officer. These fill the bracketed placeholders in the privacy notice and terms.
 - [ ] **Data retention.** Chats are deleted after 365 days by default. Confirm or change (`CHAT_RETENTION_DAYS`) and state it in the privacy notice.
 - [ ] **May a pre-review build be shared** with a few families (for example a GitHub Release APK)? If yes, its listing must say lessons are drafts. If no, nothing is shared until content is approved.
-- [ ] **A splash screen.** There is an image (`splash-icon.png`) but no splash package; adding `expo-splash-screen` needs your agreement.
+- [ ] **A real logo and app icon (found while doing the splash screen, 15 Nov 2026).** `icon.png`, the three Android icon layers, the website's home-screen icons (`app/public/icons/`) and the favicon are **still Expo's template placeholders** (a blue chevron on a guide grid), not Honest Learn artwork; the notes saying "the icons are done" were wrong. The launch screen now shows a plain green **HL** badge made by `scripts/make-splash.mjs`, which is also a placeholder. Decide what the logo is, then replace `app/assets/icon.png`, `android-icon-*.png`, `splash-icon.png`, `favicon.png` and `app/public/icons/*` with it (the 1024×1024 sizes and the "keep the mark in the middle two thirds" rule are in the header of `scripts/make-splash.mjs`). Stores will look at the icon in review.
+- [x] ~~A splash screen~~ done 15 Nov 2026: `expo-splash-screen` added with your OK (it is MIT and first-party Expo; one line in `app/package.json`), cream background, the placeholder badge, held until the app has loaded. Not seen on a real phone.
 - [ ] **Version label.** The app is `0.5.0`. Do not call it 1.0 before the lessons are approved.
 - [ ] **Budget and pace for reviewers** (part 3): how many lessons, by whom, by when.
 
@@ -162,7 +163,7 @@ None of these needs a person's expertise, only a decision to start.
 | ~~Spelling: a British or American setting~~ **done 15 Nov 2026** | A per-family setting, 32 words that differ, `docs/SPELLING.md`. Open: a reviewer for the new words (part 3) | Sonnet, medium |
 | ~~Save an unfinished chess game; hints that point at a piece~~ **done 15 Nov 2026** | Against the computer. Open: try it on a real phone and with a real child (part 2); the chess *puzzles* have their own server hints | Sonnet, medium |
 | ~~Move a family between a phone and a server~~ **done 15 Nov 2026** | `POST /parent/import` and the transfer screen. Open: try it between a real phone and a real server (part 2) | Opus, high |
-| **A splash screen** | After you agree to the package (part 1) | Sonnet, low |
+| ~~A splash screen~~ **done 15 Nov 2026** | The package, the config and a placeholder badge. Open: the real logo (part 1) and a look on a real phone | Sonnet, low |
 | ~~Rebalance the 265 "longest correct option" quiz questions~~ **done 15 Nov 2026** | 155 reworded, a validator rule and a test. Open: a reviewer must approve the new wrong options (part 3) | Haiku, low, with review |
 | ~~Offline caching of quick facts~~ **done 15 Nov 2026** | Facts a child has been shown are kept on the device. Open: try it on a real phone with the internet switched off (part 2) | Sonnet, medium |
 

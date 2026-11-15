@@ -68,7 +68,16 @@
         }
       ],
       "expo-sqlite",
-      "expo-status-bar"
+      "expo-status-bar",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#FBF8F3"
+        }
+      ]
     ],
     "scheme": "honestlearn",
     "description": "Free, safe, age-appropriate learning for ages 3–18. No ads."

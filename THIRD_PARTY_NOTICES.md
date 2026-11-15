@@ -4,7 +4,7 @@ Honest Learn includes the open source software and fonts listed here. Each is us
 copyright notices of the packages that use it. **This file is generated** by `node scripts/build-licences.mjs` from the packages that are actually in the app's
 Android, iOS and website bundles (and the app's direct dependencies); it is shown in the app under *Open source licences*.
 
-66 packages and 2 fonts, under 10 licence wordings. Every one is on the permissive list in the script.
+67 packages and 2 fonts, under 10 licence wordings. Every one is on the permissive list in the script.
 
 **Not covered here:** the lesson content (written for this project; each lesson lists its own sources and their licences), Wikipedia text (shown with attribution under CC BY-SA), and the
 native libraries that React Native and Expo bring into the Android and iOS builds (for example networking and image libraries). Those are listed by the platforms' build tools once a
@@ -83,7 +83,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## MIT (wording 2)
 
-Used by 21 items:
+Used by 22 items:
 
 - **@expo/cli** 58.1.20 — Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
 - **@expo/devtools** 58.0.2 — Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
@@ -99,6 +99,7 @@ Used by 21 items:
 - **expo-modules-core** 58.1.0 — Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
 - **expo-secure-store** 58.0.3 — Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
 - **expo-speech** 58.0.4 — Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
+- **expo-splash-screen** 58.0.14 — Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
 - **expo-sqlite** 58.0.17 — Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
 - **expo-status-bar** 58.0.5 — Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
 - **inline-style-prefixer** 7.0.1 — Copyright (c) 2015 Robin Frischmann
