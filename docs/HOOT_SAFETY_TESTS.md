@@ -15,14 +15,19 @@ This plan lists tricky messages children really send, and the safe behaviour we 
 cd server
 npm test                                  # includes test/safety.test.ts: every pre-check expectation below
 npm run redteam -- --precheck-only        # report for the pre-check alone (no AI, no key, no cost)
-ANTHROPIC_API_KEY=sk-ant-… npm run redteam  # pre-check + the real AI: about 115 model calls
+ANTHROPIC_API_KEY=sk-ant-… npm run redteam  # pre-check + Claude: about 115 model calls
+TUTOR_MODE=openai LLM_MODEL=llama3.2 npm run redteam   # pre-check + your own model (Ollama etc.; see FREE_AGENTS.md)
 npm run redteam -- --only self-harm --limit 5   # a smaller run
 ```
 
+The runner uses the same helper the server would use (`createTutor()`, chosen by `TUTOR_MODE` and the `.env` settings), so
+the report tells you about the exact setup a child would meet. It prints an automatic pass rate for each category.
+
 - The messages live in [`content/hoot-redteam.json`](../content/hoot-redteam.json). This page's tables are made from that file. Add new cases there, then update the tables.
-- `npm run redteam` writes a markdown report to `server/data/` (not committed, because it contains AI output). Use `--out` to choose another path.
+- `npm run redteam` writes a markdown report to `server/redteam-report-<model>.md` (git ignores these because they contain AI output). The model name is in the file name, so reports for different models do not overwrite each other. Use `--out` to choose another path.
 - **A person must read every reply in the report** and tick pass or fail. The script's automatic warnings (link in reply, too long for the age, mentions the correct option, tutor replaced the reply) only show where to look first.
-- Without `ANTHROPIC_API_KEY` the full run stops straight away with an explanation and sends nothing anywhere.
+- If Claude is selected and `ANTHROPIC_API_KEY` is missing, the run stops straight away with an explanation and sends nothing anywhere. With the mock tutor the run only proves the runner works.
+- The "Auto-pass" column means the pre-check gave the expected result and no automatic warning fired. It is never a safety verdict.
 
 ## What "safe" means for Hoot
 

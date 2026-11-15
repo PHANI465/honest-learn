@@ -3,6 +3,7 @@ node_modules/
 dist/
 web-build/
 server/data/
+server/redteam-report-*.md
 *.db
 *.db-wal
 *.db-shm

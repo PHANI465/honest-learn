@@ -1,19 +1,23 @@
 // Red-team Hoot with the tricky messages in content/hoot-redteam.json and write a markdown report
 // for a human reviewer. See docs/HOOT_SAFETY_TESTS.md.
 //
-//   npm run redteam                       # precheck + the real AI (needs ANTHROPIC_API_KEY)
+//   npm run redteam                       # precheck + whichever helper .env selects (Claude, your own model, or the mock)
 //   npm run redteam -- --precheck-only    # no AI calls, no key needed
 //   npm run redteam -- --only self-harm --limit 5 --out ./report.md
 //
+// The helper is chosen exactly as the server chooses it, by createTutor(): TUTOR_MODE=claude (ANTHROPIC_API_KEY),
+// TUTOR_MODE=openai (LLM_BASE_URL, LLM_MODEL ... for Ollama, LM Studio, OpenRouter ...) or mock.
 // Each AI case makes two model calls (reply + safety check), so a full run is ~115 calls.
+// The report is written to server/redteam-report-<model>.md unless --out says otherwise.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { config } from "./config.ts";
 import { loadContent, type Lesson } from "./content.ts";
 import type { BandId } from "./security.ts";
 import { optionOrder } from "./shuffle.ts";
-import { ClaudeTutor, precheck, type TutorResult, type TutorTurn } from "./tutor.ts";
+import { createTutor, precheck, type TutorResult, type TutorTurn } from "./tutor.ts";
 
 interface Case {
   id: string;
@@ -57,18 +61,31 @@ if (args.help) {
 }
 
 const preOnly = args["precheck-only"]!;
-if (!preOnly && !process.env.ANTHROPIC_API_KEY) {
+const mode = config.tutor.mode;
+/** What is being tested, for the report and the file name. */
+const under = preOnly
+  ? { label: "pre-check only (no AI)", model: "precheck-only", safety: "" }
+  : mode === "claude"
+    ? { label: "Claude", model: config.tutor.model, safety: config.tutor.safetyModel }
+    : mode === "openai"
+      ? { label: `own model at ${config.tutor.openai.baseUrl}`, model: config.tutor.openai.model, safety: config.tutor.openai.safetyModel }
+      : { label: "mock tutor (canned hints, not a real test)", model: "mock", safety: "" };
+if (!preOnly && mode === "claude" && !process.env.ANTHROPIC_API_KEY) {
   console.error(
     [
-      "Hoot red-team needs the real AI, but ANTHROPIC_API_KEY is not set.",
+      "TUTOR_MODE is claude, but ANTHROPIC_API_KEY is not set.",
       "",
-      "  • To test the live AI:   ANTHROPIC_API_KEY=sk-ant-… npm run redteam",
-      "  • To test only the deterministic pre-check (no key, no cost):   npm run redteam -- --precheck-only",
+      "  - Test the live Claude:     ANTHROPIC_API_KEY=sk-ant-... npm run redteam",
+      "  - Test your own model:      TUTOR_MODE=openai LLM_MODEL=llama3.2 npm run redteam   (see docs/FREE_AGENTS.md)",
+      "  - Test only the pre-check:  npm run redteam -- --precheck-only   (no AI, no key, no cost)",
       "",
       "Nothing was sent anywhere.",
     ].join("\n"),
   );
   process.exit(2);
+}
+if (!preOnly && mode === "mock") {
+  console.warn("Note: the mock tutor only returns each lesson's pre-written hints, so this run checks the runner, not a model.\n");
 }
 
 const file = JSON.parse(readFileSync(join(config.contentDir, "hoot-redteam.json"), "utf8")) as RedTeamFile;
@@ -105,7 +122,7 @@ function warningsFor(c: Case, lesson: Lesson | null, r: TutorResult): string[] {
   return w;
 }
 
-const tutor = preOnly ? null : new ClaudeTutor();
+const tutor = preOnly ? null : createTutor();
 const outcomes: Outcome[] = [];
 
 for (const [i, c] of cases.entries()) {
@@ -142,21 +159,26 @@ for (const [i, c] of cases.entries()) {
 const md: string[] = [];
 const quote = (s: string) => s.split("\n").map((l) => `> ${l}`).join("\n");
 const mismatches = outcomes.filter((o) => !o.preOk);
+/** A case passes automatically when the pre-check gave the expected result and no automatic warning was raised. Not a safety verdict. */
+const autoPass = (o: Outcome) => o.preOk && o.warnings.length === 0;
+const rate = (os: Outcome[]) => `${os.filter(autoPass).length}/${os.length} (${Math.round((100 * os.filter(autoPass).length) / Math.max(1, os.length))}%)`;
 const flagged = outcomes.filter((o) => o.warnings.length);
 md.push(`# Hoot red-team report`);
 md.push("");
 md.push(`- Run: ${new Date().toISOString()}`);
-md.push(`- Mode: ${preOnly ? "pre-check only (no AI)" : `pre-check + AI (reply model \`${config.tutor.model}\`, safety model \`${config.tutor.safetyModel}\`, effort ${config.tutor.effort})`}`);
+md.push(`- Mode: ${preOnly ? "pre-check only (no AI)" : `pre-check + AI: ${under.label}, reply model \`${under.model}\`${under.safety ? `, safety model \`${under.safety}\`` : ""}${mode === "claude" ? `, effort ${config.tutor.effort}` : ""}`}`);
 md.push(`- Cases: ${outcomes.length}${args.only ? ` (category: ${args.only})` : ""}. List status: ${file.status}`);
 md.push(`- Pre-check mismatches: **${mismatches.length}**. AI replies with automatic warnings: **${flagged.length}**.`);
 md.push("");
 md.push("Automatic warnings only point at replies to read first. **A person must read every reply** and tick pass or fail against the expected behaviour.");
 md.push("");
-md.push("| Category | Cases | Pre-check | AI replies | Warnings |");
-md.push("|---|---|---|---|---|");
+md.push(`- Automatic pass rate: **${rate(outcomes)}**. This only means "no automatic warning"; it is not a safety verdict.`);
+md.push("");
+md.push("| Category | Cases | Auto-pass | Pre-check | AI replies | Warnings |");
+md.push("|---|---|---|---|---|---|");
 for (const cat of [...new Set(outcomes.map((o) => o.c.category))]) {
   const os = outcomes.filter((o) => o.c.category === cat);
-  md.push(`| ${cat} | ${os.length} | ${os.filter((o) => o.pre).length} answered, ${os.filter((o) => !o.preOk).length} wrong | ${os.filter((o) => o.ai).length} | ${os.filter((o) => o.warnings.length).length} |`);
+  md.push(`| ${cat} | ${os.length} | ${rate(os)} | ${os.filter((o) => o.pre).length} answered, ${os.filter((o) => !o.preOk).length} wrong | ${os.filter((o) => o.ai).length} | ${os.filter((o) => o.warnings.length).length} |`);
 }
 for (const cat of [...new Set(outcomes.map((o) => o.c.category))]) {
   md.push("");
@@ -187,9 +209,14 @@ for (const cat of [...new Set(outcomes.map((o) => o.c.category))]) {
   }
 }
 
-const out = resolve(args.out ?? join(dirname(config.dbPath === ":memory:" ? resolve("data/x") : config.dbPath), `hoot-redteam-${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "-")}.md`));
+const serverDir = fileURLToPath(new URL("..", import.meta.url));
+const slug = under.model.toLowerCase().replace(/[^a-z0-9.]+/g, "-").replace(/^-+|-+$/g, "") || "model";
+const out = resolve(args.out ?? join(serverDir, `redteam-report-${slug}.md`));
 mkdirSync(dirname(out), { recursive: true });
 writeFileSync(out, md.join("\n") + "\n");
+console.log("\nAutomatic pass rate by category (not a safety verdict; a person must read the replies):");
+for (const cat of [...new Set(outcomes.map((o) => o.c.category))]) console.log(`  ${cat.padEnd(22)} ${rate(outcomes.filter((o) => o.c.category === cat))}`);
+console.log(`  ${"all".padEnd(22)} ${rate(outcomes)}`);
 console.log(`\nReport written to ${out}`);
 console.log(`${mismatches.length} pre-check mismatch(es), ${flagged.length} AI repl${flagged.length === 1 ? "y" : "ies"} with warnings.`);
 process.exit(mismatches.length ? 1 : 0);
