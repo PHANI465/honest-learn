@@ -187,6 +187,18 @@ export interface AiSettingsRow {
   updated_at: string;
 }
 
+/**
+ * Which helper answers a child's messages, in a form that is safe to show a child: never a model name, an address or a key.
+ *  - "default": the project's own helper (Claude, or the offline mock), which has been through the project's safety test set.
+ *  - "family": a model the parent connected in the parent area ("Hoot's AI").
+ *  - "server": the model whoever runs this server chose (TUTOR_MODE=openai).
+ * Only "default" is safety tested; the child's chat screen says so in plain words for the other two (app/src/app/learn/.../tutor).
+ */
+export function helperFor(familyModel: boolean): { source: "default" | "family" | "server"; safetyTested: boolean } {
+  const source = familyModel ? "family" : config.tutor.mode === "openai" ? "server" : "default";
+  return { source, safetyTested: source === "default" };
+}
+
 /** Everything the parent area may see. Never the key. */
 export function publicSettings(row: AiSettingsRow | null | undefined) {
   if (!row) return { configured: false as const, allowLocal: config.allowLocalLlm };

@@ -4,6 +4,7 @@ import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput,
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ReportSheet } from "../../../../components/ReportSheet";
 import { Banner, Button, Emoji } from "../../../../components/ui";
+import { helperNotice } from "../../../../lib/hoot-notice";
 import { api, friendly, type ChatMessage } from "../../../../lib/api";
 import { isOfflineError } from "../../../../lib/offline";
 import { useChild, useSession } from "../../../../lib/session";
@@ -21,16 +22,24 @@ export default function Tutor() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [reportId, setReportId] = useState<string | null>(null);
+  /** Which kind of helper answers; the notice below is shown when it is not the safety-tested one. */
+  const [helper, setHelper] = useState<unknown>(null);
   const scroll = useRef<ScrollViewInstance>(null);
   const path = `/children/${childId}/tutor/${lessonId}`;
   const qIndex = question !== undefined ? Number(question) : null;
 
   useEffect(() => {
-    api<{ messages: ChatMessage[] }>("GET", path, familyToken).then((r) => setMessages(r.messages)).catch((e) => setError(hootError(e)));
+    api<{ messages: ChatMessage[]; helper?: unknown }>("GET", path, familyToken)
+      .then((r) => {
+        setMessages(r.messages);
+        setHelper(r.helper ?? null);
+      })
+      .catch((e) => setError(hootError(e)));
   }, [path, familyToken]);
 
   if (!child) return null;
   const t = scaledBandTheme(child.band);
+  const notice = helperNotice(helper);
 
   async function send() {
     const msg = text.trim();
@@ -70,6 +79,12 @@ export default function Tutor() {
             <Text style={{ fontSize: 12, color: colors.muted }}>A computer helper. It can make mistakes, and your grown-up can read this chat.</Text>
           </View>
         </View>
+
+        {notice ? (
+          <View style={{ maxWidth: 720, width: "100%", alignSelf: "center", paddingHorizontal: 12, paddingTop: 8 }}>
+            <Banner>{notice}</Banner>
+          </View>
+        ) : null}
 
         <ScrollView ref={scroll} contentContainerStyle={{ padding: 16, gap: 10, maxWidth: 720, width: "100%", alignSelf: "center" }} onContentSizeChange={() => scroll.current?.scrollToEnd()}>
           {messages.length === 0 ? (

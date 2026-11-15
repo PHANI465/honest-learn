@@ -8,7 +8,7 @@ import { newId } from "../security.ts";
 import { optionOrder } from "../shuffle.ts";
 import { detectPersonalInfo, precheckConversation, PERSONAL_INFO_PLACEHOLDER, type TutorResult, type TutorTurn } from "../tutor.ts";
 import { childPublic } from "../models.ts";
-import { guardedFetch, tutorOptions } from "../ai-settings.ts";
+import { guardedFetch, helperFor, tutorOptions } from "../ai-settings.ts";
 import { OpenAICompatTutor } from "../tutor-openai.ts";
 import { loadAiSettings } from "./parent-ai.ts";
 import type { Ctx, Env } from "../context.ts";
@@ -32,7 +32,9 @@ export function tutorRoutes(ctx: Ctx) {
   r.get("/children/:childId/tutor/:lessonId", async (c) => {
     const found = await lessonFor(c);
     if (found instanceof Response) return found;
-    return c.json({ messages: await history(found.child.id, found.lesson.id) });
+    // Which kind of helper will answer, so the chat screen can say plainly when it is not the safety-tested one.
+    const helper = helperFor(!!(await loadAiSettings(ctx, found.child.parent_id)));
+    return c.json({ messages: await history(found.child.id, found.lesson.id), helper });
   });
 
   r.post("/children/:childId/tutor/:lessonId", async (c) => {
