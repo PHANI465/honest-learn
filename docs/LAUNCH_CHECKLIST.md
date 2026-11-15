@@ -1,13 +1,13 @@
 # Launch checklist
 
-Status as of v0.3.0 for the "Built so far" list (later work is in `AGENT_TASKS.md`). ✅ = built, ⬜ = still to do. **The single list of what needs a person is [`PERSON_CHECKLIST.md`](PERSON_CHECKLIST.md).**
+Status as of 15 November 2026 (v0.5.0). ✅ = built, ⬜ = still to do. Built means written and tested by automated checks and a browser: **nothing has been run on a real phone**. **The single list of what needs a person is [`PERSON_CHECKLIST.md`](PERSON_CHECKLIST.md).**
 
 ## Built so far
 
 - ✅ Knowledge map: 5 age groups × 11 subjects, 262 outcomes, aligned to the UNESCO Global Proficiency Framework for reading and math
 - ✅ Reviewer guide (writing rules per age, hint-ladder rules, licensing, review checklist)
 - ✅ Mandatory parent account (18+ confirmation + privacy-notice consent recorded with version and time)
-- ✅ Parent PIN (hashed, 5 wrong tries → 15-minute lock) protecting: profiles, levels, sensitive topics, Hoot on/off, chat review, outside links, extra screen time, export/delete
+- ✅ Parent PIN (hashed; 5 wrong tries lock it, and repeated lockouts last longer: 15 minutes, 1 hour, 6 hours, 24 hours) protecting: profiles, levels, sensitive topics, Hoot on/off, chat review, outside links, extra screen time, export/delete
 - ✅ Sensitive topics (religion, body, politics) hidden server-side until a parent unlocks them per child
 - ✅ Child profiles with nickname + birth year only (no real names, photos or school)
 - ✅ Lessons, quizzes and a server-enforced hint ladder; answers never sent to the app before they're earned
@@ -40,13 +40,30 @@ Status as of v0.3.0 for the "Built so far" list (later work is in `AGENT_TASKS.m
 - ✅ Stronger safety/personal-info detection with 92 written test cases; `npm run redteam` for live AI testing
 - ✅ Draft privacy notice and terms (in the app at /privacy and /terms), for a lawyer to review
 
+## Added since v0.3 (13 to 15 November 2026)
+
+Details and what is still unverified for each are in the handover notes in [`AGENT_TASKS.md`](AGENT_TASKS.md). The single list of what needs a person is [`PERSON_CHECKLIST.md`](PERSON_CHECKLIST.md).
+
+- ✅ **Security hardening** ([`SECURITY.md`](SECURITY.md)): escalating lockouts, signing out other devices, changing the password, deleting the account needs the password, rate limits shared across servers, strict headers
+- ✅ **Accessibility settings per child** (T1): text size, dyslexia-friendly font, high contrast, automatic read-aloud ([`ACCESSIBILITY.md`](ACCESSIBILITY.md)); a screen reader and keyboard pass still needs a person
+- ✅ **Quick facts** between activities (T2): 200 facts, each with a source link; **daily spelling** (T3): 605 words with spaced review; **30 quantitative and reasoning lessons** (T4). All draft
+- ✅ **Games** (T5): Sudoku (generated, one solution each, server-checked hints), 32 chess puzzles proven in code, **play chess against the computer** on the device, memory games (pairs, patterns, spot the change, sliding tiles, nonograms), and 13 lessons for them. No timers, scores or rankings
+- ✅ **Parents can add their own lessons** (T10), private to the family
+- ✅ **A family's own AI model and key** (T0, T6, T7): Ollama, LM Studio, OpenRouter, Groq or any compatible address; the key is stored encrypted and never shown; an address guard against server-side request forgery; Hoot is switched off for children when a model is connected; `npm run redteam` tests any model. No real model has been connected yet
+- ✅ **Standalone phone app** (T8, [`STANDALONE.md`](STANDALONE.md)): "On this phone only" mode runs the whole API on the device with no server and no email; recovery phrase instead of password-reset email; one family per phone; lockouts that do not depend on the phone's clock; security review done
+- ✅ **Wellbeing notice** in the parent area when Hoot flags a worry (in addition to the email on a server); children see only "a grown-up should open the parent area"
+- ✅ **Phone first-run choice** and server address screen ([`MOBILE.md`](MOBILE.md))
+- ✅ **Sign language: the code** (T9, [`SIGN_LANGUAGE.md`](SIGN_LANGUAGE.md)): per-child sign language, lesson filtering, validator rules, "watch this lesson in sign language" slot. **No lessons exist**: they need a Deaf signer or qualified teacher and the video owners' permission
+- ✅ **Store preparation** (T11, [`STORE_LISTING.md`](STORE_LISTING.md)): build configuration checked and fixed (only `INTERNET` on Android, iOS privacy manifest), listing and form answers drafted
+- ✅ **Open source licences** screen, `THIRD_PARTY_NOTICES.md` and a CI check that only permissive licences ship
+
 ## Content: before public launch
 
 - ⬜ Hire or recruit reviewers (2 per lesson: subject expert + age/safety)
 - ⬜ Work through `docs/NEEDS_APPROVAL.md`: Priority 1 first (medical, safeguarding, sensitive topics, legal)
 - ⬜ Review all 218 lessons and mark them `reviewed` (start with `docs/review/*.csv`)
 - ⬜ **Medical review** of `b5-health-first-aid-cpr` and all health lessons
-- ⬜ Add a third quiz question to newer lessons where reviewers think it helps
+- ⬜ Add a third quiz question to the lessons that still have two, where reviewers think it helps
 - ⬜ Check every entry in `content/resources.json` (free, no ads aimed at children, right ages) and set `lastChecked`
 - ⬜ Have someone from each major faith and region review the 🔒 religion and politics lessons
 - ⬜ Pictures and illustrations for ages 3–8 (original or CC-licensed)
