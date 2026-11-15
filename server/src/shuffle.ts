@@ -4,7 +4,7 @@ import { createHash } from "node:crypto";
 // Each child sees each question's options in a stable, child-specific order, so the right answer
 // isn't always in the same place, and the order doesn't change when they come back.
 
-function seeded(seed: string): () => number {
+export function seeded(seed: string): () => number {
   // mulberry32 seeded from the first 4 bytes of a SHA-256 hash
   let a = createHash("sha256").update(seed).digest().readUInt32LE(0);
   return () => {

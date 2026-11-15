@@ -124,6 +124,15 @@ const TABLES = [
   last_tick   TEXT,
   PRIMARY KEY (child_id, day)
 )`,
+  // games a child has finished (Sudoku puzzles so far); one row per puzzle
+  `CREATE TABLE IF NOT EXISTS games_solved (
+  child_id     TEXT NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  game         TEXT NOT NULL,
+  puzzle_key   TEXT NOT NULL,
+  solved_at    TEXT NOT NULL,
+  hint_chains  INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (child_id, game, puzzle_key)
+)`,
   // lessons a parent wrote for their own children (private to the family; see family-lessons.ts)
   `CREATE TABLE IF NOT EXISTS family_lessons (
   id          TEXT PRIMARY KEY,

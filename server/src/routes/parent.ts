@@ -265,6 +265,7 @@ export function parentRoutes(ctx: Ctx) {
       hintsOpened: await per("SELECT child_id, item_id, q_index, level FROM hints_seen WHERE child_id = ?"),
       spellingProgress: await per("SELECT child_id, word, box, due, last_day FROM spelling_progress WHERE child_id = ?"),
       familyLessons: (await ctx.familyLessonsOf(id)).map(toFormShape),
+      gamesSolved: await per("SELECT child_id, game, puzzle_key, solved_at, hint_chains FROM games_solved WHERE child_id = ?"),
     });
   });
 

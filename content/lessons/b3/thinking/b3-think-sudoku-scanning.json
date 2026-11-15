@@ -1,0 +1,98 @@
+{
+  "id": "b3-think-sudoku-scanning",
+  "title": "Sudoku: Scanning Rows, Columns and Boxes",
+  "band": "b3",
+  "subject": "thinking",
+  "outcomes": [
+    "b3-think-5"
+  ],
+  "sensitive": null,
+  "minutes": 11,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sudoku",
+      "url": "https://en.wikipedia.org/wiki/Sudoku",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Sudoku solving algorithms",
+      "url": "https://en.wikipedia.org/wiki/Sudoku_solving_algorithms",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "A 6 by 6 Sudoku uses the numbers 1 to 6. The boxes are 2 squares tall and 3 squares wide. Each row, column and box holds each number once."
+    },
+    {
+      "type": "text",
+      "body": "Scanning means looking along a row, a column and a box to see which numbers are already there. A number you can see cannot go in the empty square."
+    },
+    {
+      "type": "text",
+      "body": "Example: an empty square has 1, 3 and 5 in its row, 2 and 6 in its column and 3 in its box. Put all of those together: 1, 2, 3, 5 and 6. Only 4 is not in the list, so the square is 4."
+    },
+    {
+      "type": "text",
+      "body": "A good habit: start with the row, column or box that has the most numbers. It has the fewest empty squares, so there are fewer choices."
+    },
+    {
+      "type": "tryit",
+      "body": "Take a 6 by 6 puzzle. Pick the row with the most numbers in it. Write which numbers are missing, then look at each empty square's column for clues."
+    },
+    {
+      "type": "parent",
+      "body": "Scanning is the first real technique in Sudoku. Ask 'what can I see in the row, in the column and in the box?' before every guess. Guessing is not needed: every puzzle in the app has exactly one solution that logic can find."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A 6 by 6 row has 1, 2, 4, 5 and 6. One square is empty. Which number goes there?",
+      "options": [
+        "3",
+        "1",
+        "6"
+      ],
+      "answer": 0,
+      "hints": [
+        "A row holds 1 to 6 once each.",
+        "Which of the numbers 1 to 6 is not in the row?",
+        "Example: a row with 2, 3, 4, 5 and 6 is missing 1. Find the missing number for 1, 2, 4, 5 and 6."
+      ],
+      "explain": "The row has 1, 2, 4, 5 and 6. The missing number is 3."
+    },
+    {
+      "q": "An empty square has 1, 3 and 5 in its row, 2 and 6 in its column and 3 in its box. Which number can go there?",
+      "options": [
+        "4",
+        "3",
+        "6"
+      ],
+      "answer": 0,
+      "hints": [
+        "Put together every number you can see in the row, column and box.",
+        "You can see 1, 2, 3, 5 and 6. Which number from 1 to 6 is left?",
+        "Example: row 1, 2, column 4, box 2, 3 leaves 5 and 6, so two numbers are still possible. Do the same with the numbers in this question."
+      ],
+      "explain": "The numbers you can see are 1, 2, 3, 5 and 6. Only 4 is left."
+    },
+    {
+      "q": "Why is it a good idea to start with the row, column or box that has the most numbers already?",
+      "options": [
+        "It has the fewest empty squares, so fewer choices",
+        "It is the quickest line to draw, so it saves time",
+        "It always starts with the number 1, so it is easy"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how many squares are still empty there.",
+        "Fewer empty squares means fewer numbers that could go in them.",
+        "Example: a row with five numbers has only one empty square, so you know what goes in it at once. Compare that with a row that has only one number."
+      ],
+      "explain": "A full line has few empty squares left, so there are fewer possible numbers and you find the answer faster."
+    }
+  ]
+}

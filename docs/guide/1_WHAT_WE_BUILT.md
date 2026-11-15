@@ -25,10 +25,11 @@ The owner made these decisions at the start:
 |---|---|
 | Age groups | **5**: Little Explorers 3–5, Early Learners 6–8, Discoverers 9–11, Thinkers 12–14, Builders 15–18 |
 | Subjects | **11**: Language & Reading, Math, Science, Our World, Health/Body/Feelings, Digital Life & AI Safety, Money & Life Skills, Thinking Skills, Arts & Music, Computing, Careers & College Prep (15–18) |
-| Learning outcomes | **249**, all covered by at least one lesson |
-| Lessons | **205** (all *draft* until two human reviewers approve them) |
-| Quiz questions | **591**, each with 3 hints (nudge → bigger hint → worked example of a different problem) |
+| Learning outcomes | **254**, all covered by at least one lesson |
+| Lessons | **210** (all *draft* until two human reviewers approve them) |
+| Quiz questions | **606**, each with 3 hints (nudge → bigger hint → worked example of a different problem) |
 | Brain puzzles | **68** IQ-style practice puzzles in 5 age sets (never an IQ score) |
+| Games | **Sudoku** (4x4 for ages 3 to 8, 6x6 for 9 to 11, 9x9 for 12 and up, three levels, endless puzzles, notes, undo, a three-step hint ladder, no clock or score) and five Sudoku lessons |
 | Daily spelling | **605** words in 5 age lists of 120+ (3 to 10 words a day by age, three levels, missed words come back), all draft |
 | Quick facts | **200** short true facts (40 per age group), each with a source link, shown after a lesson or quiz and on the child home (draft until reviewed) |
 | Free resources | **27** hand-picked free websites (Khan Academy, PhET, Scratch, NASA Space Place, OpenStax…) |
@@ -43,14 +44,14 @@ All of this was built with Claude Code in sessions on 5 November 2026. The full 
 
 | Step | What was added |
 |---|---|
-| **Research and plan** | Research on teaching each age, what parents and kids like and dislike in learning apps (including Reddit and app-store reviews: [`docs/RESEARCH_USER_FEEDBACK.md`](../RESEARCH_USER_FEEDBACK.md)), and the knowledge map of 249 outcomes ([`docs/KNOWLEDGE_MAP.md`](../KNOWLEDGE_MAP.md)). |
+| **Research and plan** | Research on teaching each age, what parents and kids like and dislike in learning apps (including Reddit and app-store reviews: [`docs/RESEARCH_USER_FEEDBACK.md`](../RESEARCH_USER_FEEDBACK.md)), and the knowledge map of 254 outcomes ([`docs/KNOWLEDGE_MAP.md`](../KNOWLEDGE_MAP.md)). |
 | **v0.1: the foundation** | The API server (accounts, parent PIN, child profiles, progress, quizzes with the hint ladder, Hoot the AI helper), the app for iPhone, Android and web, and the first lessons. |
 | **Free resources and safe media** | Curated free websites per age and subject, short Wikipedia summaries ("Learn more", Simple English for 9–11), YouTube videos in the privacy-enhanced player, and link and video checkers. |
 | **Account safety** | Email verification, password reset by emailed code, PIN reset with the password, sign-in rate limits, server-side screen-time limits, automatic deletion of old chats. |
 | **Fair quizzes** | Options shuffled per child, so answers can't be shared ("it's always B"); only first tries count; spaced repetition brings lessons back for review. |
 | **v0.2: tooling** | Continuous integration on GitHub, app-store build profiles, reviewer spreadsheets, checks that warn when a hint gives the answer away, screenshots. |
 | **Puzzles and practice** | Brain puzzles, mixed practice quizzes per subject, weekly stats for parents. |
-| **All content** | Lessons for every age and subject, covering all 249 outcomes, with 3 questions each, written by several Claude agents in parallel. |
+| **All content** | Lessons for every age and subject, covering all 254 outcomes, with 3 questions each, written by several Claude agents in parallel. |
 | **v0.3: approvals** | README content catalogue, the list of what needs a human expert ([`docs/NEEDS_APPROVAL.md`](../NEEDS_APPROVAL.md)) and GitHub issue #1 to track approvals. |
 | **App quality** | Offline mode (opened lessons work without internet), an accessibility pass (screen readers, contrast, text size), installable website. |
 | **Hoot safety** | Verified helplines, stronger safety pre-checks, the red-team plan, draft privacy notice and terms ([`docs/legal/`](../legal/)). |

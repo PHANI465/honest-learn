@@ -69,7 +69,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T2 | Quick facts between lessons | Haiku low (content), Sonnet medium (code) | S + S | none | **done** 14 Nov 2026 | 200 facts (40 per band), all draft; `FactCard`; `scripts/check-fact-sources.mjs`. A person must spot-check 1 in 5 |
 | T3 | Daily spelling and vocabulary | Sonnet medium (code), Haiku low (word lists) | L | none | **done** 14 Nov 2026 | Server, screen and 605 words (120+ per band). Open: spellingVariant, reviewer pass |
 | T4 | Quantitative aptitude and reasoning lessons | Sonnet medium | L | none | **done** 14 Nov 2026 | 30 lessons across b2 to b5; every band needs a human maths check |
-| T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | todo | |
+| T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku done 14 Nov 2026. 5b chess, 5c memory games, 5d play chess: todo |
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | todo | Security sensitive |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | todo | |
@@ -458,3 +458,18 @@ are private to that family and are included in export and deletion. **Sonnet med
   lessons do not feed "What they know"), no import or sharing between families, and the form has not been looked at in a browser
   or tried with a screen reader. A family lesson's text goes to Hoot's AI helper when a child asks Hoot about it (stated in the
   privacy notice).
+- **T5a Sudoku (done).** Server: `server/src/games/sudoku.ts` (seeded generator, a solver that counts solutions so every puzzle has exactly one,
+  the step finder behind the hints, hint texts), `server/src/routes/games.ts` (`GET /children/:id/games/sudoku`, `.../sudoku/:n?level=1..3`,
+  `POST .../:n/check`, `POST .../:n/hint`), table `games_solved` (in the export, cascades on child delete). Grid size by age: b1 and b2 4x4,
+  b3 6x6, b4 and b5 9x9; clues by level 9/7/6, 22/18/15, 38/32/27. Puzzles come from the seed `<childId>:<size>:<level>:<n>`, cached in memory
+  only. `check` also records a finished puzzle. Hints use `hints_seen` (item `sudoku-<size>-<level>-<n>`, one "question" per hint chain, a
+  new chain after the third hint); with a wrong number on the board the hints say to fix it first and never name the number. App: Games
+  hub (`games/index.tsx`, card on the child home) and `games/sudoku.tsx` (level list, grid, number pad, notes, undo, check, hints, web keyboard:
+  arrows, digits, Backspace; pictures instead of digits for ages 3 to 5). Content: five lessons (`b2-think-sudoku-rules`,
+  `b3-think-sudoku-scanning`, `b4-think-sudoku-singles`, `b4-think-sudoku-pairs`, `b5-think-sudoku-x-wing`) with outcomes `b2-think-6`,
+  `b3-think-5`, `b4-think-9`, `b4-think-10`, `b5-think-8`. Looked at in a real browser at phone width (6x6, check, hint, undo,
+  keyboard entry). **Not done / for 5b to 5d:** the 4x4 picture mode and the 9x9 grid were not looked at on screen; notes mode and
+  the solved screen were not clicked through; no screen reader pass; difficulty is by clue count only (a "hard" puzzle may still be
+  solved with singles); the hint finder knows singles only, so on hard puzzles it falls back to naming the square with the fewest options;
+  progress is not shown to parents. Pattern for the next games: a route module like `routes/games.ts`, a `games/<name>.ts` for the pure
+  logic with tests, a card in `games/index.tsx`.

@@ -1,0 +1,98 @@
+{
+  "id": "b4-think-sudoku-singles",
+  "title": "Sudoku: Naked and Hidden Singles",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-9"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sudoku",
+      "url": "https://en.wikipedia.org/wiki/Sudoku",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Glossary of Sudoku",
+      "url": "https://en.wikipedia.org/wiki/Glossary_of_Sudoku",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "In a 9 by 9 Sudoku, every row, column and 3 by 3 box holds the numbers 1 to 9 once. Two simple techniques solve most easy puzzles. Both look for a 'single': one number that has only one place to go."
+    },
+    {
+      "type": "text",
+      "body": "A NAKED SINGLE is an empty square where only one number is possible. Look at the numbers in its row, column and box. If eight different numbers are already there, the ninth must go in the square."
+    },
+    {
+      "type": "text",
+      "body": "A HIDDEN SINGLE is a number that has only one square left in a row, column or box, even if that square could also hold other numbers. Pick a box and a number, say 5. Check every empty square in the box: if 5 is blocked in all but one of them, 5 goes in that one."
+    },
+    {
+      "type": "text",
+      "body": "Both techniques only use logic, never guessing. The hint ladder in the Sudoku game uses these ideas first: it nudges you to look for a single, then points at a row, column or box, then names the number and why."
+    },
+    {
+      "type": "tryit",
+      "body": "Find an empty square in a 9 by 9 puzzle. List the numbers you can see in its row, column and box. Do eight different numbers appear? If yes, you found a naked single."
+    },
+    {
+      "type": "parent",
+      "body": "Naked and hidden singles are the whole of 'easy' Sudoku. Ask your child to explain why a number must go in a square, not just which number. That reasoning is the real skill."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "An empty square has 1, 2 and 3 in its row, 4, 5 and 6 in its column and 7 and 8 in its box. Which number must go there?",
+      "options": [
+        "9",
+        "8",
+        "3"
+      ],
+      "answer": 0,
+      "hints": [
+        "Put together all the numbers you can see around the square.",
+        "You can see 1 to 8. What is the only number from 1 to 9 not in the list?",
+        "Example: row 2, 4, 9, column 1, 3, 8 and box 5, 7 leave only 6, so the square is 6. Do the same with 1 to 8."
+      ],
+      "explain": "1, 2, 3, 4, 5, 6, 7 and 8 are all blocked. That leaves 9."
+    },
+    {
+      "q": "A square can only be 7. Nothing else fits there. What is this called?",
+      "options": [
+        "A naked single",
+        "A hidden single",
+        "A wild guess"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what is special: the square itself has just one possible number.",
+        "One kind is about a square with only one possible number. The other kind is about a number with only one possible square. Which does this describe?",
+        "Example: if the number 3 can only go in one square of a row, even if that square could also be 5 or 8, it is a hidden single. Decide which kind this question describes."
+      ],
+      "explain": "The square has only one possible number, so it is a naked single."
+    },
+    {
+      "q": "In a box, the number 5 cannot go in any empty square except one, because rows and columns outside the box already contain 5. What kind of move is putting 5 there?",
+      "options": [
+        "A hidden single",
+        "A naked single",
+        "A lucky guess here"
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it one number looking for its only place, or one square with only one number?",
+        "Here a number (5) has just one place left to go.",
+        "Example: a square where only 2 can fit is a naked single, because the square has one choice. This question is the other way round: it is about a number with one place."
+      ],
+      "explain": "The number 5 has only one possible place in the box. That is a hidden single."
+    }
+  ]
+}

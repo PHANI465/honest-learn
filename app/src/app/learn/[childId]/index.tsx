@@ -192,6 +192,15 @@ export default function ChildHome() {
         </Card>
       ) : null}
 
+      <Card onPress={() => router.push(`/learn/${childId}/games`)} label="Games" style={{ borderRadius: t.radius, flexDirection: "row", alignItems: "center", gap: 12, borderColor: t.accent, borderWidth: 2 }}>
+        <Emoji size={36}>🎲</Emoji>
+        <View style={{ flex: 1 }}>
+          <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>Games</Text>
+          <Text style={{ color: colors.muted, fontSize: 13 }}>{young ? "Sudoku and more" : "Sudoku and other logic games"}</Text>
+        </View>
+        <Text style={{ fontSize: 22, color: colors.muted }} aria-hidden accessibilityElementsHidden importantForAccessibility="no">›</Text>
+      </Card>
+
       <Card onPress={() => router.push(`/learn/${childId}/puzzles`)} label="Brain puzzles" style={{ borderRadius: t.radius, flexDirection: "row", alignItems: "center", gap: 12, borderColor: t.accent, borderWidth: 2 }}>
         <Emoji size={36}>🧩</Emoji>
         <View style={{ flex: 1 }}>

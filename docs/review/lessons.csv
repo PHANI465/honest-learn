@@ -603,6 +603,15 @@ b2-think-4: Tries again after a mistake (growth mindset)","","10","draft","[text
 
 [parent] Praise effort and strategy ('You kept trying different ways!') rather than 'You're so smart'.","Wikipedia: Pattern — https://en.wikipedia.org/wiki/Pattern (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Growth mindset — https://en.wikipedia.org/wiki/Growth_mindset (CC BY-SA 4.0 (reference; text is original))","content\lessons\b2\thinking\b2-think-patterns-growth.json","","","","","",""
+"b2-think-sudoku-rules","Sudoku: Every Number Once","Early Learners (6–8)","Thinking Skills","b2-think-6: Knows the rules of 4 by 4 Sudoku and finds the missing number in a row or box","","10","draft","[text] Sudoku is a number puzzle. In a small 4 by 4 Sudoku, you put the numbers 1, 2, 3 and 4 into the squares.
+
+[text] There are three rules. Each ROW has every number once. Each COLUMN has every number once. Each BOX (a block of 4 squares, 2 by 2) has every number once. A number can never be there twice in the same row, column or box.
+
+[text] To fill an empty square, ask: which number is missing? If a row has 1, 3 and 4, the empty square must be 2.
+
+[tryit] Draw a 4 by 4 grid. Put 1, 2, 3 and 4 in the top row in any order. Then fill the next row so no number is above itself in the same column.
+
+[parent] Start with the 4 by 4 grid in the Games area of the app. Let your child say the rule out loud before each move: 'Which number is missing from this row?'. There is no timer and no score.","Wikipedia: Sudoku — https://en.wikipedia.org/wiki/Sudoku (CC BY-SA 4.0 (reference; text is original))","content\lessons\b2\thinking\b2-think-sudoku-rules.json","","","","","",""
 "b2-world-continents-oceans","Continents and Oceans","Early Learners (6–8)","Our World","b2-world-1: Names the 7 continents and 5 oceans and finds them on a map/globe","","10","draft","[text] Earth's land is split into big pieces called continents. Most maps show seven.
 
 [text] The seven continents are: Africa, Antarctica, Asia, Australia (part of Oceania), Europe, North America and South America.
@@ -1018,6 +1027,18 @@ Wikipedia: Advertising — https://en.wikipedia.org/wiki/Advertising (CC BY-SA 4
 
 [fact] Example: Ana, Ben and Cy have a cat, dog and fish. Ana is allergic to fur. Ben's pet barks. So Ben has the dog, Ana the fish (no fur) and Cy the cat.","Wikipedia: Logic puzzle — https://en.wikipedia.org/wiki/Logic_puzzle (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Sequence — https://en.wikipedia.org/wiki/Sequence (CC BY-SA 4.0 (reference; text is original))","content\lessons\b3\thinking\b3-think-logic-grids.json","","","","","",""
+"b3-think-sudoku-scanning","Sudoku: Scanning Rows, Columns and Boxes","Discoverers (9–11)","Thinking Skills","b3-think-5: Scans a row, column and box to find the one number that fits in a 6 by 6 Sudoku","","11","draft","[text] A 6 by 6 Sudoku uses the numbers 1 to 6. The boxes are 2 squares tall and 3 squares wide. Each row, column and box holds each number once.
+
+[text] Scanning means looking along a row, a column and a box to see which numbers are already there. A number you can see cannot go in the empty square.
+
+[text] Example: an empty square has 1, 3 and 5 in its row, 2 and 6 in its column and 3 in its box. Put all of those together: 1, 2, 3, 5 and 6. Only 4 is not in the list, so the square is 4.
+
+[text] A good habit: start with the row, column or box that has the most numbers. It has the fewest empty squares, so there are fewer choices.
+
+[tryit] Take a 6 by 6 puzzle. Pick the row with the most numbers in it. Write which numbers are missing, then look at each empty square's column for clues.
+
+[parent] Scanning is the first real technique in Sudoku. Ask 'what can I see in the row, in the column and in the box?' before every guess. Guessing is not needed: every puzzle in the app has exactly one solution that logic can find.","Wikipedia: Sudoku — https://en.wikipedia.org/wiki/Sudoku (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Sudoku solving algorithms — https://en.wikipedia.org/wiki/Sudoku_solving_algorithms (CC BY-SA 4.0 (reference; text is original))","content\lessons\b3\thinking\b3-think-sudoku-scanning.json","","","","","",""
 "b3-world-ancient-civilisations","Ancient Civilisations","Discoverers (9–11)","Our World","b3-world-2: Ancient civilisations around the world (e.g., Mesopotamia, Egypt, Indus Valley, China, Maya, Greece)","","15","draft","[text] Some of the earliest cities grew up beside big rivers, because rivers gave water and fertile soil for farming.
 
 [text] Mesopotamia (Tigris and Euphrates, modern Iraq) gave us one of the first writing systems, cuneiform, around 5,000 years ago.
@@ -1485,6 +1506,30 @@ Wikipedia: Argumentum ad populum — https://en.wikipedia.org/wiki/Argumentum_ad
 
 [parent] When stuck, try this order: differences, multiplying, squares and cubes, adding the two before. Ask your child to say the rule in words, not just the next number.","Wikipedia: Sequence — https://en.wikipedia.org/wiki/Sequence (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Fibonacci sequence — https://en.wikipedia.org/wiki/Fibonacci_sequence (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-number-series.json","","","","","",""
+"b4-think-sudoku-pairs","Sudoku: Naked Pairs","Thinkers (12–14)","Thinking Skills","b4-think-10: Uses naked pairs to remove candidates in a Sudoku","","12","draft","[text] Some puzzles have no singles left. The next technique to try is the NAKED PAIR.
+
+[text] Write the possible numbers (candidates) in small notes in each empty square. A naked pair is two squares in the same row, column or box that both have the same two candidates and nothing else, such as 3 and 8.
+
+[text] Here is why that matters. Those two squares must hold 3 and 8 between them, in one order or the other. So no other square in that row, column or box can be 3 or 8. You can cross 3 and 8 out of all the other squares in that unit.
+
+[text] Example: a row has a pair of squares with notes 3 and 8. Another square in the row has notes 3, 5 and 8. Cross out 3 and 8. Only 5 is left, so that square is 5.
+
+[tryit] Use the Notes button in the Sudoku game. Look for two squares in a row with exactly the same two notes. Cross those numbers out of the rest of the row.
+
+[parent] Naked pairs are the first technique that needs pencil notes. Encourage your child to use the Notes button. If a pair cannot be found, taking a hint from the game is fine: it gives a nudge first, not the answer.","Wikipedia: Sudoku — https://en.wikipedia.org/wiki/Sudoku (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Glossary of Sudoku — https://en.wikipedia.org/wiki/Glossary_of_Sudoku (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-sudoku-pairs.json","","","","","",""
+"b4-think-sudoku-singles","Sudoku: Naked and Hidden Singles","Thinkers (12–14)","Thinking Skills","b4-think-9: Finds naked and hidden singles in a 9 by 9 Sudoku","","12","draft","[text] In a 9 by 9 Sudoku, every row, column and 3 by 3 box holds the numbers 1 to 9 once. Two simple techniques solve most easy puzzles. Both look for a 'single': one number that has only one place to go.
+
+[text] A NAKED SINGLE is an empty square where only one number is possible. Look at the numbers in its row, column and box. If eight different numbers are already there, the ninth must go in the square.
+
+[text] A HIDDEN SINGLE is a number that has only one square left in a row, column or box, even if that square could also hold other numbers. Pick a box and a number, say 5. Check every empty square in the box: if 5 is blocked in all but one of them, 5 goes in that one.
+
+[text] Both techniques only use logic, never guessing. The hint ladder in the Sudoku game uses these ideas first: it nudges you to look for a single, then points at a row, column or box, then names the number and why.
+
+[tryit] Find an empty square in a 9 by 9 puzzle. List the numbers you can see in its row, column and box. Do eight different numbers appear? If yes, you found a naked single.
+
+[parent] Naked and hidden singles are the whole of 'easy' Sudoku. Ask your child to explain why a number must go in a square, not just which number. That reasoning is the real skill.","Wikipedia: Sudoku — https://en.wikipedia.org/wiki/Sudoku (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Glossary of Sudoku — https://en.wikipedia.org/wiki/Glossary_of_Sudoku (CC BY-SA 4.0 (reference; text is original))","content\lessons\b4\thinking\b4-think-sudoku-singles.json","","","","","",""
 "b4-think-viewpoints-estimation","Other Viewpoints and Smart Estimates","Thinkers (12–14)","Thinking Skills","b4-think-3: Considers other viewpoints before deciding
 b4-think-4: Uses estimation and 'back of the envelope' reasoning","","20","draft","[text] Before deciding, try 'steelmanning': state the other side's argument in its strongest form. If you can't, you may not understand it yet.
 
@@ -2008,6 +2053,20 @@ Wikipedia: Trolley problem — https://en.wikipedia.org/wiki/Trolley_problem (CC
 
 [parent] Let your child physically move cards or cups. Writing the clues as a list and ticking them off stops mistakes. Every puzzle here was checked by computer to have exactly one answer.","Wikipedia: Permutation — https://en.wikipedia.org/wiki/Permutation (CC BY-SA 4.0 (reference; text is original))
 Wikipedia: Logic puzzle — https://en.wikipedia.org/wiki/Logic_puzzle (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\thinking\b5-think-seating-arrangements.json","","","","","",""
+"b5-think-sudoku-x-wing","Sudoku Stretch: the X-Wing","Builders (15–18)","Thinking Skills","b5-think-8: Follows the logic of an X-wing in a hard Sudoku","","14","draft","[text] The X-wing is a stretch technique for harder 9 by 9 puzzles. It removes candidates when a number has exactly two possible places in each of two rows.
+
+[text] Suppose the number 7 can only go in column 3 or column 8 in row 2, and also only in column 3 or column 8 in row 6. The four squares form the corners of a rectangle, which is the 'X'.
+
+[text] Now reason it through. Row 2 needs one 7, either in column 3 or in column 8. Row 6 also needs one 7 in column 3 or 8. They cannot share a column, so if row 2 uses column 3, row 6 must use column 8, and the other way round.
+
+[text] Either way, one 7 ends up in column 3 and one in column 8. So no other square in column 3 or column 8 can be a 7. You can cross 7 out of every other square in those two columns. The same idea works with rows and columns swapped.
+
+[text] This is a logical proof, not a guess. If you cannot find an X-wing, ask for a hint in the game: it will point you toward a simpler step when one exists.
+
+[tryit] In a hard puzzle, write the notes for one number, such as 7. Look for two rows where that number has exactly two places, in the same two columns.
+
+[parent] The X-wing is not needed for most puzzles. It is offered as a stretch for teens who enjoy logic. The key skill is the chain of reasoning: 'if this, then that, so either way this must be true'.","Wikipedia: Sudoku — https://en.wikipedia.org/wiki/Sudoku (CC BY-SA 4.0 (reference; text is original))
+Wikipedia: Glossary of Sudoku — https://en.wikipedia.org/wiki/Glossary_of_Sudoku (CC BY-SA 4.0 (reference; text is original))","content\lessons\b5\thinking\b5-think-sudoku-x-wing.json","","","","","",""
 "b5-think-syllogisms","Syllogisms: Does the Conclusion Follow?","Builders (15–18)","Thinking Skills","b5-think-5: Judges whether a conclusion follows from premises (syllogisms)","","12","draft","[text] A syllogism has two statements (premises) and a conclusion. The question is: if the premises are true, must the conclusion be true? If yes, the argument is valid.
 
 [text] Validity is about the shape of the reasoning, not whether the statements are true in real life. 'All birds can fly. Penguins are birds. So penguins can fly.' The shape is valid, but the first statement is false, so the conclusion is false. A valid argument with a false premise can have a false conclusion.

@@ -1,0 +1,89 @@
+{
+  "id": "b2-think-sudoku-rules",
+  "title": "Sudoku: Every Number Once",
+  "band": "b2",
+  "subject": "thinking",
+  "outcomes": [
+    "b2-think-6"
+  ],
+  "sensitive": null,
+  "minutes": 10,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sudoku",
+      "url": "https://en.wikipedia.org/wiki/Sudoku",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Sudoku is a number puzzle. In a small 4 by 4 Sudoku, you put the numbers 1, 2, 3 and 4 into the squares."
+    },
+    {
+      "type": "text",
+      "body": "There are three rules. Each ROW has every number once. Each COLUMN has every number once. Each BOX (a block of 4 squares, 2 by 2) has every number once. A number can never be there twice in the same row, column or box."
+    },
+    {
+      "type": "text",
+      "body": "To fill an empty square, ask: which number is missing? If a row has 1, 3 and 4, the empty square must be 2."
+    },
+    {
+      "type": "tryit",
+      "body": "Draw a 4 by 4 grid. Put 1, 2, 3 and 4 in the top row in any order. Then fill the next row so no number is above itself in the same column."
+    },
+    {
+      "type": "parent",
+      "body": "Start with the 4 by 4 grid in the Games area of the app. Let your child say the rule out loud before each move: 'Which number is missing from this row?'. There is no timer and no score."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "A 4 by 4 Sudoku row has 1, 3 and 4. One square is empty. Which number goes there?",
+      "options": [
+        "2",
+        "1",
+        "3"
+      ],
+      "answer": 0,
+      "hints": [
+        "Each row needs the numbers 1, 2, 3 and 4 once.",
+        "Which of 1, 2, 3, 4 is not in the row yet?",
+        "Example: a row with 2, 3 and 4 is missing 1, so 1 goes in the empty square. Do the same with 1, 3 and 4."
+      ],
+      "explain": "The row has 1, 3 and 4, so 2 is the one that is missing."
+    },
+    {
+      "q": "A 2 by 2 box has the numbers 2, 4 and 1. Which number goes in the last square?",
+      "options": [
+        "3",
+        "4",
+        "2"
+      ],
+      "answer": 0,
+      "hints": [
+        "A box also has each number once.",
+        "The box needs 1, 2, 3 and 4. Which one is not there yet?",
+        "Example: a box with 1, 2 and 3 is missing 4. Find the missing number for 2, 4 and 1."
+      ],
+      "explain": "The box needs 1, 2, 3 and 4 once each. 2, 4 and 1 are there, so 3 is missing."
+    },
+    {
+      "q": "Which row is finished correctly?",
+      "options": [
+        "2 4 1 3",
+        "1 2 2 3",
+        "3 3 1 4"
+      ],
+      "answer": 0,
+      "hints": [
+        "A finished row has 1, 2, 3 and 4, each once.",
+        "Look for a row that repeats a number. That row is wrong.",
+        "Example: 1 3 4 2 is a finished row because each of 1, 2, 3 and 4 appears once. Check each row here the same way."
+      ],
+      "explain": "2 4 1 3 has each number once. 1 2 2 3 has two 2s and no 4. 3 3 1 4 has two 3s and no 2."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "id": "b4-think-sudoku-pairs",
+  "title": "Sudoku: Naked Pairs",
+  "band": "b4",
+  "subject": "thinking",
+  "outcomes": [
+    "b4-think-10"
+  ],
+  "sensitive": null,
+  "minutes": 12,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sudoku",
+      "url": "https://en.wikipedia.org/wiki/Sudoku",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Glossary of Sudoku",
+      "url": "https://en.wikipedia.org/wiki/Glossary_of_Sudoku",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "Some puzzles have no singles left. The next technique to try is the NAKED PAIR."
+    },
+    {
+      "type": "text",
+      "body": "Write the possible numbers (candidates) in small notes in each empty square. A naked pair is two squares in the same row, column or box that both have the same two candidates and nothing else, such as 3 and 8."
+    },
+    {
+      "type": "text",
+      "body": "Here is why that matters. Those two squares must hold 3 and 8 between them, in one order or the other. So no other square in that row, column or box can be 3 or 8. You can cross 3 and 8 out of all the other squares in that unit."
+    },
+    {
+      "type": "text",
+      "body": "Example: a row has a pair of squares with notes 3 and 8. Another square in the row has notes 3, 5 and 8. Cross out 3 and 8. Only 5 is left, so that square is 5."
+    },
+    {
+      "type": "tryit",
+      "body": "Use the Notes button in the Sudoku game. Look for two squares in a row with exactly the same two notes. Cross those numbers out of the rest of the row."
+    },
+    {
+      "type": "parent",
+      "body": "Naked pairs are the first technique that needs pencil notes. Encourage your child to use the Notes button. If a pair cannot be found, taking a hint from the game is fine: it gives a nudge first, not the answer."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Two squares in a row both have only the notes 3 and 8. Another square in the same row has the notes 3, 5 and 8. What number can it be?",
+      "options": [
+        "5",
+        "3",
+        "8"
+      ],
+      "answer": 0,
+      "hints": [
+        "The pair will use up 3 and 8 in this row.",
+        "Cross 3 and 8 out of the other square's notes. What is left?",
+        "Example: a pair with 2 and 6, and another square with notes 2, 4 and 6, leaves 4. Do the same for this question."
+      ],
+      "explain": "The pair takes both 3 and 8, so the other square cannot be 3 or 8. Only 5 is left."
+    },
+    {
+      "q": "Two squares in a box both have only the notes 2 and 6. Another square in the box has the notes 2, 4 and 6. Which number goes in that square?",
+      "options": [
+        "4",
+        "2",
+        "6"
+      ],
+      "answer": 0,
+      "hints": [
+        "The pair of squares has to hold 2 and 6 between them.",
+        "So the third square cannot be 2 or 6.",
+        "Example: a pair with 5 and 9, and a square with notes 1, 5, 7 and 9, leaves 1 and 7. Cross out the pair's numbers here."
+      ],
+      "explain": "The pair uses up 2 and 6 in the box. The other square can only be 4."
+    },
+    {
+      "q": "Why can you cross out the pair's numbers from the other squares in that row, column or box?",
+      "options": [
+        "The two pair squares must hold those two numbers between them",
+        "Those numbers are too big to be written anywhere else",
+        "The rules of the puzzle say that you must always cross out any pair you find"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what the two squares must contain.",
+        "If the two squares hold 3 and 8 in some order, are any 3s or 8s left for the others?",
+        "Example: if two seats can only be taken by Ann and Ben, nobody else can sit there. Use the same idea for numbers."
+      ],
+      "explain": "Those two squares will use up both numbers, so no other square in the row, column or box can be either one."
+    }
+  ]
+}

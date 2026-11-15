@@ -51,7 +51,7 @@ flowchart LR
 |---|---|---|
 | **App** | Everything people see and tap. One codebase (Expo / React Native) builds the website, the Android app and the iPhone app. | `app/` |
 | **API server** | The brain: accounts, PIN, which lessons a child may see, checking answers, giving hints, Hoot, screen time, parent reports. Keeps every answer secret. | `server/` |
-| **Content** | The curriculum as plain JSON files: the knowledge map, 205 lessons, 68 puzzles, 27 free resources, helplines, Hoot safety tests. Loaded by the server when it starts. | `content/` |
+| **Content** | The curriculum as plain JSON files: the knowledge map, 210 lessons, 68 puzzles, 27 free resources, helplines, Hoot safety tests. Loaded by the server when it starts. | `content/` |
 | **Database** | Families, children, progress, chats and settings. SQLite on a computer; Postgres (Neon) when deployed. | created automatically |
 | **Outside services** | Claude (Hoot, optional), Postmark (email, at launch), Wikipedia (summaries for 9+), YouTube privacy-enhanced player (videos). | — |
 
@@ -150,6 +150,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `routes/auth.ts` | `/auth/signup`, `login`, `verify-email`, `resend-verification`, `forgot-password`, `reset-password`, `reset-pin`, `parent-unlock` |
 | `routes/learn.ts` | `/family`, `/children/:id/home` (includes up to 3 gentle "Try next" suggestions), `lessons`, `lessons/:lessonId` (+ `/hint`, `/check`, `/complete`, `/learn-more`), `resources`, `practice`, `facts` (random quick facts with a source link; no secrets) |
 | `routes/puzzles.ts` | `/children/:id/puzzles` (+ `/hint`, `/check`, `/complete`) |
+| `routes/games.ts` | `/children/:id/games/sudoku` (+ `/:n`, `/:n/check`, `/:n/hint`): Sudoku puzzles, checks and the hint ladder |
 | `routes/spelling.ts` | `/children/:id/spelling/today`, `/spelling/check` (daily words, Leitner boxes) |
 | `routes/usage.ts` | `/children/:id/usage`, `/usage/tick` |
 | `routes/tutor.ts` | `/children/:id/tutor/:lessonId` (Hoot), `/reports` |
@@ -175,6 +176,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `tutor_messages` | Hoot chats (flagged ones marked) |
 | `auth_codes` | Hashed email codes |
 | `usage` | Minutes and bonus minutes per child per day |
+| `games_solved` | Which game puzzles (Sudoku) a child has finished |
 | `family_lessons` | Lessons a parent wrote for their own children (private to the family) |
 | `spelling_progress`, `spelling_days` | Which spelling words each child practises, when each is due again, and the words chosen for each day |
 | `reports` | "Report a problem" submissions |

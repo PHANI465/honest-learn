@@ -1,0 +1,102 @@
+{
+  "id": "b5-think-sudoku-x-wing",
+  "title": "Sudoku Stretch: the X-Wing",
+  "band": "b5",
+  "subject": "thinking",
+  "outcomes": [
+    "b5-think-8"
+  ],
+  "sensitive": null,
+  "minutes": 14,
+  "status": "draft",
+  "reviewers": [],
+  "sources": [
+    {
+      "title": "Wikipedia: Sudoku",
+      "url": "https://en.wikipedia.org/wiki/Sudoku",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    },
+    {
+      "title": "Wikipedia: Glossary of Sudoku",
+      "url": "https://en.wikipedia.org/wiki/Glossary_of_Sudoku",
+      "license": "CC BY-SA 4.0 (reference; text is original)"
+    }
+  ],
+  "sections": [
+    {
+      "type": "text",
+      "body": "The X-wing is a stretch technique for harder 9 by 9 puzzles. It removes candidates when a number has exactly two possible places in each of two rows."
+    },
+    {
+      "type": "text",
+      "body": "Suppose the number 7 can only go in column 3 or column 8 in row 2, and also only in column 3 or column 8 in row 6. The four squares form the corners of a rectangle, which is the 'X'."
+    },
+    {
+      "type": "text",
+      "body": "Now reason it through. Row 2 needs one 7, either in column 3 or in column 8. Row 6 also needs one 7 in column 3 or 8. They cannot share a column, so if row 2 uses column 3, row 6 must use column 8, and the other way round."
+    },
+    {
+      "type": "text",
+      "body": "Either way, one 7 ends up in column 3 and one in column 8. So no other square in column 3 or column 8 can be a 7. You can cross 7 out of every other square in those two columns. The same idea works with rows and columns swapped."
+    },
+    {
+      "type": "text",
+      "body": "This is a logical proof, not a guess. If you cannot find an X-wing, ask for a hint in the game: it will point you toward a simpler step when one exists."
+    },
+    {
+      "type": "tryit",
+      "body": "In a hard puzzle, write the notes for one number, such as 7. Look for two rows where that number has exactly two places, in the same two columns."
+    },
+    {
+      "type": "parent",
+      "body": "The X-wing is not needed for most puzzles. It is offered as a stretch for teens who enjoy logic. The key skill is the chain of reasoning: 'if this, then that, so either way this must be true'."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "In rows 2 and 6, the number 7 can only go in columns 3 and 8. What can you eliminate?",
+      "options": [
+        "7 from every other square in columns 3 and 8",
+        "7 from every other square in rows 2 and 6 as well",
+        "Every number from every square in columns 3 and 8"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about where the two 7s must end up.",
+        "One 7 will be in column 3 and one in column 8, one from each row.",
+        "Example: if 4 can only go in rows 1 or 5 in column 2, and also only in rows 1 or 5 in column 6, the same idea works with rows and columns swapped: 4 is removed from other squares in rows 1 and 5. Decide which lines lose the 7 here."
+      ],
+      "explain": "The two 7s fill columns 3 and 8, so no other square in those columns can be 7."
+    },
+    {
+      "q": "How many rows and how many columns are involved in an X-wing?",
+      "options": [
+        "Two rows and two columns",
+        "One row and one column",
+        "Three rows and three columns"
+      ],
+      "answer": 0,
+      "hints": [
+        "The four corner squares of a rectangle make the 'X'.",
+        "A rectangle has two sides across and two sides up.",
+        "Example: a rectangle drawn on a grid has four corners, with two of them in one row and two in the next row. Count the rows and columns the corners use."
+      ],
+      "explain": "Four corner squares sit in two rows and two columns."
+    },
+    {
+      "q": "In an X-wing, if row 2 puts its 7 in column 3, where must row 6 put its 7?",
+      "options": [
+        "In column 8",
+        "In column 3",
+        "In any column"
+      ],
+      "answer": 0,
+      "hints": [
+        "Row 6 can only use column 3 or column 8 for its 7.",
+        "Two 7s cannot be in the same column.",
+        "Example: if two people can only sit in seat A or seat B, and one takes seat A, the other takes seat B. Use the same idea for columns."
+      ],
+      "explain": "A column cannot hold two 7s. Column 3 is taken, so row 6's 7 must go in column 8."
+    }
+  ]
+}
