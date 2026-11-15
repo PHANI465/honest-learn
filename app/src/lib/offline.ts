@@ -17,6 +17,7 @@ import { api, ApiError, onReachability, type Child, type ContentMap } from "./ap
 import { storage } from "./storage";
 import { PLAYED_KEY } from "./games/played";
 import { SAVED_CHESS_KEY } from "./games/saved-chess";
+import { FACTS_KEY } from "./facts";
 import type { Usage } from "./timer";
 
 const PREFIX = "hl.off.";
@@ -429,7 +430,7 @@ export async function clearOfflineData(): Promise<void> {
   generation++;
   await serial(async () => {
     const index = (await loadJson<[string, number][]>(INDEX_KEY)) ?? [];
-    for (const key of [...index.map(([k]) => k), INDEX_KEY, OUTBOX_KEY, TICKS_KEY, FAMILY_KEY, MAP_KEY, PLAYED_KEY, SAVED_CHESS_KEY]) {
+    for (const key of [...index.map(([k]) => k), INDEX_KEY, OUTBOX_KEY, TICKS_KEY, FAMILY_KEY, MAP_KEY, PLAYED_KEY, SAVED_CHESS_KEY, FACTS_KEY]) {
       try {
         await storage.remove(key);
       } catch {

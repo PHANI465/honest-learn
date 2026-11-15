@@ -58,7 +58,8 @@ describe("quick facts", () => {
     assert.equal(r.status, 200);
     assert.equal(r.json.facts.length, 2);
     for (const f of r.json.facts) {
-      assert.deepEqual(Object.keys(f).sort(), ["id", "source", "subject", "text"]);
+      assert.deepEqual(Object.keys(f).sort(), ["id", "sensitive", "source", "subject", "text"]);
+      assert.equal(f.sensitive, null);
       assert.ok(f.id.startsWith("b3-"));
       assert.ok(f.source.url.startsWith("https://"));
     }
@@ -79,6 +80,15 @@ describe("quick facts", () => {
     let seenSensitive = false;
     for (let i = 0; i < 10 && !seenSensitive; i++) seenSensitive = (await ids()).has("b3-t4");
     assert.ok(seenSensitive);
+  });
+
+  test("a fact behind a parent's unlock says so, so the app never keeps it for offline use", async () => {
+    const { call, fam, par, kid } = await setup();
+    await call("PATCH", `/parent/children/${kid}`, { unlockedTopics: ["religion"] }, par);
+    const all = new Map<string, unknown>();
+    for (let i = 0; i < 12; i++) for (const f of (await call("GET", `/children/${kid}/facts?count=5`, undefined, fam)).json.facts) all.set(f.id, f.sensitive);
+    assert.equal(all.get("b3-t4"), "religion");
+    for (const id of ["b3-t1", "b3-t2", "b3-t3"]) assert.equal(all.get(id), null);
   });
 
   test("facts already seen are skipped while others remain", async () => {

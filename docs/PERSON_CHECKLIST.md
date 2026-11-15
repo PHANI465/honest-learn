@@ -164,7 +164,7 @@ None of these needs a person's expertise, only a decision to start.
 | ~~Move a family between a phone and a server~~ **done 15 Nov 2026** | `POST /parent/import` and the transfer screen. Open: try it between a real phone and a real server (part 2) | Opus, high |
 | **A splash screen** | After you agree to the package (part 1) | Sonnet, low |
 | **Rebalance the 265 "longest correct option" quiz questions** | A reviewer must still approve the result | Haiku, low, with review |
-| **Offline caching of quick facts** | Facts need the internet today | Sonnet, medium |
+| ~~Offline caching of quick facts~~ **done 15 Nov 2026** | Facts a child has been shown are kept on the device. Open: try it on a real phone with the internet switched off (part 2) | Sonnet, medium |
 
 ---
 

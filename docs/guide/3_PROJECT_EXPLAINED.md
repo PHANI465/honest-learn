@@ -122,7 +122,7 @@ Outside websites need the parent PIN under 13; teens see a "you're leaving Hones
 The app reports one minute at a time while a child is actively learning; the server counts it (once per 50 seconds at most), so the daily limit holds across every device. Parents can give extra minutes for today with the PIN.
 
 ### Offline
-Lessons a child has opened are saved on the device (without answers), so they can be read without internet. Answers are checked when the connection returns; finished lessons and minutes are sent then. The website can be installed to the home screen and opens offline.
+Lessons a child has opened are saved on the device (without answers), so they can be read without internet. Answers are checked when the connection returns; finished lessons and minutes are sent then. The quick-fact card keeps the facts a child has been shown (up to 40 per child, never a fact a parent has to unlock), so it still works offline. The website can be installed to the home screen and opens offline.
 
 ### Pre-launch mode vs launch
 Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft lessons are shown, email verification is off, email codes go to the server log, and a sign-in secret is generated automatically. This lets the site run on Vercel with **zero settings** for testing and review. `LAUNCH=true` switches to strict defaults (drafts hidden, verification on, real email required).

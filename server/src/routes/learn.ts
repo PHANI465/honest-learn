@@ -33,7 +33,7 @@ export function learnRoutes(ctx: Ctx) {
 
   /**
    * Quick facts for the child's age group, picked at random. `count` is 1 to 5; `seen` (comma-separated ids) skips
-   * facts the app has already shown. Facts hold no secrets. Facts tied to a sensitive topic need the parent's unlock.
+   * facts the app has already shown. Facts hold no secrets. Facts tied to a sensitive topic need the parent's unlock, and say so (`sensitive`) so the app never keeps them for offline use.
    */
   r.get("/children/:childId/facts", async (c) => {
     const child = await loadChild(c);
@@ -54,7 +54,7 @@ export function learnRoutes(ctx: Ctx) {
     const picked: typeof pool = [];
     const rest = [...pool];
     while (picked.length < q.count && rest.length) picked.push(rest.splice(pf().randomInt(rest.length), 1)[0]!);
-    return c.json({ facts: picked.map((f) => ({ id: f.id, subject: f.subject, text: f.text, source: f.source })) });
+    return c.json({ facts: picked.map((f) => ({ id: f.id, subject: f.subject, text: f.text, source: f.source, sensitive: f.sensitive ?? null })) });
   });
 
   r.get("/children/:childId/home", async (c) => {

@@ -31,7 +31,7 @@ Status as of 15 November 2026 (v0.5.0). ✅ = built, ⬜ = still to do. Built me
 - ✅ Screen-time limits counted on the server (work across devices); parent can add minutes with PIN
 - ✅ Automatic deletion of old chats (`CHAT_RETENTION_DAYS`)
 - ✅ CI workflow, EAS build profiles, reviewer spreadsheets
-- ✅ Offline mode: lessons, lesson lists, puzzles and free resources a child has opened are saved on the device (never answers, parent-area data or Hoot chats) and shown with a "You're offline" notice; lessons finished and minutes learned offline are sent once when back online
+- ✅ Offline mode: lessons, lesson lists, puzzles and free resources a child has opened are saved on the device (never answers, parent-area data or Hoot chats) and shown with a "You're offline" notice; lessons finished and minutes learned offline are sent once when back online; the "Did you know?" card keeps up to 40 facts a child has been shown (never one behind a parent's unlock) and shows them offline
 - ✅ Install the website: web app manifest, home-screen icons and a service worker, so the website can be added to a phone's home screen and opens without internet
 
 - ✅ v0.4: third quiz question on every lesson for ages 6–18 (630 questions), 68 brain puzzles
