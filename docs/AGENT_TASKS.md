@@ -69,7 +69,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T2 | Quick facts between lessons | Haiku low (content), Sonnet medium (code) | S + S | none | **done** 14 Nov 2026 | 200 facts (40 per band), all draft; `FactCard`; `scripts/check-fact-sources.mjs`. A person must spot-check 1 in 5 |
 | T3 | Daily spelling and vocabulary | Sonnet medium (code), Haiku low (word lists) | L | none | **done** 14 Nov 2026 | Server, screen and 605 words (120+ per band). Open: spellingVariant, reviewer pass |
 | T4 | Quantitative aptitude and reasoning lessons | Sonnet medium | L | none | **done** 14 Nov 2026 | 30 lessons across b2 to b5; every band needs a human maths check |
-| T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku done 14 Nov 2026. 5b chess, 5c memory games, 5d play chess: todo |
+| T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku and 5c memory games done 14 Nov 2026. 5b chess and 5d play chess: todo |
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | todo | Security sensitive |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | todo | |
@@ -473,3 +473,19 @@ are private to that family and are included in export and deletion. **Sonnet med
   solved with singles); the hint finder knows singles only, so on hard puzzles it falls back to naming the square with the fewest options;
   progress is not shown to parents. Pattern for the next games: a route module like `routes/games.ts`, a `games/<name>.ts` for the pure
   logic with tests, a card in `games/index.tsx`.
+- **T5c memory and logic games (done).** All on the device, no server. Pure rules in `app/src/lib/games/` (`pairs.ts`, `sequence.ts`,
+  `changed.ts`, `slide.ts`, `nonogram.ts`, each self-contained and taking a random function so tests can seed it) and tested from
+  `server/test/memory-games.test.ts` (the app has no test runner; the tests import the app files with relative paths, so keep these
+  modules free of `react-native` imports and of imports between each other). Screens in `app/src/app/learn/[childId]/games/`
+  (`pairs`, `sequence`, `changed`, `slide`, `nonogram`), listed by age in `games/index.tsx`: Pairs 3 to 10 pairs by age; Copy the pattern
+  3 to 6 buttons told apart by picture, name and colour, no game over, a wrong tap replays the pattern; Which one changed? a picture
+  that stays until the child taps "I'm ready", with a peek button; Slide the tiles 3x3 (ages 6 to 11) and 4x4 (12+), boards made by
+  sliding from the solved state so they are always solvable; Nonogram 5x5 (12 to 14) and 7x7 (15 to 18), generated with a solver
+  that guarantees exactly one solution (checked against brute force on 4x4 in the tests, and independently on a live 7x7 in the
+  browser). The "played" record is `lib/games/played.ts`: one count per game per child, on the device only, cleared on sign-out; no dates,
+  streaks or scores. Looked at in a real browser at phone width: hub, Pairs (played to the end), pattern (replayed and repeated), spot
+  the change (wrong guess and found), sliding tiles (solved), nonograms 5x5 and 7x7 (fill, cross, clear, ticks, finished). **Not done:**
+  the youngest group (ages 3 to 5) has Pairs, pattern and spot-the-change but these were only looked at on the 9 to 11 screen
+  size; no screen reader or keyboard pass; no sound; reduced-motion has nothing to disable because nothing moves, but the pattern
+  highlight timing (750 ms, 1,000 ms for ages 3 to 5) has not been tried with real children; the in-memory shuffle uses
+  `Math.random` so games are not repeatable (only the tests seed them).
