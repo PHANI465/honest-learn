@@ -160,6 +160,9 @@ export function friendly(err: unknown): string {
     too_large: "That's too long to send. Please make it shorter.",
     wrong_recovery_phrase: "That email and recovery phrase don't match.",
     not_on_this_device: "This needs email, which the app doesn't use when it runs on this phone only.",
+    pin_reset_needed: "Too many wrong PINs. Tap \"Forgot your PIN?\" and use your account password to set a new one.",
+    password_reset_needed: "Too many wrong passwords. Use \"Forgot password?\" and your recovery phrase to set a new one.",
+    phone_has_family: "This phone already has a family account. Sign in instead. To start again, delete the old account in the parent area (it needs the password).",
     device_storage_error: "The app couldn't read its own storage on this phone. Close the app and open it again.",
   };
   return map[err.code] ?? "Something went wrong. Please try again.";

@@ -21,7 +21,8 @@ export interface ExpoSqliteLike {
 }
 
 export async function expoSqliteAdapter(db: ExpoSqliteLike): Promise<DbAdapter> {
-  await db.execAsync("PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL;");
+  // secure_delete: deleted rows (a deleted child, a deleted account, old Hoot chats) are overwritten on disk, not just unlinked.
+  await db.execAsync("PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL; PRAGMA secure_delete = ON;");
   const fk = await db.getFirstAsync<{ foreign_keys: number }>("PRAGMA foreign_keys", []);
   if (Number(fk?.foreign_keys) !== 1) throw new Error("SQLite foreign keys could not be switched on; refusing to open the database");
   return {

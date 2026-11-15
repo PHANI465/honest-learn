@@ -20,6 +20,9 @@ export interface ParentRow {
   token_version: number | null;
   /** Standalone mode only: hash of the recovery phrase. */
   recovery_hash?: string | null;
+  /** Lockouts in a row (no correct PIN or password since). */
+  pin_lock_level?: number;
+  login_lock_level?: number;
   consent_at: string;
   created_at: string;
 }

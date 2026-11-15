@@ -73,7 +73,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku, 5b chess and 5c memory games done 14 Nov 2026. 5d play chess against the computer: todo (needs an engine and licence decision) |
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | **done** 14 Nov 2026 | `parent/ai.tsx`, `ai-settings.ts`; no real model or hosted key tried; DNS rebinding open (`SECURITY.md`) |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
-| T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **in progress** | 8a, 8b and 8c done 14 Nov 2026 ("On this phone only" works end to end: first-run choice, recovery phrase, wellbeing notice; [`STANDALONE.md`](STANDALONE.md)). Next: 8d (Opus high). **Not yet run on a phone** |
+| T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **done** 15 Nov 2026 (code) | 8a to 8d done 14 to 15 Nov 2026 ("On this phone only" works end to end: first-run choice, recovery phrase, wellbeing notice; [`STANDALONE.md`](STANDALONE.md)). Reviewed in 8d ([`SECURITY.md`](SECURITY.md), "Standalone mode"). **Not yet run on a phone: a person must try it in Expo Go** |
 | T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | todo | Needs a Deaf reviewer |
 | T10 | "Add your own lessons" for parents | Sonnet medium | M | none | **done** 14 Nov 2026 | `parent/lessons.tsx`; private to the family; no look at it in a browser yet |
 | T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | **in progress** | Code and `docs/MOBILE.md` done 14 Nov 2026; accounts, signed builds and store forms need a person |
@@ -583,6 +583,17 @@ are private to that family and are included in export and deletion. **Sonnet med
   type-checked and linted only, because the website cannot enter standalone mode. **First thing for 8d or a person:** install the app in
   Expo Go (`cd app && npx expo start`, scan the QR code), choose "On this phone only", sign up, write down the phrase, add a child, do a
   lesson, ask Hoot something worrying, check the notice, then reset the password with the phrase.
+- **T8d (done).** Security review of standalone mode, written up in `docs/SECURITY.md` ("Standalone mode: what protects what", findings
+  20 to 24). Owner's decisions (15 Nov 2026): **keep the phone's own backups** (Android and iCloud may include the database; the privacy notice and
+  the first-run card now say so) and **one family per phone**. Fixed: on a phone, after `config.security.deviceLockoutsBeforeReset` (2) lockouts in a
+  row the PIN needs the password (`pin_reset_needed`) and the password needs the recovery phrase (`password_reset_needed`; sign-in, PIN reset and
+  `checkPassword` all refuse), because the phone's clock can be moved to end a timed lock; sign-up on a phone with a family answers 409
+  `phone_has_family`; the phone adapter sets `PRAGMA secure_delete = ON`. Checked with `npx expo config --type introspect`: Android `allowBackup` is on
+  and expo-secure-store's backup rules exclude its keys. Tests: 5 more in `server/test/standalone.test.ts` (each rule also in server mode, to
+  show servers are unchanged), 1 in `db-contract.test.ts`. Accepted and documented: answers readable by anyone who unpacks the app; offline
+  guessing of the PIN or a weak password from a copy of the database file; daily limits reset by moving the date; no DNS check for an own model
+  address; no phone notification for wellbeing alerts. **Open for a person:** run standalone mode on a real phone (the checklist in the T8c note),
+  including a backup and restore on Android; consider whether a 30-day sign-in makes sense on a phone (the family must type the password monthly).
 - **T11 (in progress: everything an agent can do is done).** `T8` is not done, so the phone app still needs a server; the guide's step 4 (a first-run server
   address) is built: `app/src/lib/server-address.ts` (pure rules: normalising, `https` outside the home network and `http` only for localhost and
   private addresses, finding the server at the root or under `/api`, a `/health` probe with a timeout; tested in `server/test/server-address.test.ts`),

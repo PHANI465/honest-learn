@@ -12,7 +12,7 @@ import type { Ctx, Env } from "../context.ts";
 const CODE_COOLDOWN_MS = 60_000;
 
 export function authRoutes(ctx: Ctx) {
-  const { db, getParent, getParentByEmail, requireScope, isLocked, takeTry, wrongTry, PIN_TRIES, LOGIN_TRIES } = ctx;
+  const { db, getParent, getParentByEmail, requireScope, isLocked, needsReset, takeTry, wrongTry, PIN_TRIES, LOGIN_TRIES } = ctx;
   const r = new Hono<Env>();
 
   // ---- per-IP rate limit, counted in the database so every server instance shares it
@@ -41,6 +41,9 @@ export function authRoutes(ctx: Ctx) {
       })
       .parse(await c.req.json());
     if (await getParentByEmail(body.email)) return c.json({ error: "email_taken" }, 409);
+    // Standalone mode: one family per phone. Otherwise anyone at the welcome screen (a child, after the sign-in has expired) could
+    // make a second account with their own PIN and no parental controls. To start over, the parent deletes the account (password).
+    if (ctx.device && (await db.get("SELECT 1 AS x FROM parents LIMIT 1"))) return c.json({ error: "phone_has_family" }, 409);
     const id = newId();
     // Standalone mode: a recovery phrase instead of email. Shown once, here; only its hash is kept.
     const recoveryPhrase = ctx.device ? newRecoveryPhrase() : null;
@@ -145,6 +148,7 @@ export function authRoutes(ctx: Ctx) {
   r.post("/reset-pin", requireScope("family"), async (c) => {
     const body = z.object({ password: Secret, newPin: Pin }).parse(await c.req.json());
     const p = c.get("parent");
+    if (needsReset(p.login_lock_level)) return c.json({ error: "password_reset_needed" }, 403);
     if (isLocked(p.login_locked_until)) return c.json({ error: "too_many_attempts" }, 429);
     const tryNo = await takeTry(LOGIN_TRIES, p.id);
     if (tryNo > LOGIN_TRIES.max()) {
@@ -169,6 +173,7 @@ export function authRoutes(ctx: Ctx) {
       ctx.verifyAgainstNothing(body.password); // same work as a real check: timing doesn't reveal accounts
       return c.json({ error: "wrong_email_or_password" }, 401);
     }
+    if (needsReset(p.login_lock_level)) return c.json({ error: "password_reset_needed" }, 403);
     if (isLocked(p.login_locked_until)) return c.json({ error: "too_many_attempts", retryAt: p.login_locked_until }, 429);
     const tryNo = await takeTry(LOGIN_TRIES, p.id);
     if (tryNo > LOGIN_TRIES.max()) {
@@ -187,6 +192,7 @@ export function authRoutes(ctx: Ctx) {
   r.post("/parent-unlock", requireScope("family"), async (c) => {
     const { pin } = z.object({ pin: Secret }).parse(await c.req.json());
     const p = c.get("parent");
+    if (needsReset(p.pin_lock_level)) return c.json({ error: "pin_reset_needed" }, 403);
     if (isLocked(p.pin_locked_until)) return c.json({ error: "too_many_attempts", retryAt: p.pin_locked_until }, 429);
     const tryNo = await takeTry(PIN_TRIES, p.id);
     if (tryNo > PIN_TRIES.max()) {

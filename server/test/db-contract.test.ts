@@ -94,6 +94,12 @@ describe("the app's expo-sqlite adapter", () => {
   test("refuses to open a database where foreign keys cannot be switched on (deletes would leave children's data behind)", async () => {
     await assert.rejects(expoSqliteAdapter(expoSqliteStandIn({ ignorePragmas: true })), /foreign keys/);
   });
+  test("overwrites deleted data on disk (secure_delete), so a deleted account does not linger in the file", async () => {
+    const standIn = expoSqliteStandIn();
+    const a = await expoSqliteAdapter(standIn);
+    assert.equal(Number((await a.get("PRAGMA secure_delete", []))?.secure_delete), 1);
+    await a.close();
+  });
   test("gives undefined, not null, for a missing row", async () => {
     const a = await expoSqliteAdapter(expoSqliteStandIn());
     assert.equal(await a.get("SELECT 1 AS one WHERE 1 = 0", []), undefined);

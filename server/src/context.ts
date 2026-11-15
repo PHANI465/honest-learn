@@ -134,6 +134,11 @@ export function createContext(deps: Deps) {
 
   // ---------------------------------------------------------------- attempt limits
   const isLocked = (until: string | null) => !!until && new Date(until) > new Date();
+  /**
+   * Standalone mode: guesses must not depend on the clock (see config.security.deviceLockoutsBeforeReset). After that many
+   * lockouts in a row the PIN needs the password and the password needs the recovery phrase. Never on a server.
+   */
+  const needsReset = (level: number | undefined) => !!deps.device && (level ?? 0) >= config.security.deviceLockoutsBeforeReset;
   const minutesFromNow = (m: number) => new Date(Date.now() + m * 60_000).toISOString();
 
   // Each guess first takes a numbered try with one atomic UPDATE, so parallel requests (or several
@@ -209,7 +214,7 @@ export function createContext(deps: Deps) {
 
   /** Checks the account password with the same attempt limit as signing in. Used before destructive account actions. */
   async function checkPassword(p: ParentRow, password: string): Promise<"ok" | "wrong" | "locked"> {
-    if (isLocked(p.login_locked_until)) return "locked";
+    if (isLocked(p.login_locked_until) || needsReset(p.login_lock_level)) return "locked";
     const tryNo = await takeTry(LOGIN_TRIES, p.id);
     if (tryNo > LOGIN_TRIES.max()) {
       await wrongTry(LOGIN_TRIES, p.id, tryNo);
@@ -306,6 +311,7 @@ export function createContext(deps: Deps) {
     openHint,
     mayReveal,
     isLocked,
+    needsReset,
     minutesFromNow,
     PIN_TRIES,
     LOGIN_TRIES,

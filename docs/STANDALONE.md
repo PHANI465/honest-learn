@@ -1,7 +1,8 @@
 # Standalone mode: the API inside the app
 
 How the phone app will work with no server at all (task T8 in [`AGENT_TASKS.md`](AGENT_TASKS.md)): the app runs the server's own
-code on the device. Written for **T8a**, **T8b** and **T8c** (14 November 2026). 8d (security review) builds on it.
+code on the device. Written for **T8a**, **T8b** and **T8c** (14 November 2026) and reviewed in **T8d** (15 November 2026): what protects what is in
+[`SECURITY.md`](SECURITY.md), section "Standalone mode".
 
 **Status.** Built end to end, not yet tried on a phone. On first run the phone app asks how the family will use it (`app/start.tsx`):
 **On this phone only** (standalone mode) or **Connect to a server**. In standalone mode every request goes to the API inside the
@@ -120,12 +121,16 @@ All of these run in CI.
 | Backup | the server's database | the data download exists (`GET /parent/export`); importing it back, and moving a family between a phone and a server, does not | later |
 | Email (verification, password reset, wellbeing alert) | Postmark | none (`NoMailer`): recovery phrase, parent-area notice | done (8c) |
 | Token secret and AI key secret | environment or database | generated on first use into expo-secure-store (Keychain/Keystore), `hl.device.tokenSecret` and `hl.device.aiKeySecret`, so a copy of the database file alone cannot forge a sign-in | done (8c) |
-| Recovery phrase | none | 120 random bits, only its scrypt hash stored; guessing is limited like the password | 8d to review |
+| Recovery phrase | none | 120 random bits, only its scrypt hash stored; guessing is limited like the password | reviewed (8d) |
+| Lockouts | timed (the server's clock) | timed, and after 2 lockouts in a row the PIN needs the password and the password needs the recovery phrase: the phone's clock can be moved | done (8d) |
+| Family accounts | any number | one per phone (`phone_has_family`) | done (8d) |
+| Deleted data | rows deleted | rows deleted and overwritten (`PRAGMA secure_delete`) | done (8d) |
+| Backups | the server's own | the phone's own backup to the family's Google or Apple account may include the database (owner's decision, 15 Nov 2026); the security keys are excluded from Android backups (checked in the generated manifest) | done (8d) |
 | CORS | on | off (no other website can call an in-app API) | done |
-| Own model address | written address checked, then resolved and checked before every request | written address checked only: a phone has no DNS lookup to call | 8d to review |
-| Sign-in rate limit per address | per client IP | all requests count as one address ("unknown"): 30 sign-in requests per 10 minutes on the device (PIN unlocks count too; the per-account PIN and password limits are unchanged) | 8d |
+| Own model address | written address checked, then resolved and checked before every request | written address checked only: a phone has no DNS lookup to call | accepted (8d) |
+| Sign-in rate limit per address | per client IP | all requests count as one address ("unknown"): 30 sign-in requests per 10 minutes on the device (PIN unlocks count too; the per-account PIN and password limits are unchanged) | accepted (8d) |
 | Moving a family between a phone and a server | | not possible yet: the data download exists, an import does not | later |
-| Who can read the answers | only the server | anyone who can open the app's files (by design: the family's own phone, see the guide) | 8d |
+| Who can read the answers | only the server | anyone who can open the app's files (by design: the family's own phone, see the guide) | accepted (8d) |
 
 **Not verified yet (needs a real phone or emulator; nobody has run `openDeviceApi()` on one):** Hermes itself (the proof runs the Android bundle in Node's V8 with React
 Native's globals, not in Hermes); how long scrypt takes on a phone (measured 14 Nov 2026 on a laptop: about 75 ms per hash with

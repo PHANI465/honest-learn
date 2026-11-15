@@ -155,3 +155,60 @@ describe("the wellbeing notice in the parent area (both modes)", () => {
     });
   }
 });
+
+describe("standalone mode: guesses do not depend on the phone's clock (T8d)", () => {
+  // On a phone the clock belongs to whoever holds it. Clearing the timed lock in the database is what moving the clock forward does.
+  const clockForward = (db: Awaited<ReturnType<typeof setup>>["db"]) => db.run("UPDATE parents SET pin_locked_until = NULL, login_locked_until = NULL");
+
+  for (const device of [true, false]) {
+    test(`${device ? "phone" : "server"}: after two PIN lockouts in a row, ${device ? "only the password can reset the PIN" : "the PIN works again once the lock ends"}`, async () => {
+      const { db, call, fam } = await setup(device);
+      for (let lockout = 0; lockout < 2; lockout++) {
+        for (let i = 0; i < 5; i++) await call("POST", "/auth/parent-unlock", { pin: "1111" }, fam);
+        // the first lockout is timed; on a phone the second one needs the password at once (403), on a server it is timed again
+        assert.equal((await call("POST", "/auth/parent-unlock", { pin: "2468" }, fam)).status, device && lockout === 1 ? 403 : 429);
+        await clockForward(db);
+      }
+      const right = await call("POST", "/auth/parent-unlock", { pin: "2468" }, fam);
+      if (!device) {
+        assert.equal(right.status, 200, "unchanged on a server: its clock can be trusted");
+        return;
+      }
+      assert.equal(right.status, 403);
+      assert.equal(right.json.error, "pin_reset_needed", "even the right PIN is refused: moving the clock gives no more guesses");
+      assert.equal((await call("POST", "/auth/reset-pin", { password: PASSWORD, newPin: "1357" }, fam)).status, 200);
+      assert.equal((await call("POST", "/auth/parent-unlock", { pin: "1357" }, fam)).status, 200);
+    });
+
+    test(`${device ? "phone" : "server"}: after two password lockouts in a row, ${device ? "only the recovery phrase opens the account" : "the password works again once the lock ends"}`, async () => {
+      const { db, call, email, fam, phrase } = await setup(device);
+      for (let lockout = 0; lockout < 2; lockout++) {
+        for (let i = 0; i < 8; i++) await call("POST", "/auth/login", { email, password: "not the password" });
+        await clockForward(db);
+      }
+      const right = await call("POST", "/auth/login", { email, password: PASSWORD });
+      if (!device) {
+        assert.equal(right.status, 200);
+        return;
+      }
+      assert.equal(right.json.error, "password_reset_needed");
+      assert.equal((await call("POST", "/auth/reset-pin", { password: PASSWORD, newPin: "1357" }, fam)).json.error, "password_reset_needed", "nor can it reset the PIN");
+      const r = await call("POST", "/auth/recover", { email, phrase: phrase!, newPassword: "a new password" });
+      assert.equal(r.status, 200, "the recovery phrase still works");
+      assert.equal((await call("POST", "/auth/login", { email, password: "a new password" })).status, 200);
+    });
+  }
+
+  test("phone: one family per phone; a server takes any number", async () => {
+    const phone = await setup(true);
+    const second = await phone.call("POST", "/auth/signup", { email: "second@example.com", password: PASSWORD, pin: "1357", confirmAdult: true, consentVersion: CONSENT_VERSION });
+    assert.equal(second.status, 409);
+    assert.equal(second.json.error, "phone_has_family");
+    // starting over: the parent deletes the account (password), then a new one can be made
+    assert.equal((await phone.call("DELETE", "/parent/account", { password: PASSWORD }, phone.par)).status, 200);
+    assert.equal((await phone.call("POST", "/auth/signup", { email: "second@example.com", password: PASSWORD, pin: "1357", confirmAdult: true, consentVersion: CONSENT_VERSION })).status, 201);
+
+    const server = await setup(false);
+    assert.equal((await server.call("POST", "/auth/signup", { email: "second@example.com", password: PASSWORD, pin: "1357", confirmAdult: true, consentVersion: CONSENT_VERSION })).status, 201);
+  });
+});

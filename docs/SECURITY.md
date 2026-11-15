@@ -1,6 +1,6 @@
 # Security
 
-How Honest Learn protects children and families, what the last security review found and fixed, and what is still open. Last reviewed: 13 November 2026; own-model settings added 14 November 2026.
+How Honest Learn protects children and families, what the last security review found and fixed, and what is still open. Last reviewed: 13 November 2026; own-model settings added 14 November 2026; standalone mode reviewed 15 November 2026.
 
 ## How the app protects families
 
@@ -65,6 +65,45 @@ How Honest Learn protects children and families, what the last security review f
 Findings 11 to 19 are tested in `server/test/hardening.test.ts`.
 
 Each earlier fix has an automated test in `server/test/api.test.ts` ("security hardening"); findings 9 and 10 are tested in `server/test/lockout.test.ts`.
+
+## Standalone mode (the phone app with no server): what protects what
+
+Reviewed 15 November 2026 (task T8d), from the code; **nobody has tried it on a real phone yet** (see `docs/STANDALONE.md`). In this mode the
+API, the database, every lesson and its answers live in the app on the family's phone. On a server, the server is the boundary that the app
+cannot cross. On a phone there is no such boundary: whoever holds the phone and has the skill to read an app's files can read everything in
+it. That is accepted for a family's own phone, where the realistic "attacker" is a curious child (decision in `AGENT_TASKS.md`, T8). The
+protections below aim at that child, at someone who finds the phone, and at other apps; none of them stops a determined expert with the
+unlocked phone, and the server mode is unchanged by any of it.
+
+| What | Protected by | What remains |
+|---|---|---|
+| **Quiz answers, hints, explanations** | The app's screens follow the same rules as on a server: the API inside the app keeps the answers and the hint ladder (`hints_seen`), and the screens get only what has been earned. | The answers are inside the app package and its database. A child who can unpack an app (or who looks up the lesson files on GitHub) can read them. By design. |
+| **Parent PIN** | scrypt hash (never the PIN itself). 5 wrong PINs lock it for 15 minutes; **after 2 lockouts in a row only the account password can set a new PIN** (`deviceLockoutsBeforeReset`), so moving the phone's clock forward gives no more guesses: 10 guesses in total, a 0.1% chance for a 4-digit PIN. | With a copy of the database file (a rooted phone or an unpacked backup), a 4 to 6 digit PIN can be tried offline in hours. The PIN guards settings inside the app, not the file. A 6-digit PIN helps. |
+| **Account password** | scrypt hash. 8 wrong passwords lock for 15 minutes; **after 2 lockouts in a row only the recovery phrase opens the account** (sign-in, PIN reset and the password-checking forms all refuse). | Offline guessing of a weak password from a copy of the file, as for the PIN. |
+| **Recovery phrase** | 24 characters, 120 random bits, shown once; only its scrypt hash is stored; guesses count against the password limit. A new phrase needs the PIN and the password, and the old one stops working. | Whoever finds the paper can reset the password. The phrase can be selected and copied, so it can end up on the clipboard. |
+| **Sign-in tokens** | Signed with a secret generated into the Keychain (iOS) or Keystore (Android), not the database, so a copy of the database alone cannot forge a sign-in. The family token is in the Keychain/Keystore; the parent token is in memory only and the app locks the parent area after 10 minutes. | Moving the clock back can stretch a parent token that was already issued (the parent must have left the area unlocked). |
+| **A second family account** (a child making their own account with no parental controls) | **One family per phone**: sign-up is refused when the phone already has one (`phone_has_family`). Starting over needs the old account deleted (password). | Removing and reinstalling the app wipes the family's data and allows a new account. Only the phone's own parental controls (app installs need a parent) stop that. |
+| **Children's data** (progress, Hoot chats, wellbeing flags) | The app's private storage, which other apps cannot read on a phone that is not rooted. Deleted rows are overwritten (`PRAGMA secure_delete`). Nothing is sent to the project. The data download needs the PIN. | **The phone's own backup** to the family's Google or Apple account may include it, if backups are on (owner's decision, 15 Nov 2026: keep backups so a family changing phones keeps its data; the privacy notice says so). The security keys are not restored from an Android backup, so the family signs in again and retypes any AI key. |
+| **Wellbeing alerts** | A notice in the PIN-protected parent area; the profile picker, which children see, only says that a grown-up should open it (no name, no details). | No email exists on a phone and there is no phone notification (owner's choice): if a parent never opens the parent area, nobody is told. |
+| **Daily limits** (screen minutes, 40 Hoot messages a day) | Counted by the API inside the app. | Moving the phone's date resets them. As on a server, these are family tools, not security boundaries. |
+| **A family's own AI model and key** | The key is sealed with AES-256-GCM under a secret in the Keychain/Keystore. The written address is checked as on a server (https, no metadata or link-local addresses). | A phone has no DNS lookup to call, so a name is not resolved and checked before each request. The parent sets the address with the password, and a phone has no cloud metadata service to protect. |
+| **What the app sends anywhere** | Nothing to the project. The phone itself fetches Wikipedia summaries for the fixed article titles in lessons, plays YouTube videos in the privacy-enhanced player, and calls the family's own AI model if one is set. | Wikipedia, YouTube and the model provider see the phone's address, as they do on the website. |
+
+### Review of 15 November 2026 (standalone mode): findings and fixes
+
+| # | Finding | Risk | Fix |
+|---|---|---|---|
+| 20 | PIN and password lockouts are timed, and on a phone the clock belongs to whoever holds it: moving it forward after each lockout would allow unlimited guesses (a 4-digit PIN in about 2,000 rounds). | Medium | After 2 lockouts in a row the PIN needs the password and the password needs the recovery phrase, whatever the clock says. Servers unchanged. |
+| 21 | Anyone at the welcome screen (for example a child after the 30-day sign-in expired) could create a second account with their own PIN and no parental controls. | Medium | One family per phone. |
+| 22 | Deleting a child or the account left the deleted rows in free pages of the SQLite file. | Low | `PRAGMA secure_delete = ON` in the phone's database adapter. |
+| 23 | The privacy notice and first-run screen said the data stays "only on this phone", but the phone's own backup may include it. | Low (honesty) | Wording corrected in both, after the owner chose to keep phone backups. |
+| 24 | (Found in T8a.) Node's AES-GCM accepted shortened authentication tags. | Low | Both platforms refuse any tag shorter than 16 bytes. |
+
+Findings 20 to 22 are tested in `server/test/standalone.test.ts` and `server/test/db-contract.test.ts`; 24 in `server/test/platform-contract.test.ts`.
+
+The Android backup set-up was checked in the generated manifest (`npx expo config --type introspect`, 15 Nov 2026): `allowBackup` is on and
+expo-secure-store's rules (`secure_store_backup_rules`, `secure_store_data_extraction_rules`) keep its keys out of backups. **Still to check on a
+real phone** (needs a person; see `docs/STANDALONE.md`): a backup and restore, that Hermes runs the shared code, and how long scrypt takes there.
 
 ## Known and accepted
 

@@ -52,7 +52,8 @@ export default function Start() {
           "Every lesson is in the app. Your account, your children's progress and Hoot chats stay on this phone.",
           "No email and no server. You get a recovery phrase instead, in case you forget your password.",
           "Hoot uses each lesson's own hints, or a model you connect yourself in the parent area.",
-          "Only on this phone: if the phone is lost or the app is removed, the data is gone. You can download a copy from the parent area.",
+          "One family account per phone. Nothing is sent to us. Your phone's own backup (to your Google or Apple account) may include it, if backups are on.",
+          "If the phone is lost without a backup, or the app is removed, the data is gone. You can download a copy from the parent area.",
         ].map(point)}
         <Button big title="Use on this phone only" onPress={deviceOnly} loading={busy} disabled={!!familyToken} />
       </Card>

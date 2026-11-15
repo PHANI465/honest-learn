@@ -97,6 +97,12 @@ export const config = {
     loginLockMinutes: 15,
     /** Repeated lockouts last longer: the Nth lockout in a row lasts (lock minutes × this step). A successful sign-in or PIN resets it. 15 min, 1 h, 6 h, 24 h. */
     lockEscalation: [1, 4, 24, 96],
+    /**
+     * Standalone mode only (the app on one phone): after this many lockouts in a row the PIN can only be reset with the password,
+     * and the password only with the recovery phrase. On a phone the clock belongs to whoever holds it, so time-based lockouts
+     * alone would let someone keep guessing by moving the clock forward. 2 lockouts = 10 wrong PINs or 16 wrong passwords.
+     */
+    deviceLockoutsBeforeReset: 2,
     familyTokenDays: 30,
     parentTokenMinutes: 10,
     codeMinutes: 15,
