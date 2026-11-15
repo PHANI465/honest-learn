@@ -1,6 +1,6 @@
 # Launch checklist
 
-Status as of v0.3.0. ✅ = built, ⬜ = still to do.
+Status as of v0.3.0 for the "Built so far" list (later work is in `AGENT_TASKS.md`). ✅ = built, ⬜ = still to do. **The single list of what needs a person is [`PERSON_CHECKLIST.md`](PERSON_CHECKLIST.md).**
 
 ## Built so far
 

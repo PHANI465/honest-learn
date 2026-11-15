@@ -9,7 +9,7 @@ Free, safe, age-appropriate learning for ages 3–18. It runs on iOS, Android an
 > child**, especially health, safety and sensitive topics. What still needs an expert is listed in
 > [`docs/NEEDS_APPROVAL.md`](docs/NEEDS_APPROVAL.md). The software is provided as it is, with no guarantee.
 
-- **Right for every age:** 5 age groups, 11 subjects and 220 "minimum knowledge" outcomes (see [`docs/KNOWLEDGE_MAP.md`](docs/KNOWLEDGE_MAP.md)).
+- **Right for every age:** 5 age groups, 11 subjects and 262 "minimum knowledge" outcomes (see [`docs/KNOWLEDGE_MAP.md`](docs/KNOWLEDGE_MAP.md)).
 - **Helps, never cheats:** quizzes use a hint ladder (nudge → bigger hint → worked example of a *similar* problem). Hoot, the AI helper, never gives quiz answers, and an independent check reviews every reply before a child sees it.
 - **Parents in control:** a parent account is required. A parent PIN protects settings, sensitive topics (religion, body, politics), chat history, outside links and extra screen time.
 - **Honest by design:** no ads, no tracking and no data selling. Every lesson lists its sources and shows whether teachers have reviewed it. Families can export or delete all their data.
