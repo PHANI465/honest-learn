@@ -16,8 +16,9 @@
 //     link-local or a cloud metadata address (169.254.0.0/16 and friends), unspecified, multicast, or private while local models
 //     are not allowed. Redirects are never followed. What the model server answers is never shown to the parent, only a short
 //     category ("could not connect", "the key was refused" ...), so the guard cannot be used to read internal pages.
-//     Remaining risk, written down on purpose: a name whose DNS answer changes between the check and the connection (DNS
-//     rebinding) is not fully prevented by checking before connecting.
+//     DNS rebinding (a name whose answer changes between the check and the connection) is closed on the server: the request is made
+//     to exactly the addresses that were checked and the name is not looked up again (guardedFetch, Platform.pinnedFetch); the
+//     certificate is still checked against the name, and the answer is capped at 1 MB. A phone has no DNS lookup, so nothing to pin.
 //
 // Crypto, DNS and IP parsing come from the platform (platform.ts): Node on the server, audited pure JavaScript in the phone app.
 // A phone has no DNS lookup of its own, so there only the written address is checked (checkBaseUrl).
@@ -127,12 +128,21 @@ function systemResolver(): Resolver | null {
  * Without a DNS lookup (the phone app) a name is accepted here; checkBaseUrl has already checked how it is written.
  */
 export async function checkResolvedHost(host: string, allowLocal = config.allowLocalLlm, resolve?: Resolver): Promise<{ ok: true } | { ok: false; error: string }> {
+  const r = await resolveChecked(host, allowLocal, resolve);
+  return r.ok ? { ok: true } : r;
+}
+
+/**
+ * Like checkResolvedHost, and also returns the addresses that were checked, so a request can be made to exactly those (guardedFetch).
+ * `addresses` is null where there is no DNS lookup (the phone app): nothing was resolved, so nothing can be pinned.
+ */
+export async function resolveChecked(host: string, allowLocal = config.allowLocalLlm, resolve?: Resolver): Promise<{ ok: true; addresses: string[] | null } | { ok: false; error: string }> {
   const bare = host.replace(/^\[|\]$/g, "");
   let addresses: string[];
   if (pf().isIP(bare)) addresses = [bare];
   else {
     const lookup = resolve ?? systemResolver();
-    if (!lookup) return { ok: true };
+    if (!lookup) return { ok: true, addresses: null };
     try {
       addresses = (await lookup(bare)).map((a) => a.address);
     } catch {
@@ -145,18 +155,30 @@ export async function checkResolvedHost(host: string, allowLocal = config.allowL
     if (cls === "forbidden") return { ok: false, error: "blocked_address" };
     if (cls === "private" && !allowLocal) return { ok: false, error: "blocked_address" };
   }
-  return { ok: true };
+  return { ok: true, addresses };
 }
 
-/** A fetch for family model servers: checks the address again before each request and never follows a redirect. */
-export function guardedFetch(allowLocal = config.allowLocalLlm, resolve?: Resolver, inner: typeof fetch = fetch): typeof fetch {
+/**
+ * A fetch for family model servers: checks the address again before each request, never follows a redirect, and, where the platform
+ * can (the server), connects ONLY to the addresses it just checked. The name is not looked up a second time, so DNS cannot answer
+ * differently between the check and the connection ("DNS rebinding"); the certificate is still checked against the name.
+ * `inner` is a test seam: given one, it is used as it is (no pin). On a phone there is no pin to make (no DNS lookup), and the
+ * ordinary fetch is used.
+ */
+export function guardedFetch(allowLocal = config.allowLocalLlm, resolve?: Resolver, inner?: typeof fetch): typeof fetch {
   return (async (input: string | URL | Request, init?: RequestInit) => {
     const url = new URL(typeof input === "string" ? input : input instanceof URL ? input.href : input.url);
     const written = checkBaseUrl(url.href.replace(/\/chat\/completions$/, ""), allowLocal);
     if (!written.ok) throw new Error("blocked_address");
-    const resolved = await checkResolvedHost(url.hostname, allowLocal, resolve);
+    const resolved = await resolveChecked(url.hostname, allowLocal, resolve);
     if (!resolved.ok) throw new Error(resolved.error);
-    return inner(url.href, { ...init, redirect: "error" });
+    const pinned = pf().pinnedFetch;
+    if (!inner && pinned && resolved.addresses) {
+      const body = typeof init?.body === "string" ? init.body : undefined;
+      if (init?.body !== undefined && init?.body !== null && body === undefined) throw new Error("unsupported body");
+      return pinned(url.href, { method: init?.method, headers: init?.headers, body, signal: init?.signal ?? undefined }, resolved.addresses);
+    }
+    return (inner ?? fetch)(url.href, { ...init, redirect: "error" });
   }) as typeof fetch;
 }
 

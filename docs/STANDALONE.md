@@ -127,7 +127,7 @@ All of these run in CI.
 | Deleted data | rows deleted | rows deleted and overwritten (`PRAGMA secure_delete`) | done (8d) |
 | Backups | the server's own | the phone's own backup to the family's Google or Apple account may include the database (owner's decision, 15 Nov 2026); the security keys are excluded from Android backups (checked in the generated manifest) | done (8d) |
 | CORS | on | off (no other website can call an in-app API) | done |
-| Own model address | written address checked, then resolved and checked before every request | written address checked only: a phone has no DNS lookup to call | accepted (8d) |
+| Own model address | written address checked, then resolved and checked before every request, and the connection is pinned to the addresses just checked (no DNS rebinding) | written address checked only: a phone has no DNS lookup to call, so nothing to pin | accepted (8d) |
 | Sign-in rate limit per address | per client IP | all requests count as one address ("unknown"): 30 sign-in requests per 10 minutes on the device (PIN unlocks count too; the per-account PIN and password limits are unchanged) | accepted (8d) |
 | Moving a family between a phone and a server | the transfer screen (`app/src/app/parent/transfer.tsx`) signs in to the other server with its address, email, password and PIN, reads or writes the data download and adds the children chosen to the signed-in family | the same screen; direct transfer works on phones, a download file is restored from the website. **Not tried on a real phone or between two real servers** | done (#9) |
 | Who can read the answers | only the server | anyone who can open the app's files (by design: the family's own phone, see the guide) | accepted (8d) |

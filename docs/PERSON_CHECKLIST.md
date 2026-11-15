@@ -157,7 +157,7 @@ None of these needs a person's expertise, only a decision to start.
 | ~~An "Open source licences" screen and a `NOTICE` file~~ **done 15 Nov 2026** | `THIRD_PARTY_NOTICES.md`, the screen, a CI guard. Open: the native libraries (part 4) | Sonnet, medium |
 | **Add the `LICENSE` file** | After you decide the licence (part 1) | Any |
 | **Fix the stale lines in `LAUNCH_CHECKLIST.md`** ("Built so far" stops at v0.3.0, and the README and `docs/README.md` said 220 outcomes instead of 262) | Docs only; the two README counts are fixed with this page | Haiku or Sonnet |
-| **Stop a family's AI address being re-pointed between the check and the request** (DNS rebinding) | Pin the checked address for the connection (`SECURITY.md`, accepted risk) | Opus, high |
+| ~~Stop a family's AI address being re-pointed between the check and the request~~ (DNS rebinding) **done 15 Nov 2026** | The request connects only to the addresses that were checked. Open: try it with a real hosted model (part 2) | Opus, high |
 | ~~Show on the child side that Hoot is using a family's own, untested model~~ **done 15 Nov 2026** | A banner on the child's chat screen. Open: ask a real child whether the words are clear (part 2) | Sonnet, medium |
 | ~~Spelling: a British or American setting~~ **done 15 Nov 2026** | A per-family setting, 32 words that differ, `docs/SPELLING.md`. Open: a reviewer for the new words (part 3) | Sonnet, medium |
 | ~~Save an unfinished chess game; hints that point at a piece~~ **done 15 Nov 2026** | Against the computer. Open: try it on a real phone and with a real child (part 2); the chess *puzzles* have their own server hints | Sonnet, medium |

@@ -12,7 +12,7 @@ import { hmac } from "@noble/hashes/hmac.js";
 import { scrypt as nobleScrypt } from "@noble/hashes/scrypt.js";
 import { sha256 } from "@noble/hashes/sha2.js";
 import { fromBase64, fromUtf8, toBase64Url, utf8 } from "./bytes.ts";
-import type { ContentSource, Platform } from "./platform.ts";
+import type { ContentSource, PinnedInit, Platform } from "./platform.ts";
 
 export interface PortableOptions {
   env?: Record<string, string | undefined>;
@@ -22,6 +22,7 @@ export interface PortableOptions {
   /** Fills a byte array with secure random values. Defaults to globalThis.crypto.getRandomValues. */
   getRandomValues?: (array: Uint8Array) => Uint8Array;
   resolveHost?: (host: string) => Promise<string[]>;
+  pinnedFetch?: (url: string, init: PinnedInit, addresses: readonly string[]) => Promise<Response>;
 }
 
 /** A content source over an object of already-parsed files, keyed by their path under content/ ("lessons/b1/x.json"). */
@@ -148,6 +149,7 @@ export function createPortablePlatform(opts: PortableOptions = {}): Platform {
     defaultPaths: opts.defaultPaths ?? { db: "", content: "" },
     content: opts.content ?? noContent,
     resolveHost: opts.resolveHost,
+    pinnedFetch: opts.pinnedFetch,
     randomBytes,
     randomInt(max) {
       if (!Number.isSafeInteger(max) || max <= 0 || max > 2 ** 32) throw new RangeError("randomInt: max must be 1 to 2^32");

@@ -20,6 +20,14 @@ export interface ContentSource {
   listJson(dir: string, relDir: string): string[];
 }
 
+/** What a pinned request may carry: a family's model server is only ever sent a method, headers, a text body and a way to stop. */
+export interface PinnedInit {
+  method?: string;
+  headers?: HeadersInit;
+  body?: string;
+  signal?: AbortSignal;
+}
+
 export interface Platform {
   readonly name: "node" | "portable";
   /** Settings (the server's environment variables; on a phone, whatever the app passes in). */
@@ -48,6 +56,13 @@ export interface Platform {
   isIP(text: string): 0 | 4 | 6;
   /** Looks a host name up in DNS. Missing where the system offers no DNS lookup (a phone): the address check then only checks the written address. */
   readonly resolveHost?: (host: string) => Promise<string[]>;
+  /**
+   * A request that connects ONLY to the given addresses, which the caller has already checked, and does no DNS lookup of its own.
+   * This closes "DNS rebinding": a name whose answer changes between the address check and the connection cannot reach another
+   * address. The certificate is still checked against the host name. Redirects are refused and the response is capped in size.
+   * Missing where there is no such control (the phone app, which has no DNS lookup either).
+   */
+  readonly pinnedFetch?: (url: string, init: PinnedInit, addresses: readonly string[]) => Promise<Response>;
 }
 
 /** On Node.js, the Node platform (or the portable crypto when HL_PLATFORM=portable, for tests); anywhere else the portable one. */
@@ -57,7 +72,7 @@ function pick(): Platform {
   const node = createNodePlatform();
   if (proc.env?.HL_PLATFORM !== "portable") return node;
   // Portable crypto, tokens and IP parsing; files, settings and DNS from Node, so a test run checks the same addresses.
-  return createPortablePlatform({ env: node.env, defaultPaths: node.defaultPaths, content: node.content, resolveHost: node.resolveHost });
+  return createPortablePlatform({ env: node.env, defaultPaths: node.defaultPaths, content: node.content, resolveHost: node.resolveHost, pinnedFetch: node.pinnedFetch });
 }
 
 let active: Platform | undefined;
