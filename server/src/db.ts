@@ -1,12 +1,12 @@
-import { DatabaseSync, type SQLInputValue } from "node:sqlite";
-import { mkdirSync } from "node:fs";
-import { dirname } from "node:path";
+import { nodeBuiltin } from "./platform-node.ts";
 
 // ---------------------------------------------------------------- interface
 //
-// One async interface over two databases:
+// One async interface over several databases:
 //   - SQLite (node:sqlite) for local development, tests and single-server hosting;
-//   - Postgres (Neon on Vercel; PGlite in tests).
+//   - Postgres (Neon on Vercel; PGlite in tests);
+//   - any other driver through a DbAdapter and openWithAdapter() (the phone app's SQLite, task T8).
+// This file runs in the phone app too: node:sqlite is only loaded when openDb() is called on a server.
 // SQL is written once with `?` placeholders; the Postgres adapter turns them into $1..$n.
 // Keep queries portable: no INSERT OR IGNORE (use ON CONFLICT DO NOTHING), no rowid,
 // quote camelCase aliases ("lastActive"), and CAST(COUNT/SUM AS INTEGER) so both return numbers.
@@ -26,8 +26,12 @@ export interface DB {
   close(): Promise<void>;
 }
 
-/** What a database adapter provides before the schema is applied. */
-interface Adapter {
+/**
+ * What a database driver must provide. openWithAdapter() adds the schema and migrations on top. The contract every adapter
+ * must meet (placeholders, RETURNING, ON CONFLICT, foreign keys, number types ...) is tested in test/db-contract.test.ts:
+ * a new adapter is added to that test before it is used.
+ */
+export interface DbAdapter {
   dialect: Dialect;
   get(sql: string, params: Param[]): Promise<Record<string, unknown> | undefined>;
   all(sql: string, params: Param[]): Promise<Record<string, unknown>[]>;
@@ -274,7 +278,7 @@ END;
 /** Serialises schema set-up when several cold starts hit a fresh Postgres database at once. */
 const PG_LOCK = "SELECT pg_advisory_xact_lock(4820735)";
 
-async function migrate(a: Adapter): Promise<void> {
+async function migrate(a: DbAdapter): Promise<void> {
   if (a.dialect === "sqlite") {
     await a.exec(TABLES.join(";\n") + ";");
   } else {
@@ -296,7 +300,8 @@ async function migrate(a: Adapter): Promise<void> {
 }
 
 /** Wraps an adapter so the schema is created once (memoised) before the first query. */
-function withSchema(a: Adapter, demo: boolean): DB {
+export function openWithAdapter(a: DbAdapter, opts: { demo?: boolean } = {}): DB {
+  const demo = !!opts.demo;
   let ready: Promise<void> | null = null;
   const init = () => {
     ready ??= migrate(a).catch((e) => {
@@ -331,18 +336,35 @@ function withSchema(a: Adapter, demo: boolean): DB {
 // ---------------------------------------------------------------- SQLite
 
 /** SQLite file (or ":memory:"). The schema is applied on first use. */
+/** The parts of node:sqlite used here. */
+interface SqliteStatement {
+  get(...params: Param[]): unknown;
+  all(...params: Param[]): unknown[];
+  run(...params: Param[]): { changes: number | bigint };
+}
+interface SqliteDatabase {
+  exec(sql: string): void;
+  prepare(sql: string): SqliteStatement;
+  close(): void;
+}
+
 export function openDb(path: string, opts: { demo?: boolean } = {}): DB {
-  if (path !== ":memory:") mkdirSync(dirname(path), { recursive: true });
+  const { DatabaseSync } = nodeBuiltin<{ DatabaseSync: new (path: string) => SqliteDatabase }>("node:sqlite");
+  if (path !== ":memory:") {
+    const { mkdirSync } = nodeBuiltin<{ mkdirSync(path: string, opts: { recursive: true }): unknown }>("node:fs");
+    const { dirname } = nodeBuiltin<{ dirname(path: string): string }>("node:path");
+    mkdirSync(dirname(path), { recursive: true });
+  }
   const db = new DatabaseSync(path);
   db.exec("PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL;");
-  const stmts = new Map<string, ReturnType<DatabaseSync["prepare"]>>();
+  const stmts = new Map<string, SqliteStatement>();
   const prep = (sql: string) => {
     let s = stmts.get(sql);
     if (!s) stmts.set(sql, (s = db.prepare(sql)));
     return s;
   };
-  const args = (params: Param[]) => params as SQLInputValue[];
-  return withSchema(
+  const args = (params: Param[]) => params;
+  return openWithAdapter(
     {
       dialect: "sqlite",
       async get(sql, params) {
@@ -361,7 +383,7 @@ export function openDb(path: string, opts: { demo?: boolean } = {}): DB {
         db.close();
       },
     },
-    !!opts.demo,
+    { demo: !!opts.demo },
   );
 }
 
@@ -411,7 +433,7 @@ export function openPostgres(driver: PgDriver): DB {
     if (s === undefined) converted.set(sql, (s = toPgPlaceholders(sql)));
     return s;
   };
-  return withSchema(
+  return openWithAdapter(
     {
       dialect: "postgres",
       async get(sql, params) {
@@ -428,7 +450,6 @@ export function openPostgres(driver: PgDriver): DB {
       },
       close: () => driver.close(),
     },
-    false,
   );
 }
 

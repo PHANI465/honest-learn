@@ -3,7 +3,7 @@
 Free, ad-free learning app for ages 3–18 (iOS, Android, web) with a parent-controlled account, a hint-only AI helper ("Hoot") and 218 draft lessons. Owner: PHANI465. Nothing is public-launch ready until humans approve the content (see `docs/NEEDS_APPROVAL.md` and issue #1).
 
 ## Layout
-- `server/`: Hono API on Node 22 (TypeScript via tsx). `src/app.ts` wires shared protections and mounts `src/routes/*` (public, auth, learn, puzzles, usage, tutor, parent); shared helpers in `src/context.ts`, shapes and input rules in `src/models.ts`. SQLite locally; Postgres (Neon) when `DATABASE_URL`/`POSTGRES_URL` is set; in-memory demo DB on Vercel without one.
+- `server/`: Hono API on Node 22 (TypeScript via tsx). `src/app.ts` wires shared protections and mounts `src/routes/*` (public, auth, learn, puzzles, usage, tutor, parent); shared helpers in `src/context.ts`, shapes and input rules in `src/models.ts`. The same code also runs inside the app (standalone mode, T8): machine-specific things go through `src/platform.ts` (see `docs/STANDALONE.md`). SQLite locally; Postgres (Neon) when `DATABASE_URL`/`POSTGRES_URL` is set; in-memory demo DB on Vercel without one.
 - `app/`: Expo SDK 58 + expo-router (routes in `app/src/app`). Web export in `app/dist`. The website landing page is `welcome.web.tsx` (+ `src/landing/`); the native app uses `welcome.tsx`. Landing copy may only use facts from the app's content or docs.
 - `content/`: the curriculum as JSON: `knowledge-map.json` (5 age bands × 11 subjects, 262 outcomes), `lessons/<band>/<subject>/*.json`, `puzzles/<band>.json`, `facts/<band>.json` (quick facts, each with a source link), `spelling/<band>.json` (daily spelling words), `chess/l1-l3.json` (chess puzzles, composed and proven by `server/src/games/`), `resources.json`, `helplines.json`, `hoot-redteam.json`.
 - `docs/`: `guide/` (what's built, where it lives, how it works, navigation, scaling), `SECURITY.md`, reviewer guide, approval list, launch checklist, deployment, legal drafts, research.
@@ -14,6 +14,8 @@ Free, ad-free learning app for ages 3–18 (iOS, Android, web) with a parent-con
 ```bash
 cd server && npm test            # API tests (SQLite); `npm run test:pg` runs the same on Postgres via PGlite (one file at a time; works on Windows)
 cd server && npm run validate    # validates all content; warns on hints that contain the answer
+cd server && npm run test:portable  # all API tests on the phone app's pure-JavaScript crypto
+cd app && npm run proof:local     # Expo's Android bundle of the API runs without Node.js
 cd server && npx tsc --noEmit
 cd server && npm run dev         # API on :8787 (mock tutor unless ANTHROPIC_API_KEY is set)
 npm run dev                      # repo root: install, build website, serve website + API on :3000 (what v0 uses)
@@ -36,6 +38,7 @@ After changing content, run all three generators before committing.
 - New or edited content stays `"status": "draft"` until two human reviewers approve it.
 - Hoot replies pass a second safety/answer-leak check; `precheck()` in `server/src/tutor.ts` handles personal info and wellbeing messages before any AI call.
 - The server records opened hints (`hints_seen`); answers are revealed only after all three, in order. Never trust the app's `hintsUsed` alone.
+- **Code that `createApp()` loads must not use Node APIs** (`node:*`, `Buffer`, `process`, `require`, `import.meta`): use `pf()` from `server/src/platform.ts` and `bytes.ts`. Middleware must not touch `c.res` before `next()` or call `c.header()` after it (phones lose the body). `test/portable-core.test.ts` enforces the first.
 - Tokens carry a session version (`v`); bump it with `revokeSessions()` to sign out every device. Website security headers live in `server/src/web-headers.ts` and must match `vercel.json` (a test checks).
 
 ## Deployment

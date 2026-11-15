@@ -17,7 +17,8 @@ import { config } from "./config.ts";
 import { loadContent, type Lesson } from "./content.ts";
 import type { BandId } from "./security.ts";
 import { optionOrder } from "./shuffle.ts";
-import { createTutor, precheck, type TutorResult, type TutorTurn } from "./tutor.ts";
+import { precheck, type TutorResult, type TutorTurn } from "./tutor.ts";
+import { createTutor } from "./tutor-claude.ts";
 
 interface Case {
   id: string;

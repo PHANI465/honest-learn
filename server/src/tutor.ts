@@ -1,9 +1,8 @@
-import { OpenAICompatTutor } from "./tutor-openai.ts";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-import Anthropic from "@anthropic-ai/sdk";
+// Hoot's safety rules, prompts and the no-AI fallback. Runs on the server and in the phone app; the Claude client and the
+// choice of provider are in tutor-claude.ts (server only), the OpenAI-compatible provider in tutor-openai.ts.
 import { z } from "zod";
 import { config } from "./config.ts";
+import { pf } from "./platform.ts";
 import type { Lesson } from "./content.ts";
 import type { BandId } from "./security.ts";
 
@@ -281,7 +280,7 @@ export type HelplinesData = z.infer<typeof HelplinesFile>;
 
 /** Reads and validates content/helplines.json. Throws if the file is malformed (`npm run validate` uses this). */
 export function loadHelplines(contentDir = config.contentDir): HelplinesData {
-  return HelplinesFile.parse(JSON.parse(readFileSync(join(contentDir, "helplines.json"), "utf8")));
+  return HelplinesFile.parse(pf().content.readJson(contentDir, "helplines.json"));
 }
 
 let helplineCache: HelplinesData | null | undefined;
@@ -406,7 +405,7 @@ export function precheckConversation(message: string, earlier: string[], band: B
 // Prompts
 // ---------------------------------------------------------------------------
 
-const BAND_STYLE: Record<BandId, string> = {
+export const BAND_STYLE: Record<BandId, string> = {
   b1: "The learner is 3–5 years old. (Chat is disabled for this age; this prompt should not be used.)",
   b2: "The learner is 6–8 years old and is just learning to read. Use very short sentences (under 10 words each), simple words, at most 3 sentences per reply, and a friendly emoji now and then. Praise effort ('Great thinking!'), never intelligence.",
   b3: "The learner is 9–11 years old. Use short, clear sentences (under 15 words), at most 4 sentences per reply. Encourage them to explain their thinking. Praise effort and strategy.",
@@ -464,7 +463,7 @@ export function lessonContext(req: TutorRequest): string {
   return ctx;
 }
 
-const SAFETY_SCHEMA = {
+export const SAFETY_SCHEMA = {
   type: "object",
   properties: {
     safe_for_age: { type: "boolean", description: "True if the reply is appropriate, kind and safe for a learner of this age." },
@@ -518,88 +517,4 @@ export class MockTutor implements TutorProvider {
   async reply(req: TutorRequest): Promise<TutorResult> {
     return { reply: safeHint(req), flag: null };
   }
-}
-
-export class ClaudeTutor implements TutorProvider {
-  constructor(private client = new Anthropic()) {}
-
-  async reply(req: TutorRequest): Promise<TutorResult> {
-    const messages: Anthropic.Beta.BetaMessageParam[] = [
-      ...req.history.map((t) => ({ role: t.role, content: t.content })),
-      { role: "user", content: req.message },
-    ];
-
-    let draft: string;
-    try {
-      const response = await this.client.beta.messages.create({
-        model: config.tutor.model,
-        max_tokens: config.tutor.maxReplyTokens,
-        betas: ["server-side-fallback-2026-07-01"],
-        fallbacks: "default",
-        output_config: { effort: config.tutor.effort },
-        cache_control: { type: "ephemeral" },
-        system: [
-          { type: "text", text: tutorSystemPrompt(req.band) },
-          { type: "text", text: lessonContext(req) },
-        ],
-        messages,
-      });
-      if (response.stop_reason === "refusal") return { reply: safeHint(req), flag: "refusal" };
-      draft = response.content
-        .filter((b): b is Anthropic.Beta.BetaTextBlock => b.type === "text")
-        .map((b) => b.text)
-        .join("\n")
-        .trim();
-      if (!draft) return { reply: safeHint(req), flag: "error" };
-    } catch (err) {
-      console.error("tutor call failed", err instanceof Anthropic.APIError ? `${err.status} ${err.message}` : err);
-      return { reply: safeHint(req), flag: "error" };
-    }
-
-    // Second pass: an independent check of the reply before a child sees it.
-    const verdict = await this.check(req, draft);
-    if (!verdict) return { reply: safeHint(req), flag: "error" };
-    if (!verdict.safe_for_age) return { reply: safeHint(req), flag: "unsafe_reply" };
-    if (verdict.reveals_answer && !req.questionSolved) return { reply: safeHint(req), flag: "answer_leak" };
-    if (singlesOutCorrectOption(req, draft)) return { reply: safeHint(req), flag: "answer_leak" };
-    return { reply: draft, flag: null };
-  }
-
-  private async check(
-    req: TutorRequest,
-    draft: string,
-  ): Promise<{ safe_for_age: boolean; reveals_answer: boolean; reason: string } | null> {
-    try {
-      const response = await this.client.beta.messages.create({
-        model: config.tutor.safetyModel,
-        max_tokens: config.tutor.maxCheckTokens,
-        betas: ["server-side-fallback-2026-07-01"],
-        fallbacks: "default",
-        output_config: {
-          effort: "low",
-          format: { type: "json_schema", schema: SAFETY_SCHEMA as unknown as Record<string, unknown> },
-        },
-        system:
-          "You review replies written by a tutoring assistant for children before they are shown. Judge only the REPLY. Be strict about age-appropriateness and about revealing quiz answers.",
-        messages: [
-          {
-            role: "user",
-            content: `${BAND_STYLE[req.band]}\n\n<lesson_context>\n${lessonContext(req)}\n</lesson_context>\n\n<learner_message>\n${req.message}\n</learner_message>\n\n<reply>\n${draft}\n</reply>`,
-          },
-        ],
-      });
-      if (response.stop_reason === "refusal") return null;
-      const text = response.content.find((b): b is Anthropic.Beta.BetaTextBlock => b.type === "text")?.text;
-      return text ? JSON.parse(text) : null;
-    } catch (err) {
-      console.error("safety check failed", err instanceof Anthropic.APIError ? `${err.status} ${err.message}` : err);
-      return null;
-    }
-  }
-}
-
-export function createTutor(): TutorProvider {
-  if (config.tutor.mode === "claude") return new ClaudeTutor();
-  if (config.tutor.mode === "openai") return new OpenAICompatTutor();
-  return new MockTutor();
 }

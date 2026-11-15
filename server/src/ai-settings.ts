@@ -18,34 +18,32 @@
 //     category ("could not connect", "the key was refused" ...), so the guard cannot be used to read internal pages.
 //     Remaining risk, written down on purpose: a name whose DNS answer changes between the check and the connection (DNS
 //     rebinding) is not fully prevented by checking before connecting.
-import { createCipheriv, createDecipheriv, hkdfSync, randomBytes } from "node:crypto";
-import { lookup } from "node:dns/promises";
-import { isIP } from "node:net";
+//
+// Crypto, DNS and IP parsing come from the platform (platform.ts): Node on the server, audited pure JavaScript in the phone app.
+// A phone has no DNS lookup of its own, so there only the written address is checked (checkBaseUrl).
 import { z } from "zod";
+import { fromBase64, fromUtf8, toBase64Url, utf8 } from "./bytes.ts";
 import { config } from "./config.ts";
+import { pf } from "./platform.ts";
 
 export const PROVIDERS = ["ollama", "lmstudio", "openrouter", "groq", "custom"] as const;
 export type Provider = (typeof PROVIDERS)[number];
 
 // ---------------------------------------------------------------- the key, encrypted at rest
 const VERSION = "v1";
-const INFO = Buffer.from("honest-learn/ai-key/v1");
+const INFO = utf8("honest-learn/ai-key/v1");
 
-function keyFor(parentId: string): Buffer {
+function keyFor(parentId: string): Uint8Array {
   const secret = config.aiKeySecret || config.tokenSecret;
   if (!secret) throw new Error("no server secret for encrypting keys");
-  return Buffer.from(hkdfSync("sha256", Buffer.from(secret, "utf8"), Buffer.from(parentId, "utf8"), INFO, 32));
+  return pf().hkdfSha256(utf8(secret), utf8(parentId), INFO, 32);
 }
-
-const b64 = (b: Buffer) => b.toString("base64url");
 
 /** Encrypts an API key for one parent: "v1.<iv>.<tag>.<ciphertext>" (base64url parts). */
 export function sealKey(plain: string, parentId: string): string {
-  const iv = randomBytes(12);
-  const cipher = createCipheriv("aes-256-gcm", keyFor(parentId), iv);
-  cipher.setAAD(Buffer.from(parentId, "utf8"));
-  const ct = Buffer.concat([cipher.update(plain, "utf8"), cipher.final()]);
-  return [VERSION, b64(iv), b64(cipher.getAuthTag()), b64(ct)].join(".");
+  const iv = pf().randomBytes(12);
+  const { ct, tag } = pf().aesGcmSeal(keyFor(parentId), iv, utf8(plain), utf8(parentId));
+  return [VERSION, toBase64Url(iv), toBase64Url(tag), toBase64Url(ct)].join(".");
 }
 
 /** Decrypts a stored key, or null if it cannot be opened (wrong parent, changed server secret, damaged value). */
@@ -53,10 +51,8 @@ export function openKey(sealed: string, parentId: string): string | null {
   try {
     const [v, iv, tag, ct] = sealed.split(".");
     if (v !== VERSION || !iv || !tag || !ct) return null;
-    const decipher = createDecipheriv("aes-256-gcm", keyFor(parentId), Buffer.from(iv, "base64url"));
-    decipher.setAAD(Buffer.from(parentId, "utf8"));
-    decipher.setAuthTag(Buffer.from(tag, "base64url"));
-    return Buffer.concat([decipher.update(Buffer.from(ct, "base64url")), decipher.final()]).toString("utf8");
+    const out = pf().aesGcmOpen(keyFor(parentId), fromBase64(iv), fromBase64(ct), fromBase64(tag), utf8(parentId));
+    return out ? fromUtf8(out) : null;
   } catch {
     return null;
   }
@@ -87,7 +83,7 @@ export function classifyIp(ip: string): IpClass {
     if (a === 127 || a === 10 || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 100 && b >= 64 && b <= 127)) return "private";
     return "public";
   }
-  if (isIP(addr) !== 6) return "forbidden";
+  if (pf().isIP(addr) !== 6) return "forbidden";
   if (addr === "::" || addr.startsWith("ff")) return "forbidden"; // unspecified, multicast
   if (/^fe[89ab]/.test(addr)) return "forbidden"; // link-local fe80::/10
   if (addr.startsWith("fd00:ec2:")) return "forbidden"; // AWS metadata over IPv6
@@ -109,7 +105,7 @@ export function checkBaseUrl(raw: string, allowLocal = config.allowLocalLlm): Ur
   if (u.username || u.password) return { ok: false, error: "Put the key in the key field, not in the address." };
   if (u.search || u.hash) return { ok: false, error: "Leave out anything after a question mark or a # sign." };
   const host = u.hostname.toLowerCase();
-  const literal = isIP(host.replace(/^\[|\]$/g, "")) ? classifyIp(host) : null;
+  const literal = pf().isIP(host.replace(/^\[|\]$/g, "")) ? classifyIp(host) : null;
   const localName = host === "localhost" || host.endsWith(".localhost") || host.endsWith(".local");
   const local = literal === "private" || localName;
   if (literal === "forbidden") return { ok: false, error: "That address is not allowed." };
@@ -120,16 +116,28 @@ export function checkBaseUrl(raw: string, allowLocal = config.allowLocalLlm): Ur
 }
 
 export type Resolver = (host: string) => Promise<{ address: string }[]>;
-const systemResolver: Resolver = (host) => lookup(host, { all: true, verbatim: true });
+/** The system's DNS lookup, or null where there is none (the phone app). */
+function systemResolver(): Resolver | null {
+  const lookup = pf().resolveHost;
+  return lookup ? async (host) => (await lookup(host)).map((address) => ({ address })) : null;
+}
 
-/** Resolves the host and refuses it if any address is forbidden, or private while local models are not allowed. */
-export async function checkResolvedHost(host: string, allowLocal = config.allowLocalLlm, resolve: Resolver = systemResolver): Promise<{ ok: true } | { ok: false; error: string }> {
+/**
+ * Resolves the host and refuses it if any address is forbidden, or private while local models are not allowed.
+ * Without a DNS lookup (the phone app) a name is accepted here; checkBaseUrl has already checked how it is written.
+ */
+export async function checkResolvedHost(host: string, allowLocal = config.allowLocalLlm, resolve?: Resolver): Promise<{ ok: true } | { ok: false; error: string }> {
   const bare = host.replace(/^\[|\]$/g, "");
   let addresses: string[];
-  try {
-    addresses = isIP(bare) ? [bare] : (await resolve(bare)).map((a) => a.address);
-  } catch {
-    return { ok: false, error: "unreachable" };
+  if (pf().isIP(bare)) addresses = [bare];
+  else {
+    const lookup = resolve ?? systemResolver();
+    if (!lookup) return { ok: true };
+    try {
+      addresses = (await lookup(bare)).map((a) => a.address);
+    } catch {
+      return { ok: false, error: "unreachable" };
+    }
   }
   if (!addresses.length) return { ok: false, error: "unreachable" };
   for (const a of addresses) {
@@ -141,7 +149,7 @@ export async function checkResolvedHost(host: string, allowLocal = config.allowL
 }
 
 /** A fetch for family model servers: checks the address again before each request and never follows a redirect. */
-export function guardedFetch(allowLocal = config.allowLocalLlm, resolve: Resolver = systemResolver, inner: typeof fetch = fetch): typeof fetch {
+export function guardedFetch(allowLocal = config.allowLocalLlm, resolve?: Resolver, inner: typeof fetch = fetch): typeof fetch {
   return (async (input: string | URL | Request, init?: RequestInit) => {
     const url = new URL(typeof input === "string" ? input : input instanceof URL ? input.href : input.url);
     const written = checkBaseUrl(url.href.replace(/\/chat\/completions$/, ""), allowLocal);

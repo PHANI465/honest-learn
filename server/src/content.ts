@@ -1,6 +1,6 @@
-import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { join } from "node:path";
+// Content is read through the platform (platform.ts): the content/ folder on a server, a bundled copy in the phone app.
 import { z } from "zod";
+import { pf } from "./platform.ts";
 
 export const SensitiveTopic = z.enum(["religion", "body", "politics"]);
 export type SensitiveTopic = z.infer<typeof SensitiveTopic>;
@@ -165,26 +165,20 @@ export interface ContentStore {
   chess: Map<string, ChessSet>;
 }
 
-function walk(dir: string): string[] {
-  let out: string[] = [];
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name);
-    if (statSync(p).isDirectory()) out = out.concat(walk(p));
-    else if (name.endsWith(".json")) out.push(p);
-  }
-  return out;
-}
-
 /** Loads and validates all content. Throws with a readable list of problems. */
 export function loadContent(contentDir: string): ContentStore {
-  const map = JSON.parse(readFileSync(join(contentDir, "knowledge-map.json"), "utf8")) as KnowledgeMap;
+  const src = pf().content;
+  const read = (rel: string) => src.readJson(contentDir, rel);
+  const label = (rel: string) => `${contentDir}/${rel}`;
+  const map = read("knowledge-map.json") as KnowledgeMap;
   const outcomeIds = new Set(map.cells.flatMap((c) => c.outcomes.map((o) => o.id)));
   const subjectIds = new Set(map.subjects.map((s) => s.id));
   const lessons = new Map<string, Lesson>();
   const problems: string[] = [];
 
-  for (const file of walk(join(contentDir, "lessons"))) {
-    const parsed = Lesson.safeParse(JSON.parse(readFileSync(file, "utf8")));
+  for (const rel of src.listJson(contentDir, "lessons")) {
+    const file = label(rel);
+    const parsed = Lesson.safeParse(read(rel));
     if (!parsed.success) {
       problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
       continue;
@@ -208,9 +202,8 @@ export function loadContent(contentDir: string): ContentStore {
     lessons.set(l.id, l);
   }
   const resources: Resource[] = [];
-  const resFile = join(contentDir, "resources.json");
-  if (existsSync(resFile)) {
-    const raw = JSON.parse(readFileSync(resFile, "utf8")) as { resources: unknown[] };
+  if (src.exists(contentDir, "resources.json")) {
+    const raw = read("resources.json") as { resources: unknown[] };
     const ids = new Set<string>();
     for (const r of raw.resources) {
       const parsed = Resource.safeParse(r);
@@ -226,10 +219,10 @@ export function loadContent(contentDir: string): ContentStore {
   }
 
   const puzzles = new Map<string, PuzzleSet>();
-  const puzzleDir = join(contentDir, "puzzles");
-  if (existsSync(puzzleDir)) {
-    for (const file of walk(puzzleDir)) {
-      const parsed = PuzzleSet.safeParse(JSON.parse(readFileSync(file, "utf8")));
+  if (src.exists(contentDir, "puzzles")) {
+    for (const rel of src.listJson(contentDir, "puzzles")) {
+      const file = label(rel);
+      const parsed = PuzzleSet.safeParse(read(rel));
       if (!parsed.success) {
         problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
         continue;
@@ -245,11 +238,11 @@ export function loadContent(contentDir: string): ContentStore {
   }
 
   const facts = new Map<string, FactSet>();
-  const factDir = join(contentDir, "facts");
-  if (existsSync(factDir)) {
+  if (src.exists(contentDir, "facts")) {
     // b1.json to b5.json only: the folder also holds keywords.json, the key words used by scripts/check-fact-sources.mjs.
-    for (const file of walk(factDir).filter((f) => /[\\/]b[1-5]\.json$/.test(f))) {
-      const parsed = FactSet.safeParse(JSON.parse(readFileSync(file, "utf8")));
+    for (const rel of src.listJson(contentDir, "facts").filter((f) => /\/b[1-5]\.json$/.test(f))) {
+      const file = label(rel);
+      const parsed = FactSet.safeParse(read(rel));
       if (!parsed.success) {
         problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
         continue;
@@ -266,10 +259,10 @@ export function loadContent(contentDir: string): ContentStore {
   }
 
   const spelling = new Map<string, SpellingSet>();
-  const spellDir = join(contentDir, "spelling");
-  if (existsSync(spellDir)) {
-    for (const file of walk(spellDir)) {
-      const parsed = SpellingSet.safeParse(JSON.parse(readFileSync(file, "utf8")));
+  if (src.exists(contentDir, "spelling")) {
+    for (const rel of src.listJson(contentDir, "spelling")) {
+      const file = label(rel);
+      const parsed = SpellingSet.safeParse(read(rel));
       if (!parsed.success) {
         problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
         continue;
@@ -288,11 +281,11 @@ export function loadContent(contentDir: string): ContentStore {
   }
 
   const chess = new Map<string, ChessSet>();
-  const chessDir = join(contentDir, "chess");
-  if (existsSync(chessDir)) {
+  if (src.exists(contentDir, "chess")) {
     const seenIds = new Set<string>();
-    for (const file of walk(chessDir)) {
-      const parsed = ChessSet.safeParse(JSON.parse(readFileSync(file, "utf8")));
+    for (const rel of src.listJson(contentDir, "chess")) {
+      const file = label(rel);
+      const parsed = ChessSet.safeParse(read(rel));
       if (!parsed.success) {
         problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
         continue;

@@ -72,7 +72,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku, 5b chess and 5c memory games done 14 Nov 2026. 5d play chess against the computer: todo (needs an engine and licence decision) |
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | **done** 14 Nov 2026 | `parent/ai.tsx`, `ai-settings.ts`; no real model or hosted key tried; DNS rebinding open (`SECURITY.md`) |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
-| T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | todo | |
+| T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **in progress** | 8a done 14 Nov 2026 (shared API runs without Node; [`STANDALONE.md`](STANDALONE.md)). Next: 8b (Sonnet medium), then 8c, 8d |
 | T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | todo | Needs a Deaf reviewer |
 | T10 | "Add your own lessons" for parents | Sonnet medium | M | none | **done** 14 Nov 2026 | `parent/lessons.tsx`; private to the family; no look at it in a browser yet |
 | T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | **in progress** | Code and `docs/MOBILE.md` done 14 Nov 2026; accounts, signed builds and store forms need a person |
@@ -306,7 +306,8 @@ mode must not weaken the server mode.
 - Backup: export and import the family's data as a file (the export route exists).
 
 **Split.** 8a (Opus high, M): shared `core/` package, DB adapter interface, proof that `createApp` runs under
-Expo with tests passing in Node against the adapter contract. 8b (Sonnet medium, M): `expo-sqlite` adapter and content
+Expo with tests passing in Node against the adapter contract. **Done 14 Nov 2026**, without a `core/` package: the app imports
+`server/src` directly; the decision and the rules are in [`STANDALONE.md`](STANDALONE.md). 8b (Sonnet medium, M): `expo-sqlite` adapter and content
 bundling. 8c (Sonnet medium, M): first-run mode choice, local recovery phrase, local wellbeing notice. 8d (Opus high,
 S): security review and `docs/SECURITY.md` section "Standalone mode: what protects what".
 
@@ -525,6 +526,26 @@ are private to that family and are included in export and deletion. **Sonnet med
   DNS rebinding is not prevented (pin the checked IP with an undici `Agent` `connect.lookup` to close it); `GET /content/hoot` still describes only the
   server's default helper, so the child-side "not tested" banner does not know about a family model (the parent screen says it); no screen reader pass.
   T8 can reuse `checkBaseUrl` and `classifyIp`, but a phone app with no server will need its own key storage (SecureStore), not this table.
+- **T8a (done).** Decision: **no `core/` package**; Metro reads `../server/src` (`app/metro.config.js` watches `server/src` and only
+  `hono`, `zod`, `chess.js`, `@noble` from `server/node_modules`), the app's `tsconfig` allows `.ts` imports, and CI's app job installs the
+  server's packages. Everything machine-specific goes through `server/src/platform.ts` (`pf()`, `setPlatform()`): `platform-node.ts`
+  (Node, loaded with `process.getBuiltinModule` so it can sit in a phone bundle) and `platform-portable.ts` (`@noble/hashes` and
+  `@noble/ciphers` 2.4.0, added with the owner's OK; `contentFromFiles()`; own `isIP`; HS256 tokens byte-identical to `hono/jwt`).
+  `bytes.ts` replaces `Buffer`. Moved: `ClaudeTutor` and `createTutor()` to `tutor-claude.ts` (server only); helplines and content are read
+  through the platform; `db.ts` exports `DbAdapter` and `openWithAdapter()`; `createApp({ device: true })` leaves out CORS. Found and fixed by
+  the proof: Hono rebuilds a response from `response.body` when middleware touches `c.res` before `next()` (CORS did) or calls `c.header()`
+  after it (our no-store header did); React Native's `Response` has no `body`, so the phone got empty bodies. Also hardened: the Node AES-GCM
+  open now refuses tags shorter than 16 bytes. Tests: `test/platform-contract.test.ts` (17), `test/db-contract.test.ts` (15: SQLite, PGlite,
+  a hand-made adapter), `test/portable-core.test.ts` (5: esbuild bundles `createApp()` for a browser target and fails on any Node import or
+  global; a family's main paths with content handed in as files); `npm run test:portable` (the whole suite on the portable crypto);
+  `cd app && npm run proof:local` (17 steps: Expo's Android bundle of `app/src/local/core.ts` run in a sandbox with only React Native's globals
+  and `whatwg-fetch`). All in CI. `esbuild` (already installed by `tsx`) is now a declared dev dependency of `server`. **Not done / for 8b:**
+  the expo-sqlite adapter (add it to `db-contract.test.ts`; set `PRAGMA foreign_keys = ON`), `scripts/bundle-content.mjs`, installing
+  expo-crypto's `getRandomValues`, a real run in Hermes on a phone (scrypt speed there, `URL`, `TextDecoder`, `AbortSignal.timeout`). For 8c:
+  nothing in the app imports `src/local/` yet; email features print to the console in device mode; the token secret is generated into the
+  device database and should move to expo-secure-store. For 8d: the known differences table in `STANDALONE.md` section 5.
+  **Watch:** one run of `npm run test:portable` reported 1 failed test out of 286 (the output was not kept, so which test is unknown);
+  ten more full runs on both platforms, some under heavy load, all passed. If CI shows it, keep the output and look at time-window tests first.
 - **T11 (in progress: everything an agent can do is done).** `T8` is not done, so the phone app still needs a server; the guide's step 4 (a first-run server
   address) is built: `app/src/lib/server-address.ts` (pure rules: normalising, `https` outside the home network and `http` only for localhost and
   private addresses, finding the server at the root or under `/api`, a `/health` probe with a timeout; tested in `server/test/server-address.test.ts`),

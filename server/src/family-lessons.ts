@@ -7,6 +7,7 @@
 //
 // They are not project content: they are never "reviewed", carry no sources, and the parent is responsible for what they say.
 import { z } from "zod";
+import { utf8Length } from "./bytes.ts";
 import type { KnowledgeMap, Lesson } from "./content.ts";
 import type { BandId } from "./security.ts";
 
@@ -118,4 +119,4 @@ export function toFormShape(l: Lesson) {
   };
 }
 
-export const sizeOf = (l: unknown) => Buffer.byteLength(JSON.stringify(l), "utf8");
+export const sizeOf = (l: unknown) => utf8Length(JSON.stringify(l));

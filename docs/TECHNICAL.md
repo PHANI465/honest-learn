@@ -16,12 +16,12 @@ web export is served as static files and the API runs as one serverless function
 | Part | Technology | Entry point | Notes |
 |---|---|---|---|
 | Client | Expo SDK 58, React Native 0.88, expo-router, React 19 | `app/src/app/_layout.tsx` | File-based routes in `app/src/app`. Web export to `app/dist`. |
-| API | Hono 4, TypeScript run by `tsx`, zod | `server/src/app.ts` (`createApp`) | Pure function of its dependencies: `{ db, content, tutor, wiki, mailer }`. |
+| API | Hono 4, TypeScript run by `tsx`, zod | `server/src/app.ts` (`createApp`) | Pure function of its dependencies: `{ db, content, tutor, wiki, mailer }`. Runs without Node.js too (the phone app's standalone mode): everything machine-specific goes through `server/src/platform.ts`; see [`STANDALONE.md`](STANDALONE.md). |
 | Local server | `@hono/node-server` | `server/src/index.ts` (API only), `server/src/preview.ts` (API + static site on one port) | `npm run dev` at the root uses `preview.ts`. |
 | Vercel function | — | `api/index.ts` → `server/src/vercel.ts` | Also mounts `server/src/cron.ts` (data retention job). |
-| Database | `node:sqlite`, or Postgres via `@neondatabase/serverless`; PGlite in tests | `server/src/db.ts`, `db-neon.ts`, `open-db.ts` | One `DB` interface: `get`, `all`, `run`, `exec`. SQL is written to run on both. |
+| Database | `node:sqlite`, or Postgres via `@neondatabase/serverless`; PGlite in tests | `server/src/db.ts`, `db-neon.ts`, `open-db.ts` | One `DB` interface: `get`, `all`, `run`, `exec`. SQL is written to run on both. Other drivers plug in as a `DbAdapter` through `openWithAdapter()` and must pass `test/db-contract.test.ts`. |
 | Curriculum | JSON validated with zod | `server/src/content.ts` (`loadContent`) | `content/knowledge-map.json`, `lessons/`, `puzzles/`, `facts/`, `spelling/`, `chess/`, `resources.json`, `helplines.json`. |
-| AI helper ("Hoot") | Anthropic SDK, or any OpenAI-compatible server | `server/src/tutor.ts`, `server/src/tutor-openai.ts` | Selected by `TUTOR_MODE` (`claude`, `openai`, `mock`). |
+| AI helper ("Hoot") | Anthropic SDK, or any OpenAI-compatible server | `server/src/tutor.ts` (rules, prompts, pre-checks), `server/src/tutor-openai.ts`, `server/src/tutor-claude.ts` (Claude client and `createTutor()`, server only) | Selected by `TUTOR_MODE` (`claude`, `openai`, `mock`). |
 
 ## 3. Request path and trust model
 
@@ -154,6 +154,8 @@ mailer mandatory. Details: [`SECURITY.md`](SECURITY.md), [`DEPLOYMENT.md`](DEPLO
 |---|---|---|
 | API tests (SQLite) | `cd server && npm test` | 117 tests in 10 files: auth, ladder, visibility, Hoot safety patterns, lockouts, hardening, own-model provider, cron, headers, legal text sync |
 | Same on Postgres | `cd server && npm run test:pg` | PGlite, one file at a time |
+| Same with the phone's crypto | `cd server && npm run test:portable` | Every API test on `platform-portable.ts` (pure-JavaScript crypto, tokens, IP parsing) |
+| API runs in the app's bundle | `cd app && npm run proof:local` | Expo's Android bundle of the API, run without Node.js ([`STANDALONE.md`](STANDALONE.md)) |
 | Content validation | `cd server && npm run validate` | Schema, references, hints that contain the answer |
 | Types and lint | `npx tsc --noEmit` in `server` and `app`; `CI=1 npx expo lint` in `app` | |
 | Docs and colours | `node scripts/check-doc-counts.mjs`, `node scripts/check-contrast.mjs` | Counts in docs match content; WCAG AA contrast |
@@ -169,6 +171,7 @@ red-team set in `content/hoot-redteam.json` must be run and read by a person), a
 | A subject | `content/knowledge-map.json` (`subjects`, outcomes), `subjectEmoji` in `app/src/lib/theme.ts` |
 | An AI provider | Implement `TutorProvider`, select it in `createTutor()` |
 | A child-facing activity with secret answers | A route module shaped like `server/src/routes/puzzles.ts` using `openHint`/`mayReveal` |
-| A database | Implement the `DB` interface (`server/src/db.ts`) |
+| A database | Implement `DbAdapter` (`server/src/db.ts`), open it with `openWithAdapter()`, add it to `test/db-contract.test.ts` |
+| Anything that needs the machine (crypto, files, network lookups, settings) | `server/src/platform.ts` and both platforms; never Node APIs in shared code ([`STANDALONE.md`](STANDALONE.md) section 3) |
 
 Planned work and how to hand it to other agents: [`AGENT_TASKS.md`](AGENT_TASKS.md).

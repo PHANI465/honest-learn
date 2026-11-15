@@ -1,6 +1,7 @@
 // Outgoing email (verification codes, password resets).
 // Development: printed to the server console. Production: Postmark (set POSTMARK_TOKEN and MAIL_FROM).
 // MAIL_MODE=console forces console logging even in production (demo deployments only: codes end up in the logs).
+import { pf } from "./platform.ts";
 
 export interface Mailer {
   send(to: string, subject: string, text: string): Promise<void>;
@@ -40,11 +41,12 @@ export class PostmarkMailer implements Mailer {
 }
 
 export function createMailer(): Mailer {
-  if (process.env.MAIL_MODE === "console") return new ConsoleMailer();
-  const token = process.env.POSTMARK_TOKEN;
-  const from = process.env.MAIL_FROM;
+  const env = pf().env;
+  if (env.MAIL_MODE === "console") return new ConsoleMailer();
+  const token = env.POSTMARK_TOKEN;
+  const from = env.MAIL_FROM;
   if (token && from) return new PostmarkMailer(token, from);
-  if (process.env.NODE_ENV === "production" && process.env.LAUNCH === "true") {
+  if (env.NODE_ENV === "production" && env.LAUNCH === "true") {
     throw new Error(
       "Production needs POSTMARK_TOKEN and MAIL_FROM so parents can verify email and reset passwords (or MAIL_MODE=console for a demo).",
     );

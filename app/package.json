@@ -35,7 +35,8 @@
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "export:web": "expo export --platform web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "proof:local": "node scripts/local-core-proof.mjs"
   },
   "private": true
 }

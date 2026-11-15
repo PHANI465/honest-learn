@@ -6,7 +6,7 @@ import { config } from "./config.ts";
 import { createCronRoutes } from "./cron.ts";
 import { openConfiguredDb } from "./open-db.ts";
 import { loadContent } from "./content.ts";
-import { createTutor } from "./tutor.ts";
+import { createTutor } from "./tutor-claude.ts";
 import { createApp } from "./app.ts";
 
 // Created once per cold start; the database schema is applied (once) on the first query.

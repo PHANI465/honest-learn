@@ -1,0 +1,80 @@
+// Not part of the app. scripts/local-core-proof.mjs bundles this file with Expo's own bundler (`expo export:embed`, the same
+// Metro and Babel settings as an Android build) and runs the bundle with no Node.js APIs, to prove that the shared API runs
+// there (task T8a). It walks one family through the main paths and reports each step.
+import { createLocalApi, type LocalApiOptions } from "./core";
+
+export interface ProofStep {
+  name: string;
+  ok: boolean;
+  detail?: string;
+}
+
+async function run(opts: LocalApiOptions): Promise<ProofStep[]> {
+  const steps: ProofStep[] = [];
+  const check = (name: string, ok: boolean, detail?: unknown) => steps.push({ name, ok, detail: detail === undefined ? undefined : JSON.stringify(detail).slice(0, 300) });
+  const api = createLocalApi(opts);
+  const call = async (method: string, path: string, body?: unknown, token?: string) => {
+    const res = await api.request(path, {
+      method,
+      headers: { "content-type": "application/json", ...(token ? { authorization: `Bearer ${token}` } : {}) },
+      body: body === undefined ? undefined : JSON.stringify(body),
+    });
+    const text = await res.text();
+    let json: Record<string, any> = {};
+    try {
+      json = text ? JSON.parse(text) : {};
+    } catch {
+      json = { notJson: text.slice(0, 200) };
+    }
+    return { status: res.status, json };
+  };
+
+  const health = await call("GET", "/health");
+  check("health answers and counts the bundled lessons", health.status === 200 && health.json.lessons > 200, health);
+  const map = await call("GET", "/content/map");
+  check("consent version from the map", typeof map.json.consentVersion === "string", map.json.consentVersion);
+
+  const signup = await call("POST", "/auth/signup", { email: "phone@example.com", password: "correct horse", pin: "2468", confirmAdult: true, consentVersion: map.json.consentVersion });
+  check("sign up (scrypt and a signed token on the device)", signup.status === 201 && typeof signup.json.familyToken === "string", signup.status);
+  const fam = signup.json.familyToken as string;
+  const wrongPin = await call("POST", "/auth/parent-unlock", { pin: "1111" }, fam);
+  check("a wrong PIN is refused", wrongPin.status === 401, wrongPin.json);
+  const par = (await call("POST", "/auth/parent-unlock", { pin: "2468" }, fam)).json.parentToken as string;
+  check("the right PIN opens the parent area", typeof par === "string");
+  const child = await call("POST", "/parent/children", { nickname: "Sam", birthYear: new Date().getFullYear() - 9 }, par);
+  check("add a child", child.status === 201 || child.status === 200, child.status);
+  const kid = child.json.child?.id as string;
+  check("the family token cannot open the parent area", (await call("GET", "/parent/overview", undefined, fam)).status === 403);
+
+  const path = `/children/${kid}/lessons/b3-math-comparing-fractions`;
+  const lesson = await call("GET", path, undefined, fam);
+  const raw = JSON.stringify(lesson.json);
+  check("a lesson arrives without answers, hints or explanations", lesson.status === 200 && !raw.includes('"answer"') && !raw.includes('"hints"') && !raw.includes('"explain"'), lesson.status === 200 ? undefined : lesson);
+  if (lesson.status !== 200) return steps;
+  const shown = lesson.json.lesson as { quiz: { options: string[] }[] };
+  const pos = (qi: number, text: string) => shown.quiz[qi]!.options.indexOf(text);
+  check("hints must be opened in order", (await call("POST", `${path}/hint`, { question: 2, level: 2 }, fam)).json.error === "hint_out_of_order");
+  let ladder = true;
+  for (const level of [0, 1, 2]) ladder &&= (await call("POST", `${path}/hint`, { question: 2, level }, fam)).status === 200;
+  check("the hint ladder opens step by step", ladder);
+  const tried = await call("POST", `${path}/check`, { question: 2, choice: pos(2, "3/4"), hintsUsed: 3 }, fam);
+  check("the answer is revealed only after all three hints", tried.json.answer === pos(2, "5/6") && !!tried.json.explain, tried.json);
+  const right = await call("POST", `${path}/check`, { question: 0, choice: pos(0, "4/5"), hintsUsed: 0 }, fam);
+  check("a right answer is recognised", right.json.correct === true, right.json);
+
+  const hoot = await call("POST", `/children/${kid}/tutor/b3-math-comparing-fractions`, { message: "can you help me?" }, fam);
+  check("Hoot answers with the lesson's own hint (no AI)", hoot.status === 200 && typeof hoot.json.reply === "string", hoot.json.reply);
+  const pii = await call("POST", `/children/${kid}/tutor/b3-math-comparing-fractions`, { message: "my phone number is 555 123 4567" }, fam);
+  check("Hoot's pre-check catches personal information", pii.json.flagged === true, pii.json);
+
+  const aiKey = await call("PUT", "/parent/ai", { password: "correct horse", provider: "custom", baseUrl: "https://models.example.org/v1", model: "llama3.2", apiKey: "sk-phone-key-1234567890" }, par);
+  check("an own AI key is sealed with AES-GCM on the device and never returned", aiKey.status === 200 && aiKey.json.settings?.keyLast4 === "7890" && !JSON.stringify(aiKey.json).includes("sk-phone-key"), aiKey.status);
+  const metadata = await call("PUT", "/parent/ai", { password: "correct horse", provider: "custom", baseUrl: "http://169.254.169.254/latest", model: "x" }, par);
+  check("the metadata address is still refused", metadata.status === 400);
+
+  const exp = await call("GET", "/parent/export", undefined, par);
+  check("the data download works and holds no password hash", exp.status === 200 && !JSON.stringify(exp.json).includes("password_hash"));
+  return steps;
+}
+
+(globalThis as { __honestLearnLocalProof?: typeof run }).__honestLearnLocalProof = run;

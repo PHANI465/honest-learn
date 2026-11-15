@@ -1,23 +1,23 @@
-import { fileURLToPath } from "node:url";
-import { dirname, resolve } from "node:path";
+// Settings come from the platform (platform.ts): the environment variables on a server, what the app passes in on a phone.
+import { pf } from "./platform.ts";
 
-const here = dirname(fileURLToPath(import.meta.url));
+const ENV = pf().env;
 
 function env(name: string, fallback?: string): string {
-  const v = process.env[name] ?? fallback;
+  const v = ENV[name] ?? fallback;
   if (v === undefined) throw new Error(`Missing required env var ${name}`);
   return v;
 }
 
-const isProd = process.env.NODE_ENV === "production";
+const isProd = ENV.NODE_ENV === "production";
 /**
  * Pre-launch (the default until LAUNCH=true): the deployment works with zero settings for owners and
  * reviewers: draft lessons are shown, email verification is off and codes are written to the logs.
  * Set LAUNCH=true for the public launch to switch back to the strict defaults.
  */
-const launched = process.env.LAUNCH === "true";
+const launched = ENV.LAUNCH === "true";
 /** Vercel sets VERCEL=1 in its builds and functions. */
-const isVercel = !!process.env.VERCEL;
+const isVercel = !!ENV.VERCEL;
 
 export const config = {
   isProd,
@@ -25,10 +25,10 @@ export const config = {
   launched,
   port: Number(env("PORT", "8787")),
   /** SQLite file path. Use ":memory:" for tests. */
-  dbPath: env("DB_PATH", resolve(here, "../data/honest-learn.db")),
+  dbPath: env("DB_PATH", pf().defaultPaths.db),
   /** Postgres connection string. When set, it is used instead of SQLite. The Neon integration on Vercel sets these. */
-  databaseUrl: process.env.DATABASE_URL || process.env.POSTGRES_URL || "",
-  contentDir: env("CONTENT_DIR", resolve(here, "../../content")),
+  databaseUrl: ENV.DATABASE_URL || ENV.POSTGRES_URL || "",
+  contentDir: env("CONTENT_DIR", pf().defaultPaths.content),
   /**
    * Secret used to sign session tokens. Set TOKEN_SECRET to control it. If it's missing in production or on
    * Vercel, a strong random secret is generated once and kept in the database (see ensureTokenSecret in app.ts).
@@ -36,13 +36,13 @@ export const config = {
    * fixed secret, so a forgotten setting on a real host can never leave tokens signed with a public string.
    */
   tokenSecret:
-    process.env.TOKEN_SECRET ||
-    (process.env.NODE_ENV === "test" || process.env.DB_PATH === ":memory:" ? "test-only-secret-never-used-on-a-real-host" : ""),
+    ENV.TOKEN_SECRET ||
+    (ENV.NODE_ENV === "test" || ENV.DB_PATH === ":memory:" ? "test-only-secret-never-used-on-a-real-host" : ""),
   /**
    * Secret for encrypting families' own AI keys (see ai-settings.ts). Falls back to the token secret. Set it in the environment on a
    * real host: when the token secret is the auto-generated one, it lives in the database next to the encrypted keys.
    */
-  aiKeySecret: process.env.AI_KEY_SECRET || "",
+  aiKeySecret: ENV.AI_KEY_SECRET || "",
   /** Whether a family's own model may be on this machine or the local network (http://localhost, 192.168.x ...). Never on Vercel. */
   allowLocalLlm: isVercel ? false : env("ALLOW_LOCAL_LLM", "true") === "true",
   /** Show lessons with status "draft". On before launch (everything is a draft); off after LAUNCH=true. */
@@ -65,17 +65,17 @@ export const config = {
      * model in Ollama or LM Studio, or a hosted one (LLM_BASE_URL, LLM_MODEL, optional LLM_API_KEY; see
      * docs/FREE_AGENTS.md). "mock" uses the lesson's pre-written hints and needs no AI at all.
      */
-    mode: env("TUTOR_MODE", process.env.ANTHROPIC_API_KEY ? "claude" : process.env.LLM_BASE_URL || process.env.LLM_MODEL ? "openai" : "mock") as
+    mode: env("TUTOR_MODE", ENV.ANTHROPIC_API_KEY ? "claude" : ENV.LLM_BASE_URL || ENV.LLM_MODEL ? "openai" : "mock") as
       | "claude"
       | "openai"
       | "mock",
     /** Settings for TUTOR_MODE=openai. The default address is Ollama on this computer. */
     openai: {
       baseUrl: env("LLM_BASE_URL", "http://localhost:11434/v1"),
-      apiKey: process.env.LLM_API_KEY ?? "",
+      apiKey: ENV.LLM_API_KEY ?? "",
       model: env("LLM_MODEL", "llama3.2"),
       /** Model for the second safety check; defaults to the same model. A stronger one here is the best upgrade. */
-      safetyModel: env("LLM_SAFETY_MODEL", process.env.LLM_MODEL ?? "llama3.2"),
+      safetyModel: env("LLM_SAFETY_MODEL", ENV.LLM_MODEL ?? "llama3.2"),
       /** Local models on a laptop can be slow: wait up to this long for each call. */
       timeoutMs: Number(env("LLM_TIMEOUT_MS", "60000")),
     },

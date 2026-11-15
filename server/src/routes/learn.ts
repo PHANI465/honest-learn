@@ -1,9 +1,9 @@
 // What a child uses: home screen, lessons, quizzes (hint ladder), practice, "learn more" and free resources.
 // Needs a family token (checked in app.ts for /family, /children/* and /reports).
-import { randomInt } from "node:crypto";
 import { Hono } from "hono";
 import { z } from "zod";
 import { config } from "../config.ts";
+import { pf } from "../platform.ts";
 import { now } from "../db.ts";
 import { lessonSummary, publicLesson, type Lesson } from "../content.ts";
 import { lessonWikiTitle, wikiHostFor } from "../wiki.ts";
@@ -46,7 +46,7 @@ export function learnRoutes(ctx: Ctx) {
     if (fresh.length >= q.count) pool = fresh; // once everything was seen, repeat rather than run dry
     const picked: typeof pool = [];
     const rest = [...pool];
-    while (picked.length < q.count && rest.length) picked.push(rest.splice(randomInt(rest.length), 1)[0]!);
+    while (picked.length < q.count && rest.length) picked.push(rest.splice(pf().randomInt(rest.length), 1)[0]!);
     return c.json({ facts: picked.map((f) => ({ id: f.id, subject: f.subject, text: f.text, source: f.source })) });
   });
 

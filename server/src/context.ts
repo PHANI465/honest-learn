@@ -1,10 +1,9 @@
 // Everything the route modules share: dependencies, sign-in checks, one-time codes, attempt limits
 // and the hint ladder bookkeeping. Created once per app in createApp (app.ts).
 import { FAMILY_LESSON_PREFIX, isFamilyLesson, type FamilyLesson } from "./family-lessons.ts";
-import { randomInt } from "node:crypto";
 import type { Context, Next } from "hono";
-import { getConnInfo } from "@hono/node-server/conninfo";
 import { config } from "./config.ts";
+import { pf } from "./platform.ts";
 import { now, type DB } from "./db.ts";
 import type { ContentStore, Lesson } from "./content.ts";
 import type { TutorProvider } from "./tutor.ts";
@@ -241,7 +240,7 @@ export function createContext(deps: Deps) {
     return row ? Date.parse(row.sent_at) : null;
   }
   async function sendCode(p: { id: string; email: string }, purpose: Purpose) {
-    const code = String(randomInt(0, 1_000_000)).padStart(6, "0");
+    const code = String(pf().randomInt(1_000_000)).padStart(6, "0");
     await db.run(
       `INSERT INTO auth_codes (parent_id, purpose, code_hash, expires_at, attempts, sent_at) VALUES (?,?,?,?,0,?)
        ON CONFLICT (parent_id, purpose) DO UPDATE SET code_hash = excluded.code_hash, expires_at = excluded.expires_at, attempts = 0, sent_at = excluded.sent_at`,
@@ -281,11 +280,11 @@ export function createContext(deps: Deps) {
       const fwd = c.req.header("x-forwarded-for");
       if (fwd) return fwd.split(",").pop()!.trim();
     }
-    try {
-      return getConnInfo(c).remote.address ?? "unknown";
-    } catch {
-      return "unknown";
-    }
+    // The connection's own address, read the way @hono/node-server's getConnInfo reads it. In the phone app there is no
+    // connection, so every request counts as "unknown": one device, one family.
+    const bindings = (c.env as { server?: unknown } | undefined)?.server ?? c.env;
+    const address = (bindings as { incoming?: { socket?: { remoteAddress?: string } } } | undefined)?.incoming?.socket?.remoteAddress;
+    return address ?? "unknown";
   }
 
   return {

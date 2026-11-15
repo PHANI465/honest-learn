@@ -12,13 +12,14 @@
 //   routes/parent-ai.ts /parent/ai*                              parent token; saving also needs the account password
 //
 // Shared helpers (sign-in checks, hint ladder, attempt limits, email codes) live in context.ts.
-import { randomBytes } from "node:crypto";
 import { Hono } from "hono";
 import { bodyLimit } from "hono/body-limit";
 import { cors } from "hono/cors";
 import { secureHeaders } from "hono/secure-headers";
 import { z } from "zod";
+import { toBase64 } from "./bytes.ts";
 import { config } from "./config.ts";
+import { pf } from "./platform.ts";
 import type { DB } from "./db.ts";
 import type { ContentStore } from "./content.ts";
 import type { TutorProvider } from "./tutor.ts";
@@ -41,13 +42,26 @@ export { CONSENT_VERSION, reviewIntervalDays } from "./models.ts";
 /** Largest request body accepted (the biggest real one, a Hoot message or report, is well under 4 KB). */
 const MAX_BODY_BYTES = 32 * 1024;
 
-export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorProvider; wiki?: WikiClient; mailer?: Mailer }) {
+export function createApp(deps: {
+  db: DB;
+  content: ContentStore;
+  tutor: TutorProvider;
+  wiki?: WikiClient;
+  mailer?: Mailer;
+  /**
+   * True when the API runs inside the app itself (standalone mode, task T8): requests come from the same program, never from
+   * another website, so there is no cross-origin access to control and CORS is left out.
+   */
+  device?: boolean;
+}) {
   const ctx = createContext({ ...deps, wiki: deps.wiki ?? new WikiClient(), mailer: deps.mailer ?? createMailer() });
   const { db } = ctx;
   const app = new Hono<Env>();
 
   // ---------------------------------------------------------------- shared protections
-  app.use("*", cors({ origin: config.corsOrigins.includes("*") ? "*" : config.corsOrigins }));
+  // Middleware must not touch c.res before next() or call c.header() after it: Hono then rebuilds the response from
+  // response.body, a stream React Native's Response does not have, and the body is lost on a phone (found by T8a's proof).
+  if (!deps.device) app.use("*", cors({ origin: config.corsOrigins.includes("*") ? "*" : config.corsOrigins }));
   app.use(
     "*",
     secureHeaders({
@@ -59,7 +73,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
   );
   app.use("*", async (c, next) => {
     await next();
-    c.header("cache-control", "no-store"); // family data must never sit in shared or browser caches
+    c.res.headers.set("cache-control", "no-store"); // family data must never sit in shared or browser caches
   });
   app.use("*", bodyLimit({ maxSize: MAX_BODY_BYTES, onError: (c) => c.json({ error: "too_large" }, 413) }));
 
@@ -72,7 +86,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
       await db.exec("CREATE TABLE IF NOT EXISTS app_settings (key TEXT PRIMARY KEY, value TEXT NOT NULL)");
       await db.run("INSERT INTO app_settings (key, value) VALUES (?, ?) ON CONFLICT DO NOTHING", [
         "token_secret",
-        randomBytes(48).toString("base64"),
+        toBase64(pf().randomBytes(48)),
       ]);
       const row = await db.get<{ value: string }>("SELECT value FROM app_settings WHERE key = ?", ["token_secret"]);
       if (!row?.value) throw new Error("could not create a token secret");

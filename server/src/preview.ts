@@ -12,7 +12,7 @@ import { config } from "./config.ts";
 import { purgeOld } from "./db.ts";
 import { openConfiguredDb } from "./open-db.ts";
 import { loadContent } from "./content.ts";
-import { createTutor } from "./tutor.ts";
+import { createTutor } from "./tutor-claude.ts";
 import { createApp } from "./app.ts";
 import { WEB_SECURITY_HEADERS } from "./web-headers.ts";
 

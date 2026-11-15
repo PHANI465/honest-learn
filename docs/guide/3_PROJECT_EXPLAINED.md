@@ -156,13 +156,15 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `routes/usage.ts` | `/children/:id/usage`, `/usage/tick` |
 | `routes/tutor.ts` | `/children/:id/tutor/:lessonId` (Hoot), `/reports` |
 | `routes/parent.ts` | `/parent/overview`, `children` (add, edit, delete, bonus time, chats), `children/:id/outcomes` (what the child knows, per goal: not started / practising / strong), `reports`, `pin`, `settings`, `password` (change it; needs the current one), `sign-out-everywhere`, `export`, `account` (delete; needs the account password) |
-| `tutor.ts` | Hoot: pre-checks, Claude prompt, the second safety check, mock mode |
+| `tutor.ts` | Hoot: pre-checks, prompts, helplines, mock mode (runs on the server and in the app) |
+| `tutor-claude.ts` | Hoot on Claude with the second safety check, and `createTutor()` (server only) |
 | `content.ts` | Loads and validates `content/`, strips answers for the app |
 | `shuffle.ts` | Per-child option order |
 | `wiki.ts` | Wikipedia summaries (fixed titles only, cached a day) |
 | `mailer.ts` | Postmark, console or in-memory (tests) |
-| `db.ts`, `db-neon.ts`, `open-db.ts` | Database adapters, schema and migrations, data retention |
+| `db.ts`, `db-neon.ts`, `open-db.ts` | Database adapters (`DbAdapter`, `openWithAdapter`), schema and migrations, data retention |
 | `security.ts` | Hashing, tokens, age groups |
+| `platform.ts`, `platform-node.ts`, `platform-portable.ts`, `bytes.ts` | The one place that touches the machine (crypto, files, DNS, settings): Node on the server, pure JavaScript in the app; see `docs/STANDALONE.md` |
 | `web-headers.ts` | Website security headers (shared with `vercel.json`) |
 | `index.ts`, `preview.ts`, `vercel.ts` | Ways to run it: API only (`npm run dev`), website + API on one port, Vercel function |
 

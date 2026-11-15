@@ -1,4 +1,5 @@
-import { createHash } from "node:crypto";
+import { utf8 } from "./bytes.ts";
+import { pf } from "./platform.ts";
 
 // Lesson files always store the correct answer first (answer: 0) for easy authoring.
 // Each child sees each question's options in a stable, child-specific order, so the right answer
@@ -6,7 +7,8 @@ import { createHash } from "node:crypto";
 
 export function seeded(seed: string): () => number {
   // mulberry32 seeded from the first 4 bytes of a SHA-256 hash
-  let a = createHash("sha256").update(seed).digest().readUInt32LE(0);
+  const h = pf().sha256(utf8(seed));
+  let a = (h[0]! | (h[1]! << 8) | (h[2]! << 16) | (h[3]! << 24)) >>> 0; // little-endian, like Buffer.readUInt32LE(0)
   return () => {
     a = (a + 0x6d2b79f5) | 0;
     let t = Math.imul(a ^ (a >>> 15), 1 | a);
