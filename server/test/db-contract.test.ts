@@ -1,6 +1,7 @@
 // What every database adapter must do so the same SQL works everywhere (db.ts). Run against: SQLite through openDb,
-// Postgres (PGlite), and a hand-written adapter through the public openWithAdapter(), the way the phone app's SQLite adapter
-// (task T8b) will plug in. A new adapter is added to ADAPTERS below before anything uses it.
+// Postgres (PGlite), a hand-written adapter through the public openWithAdapter(), and the phone app's expo-sqlite adapter
+// (app/src/local/sqlite-adapter.ts, task T8b) over a node:sqlite stand-in that behaves like expo-sqlite. A new adapter is added
+// to ADAPTERS below before anything uses it.
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import { DatabaseSync } from "node:sqlite";
@@ -10,10 +11,55 @@ process.env.DB_PATH = ":memory:";
 import type { DB, DbAdapter, Param } from "../src/db.ts";
 const { openDb, openWithAdapter } = await import("../src/db.ts");
 const { openPglite } = await import("./pglite.ts");
+const { expoSqliteAdapter } = await import("../../app/src/local/sqlite-adapter.ts");
+type ExpoSqliteLike = import("../../app/src/local/sqlite-adapter.ts").ExpoSqliteLike;
+
+/**
+ * Behaves like expo-sqlite's SQLiteDatabase where it matters: foreign keys start off, getFirstAsync() gives null for "no row",
+ * rows are plain objects, runAsync() reports changes and lastInsertRowId. `ignorePragmas` imitates a driver where the foreign
+ * key setting does not take.
+ */
+function expoSqliteStandIn(opts: { ignorePragmas?: boolean } = {}): ExpoSqliteLike {
+  const db = new DatabaseSync(":memory:", { enableForeignKeyConstraints: false }) /* SQLite's own default; node:sqlite would switch them on */;
+  const args = (p: Param[]) => p as (string | number | null)[];
+  const plainRow = (r: unknown) => ({ ...(r as object) });
+  return {
+    async execAsync(source) {
+      if (opts.ignorePragmas && /^\s*PRAGMA/i.test(source)) return;
+      db.exec(source);
+    },
+    async getFirstAsync<T>(source: string, params: Param[]) {
+      const r = db.prepare(source).get(...args(params));
+      return (r === undefined ? null : plainRow(r)) as T | null;
+    },
+    async getAllAsync<T>(source: string, params: Param[]) {
+      return db.prepare(source).all(...args(params)).map(plainRow) as T[];
+    },
+    async runAsync(source, params) {
+      const r = db.prepare(source).run(...args(params));
+      return { changes: Number(r.changes), lastInsertRowId: Number(r.lastInsertRowid) };
+    },
+    async closeAsync() {
+      db.close();
+    },
+  };
+}
+
+/** expoSqliteAdapter() is async (it checks the foreign key setting); the DB opens synchronously and waits for it on first use. */
+function awaitingAdapter(ready: Promise<DbAdapter>): DbAdapter {
+  return {
+    dialect: "sqlite",
+    get: async (sql, params) => (await ready).get(sql, params),
+    all: async (sql, params) => (await ready).all(sql, params),
+    run: async (sql, params) => (await ready).run(sql, params),
+    exec: async (sql) => (await ready).exec(sql),
+    close: async () => (await ready).close(),
+  };
+}
 
 /** The smallest possible adapter over node:sqlite, using only the public interface. */
 function handMadeSqliteAdapter(): DbAdapter {
-  const db = new DatabaseSync(":memory:");
+  const db = new DatabaseSync(":memory:", { enableForeignKeyConstraints: false }) /* SQLite's own default; node:sqlite would switch them on */;
   // An adapter's own duty: SQLite does not enforce foreign keys unless asked to, and the API relies on ON DELETE CASCADE.
   db.exec("PRAGMA foreign_keys = ON;");
   const args = (p: Param[]) => p as (string | number | null)[];
@@ -41,7 +87,19 @@ const ADAPTERS: [string, () => DB][] = [
   ["SQLite (openDb)", () => openDb(":memory:")],
   ["Postgres (PGlite)", () => openPglite()],
   ["a hand-made adapter through openWithAdapter", () => openWithAdapter(handMadeSqliteAdapter())],
+  ["the app's expo-sqlite adapter (over a stand-in)", () => openWithAdapter(awaitingAdapter(expoSqliteAdapter(expoSqliteStandIn())))],
 ];
+
+describe("the app's expo-sqlite adapter", () => {
+  test("refuses to open a database where foreign keys cannot be switched on (deletes would leave children's data behind)", async () => {
+    await assert.rejects(expoSqliteAdapter(expoSqliteStandIn({ ignorePragmas: true })), /foreign keys/);
+  });
+  test("gives undefined, not null, for a missing row", async () => {
+    const a = await expoSqliteAdapter(expoSqliteStandIn());
+    assert.equal(await a.get("SELECT 1 AS one WHERE 1 = 0", []), undefined);
+    await a.close();
+  });
+});
 
 /** Rows as plain objects (node:sqlite returns objects with a null prototype). */
 const plain = (r: unknown) => (r && typeof r === "object" ? { ...(r as object) } : r);

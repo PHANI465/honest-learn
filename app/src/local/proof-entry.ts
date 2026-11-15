@@ -1,7 +1,11 @@
 // Not part of the app. scripts/local-core-proof.mjs bundles this file with Expo's own bundler (`expo export:embed`, the same
 // Metro and Babel settings as an Android build) and runs the bundle with no Node.js APIs, to prove that the shared API runs
-// there (task T8a). It walks one family through the main paths and reports each step.
-import { createLocalApi, type LocalApiOptions } from "./core";
+// there (tasks T8a, T8b). It uses what the phone uses: the content bundled through content-files.generated.ts and the expo-sqlite
+// adapter; only the expo-sqlite database itself comes from outside (a stand-in, since there is no phone). It walks one family
+// through the main paths and reports each step. It does not import device.ts, which needs the native modules.
+import { contentFiles } from "./content-files.generated";
+import { createLocalApi } from "./core";
+import { expoSqliteAdapter, type ExpoSqliteLike } from "./sqlite-adapter";
 
 export interface ProofStep {
   name: string;
@@ -9,10 +13,10 @@ export interface ProofStep {
   detail?: string;
 }
 
-async function run(opts: LocalApiOptions): Promise<ProofStep[]> {
+async function run(opts: { expoDb: ExpoSqliteLike }): Promise<ProofStep[]> {
   const steps: ProofStep[] = [];
   const check = (name: string, ok: boolean, detail?: unknown) => steps.push({ name, ok, detail: detail === undefined ? undefined : JSON.stringify(detail).slice(0, 300) });
-  const api = createLocalApi(opts);
+  const api = createLocalApi({ adapter: await expoSqliteAdapter(opts.expoDb), files: contentFiles });
   const call = async (method: string, path: string, body?: unknown, token?: string) => {
     const res = await api.request(path, {
       method,
@@ -74,6 +78,8 @@ async function run(opts: LocalApiOptions): Promise<ProofStep[]> {
 
   const exp = await call("GET", "/parent/export", undefined, par);
   check("the data download works and holds no password hash", exp.status === 200 && !JSON.stringify(exp.json).includes("password_hash"));
+  // last: the host then checks that the child's hints, solved questions and Hoot chats went with them (ON DELETE CASCADE)
+  check("deleting the child", (await call("DELETE", `/parent/children/${kid}`, undefined, par)).status === 200);
   return steps;
 }
 

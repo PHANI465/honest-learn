@@ -51,7 +51,8 @@
             "usesCleartextTraffic": true
           }
         }
-      ]
+      ],
+      "expo-sqlite"
     ],
     "scheme": "honestlearn",
     "description": "Free, safe, age-appropriate learning for ages 3–18. No ads."

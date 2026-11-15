@@ -34,7 +34,8 @@ You are continuing work on the Honest Learn repository. Read CLAUDE.md, then doc
 6. **Accessibility is part of done** (see T1): labels for screen readers, 44 px touch targets, contrast
    (`node scripts/check-contrast.mjs`), works with the keyboard on the web, respects reduced motion (`app/src/lib/motion.tsx`).
 7. After changing content run: `node scripts/build-catalogue.mjs`, `node scripts/export-review-sheet.mjs`,
-   `node scripts/build-knowledge-doc.mjs`, and update counts so `node scripts/check-doc-counts.mjs` passes.
+   `node scripts/build-knowledge-doc.mjs`, `node scripts/bundle-content.mjs` (the phone app's content index), and update counts so
+   `node scripts/check-doc-counts.mjs` passes.
 8. Add each new group of content to `docs/NEEDS_APPROVAL.md` so reviewers know it exists.
 
 ### How to verify (every task)
@@ -72,7 +73,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku, 5b chess and 5c memory games done 14 Nov 2026. 5d play chess against the computer: todo (needs an engine and licence decision) |
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | **done** 14 Nov 2026 | `parent/ai.tsx`, `ai-settings.ts`; no real model or hosted key tried; DNS rebinding open (`SECURITY.md`) |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
-| T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **in progress** | 8a done 14 Nov 2026 (shared API runs without Node; [`STANDALONE.md`](STANDALONE.md)). Next: 8b (Sonnet medium), then 8c, 8d |
+| T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **in progress** | 8a and 8b done 14 Nov 2026 (shared API runs without Node; expo-sqlite adapter, bundled content, `openDeviceApi()`; [`STANDALONE.md`](STANDALONE.md)). Next: 8c (Sonnet medium), then 8d. Not yet run on a phone |
 | T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | todo | Needs a Deaf reviewer |
 | T10 | "Add your own lessons" for parents | Sonnet medium | M | none | **done** 14 Nov 2026 | `parent/lessons.tsx`; private to the family; no look at it in a browser yet |
 | T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | **in progress** | Code and `docs/MOBILE.md` done 14 Nov 2026; accounts, signed builds and store forms need a person |
@@ -307,7 +308,8 @@ mode must not weaken the server mode.
 
 **Split.** 8a (Opus high, M): shared `core/` package, DB adapter interface, proof that `createApp` runs under
 Expo with tests passing in Node against the adapter contract. **Done 14 Nov 2026**, without a `core/` package: the app imports
-`server/src` directly; the decision and the rules are in [`STANDALONE.md`](STANDALONE.md). 8b (Sonnet medium, M): `expo-sqlite` adapter and content
+`server/src` directly; the decision and the rules are in [`STANDALONE.md`](STANDALONE.md). **8b done 14 Nov 2026** (the content is
+bundled as an index of imports of `content/`, not a copied JSON module, so there is one copy). 8b (Sonnet medium, M): `expo-sqlite` adapter and content
 bundling. 8c (Sonnet medium, M): first-run mode choice, local recovery phrase, local wellbeing notice. 8d (Opus high,
 S): security review and `docs/SECURITY.md` section "Standalone mode: what protects what".
 
@@ -546,6 +548,22 @@ are private to that family and are included in export and deletion. **Sonnet med
   device database and should move to expo-secure-store. For 8d: the known differences table in `STANDALONE.md` section 5.
   **Watch:** one run of `npm run test:portable` reported 1 failed test out of 286 (the output was not kept, so which test is unknown);
   ten more full runs on both platforms, some under heavy load, all passed. If CI shows it, keep the output and look at time-window tests first.
+- **T8b (done, by Opus at the owner's go-ahead).** `expo-sqlite` ~58.0.17 and `expo-crypto` ~58.0.8 added with `npx expo install`
+  (both MIT, both in Expo Go; `expo install` also added expo-sqlite's config plugin to `app.json`). `app/src/local/sqlite-adapter.ts`
+  (`expoSqliteAdapter(db)`: takes anything shaped like expo-sqlite's `SQLiteDatabase`, so the server's `test/db-contract.test.ts` runs the
+  same code over a node:sqlite stand-in; switches `PRAGMA foreign_keys = ON` and refuses to open if it did not take; maps `null` rows to
+  `undefined`). Lesson learned: `node:sqlite` switches foreign keys on by default, unlike SQLite and expo-sqlite, so the Node stand-ins now
+  open with `enableForeignKeyConstraints: false`; a mutation check confirmed the contract fails an adapter that forgets the pragma.
+  `scripts/bundle-content.mjs` writes `app/src/local/content-files.generated.ts` (239 imports; CI checks it is fresh; the fourth generator in
+  `CLAUDE.md`). `app/src/local/device.ts`: `openDeviceApi()` = expo-sqlite file `honest-learn.db` + expo-crypto `getRandomValues` (in
+  1 KB pieces; never `getRandomBytes`, which falls back to `Math.random` in development) + bundled content. `metro.config.js` also watches
+  `content/`. The proof (`npm run proof:local`) now uses the bundled content and the expo-sqlite adapter inside the bundle, 20 steps,
+  including deleting the child and checking the database holds nothing about them. `device.ts` bundles for Android and iOS with
+  `expo export:embed` (about 2.6 MB minified with React Native). **Not done / for 8c:** nothing calls `openDeviceApi()` yet; the app's
+  `api()` in `app/src/lib/api.ts` still always uses `fetch` (add the `LocalBackend` switch from the T8 design, chosen on first run next to
+  the existing Server address screen); emails print to the console in device mode (replace with the recovery phrase and the in-app wellbeing
+  notice); move the token secret to expo-secure-store. **Never verified:** a real phone or emulator (Hermes, the real expo-sqlite, scrypt
+  speed, `URL`, `TextDecoder`, `AbortSignal.timeout`): the first thing 8c should do is run `openDeviceApi()` once in Expo Go.
 - **T11 (in progress: everything an agent can do is done).** `T8` is not done, so the phone app still needs a server; the guide's step 4 (a first-run server
   address) is built: `app/src/lib/server-address.ts` (pure rules: normalising, `https` outside the home network and `http` only for localhost and
   private addresses, finding the server at the root or under `/api`, a `/health` probe with a timeout; tested in `server/test/server-address.test.ts`),

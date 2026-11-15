@@ -24,10 +24,11 @@ cd app && npx expo start         # w = web; scan the QR code with Expo Go on a p
 node scripts/build-catalogue.mjs     # README "What's inside" (CI fails if stale)
 node scripts/export-review-sheet.mjs # docs/review/*.csv (CI fails if stale)
 node scripts/build-knowledge-doc.mjs # docs/KNOWLEDGE_MAP.md (CI fails if stale)
+node scripts/bundle-content.mjs      # app/src/local/content-files.generated.ts, the phone app's content index (CI fails if stale)
 node scripts/check-doc-counts.mjs    # docs must agree with content counts (CI)
 node scripts/seed-demo.mjs           # demo family on a running local API; see docs/TRY_IT.md
 ```
-After changing content, run all three generators before committing.
+After changing content, run all four generators before committing (`bundle-content.mjs` only changes when files are added, removed or renamed).
 
 ## Rules that must not be broken
 - **Never send quiz answers, hints or explanations to the app before they're earned.** The server keeps them; the app asks `/check` and `/hint`. Offline caching must strip them.

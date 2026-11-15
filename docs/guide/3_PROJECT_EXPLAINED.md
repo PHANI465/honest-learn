@@ -198,7 +198,7 @@ Deleting a parent deletes everything about the family (cascading deletes). Old c
 ### Content pipeline
 1. Write or edit JSON in `content/` following [`docs/REVIEWER_GUIDE.md`](../REVIEWER_GUIDE.md), with `"status": "draft"`.
 2. `cd server && npm run validate` checks every file and warns when a hint seems to give the answer away.
-3. Run the three generators (README catalogue, review spreadsheets, knowledge-map document). CI fails if they're stale.
+3. Run the four generators (README catalogue, review spreadsheets, knowledge-map document, the phone app's content index). CI fails if they're stale.
 4. Two reviewers approve → `"status": "reviewed"` with their names.
 
 ### Testing and quality

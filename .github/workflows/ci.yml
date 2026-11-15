@@ -38,6 +38,11 @@ jobs:
           node scripts/build-catalogue.mjs
           node scripts/export-review-sheet.mjs
           git diff --exit-code README.md docs/review || (echo "Run: node scripts/build-catalogue.mjs && node scripts/export-review-sheet.mjs" && exit 1)
+      - name: The phone app's content index is up to date (standalone mode)
+        working-directory: .
+        run: |
+          node scripts/bundle-content.mjs
+          git diff --exit-code app/src/local/content-files.generated.ts || (echo "Run: node scripts/bundle-content.mjs" && exit 1)
       - run: npm run typecheck
       - run: npm test
       - name: Tests on Postgres (PGlite)

@@ -12,7 +12,12 @@ const server = path.resolve(__dirname, "../server");
 config.watchFolders = [
   ...(config.watchFolders ?? []),
   // skipped when missing (a checkout without `npm ci` in server/): only src/local needs them
-  ...[path.join(server, "src"), ...["hono", "zod", "chess.js", "@noble"].map((pkg) => path.join(server, "node_modules", pkg))].filter((p) => fs.existsSync(p)),
+  ...[
+    path.join(server, "src"),
+    ...["hono", "zod", "chess.js", "@noble"].map((pkg) => path.join(server, "node_modules", pkg)),
+    // the lessons and other content, bundled for standalone mode (src/local/content-files.generated.ts)
+    path.resolve(__dirname, "../content"),
+  ].filter((p) => fs.existsSync(p)),
 ];
 
 module.exports = config;

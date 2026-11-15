@@ -1,4 +1,4 @@
-// Proof for task T8a: the server's API runs inside the app's own bundle, with no Node.js.
+// Proof for tasks T8a and T8b: the server's API runs inside the app's own bundle, with no Node.js.
 //
 //   cd app && npm run proof:local
 //
@@ -8,21 +8,22 @@
 //    streams or crypto.subtle; Request/Response/Headers from whatwg-fetch, the polyfill React Native itself uses; random
 //    bytes through crypto.getRandomValues (expo-crypto provides it on a phone).
 // 3. Walks a family through sign-up, PIN, a child, a lesson with the hint ladder, Hoot, an own AI key and the data
-//    download, against a database adapter (node:sqlite here; expo-sqlite in task 8b) and the content folder as files.
+//    download. The bundle holds the content (content-files.generated.ts) and the app's expo-sqlite adapter; only the expo-sqlite
+//    database comes from here: a stand-in on node:sqlite that behaves like expo-sqlite (foreign keys off until switched on,
+//    null for "no row").
 //
 // What this does NOT prove: Hermes itself (React Native's JavaScript engine) and a real phone. See docs/STANDALONE.md.
 import { spawnSync } from "node:child_process";
-import { readFileSync, readdirSync, statSync, mkdirSync } from "node:fs";
+import { readFileSync, mkdirSync } from "node:fs";
 import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
-import { dirname, join, relative } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DatabaseSync } from "node:sqlite";
 import { webcrypto } from "node:crypto";
 import vm from "node:vm";
 
 const appDir = join(dirname(fileURLToPath(import.meta.url)), "..");
-const contentDir = join(appDir, "..", "content");
 const out = join(tmpdir(), "hl-local-proof");
 mkdirSync(out, { recursive: true });
 const bundle = join(out, "proof.android.js");
@@ -69,29 +70,29 @@ vm.runInContext(code, context, { filename: "proof.android.js" });
 const run = context.__honestLearnLocalProof;
 if (typeof run !== "function") throw new Error("the bundle did not register __honestLearnLocalProof");
 
-// ---------------------------------------------------------------- 3. a database and the content, from outside
-const db = new DatabaseSync(":memory:");
-db.exec("PRAGMA foreign_keys = ON;");
-const adapter = {
-  dialect: "sqlite",
-  get: async (sql, params) => db.prepare(sql).get(...params),
-  all: async (sql, params) => db.prepare(sql).all(...params),
-  run: async (sql, params) => ({ changes: Number(db.prepare(sql).run(...params).changes) }),
-  exec: async (sql) => void db.exec(sql),
-  close: async () => db.close(),
+// ---------------------------------------------------------------- 3. an expo-sqlite stand-in, from outside
+const db = new DatabaseSync(":memory:", { enableForeignKeyConstraints: false }); // SQLite's own default, like expo-sqlite
+const plainRow = (r) => ({ ...r });
+const expoDb = {
+  execAsync: async (source) => void db.exec(source),
+  getFirstAsync: async (source, params) => {
+    const r = db.prepare(source).get(...params);
+    return r === undefined ? null : plainRow(r);
+  },
+  getAllAsync: async (source, params) => db.prepare(source).all(...params).map(plainRow),
+  runAsync: async (source, params) => {
+    const r = db.prepare(source).run(...params);
+    return { changes: Number(r.changes), lastInsertRowId: Number(r.lastInsertRowid) };
+  },
+  closeAsync: async () => db.close(),
 };
-const files = {};
-const walk = (dir) => {
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name);
-    if (statSync(p).isDirectory()) walk(p);
-    else if (name.endsWith(".json")) files[relative(contentDir, p).replace(/\\/g, "/")] = JSON.parse(readFileSync(p, "utf8"));
-  }
-};
-walk(contentDir);
 
 const started = Date.now();
-const steps = await run({ adapter, files });
+const steps = await run({ expoDb });
+const fk = db.prepare("PRAGMA foreign_keys").get();
+steps.push({ name: "the adapter switched foreign keys on", ok: Number(fk.foreign_keys) === 1 });
+const left = db.prepare("SELECT (SELECT COUNT(*) FROM children) + (SELECT COUNT(*) FROM hints_seen) + (SELECT COUNT(*) FROM quiz_solved) + (SELECT COUNT(*) FROM tutor_messages) AS n").get();
+steps.push({ name: "nothing about the deleted child is left in the database", ok: Number(left.n) === 0, detail: JSON.stringify({ ...left }) });
 let failed = 0;
 for (const s of steps) {
   if (!s.ok) failed++;
