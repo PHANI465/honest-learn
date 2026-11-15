@@ -84,9 +84,10 @@ describe("spelling rules (pure)", () => {
   test("new words come from level 1 until 80% of it is in box 2 or higher", () => {
     const set = content.spelling.get("b2")!;
     const l1 = set.words.filter((w) => w.level === 1).map((w) => w.word);
-    const boxes = new Map(l1.slice(0, 7).map((w) => [w, 2])); // 70%
+    const need = Math.ceil(l1.length * sp.LEVEL_UP_SHARE); // how many level 1 words make 80%
+    const boxes = new Map(l1.slice(0, need - 1).map((w) => [w, 2])); // just under 80%
     assert.equal(sp.currentLevel(set.words, boxes), 1);
-    boxes.set(l1[7]!, 2); // 80%
+    boxes.set(l1[need - 1]!, 2); // 80%
     assert.equal(sp.currentLevel(set.words, boxes), 2);
   });
 });
@@ -198,7 +199,7 @@ describe("daily spelling routes", () => {
     const { call, fam, kid, db } = await setup(9);
     const set = content.spelling.get("b3")!;
     const l1 = set.words.filter((w) => w.level === 1);
-    for (const w of l1.slice(0, 8)) {
+    for (const w of l1.slice(0, Math.ceil(l1.length * sp.LEVEL_UP_SHARE))) {
       await db.run("INSERT INTO spelling_progress (child_id, word, box, due, last_day) VALUES (?,?,?,?,?)", [kid, w.word, 2, plus(30), plus(-1)]);
     }
     const r = await call("GET", `/children/${kid}/spelling/today?day=${today}`, undefined, fam);
