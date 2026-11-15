@@ -124,6 +124,17 @@ const TABLES = [
   last_tick   TEXT,
   PRIMARY KEY (child_id, day)
 )`,
+  // a family's own AI model for Hoot; the key is stored only encrypted (see ai-settings.ts)
+  `CREATE TABLE IF NOT EXISTS ai_settings (
+  parent_id    TEXT PRIMARY KEY REFERENCES parents(id) ON DELETE CASCADE,
+  provider     TEXT NOT NULL,
+  base_url     TEXT NOT NULL,
+  model        TEXT NOT NULL,
+  safety_model TEXT,
+  key_cipher   TEXT,
+  key_last4    TEXT,
+  updated_at   TEXT NOT NULL
+)`,
   // games a child has finished (Sudoku puzzles so far); one row per puzzle
   `CREATE TABLE IF NOT EXISTS games_solved (
   child_id     TEXT NOT NULL REFERENCES children(id) ON DELETE CASCADE,

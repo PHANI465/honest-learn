@@ -39,6 +39,7 @@ This notice is for parents and legal guardians aged 18 or over. Children can't c
 - **Settings you choose**: level, which sensitive topics (religion, body, politics) are unlocked, whether Hoot is on, and the daily time limit.
 - **Learning progress**: which lessons and puzzles your child finished, their best score, number of tries, when they finished, when a lesson is due for review, which quiz questions they answered correctly, and which spelling words they practised (with when each word is due to come back).
 - **Lessons you write**: if you add your own lessons in the parent area, we store their text, quiz questions and hints for your family only. They are included in your data download and deleted with your account. If your child asks Hoot about one, its text is sent to the AI helper you have set up, like any lesson.
+- **Your own AI model** (only if you set one up in the parent area, under "Hoot's AI"): the provider you picked, the model's address and name, and your API key if you entered one. The key is stored encrypted, is never shown again (only its last four characters), and is not included in your data download; the other settings are. All of it is deleted when you remove the model or delete your account.
 - **Learning minutes**: minutes used each day and any extra minutes you gave, so the time limit works on every device. Deleted after 90 days.
 - **Hoot chats**: the messages your child types to Hoot and Hoot's replies, with a note when a message was flagged (for example, personal information or a worry about their wellbeing). You can read every chat. If Hoot spots personal information such as a phone number or address, we store "[removed: personal information]" instead of what was typed. Chats are deleted automatically after 365 days. [Lawyer: confirm this period.]
 - **Reports**: if you or your child report a lesson or a Hoot reply, we keep the reason, any details you add, and which lesson or message it was about.
@@ -59,6 +60,7 @@ We don't collect children's real names, photos, voice recordings, precise locati
 - **What we send to Anthropic** (the company that makes the Claude AI) for other messages: your child's message, up to the last 12 messages of that lesson's chat, the lesson text and the quiz question they're working on (including the answer, so Hoot knows not to reveal it), your child's nickname and their age group (not their birth year). Each message uses two AI calls: one writes the reply, the second checks it is safe and doesn't give away the answer.
 - Anthropic processes this only to provide the service to us, under our agreement with them. [Lawyer: confirm the data processing agreement and Anthropic's current commercial terms, including that our data is not used to train its models and how long it is kept.]
 - If our server is not set up to use AI, Hoot uses the lesson's pre-written hints and nothing is sent to Anthropic.
+- **If you connect your own AI model** in the parent area, the same information listed above goes to the model or service you chose instead of Anthropic, under that provider's own terms and privacy rules (we have no agreement with it). The same checks before any AI call, the second safety check and the daily limits still apply. Models you connect have not been through our safety tests, so Hoot is switched off for every child when you save, until you turn it on again.
 - Hoot is a computer program and can make mistakes. Every reply has a report button.
 
 ## Who else handles information
@@ -67,7 +69,7 @@ We use a few service providers. They may only use the information to provide the
 
 - **Hosting**: [provider name and region] runs our server and stores the database.
 - **Email**: [Postmark] sends verification and password-reset emails. It receives your email address and the email's text.
-- **AI**: Anthropic, only when Hoot is on (see above).
+- **AI**: Anthropic, only when Hoot is on (see above), or the AI provider you chose yourself in the parent area.
 - **Wikipedia**: for ages 9 and over, our server fetches short "Learn more" summaries from Wikipedia based on the lesson's topic. Nothing about you or your child is sent.
 - **YouTube videos**: some lessons may include a video in YouTube's privacy-enhanced mode (youtube-nocookie.com). When your child plays one, their device connects to YouTube (Google), which receives the device's IP address and may store some data on the device, as described in Google's privacy policy. We don't send Google any information about your account.
 - **Outside websites**: our list of free learning websites opens other sites. Children under 13 need your PIN to open them. Those sites have their own privacy policies.

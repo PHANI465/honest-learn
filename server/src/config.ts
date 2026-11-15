@@ -38,6 +38,13 @@ export const config = {
   tokenSecret:
     process.env.TOKEN_SECRET ||
     (process.env.NODE_ENV === "test" || process.env.DB_PATH === ":memory:" ? "test-only-secret-never-used-on-a-real-host" : ""),
+  /**
+   * Secret for encrypting families' own AI keys (see ai-settings.ts). Falls back to the token secret. Set it in the environment on a
+   * real host: when the token secret is the auto-generated one, it lives in the database next to the encrypted keys.
+   */
+  aiKeySecret: process.env.AI_KEY_SECRET || "",
+  /** Whether a family's own model may be on this machine or the local network (http://localhost, 192.168.x ...). Never on Vercel. */
+  allowLocalLlm: isVercel ? false : env("ALLOW_LOCAL_LLM", "true") === "true",
   /** Show lessons with status "draft". On before launch (everything is a draft); off after LAUNCH=true. */
   showDrafts: env("SHOW_DRAFTS", launched ? "false" : "true") === "true",
   /** Other websites allowed to call the API. Open before launch; after LAUNCH=true only the origins you list (none by default: the website and API share one address). */

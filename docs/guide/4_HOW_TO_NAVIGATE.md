@@ -34,6 +34,7 @@ flowchart TD
    - **Child settings:** nickname, learning level (match age, or choose another group), sensitive topics (religion, body, politics), Hoot on/off, reading and display (text size, dyslexia-friendly font, high contrast, automatic read-aloud), daily minutes, *Read chats* (Hoot history), *Delete this profile*.
    - **Extra time:** when a child's time is up, their screen offers "+15 minutes" for a grown-up with the PIN.
    - **Lessons you add:** write your own lessons (title, age group, subject, text, optional quiz with three hints per question). Only your family sees them; they appear marked "Added by your family". Up to 100 lessons of 20 KB.
+   - **Hoot's AI** (Account card): connect your own model (Ollama, LM Studio, OpenRouter, Groq or any OpenAI-compatible address) with an optional key. Saving needs the account password and turns Hoot off for every child until you turn it on again; **Test the connection** sends one harmless message. The key is never shown again, only its last four characters.
    - **Country:** for helpline information in Hoot's safety replies.
    - **Account:** download all data, lock the parent area, sign out of this device, **sign out all other devices**, delete the account.
 4. **Back to learning →** returns to "Who's learning today?".

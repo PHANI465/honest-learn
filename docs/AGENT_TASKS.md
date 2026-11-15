@@ -70,7 +70,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T3 | Daily spelling and vocabulary | Sonnet medium (code), Haiku low (word lists) | L | none | **done** 14 Nov 2026 | Server, screen and 605 words (120+ per band). Open: spellingVariant, reviewer pass |
 | T4 | Quantitative aptitude and reasoning lessons | Sonnet medium | L | none | **done** 14 Nov 2026 | 30 lessons across b2 to b5; every band needs a human maths check |
 | T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku, 5b chess and 5c memory games done 14 Nov 2026. 5d play chess against the computer: todo (needs an engine and licence decision) |
-| T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | todo | Security sensitive |
+| T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | **done** 14 Nov 2026 | `parent/ai.tsx`, `ai-settings.ts`; no real model or hosted key tried; DNS rebinding open (`SECURITY.md`) |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | todo | |
 | T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | todo | Needs a Deaf reviewer |
@@ -508,6 +508,23 @@ are private to that family and are included in export and deletion. **Sonnet med
   screen reader or keyboard pass; no pins or discovered-attack puzzles (the verifier only proves mates and 4-ply material wins); many
   positions are sparse endgames because they are composed, not taken from games; the Lichess puzzle database (CC0) was not used and could
   add natural positions later; levels use "mate in two" only (no mate in three).
+- **T6 (done).** Server: `server/src/ai-settings.ts` (key encryption: AES-256-GCM, HKDF-SHA256 from `AI_KEY_SECRET` or the token secret, salt
+  and GCM additional data = parent id, stored as `v1.<iv>.<tag>.<ct>`; `classifyIp`, `checkBaseUrl`, `checkResolvedHost`, `guardedFetch` (re-checks the
+  resolved address before every request, `redirect: "error"`); the zod input; `publicSettings` (never the key); `errorCategory`), table `ai_settings`
+  (cascades with the parent), `server/src/routes/parent-ai.ts` (`GET/PUT/DELETE /parent/ai`, `POST /parent/ai/test`, 10 tests per family per hour), and
+  `routes/tutor.ts` builds `new OpenAICompatTutor(guardedFetch(), tutorOptions(row))` per request when the child's parent has settings (the pre-check
+  still runs first and skips the lookup). Config: `AI_KEY_SECRET`, `ALLOW_LOCAL_LLM` (default on, forced off on Vercel). Decisions taken while building,
+  not in the spec: saving needs the account password as well as the PIN; a stored key is kept only when the new address has the same **origin**
+  (scheme, host and port), otherwise it is deleted and must be typed again; saving any change turns Hoot off for **every** child of the family (the
+  response says how many); `lastFour` is only stored for keys of 16+ characters; the test sends one fixed prompt to the reply model and the safety model
+  and returns only categories. Export: `ownAiModel` without `key_cipher`. App: `app/src/app/parent/ai.tsx` (presets, warning, "I have read the warning"
+  tick box, masked key with last four, remove-key tick box, test results, stop using it), linked from the Account card. Tests:
+  `server/test/own-key.test.ts` (19, also on PGlite), with a fake model server on 127.0.0.1 and every console line captured. Looked at in a real browser
+  at phone width: save with Ollama preset (Hoot turned off for 5 demo children), test (could not connect, as no Ollama runs), a metadata address
+  refused, stop using it. **Not done:** no real Ollama, LM Studio, OpenRouter or Groq was connected, so the presets' addresses are from their docs only;
+  DNS rebinding is not prevented (pin the checked IP with an undici `Agent` `connect.lookup` to close it); `GET /content/hoot` still describes only the
+  server's default helper, so the child-side "not tested" banner does not know about a family model (the parent screen says it); no screen reader pass.
+  T8 can reuse `checkBaseUrl` and `classifyIp`, but a phone app with no server will need its own key storage (SecureStore), not this table.
 - **T11 (in progress: everything an agent can do is done).** `T8` is not done, so the phone app still needs a server; the guide's step 4 (a first-run server
   address) is built: `app/src/lib/server-address.ts` (pure rules: normalising, `https` outside the home network and `http` only for localhost and
   private addresses, finding the server at the root or under `/api`, a `/health` probe with a timeout; tested in `server/test/server-address.test.ts`),

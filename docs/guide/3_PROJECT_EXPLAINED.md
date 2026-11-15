@@ -179,6 +179,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `usage` | Minutes and bonus minutes per child per day |
 | `games_solved` | Which game puzzles (Sudoku) a child has finished |
 | `family_lessons` | Lessons a parent wrote for their own children (private to the family) |
+| `ai_settings` | The family's own AI model for Hoot; the key is stored only encrypted and never sent back |
 | `spelling_progress`, `spelling_days` | Which spelling words each child practises, when each is due again, and the words chosen for each day |
 | `reports` | "Report a problem" submissions |
 | `app_settings` | The generated sign-in secret (pre-launch / zero-config) |

@@ -11,6 +11,8 @@ The server is a single Node process with a SQLite file. Any host with a **persis
 | `LAUNCH` | no | off | `true` switches on the strict public-launch defaults below (drafts hidden, email verification on, real email required). Until then the server runs in *pre-launch mode*. |
 | `NODE_ENV` | yes | — | Set to `production`. |
 | `TOKEN_SECRET` | recommended | generated | Long random string that signs sign-ins (e.g. `openssl rand -base64 48`). If it's missing in production, a strong one is generated once and stored in the database (`app_settings` table). Changing it signs everyone out. |
+| `AI_KEY_SECRET` | recommended | the token secret | Long random string that encrypts the API keys families save in the parent area ("Hoot's AI"). Without it the token secret is used, which may itself be stored in the database next to the encrypted keys. Changing it makes saved keys unreadable: families must type them again. |
+| `ALLOW_LOCAL_LLM` | no | `true` (always `false` on Vercel) | Lets families point Hoot at a model on this machine or the local network (`http://localhost:11434/v1`, `192.168.x.x`). Turn off on any server reachable from the internet that has other private services next to it. |
 | `DB_PATH` | no | `server/data/honest-learn.db` | SQLite file. Put it on the persistent disk. Back it up daily. Ignored when `DATABASE_URL` is set. |
 | `DATABASE_URL` (or `POSTGRES_URL`) | no | — | Postgres connection string. When set, the server uses Postgres (via Neon's HTTPS driver) instead of SQLite. Tables are created on first use. |
 | `CONTENT_DIR` | no | `../content` | Folder with `knowledge-map.json` and `lessons/`. |
@@ -92,6 +94,7 @@ Optional settings (Project → Settings → Environment Variables):
 | `DATABASE_URL` | Added automatically when you connect Neon (see below). Without a database, the site runs in **demo mode** and forgets accounts. |
 | `TOKEN_SECRET` | Your own sign-in signing secret (otherwise one is generated and stored in the database). Changing it signs everyone out. |
 | `ANTHROPIC_API_KEY` | Turns on the real AI tutor. Without it, Hoot answers with the lessons' pre-written hints. |
+| `AI_KEY_SECRET` | Encrypts the API keys families save in the parent area. **Set it** if families may use their own model: otherwise the generated token secret, kept in the database, is used. Changing it makes saved keys unreadable. Local models are always off on Vercel. |
 | `LAUNCH` | Set to `true` only for the public launch: hides unreviewed lessons and requires email verification. Then you also need `POSTMARK_TOKEN` + `MAIL_FROM` so emails are actually sent. |
 | `CRON_SECRET` | A long random string (e.g. `openssl rand -base64 32`). Vercel Cron sends it as `Authorization: Bearer <CRON_SECRET>` to the daily data-retention job. **Set it:** without it, the job refuses to run on Vercel. |
 | `SHOW_DRAFTS`, `REQUIRE_EMAIL_VERIFICATION`, `MAIL_MODE`, `TUTOR_MODE` | Override the pre-launch/launch defaults individually. |

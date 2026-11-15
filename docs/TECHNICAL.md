@@ -119,6 +119,7 @@ See [`FREE_AGENTS.md`](FREE_AGENTS.md) for connecting Ollama or a hosted service
 | `usage` | `(child_id, day)` | Minutes, bonus minutes, last tick |
 | `games_solved` | `(child_id, game, puzzle_key)` | A finished game puzzle (Sudoku so far), when, and how many hint chains were used |
 | `family_lessons` | `id` (`fam-…`) → `parents` (cascade) | A lesson a parent wrote (JSON in the built-in lesson shape, correct option first), private to the family |
+| `ai_settings` | `parent_id` → `parents` (cascade) | The family's own model for Hoot (provider, address, model, safety model); the API key only encrypted (`key_cipher`, AES-256-GCM) plus its last four characters. Never returned or exported (`ai-settings.ts`) |
 | `spelling_progress` | `(child_id, word)` | Leitner box (0 to 4), due day, last day tried |
 | `spelling_days` | `(child_id, day)` | The words chosen for that child that day (kept so reloading never changes the set) |
 | `tutor_messages` | `id` | Hoot chats with `flagged`; purged after `CHAT_RETENTION_DAYS` |

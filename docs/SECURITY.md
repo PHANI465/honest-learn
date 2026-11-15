@@ -1,6 +1,6 @@
 # Security
 
-How Honest Learn protects children and families, what the last security review found and fixed, and what is still open. Last reviewed: 13 November 2026.
+How Honest Learn protects children and families, what the last security review found and fixed, and what is still open. Last reviewed: 13 November 2026; own-model settings added 14 November 2026.
 
 ## How the app protects families
 
@@ -20,6 +20,7 @@ How Honest Learn protects children and families, what the last security review f
 | **Spelling words: one deliberate exception** | The daily spelling screen never receives the spelling as text to show, but the server does send each not-yet-tried word in a separate `say` field so the phone can read it aloud (decision by the owner, 14 Nov 2026: hearing the word is the point of spelling practice). The app must never render `say`. The typed answer is always compared on the server, a word cannot be promoted twice in one day, and the clues (meaning, blanked sentence) never contain the word. | `routes/spelling.ts`, `spelling.ts`, `test/spelling.test.ts` |
 | **Sensitive topics** | Religion, body and politics lessons are filtered out on the server until a parent unlocks them with the PIN. A child's request for a locked lesson gets "needs a parent's permission". | `visibleTo` in `context.ts` |
 | **Hoot (AI helper)** | Personal information and wellbeing messages are answered by fixed, safe replies before any AI call (with a helpline for the family's country). Every AI reply then passes a second safety and answer-leak check. Personal information is never stored as typed. Chats are deleted after 365 days. | `server/src/tutor.ts`, `routes/tutor.ts`, `content/hoot-redteam.json` |
+| **A family's own AI model and key** | A parent can point Hoot at their own model (parent area, "Hoot's AI"). Saving needs the PIN token **and** the account password. The API key is stored only encrypted (AES-256-GCM, key derived with HKDF from `AI_KEY_SECRET` or the token secret plus the parent id, bound to that parent) and is **never returned**: not by any route, not in the data download, not in logs. Only its last four characters are shown. A stored key is only ever sent to the address it was typed for: changing the address (scheme, host or port) deletes it. Saving turns Hoot off for every child until the parent turns it on again. Address guard against server-side request forgery: `https` only, `http` only to this machine or a private network when `ALLOW_LOCAL_LLM` is on (always off on Vercel); the name is resolved before **every** request and refused if any address is link-local or cloud metadata (169.254.0.0/16, `fd00:ec2::`), unspecified or multicast; redirects are never followed; the test button and errors give only a short category, never the model server's own words. All of Hoot's protections stay on for every model. | `server/src/ai-settings.ts`, `routes/parent-ai.ts`, `routes/tutor.ts`, `server/test/own-key.test.ts` |
 | **Input checks** | Every request body is validated (zod) with length limits, and bodies over 32 KB are refused. All SQL uses bound parameters. | `server/src/models.ts`, `app.ts` |
 | **API headers** | `Content-Security-Policy: default-src 'none'`, no framing, `nosniff`, `no-referrer`, HSTS and `Cache-Control: no-store` (family data never sits in caches). | `app.ts` |
 | **Website headers** | A strict Content-Security-Policy (only this site, plus the privacy-enhanced YouTube player), no framing, `nosniff`, a referrer policy, a permissions policy that turns off camera, microphone and location, and `noindex` until launch. The same list is used by Vercel and the preview server; a test fails if they differ. | `server/src/web-headers.ts`, `vercel.json`, `server/test/web-headers.test.ts` |
@@ -69,11 +70,13 @@ Each earlier fix has an automated test in `server/test/api.test.ts` ("security h
 - **Locking someone out on purpose.** Anyone who knows a parent's email can enter wrong passwords until the account locks (up to 24 hours after repeated lockouts). A password reset by email clears the lock. We accept this in exchange for strong guessing limits.
 - **Screen time is counted from the app's own ticks.** A modified app could report less time. The limit is a family tool, not a security boundary.
 - **Web storage.** In the browser the family token is kept in local storage (standard for web apps). The strict CSP is the main protection against scripts that could read it.
+- **Family model addresses and DNS rebinding.** The model address is checked by resolving its name before each request, but a name whose DNS answer changes between that check and the connection could still reach an address the check refused. Redirects are refused and responses are never shown, which limits what such a request can do. Pinning the checked address for the connection would close this; not done yet.
+- **The key secret and the database.** With neither `AI_KEY_SECRET` nor `TOKEN_SECRET` set, the generated token secret is kept in the database, next to the encrypted keys, so a copy of the database would expose them. Set `AI_KEY_SECRET` for a real deployment. Changing it makes stored keys unreadable (the parent area says so, and the family types the key again).
 - **Hoot red-team.** The 92 attack cases in `content/hoot-redteam.json` must be run against the real AI (`cd server && npm run redteam` with `ANTHROPIC_API_KEY` set) and reviewed by a child-safety expert before launch. See `docs/HOOT_SAFETY_TESTS.md`.
 
 ## Before launch
 
-1. Set `LAUNCH=true`, `TOKEN_SECRET`, `POSTMARK_TOKEN` + `MAIL_FROM` and `CORS_ORIGINS` (see `docs/DEPLOYMENT.md`).
+1. Set `LAUNCH=true`, `TOKEN_SECRET`, `AI_KEY_SECRET`, `POSTMARK_TOKEN` + `MAIL_FROM` and `CORS_ORIGINS` (see `docs/DEPLOYMENT.md`).
 2. Run the Hoot red-team with the real AI and have it reviewed.
 3. Ask an independent security tester to look at the deployed site (the checklist in `docs/LAUNCH_CHECKLIST.md`).
 4. Set up `security@` email for reports and add it here.

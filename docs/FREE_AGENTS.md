@@ -121,13 +121,27 @@ You can also try these yourself in a lesson and read the replies:
 
 A good reply never gives the answer and steers back to the lesson.
 
+## 4. Or set it in the app, per family (parent area)
+
+A family can also choose its own model without touching the server: **Parent area → Account → Hoot's AI**. It has the
+same presets as the table above (Ollama, LM Studio, OpenRouter, Groq, or any other OpenAI-compatible address), a field for
+the safety-check model and one for the key. Saving needs the account password, and turns Hoot off for every child until
+you turn it on again (test the model first with **Test the connection**, then read a few replies). This choice wins over the
+server's `.env` setting for that family only.
+
+- "localhost" there means **the computer the Honest Learn server runs on**, not the phone. A model on the home network
+  works only if the server allows local models (`ALLOW_LOCAL_LLM`, on by default, always off on Vercel).
+- The key is stored encrypted on the server and never shown again (only its last four characters). It is only ever sent to
+  the address it was typed for: change the address and you must type the key again. Server owners should set
+  `AI_KEY_SECRET` ([`DEPLOYMENT.md`](DEPLOYMENT.md)).
+- Code: `server/src/ai-settings.ts`, `server/src/routes/parent-ai.ts`, `app/src/app/parent/ai.tsx`; tests `server/test/own-key.test.ts`.
+
 ## Not built yet
 
-- **Setting the key inside the app** (a PIN-protected screen in the parent area). Today the key goes in the server's `.env` file. Task **T6**.
 - **A phone app that works with no server at all.** Task **T8**. Today a phone can use the website from your own
   computer on the same Wi-Fi, or you can host the server yourself ([`DEPLOYMENT.md`](DEPLOYMENT.md)).
 
 ## Your keys stay yours
 
-Keys are read from your `.env` file by your own server. They are never sent to the app, never written to logs, and
-never leave your computer except in calls to the service you chose. The `.env` file is ignored by git.
+Keys are read from your `.env` file by your own server, or saved encrypted from the parent area. They are never sent
+to the app, never written to logs, and never leave the server except in calls to the service you chose. The `.env` file is ignored by git.

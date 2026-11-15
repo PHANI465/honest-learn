@@ -8,6 +8,9 @@ import { newId } from "../security.ts";
 import { optionOrder } from "../shuffle.ts";
 import { detectPersonalInfo, precheckConversation, PERSONAL_INFO_PLACEHOLDER, type TutorResult, type TutorTurn } from "../tutor.ts";
 import { childPublic } from "../models.ts";
+import { guardedFetch, tutorOptions } from "../ai-settings.ts";
+import { OpenAICompatTutor } from "../tutor-openai.ts";
+import { loadAiSettings } from "./parent-ai.ts";
 import type { Ctx, Env } from "../context.ts";
 
 const Id = z.string().max(100);
@@ -83,11 +86,16 @@ export function tutorRoutes(ctx: Ctx) {
       return c.json({ error: "daily_limit_reached" }, 429);
     }
 
+    // The family's own model if the parent set one (parent area, "Hoot's AI"), otherwise the server's default helper.
+    // Its address is checked again before every request and redirects are refused (see ai-settings.ts).
+    const own = pre ? null : await loadAiSettings(ctx, child.parent_id);
+    const provider = own ? new OpenAICompatTutor(guardedFetch(), tutorOptions(own)) : tutor;
+
     let result: TutorResult;
     try {
       result =
         pre ??
-        (await tutor.reply({
+        (await provider.reply({
           band: pub.band,
           nickname: pub.nickname,
           lesson,

@@ -266,6 +266,8 @@ export function parentRoutes(ctx: Ctx) {
       spellingProgress: await per("SELECT child_id, word, box, due, last_day FROM spelling_progress WHERE child_id = ?"),
       familyLessons: (await ctx.familyLessonsOf(id)).map(toFormShape),
       gamesSolved: await per("SELECT child_id, game, puzzle_key, solved_at, hint_chains FROM games_solved WHERE child_id = ?"),
+      // the family's own AI settings, without the key (it is a secret and is never returned, not even here)
+      ownAiModel: await db.get("SELECT provider, base_url, model, safety_model, key_last4, updated_at FROM ai_settings WHERE parent_id = ?", [id]) ?? null,
     });
   });
 

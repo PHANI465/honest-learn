@@ -9,6 +9,7 @@
 //   routes/usage.ts    /children/:id/usage*                      family token
 //   routes/tutor.ts    /children/:id/tutor/*, /reports           family token
 //   routes/parent.ts   /parent/*                                 parent token (from the PIN, 10 minutes)
+//   routes/parent-ai.ts /parent/ai*                              parent token; saving also needs the account password
 //
 // Shared helpers (sign-in checks, hint ladder, attempt limits, email codes) live in context.ts.
 import { randomBytes } from "node:crypto";
@@ -33,6 +34,7 @@ import { gameRoutes } from "./routes/games.ts";
 import { usageRoutes } from "./routes/usage.ts";
 import { tutorRoutes } from "./routes/tutor.ts";
 import { parentRoutes } from "./routes/parent.ts";
+import { parentAiRoutes } from "./routes/parent-ai.ts";
 
 export { CONSENT_VERSION, reviewIntervalDays } from "./models.ts";
 
@@ -109,5 +111,6 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
   app.route("/", usageRoutes(ctx));
   app.route("/", tutorRoutes(ctx));
   app.route("/parent", parentRoutes(ctx));
+  app.route("/parent", parentAiRoutes(ctx));
   return app;
 }
