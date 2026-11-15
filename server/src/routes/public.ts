@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import { config } from "../config.ts";
 import { ConsoleMailer } from "../mailer.ts";
 import { loadHelplines } from "../tutor.ts";
+import { SIGN_LANGUAGES } from "../content.ts";
 import { CONSENT_VERSION } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 
@@ -42,6 +43,8 @@ export function publicRoutes(ctx: Ctx) {
       subjects: content.map.subjects,
       sensitiveTopics: content.map.sensitiveTopics,
       consentVersion: CONSENT_VERSION,
+      // sign languages that have at least one lesson: the parent area shows the sign language setting only when this is not empty
+      signLanguages: SIGN_LANGUAGES.filter((s) => [...content.lessons.values()].some((l) => l.signLanguage === s)),
       // false on test/pre-launch sites where emails are only written to the server log
       emailSending: !(mailer instanceof ConsoleMailer),
       launched: config.launched,

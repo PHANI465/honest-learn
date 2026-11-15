@@ -74,7 +74,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | **done** 14 Nov 2026 | `parent/ai.tsx`, `ai-settings.ts`; no real model or hosted key tried; DNS rebinding open (`SECURITY.md`) |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **done** 15 Nov 2026 (code) | 8a to 8d done 14 to 15 Nov 2026 ("On this phone only" works end to end: first-run choice, recovery phrase, wellbeing notice; [`STANDALONE.md`](STANDALONE.md)). Reviewed in 8d ([`SECURITY.md`](SECURITY.md), "Standalone mode"). **Not yet run on a phone: a person must try it in Expo Go** |
-| T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | todo | Needs a Deaf reviewer |
+| T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | **code done** 15 Nov 2026; lessons wait for a person | Setting, filter, validator rules, "watch in sign language" slot and [`SIGN_LANGUAGE.md`](SIGN_LANGUAGE.md) built. **No lessons**: a Deaf signer or qualified teacher must choose and approve videos, and every source checked needs permission |
 | T10 | "Add your own lessons" for parents | Sonnet medium | M | none | **done** 14 Nov 2026 | `parent/lessons.tsx`; private to the family; no look at it in a browser yet |
 | T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | **in progress** | Code and `docs/MOBILE.md` done 14 Nov 2026; accounts, signed builds and store forms need a person |
 
@@ -528,6 +528,22 @@ are private to that family and are included in export and deletion. **Sonnet med
   DNS rebinding is not prevented (pin the checked IP with an undici `Agent` `connect.lookup` to close it); `GET /content/hoot` still describes only the
   server's default helper, so the child-side "not tested" banner does not know about a family model (the parent screen says it); no screen reader pass.
   T8 can reuse `checkBaseUrl` and `classifyIp`, but a phone app with no server will need its own key storage (SecureStore), not this table.
+- **T9 sign language (code done by Sonnet; the content needs a person).** Nothing was invented: no sign descriptions, no lessons, no videos, because nothing here can check
+that signing is correct (the guide's rule). Built, all in [`SIGN_LANGUAGE.md`](SIGN_LANGUAGE.md): `signLanguage` (asl, bsl, isl, lsm), `signVideoId` ("Watch this lesson in
+sign language", an empty slot until signed versions exist) and `signReviewer` on `Lesson`; `videoChannel` and `videoLicence` on video sections; `children.sign_language`
+(null = decided by the family's country: US asl, UK/GB bsl, IN isl, MX lsm, anything else none until the parent chooses) with `childSignLanguage()` and `signLanguage` plus
+`signLanguageChoice` in `childPublic`; `ctx.getChild` and `ctx.listChildren` now join the parent's country (`parent_country` on `ChildRow`); `visibleTo()` hides lessons in
+another sign language (listing and opening by id); `GET /content/map` returns `signLanguages` (languages that have lessons); the parent's "Sign language" card appears
+only when that list is not empty. `loadContent()` enforces for sign lessons: a video and a text section, `videoMinutes`/`videoChannel`/`videoLicence`/`videoCheckedOn`, the quiz length
+rule (under 2 min 2 questions, 2 to 5 min 3, 5 to 10 min 4, more 5), and a `signReviewer` (deaf-signer or qualified-teacher) before `reviewed`. Tests: `server/test/sign-language.test.ts`
+(18, fixture lessons built inside the test; a mutation check showed the filter tests fail without the filter). Looked at in a browser against a temporary copy of the content
+with fixture lessons (outside the repository, deleted): the setting card, the "Sign language" subject tile, only the child's language listed, the signed-version card and the
+lesson video. **Deliberately not done:** the `sign` subject and its outcomes are not in `content/knowledge-map.json` (an outcome with no lesson would show as "not started" for every
+child; the first reviewed lesson adds them, recipe in `SIGN_LANGUAGE.md` section 3); no separate child-home entry (the subject tile appears by itself). **Research (15 Nov 2026)**: five
+sources' own terms were read and are summarised in `SIGN_LANGUAGE.md` section 4: **every one requires permission or says no**: ISLRTC (permission needed to reproduce), BSL SignBank (copyright UCL
+DCAL, no licences, own-site videos so link-out only), NAD (written permission), Lifeprint (explicitly no app use or embedding, and asks not to be asked) and Mexico's SEP (all rights reserved; the LSM
+dictionary found is a PDF). The data.gov.in dataset page timed out and was not read. A permission-request draft is in section 5; **a person must send it**. **Needs a person:** a reviewer per language
+(also in `NEEDS_APPROVAL.md` section E), the permission replies, the first videos, captions on videos.
 - **T5d play chess against the computer (done, by Sonnet at the owner's go-ahead; the guide had recommended Opus high).** **Owner's decision (15 Nov 2026):
 js-chess-engine 2.4.6** (MIT, no dependencies, plain JavaScript, about 400 KB), added to `server/package.json` (exact version). Options put to the owner:
 Stockfish (`stockfish` on npm is GPL-3.0 and about 205 MB unpacked, the Lichess build AGPL; either would make the project GPL, and a WebAssembly engine

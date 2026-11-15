@@ -1,7 +1,7 @@
 // Shared shapes for the API: database rows, input validation and small pure helpers.
 import { z } from "zod";
 import { ageFromBirthYear, bandForAge, type BandId } from "./security.ts";
-import type { ContentStore, Lesson } from "./content.ts";
+import { defaultSignLanguage, SIGN_LANGUAGES, type ContentStore, type Lesson, type SignLanguage } from "./content.ts";
 
 /** Bump when the privacy notice changes: sign-up must accept the current version. */
 export const CONSENT_VERSION = "2026-11-v1";
@@ -43,6 +43,10 @@ export interface ChildRow {
   read_aloud_auto: number;
   /** When the parent last confirmed seeing this child's wellbeing alerts. */
   wellbeing_seen_at?: string | null;
+  /** The sign language the parent chose, or null for "decided by the family's country". */
+  sign_language?: string | null;
+  /** The parent's country, joined in when a child is loaded (ctx.getChild, ctx.listChildren). */
+  parent_country?: string | null;
   created_at: string;
 }
 
@@ -87,6 +91,8 @@ export const ChildPatch = z.object({
   dyslexiaFont: z.boolean().optional(),
   highContrast: z.boolean().optional(),
   readAloudAuto: z.boolean().optional(),
+  /** The sign language this child learns; null goes back to "decided by the family's country". */
+  signLanguage: z.enum(SIGN_LANGUAGES).nullable().optional(),
 });
 
 /** A quiz answer list: one on-screen position per question. */
@@ -102,6 +108,12 @@ export function plausibleDay(day: string): boolean {
 // ---------------------------------------------------------------- children
 export function childBand(c: ChildRow): BandId {
   return (c.band_override as BandId | null) ?? bandForAge(ageFromBirthYear(c.birth_year));
+}
+
+/** The sign language this child sees lessons in: the parent's choice, else the one the family's country suggests, else none. */
+export function childSignLanguage(c: ChildRow): SignLanguage | null {
+  const chosen = (SIGN_LANGUAGES as readonly string[]).includes(c.sign_language ?? "") ? (c.sign_language as SignLanguage) : null;
+  return chosen ?? defaultSignLanguage(c.parent_country);
 }
 
 /** What the app sees about a child (never the parent id or raw flags). */
@@ -124,6 +136,9 @@ export function childPublic(c: ChildRow) {
     dyslexiaFont: c.dyslexia_font === 1,
     highContrast: c.high_contrast === 1,
     readAloudAuto: c.read_aloud_auto === 1,
+    /** What lessons use now (the choice, or the country's default, or null), and the choice itself (null = automatic). */
+    signLanguage: childSignLanguage(c),
+    signLanguageChoice: (SIGN_LANGUAGES as readonly string[]).includes(c.sign_language ?? "") ? c.sign_language : null,
   };
 }
 

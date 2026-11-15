@@ -15,6 +15,24 @@ export const QuizQuestion = z
   })
   .refine((q) => q.answer < q.options.length, { message: "answer index out of range" });
 
+// ---------------------------------------------------------------- sign language lessons (task T9)
+// A person (ideally a Deaf signer, or a qualified teacher of that sign language) must choose and approve every video: nothing here can
+// check that a sign is made correctly. The code only enforces that the record a reviewer needs is there. See docs/SIGN_LANGUAGE.md.
+export const SIGN_LANGUAGES = ["asl", "bsl", "isl", "lsm"] as const;
+export type SignLanguage = (typeof SIGN_LANGUAGES)[number];
+export const SIGN_LANGUAGE_NAMES: Record<SignLanguage, string> = {
+  asl: "American Sign Language (ASL)",
+  bsl: "British Sign Language (BSL)",
+  isl: "Indian Sign Language (ISL)",
+  lsm: "Mexican Sign Language (LSM)",
+};
+const SIGN_DEFAULT_BY_COUNTRY: Record<string, SignLanguage> = { US: "asl", GB: "bsl", UK: "bsl", IN: "isl", MX: "lsm" };
+/** The sign language a family's country suggests, or null (any other country, or none given: the parent chooses). */
+export const defaultSignLanguage = (country: string | null | undefined): SignLanguage | null => SIGN_DEFAULT_BY_COUNTRY[(country ?? "").toUpperCase()] ?? null;
+
+/** How many quiz questions follow a sign language video: under 2 minutes 2, 2 to 5 minutes 3, 5 to 10 minutes 4, longer 5. */
+export const signQuizLength = (videoMinutes: number): number => (videoMinutes < 2 ? 2 : videoMinutes < 5 ? 3 : videoMinutes < 10 ? 4 : 5);
+
 export const Section = z
   .object({
     type: z.enum(["text", "tryit", "parent", "fact", "video"]),
@@ -25,6 +43,9 @@ export const Section = z
     /** Date a reviewer ran scripts/check-videos.mjs and confirmed made-for-kids/embeddable status. */
     videoCheckedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
     videoMinutes: z.number().positive().max(20).optional(),
+    /** Who made the video and under which licence or permission it may be shown here (required for sign language lessons). */
+    videoChannel: z.string().min(1).optional(),
+    videoLicence: z.string().min(1).optional(),
   })
   .refine((s) => s.type !== "video" || !!s.videoId, { message: "video sections need a videoId" });
 
@@ -143,6 +164,12 @@ export const Lesson = z.object({
   wikiTitle: z.string().min(1).optional(),
   sections: z.array(Section).min(1),
   quiz: z.array(QuizQuestion).min(1),
+  /** A sign language lesson: shown only to children whose sign language is this one. */
+  signLanguage: z.enum(SIGN_LANGUAGES).optional(),
+  /** A video of this whole lesson in sign language ("Watch this lesson in sign language"); the slot stays empty until signed versions exist. */
+  signVideoId: z.string().regex(/^[\w-]{11}$/, "must be an 11-character YouTube id").optional(),
+  /** Who vouches for the signing: a Deaf signer or a qualified teacher of that sign language. Needed before a sign lesson can be "reviewed". */
+  signReviewer: z.object({ name: z.string().min(1), role: z.enum(["deaf-signer", "qualified-teacher"]), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/) }).optional(),
 });
 export type Lesson = z.infer<typeof Lesson>;
 
@@ -193,6 +220,23 @@ export function loadContent(contentDir: string): ContentStore {
     if (l.status === "reviewed" && l.reviewers.length < 2) problems.push(`${file}: reviewed lessons need 2 reviewers`);
     if ((l.band === "b1" || l.band === "b2") && !l.sections.some((s) => s.type === "parent")) {
       problems.push(`${file}: ${l.band} lessons need a 'parent' section`);
+    }
+    if (l.signLanguage) {
+      const videos = l.sections.filter((s) => s.type === "video");
+      if (!videos.length) problems.push(`${file}: a sign language lesson needs a video section`);
+      for (const v of videos) {
+        for (const field of ["videoMinutes", "videoChannel", "videoLicence", "videoCheckedOn"] as const) {
+          if (v[field] === undefined) problems.push(`${file}: a sign language video needs ${field} (who made it, its licence, when it was checked, how long it is)`);
+        }
+      }
+      if (videos.length && videos.every((v) => v.videoMinutes !== undefined)) {
+        const minutes = videos.reduce((n, v) => n + v.videoMinutes!, 0);
+        if (l.quiz.length !== signQuizLength(minutes)) {
+          problems.push(`${file}: ${minutes} minutes of video needs ${signQuizLength(minutes)} quiz questions (2 under 2 minutes, 3 for 2 to 5, 4 for 5 to 10, 5 for longer), it has ${l.quiz.length}`);
+        }
+      }
+      if (!l.sections.some((s) => s.type === "text")) problems.push(`${file}: a sign language lesson needs a text section that describes each sign in words`);
+      if (l.status === "reviewed" && !l.signReviewer) problems.push(`${file}: a reviewed sign language lesson needs a signReviewer (a Deaf signer or a qualified teacher of that sign language)`);
     }
     for (const s of l.sections) {
       if (s.type === "video" && l.status === "reviewed" && !s.videoCheckedOn) {
@@ -317,6 +361,6 @@ export function publicLesson(l: Lesson, orderFor: (question: number, count: numb
 }
 
 export function lessonSummary(l: Lesson) {
-  const { id, title, band, subject, sensitive, minutes, status } = l;
-  return { id, title, band, subject, sensitive, minutes, status, questions: l.quiz.length, family: (l as { family?: boolean }).family === true };
+  const { id, title, band, subject, sensitive, minutes, status, signLanguage } = l;
+  return { id, title, band, subject, sensitive, minutes, status, questions: l.quiz.length, family: (l as { family?: boolean }).family === true, ...(signLanguage ? { signLanguage } : {}) };
 }

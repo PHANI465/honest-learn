@@ -38,6 +38,13 @@ Review for accuracy, balance and age-appropriateness. Ideally include reviewers 
 - [ ] Data retention period (default: chats deleted after 12 months)
 - [ ] Trademark check for "Honest Learn"
 
+### E. Sign language (T9): a Deaf signer or qualified teacher for each language
+No sign language lesson exists yet: the code is ready, the videos are not. For each language a person must choose the videos, ask the owners' permission (every source checked so far requires it; see [`SIGN_LANGUAGE.md`](SIGN_LANGUAGE.md) section 4) and approve the lessons. Nothing is shown to children until then.
+- [ ] **ASL:** a Deaf ASL signer or a qualified ASL teacher: choose and approve the videos; get permission from the video owners
+- [ ] **BSL:** a Deaf BSL signer or a qualified BSL teacher (BSL SignBank videos cannot be embedded: link out only)
+- [ ] **ISL:** a Deaf ISL signer or a qualified ISL teacher; ask the Department of Empowerment of Persons with Disabilities (ISLRTC) for permission
+- [ ] **LSM:** a Deaf LSM signer or a qualified LSM teacher; ask the Secretaría de Educación Pública about signed videos
+
 ---
 
 ## 🟠 Priority 2: facts and figures to double-check

@@ -10,7 +10,7 @@ import type { TutorProvider } from "./tutor.ts";
 import type { WikiClient } from "./wiki.ts";
 import type { Mailer } from "./mailer.ts";
 import { hashSecret, readToken, verifySecret, type Scope } from "./security.ts";
-import { childBand, type ChildRow, type ParentRow } from "./models.ts";
+import { childBand, childSignLanguage, type ChildRow, type ParentRow } from "./models.ts";
 
 export type Env = { Variables: { parentId: string; scope: Scope; parent: ParentRow } };
 
@@ -40,9 +40,15 @@ export function createContext(deps: Deps) {
   const getParent = (id: string) => db.get<ParentRow>("SELECT * FROM parents WHERE id = ?", [id]);
   const getParentByEmail = (email: string) => db.get<ParentRow>("SELECT * FROM parents WHERE email = ?", [email]);
   const getChild = (id: string, parentId: string) =>
-    db.get<ChildRow>("SELECT * FROM children WHERE id = ? AND parent_id = ?", [id, parentId]);
+    db.get<ChildRow>(
+      "SELECT c.*, p.country AS parent_country FROM children c JOIN parents p ON p.id = c.parent_id WHERE c.id = ? AND c.parent_id = ?",
+      [id, parentId],
+    );
   const listChildren = (parentId: string) =>
-    db.all<ChildRow>("SELECT * FROM children WHERE parent_id = ? ORDER BY created_at", [parentId]);
+    db.all<ChildRow>(
+      "SELECT c.*, p.country AS parent_country FROM children c JOIN parents p ON p.id = c.parent_id WHERE c.parent_id = ? ORDER BY c.created_at",
+      [parentId],
+    );
 
   // ---------------------------------------------------------------- sign-in checks
   /**
@@ -73,6 +79,8 @@ export function createContext(deps: Deps) {
     if (isFamilyLesson(l)) return l.ownerId === child.parent_id;
     if (l.status !== "reviewed" && !config.showDrafts) return false;
     if (l.sensitive && !(JSON.parse(child.unlocked_topics) as string[]).includes(l.sensitive)) return false;
+    // a sign language lesson is for children who learn that sign language (the parent's choice, or the country's default)
+    if (l.signLanguage && l.signLanguage !== childSignLanguage(child)) return false;
     return true;
   }
 

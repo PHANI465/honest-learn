@@ -265,6 +265,13 @@ const MIGRATIONS: { table: string; column: string; sqlite: string[]; postgres: s
     postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS read_aloud_auto INTEGER NOT NULL DEFAULT 0"],
   },
   {
+    // The sign language this child learns (asl, bsl, isl or lsm); null = decided by the family's country (task T9).
+    table: "children",
+    column: "sign_language",
+    sqlite: ["ALTER TABLE children ADD COLUMN sign_language TEXT"],
+    postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS sign_language TEXT"],
+  },
+  {
     // Standalone mode (no email, task T8c): the scrypt hash of the recovery phrase shown once at sign-up. Never on a server.
     table: "parents",
     column: "recovery_hash",

@@ -2,7 +2,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Alert, Platform, Pressable, Text, View } from "react-native";
 import { Banner, Button, Card, Emoji, Field, H1, H2, P, Pill, Screen, Toggle } from "../../../components/ui";
-import { friendly, type BandId, type Child, type OutcomeItem, type OutcomesResponse, type OutcomeStatus, type Topic } from "../../../lib/api";
+import { friendly, SIGN_LANGUAGE_NAMES, type BandId, type Child, type OutcomeItem, type OutcomesResponse, type OutcomeStatus, type Topic } from "../../../lib/api";
 import { useChild, useSession } from "../../../lib/session";
 import { colors, subjectEmoji, surfaces, topicLabels } from "../../../lib/theme";
 
@@ -36,6 +36,8 @@ function SettingsForm({ child }: { child: Child }) {
     setError(null);
     try {
       await parentApi("PATCH", `/children/${draft.id}`, {
+        // only when the setting is shown: otherwise saving must not touch a choice made earlier
+        ...(map?.signLanguages?.length ? { signLanguage: draft.signLanguageChoice } : {}),
         nickname: draft.nickname,
         bandOverride: draft.bandOverride,
         unlockedTopics: draft.unlockedTopics,
@@ -138,6 +140,27 @@ function SettingsForm({ child }: { child: Child }) {
         <Toggle label="Read lessons aloud automatically" value={draft.readAloudAuto} onChange={(v) => set({ readAloudAuto: v })}
           description="Lessons start reading as they open, at every age. There is always a Stop reading button." />
       </Card>
+
+      {map.signLanguages?.length ? (
+        <>
+          <H2>Sign language</H2>
+          <Card>
+            <P muted size={14}>Which sign language {draft.nickname}'s sign language lessons use. "Automatic" follows your country (USA, UK, India and Mexico are known).</P>
+            <View style={{ gap: 8 }} accessibilityRole="radiogroup">
+              {[null, ...map.signLanguages].map((value) => {
+                const selected = draft.signLanguageChoice === value;
+                const label = value ? SIGN_LANGUAGE_NAMES[value] : `Automatic${draft.signLanguageChoice === null ? (draft.signLanguage ? `: ${SIGN_LANGUAGE_NAMES[draft.signLanguage]}` : ": none for your country yet, choose one") : ""}`;
+                return (
+                  <Pressable key={value ?? "auto"} onPress={() => set({ signLanguageChoice: value })} accessibilityRole="radio" accessibilityLabel={label} accessibilityState={{ selected, checked: selected }}
+                    style={{ paddingHorizontal: 14, paddingVertical: 10, minHeight: 44, justifyContent: "center", borderRadius: 14, borderWidth: 2, borderColor: selected ? colors.brand : colors.line, backgroundColor: selected ? colors.brandSoft : colors.card }}>
+                    <Text style={{ fontWeight: "600", color: colors.ink }}>{label}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </Card>
+        </>
+      ) : null}
 
       <H2>Daily time</H2>
       <Card>

@@ -67,6 +67,7 @@ export const subjectEmoji: Record<string, string> = {
   arts: "🎨",
   computing: "💻",
   careers: "🧭",
+  sign: "🤟",
 };
 
 export const topicLabels: Record<string, { label: string; emoji: string }> = {

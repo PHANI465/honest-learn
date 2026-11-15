@@ -35,6 +35,7 @@ flowchart TD
    - **Child settings:** nickname, learning level (match age, or choose another group), sensitive topics (religion, body, politics), Hoot on/off, reading and display (text size, dyslexia-friendly font, high contrast, automatic read-aloud), daily minutes, *Read chats* (Hoot history), *Delete this profile*.
    - **Extra time:** when a child's time is up, their screen offers "+15 minutes" for a grown-up with the PIN.
    - **Lessons you add:** write your own lessons (title, age group, subject, text, optional quiz with three hints per question). Only your family sees them; they appear marked "Added by your family". Up to 100 lessons of 20 KB.
+   - **Sign language** (only once sign language lessons exist): which sign language this child's lessons use; "Automatic" follows your country.
    - **Hoot's AI** (Account card): connect your own model (Ollama, LM Studio, OpenRouter, Groq or any OpenAI-compatible address) with an optional key. Saving needs the account password and turns Hoot off for every child until you turn it on again; **Test the connection** sends one harmless message. The key is never shown again, only its last four characters.
    - **"Please check in with …"**: shown at the top when Hoot answered one of a child's messages as a wellbeing concern. *Read the chat* or *I have checked in* (hides it until the next one). The profile screen then says only that a grown-up should open the parent area.
    - **Country:** for helpline information in Hoot's safety replies.
@@ -64,6 +65,7 @@ On the website every screen has an address, for example `/welcome`, `/profiles`,
 | Change **chess puzzles** | `content/chess/l1.json` … `l3.json` are generated: edit `server/src/games/compose-chess.ts` and run `npm run compose:chess` in `server/`; every puzzle is re-proven by `npm run validate` and `npm test` |
 | Change the **memory and logic games** (sizes by age, pictures, shuffles) | `app/src/lib/games/*.ts` (rules, plain functions) and `app/src/app/learn/[childId]/games/*.tsx` (screens); tests in `server/test/memory-games.test.ts` |
 | Change **chess against the computer** (levels, wording, take back) | `server/src/games/computer-opponent.ts` (logic and the engine's levels; tested in `server/test/computer-opponent.test.ts`) and `app/src/app/learn/[childId]/games/computer.tsx` (the screen) |
+| Add or change **sign language lessons** | `docs/SIGN_LANGUAGE.md` (what a reviewer must do first, the lesson template and the rules `npm run validate` enforces); code in `server/src/content.ts` and `server/src/models.ts` |
 | Change **Sudoku** (grid sizes, clue counts, hints) | `server/src/games/sudoku.ts`; the screen is `app/src/app/learn/[childId]/games/sudoku.tsx` |
 | Change **spelling words** | `content/spelling/b1.json` … `b5.json` (lower-case words, a meaning, a sentence containing the word) |
 | Change **quick facts** (every fact needs a source link) | `content/facts/b1.json` … `b5.json`; check links with `node scripts/check-fact-sources.mjs` |

@@ -231,6 +231,13 @@ export default function LessonScreen() {
             <Button title="Stop reading" kind="ghost" color={colors.muted} onPress={() => Speech.stop()} />
           </View>
         ) : null}
+        {/* A signed version of the whole lesson. Empty until signed versions exist: there is no honest automatic way to make them. */}
+        {lesson.signVideoId ? (
+          <Card style={{ backgroundColor: colors.card, borderRadius: t.radius }}>
+            <Text accessibilityRole="header" style={{ fontWeight: "800", color: colors.ink }}>🤟 Watch this lesson in sign language</Text>
+            <VideoEmbed videoId={lesson.signVideoId} title="This lesson in sign language" />
+          </Card>
+        ) : null}
         {lesson.sections.map((s, i) => {
           const st = SECTION_STYLE[s.type]!;
           return (

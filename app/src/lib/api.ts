@@ -7,6 +7,14 @@ import { apiBase, isDeviceMode } from "./server";
 export { apiBase };
 
 export type BandId = "b1" | "b2" | "b3" | "b4" | "b5";
+/** Sign languages the app can teach (task T9). Lessons exist only once a person has chosen and approved the videos. */
+export type SignLanguageId = "asl" | "bsl" | "isl" | "lsm";
+export const SIGN_LANGUAGE_NAMES: Record<SignLanguageId, string> = {
+  asl: "American Sign Language (ASL)",
+  bsl: "British Sign Language (BSL)",
+  isl: "Indian Sign Language (ISL)",
+  lsm: "Mexican Sign Language (LSM)",
+};
 export type Topic = "religion" | "body" | "politics";
 
 export interface Child {
@@ -26,6 +34,10 @@ export interface Child {
   dyslexiaFont: boolean;
   highContrast: boolean;
   readAloudAuto: boolean;
+  /** The sign language this child's lessons use now (the parent's choice, else the family's country's default, else none). */
+  signLanguage: SignLanguageId | null;
+  /** The parent's own choice; null means "decided by the family's country". */
+  signLanguageChoice: SignLanguageId | null;
 }
 
 export interface Band {
@@ -85,6 +97,8 @@ export interface Lesson extends Omit<LessonSummary, "questions" | "progress"> {
   outcomes: string[];
   sources: { title: string; url: string; license: string }[];
   sections: { type: "text" | "tryit" | "parent" | "fact" | "video"; body: string; videoId?: string; videoMinutes?: number }[];
+  /** A video of this whole lesson in sign language, when one exists. */
+  signVideoId?: string;
   quiz: { q: string; options: string[] }[];
 }
 
@@ -107,6 +121,8 @@ export interface ContentMap {
   subjects: { id: string; name: string; icon: string; bands?: string[] }[];
   sensitiveTopics: Record<Topic, string>;
   consentVersion: string;
+  /** Sign languages that have at least one lesson. The sign language setting is shown only when this is not empty. */
+  signLanguages?: SignLanguageId[];
   /** false on test sites where emails only go to the server log. */
   emailSending?: boolean;
   launched?: boolean;

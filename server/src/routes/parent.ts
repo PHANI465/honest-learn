@@ -121,7 +121,7 @@ export function parentRoutes(ctx: Ctx) {
     await db.run(
       `UPDATE children SET nickname = ?, birth_year = ?, avatar = ?, band_override = ?, unlocked_topics = ?,
          ai_enabled = ?, daily_minutes = ?, text_scale = ?, dyslexia_font = ?, high_contrast = ?,
-         read_aloud_auto = ? WHERE id = ?`,
+         read_aloud_auto = ?, sign_language = ? WHERE id = ?`,
       [
         b.nickname ?? child.nickname,
         b.birthYear ?? child.birth_year,
@@ -134,6 +134,7 @@ export function parentRoutes(ctx: Ctx) {
         b.dyslexiaFont === undefined ? child.dyslexia_font : b.dyslexiaFont ? 1 : 0,
         b.highContrast === undefined ? child.high_contrast : b.highContrast ? 1 : 0,
         b.readAloudAuto === undefined ? child.read_aloud_auto : b.readAloudAuto ? 1 : 0,
+        b.signLanguage === undefined ? child.sign_language ?? null : b.signLanguage,
         child.id,
       ],
     );
