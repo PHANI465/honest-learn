@@ -70,6 +70,138 @@
       "sentence": "Where do you live?"
     },
     {
+      "word": "about",
+      "level": 1,
+      "meaning": "a little more or less than; on the subject of",
+      "sentence": "The book is about a lost dog."
+    },
+    {
+      "word": "after",
+      "level": 1,
+      "meaning": "later than something else",
+      "sentence": "We had a nap after lunch."
+    },
+    {
+      "word": "away",
+      "level": 1,
+      "meaning": "to or at a distance from here",
+      "sentence": "The bird flew away."
+    },
+    {
+      "word": "before",
+      "level": 1,
+      "meaning": "earlier than something else",
+      "sentence": "Wash your hands before you eat."
+    },
+    {
+      "word": "bring",
+      "level": 1,
+      "meaning": "to carry something with you to a place",
+      "sentence": "Please bring your book to school."
+    },
+    {
+      "word": "does",
+      "level": 1,
+      "meaning": "the form of 'do' used with he, she or it",
+      "sentence": "She does her homework after school."
+    },
+    {
+      "word": "first",
+      "level": 1,
+      "meaning": "coming before all the others",
+      "sentence": "I was the first to arrive."
+    },
+    {
+      "word": "found",
+      "level": 1,
+      "meaning": "came across something you were looking for",
+      "sentence": "I found my lost sock."
+    },
+    {
+      "word": "going",
+      "level": 1,
+      "meaning": "moving toward a place",
+      "sentence": "We are going to the park."
+    },
+    {
+      "word": "little",
+      "level": 1,
+      "meaning": "small in size",
+      "sentence": "A little bird sat on the fence."
+    },
+    {
+      "word": "other",
+      "level": 1,
+      "meaning": "different from the one you already have",
+      "sentence": "Give me the other pencil."
+    },
+    {
+      "word": "under",
+      "level": 1,
+      "meaning": "below something",
+      "sentence": "The cat is under the table."
+    },
+    {
+      "word": "until",
+      "level": 1,
+      "meaning": "up to the time when",
+      "sentence": "Wait here until I come back."
+    },
+    {
+      "word": "with",
+      "level": 1,
+      "meaning": "together, or having",
+      "sentence": "I played with my friends."
+    },
+    {
+      "word": "very",
+      "level": 1,
+      "meaning": "to a high degree; extremely",
+      "sentence": "The soup is very hot."
+    },
+    {
+      "word": "from",
+      "level": 1,
+      "meaning": "starting at a place or time",
+      "sentence": "The letter came from my aunt."
+    },
+    {
+      "word": "just",
+      "level": 1,
+      "meaning": "only a moment ago, or only",
+      "sentence": "I have just finished my book."
+    },
+    {
+      "word": "keep",
+      "level": 1,
+      "meaning": "to hold on to something and not give it away",
+      "sentence": "You can keep the pencil."
+    },
+    {
+      "word": "light",
+      "level": 1,
+      "meaning": "brightness that lets you see; not heavy",
+      "sentence": "The light came on."
+    },
+    {
+      "word": "long",
+      "level": 1,
+      "meaning": "measuring a great distance from end to end",
+      "sentence": "The snake was very long."
+    },
+    {
+      "word": "much",
+      "level": 1,
+      "meaning": "a large amount of something",
+      "sentence": "There is not much milk left."
+    },
+    {
+      "word": "must",
+      "level": 1,
+      "meaning": "has to; is needed",
+      "sentence": "You must look both ways before crossing."
+    },
+    {
       "word": "because",
       "level": 2,
       "meaning": "a word that tells the reason for something",
@@ -135,6 +267,211 @@
       "sentence": "I brush my teeth every day."
     },
     {
+      "word": "animal",
+      "level": 2,
+      "meaning": "a living thing that is not a plant, such as a cat or a fish",
+      "sentence": "A lion is a wild animal."
+    },
+    {
+      "word": "brother",
+      "level": 2,
+      "meaning": "a boy or man with the same parents as you",
+      "sentence": "My brother is older than me."
+    },
+    {
+      "word": "sister",
+      "level": 2,
+      "meaning": "a girl or woman with the same parents as you",
+      "sentence": "My sister likes to paint."
+    },
+    {
+      "word": "mother",
+      "level": 2,
+      "meaning": "a woman who has a child",
+      "sentence": "My mother reads me a story."
+    },
+    {
+      "word": "father",
+      "level": 2,
+      "meaning": "a man who has a child",
+      "sentence": "My father drives us to school."
+    },
+    {
+      "word": "children",
+      "level": 2,
+      "meaning": "young people; more than one child",
+      "sentence": "The children played in the garden."
+    },
+    {
+      "word": "clothes",
+      "level": 2,
+      "meaning": "the things you wear, like shirts and trousers",
+      "sentence": "I put my clothes in the drawer."
+    },
+    {
+      "word": "country",
+      "level": 2,
+      "meaning": "a land with its own name and its own government",
+      "sentence": "France is a country in Europe."
+    },
+    {
+      "word": "during",
+      "level": 2,
+      "meaning": "all through a period of time",
+      "sentence": "I fell asleep during the film."
+    },
+    {
+      "word": "early",
+      "level": 2,
+      "meaning": "before the usual or expected time",
+      "sentence": "We got up early to see the sunrise."
+    },
+    {
+      "word": "earth",
+      "level": 2,
+      "meaning": "the planet we live on",
+      "sentence": "The earth goes around the sun."
+    },
+    {
+      "word": "family",
+      "level": 2,
+      "meaning": "parents, children and other relatives who live together",
+      "sentence": "My family eats dinner together."
+    },
+    {
+      "word": "garden",
+      "level": 2,
+      "meaning": "a piece of ground where flowers or vegetables grow",
+      "sentence": "We grow beans in the garden."
+    },
+    {
+      "word": "happen",
+      "level": 2,
+      "meaning": "to take place",
+      "sentence": "What will happen next in the story?"
+    },
+    {
+      "word": "morning",
+      "level": 2,
+      "meaning": "the early part of the day",
+      "sentence": "I eat breakfast in the morning."
+    },
+    {
+      "word": "number",
+      "level": 2,
+      "meaning": "a word or symbol that tells how many",
+      "sentence": "Pick a number from one to ten."
+    },
+    {
+      "word": "paper",
+      "level": 2,
+      "meaning": "thin sheets you write or draw on",
+      "sentence": "I drew a picture on paper."
+    },
+    {
+      "word": "picture",
+      "level": 2,
+      "meaning": "a drawing, painting or photo",
+      "sentence": "She drew a picture of her dog."
+    },
+    {
+      "word": "pretty",
+      "level": 2,
+      "meaning": "nice to look at",
+      "sentence": "What a pretty flower!"
+    },
+    {
+      "word": "second",
+      "level": 2,
+      "meaning": "coming right after the first",
+      "sentence": "I came second in the race."
+    },
+    {
+      "word": "shoulder",
+      "level": 2,
+      "meaning": "the part of the body where your arm joins your body",
+      "sentence": "He carried the bag on his shoulder."
+    },
+    {
+      "word": "special",
+      "level": 2,
+      "meaning": "not ordinary; very important",
+      "sentence": "Today is a special day."
+    },
+    {
+      "word": "spring",
+      "level": 2,
+      "meaning": "the season when plants start to grow",
+      "sentence": "Flowers come out in spring."
+    },
+    {
+      "word": "summer",
+      "level": 2,
+      "meaning": "the warmest season of the year",
+      "sentence": "We swim in summer."
+    },
+    {
+      "word": "teacher",
+      "level": 2,
+      "meaning": "a person who helps you learn at school",
+      "sentence": "My teacher read us a story."
+    },
+    {
+      "word": "trouble",
+      "level": 2,
+      "meaning": "a problem or difficulty",
+      "sentence": "I had trouble finding my keys."
+    },
+    {
+      "word": "twelve",
+      "level": 2,
+      "meaning": "the number after eleven",
+      "sentence": "There are twelve eggs in the box."
+    },
+    {
+      "word": "weather",
+      "level": 2,
+      "meaning": "what it is like outside: sunny, rainy or windy",
+      "sentence": "The weather is warm today."
+    },
+    {
+      "word": "window",
+      "level": 2,
+      "meaning": "a glass opening in a wall that lets in light",
+      "sentence": "I looked out of the window."
+    },
+    {
+      "word": "winter",
+      "level": 2,
+      "meaning": "the coldest season of the year",
+      "sentence": "It snows in winter."
+    },
+    {
+      "word": "world",
+      "level": 2,
+      "meaning": "the whole Earth and everything on it",
+      "sentence": "She wants to travel the world."
+    },
+    {
+      "word": "worry",
+      "level": 2,
+      "meaning": "to feel afraid that something bad will happen",
+      "sentence": "Do not worry, it will be fine."
+    },
+    {
+      "word": "wonderful",
+      "level": 2,
+      "meaning": "very good, making you full of joy",
+      "sentence": "We had a wonderful day at the beach."
+    },
+    {
+      "word": "whistle",
+      "level": 2,
+      "meaning": "to make a high sound by blowing air through your lips",
+      "sentence": "Can you whistle a tune?",
+      "tip": "There is a silent 't' in the middle."
+    },
+    {
       "word": "beautiful",
       "level": 3,
       "meaning": "very pretty to look at",
@@ -195,6 +532,213 @@
       "level": 3,
       "meaning": "having a lot to do",
       "sentence": "Dad is busy cooking dinner."
+    },
+    {
+      "word": "afternoon",
+      "level": 3,
+      "meaning": "the time of day between lunch and evening",
+      "sentence": "We played outside in the afternoon."
+    },
+    {
+      "word": "balloon",
+      "level": 3,
+      "meaning": "a thin rubber bag you fill with air or gas",
+      "sentence": "The balloon floated away."
+    },
+    {
+      "word": "bicycle",
+      "level": 3,
+      "meaning": "a vehicle with two wheels that you pedal",
+      "sentence": "I ride my bicycle to school.",
+      "tip": "'Bi' means two, like two wheels."
+    },
+    {
+      "word": "birthday",
+      "level": 3,
+      "meaning": "the day each year when you were born",
+      "sentence": "My birthday is in May."
+    },
+    {
+      "word": "breakfast",
+      "level": 3,
+      "meaning": "the first meal of the day",
+      "sentence": "I had cereal for breakfast."
+    },
+    {
+      "word": "brought",
+      "level": 3,
+      "meaning": "carried something with you to a place",
+      "sentence": "She brought a cake to the party."
+    },
+    {
+      "word": "certain",
+      "level": 3,
+      "meaning": "completely sure",
+      "sentence": "I am certain that I locked the door."
+    },
+    {
+      "word": "cousin",
+      "level": 3,
+      "meaning": "the child of your aunt or uncle",
+      "sentence": "My cousin stayed with us."
+    },
+    {
+      "word": "daughter",
+      "level": 3,
+      "meaning": "someone's girl child",
+      "sentence": "Their daughter is learning to swim."
+    },
+    {
+      "word": "dinosaur",
+      "level": 3,
+      "meaning": "a huge animal that lived millions of years ago",
+      "sentence": "The museum has a dinosaur skeleton."
+    },
+    {
+      "word": "elephant",
+      "level": 3,
+      "meaning": "the biggest land animal, with a trunk",
+      "sentence": "The elephant sprayed water with its trunk."
+    },
+    {
+      "word": "evening",
+      "level": 3,
+      "meaning": "the time of day between afternoon and night",
+      "sentence": "We eat dinner in the evening."
+    },
+    {
+      "word": "exciting",
+      "level": 3,
+      "meaning": "making you feel full of interest and energy",
+      "sentence": "It was an exciting game."
+    },
+    {
+      "word": "giraffe",
+      "level": 3,
+      "meaning": "a very tall animal with a long neck",
+      "sentence": "The giraffe ate leaves from the tree."
+    },
+    {
+      "word": "grandfather",
+      "level": 3,
+      "meaning": "the father of your mother or father",
+      "sentence": "My grandfather tells good stories."
+    },
+    {
+      "word": "grandmother",
+      "level": 3,
+      "meaning": "the mother of your mother or father",
+      "sentence": "My grandmother bakes bread."
+    },
+    {
+      "word": "hospital",
+      "level": 3,
+      "meaning": "a place where doctors and nurses look after sick people",
+      "sentence": "She went to the hospital for a check-up."
+    },
+    {
+      "word": "hungry",
+      "level": 3,
+      "meaning": "wanting to eat",
+      "sentence": "I am hungry after the long walk."
+    },
+    {
+      "word": "kitchen",
+      "level": 3,
+      "meaning": "the room where food is cooked",
+      "sentence": "Dad is cooking in the kitchen."
+    },
+    {
+      "word": "laugh",
+      "level": 3,
+      "meaning": "to make a happy sound when something is funny",
+      "sentence": "The joke made us laugh."
+    },
+    {
+      "word": "mountain",
+      "level": 3,
+      "meaning": "a very high hill",
+      "sentence": "We climbed the mountain."
+    },
+    {
+      "word": "orange",
+      "level": 3,
+      "meaning": "a round juicy fruit with a thick skin",
+      "sentence": "I peeled an orange."
+    },
+    {
+      "word": "quiet",
+      "level": 3,
+      "meaning": "making little or no noise",
+      "sentence": "Please be quiet in the library."
+    },
+    {
+      "word": "remember",
+      "level": 3,
+      "meaning": "to keep something in your mind",
+      "sentence": "Do you remember my phone number?"
+    },
+    {
+      "word": "sandwich",
+      "level": 3,
+      "meaning": "two slices of bread with food between them",
+      "sentence": "I ate a cheese sandwich."
+    },
+    {
+      "word": "scissors",
+      "level": 3,
+      "meaning": "a tool with two blades used for cutting paper",
+      "sentence": "Cut the paper with scissors."
+    },
+    {
+      "word": "sentence",
+      "level": 3,
+      "meaning": "a group of words that tells a complete idea",
+      "sentence": "Start each sentence with a capital letter."
+    },
+    {
+      "word": "stomach",
+      "level": 3,
+      "meaning": "the part inside your body where food goes after you swallow",
+      "sentence": "My stomach hurts after too many sweets."
+    },
+    {
+      "word": "strange",
+      "level": 3,
+      "meaning": "unusual or hard to explain",
+      "sentence": "I heard a strange noise."
+    },
+    {
+      "word": "tomorrow",
+      "level": 3,
+      "meaning": "the day after today",
+      "sentence": "We will visit the zoo tomorrow.",
+      "tip": "One 'm' and two 'r's."
+    },
+    {
+      "word": "vegetable",
+      "level": 3,
+      "meaning": "a plant you eat as food, such as a carrot or bean",
+      "sentence": "A carrot is a vegetable."
+    },
+    {
+      "word": "adventure",
+      "level": 3,
+      "meaning": "an exciting or unusual journey or experience",
+      "sentence": "The pirates went on an adventure."
+    },
+    {
+      "word": "treasure",
+      "level": 3,
+      "meaning": "gold, jewels and other valuable things",
+      "sentence": "They dug up the treasure."
+    },
+    {
+      "word": "beginning",
+      "level": 3,
+      "meaning": "the start of something",
+      "sentence": "The beginning of the film was funny.",
+      "tip": "Two 'n's in the middle."
     }
   ]
 }

@@ -69,6 +69,154 @@
       "sentence": "The magician made the coin disappear."
     },
     {
+      "word": "address",
+      "level": 1,
+      "meaning": "the details of where a person lives or works",
+      "sentence": "Write your address on the envelope.",
+      "tip": "Two d's and two s's."
+    },
+    {
+      "word": "against",
+      "level": 1,
+      "meaning": "touching or opposed to something",
+      "sentence": "He leaned the ladder against the wall."
+    },
+    {
+      "word": "almost",
+      "level": 1,
+      "meaning": "very nearly, but not quite",
+      "sentence": "We are almost at the top of the hill."
+    },
+    {
+      "word": "believe",
+      "level": 1,
+      "meaning": "to feel sure that something is true",
+      "sentence": "I believe what the teacher said.",
+      "tip": "Never believe a lie: there is a 'lie' in be-lie-ve."
+    },
+    {
+      "word": "bridge",
+      "level": 1,
+      "meaning": "a structure that carries a road or path over water",
+      "sentence": "We walked across the bridge."
+    },
+    {
+      "word": "bought",
+      "level": 1,
+      "meaning": "got something by paying for it",
+      "sentence": "She bought a new notebook."
+    },
+    {
+      "word": "castle",
+      "level": 1,
+      "meaning": "a large old building with thick walls, where kings and queens lived",
+      "sentence": "We visited a castle on the hill.",
+      "tip": "There is a silent 't'."
+    },
+    {
+      "word": "century",
+      "level": 1,
+      "meaning": "a period of one hundred years",
+      "sentence": "A century is a hundred years."
+    },
+    {
+      "word": "climb",
+      "level": 1,
+      "meaning": "to go up something using your hands and feet",
+      "sentence": "We climb the hill every Sunday.",
+      "tip": "There is a silent 'b' at the end."
+    },
+    {
+      "word": "collect",
+      "level": 1,
+      "meaning": "to gather things together",
+      "sentence": "I collect shells at the beach."
+    },
+    {
+      "word": "crowd",
+      "level": 1,
+      "meaning": "a large group of people in one place",
+      "sentence": "A big crowd came to watch the match."
+    },
+    {
+      "word": "curtain",
+      "level": 1,
+      "meaning": "a piece of cloth that hangs over a window",
+      "sentence": "She closed the curtain at night."
+    },
+    {
+      "word": "danger",
+      "level": 1,
+      "meaning": "the chance that something bad could happen",
+      "sentence": "The sign warns of danger."
+    },
+    {
+      "word": "decide",
+      "level": 1,
+      "meaning": "to make up your mind",
+      "sentence": "I cannot decide which book to read."
+    },
+    {
+      "word": "describe",
+      "level": 1,
+      "meaning": "to tell what something is like",
+      "sentence": "Can you describe the thief?"
+    },
+    {
+      "word": "diamond",
+      "level": 1,
+      "meaning": "a hard, clear, sparkling jewel",
+      "sentence": "The ring has a small diamond."
+    },
+    {
+      "word": "empty",
+      "level": 1,
+      "meaning": "having nothing inside",
+      "sentence": "The box is empty."
+    },
+    {
+      "word": "engine",
+      "level": 1,
+      "meaning": "a machine that makes a car or train move",
+      "sentence": "The engine started with a roar."
+    },
+    {
+      "word": "enjoy",
+      "level": 1,
+      "meaning": "to like doing something",
+      "sentence": "I enjoy swimming on hot days."
+    },
+    {
+      "word": "famous",
+      "level": 1,
+      "meaning": "known by many people",
+      "sentence": "She is a famous singer."
+    },
+    {
+      "word": "finally",
+      "level": 1,
+      "meaning": "at last, after a long time",
+      "sentence": "We finally reached the top."
+    },
+    {
+      "word": "forest",
+      "level": 1,
+      "meaning": "a large area covered with trees",
+      "sentence": "We walked through the forest."
+    },
+    {
+      "word": "adventure",
+      "level": 1,
+      "meaning": "an exciting or unusual journey or experience",
+      "sentence": "Their adventure began at dawn."
+    },
+    {
+      "word": "ancient",
+      "level": 1,
+      "meaning": "very, very old",
+      "sentence": "We saw ancient coins in the museum."
+    },
+    {
       "word": "separate",
       "level": 2,
       "meaning": "kept apart, not joined together",
@@ -116,6 +264,220 @@
       "level": 2,
       "meaning": "moving your body to stay fit",
       "sentence": "I do some exercise every morning."
+    },
+    {
+      "word": "forward",
+      "level": 2,
+      "meaning": "toward the front",
+      "sentence": "Take one step forward."
+    },
+    {
+      "word": "freedom",
+      "level": 2,
+      "meaning": "being able to do what you choose",
+      "sentence": "The birds enjoy their freedom."
+    },
+    {
+      "word": "gentle",
+      "level": 2,
+      "meaning": "soft and kind, not rough",
+      "sentence": "Be gentle with the kitten."
+    },
+    {
+      "word": "guard",
+      "level": 2,
+      "meaning": "a person who protects a place",
+      "sentence": "The guard stood at the gate."
+    },
+    {
+      "word": "guess",
+      "level": 2,
+      "meaning": "to give an answer when you are not sure",
+      "sentence": "Can you guess my age?"
+    },
+    {
+      "word": "guide",
+      "level": 2,
+      "meaning": "a person who shows others the way",
+      "sentence": "The guide led us through the cave."
+    },
+    {
+      "word": "health",
+      "level": 2,
+      "meaning": "how well your body is",
+      "sentence": "Good food is important for your health."
+    },
+    {
+      "word": "heart",
+      "level": 2,
+      "meaning": "the organ in your chest that pumps blood",
+      "sentence": "Your heart beats faster when you run.",
+      "tip": "It has an 'ear' inside: h-ear-t."
+    },
+    {
+      "word": "history",
+      "level": 2,
+      "meaning": "the study of the past",
+      "sentence": "We learned about ancient Egypt in history."
+    },
+    {
+      "word": "honest",
+      "level": 2,
+      "meaning": "telling the truth",
+      "sentence": "An honest person does not cheat.",
+      "tip": "The 'h' is silent."
+    },
+    {
+      "word": "improve",
+      "level": 2,
+      "meaning": "to get better or make better",
+      "sentence": "Practice will help you improve."
+    },
+    {
+      "word": "increase",
+      "level": 2,
+      "meaning": "to go up in size or number",
+      "sentence": "Prices increase every year."
+    },
+    {
+      "word": "instead",
+      "level": 2,
+      "meaning": "in place of something else",
+      "sentence": "Have an apple instead of a sweet."
+    },
+    {
+      "word": "invent",
+      "level": 2,
+      "meaning": "to make something that never existed before",
+      "sentence": "Who was the first to invent the telephone?"
+    },
+    {
+      "word": "journey",
+      "level": 2,
+      "meaning": "a trip from one place to another",
+      "sentence": "The journey took three hours."
+    },
+    {
+      "word": "language",
+      "level": 2,
+      "meaning": "words people use to speak and write",
+      "sentence": "She speaks a second language.",
+      "tip": "'U' follows the 'g': lang-u-age."
+    },
+    {
+      "word": "lightning",
+      "level": 2,
+      "meaning": "a flash of bright light in the sky during a storm",
+      "sentence": "We saw lightning and then heard thunder."
+    },
+    {
+      "word": "machine",
+      "level": 2,
+      "meaning": "a thing with moving parts that does a job",
+      "sentence": "The machine sorted the letters."
+    },
+    {
+      "word": "material",
+      "level": 2,
+      "meaning": "what something is made of",
+      "sentence": "Wool is a warm material."
+    },
+    {
+      "word": "medicine",
+      "level": 2,
+      "meaning": "something you take to get better when you are ill",
+      "sentence": "The doctor gave me medicine."
+    },
+    {
+      "word": "mention",
+      "level": 2,
+      "meaning": "to say something briefly",
+      "sentence": "Did she mention the party?"
+    },
+    {
+      "word": "mixture",
+      "level": 2,
+      "meaning": "two or more things mixed together",
+      "sentence": "The cake is a mixture of eggs, flour and sugar."
+    },
+    {
+      "word": "mystery",
+      "level": 2,
+      "meaning": "something strange that is hard to explain",
+      "sentence": "The missing key is still a mystery."
+    },
+    {
+      "word": "nature",
+      "level": 2,
+      "meaning": "plants, animals and the natural world",
+      "sentence": "We love walking in nature."
+    },
+    {
+      "word": "notice",
+      "level": 2,
+      "meaning": "to see or become aware of something",
+      "sentence": "Did you notice the new sign?"
+    },
+    {
+      "word": "observe",
+      "level": 2,
+      "meaning": "to watch carefully",
+      "sentence": "We observe the moon through a telescope."
+    },
+    {
+      "word": "opinion",
+      "level": 2,
+      "meaning": "what you think or believe about something",
+      "sentence": "In my opinion, the film was too long."
+    },
+    {
+      "word": "ordinary",
+      "level": 2,
+      "meaning": "normal, not special",
+      "sentence": "It was an ordinary Tuesday."
+    },
+    {
+      "word": "parallel",
+      "level": 2,
+      "meaning": "going in the same direction and always the same distance apart",
+      "sentence": "The two roads run parallel.",
+      "tip": "Two l's in the middle, one at the end."
+    },
+    {
+      "word": "patient",
+      "level": 2,
+      "meaning": "able to wait calmly",
+      "sentence": "Be patient, it will be ready soon."
+    },
+    {
+      "word": "perhaps",
+      "level": 2,
+      "meaning": "maybe",
+      "sentence": "Perhaps it will rain later."
+    },
+    {
+      "word": "popular",
+      "level": 2,
+      "meaning": "liked by many people",
+      "sentence": "That game is very popular."
+    },
+    {
+      "word": "position",
+      "level": 2,
+      "meaning": "the place where something is",
+      "sentence": "Stand in the starting position."
+    },
+    {
+      "word": "possible",
+      "level": 2,
+      "meaning": "able to happen or be done",
+      "sentence": "Is it possible to visit tomorrow?"
+    },
+    {
+      "word": "powerful",
+      "level": 2,
+      "meaning": "having great strength or control",
+      "sentence": "A powerful engine drives the ship."
     },
     {
       "word": "necessary",
@@ -178,6 +540,217 @@
       "level": 3,
       "meaning": "how hot or cold something is",
       "sentence": "The temperature dropped overnight."
+    },
+    {
+      "word": "predict",
+      "level": 3,
+      "meaning": "to say what you think will happen",
+      "sentence": "Scientists can predict the weather."
+    },
+    {
+      "word": "prepare",
+      "level": 3,
+      "meaning": "to get ready",
+      "sentence": "We prepare dinner at six."
+    },
+    {
+      "word": "pressure",
+      "level": 3,
+      "meaning": "a pushing force, or a feeling of being rushed",
+      "sentence": "The pressure in the ball is low."
+    },
+    {
+      "word": "probably",
+      "level": 3,
+      "meaning": "likely to happen",
+      "sentence": "It will probably rain tonight."
+    },
+    {
+      "word": "quality",
+      "level": 3,
+      "meaning": "how good or bad something is",
+      "sentence": "This shirt is good quality."
+    },
+    {
+      "word": "quantity",
+      "level": 3,
+      "meaning": "an amount of something",
+      "sentence": "A large quantity of rain fell."
+    },
+    {
+      "word": "reasonable",
+      "level": 3,
+      "meaning": "fair and sensible",
+      "sentence": "That is a reasonable price."
+    },
+    {
+      "word": "receive",
+      "level": 3,
+      "meaning": "to get something that is given or sent",
+      "sentence": "I will receive a letter tomorrow.",
+      "tip": "I before e except after c."
+    },
+    {
+      "word": "region",
+      "level": 3,
+      "meaning": "a large area of a country or the world",
+      "sentence": "This region is known for its hills."
+    },
+    {
+      "word": "relevant",
+      "level": 3,
+      "meaning": "closely connected to what is being talked about",
+      "sentence": "Only bring relevant papers."
+    },
+    {
+      "word": "responsible",
+      "level": 3,
+      "meaning": "in charge of something, and able to be trusted",
+      "sentence": "You are responsible for feeding the fish."
+    },
+    {
+      "word": "serious",
+      "level": 3,
+      "meaning": "important, or not joking",
+      "sentence": "This is a serious problem."
+    },
+    {
+      "word": "signature",
+      "level": 3,
+      "meaning": "your name written in your own writing",
+      "sentence": "Please add your signature at the bottom."
+    },
+    {
+      "word": "similar",
+      "level": 3,
+      "meaning": "almost the same",
+      "sentence": "The twins have similar voices."
+    },
+    {
+      "word": "situation",
+      "level": 3,
+      "meaning": "the way things are at a certain time",
+      "sentence": "The situation is under control."
+    },
+    {
+      "word": "skeleton",
+      "level": 3,
+      "meaning": "all the bones in a body",
+      "sentence": "The museum has a whale skeleton."
+    },
+    {
+      "word": "soldier",
+      "level": 3,
+      "meaning": "a person in an army",
+      "sentence": "The soldier stood guard."
+    },
+    {
+      "word": "solution",
+      "level": 3,
+      "meaning": "the answer to a problem",
+      "sentence": "We found a solution to the puzzle."
+    },
+    {
+      "word": "squirrel",
+      "level": 3,
+      "meaning": "a small animal with a bushy tail that climbs trees",
+      "sentence": "The squirrel hid a nut."
+    },
+    {
+      "word": "structure",
+      "level": 3,
+      "meaning": "something that has been built, or how parts are arranged",
+      "sentence": "The bridge is a strong structure."
+    },
+    {
+      "word": "suddenly",
+      "level": 3,
+      "meaning": "happening quickly and without warning",
+      "sentence": "Suddenly the lights went out."
+    },
+    {
+      "word": "suggest",
+      "level": 3,
+      "meaning": "to put forward an idea",
+      "sentence": "I suggest we leave early."
+    },
+    {
+      "word": "suppose",
+      "level": 3,
+      "meaning": "to think something is likely",
+      "sentence": "I suppose you are right."
+    },
+    {
+      "word": "surface",
+      "level": 3,
+      "meaning": "the top or outside part of something",
+      "sentence": "The surface of the lake was calm."
+    },
+    {
+      "word": "survive",
+      "level": 3,
+      "meaning": "to stay alive in a dangerous situation",
+      "sentence": "Plants need water to survive."
+    },
+    {
+      "word": "sympathy",
+      "level": 3,
+      "meaning": "feeling sorry for someone who is sad or hurt",
+      "sentence": "She showed sympathy for her friend."
+    },
+    {
+      "word": "technology",
+      "level": 3,
+      "meaning": "machines and tools made with scientific knowledge",
+      "sentence": "Modern technology helps us talk to far-away friends."
+    },
+    {
+      "word": "traffic",
+      "level": 3,
+      "meaning": "cars, buses and trucks moving along a road",
+      "sentence": "The traffic was slow this morning."
+    },
+    {
+      "word": "tremendous",
+      "level": 3,
+      "meaning": "very large or very great",
+      "sentence": "There was a tremendous roar from the crowd."
+    },
+    {
+      "word": "unusual",
+      "level": 3,
+      "meaning": "not common or normal",
+      "sentence": "That is an unusual hat."
+    },
+    {
+      "word": "vehicle",
+      "level": 3,
+      "meaning": "something such as a car or bus that carries people or things",
+      "sentence": "A vehicle must stop at a red light."
+    },
+    {
+      "word": "volume",
+      "level": 3,
+      "meaning": "how loud a sound is, or how much space something takes up",
+      "sentence": "Please turn down the volume."
+    },
+    {
+      "word": "wilderness",
+      "level": 3,
+      "meaning": "a wild area where few people live",
+      "sentence": "They camped in the wilderness."
+    },
+    {
+      "word": "themselves",
+      "level": 3,
+      "meaning": "those same people, used when they do something to or for their own selves",
+      "sentence": "The children made lunch themselves."
+    },
+    {
+      "word": "particular",
+      "level": 3,
+      "meaning": "one special thing and not any other",
+      "sentence": "I like this particular song."
     }
   ]
 }

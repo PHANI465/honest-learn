@@ -71,6 +71,190 @@
       "sentence": "The restaurant is busy on Fridays."
     },
     {
+      "word": "absence",
+      "level": 1,
+      "meaning": "being away from a place",
+      "sentence": "Her absence was noticed."
+    },
+    {
+      "word": "achieve",
+      "level": 1,
+      "meaning": "to succeed in doing something",
+      "sentence": "Hard work helps you achieve your goals.",
+      "tip": "I before e, except after c."
+    },
+    {
+      "word": "aggressive",
+      "level": 1,
+      "meaning": "ready to attack or fight",
+      "sentence": "The dog became aggressive when it was scared."
+    },
+    {
+      "word": "ambition",
+      "level": 1,
+      "meaning": "a strong wish to do or be something",
+      "sentence": "Her ambition is to be a doctor."
+    },
+    {
+      "word": "apparent",
+      "level": 1,
+      "meaning": "easy to see or understand",
+      "sentence": "It was apparent that he was tired."
+    },
+    {
+      "word": "appearance",
+      "level": 1,
+      "meaning": "the way a person or thing looks",
+      "sentence": "His appearance changed after the haircut."
+    },
+    {
+      "word": "argument",
+      "level": 1,
+      "meaning": "a disagreement, or a reason given for an idea",
+      "sentence": "They had an argument about the rules."
+    },
+    {
+      "word": "athlete",
+      "level": 1,
+      "meaning": "a person who is good at sport",
+      "sentence": "The athlete trained every day."
+    },
+    {
+      "word": "audience",
+      "level": 1,
+      "meaning": "the people who watch or listen to a show",
+      "sentence": "The audience clapped loudly."
+    },
+    {
+      "word": "beginning",
+      "level": 1,
+      "meaning": "the start of something",
+      "sentence": "The beginning of the film was slow.",
+      "tip": "Two n's in the middle."
+    },
+    {
+      "word": "boundary",
+      "level": 1,
+      "meaning": "a line that marks the edge of something",
+      "sentence": "The fence marks the boundary of the field."
+    },
+    {
+      "word": "category",
+      "level": 1,
+      "meaning": "a group of things of the same kind",
+      "sentence": "Fruit is one category of food."
+    },
+    {
+      "word": "ceiling",
+      "level": 1,
+      "meaning": "the top inside surface of a room",
+      "sentence": "A spider crawled across the ceiling."
+    },
+    {
+      "word": "challenge",
+      "level": 1,
+      "meaning": "something difficult that tests your ability",
+      "sentence": "The maths puzzle was a real challenge."
+    },
+    {
+      "word": "character",
+      "level": 1,
+      "meaning": "a person in a story, or the qualities that make a person who they are",
+      "sentence": "My top character is the brave knight."
+    },
+    {
+      "word": "colleague",
+      "level": 1,
+      "meaning": "a person you work with",
+      "sentence": "She asked a colleague for help."
+    },
+    {
+      "word": "competition",
+      "level": 1,
+      "meaning": "a contest to see who is best",
+      "sentence": "She won the swimming competition."
+    },
+    {
+      "word": "convenient",
+      "level": 1,
+      "meaning": "easy to use or reach",
+      "sentence": "The shop is convenient because it is close."
+    },
+    {
+      "word": "criticism",
+      "level": 1,
+      "meaning": "saying what is wrong with something",
+      "sentence": "He accepted the criticism calmly."
+    },
+    {
+      "word": "curiosity",
+      "level": 1,
+      "meaning": "a strong wish to learn or know",
+      "sentence": "Her curiosity made her read more."
+    },
+    {
+      "word": "decision",
+      "level": 1,
+      "meaning": "a choice that you make",
+      "sentence": "It was a hard decision."
+    },
+    {
+      "word": "dilemma",
+      "level": 1,
+      "meaning": "a hard choice between two things",
+      "sentence": "She faced a dilemma about which team to join."
+    },
+    {
+      "word": "disappoint",
+      "level": 1,
+      "meaning": "to let someone down by not being as good as they hoped",
+      "sentence": "I did not want to disappoint my coach.",
+      "tip": "One s, two p's."
+    },
+    {
+      "word": "discipline",
+      "level": 1,
+      "meaning": "training yourself to follow rules and keep trying",
+      "sentence": "It takes discipline to practise every day."
+    },
+    {
+      "word": "dissolve",
+      "level": 1,
+      "meaning": "to mix into a liquid so that it cannot be seen",
+      "sentence": "Sugar will dissolve in hot water.",
+      "tip": "Two s's after the i."
+    },
+    {
+      "word": "enthusiasm",
+      "level": 1,
+      "meaning": "great interest and excitement",
+      "sentence": "She spoke with enthusiasm."
+    },
+    {
+      "word": "equipment",
+      "level": 1,
+      "meaning": "the tools and things needed for a job or sport",
+      "sentence": "The team packed the equipment."
+    },
+    {
+      "word": "exaggerate",
+      "level": 1,
+      "meaning": "to make something sound bigger or better than it is",
+      "sentence": "Do not exaggerate the story."
+    },
+    {
+      "word": "excellent",
+      "level": 1,
+      "meaning": "extremely good",
+      "sentence": "Her work is excellent."
+    },
+    {
+      "word": "existence",
+      "level": 1,
+      "meaning": "being real or alive",
+      "sentence": "Scientists study the existence of life on other planets."
+    },
+    {
       "word": "accommodate",
       "level": 2,
       "meaning": "to provide room or space for",
@@ -134,6 +318,194 @@
       "sentence": "The shop gave a one-year guarantee."
     },
     {
+      "word": "fascinate",
+      "level": 2,
+      "meaning": "to interest someone very much",
+      "sentence": "Stars fascinate me."
+    },
+    {
+      "word": "fluorescent",
+      "level": 2,
+      "meaning": "giving off bright light, as some lamps and paints do",
+      "sentence": "The classroom has fluorescent lights."
+    },
+    {
+      "word": "foreign",
+      "level": 2,
+      "meaning": "from another country",
+      "sentence": "She is learning a foreign language.",
+      "tip": "The 'g' is silent."
+    },
+    {
+      "word": "fortunate",
+      "level": 2,
+      "meaning": "lucky",
+      "sentence": "We were fortunate to get tickets."
+    },
+    {
+      "word": "frequently",
+      "level": 2,
+      "meaning": "often",
+      "sentence": "He frequently visits the library."
+    },
+    {
+      "word": "genuine",
+      "level": 2,
+      "meaning": "real, not fake",
+      "sentence": "It is a genuine diamond."
+    },
+    {
+      "word": "grammar",
+      "level": 2,
+      "meaning": "the rules for how words are put together",
+      "sentence": "Good grammar makes writing clear.",
+      "tip": "Ends in 'ar', not 'er'."
+    },
+    {
+      "word": "hygiene",
+      "level": 2,
+      "meaning": "keeping clean to stay healthy",
+      "sentence": "Good hygiene means washing your hands."
+    },
+    {
+      "word": "immediately",
+      "level": 2,
+      "meaning": "right now, without waiting",
+      "sentence": "Please come immediately."
+    },
+    {
+      "word": "independent",
+      "level": 2,
+      "meaning": "able to do things without help from others",
+      "sentence": "She is a very independent girl."
+    },
+    {
+      "word": "intelligence",
+      "level": 2,
+      "meaning": "the ability to learn, understand and think",
+      "sentence": "The crow showed great intelligence."
+    },
+    {
+      "word": "interrupt",
+      "level": 2,
+      "meaning": "to break into what someone is saying or doing",
+      "sentence": "Please do not interrupt me.",
+      "tip": "Two r's."
+    },
+    {
+      "word": "irrelevant",
+      "level": 2,
+      "meaning": "not connected to the matter being talked about",
+      "sentence": "That comment is irrelevant."
+    },
+    {
+      "word": "jealous",
+      "level": 2,
+      "meaning": "unhappy because you want what someone else has",
+      "sentence": "He felt jealous of his friend's new bike."
+    },
+    {
+      "word": "marriage",
+      "level": 2,
+      "meaning": "the legal joining of two people as partners",
+      "sentence": "They celebrated their marriage in the garden."
+    },
+    {
+      "word": "mathematics",
+      "level": 2,
+      "meaning": "the study of numbers, shapes and patterns",
+      "sentence": "She loves mathematics."
+    },
+    {
+      "word": "millennium",
+      "level": 2,
+      "meaning": "a period of one thousand years",
+      "sentence": "A millennium is a thousand years.",
+      "tip": "Two l's and two n's."
+    },
+    {
+      "word": "mysterious",
+      "level": 2,
+      "meaning": "strange and hard to explain",
+      "sentence": "A mysterious light shone in the woods."
+    },
+    {
+      "word": "noticeable",
+      "level": 2,
+      "meaning": "easy to see",
+      "sentence": "The scar is hardly noticeable.",
+      "tip": "Keep the 'e' before 'able'."
+    },
+    {
+      "word": "occurrence",
+      "level": 2,
+      "meaning": "something that happens",
+      "sentence": "Rain is a common occurrence here.",
+      "tip": "Two c's and two r's."
+    },
+    {
+      "word": "opportunity",
+      "level": 2,
+      "meaning": "a chance to do something good",
+      "sentence": "This is a great opportunity to learn."
+    },
+    {
+      "word": "parliament",
+      "level": 2,
+      "meaning": "the group of people who make the laws of a country",
+      "sentence": "Parliament voted on the new law."
+    },
+    {
+      "word": "permanent",
+      "level": 2,
+      "meaning": "meant to last for a very long time",
+      "sentence": "This marker leaves a permanent stain."
+    },
+    {
+      "word": "persuade",
+      "level": 2,
+      "meaning": "to make someone agree by giving reasons",
+      "sentence": "She tried to persuade me to join."
+    },
+    {
+      "word": "physical",
+      "level": 2,
+      "meaning": "to do with the body",
+      "sentence": "Running is good physical exercise."
+    },
+    {
+      "word": "possession",
+      "level": 2,
+      "meaning": "something that you own",
+      "sentence": "Her bike is her most valued possession.",
+      "tip": "Two s's, then two more s's."
+    },
+    {
+      "word": "prejudice",
+      "level": 2,
+      "meaning": "an unfair opinion formed before knowing the facts",
+      "sentence": "We should not judge people with prejudice."
+    },
+    {
+      "word": "pursue",
+      "level": 2,
+      "meaning": "to follow in order to catch, or to try to achieve",
+      "sentence": "She wants to pursue a career in science."
+    },
+    {
+      "word": "receipt",
+      "level": 2,
+      "meaning": "a paper that shows you have paid",
+      "sentence": "Keep the receipt in case you need to return it.",
+      "tip": "The 'p' is silent."
+    },
+    {
+      "word": "recommendation",
+      "level": 2,
+      "meaning": "advice that something is good",
+      "sentence": "I took her recommendation and read the book."
+    },
+    {
       "word": "conscientious",
       "level": 3,
       "meaning": "careful and thorough about doing your work",
@@ -192,6 +564,205 @@
       "level": 3,
       "meaning": "complex and advanced",
       "sentence": "The robot uses sophisticated sensors."
+    },
+    {
+      "word": "reminiscent",
+      "level": 3,
+      "meaning": "making you think of something from the past",
+      "sentence": "The smell was reminiscent of summer holidays."
+    },
+    {
+      "word": "rhetorical",
+      "level": 3,
+      "meaning": "to do with speaking in a persuasive way",
+      "sentence": "It was a rhetorical question, so no one answered."
+    },
+    {
+      "word": "schedule",
+      "level": 3,
+      "meaning": "a plan that lists when things will happen",
+      "sentence": "The train schedule is on the wall."
+    },
+    {
+      "word": "sergeant",
+      "level": 3,
+      "meaning": "an officer of middle rank in the army or police",
+      "sentence": "The sergeant gave the orders."
+    },
+    {
+      "word": "silhouette",
+      "level": 3,
+      "meaning": "a dark shape seen against a light background",
+      "sentence": "A silhouette of a tree stood against the sunset."
+    },
+    {
+      "word": "simultaneous",
+      "level": 3,
+      "meaning": "happening at exactly the same time",
+      "sentence": "The two goals were almost simultaneous."
+    },
+    {
+      "word": "solemn",
+      "level": 3,
+      "meaning": "serious and not smiling",
+      "sentence": "The room was quiet and solemn.",
+      "tip": "There is a silent 'n' at the end."
+    },
+    {
+      "word": "souvenir",
+      "level": 3,
+      "meaning": "something you keep to remember a place or event",
+      "sentence": "She bought a souvenir at the beach."
+    },
+    {
+      "word": "spontaneous",
+      "level": 3,
+      "meaning": "done naturally without planning",
+      "sentence": "The crowd gave a spontaneous cheer."
+    },
+    {
+      "word": "strategy",
+      "level": 3,
+      "meaning": "a plan for winning or achieving something",
+      "sentence": "Our strategy was to attack early."
+    },
+    {
+      "word": "subtle",
+      "level": 3,
+      "meaning": "small and delicate; not obvious",
+      "sentence": "There was a subtle difference in taste.",
+      "tip": "The 'b' is silent."
+    },
+    {
+      "word": "succeed",
+      "level": 3,
+      "meaning": "to achieve what you wanted",
+      "sentence": "Keep trying and you will succeed.",
+      "tip": "Two c's and two e's."
+    },
+    {
+      "word": "sufficient",
+      "level": 3,
+      "meaning": "enough",
+      "sentence": "We have sufficient food for everyone."
+    },
+    {
+      "word": "suspicious",
+      "level": 3,
+      "meaning": "feeling that something is not right",
+      "sentence": "He was suspicious of the strange email."
+    },
+    {
+      "word": "sympathetic",
+      "level": 3,
+      "meaning": "showing that you care about someone else's trouble",
+      "sentence": "The teacher was sympathetic and kind."
+    },
+    {
+      "word": "temperament",
+      "level": 3,
+      "meaning": "a person's usual nature, such as calm or hot-headed",
+      "sentence": "The horse has a gentle temperament."
+    },
+    {
+      "word": "thorough",
+      "level": 3,
+      "meaning": "complete and careful",
+      "sentence": "She did a thorough job cleaning."
+    },
+    {
+      "word": "tragedy",
+      "level": 3,
+      "meaning": "a very sad event",
+      "sentence": "The flood was a tragedy for the town."
+    },
+    {
+      "word": "unanimous",
+      "level": 3,
+      "meaning": "agreed by everyone",
+      "sentence": "The vote was unanimous."
+    },
+    {
+      "word": "unnecessary",
+      "level": 3,
+      "meaning": "not needed",
+      "sentence": "The extra paperwork was unnecessary.",
+      "tip": "Two n's after the u."
+    },
+    {
+      "word": "vigilant",
+      "level": 3,
+      "meaning": "watching carefully for danger",
+      "sentence": "The guard stayed vigilant all night."
+    },
+    {
+      "word": "visible",
+      "level": 3,
+      "meaning": "able to be seen",
+      "sentence": "The stars are visible tonight."
+    },
+    {
+      "word": "vulnerable",
+      "level": 3,
+      "meaning": "easy to hurt or harm",
+      "sentence": "Young birds are vulnerable to cats."
+    },
+    {
+      "word": "weird",
+      "level": 3,
+      "meaning": "very strange",
+      "sentence": "That is a weird noise.",
+      "tip": "Weird is weird: e before i."
+    },
+    {
+      "word": "withhold",
+      "level": 3,
+      "meaning": "to keep back and not give",
+      "sentence": "The bank may withhold the money.",
+      "tip": "It is 'with' plus 'hold'."
+    },
+    {
+      "word": "yield",
+      "level": 3,
+      "meaning": "to give way, or to produce a crop",
+      "sentence": "Drivers must yield to people crossing."
+    },
+    {
+      "word": "camouflage",
+      "level": 3,
+      "meaning": "patterns or shades that help something hide",
+      "sentence": "The lizard uses camouflage to hide."
+    },
+    {
+      "word": "exhilarating",
+      "level": 3,
+      "meaning": "very exciting and making you feel full of energy",
+      "sentence": "The ride was exhilarating."
+    },
+    {
+      "word": "bibliography",
+      "level": 3,
+      "meaning": "a list of the books and sources used in a piece of work",
+      "sentence": "Add a bibliography at the end of the essay."
+    },
+    {
+      "word": "hallucination",
+      "level": 3,
+      "meaning": "seeing or hearing something that is not really there",
+      "sentence": "A high fever can cause a hallucination."
+    },
+    {
+      "word": "pneumonia",
+      "level": 3,
+      "meaning": "an illness of the lungs",
+      "sentence": "He was in bed with pneumonia.",
+      "tip": "The 'p' at the start is silent."
+    },
+    {
+      "word": "rendezvous",
+      "level": 3,
+      "meaning": "a meeting at an agreed time and place",
+      "sentence": "We planned a rendezvous at the station."
     }
   ]
 }

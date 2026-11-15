@@ -68,6 +68,182 @@
       "sentence": "Put the steps in the right sequence."
     },
     {
+      "word": "abstract",
+      "level": 1,
+      "meaning": "existing as an idea, not as something you can touch",
+      "sentence": "Freedom is an abstract idea."
+    },
+    {
+      "word": "accumulate",
+      "level": 1,
+      "meaning": "to collect little by little",
+      "sentence": "Dust will accumulate on shelves."
+    },
+    {
+      "word": "acknowledge",
+      "level": 1,
+      "meaning": "to accept that something is true or exists",
+      "sentence": "She had to acknowledge her mistake.",
+      "tip": "Starts with 'ack', not 'ac'."
+    },
+    {
+      "word": "adequate",
+      "level": 1,
+      "meaning": "enough, or good enough",
+      "sentence": "The food was adequate for ten people."
+    },
+    {
+      "word": "alternative",
+      "level": 1,
+      "meaning": "another choice",
+      "sentence": "If the bus is late, there is an alternative route."
+    },
+    {
+      "word": "anomaly",
+      "level": 1,
+      "meaning": "something that is different from what is normal",
+      "sentence": "The warm day in January was an anomaly."
+    },
+    {
+      "word": "arbitrary",
+      "level": 1,
+      "meaning": "chosen by chance, not for a reason",
+      "sentence": "The rule seemed arbitrary."
+    },
+    {
+      "word": "assumption",
+      "level": 1,
+      "meaning": "something you accept as true without proof",
+      "sentence": "The plan is based on an assumption."
+    },
+    {
+      "word": "attribute",
+      "level": 1,
+      "meaning": "a quality that belongs to someone or something",
+      "sentence": "Kindness is a great attribute."
+    },
+    {
+      "word": "authentic",
+      "level": 1,
+      "meaning": "real and genuine",
+      "sentence": "This is an authentic Roman coin."
+    },
+    {
+      "word": "capacity",
+      "level": 1,
+      "meaning": "the amount that something can hold or do",
+      "sentence": "The hall has a capacity of two hundred."
+    },
+    {
+      "word": "coherent",
+      "level": 1,
+      "meaning": "clear and logical, so that it makes sense",
+      "sentence": "She gave a coherent explanation."
+    },
+    {
+      "word": "comprehensive",
+      "level": 1,
+      "meaning": "including everything that is needed",
+      "sentence": "The book gives a comprehensive guide to birds."
+    },
+    {
+      "word": "concept",
+      "level": 1,
+      "meaning": "an idea about how something works or is",
+      "sentence": "Gravity is a hard concept."
+    },
+    {
+      "word": "conclusion",
+      "level": 1,
+      "meaning": "the final part, or a decision reached after thinking",
+      "sentence": "The conclusion of the essay summed up the argument."
+    },
+    {
+      "word": "consensus",
+      "level": 1,
+      "meaning": "agreement reached by a whole group",
+      "sentence": "The group reached a consensus."
+    },
+    {
+      "word": "constitution",
+      "level": 1,
+      "meaning": "the basic laws that say how a country is run",
+      "sentence": "The constitution protects free speech."
+    },
+    {
+      "word": "controversy",
+      "level": 1,
+      "meaning": "strong public disagreement about something",
+      "sentence": "The new rule caused controversy."
+    },
+    {
+      "word": "correlation",
+      "level": 1,
+      "meaning": "a link between two things that change together",
+      "sentence": "There is a correlation between sleep and test scores.",
+      "tip": "Two r's."
+    },
+    {
+      "word": "credible",
+      "level": 1,
+      "meaning": "able to be believed",
+      "sentence": "She gave a credible reason for being late."
+    },
+    {
+      "word": "criteria",
+      "level": 1,
+      "meaning": "the standards used to judge something (more than one)",
+      "sentence": "The judges explained their criteria."
+    },
+    {
+      "word": "crucial",
+      "level": 1,
+      "meaning": "extremely important",
+      "sentence": "Sleep is crucial for learning."
+    },
+    {
+      "word": "deficit",
+      "level": 1,
+      "meaning": "an amount by which something is too little",
+      "sentence": "The class had a deficit of ten chairs."
+    },
+    {
+      "word": "demonstrate",
+      "level": 1,
+      "meaning": "to show clearly how something works or that it is true",
+      "sentence": "The teacher will demonstrate the experiment."
+    },
+    {
+      "word": "dimension",
+      "level": 1,
+      "meaning": "a measurement such as length, width or height",
+      "sentence": "Measure each dimension of the box."
+    },
+    {
+      "word": "discrete",
+      "level": 1,
+      "meaning": "separate and distinct",
+      "sentence": "The data fell into discrete groups."
+    },
+    {
+      "word": "distinct",
+      "level": 1,
+      "meaning": "clearly different or easy to tell apart",
+      "sentence": "The two tastes are quite distinct."
+    },
+    {
+      "word": "domestic",
+      "level": 1,
+      "meaning": "to do with the home or with your own country",
+      "sentence": "The airline flies domestic routes only."
+    },
+    {
+      "word": "dynamic",
+      "level": 1,
+      "meaning": "full of energy and change",
+      "sentence": "She is a dynamic leader."
+    },
+    {
       "word": "phenomenon",
       "level": 2,
       "meaning": "something that can be seen or observed, especially something unusual",
@@ -126,6 +302,186 @@
       "level": 2,
       "meaning": "involving a lot of official rules and paperwork",
       "sentence": "The process was slow and bureaucratic."
+    },
+    {
+      "word": "eliminate",
+      "level": 2,
+      "meaning": "to remove completely",
+      "sentence": "We aim to eliminate waste."
+    },
+    {
+      "word": "empirical",
+      "level": 2,
+      "meaning": "based on what is seen or tested, not just on theory",
+      "sentence": "The scientist wanted empirical evidence."
+    },
+    {
+      "word": "equilibrium",
+      "level": 2,
+      "meaning": "a state of balance",
+      "sentence": "The seesaw reached equilibrium."
+    },
+    {
+      "word": "ethical",
+      "level": 2,
+      "meaning": "to do with right and wrong actions",
+      "sentence": "It is not ethical to cheat."
+    },
+    {
+      "word": "exacerbate",
+      "level": 2,
+      "meaning": "to make a bad situation worse",
+      "sentence": "Scratching will exacerbate the itch."
+    },
+    {
+      "word": "facilitate",
+      "level": 2,
+      "meaning": "to make something easier",
+      "sentence": "The map will facilitate our journey."
+    },
+    {
+      "word": "fallacy",
+      "level": 2,
+      "meaning": "a mistaken belief, or a flaw in reasoning",
+      "sentence": "It is a fallacy that bigger always means better."
+    },
+    {
+      "word": "feasible",
+      "level": 2,
+      "meaning": "able to be done",
+      "sentence": "Is the plan feasible?"
+    },
+    {
+      "word": "flexible",
+      "level": 2,
+      "meaning": "able to bend or change easily",
+      "sentence": "A flexible schedule helps busy families."
+    },
+    {
+      "word": "formulate",
+      "level": 2,
+      "meaning": "to create carefully and in detail",
+      "sentence": "They will formulate a plan."
+    },
+    {
+      "word": "hypothetical",
+      "level": 2,
+      "meaning": "imagined, not real",
+      "sentence": "Here is a hypothetical situation."
+    },
+    {
+      "word": "implement",
+      "level": 2,
+      "meaning": "to put a plan into action",
+      "sentence": "The school will implement the new rules next week."
+    },
+    {
+      "word": "implicit",
+      "level": 2,
+      "meaning": "suggested without being said directly",
+      "sentence": "There was an implicit warning in his tone."
+    },
+    {
+      "word": "incentive",
+      "level": 2,
+      "meaning": "something that encourages you to act",
+      "sentence": "A prize is a good incentive."
+    },
+    {
+      "word": "inevitable",
+      "level": 2,
+      "meaning": "certain to happen and impossible to avoid",
+      "sentence": "Change is inevitable."
+    },
+    {
+      "word": "infrastructure",
+      "level": 2,
+      "meaning": "the basic systems of a country, such as roads and power lines",
+      "sentence": "The city is improving its infrastructure."
+    },
+    {
+      "word": "innovation",
+      "level": 2,
+      "meaning": "a new idea or way of doing something",
+      "sentence": "The phone was a big innovation."
+    },
+    {
+      "word": "integrity",
+      "level": 2,
+      "meaning": "being honest and doing what is right",
+      "sentence": "She is known for her integrity."
+    },
+    {
+      "word": "intuition",
+      "level": 2,
+      "meaning": "a feeling that tells you something without thinking it through",
+      "sentence": "My intuition told me something was wrong."
+    },
+    {
+      "word": "justify",
+      "level": 2,
+      "meaning": "to give a good reason for something",
+      "sentence": "Can you justify your answer?"
+    },
+    {
+      "word": "methodology",
+      "level": 2,
+      "meaning": "the system of methods used in a study",
+      "sentence": "The report explains its methodology."
+    },
+    {
+      "word": "mitigate",
+      "level": 2,
+      "meaning": "to make something less harmful or serious",
+      "sentence": "Trees mitigate the heat in cities."
+    },
+    {
+      "word": "nuance",
+      "level": 2,
+      "meaning": "a very small difference in meaning or feeling",
+      "sentence": "The poem is full of nuance."
+    },
+    {
+      "word": "objective",
+      "level": 2,
+      "meaning": "based on facts, not feelings; or a goal",
+      "sentence": "A judge must be objective."
+    },
+    {
+      "word": "obsolete",
+      "level": 2,
+      "meaning": "no longer used because something better has replaced it",
+      "sentence": "Floppy disks are now obsolete."
+    },
+    {
+      "word": "oscillate",
+      "level": 2,
+      "meaning": "to swing back and forth",
+      "sentence": "The pendulum will oscillate."
+    },
+    {
+      "word": "plausible",
+      "level": 2,
+      "meaning": "seeming reasonable and likely to be true",
+      "sentence": "It is a plausible explanation."
+    },
+    {
+      "word": "precedent",
+      "level": 2,
+      "meaning": "an earlier case used as a guide for later ones",
+      "sentence": "The ruling set a precedent."
+    },
+    {
+      "word": "preliminary",
+      "level": 2,
+      "meaning": "coming before the main part",
+      "sentence": "The preliminary results look good."
+    },
+    {
+      "word": "prerequisite",
+      "level": 2,
+      "meaning": "something that must come first before something else can happen",
+      "sentence": "A good night's sleep is a prerequisite for exams."
     },
     {
       "word": "psychology",
@@ -188,6 +544,200 @@
       "level": 3,
       "meaning": "lasting only a very short time",
       "sentence": "Soap bubbles are ephemeral."
+    },
+    {
+      "word": "proliferate",
+      "level": 3,
+      "meaning": "to grow or multiply quickly",
+      "sentence": "Mobile phones continue to proliferate."
+    },
+    {
+      "word": "quintessential",
+      "level": 3,
+      "meaning": "being the perfect example of something",
+      "sentence": "She is the quintessential teacher."
+    },
+    {
+      "word": "reciprocal",
+      "level": 3,
+      "meaning": "given and received in return",
+      "sentence": "They had a reciprocal agreement."
+    },
+    {
+      "word": "rhetoric",
+      "level": 3,
+      "meaning": "the art of using words to persuade",
+      "sentence": "The speech was full of fine rhetoric.",
+      "tip": "Starts with 'rh', like rhythm."
+    },
+    {
+      "word": "scrutiny",
+      "level": 3,
+      "meaning": "careful and close examination",
+      "sentence": "The plan was under public scrutiny."
+    },
+    {
+      "word": "serendipity",
+      "level": 3,
+      "meaning": "finding something good by happy accident",
+      "sentence": "It was serendipity that we met."
+    },
+    {
+      "word": "sovereignty",
+      "level": 3,
+      "meaning": "the power of a country to rule itself",
+      "sentence": "The island fought for its sovereignty."
+    },
+    {
+      "word": "subsidiary",
+      "level": 3,
+      "meaning": "less important, or a company owned by a bigger one",
+      "sentence": "The firm is a subsidiary of a larger group."
+    },
+    {
+      "word": "substantiate",
+      "level": 3,
+      "meaning": "to prove with evidence",
+      "sentence": "Can you substantiate your claim?"
+    },
+    {
+      "word": "sustainability",
+      "level": 3,
+      "meaning": "using resources in a way that does not run them out",
+      "sentence": "The school cares about sustainability."
+    },
+    {
+      "word": "symmetry",
+      "level": 3,
+      "meaning": "having parts that match on both sides",
+      "sentence": "A butterfly's wings show symmetry."
+    },
+    {
+      "word": "tangible",
+      "level": 3,
+      "meaning": "able to be touched or clearly felt",
+      "sentence": "There was tangible excitement in the room."
+    },
+    {
+      "word": "theoretical",
+      "level": 3,
+      "meaning": "based on ideas rather than practical experience",
+      "sentence": "The class covers theoretical physics."
+    },
+    {
+      "word": "threshold",
+      "level": 3,
+      "meaning": "the entrance to a place, or the point where something begins",
+      "sentence": "She stood on the threshold of the room."
+    },
+    {
+      "word": "transparent",
+      "level": 3,
+      "meaning": "clear enough to see through, or open and honest",
+      "sentence": "The glass is transparent."
+    },
+    {
+      "word": "vicarious",
+      "level": 3,
+      "meaning": "felt through someone else's experience",
+      "sentence": "He felt vicarious pride in his sister's win."
+    },
+    {
+      "word": "whimsical",
+      "level": 3,
+      "meaning": "playful and unusual",
+      "sentence": "The artist drew whimsical creatures.",
+      "tip": "Starts with 'wh', not 'w'."
+    },
+    {
+      "word": "zeitgeist",
+      "level": 3,
+      "meaning": "the mood or spirit of a particular time",
+      "sentence": "The film captured the zeitgeist of the 1960s."
+    },
+    {
+      "word": "acquiesce",
+      "level": 3,
+      "meaning": "to agree without arguing, often unwillingly",
+      "sentence": "In the end she had to acquiesce."
+    },
+    {
+      "word": "belligerent",
+      "level": 3,
+      "meaning": "hostile and eager to fight",
+      "sentence": "He grew belligerent when he lost."
+    },
+    {
+      "word": "camaraderie",
+      "level": 3,
+      "meaning": "friendly feeling between people who spend time together",
+      "sentence": "The team enjoyed great camaraderie."
+    },
+    {
+      "word": "cognitive",
+      "level": 3,
+      "meaning": "to do with thinking and understanding",
+      "sentence": "Puzzles help cognitive development."
+    },
+    {
+      "word": "conundrum",
+      "level": 3,
+      "meaning": "a confusing problem or riddle",
+      "sentence": "The missing key is a real conundrum."
+    },
+    {
+      "word": "deleterious",
+      "level": 3,
+      "meaning": "harmful",
+      "sentence": "Too much sugar can have a deleterious effect on teeth."
+    },
+    {
+      "word": "euphemism",
+      "level": 3,
+      "meaning": "a gentle word used instead of a harsh one",
+      "sentence": "'Passed away' is a euphemism."
+    },
+    {
+      "word": "exemplary",
+      "level": 3,
+      "meaning": "serving as a very good example",
+      "sentence": "Her conduct was exemplary."
+    },
+    {
+      "word": "gregarious",
+      "level": 3,
+      "meaning": "fond of company",
+      "sentence": "He is a gregarious person who loves parties."
+    },
+    {
+      "word": "inexorable",
+      "level": 3,
+      "meaning": "impossible to stop",
+      "sentence": "The inexorable tide rose up the beach."
+    },
+    {
+      "word": "magnanimous",
+      "level": 3,
+      "meaning": "generous and forgiving",
+      "sentence": "The winner was magnanimous in victory."
+    },
+    {
+      "word": "meticulous",
+      "level": 3,
+      "meaning": "very careful about every detail",
+      "sentence": "He is meticulous about his work."
+    },
+    {
+      "word": "nonchalant",
+      "level": 3,
+      "meaning": "calm and not worried",
+      "sentence": "She was nonchalant about the exam."
+    },
+    {
+      "word": "ostentatious",
+      "level": 3,
+      "meaning": "showing off wealth in a way that grabs attention",
+      "sentence": "The ostentatious car shone in the sun."
     }
   ]
 }

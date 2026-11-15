@@ -78,6 +78,155 @@
       "emoji": "🐔"
     },
     {
+      "word": "map",
+      "level": 1,
+      "meaning": "a drawing that shows where places are",
+      "sentence": "We looked at the map to find the park.",
+      "emoji": "🗺️"
+    },
+    {
+      "word": "net",
+      "level": 1,
+      "meaning": "a bag of string with holes, used to catch fish or to play tennis",
+      "sentence": "The fish got caught in the net.",
+      "emoji": "🥅"
+    },
+    {
+      "word": "pen",
+      "level": 1,
+      "meaning": "you write with it and it has ink inside",
+      "sentence": "I wrote my name with a pen.",
+      "emoji": "🖊️"
+    },
+    {
+      "word": "pot",
+      "level": 1,
+      "meaning": "a deep round pan for cooking",
+      "sentence": "Mum put the soup in a big pot.",
+      "emoji": "🍲"
+    },
+    {
+      "word": "rat",
+      "level": 1,
+      "meaning": "a small animal with a long tail that looks like a big mouse",
+      "sentence": "The rat ran under the shed.",
+      "emoji": "🐀"
+    },
+    {
+      "word": "tap",
+      "level": 1,
+      "meaning": "you turn it to get water out of the pipe",
+      "sentence": "Turn off the tap, please.",
+      "emoji": "🚰"
+    },
+    {
+      "word": "top",
+      "level": 1,
+      "meaning": "the highest part of something",
+      "sentence": "The cat sat on the top of the wall.",
+      "emoji": "🔝"
+    },
+    {
+      "word": "van",
+      "level": 1,
+      "meaning": "a big car for carrying things",
+      "sentence": "The van is full of boxes.",
+      "emoji": "🚐"
+    },
+    {
+      "word": "web",
+      "level": 1,
+      "meaning": "the sticky net a spider makes",
+      "sentence": "A fly got stuck in the web.",
+      "emoji": "🕸️"
+    },
+    {
+      "word": "zip",
+      "level": 1,
+      "meaning": "it slides up and down to close a coat",
+      "sentence": "Pull the zip up to keep warm."
+    },
+    {
+      "word": "bat",
+      "level": 1,
+      "meaning": "an animal that flies at night, or a stick used to hit a ball",
+      "sentence": "A bat flew out of the cave.",
+      "emoji": "🦇"
+    },
+    {
+      "word": "bag",
+      "level": 1,
+      "meaning": "you carry things in it",
+      "sentence": "She put the book in her bag.",
+      "emoji": "👜"
+    },
+    {
+      "word": "box",
+      "level": 1,
+      "meaning": "a square container with sides and a lid",
+      "sentence": "The toys are in the box.",
+      "emoji": "📦"
+    },
+    {
+      "word": "bug",
+      "level": 1,
+      "meaning": "a tiny creepy-crawly animal",
+      "sentence": "A bug crawled up the leaf.",
+      "emoji": "🐛"
+    },
+    {
+      "word": "can",
+      "level": 1,
+      "meaning": "a metal container for food or drink",
+      "sentence": "He opened a can of beans.",
+      "emoji": "🥫"
+    },
+    {
+      "word": "cow",
+      "level": 1,
+      "meaning": "a farm animal that gives us milk and says moo",
+      "sentence": "The cow ate the grass.",
+      "emoji": "🐄"
+    },
+    {
+      "word": "dig",
+      "level": 1,
+      "meaning": "to make a hole in the ground",
+      "sentence": "We dig a hole in the sand."
+    },
+    {
+      "word": "fan",
+      "level": 1,
+      "meaning": "a machine that blows cool air",
+      "sentence": "Switch on the fan, it is hot."
+    },
+    {
+      "word": "jam",
+      "level": 1,
+      "meaning": "sweet fruit spread you put on toast",
+      "sentence": "I like jam on my toast."
+    },
+    {
+      "word": "jet",
+      "level": 1,
+      "meaning": "a fast plane",
+      "sentence": "The jet flew high in the sky.",
+      "emoji": "✈️"
+    },
+    {
+      "word": "log",
+      "level": 1,
+      "meaning": "a thick piece of a cut tree",
+      "sentence": "We sat on a log by the fire.",
+      "emoji": "🪵"
+    },
+    {
+      "word": "mud",
+      "level": 1,
+      "meaning": "wet, sticky earth",
+      "sentence": "My boots are covered in mud."
+    },
+    {
       "word": "fish",
       "level": 2,
       "meaning": "an animal that lives in water and has fins",
@@ -148,6 +297,241 @@
       "emoji": "🦆"
     },
     {
+      "word": "lamp",
+      "level": 2,
+      "meaning": "a light you can put on a table",
+      "sentence": "Turn on the lamp so we can read.",
+      "emoji": "💡"
+    },
+    {
+      "word": "milk",
+      "level": 2,
+      "meaning": "a white drink that comes from cows",
+      "sentence": "I drink milk with my breakfast.",
+      "emoji": "🥛"
+    },
+    {
+      "word": "nest",
+      "level": 2,
+      "meaning": "the home a bird builds for its eggs",
+      "sentence": "The bird made a nest in the tree.",
+      "emoji": "🪺"
+    },
+    {
+      "word": "farm",
+      "level": 2,
+      "meaning": "a place with fields and animals where food is grown",
+      "sentence": "We saw sheep on the farm.",
+      "emoji": "🚜"
+    },
+    {
+      "word": "goat",
+      "level": 2,
+      "meaning": "an animal with horns that likes to climb and says maa",
+      "sentence": "The goat ate some grass.",
+      "emoji": "🐐"
+    },
+    {
+      "word": "jump",
+      "level": 2,
+      "meaning": "to push yourself up off the ground",
+      "sentence": "Can you jump over the puddle?"
+    },
+    {
+      "word": "kite",
+      "level": 2,
+      "meaning": "a toy that flies on a string in the wind",
+      "sentence": "My kite flew high in the sky.",
+      "emoji": "🪁"
+    },
+    {
+      "word": "lion",
+      "level": 2,
+      "meaning": "a big wild cat with a mane that roars",
+      "sentence": "The lion roared loudly.",
+      "emoji": "🦁"
+    },
+    {
+      "word": "nose",
+      "level": 2,
+      "meaning": "the part of your face that you smell with",
+      "sentence": "I can smell flowers with my nose.",
+      "emoji": "👃"
+    },
+    {
+      "word": "rain",
+      "level": 2,
+      "meaning": "water that falls from the clouds",
+      "sentence": "We stayed inside because of the rain.",
+      "emoji": "🌧️"
+    },
+    {
+      "word": "ring",
+      "level": 2,
+      "meaning": "a round band you wear on your finger",
+      "sentence": "She wore a gold ring.",
+      "emoji": "💍"
+    },
+    {
+      "word": "sand",
+      "level": 2,
+      "meaning": "tiny grains that you find on a beach",
+      "sentence": "We built a castle in the sand.",
+      "emoji": "🏖️"
+    },
+    {
+      "word": "seed",
+      "level": 2,
+      "meaning": "a tiny thing that a plant grows from",
+      "sentence": "Plant the seed in the soil.",
+      "emoji": "🌱"
+    },
+    {
+      "word": "ship",
+      "level": 2,
+      "meaning": "a very big boat",
+      "sentence": "The ship sailed across the sea.",
+      "emoji": "🚢"
+    },
+    {
+      "word": "shoe",
+      "level": 2,
+      "meaning": "you wear it on your foot",
+      "sentence": "I lost my left shoe.",
+      "emoji": "👟"
+    },
+    {
+      "word": "snow",
+      "level": 2,
+      "meaning": "soft white flakes that fall when it is very cold",
+      "sentence": "We made a snowman in the snow.",
+      "emoji": "❄️"
+    },
+    {
+      "word": "soap",
+      "level": 2,
+      "meaning": "you wash your hands with it",
+      "sentence": "Wash your hands with soap.",
+      "emoji": "🧼"
+    },
+    {
+      "word": "swim",
+      "level": 2,
+      "meaning": "to move through water using your arms and legs",
+      "sentence": "I can swim in the pool.",
+      "emoji": "🏊"
+    },
+    {
+      "word": "tent",
+      "level": 2,
+      "meaning": "a cloth house you sleep in when you go camping",
+      "sentence": "We slept in a tent.",
+      "emoji": "⛺"
+    },
+    {
+      "word": "toad",
+      "level": 2,
+      "meaning": "an animal like a frog with bumpy skin",
+      "sentence": "A toad sat under the leaf."
+    },
+    {
+      "word": "wind",
+      "level": 2,
+      "meaning": "air that moves and blows things",
+      "sentence": "The wind blew my hat away.",
+      "emoji": "💨"
+    },
+    {
+      "word": "wolf",
+      "level": 2,
+      "meaning": "a wild animal like a big dog that howls",
+      "sentence": "The wolf howled at the moon.",
+      "emoji": "🐺"
+    },
+    {
+      "word": "boat",
+      "level": 2,
+      "meaning": "it floats and carries people on water",
+      "sentence": "We went out in a boat.",
+      "emoji": "⛵"
+    },
+    {
+      "word": "bell",
+      "level": 2,
+      "meaning": "it makes a ringing sound",
+      "sentence": "The bell rang at lunchtime.",
+      "emoji": "🔔"
+    },
+    {
+      "word": "bone",
+      "level": 2,
+      "meaning": "a hard white part inside your body",
+      "sentence": "The dog buried a bone.",
+      "emoji": "🦴"
+    },
+    {
+      "word": "corn",
+      "level": 2,
+      "meaning": "a tall plant with yellow kernels you can eat",
+      "sentence": "We ate corn for dinner.",
+      "emoji": "🌽"
+    },
+    {
+      "word": "desk",
+      "level": 2,
+      "meaning": "a table where you read and write",
+      "sentence": "I sit at my desk to draw."
+    },
+    {
+      "word": "drum",
+      "level": 2,
+      "meaning": "you hit it to make a beat",
+      "sentence": "He played the drum in the band.",
+      "emoji": "🥁"
+    },
+    {
+      "word": "fire",
+      "level": 2,
+      "meaning": "hot, bright flames",
+      "sentence": "We sat by the fire to get warm.",
+      "emoji": "🔥"
+    },
+    {
+      "word": "foot",
+      "level": 2,
+      "meaning": "the part of your body at the end of your leg",
+      "sentence": "I hurt my foot.",
+      "emoji": "🦶"
+    },
+    {
+      "word": "hand",
+      "level": 2,
+      "meaning": "the part at the end of your arm with fingers",
+      "sentence": "Hold my hand when we cross.",
+      "emoji": "✋"
+    },
+    {
+      "word": "hill",
+      "level": 2,
+      "meaning": "ground that is higher than the land around it",
+      "sentence": "We rolled down the hill.",
+      "emoji": "⛰️"
+    },
+    {
+      "word": "king",
+      "level": 2,
+      "meaning": "a man who rules a country",
+      "sentence": "The king wore a gold crown.",
+      "emoji": "🤴"
+    },
+    {
+      "word": "leaf",
+      "level": 2,
+      "meaning": "the flat green part of a plant",
+      "sentence": "A leaf fell from the tree.",
+      "emoji": "🍃"
+    },
+    {
       "word": "apple",
       "level": 3,
       "meaning": "a round red or green fruit that grows on trees",
@@ -216,6 +600,242 @@
       "meaning": "a soft white shape floating high in the sky",
       "sentence": "A big cloud floated by.",
       "emoji": "☁️"
+    },
+    {
+      "word": "bread",
+      "level": 3,
+      "meaning": "food made from flour that you cut into slices",
+      "sentence": "We had bread and butter.",
+      "emoji": "🍞"
+    },
+    {
+      "word": "brush",
+      "level": 3,
+      "meaning": "you use it to tidy your hair or paint a picture",
+      "sentence": "Use a brush to paint the sky.",
+      "emoji": "🖌️"
+    },
+    {
+      "word": "dance",
+      "level": 3,
+      "meaning": "to move your body to music",
+      "sentence": "Let us dance to the song.",
+      "emoji": "💃"
+    },
+    {
+      "word": "dress",
+      "level": 3,
+      "meaning": "a piece of clothing for girls and women with a top and skirt joined",
+      "sentence": "She wore a long dress.",
+      "emoji": "👗"
+    },
+    {
+      "word": "grass",
+      "level": 3,
+      "meaning": "the green plants that cover a lawn",
+      "sentence": "The sheep eat the grass.",
+      "emoji": "🌿"
+    },
+    {
+      "word": "green",
+      "level": 3,
+      "meaning": "the shade of fresh leaves and frogs",
+      "sentence": "The frog is green.",
+      "emoji": "🟢"
+    },
+    {
+      "word": "happy",
+      "level": 3,
+      "meaning": "feeling glad and full of joy",
+      "sentence": "I am happy to see you.",
+      "emoji": "😊"
+    },
+    {
+      "word": "juice",
+      "level": 3,
+      "meaning": "a drink squeezed from fruit",
+      "sentence": "I drank a glass of juice.",
+      "emoji": "🧃"
+    },
+    {
+      "word": "lemon",
+      "level": 3,
+      "meaning": "a sour yellow fruit",
+      "sentence": "Squeeze a lemon into the water.",
+      "emoji": "🍋"
+    },
+    {
+      "word": "mouth",
+      "level": 3,
+      "meaning": "the part of your face you eat and talk with",
+      "sentence": "Open your mouth wide.",
+      "emoji": "👄"
+    },
+    {
+      "word": "music",
+      "level": 3,
+      "meaning": "sounds made by voices and instruments",
+      "sentence": "We listen to music in the car.",
+      "emoji": "🎵"
+    },
+    {
+      "word": "ocean",
+      "level": 3,
+      "meaning": "a very big sea",
+      "sentence": "Whales swim in the ocean.",
+      "emoji": "🌊"
+    },
+    {
+      "word": "paint",
+      "level": 3,
+      "meaning": "wet stuff in bright shades that you spread to make pictures",
+      "sentence": "We used red paint.",
+      "emoji": "🎨"
+    },
+    {
+      "word": "pizza",
+      "level": 3,
+      "meaning": "a round flat food with cheese and tomato on top",
+      "sentence": "We shared a pizza.",
+      "emoji": "🍕"
+    },
+    {
+      "word": "queen",
+      "level": 3,
+      "meaning": "a woman who rules a country",
+      "sentence": "The queen waved from the balcony.",
+      "emoji": "👸"
+    },
+    {
+      "word": "river",
+      "level": 3,
+      "meaning": "a long stream of water that flows to the sea",
+      "sentence": "We skipped stones on the river.",
+      "emoji": "🏞️"
+    },
+    {
+      "word": "robot",
+      "level": 3,
+      "meaning": "a machine that can do jobs for people",
+      "sentence": "The robot picked up the box.",
+      "emoji": "🤖"
+    },
+    {
+      "word": "sheep",
+      "level": 3,
+      "meaning": "a woolly farm animal that says baa",
+      "sentence": "The sheep ate in the field.",
+      "emoji": "🐑"
+    },
+    {
+      "word": "shirt",
+      "level": 3,
+      "meaning": "clothing you wear on the top half of your body",
+      "sentence": "He wore a clean shirt.",
+      "emoji": "👕"
+    },
+    {
+      "word": "smile",
+      "level": 3,
+      "meaning": "a happy look on your face",
+      "sentence": "Her smile made me laugh.",
+      "emoji": "😀"
+    },
+    {
+      "word": "snake",
+      "level": 3,
+      "meaning": "a long animal with no legs that slides along the ground",
+      "sentence": "The snake slid under a rock.",
+      "emoji": "🐍"
+    },
+    {
+      "word": "spoon",
+      "level": 3,
+      "meaning": "you use it to eat soup or cereal",
+      "sentence": "Eat your soup with a spoon.",
+      "emoji": "🥄"
+    },
+    {
+      "word": "storm",
+      "level": 3,
+      "meaning": "bad weather with strong wind and rain",
+      "sentence": "The storm woke me up.",
+      "emoji": "⛈️"
+    },
+    {
+      "word": "sugar",
+      "level": 3,
+      "meaning": "sweet white grains used in cakes and drinks",
+      "sentence": "Do you take sugar in tea?"
+    },
+    {
+      "word": "table",
+      "level": 3,
+      "meaning": "a piece of furniture with a flat top and legs",
+      "sentence": "We eat dinner at the table."
+    },
+    {
+      "word": "tiger",
+      "level": 3,
+      "meaning": "a big wild cat with orange and black stripes",
+      "sentence": "The tiger has stripes.",
+      "emoji": "🐯"
+    },
+    {
+      "word": "toast",
+      "level": 3,
+      "meaning": "bread that has been made crisp and brown by heat",
+      "sentence": "I ate toast with jam.",
+      "emoji": "🍞"
+    },
+    {
+      "word": "tooth",
+      "level": 3,
+      "meaning": "one of the hard white parts in your mouth for biting",
+      "sentence": "My first tooth fell out.",
+      "emoji": "🦷"
+    },
+    {
+      "word": "truck",
+      "level": 3,
+      "meaning": "a big strong vehicle for carrying heavy loads",
+      "sentence": "The truck carried sand.",
+      "emoji": "🚚"
+    },
+    {
+      "word": "whale",
+      "level": 3,
+      "meaning": "the biggest animal in the sea",
+      "sentence": "A whale jumped out of the water.",
+      "emoji": "🐋"
+    },
+    {
+      "word": "wheel",
+      "level": 3,
+      "meaning": "a round thing that turns, like on a bike",
+      "sentence": "The wheel went round and round.",
+      "emoji": "🛞"
+    },
+    {
+      "word": "bunny",
+      "level": 3,
+      "meaning": "a baby rabbit",
+      "sentence": "The bunny hopped in the grass.",
+      "emoji": "🐰"
+    },
+    {
+      "word": "camel",
+      "level": 3,
+      "meaning": "a desert animal with a hump",
+      "sentence": "The camel walked across the sand.",
+      "emoji": "🐪"
+    },
+    {
+      "word": "piano",
+      "level": 3,
+      "meaning": "a big instrument with black and white keys",
+      "sentence": "She played a tune on the piano.",
+      "emoji": "🎹"
     }
   ]
 }
