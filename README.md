@@ -41,7 +41,7 @@ want an AI model behind Hoot, you choose it and you control it:
 children whichever model you choose, and why small free models need a grown-up to read the chats.
 
 On a phone today: open your own computer's address from the same Wi-Fi and use *Add to Home Screen*, or build the
-Android app yourself (see "How to see the app" below). A phone app that needs no server at all is planned
+Android app yourself (see "How to see the app" below, and [`docs/MOBILE.md`](docs/MOBILE.md) for the phone app, its server address and the store steps). A phone app that needs no server at all is planned
 ([`docs/AGENT_TASKS.md`](docs/AGENT_TASKS.md), task T8).
 
 ## Make it yours

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "../lib/api";
+import { apiBase } from "../lib/server";
 import { Banner } from "./ui";
 
 /** Shown when the server runs without a real database (GET /health → demo: true). */
@@ -7,7 +7,7 @@ export function DemoBanner() {
   const [demo, setDemo] = useState(false);
   useEffect(() => {
     let live = true;
-    fetch(API_URL + "/health")
+    fetch(apiBase() + "/health")
       .then((r) => (r.ok ? r.json() : null))
       .then((h: { demo?: boolean } | null) => {
         if (live && h?.demo === true) setDemo(true);

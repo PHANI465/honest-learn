@@ -10,7 +10,11 @@
       "supportsTablet": true,
       "bundleIdentifier": "org.honestlearn.app",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSAppTransportSecurity": {
+          "NSAllowsLocalNetworking": true
+        },
+        "NSLocalNetworkUsageDescription": "Honest Learn connects to the Honest Learn server you choose, for example one running on your computer at home."
       }
     },
     "android": {
@@ -39,7 +43,15 @@
     },
     "plugins": [
       "expo-router",
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
     ],
     "scheme": "honestlearn",
     "description": "Free, safe, age-appropriate learning for ages 3–18. No ads."

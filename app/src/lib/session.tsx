@@ -1,12 +1,15 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { api, ApiError, type Child, type ContentMap } from "./api";
 import { clearOfflineData, loadSavedFamily, loadSavedMap, saveFamily, saveMap, startOfflineSync } from "./offline";
+import { loadServerAddress } from "./server";
 import { storage } from "./storage";
 
 const FAMILY_KEY = "hl.familyToken";
 
 interface Session {
   ready: boolean;
+  /** Fetches the age groups and subjects again (after a phone app has been pointed at a different server). */
+  reloadContent(): Promise<void>;
   familyToken: string | null;
   /** Short-lived token after the parent enters their PIN. Kept in memory only. */
   parentToken: string | null;
@@ -63,17 +66,22 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
     void saveFamily(fam.children); // so profiles still open offline
   }, []);
 
+  const reloadContent = useCallback(async () => {
+    await api<ContentMap>("GET", "/content/map")
+      .then((m) => {
+        setMap(m);
+        void saveMap(m);
+      })
+      .catch(async () => {
+        const m = await loadSavedMap();
+        if (m) setMap((current) => current ?? m);
+      });
+  }, []);
+
   useEffect(() => {
     (async () => {
-      api<ContentMap>("GET", "/content/map")
-        .then((m) => {
-          setMap(m);
-          void saveMap(m);
-        })
-        .catch(async () => {
-          const m = await loadSavedMap();
-          if (m) setMap((current) => current ?? m);
-        });
+      await loadServerAddress(); // a phone app must know its server before the first request
+      void reloadContent();
       const saved = await storage.get(FAMILY_KEY);
       if (saved) {
         try {
@@ -90,7 +98,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
       }
       setReady(true);
     })();
-  }, [loadFamily]);
+  }, [loadFamily, reloadContent]);
 
   // Send lessons finished offline (and learning minutes) when the connection comes back.
   useEffect(() => (familyToken ? startOfflineSync(familyToken) : undefined), [familyToken]);
@@ -112,6 +120,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
   const value = useMemo<Session>(
     () => ({
       ready,
+      reloadContent,
       familyToken,
       parentToken,
       parentEmail,
@@ -202,7 +211,7 @@ export function SessionProvider({ children: kids }: { children: ReactNode }) {
         }
       },
     }),
-    [ready, familyToken, parentToken, parentEmail, emailVerified, country, children, map, adopt, lockParent, loadFamily, setParentToken],
+    [ready, reloadContent, familyToken, parentToken, parentEmail, emailVerified, country, children, map, adopt, lockParent, loadFamily, setParentToken],
   );
 
   return <Ctx.Provider value={value}>{kids}</Ctx.Provider>;

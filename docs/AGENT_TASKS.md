@@ -75,7 +75,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | todo | |
 | T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | todo | Needs a Deaf reviewer |
 | T10 | "Add your own lessons" for parents | Sonnet medium | M | none | **done** 14 Nov 2026 | `parent/lessons.tsx`; private to the family; no look at it in a browser yet |
-| T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | todo | Needs developer accounts |
+| T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | **in progress** | Code and `docs/MOBILE.md` done 14 Nov 2026; accounts, signed builds and store forms need a person |
 
 ---
 
@@ -508,3 +508,17 @@ are private to that family and are included in export and deletion. **Sonnet med
   screen reader or keyboard pass; no pins or discovered-attack puzzles (the verifier only proves mates and 4-ply material wins); many
   positions are sparse endgames because they are composed, not taken from games; the Lichess puzzle database (CC0) was not used and could
   add natural positions later; levels use "mate in two" only (no mate in three).
+- **T11 (in progress: everything an agent can do is done).** `T8` is not done, so the phone app still needs a server; the guide's step 4 (a first-run server
+  address) is built: `app/src/lib/server-address.ts` (pure rules: normalising, `https` outside the home network and `http` only for localhost and
+  private addresses, finding the server at the root or under `/api`, a `/health` probe with a timeout; tested in `server/test/server-address.test.ts`),
+  `app/src/lib/server.ts` (the address is kept in storage key `hl.serverUrl`; `apiBase()` replaces the old `API_URL` constant everywhere; on the website
+  it is unchanged), `app/src/app/server.tsx` (the screen), `app/src/app/index.tsx` (redirects there when a phone app has no server), a "Server settings"
+  button on the native welcome screen, and `reloadContent()` in the session. Owner's decision (14 Nov 2026): store builds allow local `http`; this uses the
+  `expo-build-properties` plugin (MIT, Expo-maintained, added to `app/package.json`) with `usesCleartextTraffic` on Android and `NSAllowsLocalNetworking` plus a
+  local-network usage text on iOS; the app itself refuses `http` for public addresses. `app/eas.json` now has `preview` (APK, no built-in server) and `production`
+  (AAB, `autoIncrement`), with the placeholder `*.example` addresses removed. `docs/MOBILE.md` has the steps and the store checklists. **Needs a person:** an Expo
+  account and a real `preview` build, a Google Play developer account (forms: target audience, data safety, content rating), an Apple Developer account
+  (Kids Category, privacy answers, TestFlight), store assets and a lawyer-approved privacy notice. **Not tested:** any real EAS build, an APK on a phone, the Server
+  address screen on a device (it is web-hidden, so it was only type-checked and its rules unit-tested), `http` to a computer on a real network, iOS. T8 will
+  replace the need for a server; this screen can stay as the "connect to a server" option the owner asked for. Also noticed: `npx expo-doctor` reports 7
+  packages out of date (not touched).

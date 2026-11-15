@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { Text, View } from "react-native";
+import { Platform, Text, View } from "react-native";
 import { DemoBanner } from "../components/DemoBanner";
 import { Button, Card, H1, P, Screen } from "../components/ui";
 import { colors } from "../lib/theme";
@@ -36,6 +36,7 @@ export default function Welcome() {
         <Button title="I already have an account" kind="secondary" onPress={() => router.push("/login")} />
       </View>
       <P muted center size={13}>A parent or guardian (18+) creates the account. Children use profiles inside it.</P>
+      {Platform.OS !== "web" ? <Button title="Server settings" kind="ghost" onPress={() => router.push("/server")} hint="Choose which Honest Learn server this app uses" /> : null}
     </Screen>
   );
 }

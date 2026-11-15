@@ -1,6 +1,9 @@
 // Thin typed client for the Honest Learn API (see server/src/app.ts).
 
-export const API_URL = (process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:8787").replace(/\/$/, "");
+import { apiBase } from "./server";
+
+/** The server address: chosen on a phone (see lib/server.ts), built in, or localhost for the website and development. */
+export { apiBase };
 
 export type BandId = "b1" | "b2" | "b3" | "b4" | "b5";
 export type Topic = "religion" | "body" | "politics";
@@ -170,7 +173,7 @@ const report = (reachable: boolean) => reachability.forEach((fn) => fn(reachable
 export async function api<T>(method: string, path: string, token?: string | null, body?: unknown): Promise<T> {
   let res: Response;
   try {
-    res = await fetch(API_URL + path, {
+    res = await fetch(apiBase() + path, {
       method,
       headers: { "content-type": "application/json", ...(token ? { authorization: `Bearer ${token}` } : {}) },
       body: body === undefined ? undefined : JSON.stringify(body),

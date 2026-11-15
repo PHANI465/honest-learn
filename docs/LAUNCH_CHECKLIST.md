@@ -68,7 +68,7 @@ Status as of v0.3.0. ✅ = built, ⬜ = still to do.
 - ⬜ **Google Play Families policy:** target-audience declaration, Teacher Approved application (optional), Data safety form, AI-content reporting (✅ built)
 - ⬜ **Donations:** Apple only allows in-app donations for approved nonprofits. Until then, the donate button opens a website, and only from the PIN-protected parent area (✅ built that way). Check the current App Store guideline 3.2 before submitting
 - ⬜ App icon, splash screen, screenshots, store descriptions
-- ⬜ `eas.json` production profile with `EXPO_PUBLIC_API_URL`
+- ✅ `eas.json` has `preview` (APK) and `production` (AAB) profiles, and the phone app asks for a server address on first run (no address is baked in); see [`MOBILE.md`](MOBILE.md). ⬜ Developer accounts, signed builds and store forms still need a person
 
 ## Engineering
 
