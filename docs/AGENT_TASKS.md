@@ -76,7 +76,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **done** 15 Nov 2026 (code) | 8a to 8d done 14 to 15 Nov 2026 ("On this phone only" works end to end: first-run choice, recovery phrase, wellbeing notice; [`STANDALONE.md`](STANDALONE.md)). Reviewed in 8d ([`SECURITY.md`](SECURITY.md), "Standalone mode"). **Not yet run on a phone: a person must try it in Expo Go** |
 | T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | **code done** 15 Nov 2026; lessons wait for a person | Setting, filter, validator rules, "watch in sign language" slot and [`SIGN_LANGUAGE.md`](SIGN_LANGUAGE.md) built. **No lessons**: a Deaf signer or qualified teacher must choose and approve videos, and every source checked needs permission |
 | T10 | "Add your own lessons" for parents | Sonnet medium | M | none | **done** 14 Nov 2026 | `parent/lessons.tsx`; private to the family; no look at it in a browser yet |
-| T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | **in progress** | Code and `docs/MOBILE.md` done 14 Nov 2026; accounts, signed builds and store forms need a person |
+| T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | **agent work done** 15 Nov 2026 | Build config checked and fixed, listing and form drafts in [`STORE_LISTING.md`](STORE_LISTING.md). Accounts, signed builds, the owner's decisions (section 2 there) and the forms need a person. Not built or run on a real phone |
 
 ---
 
@@ -639,7 +639,20 @@ post-game "what happened" with the move list.
   guessing of the PIN or a weak password from a copy of the database file; daily limits reset by moving the date; no DNS check for an own model
   address; no phone notification for wellbeing alerts. **Open for a person:** run standalone mode on a real phone (the checklist in the T8c note),
   including a backup and restore on Android; consider whether a 30-day sign-in makes sense on a phone (the family must type the password monthly).
-- **T11 (in progress: everything an agent can do is done).** `T8` is not done, so the phone app still needs a server; the guide's step 4 (a first-run server
+- **T11 second pass (15 Nov 2026, by Sonnet): the build configuration was checked and three things fixed; the store listing and form answers are drafted.** Findings and changes, all in
+`app/app.json` unless noted: the generated Android manifest asked for `READ_EXTERNAL_STORAGE`, `WRITE_EXTERNAL_STORAGE`, `SYSTEM_ALERT_WINDOW` and `VIBRATE`, none used by the app, so they are now in
+`android.blockedPermissions` (a real `expo prebuild` showed only `INTERNET` left; the generated `android/` folder was deleted again); the iOS build carried a Face ID permission text from the
+secure-storage plugin's default (`faceIDPermission: false` now); `ios.privacyManifests` now declares no tracking and the required-reason APIs taken from the installed libraries' own
+`PrivacyInfo.xcprivacy` files (the installed packages declare no tracking and no collected data); seven patch-level Expo packages were aligned with `npx expo install --fix` (`expo-doctor` is 20 of 20;
+that also added the `expo-status-bar` plugin entry and re-hoisted `package-lock.json`). `expo prebuild` also rewrote the `android` and `ios` scripts in `package.json`; that was reverted. Android, iOS and web
+bundles, the type check, lint and the 27-step Node-free proof all pass after the changes. **New: [`STORE_LISTING.md`](STORE_LISTING.md)**: what was checked, seven decisions for the owner (which
+way the store app works and whether a project server exists, Kids Category versus a normal Education listing because the app serves 3 to 18 while the Kids bands stop at 11, **export compliance**
+because standalone mode ships its own AES-GCM and scrypt code while `ITSAppUsesNonExemptEncryption` is `false`, public privacy and account-deletion pages that Google Play requires and that do not exist,
+a splash screen package, the version label, support contact), listing text, suggested Play and App Store answers for both cases (standalone only; with a project server), reviewer notes, the
+assets a person must make, and release steps. **Not done:** no EAS build, no APK installed, no iOS native project (needs a Mac), nothing run on a real phone, no screenshots or feature graphic,
+no splash screen, and none of the form answers is an attestation anyone has made. **Needs a person:** the accounts, every item in `STORE_LISTING.md` section 2, a lawyer's reading of the privacy
+answers (two open questions are listed in section 4 there), real-phone testing of the `preview` APK, and the screenshots.
+- **T11 (first pass, 14 Nov 2026; T8 has been done since, see the second pass above).** `T8` was not done then, so the phone app still needed a server; the guide's step 4 (a first-run server
   address) is built: `app/src/lib/server-address.ts` (pure rules: normalising, `https` outside the home network and `http` only for localhost and
   private addresses, finding the server at the root or under `/api`, a `/health` probe with a timeout; tested in `server/test/server-address.test.ts`),
   `app/src/lib/server.ts` (the address is kept in storage key `hl.serverUrl`; `apiBase()` replaces the old `API_URL` constant everywhere; on the website

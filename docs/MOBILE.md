@@ -1,7 +1,8 @@
 # Phone apps (Android and iPhone)
 
 How to get Honest Learn onto phones: an Android app anyone can install, the Google Play and Apple App Store routes, and how the phone
-app finds a server. Written for task T11 in [`AGENT_TASKS.md`](AGENT_TASKS.md), 14 November 2026.
+app finds a server. Written for task T11 in [`AGENT_TASKS.md`](AGENT_TASKS.md), 14 November 2026; updated 15 November 2026 (build configuration
+checked, store listing and form drafts in [`STORE_LISTING.md`](STORE_LISTING.md): **start there for anything about the stores**).
 
 **What exists today.** One Expo (React Native) codebase builds the website, Android and iPhone. `app/eas.json` has build profiles
 (`development`, `preview`, `production`), `app/app.json` has the app's name, icons and ids (`org.honestlearn.app`), and the phone app has a
@@ -58,8 +59,9 @@ Needs a Google Play developer account (a one-time fee, paid by a person). Then:
 **Forms and policies to prepare** (details in [`LAUNCH_CHECKLIST.md`](LAUNCH_CHECKLIST.md)):
 
 - **Target audience and Families policy:** the app is for children, so it falls under the Families policy. Declare the age groups (3 to 18).
-- **Data safety form:** what is collected (email address for the parent account; per child a nickname, birth year and learning progress; Hoot chats), why,
-  and that nothing is sold or used for ads. The privacy notice in `docs/legal/` is the source; a lawyer must approve it first.
+- **Data safety form:** the answers depend on how the store app is used. In "On this phone only" mode nothing leaves the device, so the project collects nothing; with a
+  project-hosted server it collects the parent's email, per child a nickname, birth year and learning progress, and Hoot chats. Both cases are tabulated in
+  [`STORE_LISTING.md`](STORE_LISTING.md) section 4. Nothing is sold or used for ads. The privacy notice in `docs/legal/` is the source; a lawyer must approve it first.
 - **AI-generated content:** Hoot is an AI helper. Play requires a way to report offensive AI content: the report button on Hoot replies is built.
 - **Ads and analytics:** none. Keep it that way (no third-party SDKs).
 - **Content rating questionnaire, store listing text, screenshots, icon and feature graphic.**
@@ -79,11 +81,12 @@ website (open it in Safari and choose *Add to Home Screen*).
 
 ## 5. Checklist for a person
 
-- ⬜ Create a free Expo account and run the `preview` build (section 2). Install the APK on a real phone, type a server address, sign in, finish one lesson.
+- ⬜ **Decide the seven points in [`STORE_LISTING.md`](STORE_LISTING.md) section 2** (project server or not, Apple category, export compliance, public privacy and account-deletion pages, splash screen, version label, support contact).
+- ⬜ Create a free Expo account and run the `preview` build (section 2). Install the APK on a real phone. Try **both** ways: "On this phone only" (create a family, add a child, finish a lesson, play chess, back up and restore on Android) and "Connect to a server" (type a server address, sign in).
 - ⬜ Check the app on a real phone on the home Wi-Fi with a server on your computer (nobody has done this yet: it was tested only in a browser and with unit tests).
 - ⬜ Create a Google Play developer account; complete the target-audience, data safety and content rating forms; upload an internal test build.
 - ⬜ Create an Apple Developer account if iPhone users are wanted; complete the Kids Category and privacy answers; test with TestFlight.
-- ⬜ Icon, splash screen, screenshots and store text (the icon files exist in `app/assets/`; check they meet each store's size rules).
+- ⬜ Screenshots from a real phone and a feature graphic (the icons exist and are the right size; there is no splash screen; the store text is drafted in `STORE_LISTING.md`).
 - ⬜ Have the privacy notice and terms reviewed by a lawyer before any store submission.
 - ⬜ Decide whether the stores should offer the app before the content is reviewed. By the project's own rule, nothing is public-launch ready until humans approve the content.
 
@@ -94,3 +97,10 @@ Tested: the server-address rules (`server/test/server-address.test.ts`, 14 tests
 the build settings resolve (`npx expo config`: cleartext on Android, local networking on iOS).
 **Not tested:** a real EAS build, installing an APK, the Server address screen on a real phone or emulator (it is hidden on the website), cleartext `http`
 to a computer on a real network, an iOS build.
+
+### Update, 15 November 2026
+
+Checked and fixed in `app/app.json`: only `INTERNET` is requested on Android (four unused default permissions are blocked), the unused Face ID text is removed on iOS, an iOS
+privacy manifest declares no tracking and the libraries' required-reason APIs, and the Expo packages were aligned (`npx expo-doctor`: 20 of 20). Android, iOS and web bundles, the
+type check, lint and the Node-free proof pass. A real `expo prebuild` produced the Android manifest checked above; the iOS project cannot be generated on Windows, so iOS was checked in the
+resolved config only. **Still not tested:** a real EAS build, an APK on a phone, standalone mode on any phone, cleartext `http` on a real network, any iOS build.
