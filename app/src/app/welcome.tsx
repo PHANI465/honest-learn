@@ -37,6 +37,7 @@ export default function Welcome() {
         <Button title="I already have an account" kind="secondary" onPress={() => router.push("/login")} />
       </View>
       <P muted center size={13}>A parent or guardian (18+) creates the account. Children use profiles inside it.</P>
+      <Button title="Open source licences" kind="ghost" onPress={() => router.push("/licences")} />
       {Platform.OS !== "web" ? (
         <View style={{ gap: 4 }}>
           <P muted center size={13}>{isDeviceMode() ? "Using Honest Learn on this phone only." : `Using the server ${chosenServerAddress() ?? apiBase()}.`}</P>

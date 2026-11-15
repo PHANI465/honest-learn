@@ -372,6 +372,7 @@ export default function Welcome() {
           <nav aria-label="Footer" className="body-6">
             <a href="/privacy" onClick={go("/privacy")}>Privacy notice</a>
             <a href="/terms" onClick={go("/terms")}>Terms</a>
+            <a href="/licences" onClick={go("/licences")}>Open source licences</a>
             <a href={REPO} target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="#main" onClick={(e) => { e.preventDefault(); page.current?.scrollTo({ top: 0, behavior: "smooth" }); }}>Back to top</a>
           </nav>

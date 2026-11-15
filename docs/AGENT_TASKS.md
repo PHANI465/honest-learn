@@ -528,6 +528,20 @@ are private to that family and are included in export and deletion. **Sonnet med
   DNS rebinding is not prevented (pin the checked IP with an undici `Agent` `connect.lookup` to close it); `GET /content/hoot` still describes only the
   server's default helper, so the child-side "not tested" banner does not know about a family model (the parent screen says it); no screen reader pass.
   T8 can reuse `checkBaseUrl` and `classifyIp`, but a phone app with no server will need its own key storage (SecureStore), not this table.
+- **Open source licences screen (done 15 Nov 2026, by Sonnet; item from `PERSON_CHECKLIST.md` part 9).** Why: the app ships software whose licences (MIT, BSD-2-Clause, ISC, OFL ...) ask for their
+notice to be shown with the app, and the website served the Manrope font without its licence. `scripts/build-licences.mjs` builds the Android, iOS and web bundles with source maps (about 40 seconds), reads which
+packages are really in them (the maps are indexed: sources are inside each section; Metro writes paths like `/node_modules/x/y.js`, relative to `app/`), adds the app's direct dependencies, reads each package's own
+licence file and copyright lines, groups identical texts and writes `app/src/content/licences.generated.ts` (68 entries: 66 packages and 2 fonts, 10 licence wordings) and `THIRD_PARTY_NOTICES.md`.
+**The guard:** it exits with an error if any shipped package has no licence, one outside the permissive list (MIT, ISC, BSD-2/3, Apache-2.0, 0BSD, CC0, Unlicense, BlueOak, OFL, Python-2.0), no licence text,
+or no copyright holder, and if a package in a bundle cannot be found on disk. Seven packages ship no licence file (`expo-router`, `standard-navigation`, five `@react-native/*`): they get the standard text of their declared licence
+and the copyright lines of the author or of a sibling package from the same repository (`react/react-native` and the older `facebook/react-native` URL are treated as one project); each such entry says so on the screen and in the file. Sorting is by plain
+character order (never `localeCompare`) so the output is identical on every machine; two installed copies of one version are one entry. Screen: `app/src/app/licences.tsx` (public, like the privacy notice; one card per licence wording,
+expandable to its packages and the full text), linked from the website footer, sign-up, the native welcome screen and the parent area Account card. Fonts: `app/public/fonts/Manrope-LICENSE.txt` added (the bundled Manrope files are
+byte-identical to `@fontsource/manrope` 5.3.0: "Copyright 2019 The Manrope Project Authors", OFL-1.1). Tests: `server/test/licences.test.ts` (6, reads the committed output: only permissive licences, every entry complete, every
+direct dependency and every server package the app bundles is listed, fonts and their licence files, the notices file in step; mutation checks showed a GPL entry and a missing `hono` both fail). CI: the app job runs the generator and
+`git diff --exit-code` (not yet run on Linux CI). Looked at in a browser: the page, expanding BSD-2-Clause to see `chess.js`'s copyright and text, the footer link, and both font licence files being served. **Not covered, written on the page and in the file:** the native libraries
+React Native and Expo bring into the Android and iOS builds (for example networking and image libraries, several Apache-2.0): they can only be listed once a real build exists, with the platform's licence tooling; whether this is enough is a question for a lawyer
+(`PERSON_CHECKLIST.md` part 4). Adding a dependency now means running `node scripts/build-licences.mjs` and committing the result.
 - **T9 sign language (code done by Sonnet; the content needs a person).** Nothing was invented: no sign descriptions, no lessons, no videos, because nothing here can check
 that signing is correct (the guide's rule). Built, all in [`SIGN_LANGUAGE.md`](SIGN_LANGUAGE.md): `signLanguage` (asl, bsl, isl, lsm), `signVideoId` ("Watch this lesson in
 sign language", an empty slot until signed versions exist) and `signReviewer` on `Lesson`; `videoChannel` and `videoLicence` on video sections; `children.sign_language`

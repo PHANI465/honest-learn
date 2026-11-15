@@ -100,6 +100,9 @@ export default function Signup() {
           <Text accessibilityRole="link" onPress={() => router.push("/terms")} style={linkStyle}>
             Read the terms
           </Text>
+          <Text accessibilityRole="link" onPress={() => router.push("/licences")} style={linkStyle}>
+            Open source licences
+          </Text>
         </View>
       </Card>
       <View style={{ gap: 10 }}>

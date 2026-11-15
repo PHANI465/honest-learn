@@ -76,3 +76,8 @@ jobs:
           EXPO_PUBLIC_API_URL: https://api.example.org
       - name: The shared API runs in the app's own Android bundle, without Node.js (T8a)
         run: npm run proof:local
+      - name: Open source notices are up to date and only permissive licences are shipped
+        working-directory: .
+        run: |
+          node scripts/build-licences.mjs
+          git diff --exit-code app/src/content/licences.generated.ts THIRD_PARTY_NOTICES.md || (echo "Run: node scripts/build-licences.mjs" && exit 1)

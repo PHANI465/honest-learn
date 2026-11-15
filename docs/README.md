@@ -18,6 +18,7 @@
 | [PERSON_CHECKLIST.md](PERSON_CHECKLIST.md) | **Everything that needs a person**, in one ordered list (start here for what is left) |
 | [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) | Everything to finish before the public launch |
 | [SECURITY.md](SECURITY.md) | How families are protected; the latest security review |
+| [../THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) | Open source licences of everything in the app (generated; also in the app under Open source licences) |
 
 ## Content and safety
 | Document | What it's for |

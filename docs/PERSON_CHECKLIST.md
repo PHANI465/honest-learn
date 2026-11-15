@@ -94,7 +94,7 @@ A lawyer familiar with children's privacy (COPPA, GDPR and the UK Children's Cod
 - [ ] **Data processing agreements** with the AI provider (Anthropic) and the hosting provider; check the AI provider does not train on the data and how long it keeps it.
 - [ ] **The two open questions for the Play data safety form** (`STORE_LISTING.md` section 4): is text sent to an AI model a *parent* configured "shared" by the developer? How should the phone's fetching of Wikipedia summaries and YouTube videos (those sites see its internet address) be described?
 - [ ] **The roles in "this phone only" mode,** where the organisation never receives the data (the privacy notice has a bracketed question for you).
-- [ ] **Open-source notices.** The app includes `chess.js` (BSD-2-Clause), `js-chess-engine`, `@noble/*` and `hono` (MIT) and the OpenDyslexic font (OFL). These licences ask for their notices to be shown with the app. Confirm what is needed (an agent can build an "Open source licences" screen, part 9).
+- [ ] **Open-source notices.** Built 15 Nov 2026: an "Open source licences" screen (website footer, sign-up, welcome screen, parent area), `THIRD_PARTY_NOTICES.md` and the Manrope font licence, all generated from the packages that are really in the app (`node scripts/build-licences.mjs`; CI fails if stale or if a non-permissive licence appears). **For a lawyer to confirm:** is this enough? It does **not** yet list the native libraries React Native and Expo bring into the Android and iOS builds (networking, image and other libraries, several under Apache-2.0); those can only be listed once a real build exists, with the platform's licence tooling.
 - [ ] **Apple and donations:** read the current App Store guideline 3.2 before submitting; until the project is an approved nonprofit the donate button only opens a website from the parent area.
 - [ ] **Trademark search** for "Honest Learn" (USPTO, India IP office, EUIPO).
 - [ ] **Project licence** (part 1) reviewed.
@@ -154,7 +154,7 @@ None of these needs a person's expertise, only a decision to start.
 
 | Task | Notes | Suggested model |
 |---|---|---|
-| An **"Open source licences" screen** and a `NOTICE` file | Reproduces each dependency's licence text (part 4). Small | Sonnet, medium |
+| ~~An "Open source licences" screen and a `NOTICE` file~~ **done 15 Nov 2026** | `THIRD_PARTY_NOTICES.md`, the screen, a CI guard. Open: the native libraries (part 4) | Sonnet, medium |
 | **Add the `LICENSE` file** | After you decide the licence (part 1) | Any |
 | **Fix the stale lines in `LAUNCH_CHECKLIST.md`** ("Built so far" stops at v0.3.0, and the README and `docs/README.md` said 220 outcomes instead of 262) | Docs only; the two README counts are fixed with this page | Haiku or Sonnet |
 | **Stop a family's AI address being re-pointed between the check and the request** (DNS rebinding) | Pin the checked address for the connection (`SECURITY.md`, accepted risk) | Opus, high |
