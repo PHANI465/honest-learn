@@ -173,13 +173,15 @@ export function friendly(err: unknown): string {
     wait_a_minute: "We just sent a code. Please wait a minute before asking again.",
     not_found: "We couldn't find that.",
     hint_out_of_order: "Open the hints one at a time, starting with the first.",
-    too_large: "That's too long to send. Please make it shorter.",
+    too_large: "That's too big to send in one go. When moving a family, choose one child at a time, or leave out the Hoot chats.",
     wrong_recovery_phrase: "That email and recovery phrase don't match.",
     not_on_this_device: "This needs email, which the app doesn't use when it runs on this phone only.",
     pin_reset_needed: "Too many wrong PINs. Tap \"Forgot your PIN?\" and use your account password to set a new one.",
     password_reset_needed: "Too many wrong passwords. Use \"Forgot password?\" and your recovery phrase to set a new one.",
     phone_has_family: "This phone already has a family account. Sign in instead. To start again, delete the old account in the parent area (it needs the password).",
     device_storage_error: "The app couldn't read its own storage on this phone. Close the app and open it again.",
+    not_a_download: "That is not a Honest Learn data download. Use the file from \"Download all our data\".",
+    file_too_big: "That file holds more than a family can have, so nothing was added.",
   };
   return map[err.code] ?? "Something went wrong. Please try again.";
 }
@@ -221,6 +223,27 @@ export async function api<T>(method: string, path: string, token?: string | null
   }
   // A gateway error means the server itself is unreachable (e.g. a proxy in front of it is up but the API isn't).
   report(res.status !== 502 && res.status !== 503 && res.status !== 504);
+  const json = (await res.json().catch(() => ({}))) as Record<string, unknown>;
+  if (!res.ok) throw new ApiError(res.status, String(json.error ?? "server_error"), json);
+  return json as T;
+}
+
+/**
+ * One request to a particular server, whatever the app itself is using (a phone that keeps its data on the device, or another
+ * server). Used only by the transfer screen (app/parent/transfer.tsx) to move a family between two places. Nothing is remembered:
+ * the caller holds the sign-in for the length of the transfer and then drops it.
+ */
+export async function apiAt<T>(base: string, method: string, path: string, token?: string | null, body?: unknown): Promise<T> {
+  let res: Response;
+  try {
+    res = await fetch(base + path, {
+      method,
+      headers: { "content-type": "application/json", ...(token ? { authorization: `Bearer ${token}` } : {}) },
+      body: body === undefined ? undefined : JSON.stringify(body),
+    });
+  } catch {
+    throw new Error("network");
+  }
   const json = (await res.json().catch(() => ({}))) as Record<string, unknown>;
   if (!res.ok) throw new ApiError(res.status, String(json.error ?? "server_error"), json);
   return json as T;

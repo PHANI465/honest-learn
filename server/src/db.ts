@@ -285,6 +285,14 @@ const MIGRATIONS: { table: string; column: string; sqlite: string[]; postgres: s
     sqlite: ["ALTER TABLE children ADD COLUMN wellbeing_seen_at TEXT"],
     postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS wellbeing_seen_at TEXT"],
   },
+  {
+    // Set when a child came from a data download (POST /parent/import): the child's id in the file. Importing the same file twice
+    // then skips the children that are already here instead of making copies.
+    table: "children",
+    column: "imported_from",
+    sqlite: ["ALTER TABLE children ADD COLUMN imported_from TEXT"],
+    postgres: ["ALTER TABLE children ADD COLUMN IF NOT EXISTS imported_from TEXT"],
+  },
 ];
 
 /** SQLite has no sequences outside INTEGER PRIMARY KEY, so a trigger numbers new chat messages. */

@@ -103,6 +103,15 @@ async function run(opts: { expoDb: ExpoSqliteLike }): Promise<ProofStep[]> {
 
   const exp = await call("GET", "/parent/export", undefined, par);
   check("the data download works and holds no password hash", exp.status === 200 && !JSON.stringify(exp.json).includes("password_hash"));
+  // Importing a download (task #9, routes/parent-import.ts) on the phone: the same download under another child id comes back as a new child.
+  const dl = JSON.parse(JSON.stringify(exp.json)) as { children: { id: string }[]; progress: { child_id: string }[]; spellingProgress: { child_id: string }[] };
+  const again = await call("POST", "/parent/import", { data: dl }, par);
+  check("a download of a child that is already here is not copied", again.status === 200 && again.json.skipped?.[0]?.reason === "already_here", again.json);
+  dl.children[0]!.id = "copy-of-" + dl.children[0]!.id;
+  for (const row of [...dl.progress, ...dl.spellingProgress]) row.child_id = dl.children[0]!.id;
+  const copied = await call("POST", "/parent/import", { data: dl }, par);
+  check("a download is imported as a new child, with hints and solved questions left behind", copied.status === 201 && copied.json.imported?.length === 1, copied.json);
+  if (copied.json.imported?.[0]) check("the imported child can be deleted", (await call("DELETE", `/parent/children/${copied.json.imported[0].id}`, undefined, par)).status === 200);
   // last: the host then checks that the child's hints, solved questions and Hoot chats went with them (ON DELETE CASCADE)
   check("deleting the child", (await call("DELETE", `/parent/children/${kid}`, undefined, par)).status === 200);
 

@@ -118,7 +118,7 @@ All of these run in CI.
 | Database | SQLite file or Postgres | expo-sqlite (`sqlite-adapter.ts`) | done (8b) |
 | Content | `content/` folder | bundled through `content-files.generated.ts` | done (8b) |
 | Random bytes | Node | expo-crypto's `getRandomValues` | done (8b) |
-| Backup | the server's database | the data download exists (`GET /parent/export`); importing it back, and moving a family between a phone and a server, does not | later |
+| Backup | the server's database | the data download (`GET /parent/export`) and its import (`POST /parent/import`) | done (#9) |
 | Email (verification, password reset, wellbeing alert) | Postmark | none (`NoMailer`): recovery phrase, parent-area notice | done (8c) |
 | Token secret and AI key secret | environment or database | generated on first use into expo-secure-store (Keychain/Keystore), `hl.device.tokenSecret` and `hl.device.aiKeySecret`, so a copy of the database file alone cannot forge a sign-in | done (8c) |
 | Recovery phrase | none | 120 random bits, only its scrypt hash stored; guessing is limited like the password | reviewed (8d) |
@@ -129,7 +129,7 @@ All of these run in CI.
 | CORS | on | off (no other website can call an in-app API) | done |
 | Own model address | written address checked, then resolved and checked before every request | written address checked only: a phone has no DNS lookup to call | accepted (8d) |
 | Sign-in rate limit per address | per client IP | all requests count as one address ("unknown"): 30 sign-in requests per 10 minutes on the device (PIN unlocks count too; the per-account PIN and password limits are unchanged) | accepted (8d) |
-| Moving a family between a phone and a server | | not possible yet: the data download exists, an import does not | later |
+| Moving a family between a phone and a server | the transfer screen (`app/src/app/parent/transfer.tsx`) signs in to the other server with its address, email, password and PIN, reads or writes the data download and adds the children chosen to the signed-in family | the same screen; direct transfer works on phones, a download file is restored from the website. **Not tried on a real phone or between two real servers** | done (#9) |
 | Who can read the answers | only the server | anyone who can open the app's files (by design: the family's own phone, see the guide) | accepted (8d) |
 
 **Not verified yet (needs a real phone or emulator; nobody has run `openDeviceApi()` on one):** Hermes itself (the proof runs the Android bundle in Node's V8 with React

@@ -270,6 +270,7 @@ export default function ParentHome() {
       {done ? <Banner tone="info">{done}</Banner> : null}
       <Card style={{ gap: 10 }}>
         <Button title="Download all our data" kind="secondary" onPress={exportData} />
+        <Button title="Move your family to or from another place" kind="secondary" onPress={() => router.push("/parent/transfer")} />
         <Button title="Hoot's AI: use your own model" kind="secondary" onPress={() => router.push("/parent/ai")} label="Hoot's AI: connect your own model or key" />
         {DONATE_URL ? <Button title="💚 Donate to keep Honest Learn free" kind="secondary" onPress={() => openSafely(DONATE_URL)} /> : null}
         <Button title="Open source licences" kind="ghost" onPress={() => router.push("/licences")} />

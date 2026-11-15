@@ -10,6 +10,7 @@
 //   routes/tutor.ts    /children/:id/tutor/*, /reports           family token
 //   routes/parent.ts   /parent/*                                 parent token (from the PIN, 10 minutes)
 //   routes/parent-ai.ts /parent/ai*                              parent token; saving also needs the account password
+//   routes/parent-import.ts /parent/import                       parent token; brings a data download back in (own 4 MB body limit)
 //
 // Shared helpers (sign-in checks, hint ladder, attempt limits, email codes) live in context.ts.
 import { Hono } from "hono";
@@ -36,6 +37,8 @@ import { usageRoutes } from "./routes/usage.ts";
 import { tutorRoutes } from "./routes/tutor.ts";
 import { parentRoutes } from "./routes/parent.ts";
 import { parentAiRoutes } from "./routes/parent-ai.ts";
+import { parentImportRoutes } from "./routes/parent-import.ts";
+import { IMPORT_MAX_BYTES } from "./import-family.ts";
 
 export { CONSENT_VERSION, reviewIntervalDays } from "./models.ts";
 
@@ -76,7 +79,10 @@ export function createApp(deps: {
     await next();
     c.res.headers.set("cache-control", "no-store"); // family data must never sit in shared or browser caches
   });
-  app.use("*", bodyLimit({ maxSize: MAX_BODY_BYTES, onError: (c) => c.json({ error: "too_large" }, 413) }));
+  // Everything is small, except a family's data download coming back in (POST /parent/import), which gets its own larger limit.
+  const smallBody = bodyLimit({ maxSize: MAX_BODY_BYTES, onError: (c) => c.json({ error: "too_large" }, 413) });
+  const importBody = bodyLimit({ maxSize: IMPORT_MAX_BYTES, onError: (c) => c.json({ error: "too_large" }, 413) });
+  app.use("*", (c, next) => (c.req.method === "POST" && c.req.path.replace(/\/+$/, "") === "/parent/import" ? importBody(c, next) : smallBody(c, next)));
 
   // No TOKEN_SECRET configured (zero-config deploy): generate one once and keep it in the database,
   // so sign-ins survive restarts and every instance agrees. Race-safe: first writer wins.
@@ -127,5 +133,6 @@ export function createApp(deps: {
   app.route("/", tutorRoutes(ctx));
   app.route("/parent", parentRoutes(ctx));
   app.route("/parent", parentAiRoutes(ctx));
+  app.route("/parent", parentImportRoutes(ctx));
   return app;
 }

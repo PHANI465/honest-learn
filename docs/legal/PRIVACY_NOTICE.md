@@ -107,7 +107,8 @@ When you delete your account, everything is deleted from our live database strai
 In the parent area (with your PIN) you can:
 
 - **See** your children's progress, Hoot chats, flagged messages and reports.
-- **Download** your family's data ("Download all our data"): account details, children's profiles and settings, progress, Hoot chats and reports. [Engineering: the export doesn't yet include daily minutes or the list of solved quiz questions, and on phones it shows only the first part. Fix before launch so it is complete.]
+- **Download** your family's data ("Download all our data"): account details, children's profiles and settings, progress, daily minutes, the questions answered and hints opened, Hoot chats, reports, and the lessons you wrote. [Engineering: on phones the file goes through the share sheet, which may cut a very long file; check on a real phone before launch.]
+- **Move** your family between a phone and a server, or restore from a download ("Move your family to or from another place"). The children you choose, their progress, spelling, finished games, settings and your own lessons come across, and Hoot chats only if you choose to include them. Hints opened and questions answered are not copied, so answers are earned again. Nothing is deleted from the place it came from. The email, password and PIN you type for the other server are sent only to that address, once, and are not saved.
 - **Correct** a nickname, birth year or settings.
 - **Delete** a child's profile, or your whole account and everything in it.
 - **Turn Hoot off** for any child.

@@ -47,6 +47,8 @@ export interface ChildRow {
   sign_language?: string | null;
   /** The parent's country, joined in when a child is loaded (ctx.getChild, ctx.listChildren). */
   parent_country?: string | null;
+  /** The child's id in the data download this child was imported from (routes/parent-import.ts), if any. */
+  imported_from?: string | null;
   created_at: string;
 }
 

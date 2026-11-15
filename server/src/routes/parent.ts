@@ -283,6 +283,9 @@ export function parentRoutes(ctx: Ctx) {
       return rows;
     };
     return c.json({
+      // marks the file so POST /parent/import (routes/parent-import.ts) can tell what it is; bump `version` if a field changes meaning
+      format: "honest-learn-export",
+      version: 1,
       exportedAt: now(),
       parent: { email: p.email, country: p.country, emailVerified: !!p.email_verified_at, consentAt: p.consent_at, createdAt: p.created_at },
       children: kids.map(childPublic),

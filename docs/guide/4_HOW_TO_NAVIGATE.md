@@ -23,7 +23,7 @@ flowchart TD
   S --> FR[Free websites ↗ PIN under 13]
   PA --> CS[Child settings] --> CH[Read Hoot chats]
   PA --> ADD[Add a child]
-  PA --> ACC[Account: export, sign out, sign out other devices, delete]
+  PA --> ACC[Account: export, move family, sign out, sign out other devices, delete]
 ```
 
 ### As a parent
@@ -39,7 +39,7 @@ flowchart TD
    - **Hoot's AI** (Account card): connect your own model (Ollama, LM Studio, OpenRouter, Groq or any OpenAI-compatible address) with an optional key. Saving needs the account password and turns Hoot off for every child until you turn it on again; **Test the connection** sends one harmless message. The key is never shown again, only its last four characters.
    - **"Please check in with …"**: shown at the top when Hoot answered one of a child's messages as a wellbeing concern. *Read the chat* or *I have checked in* (hides it until the next one). The profile screen then says only that a grown-up should open the parent area.
    - **Country:** for helpline information in Hoot's safety replies.
-   - **Account:** download all data, lock the parent area, sign out of this device, **sign out all other devices**, delete the account. On this phone only: **make a new recovery phrase**.
+   - **Account:** download all data, **move your family to or from another place** (restore a download on the website, or send or bring a family between this app and a server, choosing which children and whether to include Hoot chats), lock the parent area, sign out of this device, **sign out all other devices**, delete the account. On this phone only: **make a new recovery phrase**.
 4. **Back to learning →** returns to "Who's learning today?".
 
 ### As a child

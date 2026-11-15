@@ -161,7 +161,7 @@ None of these needs a person's expertise, only a decision to start.
 | **Show on the child side** that Hoot is using a family's own, untested model | `GET /content/hoot` only knows the default helper | Sonnet, medium |
 | **Spelling: a British or American setting** per family | Lists currently avoid or include words that differ | Sonnet, medium |
 | **Save an unfinished chess game**; hints that point at a piece | Games are lost if the child leaves the screen | Sonnet, medium |
-| **Move a family between a phone and a server** (import of the data download) | Today only export exists | Opus, high |
+| ~~Move a family between a phone and a server~~ **done 15 Nov 2026** | `POST /parent/import` and the transfer screen. Open: try it between a real phone and a real server (part 2) | Opus, high |
 | **A splash screen** | After you agree to the package (part 1) | Sonnet, low |
 | **Rebalance the 265 "longest correct option" quiz questions** | A reviewer must still approve the result | Haiku, low, with review |
 | **Offline caching of quick facts** | Facts need the internet today | Sonnet, medium |
