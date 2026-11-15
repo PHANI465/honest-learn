@@ -3,6 +3,8 @@
 // there (tasks T8a, T8b). It uses what the phone uses: the content bundled through content-files.generated.ts and the expo-sqlite
 // adapter; only the expo-sqlite database itself comes from outside (a stand-in, since there is no phone). It walks one family
 // through the main paths and reports each step. It does not import device.ts, which needs the native modules.
+import { Chess } from "chess.js";
+import { chooseReply, gameOutcome } from "../../../server/src/games/computer-opponent.ts";
 import { contentFiles } from "./content-files.generated";
 import { createLocalApi } from "./core";
 import { expoSqliteAdapter, type ExpoSqliteLike } from "./sqlite-adapter";
@@ -84,6 +86,20 @@ async function run(opts: { expoDb: ExpoSqliteLike }): Promise<ProofStep[]> {
   check("an own AI key is sealed with AES-GCM on the device and never returned", aiKey.status === 200 && aiKey.json.settings?.keyLast4 === "7890" && !JSON.stringify(aiKey.json).includes("sk-phone-key"), aiKey.status);
   const metadata = await call("PUT", "/parent/ai", { password: "correct horse", provider: "custom", baseUrl: "http://169.254.169.254/latest", model: "x" }, par);
   check("the metadata address is still refused", metadata.status === 400);
+
+  // chess against the computer (T5d): the engine runs in the same Node-free sandbox as the API, and its moves are legal
+  const chess = new Chess();
+  let plies = 0;
+  let fromEngine = true;
+  const started = Date.now();
+  while (!gameOutcome(chess).over && plies < 24) {
+    const reply = chooseReply(chess, 3);
+    if (!reply) break;
+    fromEngine &&= reply.source === "engine";
+    chess.move({ from: reply.from, to: reply.to, promotion: reply.promotion }); // throws if the move is illegal
+    plies++;
+  }
+  check("the chess engine plays 24 legal moves without Node.js", plies === 24 && fromEngine, { plies, fromEngine, ms: Date.now() - started });
 
   const exp = await call("GET", "/parent/export", undefined, par);
   check("the data download works and holds no password hash", exp.status === 200 && !JSON.stringify(exp.json).includes("password_hash"));

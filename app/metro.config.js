@@ -14,7 +14,7 @@ config.watchFolders = [
   // skipped when missing (a checkout without `npm ci` in server/): only src/local needs them
   ...[
     path.join(server, "src"),
-    ...["hono", "zod", "chess.js", "@noble"].map((pkg) => path.join(server, "node_modules", pkg)),
+    ...["hono", "zod", "chess.js", "js-chess-engine", "@noble"].map((pkg) => path.join(server, "node_modules", pkg)),
     // the lessons and other content, bundled for standalone mode (src/local/content-files.generated.ts)
     path.resolve(__dirname, "../content"),
   ].filter((p) => fs.existsSync(p)),

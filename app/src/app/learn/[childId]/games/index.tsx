@@ -1,5 +1,5 @@
-import { router, useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
+import { useCallback, useState } from "react";
 import { Text, View } from "react-native";
 import { Button, Card, Emoji, H1, P, Screen } from "../../../../components/ui";
 import { NONO_SIZE } from "../../../../lib/games/nonogram";
@@ -21,6 +21,7 @@ interface GameCard {
 
 const GAMES: GameCard[] = [
   { id: "sudoku", emoji: "🔢", title: "Sudoku", blurb: (y) => (y ? "Fill in the grid with pictures or numbers" : "Fill the grid so nothing repeats in a row, column or box"), bands: ["b1", "b2", "b3", "b4", "b5"], online: true },
+  { id: "computer", emoji: "♟️", title: "Play chess", blurb: () => "Play a game against the computer", bands: ["b2", "b3", "b4", "b5"] },
   { id: "chess", emoji: "♞", title: "Chess puzzles", blurb: () => "Find checkmates and winning moves", bands: ["b2", "b3", "b4", "b5"], online: true },
   { id: "pairs", emoji: "🃏", title: "Pairs", blurb: (y) => (y ? "Find the matching pictures" : "Turn over cards and find the matching pairs"), bands: ["b1", "b2", "b3", "b4", "b5"] },
   { id: "sequence", emoji: "🎵", title: "Copy the pattern", blurb: () => "Watch a pattern light up, then repeat it", bands: ["b1", "b2", "b3", "b4", "b5"] },
@@ -35,13 +36,16 @@ export default function Games() {
   const child = useChild(childId);
   const [played, setPlayed] = useState<Record<string, number>>({});
 
-  useEffect(() => {
-    let live = true;
-    if (childId) void loadPlayed(childId).then((p) => live && setPlayed(p));
-    return () => {
-      live = false;
-    };
-  }, [childId]);
+  // Reload whenever this screen comes back into view: a game that was just finished changes its count.
+  useFocusEffect(
+    useCallback(() => {
+      let live = true;
+      if (childId) void loadPlayed(childId).then((p) => live && setPlayed(p));
+      return () => {
+        live = false;
+      };
+    }, [childId]),
+  );
 
   if (!child) return null;
   const t = scaledBandTheme(child.band);
@@ -64,7 +68,7 @@ export default function Games() {
           <Text style={{ fontSize: 22, color: colors.muted }} aria-hidden accessibilityElementsHidden importantForAccessibility="no">›</Text>
         </Card>
       ))}
-      <P muted size={13}>Sudoku and chess puzzles check your moves on the server, so they need the internet. Pairs, patterns, picture spotting, tiles and nonograms work without the internet.</P>
+      <P muted size={13}>Sudoku and chess puzzles check your moves on the server, so they need the internet. Playing chess against the computer, pairs, patterns, picture spotting, tiles and nonograms work without the internet.</P>
     </Screen>
   );
 }

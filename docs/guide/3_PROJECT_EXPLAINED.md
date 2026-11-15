@@ -150,7 +150,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `routes/auth.ts` | `/auth/signup`, `login`, `verify-email`, `resend-verification`, `forgot-password`, `reset-password`, `reset-pin`, `parent-unlock` |
 | `routes/learn.ts` | `/family`, `/children/:id/home` (includes up to 3 gentle "Try next" suggestions), `lessons`, `lessons/:lessonId` (+ `/hint`, `/check`, `/complete`, `/learn-more`), `resources`, `practice`, `facts` (random quick facts with a source link; no secrets) |
 | `routes/puzzles.ts` | `/children/:id/puzzles` (+ `/hint`, `/check`, `/complete`) |
-| (no server) | Pairs, pattern, picture-spotting, sliding tiles and nonograms are in the app only: `app/src/lib/games/` |
+| (no server) | Pairs, pattern, picture-spotting, sliding tiles and nonograms are in the app only: `app/src/lib/games/`. So is chess against the computer: `games/computer-opponent.ts` (kept in `server/` so it can be tested there, run on the device) |
 | `routes/games.ts` | `/children/:id/games/sudoku` (+ `/:n`, `/:n/check`, `/:n/hint`): Sudoku puzzles, checks and the hint ladder; `/children/:id/games/chess` (+ `/:puzzleId`, `/:puzzleId/move`, `/:puzzleId/hint`): chess puzzles checked one move at a time |
 | `routes/spelling.ts` | `/children/:id/spelling/today`, `/spelling/check` (daily words, Leitner boxes) |
 | `routes/usage.ts` | `/children/:id/usage`, `/usage/tick` |

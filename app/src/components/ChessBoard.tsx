@@ -29,12 +29,15 @@ export function ChessBoard({
   disabled,
   lastMove,
   accent = colors.brand,
+  flipped = false,
 }: {
   fen: string;
   onMove: (move: BoardMove) => void;
   disabled?: boolean;
   lastMove?: { from: string; to: string } | null;
   accent?: string;
+  /** Show the board from Black's side (Black's pieces at the bottom), for a child playing Black against the computer. */
+  flipped?: boolean;
 }) {
   const { width } = useWindowDimensions();
   const [selected, setSelected] = useState<string | null>(null);
@@ -63,9 +66,9 @@ export function ChessBoard({
 
   return (
     <View accessibilityLabel="Chess board" style={{ alignSelf: "center", borderWidth: 3, borderColor: colors.ink }}>
-      {[8, 7, 6, 5, 4, 3, 2, 1].map((rank) => (
+      {(flipped ? [1, 2, 3, 4, 5, 6, 7, 8] : [8, 7, 6, 5, 4, 3, 2, 1]).map((rank) => (
         <View key={rank} style={{ flexDirection: "row" }}>
-          {"abcdefgh".split("").map((file) => {
+          {(flipped ? "hgfedcba" : "abcdefgh").split("").map((file) => {
             const sq = `${file}${rank}`;
             const piece = chess.get(sq as Square);
             const dark = (file.charCodeAt(0) - 97 + rank) % 2 === 1;
@@ -101,8 +104,8 @@ export function ChessBoard({
                 ) : null}
                 {target && !capture ? <View pointerEvents="none" style={{ position: "absolute", width: size * 0.3, height: size * 0.3, borderRadius: size, backgroundColor: accent, opacity: 0.85 }} /> : null}
                 {target && capture ? <View pointerEvents="none" style={{ position: "absolute", inset: 2, borderRadius: size, borderWidth: 4, borderColor: accent, opacity: 0.9 }} /> : null}
-                {rank === 1 ? <Text aria-hidden style={{ position: "absolute", right: 2, bottom: 0, fontSize: 12, fontWeight: "700", color: dark ? "#F1E6CF" : "#5E6573" }}>{file}</Text> : null}
-                {file === "a" ? <Text aria-hidden style={{ position: "absolute", left: 2, top: 0, fontSize: 12, fontWeight: "700", color: dark ? "#F1E6CF" : "#5E6573" }}>{rank}</Text> : null}
+                {rank === (flipped ? 8 : 1) ? <Text aria-hidden style={{ position: "absolute", right: 2, bottom: 0, fontSize: 12, fontWeight: "700", color: dark ? "#F1E6CF" : "#5E6573" }}>{file}</Text> : null}
+                {file === (flipped ? "h" : "a") ? <Text aria-hidden style={{ position: "absolute", left: 2, top: 0, fontSize: 12, fontWeight: "700", color: dark ? "#F1E6CF" : "#5E6573" }}>{rank}</Text> : null}
               </Pressable>
             );
           })}

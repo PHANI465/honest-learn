@@ -45,7 +45,7 @@ How it is wired:
 
 | Piece | Where |
 |---|---|
-| Metro sees `server/src`, `content/` and the four packages the API uses (`hono`, `zod`, `chess.js`, `@noble/*`), nothing else from `server/node_modules` | `app/metro.config.js` (`watchFolders`) |
+| Metro sees `server/src`, `content/` and the packages the API and the chess game use (`hono`, `zod`, `chess.js`, `js-chess-engine`, `@noble/*`), nothing else from `server/node_modules` | `app/metro.config.js` (`watchFolders`) |
 | The app's TypeScript accepts `.ts` in import paths (the server's style) | `app/tsconfig.json` (`allowImportingTsExtensions`) |
 | The API inside the app | `app/src/local/core.ts`: `createLocalApi({ adapter, files, getRandomValues })` |
 | The phone's database | `app/src/local/sqlite-adapter.ts`: `expoSqliteAdapter(db)` over expo-sqlite (switches foreign keys on and refuses to open if that fails; `null` rows become `undefined`) |

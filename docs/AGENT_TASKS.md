@@ -70,7 +70,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T2 | Quick facts between lessons | Haiku low (content), Sonnet medium (code) | S + S | none | **done** 14 Nov 2026 | 200 facts (40 per band), all draft; `FactCard`; `scripts/check-fact-sources.mjs`. A person must spot-check 1 in 5 |
 | T3 | Daily spelling and vocabulary | Sonnet medium (code), Haiku low (word lists) | L | none | **done** 14 Nov 2026 | Server, screen and 605 words (120+ per band). Open: spellingVariant, reviewer pass |
 | T4 | Quantitative aptitude and reasoning lessons | Sonnet medium | L | none | **done** 14 Nov 2026 | 30 lessons across b2 to b5; every band needs a human maths check |
-| T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **in progress** | 5a Sudoku, 5b chess and 5c memory games done 14 Nov 2026. 5d play chess against the computer: todo (needs an engine and licence decision) |
+| T5 | Games section: Sudoku, chess, memory games | Sonnet high | XL (split 5a to 5d) | none | **done** 15 Nov 2026 | 5a Sudoku, 5b chess and 5c memory games 14 Nov; 5d play chess against the computer 15 Nov (js-chess-engine, MIT, on the device). Not tried on a real phone |
 | T6 | Own key in the parent area (BYOK screen) | Opus high | M | T0 | **done** 14 Nov 2026 | `parent/ai.tsx`, `ai-settings.ts`; no real model or hosted key tried; DNS rebinding open (`SECURITY.md`) |
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | **done** 15 Nov 2026 (code) | 8a to 8d done 14 to 15 Nov 2026 ("On this phone only" works end to end: first-run choice, recovery phrase, wellbeing notice; [`STANDALONE.md`](STANDALONE.md)). Reviewed in 8d ([`SECURITY.md`](SECURITY.md), "Standalone mode"). **Not yet run on a phone: a person must try it in Expo Go** |
@@ -200,7 +200,7 @@ checked with code before it is written down, for example `new Date(Date.UTC(1969
 
 ## T5. Games section: Sudoku, chess and memory games
 
-**Owner's decision.** Lessons plus playable boards. A full chess game against the computer is a later task.
+**Owner's decision.** Lessons plus playable boards. A full chess game against the computer was done later, as 5d.
 
 **Goal.** A "Games" area on the child home that builds logic, memory and problem solving, calmly: no clocks unless the
 child turns one on, no rankings.
@@ -236,9 +236,9 @@ Split into four tasks. Do 5a first; it sets the pattern.
 "which one changed?", nonograms for teens, and the 15-puzzle. These can run on the device with no server (no secret
 answers), with progress saved as a simple "played" record.
 
-**5d. Play chess against the computer (later, Opus high, L).** Needs an engine: Stockfish compiled to WebAssembly is
-GPL (the project licence must be compatible; ask the owner), or a small MIT engine with limited strength. Document
-the choice before building.
+**5d. Play chess against the computer (Opus high, L). Done 15 Nov 2026** by Sonnet at the owner's go-ahead. Owner's decision:
+**js-chess-engine** (MIT), not Stockfish (GPL-3.0, WebAssembly) and not a home-made engine. Why, and how it works: see the T5d
+handover note below.
 
 ---
 
@@ -528,6 +528,35 @@ are private to that family and are included in export and deletion. **Sonnet med
   DNS rebinding is not prevented (pin the checked IP with an undici `Agent` `connect.lookup` to close it); `GET /content/hoot` still describes only the
   server's default helper, so the child-side "not tested" banner does not know about a family model (the parent screen says it); no screen reader pass.
   T8 can reuse `checkBaseUrl` and `classifyIp`, but a phone app with no server will need its own key storage (SecureStore), not this table.
+- **T5d play chess against the computer (done, by Sonnet at the owner's go-ahead; the guide had recommended Opus high).** **Owner's decision (15 Nov 2026):
+js-chess-engine 2.4.6** (MIT, no dependencies, plain JavaScript, about 400 KB), added to `server/package.json` (exact version). Options put to the owner:
+Stockfish (`stockfish` on npm is GPL-3.0 and about 205 MB unpacked, the Lichess build AGPL; either would make the project GPL, and a WebAssembly engine
+probably cannot run in the standalone phone app because Hermes has no WebAssembly, **not verified**) and writing our own. The project still has **no
+licence file**, so "compatible with the project licence" is an open question for the owner whatever engine is used.
+**Where it runs: on the device**, like the memory games (T5c): no secret answers to protect, a search is real CPU work that a server would pay for on every
+move of every child (a denial-of-service risk), and standalone mode has no server. The logic is `server/src/games/computer-opponent.ts` (kept under `server/`
+so the server's CI can test it; the app imports it by relative path like the standalone API; `app/metro.config.js` watches `js-chess-engine` too). **chess.js
+judges every move**: the engine only suggests, and a suggestion that is not a legal move (or an engine that throws or returns rubbish) is replaced by a random
+legal move, so an engine bug can never corrupt a game; promotion is always a queen (the board has no menu, as in the puzzles). Four levels (the engine's 1 to 4;
+5 is left out: 20 to 40 MB of cache and a 12-ply search): Beginner, Easy, Medium (ages 6 to 18), Hard (ages 12 to 18 only); the easiest is the default. Measured on a
+laptop (Node 22): every level answers in under 70 ms; over 20 games each, level 1 almost never loses to a random mover but rarely finishes (19 draws, 1 win), level 2
+wins 18 and level 3 all 20; level 3 beat level 1 ten games to none; no illegal move in any game. `computer-opponent.ts` also has `gameOutcome`, kind
+`outcomeMessage` (no scores or ranks; losing is met with "everyone loses games while they learn"), `describeMove` ("Knight from g8 to f6, capturing a pawn. Check",
+for the screen reader) and `takeBack` (removes the child's last move and the computer's reply). Screen: `app/src/app/learn/[childId]/games/computer.tsx` (choose level
+and colour, board, "Take back my move", end card); the game is only the list of moves in React state, everything else is derived from it; the computer "thinks" at
+least 450 ms so it never answers the instant a piece is released; a result adds one to the games hub's "finished n times" (a count only, as in T5c). `ChessBoard` has a
+new `flipped` prop (a child playing Black sees their pieces at the bottom). The hub now reloads its counts when it regains focus (a pre-existing bug: finished games
+did not show until the screen was reopened). Tests: `server/test/computer-opponent.test.ts` (25: whole games at every level with every move from the engine and
+legal, mate in one and a free queen at levels 2 to 4, promotion for both colours, castling and en passant, seven kinds of failing engine, every way a game ends,
+moves in words, take back); the engine also plays 24 legal moves inside the Node-free sandbox of `npm run proof:local` (27 steps now). Looked at in a browser at
+phone width: setup, White (e4, the computer's Nf6, take back), Hard as Black (board flipped, the computer moves first, "You are in check!", checkmate end card), the
+hub count. The website loads the engine only on this screen (a 70 KB chunk of its own); the Android bundle grew by about 70 KB. **Not done / unverified:**
+**nothing was run on a real phone**, so Hermes speed and memory are unknown (a search with no JIT can be many times slower than the 70 ms measured; Hard is limited to
+ages 12+ for that reason and may need a lower cap); no hints, analysis or "best move"; no clock; a game in progress is lost if the child leaves the screen (nothing is
+saved); no choice of promotion piece; no human has judged whether "Beginner" is fair for a six-year-old; no screen reader or keyboard pass; the engine's README says Node
+24 or newer and browsers while this project runs Node 22 (all tests pass, re-check on upgrades); chess.js is now bundled twice (the app's copy for the board, the
+server folder's copy for this logic), harmless but about 70 KB wasted. Ideas for later: save an unfinished game, a hint that points at a piece (not a move), a
+post-game "what happened" with the move list.
 - **T8a (done).** Decision: **no `core/` package**; Metro reads `../server/src` (`app/metro.config.js` watches `server/src` and only
   `hono`, `zod`, `chess.js`, `@noble` from `server/node_modules`), the app's `tsconfig` allows `.ts` imports, and CI's app job installs the
   server's packages. Everything machine-specific goes through `server/src/platform.ts` (`pf()`, `setPlatform()`): `platform-node.ts`
