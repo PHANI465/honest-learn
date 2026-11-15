@@ -157,7 +157,7 @@ describe("what they know and try next", () => {
       assert.equal(l.reason, "new");
       assert.equal(l.band, "b3");
       assert.equal(l.sensitive, null);
-      assert.deepEqual(Object.keys(l).sort(), ["band", "id", "minutes", "questions", "reason", "sensitive", "status", "subject", "title"]);
+      assert.deepEqual(Object.keys(l).sort(), ["band", "family", "id", "minutes", "questions", "reason", "sensitive", "status", "subject", "title"]);
     }
     assert.equal(new Set(home.suggested.map((l: any) => l.id)).size, 3);
     const raw = JSON.stringify(home.suggested);

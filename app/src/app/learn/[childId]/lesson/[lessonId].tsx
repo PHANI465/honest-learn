@@ -223,7 +223,7 @@ export default function LessonScreen() {
         <View style={{ flexDirection: "row", gap: 6, flexWrap: "wrap" }}>
           <Pill text={`⏱ ${lesson.minutes} min`} />
           <Pill text={`🎯 ${lesson.quiz.length} questions`} />
-          {lesson.status === "draft" ? <Pill text="✏️ Draft: being checked by teachers" color={colors.warn} bg={colors.warnSoft} /> : <Pill text="✓ Reviewed by teachers" color={colors.good} bg={colors.goodSoft} />}
+          {lesson.family ? <Pill text="🏠 Added by your family" color={colors.brand} bg={colors.brandSoft} /> : lesson.status === "draft" ? <Pill text="✏️ Draft: being checked by teachers" color={colors.warn} bg={colors.warnSoft} /> : <Pill text="✓ Reviewed by teachers" color={colors.good} bg={colors.goodSoft} />}
         </View>
         {canReadAloud ? (
           <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>

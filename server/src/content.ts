@@ -271,13 +271,15 @@ export function loadContent(contentDir: string): ContentStore {
  * `orderFor(i)` gives the display order of question i's options (see shuffle.ts).
  */
 export function publicLesson(l: Lesson, orderFor: (question: number, count: number) => number[] = (_q, n) => [...Array(n).keys()]) {
+  // a family lesson carries its owner inside the server; that never goes to the app
+  const { ownerId: _owner, ...rest } = l as Lesson & { ownerId?: string };
   return {
-    ...l,
+    ...rest,
     quiz: l.quiz.map(({ q, options }, i) => ({ q, options: orderFor(i, options.length).map((o) => options[o]!) })),
   };
 }
 
 export function lessonSummary(l: Lesson) {
   const { id, title, band, subject, sensitive, minutes, status } = l;
-  return { id, title, band, subject, sensitive, minutes, status, questions: l.quiz.length };
+  return { id, title, band, subject, sensitive, minutes, status, questions: l.quiz.length, family: (l as { family?: boolean }).family === true };
 }

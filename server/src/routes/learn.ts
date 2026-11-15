@@ -7,6 +7,7 @@ import { config } from "../config.ts";
 import { now } from "../db.ts";
 import { lessonSummary, publicLesson, type Lesson } from "../content.ts";
 import { lessonWikiTitle, wikiHostFor } from "../wiki.ts";
+import { isFamilyLesson } from "../family-lessons.ts";
 import { optionOrder } from "../shuffle.ts";
 import { childBand, childPublic, Choices, outcomeStatuses, reviewIntervalDays } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
@@ -53,7 +54,8 @@ export function learnRoutes(ctx: Ctx) {
     const child = await loadChild(c);
     if (!child) return c.json({ error: "child_not_found" }, 404);
     const band = childBand(child);
-    const visible = [...content.lessons.values()].filter((l) => visibleTo(child, l));
+    const visible = await ctx.visibleLessons(child);
+    const visibleById = new Map(visible.map((l) => [l.id, l]));
     const done = await db.all<{ lesson_id: string; best_score: number; total: number; review_due: string }>(
       "SELECT lesson_id, best_score, total, review_due FROM progress WHERE child_id = ?",
       [child.id],
@@ -66,9 +68,8 @@ export function learnRoutes(ctx: Ctx) {
         return { ...s, lessonCount: ls.length, completed: ls.filter((l) => doneIds.has(l.id)).length };
       });
     const reviewDue = done
-      .filter((d) => new Date(d.review_due) <= new Date() && content.lessons.has(d.lesson_id))
-      .map((d) => content.lessons.get(d.lesson_id)!)
-      .filter((l) => visibleTo(child, l))
+      .filter((d) => new Date(d.review_due) <= new Date() && visibleById.has(d.lesson_id))
+      .map((d) => visibleById.get(d.lesson_id)!)
       .map(lessonSummary);
     const bandInfo = content.map.bands.find((b) => b.id === band);
     // "Keep going": the next unfinished lesson, preferring the subject the child has made most progress in.
@@ -124,7 +125,8 @@ export function learnRoutes(ctx: Ctx) {
       ).map((p) => [p.lesson_id, p]),
     );
     const all = [...content.lessons.values()].filter((l) => l.band === childBand(child) && (!subject || l.subject === subject));
-    const lessons = all.filter((l) => visibleTo(child, l)).map((l) => ({ ...lessonSummary(l), progress: progress.get(l.id) ?? null }));
+    const own = (await ctx.visibleLessons(child)).filter((l) => isFamilyLesson(l) && (!subject || l.subject === subject));
+    const lessons = [...all.filter((l) => visibleTo(child, l)), ...own].map((l) => ({ ...lessonSummary(l), progress: progress.get(l.id) ?? null }));
     // Tell the app that locked lessons exist (so it can say "ask a parent"), without their content.
     const locked = all.filter((l) => l.sensitive && !visibleTo(child, l)).length;
     return c.json({ lessons, lockedCount: locked });
@@ -231,8 +233,8 @@ export function learnRoutes(ctx: Ctx) {
     const done = new Set(
       (await db.all<{ lesson_id: string }>("SELECT lesson_id FROM progress WHERE child_id = ?", [child.id])).map((p) => p.lesson_id),
     );
-    const pool = [...content.lessons.values()]
-      .filter((l) => visibleTo(child, l) && (!subject || l.subject === subject))
+    const pool = (await ctx.visibleLessons(child))
+      .filter((l) => !subject || l.subject === subject)
       .flatMap((l) => l.quiz.map((q, i) => ({ l, q, i, done: done.has(l.id) })));
     // Prefer questions from lessons already finished (that's what makes practice stick), then the rest.
     const questions = pool

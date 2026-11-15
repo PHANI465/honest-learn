@@ -117,6 +117,7 @@ See [`FREE_AGENTS.md`](FREE_AGENTS.md) for connecting Ollama or a hosted service
 | `quiz_solved` | `(child_id, lesson_id, q_index)` | Which questions were solved (lets Hoot explain afterwards) |
 | `hints_seen` | `(child_id, item_id, q_index)` | Highest hint level opened: the ladder's source of truth |
 | `usage` | `(child_id, day)` | Minutes, bonus minutes, last tick |
+| `family_lessons` | `id` (`fam-…`) → `parents` (cascade) | A lesson a parent wrote (JSON in the built-in lesson shape, correct option first), private to the family |
 | `spelling_progress` | `(child_id, word)` | Leitner box (0 to 4), due day, last day tried |
 | `spelling_days` | `(child_id, day)` | The words chosen for that child that day (kept so reloading never changes the set) |
 | `tutor_messages` | `id` | Hoot chats with `flagged`; purged after `CHAT_RETENTION_DAYS` |

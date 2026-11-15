@@ -1,5 +1,6 @@
 // Everything the route modules share: dependencies, sign-in checks, one-time codes, attempt limits
 // and the hint ladder bookkeeping. Created once per app in createApp (app.ts).
+import { FAMILY_LESSON_PREFIX, isFamilyLesson, type FamilyLesson } from "./family-lessons.ts";
 import { randomInt } from "node:crypto";
 import type { Context, Next } from "hono";
 import { getConnInfo } from "@hono/node-server/conninfo";
@@ -67,15 +68,34 @@ export function createContext(deps: Deps) {
   // ---------------------------------------------------------------- what a child may see
   function visibleTo(child: ChildRow, l: Lesson): boolean {
     if (l.band !== childBand(child)) return false;
+    // a family's own lesson is shown only to that family's children, whatever its status
+    if (isFamilyLesson(l)) return l.ownerId === child.parent_id;
     if (l.status !== "reviewed" && !config.showDrafts) return false;
     if (l.sensitive && !(JSON.parse(child.unlocked_topics) as string[]).includes(l.sensitive)) return false;
     return true;
   }
 
+  /** Every lesson this parent added, as lessons. */
+  async function familyLessonsOf(parentId: string): Promise<FamilyLesson[]> {
+    const rows = await db.all<{ json: string }>("SELECT json FROM family_lessons WHERE parent_id = ? ORDER BY created_at, id", [parentId]);
+    return rows.map((r) => ({ ...(JSON.parse(r.json) as Lesson), family: true as const, ownerId: parentId }));
+  }
+  async function familyLesson(parentId: string, id: string): Promise<FamilyLesson | undefined> {
+    if (!id.startsWith(FAMILY_LESSON_PREFIX)) return undefined;
+    const row = await db.get<{ json: string }>("SELECT json FROM family_lessons WHERE id = ? AND parent_id = ?", [id, parentId]);
+    return row ? { ...(JSON.parse(row.json) as Lesson), family: true as const, ownerId: parentId } : undefined;
+  }
+  /** Everything this child may open: the built-in lessons that pass visibleTo, plus the family's own for their age group. */
+  async function visibleLessons(child: ChildRow): Promise<Lesson[]> {
+    const own = (await familyLessonsOf(child.parent_id)).filter((l) => visibleTo(child, l));
+    return [...[...content.lessons.values()].filter((l) => visibleTo(child, l)), ...own];
+  }
+
   async function lessonFor(c: Context<Env>): Promise<{ child: ChildRow; lesson: Lesson } | Response> {
     const child = await loadChild(c);
     if (!child) return c.json({ error: "child_not_found" }, 404);
-    const lesson = content.lessons.get(c.req.param("lessonId") ?? "");
+    const id = c.req.param("lessonId") ?? "";
+    const lesson = content.lessons.get(id) ?? (await familyLesson(child.parent_id, id));
     if (!lesson) return c.json({ error: "lesson_not_found" }, 404);
     if (!visibleTo(child, lesson)) {
       return c.json({ error: lesson.sensitive ? "needs_parent_permission" : "lesson_not_available" }, 403);
@@ -277,6 +297,9 @@ export function createContext(deps: Deps) {
     requireScope,
     loadChild,
     visibleTo,
+    visibleLessons,
+    familyLessonsOf,
+    familyLesson,
     lessonFor,
     hintLevel,
     openHint,

@@ -175,6 +175,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `tutor_messages` | Hoot chats (flagged ones marked) |
 | `auth_codes` | Hashed email codes |
 | `usage` | Minutes and bonus minutes per child per day |
+| `family_lessons` | Lessons a parent wrote for their own children (private to the family) |
 | `spelling_progress`, `spelling_days` | Which spelling words each child practises, when each is due again, and the words chosen for each day |
 | `reports` | "Report a problem" submissions |
 | `app_settings` | The generated sign-in secret (pre-launch / zero-config) |

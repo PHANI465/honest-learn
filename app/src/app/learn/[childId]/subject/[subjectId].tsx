@@ -77,6 +77,7 @@ export default function SubjectLessons() {
                 <View style={{ flexDirection: "row", gap: 6, flexWrap: "wrap" }}>
                   <Pill text={`⏱ ${l.minutes} min`} />
                   <Pill text={`${l.questions} questions`} />
+                  {l.family ? <Pill text="🏠 Added by your family" color={colors.brand} bg={colors.brandSoft} /> : null}
                   {done ? <Pill text={`Best: ${l.progress!.best_score}/${l.progress!.total}`} color={colors.good} bg={colors.goodSoft} /> : null}
                 </View>
               </View>

@@ -124,6 +124,15 @@ const TABLES = [
   last_tick   TEXT,
   PRIMARY KEY (child_id, day)
 )`,
+  // lessons a parent wrote for their own children (private to the family; see family-lessons.ts)
+  `CREATE TABLE IF NOT EXISTS family_lessons (
+  id          TEXT PRIMARY KEY,
+  parent_id   TEXT NOT NULL REFERENCES parents(id) ON DELETE CASCADE,
+  json        TEXT NOT NULL,
+  created_at  TEXT NOT NULL,
+  updated_at  TEXT NOT NULL
+)`,
+  `CREATE INDEX IF NOT EXISTS idx_family_lessons_parent ON family_lessons(parent_id)`,
   // daily spelling: where each word is in its Leitner box and when it is due (see spelling.ts)
   `CREATE TABLE IF NOT EXISTS spelling_progress (
   child_id    TEXT NOT NULL REFERENCES children(id) ON DELETE CASCADE,

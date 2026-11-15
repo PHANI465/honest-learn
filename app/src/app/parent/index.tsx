@@ -193,6 +193,12 @@ export default function ParentHome() {
       })}
       <Button title="+ Add a child" kind="secondary" onPress={() => router.push("/parent/add-child")} />
 
+      <H2>Lessons you add</H2>
+      <Card>
+        <P muted size={14}>Write a lesson your child needs, with an optional quiz. Only your family sees it.</P>
+        <Button title="Add or edit your own lessons" kind="secondary" onPress={() => router.push("/parent/lessons")} />
+      </Card>
+
       <H2>Country</H2>
       <Card>
         <P muted size={14}>Optional. Used only so Hoot can name the right children's helpline in a safety reply.</P>

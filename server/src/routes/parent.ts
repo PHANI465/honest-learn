@@ -8,6 +8,17 @@ import { hashSecret, issueToken, newId } from "../security.ts";
 import { childBand, ChildCreate, ChildPatch, childPublic, Country, Day, outcomeStatuses, Password, Pin, plausibleDay, Secret, type ChildRow } from "../models.ts";
 import type { Ctx, Env } from "../context.ts";
 import { usageFor } from "./usage.ts";
+import {
+  buildFamilyLesson,
+  checkSubject,
+  FamilyLessonInput,
+  FAMILY_LESSON_PREFIX,
+  MAX_FAMILY_LESSONS,
+  MAX_FAMILY_LESSON_BYTES,
+  sizeOf,
+  toFormShape,
+  warningsFor,
+} from "../family-lessons.ts";
 
 export function parentRoutes(ctx: Ctx) {
   const { db, content, loadChild, listChildren, getChild, visibleTo } = ctx;
@@ -18,7 +29,7 @@ export function parentRoutes(ctx: Ctx) {
     const doneIds = new Set(
       (await db.all<{ lesson_id: string }>("SELECT lesson_id FROM progress WHERE child_id = ?", [k.id])).map((p) => p.lesson_id),
     );
-    const visible = [...content.lessons.values()].filter((l) => visibleTo(k, l));
+    const visible = await ctx.visibleLessons(k);
     const band = childBand(k);
     return content.map.subjects
       .filter((sub) => !sub.bands || sub.bands.includes(band))
@@ -31,6 +42,7 @@ export function parentRoutes(ctx: Ctx) {
 
   r.get("/overview", async (c) => {
     const kids = await listChildren(c.get("parentId"));
+    const familyTitles = new Map((await ctx.familyLessonsOf(c.get("parentId"))).map((l) => [l.id, l.title]));
     const weekAgo = new Date(Date.now() - 7 * 86_400_000);
     const count = async (sql: string, params: string[]) => (await db.get<{ n: number }>(sql, params))!.n;
     const children = [];
@@ -65,7 +77,7 @@ export function parentRoutes(ctx: Ctx) {
             "SELECT lesson_id, best_score, total, completed_at FROM progress WHERE child_id = ? AND lesson_id NOT LIKE 'puzzles-%' ORDER BY completed_at DESC LIMIT 5",
             [k.id],
           )
-        ).map((p) => ({ ...p, title: content.lessons.get(p.lesson_id)?.title ?? p.lesson_id })),
+        ).map((p) => ({ ...p, title: content.lessons.get(p.lesson_id)?.title ?? familyTitles.get(p.lesson_id) ?? p.lesson_id })),
       });
     }
     return c.json({ children });
@@ -181,7 +193,8 @@ export function parentRoutes(ctx: Ctx) {
       "SELECT id, lesson_id, role, content, flagged, created_at FROM tutor_messages WHERE child_id = ? ORDER BY created_at, seq",
       [child.id],
     );
-    return c.json({ messages: rows.map((m) => ({ ...m, lessonTitle: content.lessons.get(m.lesson_id)?.title ?? m.lesson_id })) });
+    const familyTitles = new Map((await ctx.familyLessonsOf(c.get("parentId"))).map((l) => [l.id, l.title]));
+    return c.json({ messages: rows.map((m) => ({ ...m, lessonTitle: content.lessons.get(m.lesson_id)?.title ?? familyTitles.get(m.lesson_id) ?? m.lesson_id })) });
   });
 
   r.get("/reports", async (c) =>
@@ -251,6 +264,7 @@ export function parentRoutes(ctx: Ctx) {
       solvedQuizQuestions: await per("SELECT child_id, lesson_id, q_index, solved_at FROM quiz_solved WHERE child_id = ?"),
       hintsOpened: await per("SELECT child_id, item_id, q_index, level FROM hints_seen WHERE child_id = ?"),
       spellingProgress: await per("SELECT child_id, word, box, due, last_day FROM spelling_progress WHERE child_id = ?"),
+      familyLessons: (await ctx.familyLessonsOf(id)).map(toFormShape),
     });
   });
 
@@ -262,6 +276,64 @@ export function parentRoutes(ctx: Ctx) {
     if (check === "locked") return c.json({ error: "too_many_attempts" }, 429);
     if (check === "wrong") return c.json({ error: "wrong_password" }, 401);
     await db.run("DELETE FROM parents WHERE id = ?", [c.get("parentId")]);
+    return c.json({ ok: true });
+  });
+
+  // ---- lessons the family adds themselves (private to this family; see family-lessons.ts)
+  /** Validates a lesson from the form. Returns the lesson to store, or the response to send back. */
+  async function readFamilyLesson(c: import("hono").Context<Env>, id: string) {
+    const input = FamilyLessonInput.parse(await c.req.json().catch(() => ({})));
+    const problem = checkSubject(content.map, input.band, input.subject);
+    if (problem) return { error: c.json({ error: "invalid_input", details: [`${problem.field}: ${problem.message}`] }, 400) };
+    const lesson = buildFamilyLesson(id, c.get("parentId"), input);
+    const { ownerId: _owner, family: _family, ...stored } = lesson;
+    if (sizeOf(stored) > MAX_FAMILY_LESSON_BYTES) {
+      return { error: c.json({ error: "invalid_input", details: [`This lesson is too long (over ${MAX_FAMILY_LESSON_BYTES / 1000} KB). Shorten the text or split it into two lessons.`] }, 400) };
+    }
+    return { stored, warnings: warningsFor(input) };
+  }
+
+  r.get("/lessons", async (c) => {
+    const lessons = await ctx.familyLessonsOf(c.get("parentId"));
+    return c.json({ lessons: lessons.map(toFormShape), limit: MAX_FAMILY_LESSONS, subjects: content.map.subjects.map((s) => ({ id: s.id, name: s.name, bands: s.bands ?? null })) });
+  });
+
+  r.post("/lessons", async (c) => {
+    const parentId = c.get("parentId");
+    const count = (await db.get<{ n: number }>("SELECT CAST(COUNT(*) AS INTEGER) AS n FROM family_lessons WHERE parent_id = ?", [parentId]))!.n;
+    if (count >= MAX_FAMILY_LESSONS) return c.json({ error: "too_many_lessons", limit: MAX_FAMILY_LESSONS }, 400);
+    const id = FAMILY_LESSON_PREFIX + newId();
+    const made = await readFamilyLesson(c, id);
+    if ("error" in made) return made.error;
+    await db.run("INSERT INTO family_lessons (id, parent_id, json, created_at, updated_at) VALUES (?,?,?,?,?)", [id, parentId, JSON.stringify(made.stored), now(), now()]);
+    return c.json({ lesson: toFormShape(made.stored), warnings: made.warnings }, 201);
+  });
+
+  r.put("/lessons/:lessonId", async (c) => {
+    const parentId = c.get("parentId");
+    const id = c.req.param("lessonId");
+    if (!(await ctx.familyLesson(parentId, id))) return c.json({ error: "lesson_not_found" }, 404);
+    const made = await readFamilyLesson(c, id);
+    if ("error" in made) return made.error;
+    await db.run("UPDATE family_lessons SET json = ?, updated_at = ? WHERE id = ? AND parent_id = ?", [JSON.stringify(made.stored), now(), id, parentId]);
+    // The questions may have changed, so what children opened or solved for the old version no longer lines up.
+    await db.run("DELETE FROM hints_seen WHERE item_id = ?", [id]);
+    await db.run("DELETE FROM quiz_solved WHERE lesson_id = ?", [id]);
+    return c.json({ lesson: toFormShape(made.stored), warnings: made.warnings });
+  });
+
+  r.delete("/lessons/:lessonId", async (c) => {
+    const parentId = c.get("parentId");
+    const id = c.req.param("lessonId");
+    if (!(await ctx.familyLesson(parentId, id))) return c.json({ error: "lesson_not_found" }, 404);
+    await db.run("DELETE FROM family_lessons WHERE id = ? AND parent_id = ?", [id, parentId]);
+    // Lesson ids are unique, so everything tied to this lesson can go with it (progress, hints, solved questions, Hoot chat).
+    for (const sql of [
+      "DELETE FROM progress WHERE lesson_id = ?",
+      "DELETE FROM hints_seen WHERE item_id = ?",
+      "DELETE FROM quiz_solved WHERE lesson_id = ?",
+      "DELETE FROM tutor_messages WHERE lesson_id = ?",
+    ]) await db.run(sql, [id]);
     return c.json({ ok: true });
   });
 

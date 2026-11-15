@@ -74,7 +74,7 @@ Effort sizes: **S** under 2 hours of agent work, **M** half a day, **L** one to 
 | T7 | Red-team runner for own models | Sonnet medium | S | T0 | **done** 14 Nov 2026 | `npm run redteam`; a real local model has still not been run |
 | T8 | Standalone phone app with no server | Opus high (design and core), Sonnet medium (screens) | XL (split 8a to 8d) | T6 | todo | |
 | T9 | Sign language section (ASL, BSL, ISL, LSM) | Person (videos) + Sonnet medium | L | T1 | todo | Needs a Deaf reviewer |
-| T10 | "Add your own lessons" for parents | Sonnet medium | M | none | todo | |
+| T10 | "Add your own lessons" for parents | Sonnet medium | M | none | **done** 14 Nov 2026 | `parent/lessons.tsx`; private to the family; no look at it in a browser yet |
 | T11 | Android and iOS store builds | Person + Sonnet medium | M | T8 | todo | Needs developer accounts |
 
 ---
@@ -444,3 +444,17 @@ are private to that family and are included in export and deletion. **Sonnet med
   verdict) and writes `server/redteam-report-<model>.md` (git-ignored). Tests: `server/test/redteam.test.ts` run the real command
   against a fake model server. **Not done:** no real Ollama or hosted model was run, so nobody knows yet how a small model scores;
   a person must read every reply in a real report. Docs updated: `docs/FREE_AGENTS.md`, `docs/HOOT_SAFETY_TESTS.md`.
+- **T10 (done).** Server: `server/src/family-lessons.ts` (input schema, `buildFamilyLesson`, limits 100 lessons per family and 20 KB each,
+  warnings such as a hint containing the answer), table `family_lessons`, parent-token routes `GET/POST /parent/lessons` and
+  `PUT/DELETE /parent/lessons/:id`. A family lesson has the id `fam-<uuid>` and carries `family: true` and its `ownerId` inside the
+  server only; `visibleTo` compares the owner with the child's parent, `ctx.visibleLessons(child)` returns built-in plus the
+  family's lessons and is what the home, lesson list, review-due list, practice and parent overview use. Everything else
+  (hints, checks, completion, Hoot, progress) goes through `lessonFor`, which now also finds family lessons, so the secrecy and hint
+  ladder rules are unchanged. Editing a lesson clears the hints opened and questions solved for it (the questions may have moved);
+  deleting removes its progress, hints, solved questions and Hoot chat. Family lessons are in `GET /parent/export` (`familyLessons`)
+  and deleted with the account. App: `app/src/app/parent/lessons.tsx` (list + form), a card on the parent home, and an
+  "Added by your family" pill on the lesson list and lesson screens. **Not done:** no sensitive-topic tag (the parent is
+  responsible for the content; a family lesson is shown even if the topic is sensitive), no video sections, no outcomes (so family
+  lessons do not feed "What they know"), no import or sharing between families, and the form has not been looked at in a browser
+  or tried with a screen reader. A family lesson's text goes to Hoot's AI helper when a child asks Hoot about it (stated in the
+  privacy notice).

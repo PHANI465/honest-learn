@@ -48,6 +48,8 @@ export interface LessonSummary {
   sensitive: Topic | null;
   minutes: number;
   status: "draft" | "reviewed";
+  /** A lesson the family added themselves (private to them, never reviewed). */
+  family?: boolean;
   questions: number;
   progress?: { best_score: number; total: number } | null;
 }
