@@ -1,0 +1,221 @@
+{
+  "band": "b1",
+  "status": "draft",
+  "source": {
+    "title": "Common English words chosen for each age group (starter list). Meanings and sentences are original to this project.",
+    "url": "https://en.wikipedia.org/wiki/Dolch_word_list",
+    "license": "Reference only (the page describes the kind of list this was modelled on). No list was copied: words, meanings and sentences were written for this project and are released with it."
+  },
+  "words": [
+    {
+      "word": "cat",
+      "level": 1,
+      "meaning": "a furry pet that says meow",
+      "sentence": "The cat sat on my lap.",
+      "emoji": "🐱"
+    },
+    {
+      "word": "dog",
+      "level": 1,
+      "meaning": "a pet that barks and wags its tail",
+      "sentence": "My dog loves to run in the park.",
+      "emoji": "🐶"
+    },
+    {
+      "word": "sun",
+      "level": 1,
+      "meaning": "the bright light in the sky in the daytime",
+      "sentence": "The sun is warm today.",
+      "emoji": "☀️"
+    },
+    {
+      "word": "hat",
+      "level": 1,
+      "meaning": "something you wear on your head",
+      "sentence": "I put on my red hat.",
+      "emoji": "🎩"
+    },
+    {
+      "word": "bus",
+      "level": 1,
+      "meaning": "a big vehicle that carries many people",
+      "sentence": "We ride the bus to school.",
+      "emoji": "🚌"
+    },
+    {
+      "word": "pig",
+      "level": 1,
+      "meaning": "a pink farm animal that says oink",
+      "sentence": "The pig rolled in the mud.",
+      "emoji": "🐷"
+    },
+    {
+      "word": "cup",
+      "level": 1,
+      "meaning": "you drink from it",
+      "sentence": "Please fill my cup with water.",
+      "emoji": "🥤"
+    },
+    {
+      "word": "bed",
+      "level": 1,
+      "meaning": "where you sleep at night",
+      "sentence": "Time to go to bed.",
+      "emoji": "🛏️"
+    },
+    {
+      "word": "fox",
+      "level": 1,
+      "meaning": "a wild animal with a bushy tail and orange fur",
+      "sentence": "A fox ran across the field.",
+      "emoji": "🦊"
+    },
+    {
+      "word": "hen",
+      "level": 1,
+      "meaning": "a farm bird that lays eggs",
+      "sentence": "The hen sat on her eggs.",
+      "emoji": "🐔"
+    },
+    {
+      "word": "fish",
+      "level": 2,
+      "meaning": "an animal that lives in water and has fins",
+      "sentence": "The fish swam in a circle.",
+      "emoji": "🐟"
+    },
+    {
+      "word": "frog",
+      "level": 2,
+      "meaning": "a small green animal that hops and says ribbit",
+      "sentence": "A frog jumped into the pond.",
+      "emoji": "🐸"
+    },
+    {
+      "word": "tree",
+      "level": 2,
+      "meaning": "a tall plant with a trunk and leaves",
+      "sentence": "We sat under a big tree.",
+      "emoji": "🌳"
+    },
+    {
+      "word": "star",
+      "level": 2,
+      "meaning": "a tiny bright light you see in the night sky",
+      "sentence": "I can see one star tonight.",
+      "emoji": "⭐"
+    },
+    {
+      "word": "moon",
+      "level": 2,
+      "meaning": "it shines in the sky at night",
+      "sentence": "The moon is round and bright.",
+      "emoji": "🌙"
+    },
+    {
+      "word": "book",
+      "level": 2,
+      "meaning": "pages with a story or pictures that you read",
+      "sentence": "I read a book before bed.",
+      "emoji": "📖"
+    },
+    {
+      "word": "ball",
+      "level": 2,
+      "meaning": "a round thing you throw and kick",
+      "sentence": "Kick the ball to me!",
+      "emoji": "⚽"
+    },
+    {
+      "word": "cake",
+      "level": 2,
+      "meaning": "a sweet treat you eat on a birthday",
+      "sentence": "We ate cake at the party.",
+      "emoji": "🎂"
+    },
+    {
+      "word": "bird",
+      "level": 2,
+      "meaning": "an animal with feathers and wings",
+      "sentence": "A bird sang in the tree.",
+      "emoji": "🐦"
+    },
+    {
+      "word": "duck",
+      "level": 2,
+      "meaning": "a bird that swims and says quack",
+      "sentence": "The duck swam on the pond.",
+      "emoji": "🦆"
+    },
+    {
+      "word": "apple",
+      "level": 3,
+      "meaning": "a round red or green fruit that grows on trees",
+      "sentence": "I ate a crunchy apple.",
+      "emoji": "🍎"
+    },
+    {
+      "word": "house",
+      "level": 3,
+      "meaning": "a building where a family lives",
+      "sentence": "Our house has a blue door.",
+      "emoji": "🏠"
+    },
+    {
+      "word": "horse",
+      "level": 3,
+      "meaning": "a big animal you can ride that says neigh",
+      "sentence": "The horse ate some hay.",
+      "emoji": "🐴"
+    },
+    {
+      "word": "mouse",
+      "level": 3,
+      "meaning": "a tiny animal with a long tail that squeaks",
+      "sentence": "A mouse hid in the barn.",
+      "emoji": "🐭"
+    },
+    {
+      "word": "water",
+      "level": 3,
+      "meaning": "you drink it, and rivers and seas are full of it",
+      "sentence": "I drink a glass of water.",
+      "emoji": "💧"
+    },
+    {
+      "word": "plant",
+      "level": 3,
+      "meaning": "a living thing with roots and leaves that grows in soil",
+      "sentence": "We water the plant every week.",
+      "emoji": "🌱"
+    },
+    {
+      "word": "chair",
+      "level": 3,
+      "meaning": "you sit on it",
+      "sentence": "Please sit on the chair.",
+      "emoji": "🪑"
+    },
+    {
+      "word": "clock",
+      "level": 3,
+      "meaning": "it shows you what time it is",
+      "sentence": "The clock says it is nine.",
+      "emoji": "🕒"
+    },
+    {
+      "word": "train",
+      "level": 3,
+      "meaning": "a long vehicle that runs on tracks",
+      "sentence": "The train goes choo choo.",
+      "emoji": "🚂"
+    },
+    {
+      "word": "cloud",
+      "level": 3,
+      "meaning": "a soft white shape floating high in the sky",
+      "sentence": "A big cloud floated by.",
+      "emoji": "☁️"
+    }
+  ]
+}

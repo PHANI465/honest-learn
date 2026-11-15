@@ -150,6 +150,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `routes/auth.ts` | `/auth/signup`, `login`, `verify-email`, `resend-verification`, `forgot-password`, `reset-password`, `reset-pin`, `parent-unlock` |
 | `routes/learn.ts` | `/family`, `/children/:id/home` (includes up to 3 gentle "Try next" suggestions), `lessons`, `lessons/:lessonId` (+ `/hint`, `/check`, `/complete`, `/learn-more`), `resources`, `practice`, `facts` (random quick facts with a source link; no secrets) |
 | `routes/puzzles.ts` | `/children/:id/puzzles` (+ `/hint`, `/check`, `/complete`) |
+| `routes/spelling.ts` | `/children/:id/spelling/today`, `/spelling/check` (daily words, Leitner boxes) |
 | `routes/usage.ts` | `/children/:id/usage`, `/usage/tick` |
 | `routes/tutor.ts` | `/children/:id/tutor/:lessonId` (Hoot), `/reports` |
 | `routes/parent.ts` | `/parent/overview`, `children` (add, edit, delete, bonus time, chats), `children/:id/outcomes` (what the child knows, per goal: not started / practising / strong), `reports`, `pin`, `settings`, `password` (change it; needs the current one), `sign-out-everywhere`, `export`, `account` (delete; needs the account password) |
@@ -174,6 +175,7 @@ Until the setting `LAUNCH=true`, the server runs in **pre-launch mode**: draft l
 | `tutor_messages` | Hoot chats (flagged ones marked) |
 | `auth_codes` | Hashed email codes |
 | `usage` | Minutes and bonus minutes per child per day |
+| `spelling_progress`, `spelling_days` | Which spelling words each child practises, when each is due again, and the words chosen for each day |
 | `reports` | "Report a problem" submissions |
 | `app_settings` | The generated sign-in secret (pre-launch / zero-config) |
 

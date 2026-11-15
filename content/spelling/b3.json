@@ -1,0 +1,183 @@
+{
+  "band": "b3",
+  "status": "draft",
+  "source": {
+    "title": "Common English words chosen for each age group (starter list). Meanings and sentences are original to this project.",
+    "url": "https://en.wikipedia.org/wiki/Dolch_word_list",
+    "license": "Reference only (the page describes the kind of list this was modelled on). No list was copied: words, meanings and sentences were written for this project and are released with it."
+  },
+  "words": [
+    {
+      "word": "library",
+      "level": 1,
+      "meaning": "a place where you can borrow books",
+      "sentence": "I borrowed three books from the library."
+    },
+    {
+      "word": "surprise",
+      "level": 1,
+      "meaning": "something you did not expect",
+      "sentence": "The party was a big surprise."
+    },
+    {
+      "word": "island",
+      "level": 1,
+      "meaning": "land with water all the way around it",
+      "sentence": "We sailed to a small island.",
+      "tip": "An island is land."
+    },
+    {
+      "word": "straight",
+      "level": 1,
+      "meaning": "going one way without bending or turning",
+      "sentence": "Draw a straight line with the ruler."
+    },
+    {
+      "word": "strength",
+      "level": 1,
+      "meaning": "how strong someone or something is",
+      "sentence": "It takes strength to lift the box."
+    },
+    {
+      "word": "build",
+      "level": 1,
+      "meaning": "to make something by putting parts together",
+      "sentence": "We will build a tree house."
+    },
+    {
+      "word": "height",
+      "level": 1,
+      "meaning": "how tall something is",
+      "sentence": "The height of the old tree surprised us."
+    },
+    {
+      "word": "imagine",
+      "level": 1,
+      "meaning": "to picture something in your mind",
+      "sentence": "Imagine a castle in the clouds."
+    },
+    {
+      "word": "minute",
+      "level": 1,
+      "meaning": "a short time of sixty seconds",
+      "sentence": "Wait one minute, please."
+    },
+    {
+      "word": "disappear",
+      "level": 1,
+      "meaning": "to go out of sight",
+      "sentence": "The magician made the coin disappear."
+    },
+    {
+      "word": "separate",
+      "level": 2,
+      "meaning": "kept apart, not joined together",
+      "sentence": "Put the red and blue pens in separate boxes.",
+      "tip": "There is 'a rat' in sep-a-rat-e."
+    },
+    {
+      "word": "different",
+      "level": 2,
+      "meaning": "not the same",
+      "sentence": "Cats and dogs are different animals."
+    },
+    {
+      "word": "interesting",
+      "level": 2,
+      "meaning": "something that holds your attention",
+      "sentence": "That was an interesting story."
+    },
+    {
+      "word": "calendar",
+      "level": 2,
+      "meaning": "a chart that shows the days, weeks and months of a year",
+      "sentence": "I wrote the date on the calendar."
+    },
+    {
+      "word": "nervous",
+      "level": 2,
+      "meaning": "a little afraid or worried about something",
+      "sentence": "I felt nervous before the show."
+    },
+    {
+      "word": "question",
+      "level": 2,
+      "meaning": "something you ask when you want to know",
+      "sentence": "May I ask a question?"
+    },
+    {
+      "word": "experiment",
+      "level": 2,
+      "meaning": "a test to find something out in science",
+      "sentence": "We did an experiment with magnets."
+    },
+    {
+      "word": "exercise",
+      "level": 2,
+      "meaning": "moving your body to stay fit",
+      "sentence": "I do some exercise every morning."
+    },
+    {
+      "word": "necessary",
+      "level": 3,
+      "meaning": "needed, something you must have",
+      "sentence": "Water is necessary for plants to grow.",
+      "tip": "One collar and two sleeves: one c and two s."
+    },
+    {
+      "word": "environment",
+      "level": 3,
+      "meaning": "the natural world around us",
+      "sentence": "We should look after the environment."
+    },
+    {
+      "word": "government",
+      "level": 3,
+      "meaning": "the group of people who run a country",
+      "sentence": "The government makes new laws."
+    },
+    {
+      "word": "knowledge",
+      "level": 3,
+      "meaning": "what you know from learning and experience",
+      "sentence": "Reading builds your knowledge."
+    },
+    {
+      "word": "communicate",
+      "level": 3,
+      "meaning": "to share ideas or news with other people",
+      "sentence": "We can communicate by phone or letter."
+    },
+    {
+      "word": "definitely",
+      "level": 3,
+      "meaning": "without any doubt",
+      "sentence": "I will definitely be there.",
+      "tip": "There is 'finite' inside de-finite-ly."
+    },
+    {
+      "word": "recommend",
+      "level": 3,
+      "meaning": "to say that something is good and worth trying",
+      "sentence": "I recommend this book."
+    },
+    {
+      "word": "restaurant",
+      "level": 3,
+      "meaning": "a place where you pay to eat a meal",
+      "sentence": "We ate dinner at a restaurant."
+    },
+    {
+      "word": "successful",
+      "level": 3,
+      "meaning": "having done what you hoped to do",
+      "sentence": "The school fair was successful."
+    },
+    {
+      "word": "temperature",
+      "level": 3,
+      "meaning": "how hot or cold something is",
+      "sentence": "The temperature dropped overnight."
+    }
+  ]
+}

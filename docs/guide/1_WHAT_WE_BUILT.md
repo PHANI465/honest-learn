@@ -29,6 +29,7 @@ The owner made these decisions at the start:
 | Lessons | **205** (all *draft* until two human reviewers approve them) |
 | Quiz questions | **591**, each with 3 hints (nudge → bigger hint → worked example of a different problem) |
 | Brain puzzles | **68** IQ-style practice puzzles in 5 age sets (never an IQ score) |
+| Daily spelling | **148** starter words in 5 age lists (3 to 10 words a day by age, three levels, missed words come back); the target is 120+ per list |
 | Quick facts | **200** short true facts (40 per age group), each with a source link, shown after a lesson or quiz and on the child home (draft until reviewed) |
 | Free resources | **27** hand-picked free websites (Khan Academy, PhET, Scratch, NASA Space Place, OpenStax…) |
 | Helplines | **15** countries, for Hoot's safety replies (to be verified before launch) |

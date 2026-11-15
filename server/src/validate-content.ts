@@ -5,7 +5,7 @@ import { loadContent } from "./content.ts";
 import { loadHelplines } from "./tutor.ts";
 
 try {
-  const { lessons, map, puzzles, resources, facts } = loadContent(config.contentDir);
+  const { lessons, map, puzzles, resources, facts, spelling } = loadContent(config.contentDir);
   const helplines = loadHelplines(config.contentDir);
   const byStatus = { draft: 0, reviewed: 0 };
   for (const l of lessons.values()) byStatus[l.status]++;
@@ -47,12 +47,17 @@ try {
     }
   }
   if (factProblems.length) throw new Error("Fact problems:\n- " + factProblems.join("\n- "));
+  // Spelling: every group should reach 120 words (T3); a shorter list still works but repeats sooner.
+  for (const set of spelling.values()) {
+    if (set.words.length < 120) console.log(`⚠️  Spelling list for ${set.band} has ${set.words.length} words (the target is at least 120).`);
+  }
   console.log(`Warnings: ${leaks.length} hint(s) may contain the answer; ${longest.length} question(s) where the correct option is strictly the longest.`);
   console.log(
     `OK — ${lessons.size} lessons (${byStatus.reviewed} reviewed, ${byStatus.draft} draft). ` +
       `Outcomes covered: ${covered.size}/${totalOutcomes}. ` +
       `Puzzles: ${[...puzzles.values()].reduce((n, p) => n + p.puzzles.length, 0)} in ${puzzles.size} sets. Free resources: ${resources.length}. ` +
       `Facts: ${[...facts.values()].reduce((n, f) => n + f.facts.length, 0)} in ${facts.size} sets. ` +
+      `Spelling words: ${[...spelling.values()].reduce((n, s) => n + s.words.length, 0)} in ${spelling.size} lists. ` +
       `Helplines: ${Object.keys(helplines.countries).length} countries (${helplines.status}).`,
   );
 } catch (e) {

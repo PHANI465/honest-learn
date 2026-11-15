@@ -108,7 +108,7 @@ export function learnRoutes(ctx: Ctx) {
         suggested.push({ ...lessonSummary(l), reason: bestById.has(l.id) ? "practise" : "new" });
       }
     }
-    return c.json({ child: childPublic(child), band: bandInfo, subjects, reviewDue, next: next ? lessonSummary(next) : null, suggested, totals });
+    return c.json({ child: childPublic(child), band: bandInfo, subjects, reviewDue, next: next ? lessonSummary(next) : null, suggested, totals, spellingAvailable: (() => { const set = content.spelling.get(band); return !!set && (set.status === "reviewed" || config.showDrafts); })() });
   });
 
   r.get("/children/:childId/lessons", async (c) => {

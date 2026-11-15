@@ -1,0 +1,200 @@
+{
+  "band": "b2",
+  "status": "draft",
+  "source": {
+    "title": "Common English words chosen for each age group (starter list). Meanings and sentences are original to this project.",
+    "url": "https://en.wikipedia.org/wiki/Dolch_word_list",
+    "license": "Reference only (the page describes the kind of list this was modelled on). No list was copied: words, meanings and sentences were written for this project and are released with it."
+  },
+  "words": [
+    {
+      "word": "said",
+      "level": 1,
+      "meaning": "spoke, like when you tell someone something",
+      "sentence": "Mum said it is time for tea."
+    },
+    {
+      "word": "were",
+      "level": 1,
+      "meaning": "the past of 'are'",
+      "sentence": "We were at the park all day."
+    },
+    {
+      "word": "they",
+      "level": 1,
+      "meaning": "a word for more than one person you are talking about",
+      "sentence": "They went to the shops."
+    },
+    {
+      "word": "come",
+      "level": 1,
+      "meaning": "to move toward the person who is speaking",
+      "sentence": "Please come and sit with us."
+    },
+    {
+      "word": "some",
+      "level": 1,
+      "meaning": "a few, but not all",
+      "sentence": "I would like some milk."
+    },
+    {
+      "word": "walk",
+      "level": 1,
+      "meaning": "to move on your feet at a slow pace",
+      "sentence": "We walk to school each day.",
+      "tip": "There is a silent 'l' in the middle."
+    },
+    {
+      "word": "talk",
+      "level": 1,
+      "meaning": "to say words to someone",
+      "sentence": "Let us talk about your day.",
+      "tip": "There is a silent 'l' in the middle."
+    },
+    {
+      "word": "want",
+      "level": 1,
+      "meaning": "to wish to have something",
+      "sentence": "I want a drink of water."
+    },
+    {
+      "word": "give",
+      "level": 1,
+      "meaning": "to hand something to someone to keep",
+      "sentence": "Please give me the pencil."
+    },
+    {
+      "word": "live",
+      "level": 1,
+      "meaning": "to have your home somewhere",
+      "sentence": "Where do you live?"
+    },
+    {
+      "word": "because",
+      "level": 2,
+      "meaning": "a word that tells the reason for something",
+      "sentence": "I wore a coat because it was cold.",
+      "tip": "Big Elephants Can Always Understand Small Elephants."
+    },
+    {
+      "word": "friend",
+      "level": 2,
+      "meaning": "someone you like and enjoy being with",
+      "sentence": "My friend came to play.",
+      "tip": "You find a fri-END at the end."
+    },
+    {
+      "word": "people",
+      "level": 2,
+      "meaning": "men, women and children",
+      "sentence": "Many people were at the market."
+    },
+    {
+      "word": "school",
+      "level": 2,
+      "meaning": "a place where children go to learn",
+      "sentence": "We learn to read at school."
+    },
+    {
+      "word": "would",
+      "level": 2,
+      "meaning": "a word used to say what could happen or what you want",
+      "sentence": "I would like some juice.",
+      "tip": "Oh U Lucky Duck."
+    },
+    {
+      "word": "could",
+      "level": 2,
+      "meaning": "a word that says you were able to",
+      "sentence": "I could see the moon last night.",
+      "tip": "Oh U Lucky Duck."
+    },
+    {
+      "word": "should",
+      "level": 2,
+      "meaning": "a word that says what is the right thing to do",
+      "sentence": "You should brush your teeth.",
+      "tip": "Oh U Lucky Duck."
+    },
+    {
+      "word": "again",
+      "level": 2,
+      "meaning": "one more time",
+      "sentence": "Please read the story again."
+    },
+    {
+      "word": "always",
+      "level": 2,
+      "meaning": "every time, without ever stopping",
+      "sentence": "The sun always rises in the morning."
+    },
+    {
+      "word": "every",
+      "level": 2,
+      "meaning": "each one of a group",
+      "sentence": "I brush my teeth every day."
+    },
+    {
+      "word": "beautiful",
+      "level": 3,
+      "meaning": "very pretty to look at",
+      "sentence": "The garden looks beautiful in spring.",
+      "tip": "Big Elephants Always Understand Things If Fed Up Lunches."
+    },
+    {
+      "word": "together",
+      "level": 3,
+      "meaning": "with each other, not alone",
+      "sentence": "We played together all afternoon."
+    },
+    {
+      "word": "another",
+      "level": 3,
+      "meaning": "one more, or a different one",
+      "sentence": "May I have another slice of bread?"
+    },
+    {
+      "word": "thought",
+      "level": 3,
+      "meaning": "had an idea or an opinion in your mind",
+      "sentence": "I thought it would rain today."
+    },
+    {
+      "word": "enough",
+      "level": 3,
+      "meaning": "as much as you need",
+      "sentence": "We have enough chairs for everyone."
+    },
+    {
+      "word": "yesterday",
+      "level": 3,
+      "meaning": "the day before today",
+      "sentence": "We went to the zoo yesterday."
+    },
+    {
+      "word": "umbrella",
+      "level": 3,
+      "meaning": "you hold it over your head to stay dry in the rain",
+      "sentence": "Take an umbrella, it might rain."
+    },
+    {
+      "word": "important",
+      "level": 3,
+      "meaning": "something that matters a lot",
+      "sentence": "It is important to drink water."
+    },
+    {
+      "word": "answer",
+      "level": 3,
+      "meaning": "what you say or write when someone asks a question",
+      "sentence": "Do you know the answer?",
+      "tip": "There is a silent 'w' in the middle."
+    },
+    {
+      "word": "busy",
+      "level": 3,
+      "meaning": "having a lot to do",
+      "sentence": "Dad is busy cooking dinner."
+    }
+  ]
+}

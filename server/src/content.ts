@@ -81,6 +81,30 @@ export const FactSet = z.object({
 export type Fact = z.infer<typeof Fact>;
 export type FactSet = z.infer<typeof FactSet>;
 
+/**
+ * Daily spelling words. The spelling itself is only sent to the app after the child has tried, so the
+ * meaning and sentence are what the child sees first. `word` is lower-case letters only.
+ */
+export const SpellingWord = z.object({
+  word: z.string().regex(/^[a-z]{2,20}$/),
+  level: z.number().int().min(1).max(3),
+  meaning: z.string().min(3).max(160),
+  /** A sentence that contains the word. The app shows it with the word blanked out. */
+  sentence: z.string().min(5).max(200),
+  tip: z.string().min(3).max(200).optional(),
+  /** Picture clue for the youngest group. */
+  emoji: z.string().max(8).optional(),
+});
+export const SpellingSet = z.object({
+  band: z.enum(["b1", "b2", "b3", "b4", "b5"]),
+  status: z.enum(["draft", "reviewed"]),
+  /** Where the words come from and under what licence. */
+  source: z.object({ title: z.string().min(1), url: z.string().url().startsWith("https://"), license: z.string().min(1) }),
+  words: z.array(SpellingWord).min(1),
+});
+export type SpellingWord = z.infer<typeof SpellingWord>;
+export type SpellingSet = z.infer<typeof SpellingSet>;
+
 export const Lesson = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   title: z.string().min(1),
@@ -113,6 +137,7 @@ export interface ContentStore {
   resources: Resource[];
   puzzles: Map<string, PuzzleSet>;
   facts: Map<string, FactSet>;
+  spelling: Map<string, SpellingSet>;
 }
 
 function walk(dir: string): string[] {
@@ -215,8 +240,30 @@ export function loadContent(contentDir: string): ContentStore {
     }
   }
 
+  const spelling = new Map<string, SpellingSet>();
+  const spellDir = join(contentDir, "spelling");
+  if (existsSync(spellDir)) {
+    for (const file of walk(spellDir)) {
+      const parsed = SpellingSet.safeParse(JSON.parse(readFileSync(file, "utf8")));
+      if (!parsed.success) {
+        problems.push(`${file}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`);
+        continue;
+      }
+      if (spelling.has(parsed.data.band)) problems.push(`${file}: second spelling set for ${parsed.data.band}`);
+      const seenWords = new Set<string>();
+      for (const w of parsed.data.words) {
+        if (seenWords.has(w.word)) problems.push(`${file}: duplicate word ${w.word}`);
+        seenWords.add(w.word);
+        // The sentence must contain the word (so it can be blanked) and the meaning must not (it would give the word away).
+        if (!new RegExp(`\\b${w.word}\\b`, "i").test(w.sentence)) problems.push(`${file}: the sentence for "${w.word}" does not contain it`);
+        if (new RegExp(`\\b${w.word}\\b`, "i").test(w.meaning)) problems.push(`${file}: the meaning of "${w.word}" contains the word`);
+      }
+      spelling.set(parsed.data.band, parsed.data);
+    }
+  }
+
   if (problems.length) throw new Error("Content problems:\n- " + problems.join("\n- "));
-  return { map, lessons, resources, puzzles, facts };
+  return { map, lessons, resources, puzzles, facts, spelling };
 }
 
 /**

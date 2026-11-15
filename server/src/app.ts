@@ -4,6 +4,7 @@
 //   routes/auth.ts     /auth/*                                   sign up, sign in, codes, PIN unlock
 //   routes/learn.ts    /family, /children/:id/lessons, quizzes  family token (the signed-in device)
 //   routes/puzzles.ts  /children/:id/puzzles/*                   family token
+//   routes/spelling.ts /children/:id/spelling/*                  family token
 //   routes/usage.ts    /children/:id/usage*                      family token
 //   routes/tutor.ts    /children/:id/tutor/*, /reports           family token
 //   routes/parent.ts   /parent/*                                 parent token (from the PIN, 10 minutes)
@@ -26,6 +27,7 @@ import { publicRoutes } from "./routes/public.ts";
 import { authRoutes } from "./routes/auth.ts";
 import { learnRoutes } from "./routes/learn.ts";
 import { puzzleRoutes } from "./routes/puzzles.ts";
+import { spellingRoutes } from "./routes/spelling.ts";
 import { usageRoutes } from "./routes/usage.ts";
 import { tutorRoutes } from "./routes/tutor.ts";
 import { parentRoutes } from "./routes/parent.ts";
@@ -100,6 +102,7 @@ export function createApp(deps: { db: DB; content: ContentStore; tutor: TutorPro
   app.route("/auth", authRoutes(ctx));
   app.route("/", learnRoutes(ctx));
   app.route("/", puzzleRoutes(ctx));
+  app.route("/", spellingRoutes(ctx));
   app.route("/", usageRoutes(ctx));
   app.route("/", tutorRoutes(ctx));
   app.route("/parent", parentRoutes(ctx));

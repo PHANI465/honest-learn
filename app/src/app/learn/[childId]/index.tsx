@@ -16,6 +16,7 @@ interface Home {
   band: Band;
   subjects: Subject[];
   reviewDue: LessonSummary[];
+  spellingAvailable?: boolean;
   next?: LessonSummary | null;
   /** Gentle ideas for what to try next (older cached copies may not have it). */
   suggested?: SuggestedLesson[];
@@ -178,6 +179,17 @@ export default function ChildHome() {
             )
           ) : null}
         </View>
+      ) : null}
+
+      {home.spellingAvailable ? (
+        <Card onPress={() => router.push(`/learn/${childId}/spelling`)} label="Today's words" style={{ borderRadius: t.radius, flexDirection: "row", alignItems: "center", gap: 12, borderColor: t.accent, borderWidth: 2 }}>
+          <Emoji size={36}>✏️</Emoji>
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>Today's words</Text>
+            <Text style={{ color: colors.muted, fontSize: 13 }}>{young ? "Listen, then spell" : "A few words to spell, and the ones to practise again"}</Text>
+          </View>
+          <Text style={{ fontSize: 22, color: colors.muted }} aria-hidden accessibilityElementsHidden importantForAccessibility="no">›</Text>
+        </Card>
       ) : null}
 
       <Card onPress={() => router.push(`/learn/${childId}/puzzles`)} label="Brain puzzles" style={{ borderRadius: t.radius, flexDirection: "row", alignItems: "center", gap: 12, borderColor: t.accent, borderWidth: 2 }}>

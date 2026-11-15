@@ -124,6 +124,22 @@ const TABLES = [
   last_tick   TEXT,
   PRIMARY KEY (child_id, day)
 )`,
+  // daily spelling: where each word is in its Leitner box and when it is due (see spelling.ts)
+  `CREATE TABLE IF NOT EXISTS spelling_progress (
+  child_id    TEXT NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  word        TEXT NOT NULL,
+  box         INTEGER NOT NULL DEFAULT 0,
+  due         TEXT NOT NULL,
+  last_day    TEXT,
+  PRIMARY KEY (child_id, word)
+)`,
+  // the words chosen for a child on a day, kept so reloading never changes the set
+  `CREATE TABLE IF NOT EXISTS spelling_days (
+  child_id    TEXT NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  day         TEXT NOT NULL,
+  words       TEXT NOT NULL,
+  PRIMARY KEY (child_id, day)
+)`,
   `CREATE TABLE IF NOT EXISTS reports (
   id          TEXT PRIMARY KEY,
   parent_id   TEXT NOT NULL REFERENCES parents(id) ON DELETE CASCADE,

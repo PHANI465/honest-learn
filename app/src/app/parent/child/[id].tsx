@@ -77,6 +77,8 @@ function SettingsForm({ child }: { child: Child }) {
 
       <KnowledgeSection childId={draft.id} nickname={draft.nickname} />
 
+      <SpellingSection childId={draft.id} nickname={draft.nickname} />
+
       <H2>Learning level</H2>
       <Card>
         <P muted size={14}>By age ({draft.age}) {draft.nickname} is in {ageBand?.name}. If they're ahead or need more practice, choose a different level.</P>
@@ -153,6 +155,37 @@ function SettingsForm({ child }: { child: Child }) {
       <Button big title="Save changes" onPress={save} />
       <Button title="Delete this profile" kind="danger" onPress={remove} />
     </Screen>
+  );
+}
+
+/** "Words learned": spelling words spelled right at least twice, and how many are still being practised. Hidden if there is no word list yet. */
+function SpellingSection({ childId, nickname }: { childId: string; nickname: string }) {
+  const { parentApi } = useSession();
+  const [data, setData] = useState<{ available: boolean; learned: number; practising: number; total: number } | null>(null);
+
+  useEffect(() => {
+    let live = true;
+    parentApi<{ available: boolean; learned: number; practising: number; total: number }>("GET", `/children/${childId}/spelling`)
+      .then((r) => live && setData(r))
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, [parentApi, childId]);
+
+  if (!data?.available) return null;
+  return (
+    <>
+      <H2>Words learned</H2>
+      <Card>
+        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 6 }}>
+          <Pill text={`${data.learned} learned`} color={colors.good} bg={colors.goodSoft} />
+          <Pill text={`${data.practising} being practised`} color={colors.warn} bg={colors.warnSoft} />
+          <Pill text={`${data.total} words in the list`} />
+        </View>
+        <P muted size={14}>{nickname} practises a few spelling words a day. A word counts as learned after it has been spelled right at least twice in a row. There are no streaks, and missed days are never mentioned to your child.</P>
+      </Card>
+    </>
   );
 }
 

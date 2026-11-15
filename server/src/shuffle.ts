@@ -25,3 +25,14 @@ export function optionOrder(childId: string, lessonId: string, question: number,
   }
   return order;
 }
+
+/** A repeatable shuffle: the same seed always gives the same order. */
+export function seededShuffle<T>(seed: string, items: readonly T[]): T[] {
+  const rand = seeded(seed);
+  const out = [...items];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [out[i], out[j]] = [out[j]!, out[i]!];
+  }
+  return out;
+}

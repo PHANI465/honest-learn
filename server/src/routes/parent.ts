@@ -136,6 +136,20 @@ export function parentRoutes(ctx: Ctx) {
   });
 
   /** What this child knows: every knowledge-map outcome for their age group with a calm status (no scores, no ranking). */
+  /** Spelling words for the parent's view: how many are learned (spelled right at least twice in a row) and how many are being practised. */
+  r.get("/children/:childId/spelling", async (c) => {
+    const child = await loadChild(c);
+    if (!child) return c.json({ error: "child_not_found" }, 404);
+    const rows = await db.all<{ box: number }>("SELECT box FROM spelling_progress WHERE child_id = ?", [child.id]);
+    const set = content.spelling.get(childBand(child));
+    return c.json({
+      available: !!set,
+      learned: rows.filter((x) => x.box >= 2).length,
+      practising: rows.filter((x) => x.box < 2).length,
+      total: set?.words.length ?? 0,
+    });
+  });
+
   r.get("/children/:childId/outcomes", async (c) => {
     const child = await loadChild(c);
     if (!child) return c.json({ error: "child_not_found" }, 404);
@@ -236,6 +250,7 @@ export function parentRoutes(ctx: Ctx) {
       usageMinutes: await per("SELECT child_id, day, minutes, bonus FROM usage WHERE child_id = ?"),
       solvedQuizQuestions: await per("SELECT child_id, lesson_id, q_index, solved_at FROM quiz_solved WHERE child_id = ?"),
       hintsOpened: await per("SELECT child_id, item_id, q_index, level FROM hints_seen WHERE child_id = ?"),
+      spellingProgress: await per("SELECT child_id, word, box, due, last_day FROM spelling_progress WHERE child_id = ?"),
     });
   });
 

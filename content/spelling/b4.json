@@ -1,0 +1,197 @@
+{
+  "band": "b4",
+  "status": "draft",
+  "source": {
+    "title": "Common English words chosen for each age group (starter list). Meanings and sentences are original to this project.",
+    "url": "https://en.wikipedia.org/wiki/Dolch_word_list",
+    "license": "Reference only (the page describes the kind of list this was modelled on). No list was copied: words, meanings and sentences were written for this project and are released with it."
+  },
+  "words": [
+    {
+      "word": "necessary",
+      "level": 1,
+      "meaning": "needed, something you must have",
+      "sentence": "It is necessary to wear a seatbelt.",
+      "tip": "One collar and two sleeves: one c and two s."
+    },
+    {
+      "word": "separate",
+      "level": 1,
+      "meaning": "kept apart, not joined together",
+      "sentence": "Sort the recycling into separate bins.",
+      "tip": "There is 'a rat' in sep-a-rat-e."
+    },
+    {
+      "word": "definitely",
+      "level": 1,
+      "meaning": "without any doubt",
+      "sentence": "It will definitely rain tomorrow.",
+      "tip": "There is 'finite' inside de-finite-ly."
+    },
+    {
+      "word": "environment",
+      "level": 1,
+      "meaning": "the natural world and surroundings",
+      "sentence": "Plastic waste harms the environment."
+    },
+    {
+      "word": "government",
+      "level": 1,
+      "meaning": "the people who run a country",
+      "sentence": "The government announced a new law."
+    },
+    {
+      "word": "knowledge",
+      "level": 1,
+      "meaning": "what you know through learning",
+      "sentence": "Knowledge grows when you ask questions."
+    },
+    {
+      "word": "calendar",
+      "level": 1,
+      "meaning": "a chart of the days and months of a year",
+      "sentence": "The exam is marked on the calendar."
+    },
+    {
+      "word": "embarrass",
+      "level": 1,
+      "meaning": "to make someone feel awkward or ashamed",
+      "sentence": "Please do not embarrass your brother."
+    },
+    {
+      "word": "occasion",
+      "level": 1,
+      "meaning": "a special event or time",
+      "sentence": "Her birthday is a special occasion."
+    },
+    {
+      "word": "restaurant",
+      "level": 1,
+      "meaning": "a place where you pay for a meal",
+      "sentence": "The restaurant is busy on Fridays."
+    },
+    {
+      "word": "accommodate",
+      "level": 2,
+      "meaning": "to provide room or space for",
+      "sentence": "The hall can accommodate two hundred people.",
+      "tip": "Two c's and two m's."
+    },
+    {
+      "word": "secretary",
+      "level": 2,
+      "meaning": "a person who handles letters, calls and meetings for an office",
+      "sentence": "The secretary booked the meeting."
+    },
+    {
+      "word": "queue",
+      "level": 2,
+      "meaning": "a line of people waiting",
+      "sentence": "A long queue formed at the door."
+    },
+    {
+      "word": "rhythm",
+      "level": 2,
+      "meaning": "a repeating pattern of beats in music",
+      "sentence": "The drummer kept a steady rhythm.",
+      "tip": "Rhythm Helps Your Two Hips Move."
+    },
+    {
+      "word": "familiar",
+      "level": 2,
+      "meaning": "well known to you",
+      "sentence": "That tune sounds familiar."
+    },
+    {
+      "word": "privilege",
+      "level": 2,
+      "meaning": "a special right or advantage",
+      "sentence": "Voting is a privilege and a responsibility."
+    },
+    {
+      "word": "vacuum",
+      "level": 2,
+      "meaning": "a space with no air in it",
+      "sentence": "Sound cannot travel through a vacuum."
+    },
+    {
+      "word": "mischievous",
+      "level": 2,
+      "meaning": "playfully naughty",
+      "sentence": "The mischievous puppy hid my shoe."
+    },
+    {
+      "word": "committee",
+      "level": 2,
+      "meaning": "a small group chosen to make decisions",
+      "sentence": "The committee met on Monday.",
+      "tip": "Two m's, two t's, two e's."
+    },
+    {
+      "word": "guarantee",
+      "level": 2,
+      "meaning": "a firm promise that something will happen",
+      "sentence": "The shop gave a one-year guarantee."
+    },
+    {
+      "word": "conscientious",
+      "level": 3,
+      "meaning": "careful and thorough about doing your work",
+      "sentence": "She is a conscientious student."
+    },
+    {
+      "word": "bureaucracy",
+      "level": 3,
+      "meaning": "a system with many rules and officials",
+      "sentence": "Getting the form approved meant fighting the bureaucracy."
+    },
+    {
+      "word": "miscellaneous",
+      "level": 3,
+      "meaning": "made up of different kinds",
+      "sentence": "The box held miscellaneous items."
+    },
+    {
+      "word": "acquaintance",
+      "level": 3,
+      "meaning": "a person you know slightly",
+      "sentence": "He is an acquaintance, not a close friend."
+    },
+    {
+      "word": "entrepreneur",
+      "level": 3,
+      "meaning": "a person who starts a business",
+      "sentence": "The entrepreneur opened her first shop at nineteen."
+    },
+    {
+      "word": "questionnaire",
+      "level": 3,
+      "meaning": "a list of questions used to collect information",
+      "sentence": "Please fill in the questionnaire."
+    },
+    {
+      "word": "surveillance",
+      "level": 3,
+      "meaning": "careful watching of a person or place",
+      "sentence": "The shop has camera surveillance."
+    },
+    {
+      "word": "maintenance",
+      "level": 3,
+      "meaning": "the work of keeping something in good condition",
+      "sentence": "The bridge is closed for maintenance."
+    },
+    {
+      "word": "pronunciation",
+      "level": 3,
+      "meaning": "the way a word is said aloud",
+      "sentence": "Her pronunciation of French is excellent."
+    },
+    {
+      "word": "sophisticated",
+      "level": 3,
+      "meaning": "complex and advanced",
+      "sentence": "The robot uses sophisticated sensors."
+    }
+  ]
+}

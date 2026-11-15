@@ -20,7 +20,7 @@ web export is served as static files and the API runs as one serverless function
 | Local server | `@hono/node-server` | `server/src/index.ts` (API only), `server/src/preview.ts` (API + static site on one port) | `npm run dev` at the root uses `preview.ts`. |
 | Vercel function | — | `api/index.ts` → `server/src/vercel.ts` | Also mounts `server/src/cron.ts` (data retention job). |
 | Database | `node:sqlite`, or Postgres via `@neondatabase/serverless`; PGlite in tests | `server/src/db.ts`, `db-neon.ts`, `open-db.ts` | One `DB` interface: `get`, `all`, `run`, `exec`. SQL is written to run on both. |
-| Curriculum | JSON validated with zod | `server/src/content.ts` (`loadContent`) | `content/knowledge-map.json`, `lessons/`, `puzzles/`, `facts/`, `resources.json`, `helplines.json`. |
+| Curriculum | JSON validated with zod | `server/src/content.ts` (`loadContent`) | `content/knowledge-map.json`, `lessons/`, `puzzles/`, `facts/`, `spelling/`, `resources.json`, `helplines.json`. |
 | AI helper ("Hoot") | Anthropic SDK, or any OpenAI-compatible server | `server/src/tutor.ts`, `server/src/tutor-openai.ts` | Selected by `TUTOR_MODE` (`claude`, `openai`, `mock`). |
 
 ## 3. Request path and trust model
@@ -117,6 +117,8 @@ See [`FREE_AGENTS.md`](FREE_AGENTS.md) for connecting Ollama or a hosted service
 | `quiz_solved` | `(child_id, lesson_id, q_index)` | Which questions were solved (lets Hoot explain afterwards) |
 | `hints_seen` | `(child_id, item_id, q_index)` | Highest hint level opened: the ladder's source of truth |
 | `usage` | `(child_id, day)` | Minutes, bonus minutes, last tick |
+| `spelling_progress` | `(child_id, word)` | Leitner box (0 to 4), due day, last day tried |
+| `spelling_days` | `(child_id, day)` | The words chosen for that child that day (kept so reloading never changes the set) |
 | `tutor_messages` | `id` | Hoot chats with `flagged`; purged after `CHAT_RETENTION_DAYS` |
 | `reports` | `id` | In-app reports (20 per family per day) |
 | `auth_codes` | `(parent_id, purpose)` | Hashed 6-digit email codes with attempts and expiry |

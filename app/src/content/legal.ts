@@ -43,7 +43,7 @@ This notice is for parents and legal guardians aged 18 or over. Children can't c
 - **Birth year**: just the year, not the full date of birth. We use it to pick the right lessons for their age.
 - **Avatar**: one of our animal pictures. We never ask for photos.
 - **Settings you choose**: level, which sensitive topics (religion, body, politics) are unlocked, whether Hoot is on, and the daily time limit.
-- **Learning progress**: which lessons and puzzles your child finished, their best score, number of tries, when they finished, when a lesson is due for review, and which quiz questions they answered correctly.
+- **Learning progress**: which lessons and puzzles your child finished, their best score, number of tries, when they finished, when a lesson is due for review, which quiz questions they answered correctly, and which spelling words they practised (with when each word is due to come back).
 - **Learning minutes**: minutes used each day and any extra minutes you gave, so the time limit works on every device. Deleted after 90 days.
 - **Hoot chats**: the messages your child types to Hoot and Hoot's replies, with a note when a message was flagged (for example, personal information or a worry about their wellbeing). You can read every chat. If Hoot spots personal information such as a phone number or address, we store "[removed: personal information]" instead of what was typed. Chats are deleted automatically after 365 days. [Lawyer: confirm this period.]
 - **Reports**: if you or your child report a lesson or a Hoot reply, we keep the reason, any details you add, and which lesson or message it was about.

@@ -1,0 +1,193 @@
+{
+  "band": "b5",
+  "status": "draft",
+  "source": {
+    "title": "Common English words chosen for each age group (starter list). Meanings and sentences are original to this project.",
+    "url": "https://en.wikipedia.org/wiki/Dolch_word_list",
+    "license": "Reference only (the page describes the kind of list this was modelled on). No list was copied: words, meanings and sentences were written for this project and are released with it."
+  },
+  "words": [
+    {
+      "word": "analysis",
+      "level": 1,
+      "meaning": "a careful study of something to understand it",
+      "sentence": "The analysis showed a clear pattern."
+    },
+    {
+      "word": "hypothesis",
+      "level": 1,
+      "meaning": "a suggested explanation that can be tested",
+      "sentence": "Our hypothesis was that plants grow faster in light."
+    },
+    {
+      "word": "evidence",
+      "level": 1,
+      "meaning": "facts or signs that show something is true",
+      "sentence": "The detective found new evidence."
+    },
+    {
+      "word": "approach",
+      "level": 1,
+      "meaning": "a way of dealing with a problem",
+      "sentence": "We tried a different approach."
+    },
+    {
+      "word": "significant",
+      "level": 1,
+      "meaning": "important or large enough to matter",
+      "sentence": "There was a significant rise in prices."
+    },
+    {
+      "word": "consequence",
+      "level": 1,
+      "meaning": "a result of something that happened",
+      "sentence": "Missing the bus had a consequence: she was late."
+    },
+    {
+      "word": "interpret",
+      "level": 1,
+      "meaning": "to explain what something means",
+      "sentence": "How do you interpret this poem?"
+    },
+    {
+      "word": "contrast",
+      "level": 1,
+      "meaning": "a clear difference between two things",
+      "sentence": "There is a strong contrast between the two designs."
+    },
+    {
+      "word": "technique",
+      "level": 1,
+      "meaning": "a particular way of doing a skill",
+      "sentence": "She learned a new painting technique."
+    },
+    {
+      "word": "sequence",
+      "level": 1,
+      "meaning": "a set of things that follow one another in order",
+      "sentence": "Put the steps in the right sequence."
+    },
+    {
+      "word": "phenomenon",
+      "level": 2,
+      "meaning": "something that can be seen or observed, especially something unusual",
+      "sentence": "The northern lights are a natural phenomenon."
+    },
+    {
+      "word": "legitimate",
+      "level": 2,
+      "meaning": "allowed by law or reasonable",
+      "sentence": "That is a legitimate question."
+    },
+    {
+      "word": "ambiguous",
+      "level": 2,
+      "meaning": "having more than one possible meaning",
+      "sentence": "The instructions were ambiguous."
+    },
+    {
+      "word": "fundamental",
+      "level": 2,
+      "meaning": "forming the basic part of something",
+      "sentence": "Honesty is fundamental to trust."
+    },
+    {
+      "word": "hierarchy",
+      "level": 2,
+      "meaning": "a system with people or things ranked above and below one another",
+      "sentence": "The company has a clear hierarchy."
+    },
+    {
+      "word": "perspective",
+      "level": 2,
+      "meaning": "a particular way of looking at something",
+      "sentence": "Try to see it from her perspective."
+    },
+    {
+      "word": "criterion",
+      "level": 2,
+      "meaning": "a standard used to judge something",
+      "sentence": "The first criterion for the prize is originality."
+    },
+    {
+      "word": "synthesis",
+      "level": 2,
+      "meaning": "combining separate parts to make a whole",
+      "sentence": "The essay is a synthesis of several studies."
+    },
+    {
+      "word": "paradigm",
+      "level": 2,
+      "meaning": "a typical model or pattern that guides how people think",
+      "sentence": "The discovery changed the scientific paradigm."
+    },
+    {
+      "word": "bureaucratic",
+      "level": 2,
+      "meaning": "involving a lot of official rules and paperwork",
+      "sentence": "The process was slow and bureaucratic."
+    },
+    {
+      "word": "psychology",
+      "level": 3,
+      "meaning": "the scientific study of the mind and how people act",
+      "sentence": "She is studying psychology at university.",
+      "tip": "Starts with a silent p."
+    },
+    {
+      "word": "unequivocal",
+      "level": 3,
+      "meaning": "clear, with no doubt about the meaning",
+      "sentence": "The result was an unequivocal success."
+    },
+    {
+      "word": "idiosyncrasy",
+      "level": 3,
+      "meaning": "a habit or feature that is peculiar to one person",
+      "sentence": "His idiosyncrasy is chewing on a pen."
+    },
+    {
+      "word": "juxtaposition",
+      "level": 3,
+      "meaning": "placing two things side by side to compare or contrast them",
+      "sentence": "The juxtaposition of old and new buildings is striking."
+    },
+    {
+      "word": "dichotomy",
+      "level": 3,
+      "meaning": "a split between two opposite things",
+      "sentence": "There is a dichotomy between what they say and what they do."
+    },
+    {
+      "word": "surreptitious",
+      "level": 3,
+      "meaning": "done secretly so that others do not notice",
+      "sentence": "He took a surreptitious glance at the clock."
+    },
+    {
+      "word": "ubiquitous",
+      "level": 3,
+      "meaning": "found everywhere",
+      "sentence": "Smartphones are now ubiquitous."
+    },
+    {
+      "word": "pharmaceutical",
+      "level": 3,
+      "meaning": "to do with medicines",
+      "sentence": "The pharmaceutical company tested a new medicine.",
+      "tip": "Starts with 'ph', not 'f'."
+    },
+    {
+      "word": "conscientiousness",
+      "level": 3,
+      "meaning": "the quality of being careful and hard-working",
+      "sentence": "Conscientiousness helps you finish what you start."
+    },
+    {
+      "word": "ephemeral",
+      "level": 3,
+      "meaning": "lasting only a very short time",
+      "sentence": "Soap bubbles are ephemeral."
+    }
+  ]
+}
