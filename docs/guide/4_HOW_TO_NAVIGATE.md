@@ -47,7 +47,7 @@ flowchart TD
 1. **Who's learning today?** Tap your avatar.
 2. **Home:** your progress (lessons, ⭐ stars, minutes left today), the **Keep going** card, **search** (ages 9+), **Brain puzzles**, then your **subjects**.
 3. **Subject:** its lessons (⭐ = all right first time, ✅ = done, ✏️ = still being checked by teachers), a **practice quiz**, and **more free learning** websites.
-3b. **🎲 Games** (from the home screen): Sudoku, chess puzzles, **Play chess** (against the computer, ages 6+: choose a level and a colour, take moves back, no timer or score) and the memory games. Each shows how many times you finished it, never a score.
+3b. **🎲 Games** (from the home screen): Sudoku, chess puzzles, **Play chess** (against the computer, ages 6+: choose a level and a colour, take moves back, ask for a hint that points at a piece, leave and carry on later, no timer or score) and the memory games. Each shows how many times you finished it, never a score.
 4. **Lesson:** read (or *Read it to me* for ages 3–8), then **Let's play the quiz!** Stuck? **💭 I need a hint**, up to three. *🦉 Ask Hoot* opens the helper (ages 6+, if allowed).
 5. **⚑ Report** on any lesson sends a problem to the team.
 
@@ -65,7 +65,7 @@ On the website every screen has an address, for example `/welcome`, `/profiles`,
 | Change **brain puzzles** | `content/puzzles/b1.json` … `b5.json` |
 | Change **chess puzzles** | `content/chess/l1.json` … `l3.json` are generated: edit `server/src/games/compose-chess.ts` and run `npm run compose:chess` in `server/`; every puzzle is re-proven by `npm run validate` and `npm test` |
 | Change the **memory and logic games** (sizes by age, pictures, shuffles) | `app/src/lib/games/*.ts` (rules, plain functions) and `app/src/app/learn/[childId]/games/*.tsx` (screens); tests in `server/test/memory-games.test.ts` |
-| Change **chess against the computer** (levels, wording, take back) | `server/src/games/computer-opponent.ts` (logic and the engine's levels; tested in `server/test/computer-opponent.test.ts`) and `app/src/app/learn/[childId]/games/computer.tsx` (the screen) |
+| Change **chess against the computer** (levels, wording, take back, hints, saving) | `server/src/games/computer-opponent.ts` (logic, the engine's levels, `pieceHint`, `readSavedGame`; tested in `server/test/computer-opponent.test.ts` and `server/test/chess-save.test.ts`), `app/src/app/learn/[childId]/games/computer.tsx` (the screen) and `app/src/lib/games/saved-chess.ts` (the saved game on the device) |
 | Add or change **sign language lessons** | `docs/SIGN_LANGUAGE.md` (what a reviewer must do first, the lesson template and the rules `npm run validate` enforces); code in `server/src/content.ts` and `server/src/models.ts` |
 | Change **Sudoku** (grid sizes, clue counts, hints) | `server/src/games/sudoku.ts`; the screen is `app/src/app/learn/[childId]/games/sudoku.tsx` |
 | Change **spelling words** | `content/spelling/b1.json` … `b5.json` (lower-case words, a meaning, a sentence containing the word) |

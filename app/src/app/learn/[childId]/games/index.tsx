@@ -4,6 +4,7 @@ import { Text, View } from "react-native";
 import { Button, Card, Emoji, H1, P, Screen } from "../../../../components/ui";
 import { NONO_SIZE } from "../../../../lib/games/nonogram";
 import { loadPlayed } from "../../../../lib/games/played";
+import { loadSavedChess } from "../../../../lib/games/saved-chess";
 import { useChild } from "../../../../lib/session";
 import { colors, scaledBandTheme } from "../../../../lib/theme";
 
@@ -35,12 +36,15 @@ export default function Games() {
   const { childId } = useLocalSearchParams<{ childId: string }>();
   const child = useChild(childId);
   const [played, setPlayed] = useState<Record<string, number>>({});
+  /** A chess game against the computer that was left unfinished (kept on this device). */
+  const [chessWaiting, setChessWaiting] = useState(false);
 
   // Reload whenever this screen comes back into view: a game that was just finished changes its count.
   useFocusEffect(
     useCallback(() => {
       let live = true;
       if (childId) void loadPlayed(childId).then((p) => live && setPlayed(p));
+      if (childId) void loadSavedChess(childId).then((g) => live && setChessWaiting(!!g));
       return () => {
         live = false;
       };
@@ -62,6 +66,7 @@ export default function Games() {
             <Text style={{ fontWeight: "800", fontSize: t.font, color: colors.ink }}>{g.title}</Text>
             <Text style={{ color: colors.muted, fontSize: 13 }}>
               {g.blurb(young)}
+              {g.id === "computer" && chessWaiting ? " · a game is waiting" : ""}
               {!g.online && played[g.id] ? ` · finished ${played[g.id]} ${played[g.id] === 1 ? "time" : "times"}` : ""}
             </Text>
           </View>

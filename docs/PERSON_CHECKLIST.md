@@ -160,7 +160,7 @@ None of these needs a person's expertise, only a decision to start.
 | **Stop a family's AI address being re-pointed between the check and the request** (DNS rebinding) | Pin the checked address for the connection (`SECURITY.md`, accepted risk) | Opus, high |
 | **Show on the child side** that Hoot is using a family's own, untested model | `GET /content/hoot` only knows the default helper | Sonnet, medium |
 | ~~Spelling: a British or American setting~~ **done 15 Nov 2026** | A per-family setting, 32 words that differ, `docs/SPELLING.md`. Open: a reviewer for the new words (part 3) | Sonnet, medium |
-| **Save an unfinished chess game**; hints that point at a piece | Games are lost if the child leaves the screen | Sonnet, medium |
+| ~~Save an unfinished chess game; hints that point at a piece~~ **done 15 Nov 2026** | Against the computer. Open: try it on a real phone and with a real child (part 2); the chess *puzzles* have their own server hints | Sonnet, medium |
 | ~~Move a family between a phone and a server~~ **done 15 Nov 2026** | `POST /parent/import` and the transfer screen. Open: try it between a real phone and a real server (part 2) | Opus, high |
 | **A splash screen** | After you agree to the package (part 1) | Sonnet, low |
 | **Rebalance the 265 "longest correct option" quiz questions** | A reviewer must still approve the result | Haiku, low, with review |

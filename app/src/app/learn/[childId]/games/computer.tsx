@@ -4,8 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { ChessBoard, type BoardMove } from "../../../../components/ChessBoard";
 import { Banner, Button, Card, Emoji, H1, H2, P, Screen } from "../../../../components/ui";
-import { chooseReply, describeMove, gameOutcome, levelsForBand, outcomeMessage, takeBack, type Side } from "../../../../../../server/src/games/computer-opponent.ts";
+import { chooseReply, describeMove, entriesOf, gameOutcome, levelsForBand, outcomeMessage, pieceHint, replayMoves, takeBack, type Entry, type PieceHint, type SavedGame, type Side } from "../../../../../../server/src/games/computer-opponent.ts";
 import { recordPlayed } from "../../../../lib/games/played";
+import { loadSavedChess, saveChess } from "../../../../lib/games/saved-chess";
 import { Pop } from "../../../../lib/motion";
 import { useChild } from "../../../../lib/session";
 import { colors, scaledBandTheme } from "../../../../lib/theme";
@@ -13,24 +14,15 @@ import { colors, scaledBandTheme } from "../../../../lib/theme";
 /** How long the computer "thinks" at least, so its reply never lands the instant a child lets go of a piece. */
 const MIN_THINK_MS = 450;
 
-/** A move as kept in the game: the squares, and a queen when a pawn reached the last rank. */
-interface Entry {
-  from: string;
-  to: string;
-  promotion?: "q";
-}
 /** The game after these moves. The screen keeps only the list of moves and works everything else out from it. */
-const replay = (entries: Entry[]) => {
-  const chess = new Chess();
-  for (const e of entries) chess.move(e);
-  return chess;
-};
-const toEntries = (chess: Chess): Entry[] => chess.history({ verbose: true }).map((m) => ({ from: m.from, to: m.to, ...(m.promotion ? { promotion: "q" as const } : {}) }));
+const replay = (entries: Entry[]) => replayMoves(entries) ?? new Chess();
+const toEntries = entriesOf;
 
 /**
  * Play chess against the computer. Everything runs on the device: the moves are judged by chess.js and the computer's moves come
  * from a small engine (server/src/games/computer-opponent.ts). No timer, no score, no rating; a child can take moves back.
- * Nothing is sent anywhere, so it works offline.
+ * Nothing is sent anywhere, so it works offline. A game that is not finished is kept on the device after every move (lib/games/saved-chess.ts),
+ * so a child can leave and carry on. A hint points at a piece to think about and never says where it goes (pieceHint).
  */
 export default function PlayComputer() {
   const { childId } = useLocalSearchParams<{ childId: string }>();
@@ -43,11 +35,30 @@ export default function PlayComputer() {
   const [entries, setEntries] = useState<Entry[]>([]);
   const [said, setSaid] = useState("");
   const [thinking, setThinking] = useState(false);
+  /** The unfinished game kept on this device, offered on the setup screen. */
+  const [saved, setSaved] = useState<SavedGame | null>(null);
+  /** The hint in view: it belongs to one position and goes when the position changes. */
+  const [hint, setHint] = useState<{ fen: string; hint: PieceHint } | null>(null);
   // Each new game, take-back or reply gets a new number; a reply that was already on its way checks it still matches.
   const run = useRef(0);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const game = useMemo(() => replay(entries), [entries]);
+
+  useEffect(() => {
+    let live = true;
+    if (childId) void loadSavedChess(childId, levelsForBand(band).map((l) => l.id)).then((g) => live && setSaved(g));
+    return () => {
+      live = false;
+    };
+  }, [childId, band]);
+
+  // Keep the game after every move, and forget it when it ends. A game with no move yet is not worth keeping.
+  useEffect(() => {
+    if (phase !== "play" || !childId) return;
+    if (gameOutcome(game).over) void saveChess(childId, null);
+    else if (entries.length) void saveChess(childId, { level, mine, moves: entries });
+  }, [phase, entries, game, level, mine, childId]);
 
   useEffect(() => () => {
     run.current++;
@@ -70,13 +81,13 @@ export default function PlayComputer() {
   }
 
   /** The computer answers after a short pause. `current` is the game so far; the search itself runs when the pause ends. */
-  function computerMoves(current: Entry[]) {
+  function computerMoves(current: Entry[], strength = level) {
     const id = ++run.current;
     setThinking(true);
     timer.current = setTimeout(() => {
       if (run.current !== id) return;
       const chess = replay(current);
-      const reply = chooseReply(chess, level);
+      const reply = chooseReply(chess, strength);
       setThinking(false);
       if (!reply) return;
       const move = chess.move({ from: reply.from, to: reply.to, promotion: reply.promotion });
@@ -90,8 +101,29 @@ export default function PlayComputer() {
     cancelReply();
     setEntries([]);
     setSaid("");
+    setHint(null);
+    setSaved(null);
+    if (childId) void saveChess(childId, null); // a new game replaces the one that was waiting
     setPhase("play");
     if (mine === "b") computerMoves([]); // White always moves first
+  }
+
+  /** Carries on with the game kept on the device. If it is the computer's turn (the app was closed while it thought), it moves now. */
+  function resume(g: SavedGame) {
+    cancelReply();
+    setLevel(g.level);
+    setMine(g.mine);
+    setEntries(g.moves);
+    setHint(null);
+    setSaid("Welcome back! Your game is just as you left it.");
+    setPhase("play");
+    if (replay(g.moves).turn() !== g.mine) computerMoves(g.moves, g.level);
+  }
+
+  /** The next hint for this position: first about safety, then one piece to think about. Asking costs nothing and is not recorded. */
+  function giveHint() {
+    const fen = game.fen();
+    setHint({ fen, hint: pieceHint(game, mine, hint && hint.fen === fen ? 2 : 1) });
   }
 
   function play(m: BoardMove) {
@@ -105,6 +137,7 @@ export default function PlayComputer() {
     }
     const next = toEntries(chess);
     setEntries(next);
+    setHint(null);
     setSaid(`You: ${describeMove(move)}.`);
     if (gameOutcome(chess).over) void recordPlayed(child!.id, "computer");
     else computerMoves(next);
@@ -115,6 +148,7 @@ export default function PlayComputer() {
     const chess = replay(entries);
     if (takeBack(chess, mine)) {
       setEntries(toEntries(chess));
+      setHint(null);
       setSaid("You took your last move back. Try a different one.");
     }
   }
@@ -145,6 +179,14 @@ export default function PlayComputer() {
         <Button title="‹ Games" kind="ghost" color={t.accent} onPress={() => router.back()} label="Back to games" />
         <H1 size={young ? 30 : 26}>♞ Play chess</H1>
         <P muted size={14}>Play a game against the computer. There is no timer and no score, and you can take moves back. It all happens on this device.</P>
+        {saved ? (
+          <Card style={{ borderRadius: t.radius, gap: 10, backgroundColor: t.soft }}>
+            <H2>Your game is waiting</H2>
+            <P size={14}>You were {saved.mine === "w" ? "White" : "Black"} against the {levels.find((l) => l.id === saved.level)?.name ?? "computer"} computer, {Math.ceil(saved.moves.length / 2)} {Math.ceil(saved.moves.length / 2) === 1 ? "move" : "moves"} in.</P>
+            <Button big title="Carry on with this game" color={t.accent} onPress={() => resume(saved)} />
+            <P muted size={13}>Starting a new game below puts this one away for good.</P>
+          </Card>
+        ) : null}
         <Card style={{ borderRadius: t.radius, gap: 10 }}>
           <H2>How strong should the computer be?</H2>
           <View accessibilityRole="radiogroup" style={{ gap: 8 }}>
@@ -155,7 +197,7 @@ export default function PlayComputer() {
             {chip("White", "You move first", mine === "w", () => setMine("w"))}
             {chip("Black", "The computer moves first", mine === "b", () => setMine("b"))}
           </View>
-          <Button big title="Start the game" color={t.accent} onPress={start} />
+          <Button big title={saved ? "Start a new game" : "Start the game"} color={t.accent} kind={saved ? "secondary" : "primary"} onPress={start} />
         </Card>
         <P muted size={13}>New to chess? The chess puzzles and lessons teach how each piece moves. Pawns that reach the end always become queens here.</P>
       </Screen>
@@ -177,7 +219,10 @@ export default function PlayComputer() {
         {said ? <Text style={{ color: colors.muted, fontSize: 14 }}>{said}</Text> : null}
       </View>
 
-      <ChessBoard fen={game.fen()} onMove={play} disabled={!myTurn} lastMove={last ? { from: last.from, to: last.to } : null} accent={t.accent} flipped={mine === "b"} />
+      <ChessBoard fen={game.fen()} onMove={play} disabled={!myTurn} lastMove={last ? { from: last.from, to: last.to } : null} accent={t.accent} flipped={mine === "b"} marked={hint && hint.fen === game.fen() ? hint.hint.square : null} />
+      {hint && hint.fen === game.fen() ? (
+        <View aria-live="polite" accessibilityLiveRegion="polite"><Banner tone="info">{hint.hint.text}</Banner></View>
+      ) : null}
 
       {over ? (
         <Card style={{ borderRadius: t.radius, alignItems: "center", backgroundColor: won ? colors.goodSoft : colors.brandSoft }}>
@@ -189,6 +234,7 @@ export default function PlayComputer() {
         </Card>
       ) : (
         <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
+          <Button title="💡 Hint" kind="secondary" color={t.accent} onPress={giveHint} disabled={!myTurn} label="Give me a hint. It points at a piece to think about and never says where to move" />
           <Button title="↩ Take back my move" kind="secondary" color={t.accent} onPress={undo} disabled={!history.some((m) => m.color === mine)} label="Take back my last move and the computer's reply" />
         </View>
       )}

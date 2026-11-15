@@ -66,6 +66,7 @@ This notice is for parents and legal guardians aged 18 or over. Children can't c
 
 ### Collected automatically
 
+- **A chess game in progress**: if a child leaves a game against the computer unfinished, its moves (and the level and colour) are kept on the device, in the phone's storage or the browser's storage on the web, so the game can be continued. They are never sent to us, hold no personal information and are removed when the game ends, when a new game is started, or when the family signs out.
 - **Sign-in on the device**: a sign-in token is kept on the device (in the phone's secure storage, or the browser's storage on the web) so your family stays signed in for up to 30 days. The parent area needs your PIN again after 10 minutes.
 - **IP address**: used for a few minutes, in memory only, to block repeated sign-in attempts. It is not saved in our database. Our hosting provider may keep standard server logs, including IP addresses, for security. [Name the provider and how long its logs are kept.]
 

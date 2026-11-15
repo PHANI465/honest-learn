@@ -4,7 +4,7 @@
 // adapter; only the expo-sqlite database itself comes from outside (a stand-in, since there is no phone). It walks one family
 // through the main paths and reports each step. It does not import device.ts, which needs the native modules.
 import { Chess } from "chess.js";
-import { chooseReply, gameOutcome } from "../../../server/src/games/computer-opponent.ts";
+import { chooseReply, entriesOf, gameOutcome, pieceHint, readSavedGame } from "../../../server/src/games/computer-opponent.ts";
 import { contentFiles } from "./content-files.generated";
 import { createLocalApi } from "./core";
 import { expoSqliteAdapter, type ExpoSqliteLike } from "./sqlite-adapter";
@@ -100,6 +100,12 @@ async function run(opts: { expoDb: ExpoSqliteLike }): Promise<ProofStep[]> {
     plies++;
   }
   check("the chess engine plays 24 legal moves without Node.js", plies === 24 && fromEngine, { plies, fromEngine, ms: Date.now() - started });
+  // an unfinished game is kept as its moves and read back (checked move by move); a hint points at a piece and never at a destination
+  const savedText = JSON.stringify({ level: 2, mine: "w", moves: entriesOf(chess) });
+  const back = readSavedGame(savedText);
+  check("a saved chess game plays back to the same position, and a damaged one is ignored", !!back && back.moves.length === 24 && readSavedGame(savedText.replace(/"to":"[a-h][1-8]"/, '"to":"z9"')) === null);
+  const opening = pieceHint(new Chess(), "w", 2);
+  check("a chess hint marks one piece and names no destination", opening.square !== null && (opening.text.match(/\b[a-h][1-8]\b/g) ?? []).length === 1, opening);
 
   const exp = await call("GET", "/parent/export", undefined, par);
   check("the data download works and holds no password hash", exp.status === 200 && !JSON.stringify(exp.json).includes("password_hash"));

@@ -30,6 +30,7 @@ export function ChessBoard({
   lastMove,
   accent = colors.brand,
   flipped = false,
+  marked = null,
 }: {
   fen: string;
   onMove: (move: BoardMove) => void;
@@ -38,6 +39,8 @@ export function ChessBoard({
   accent?: string;
   /** Show the board from Black's side (Black's pieces at the bottom), for a child playing Black against the computer. */
   flipped?: boolean;
+  /** A square to ring as a hint ("look at this piece"). It says nothing about where the piece should go. */
+  marked?: string | null;
 }) {
   const { width } = useWindowDimensions();
   const [selected, setSelected] = useState<string | null>(null);
@@ -76,7 +79,8 @@ export function ChessBoard({
             const target = targets.has(sq);
             const capture = targets.get(sq) === true;
             const last = lastMove && (lastMove.from === sq || lastMove.to === sq);
-            const label = `${piece ? `${piece.color === "w" ? "White" : "Black"} ${NAME[piece.type]} on ${sq}` : `Empty square ${sq}`}${isSel ? ", selected" : ""}${target ? (capture ? ", you can capture here" : ", you can move here") : ""}`;
+            const isMarked = marked === sq;
+            const label = `${isMarked ? "A hint points here. " : ""}${piece ? `${piece.color === "w" ? "White" : "Black"} ${NAME[piece.type]} on ${sq}` : `Empty square ${sq}`}${isSel ? ", selected" : ""}${target ? (capture ? ", you can capture here" : ", you can move here") : ""}`;
             return (
               <Pressable
                 key={sq}
@@ -86,6 +90,7 @@ export function ChessBoard({
                 accessibilityState={{ selected: isSel, disabled: !!disabled }}
                 style={{ width: size, height: size, backgroundColor: last ? "#E8D77A" : dark ? DARK : LIGHT, alignItems: "center", justifyContent: "center" }}
               >
+                {isMarked ? <View pointerEvents="none" style={{ position: "absolute", inset: 1, borderWidth: 4, borderColor: "#E58A00", borderRadius: size }} /> : null}
                 {isSel ? <View pointerEvents="none" style={{ position: "absolute", inset: 0, borderWidth: 4, borderColor: accent }} /> : null}
                 {piece ? (
                   <Text

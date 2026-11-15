@@ -137,3 +137,120 @@ export function takeBack(chess: Chess, mine: Side): boolean {
   for (let n = history.length - lastMine; n > 0; n--) chess.undo();
   return true;
 }
+
+// ---------------------------------------------------------------- saving a game in progress
+// A game is just its list of moves, so saving is writing that list down (app/src/lib/games/saved-chess.ts keeps it on the device, never
+// on a server) and resuming is playing it back through chess.js. What is read back is untrusted (storage can be edited or damaged),
+// so every move is replayed and checked: one illegal move, or anything unexpected, and the whole saved game is ignored.
+
+/** A move as kept in a game: the squares, and a queen when a pawn reached the last rank. */
+export interface Entry {
+  from: string;
+  to: string;
+  promotion?: "q";
+}
+export interface SavedGame {
+  level: number;
+  /** The child's colour. */
+  mine: Side;
+  moves: Entry[];
+}
+/** More than any real game against a beginner (a very long game is about 200 moves, 400 plies). */
+export const MAX_SAVED_MOVES = 600;
+const SQUARE = /^[a-h][1-8]$/;
+
+/** The game after these moves, or null if any of them is not legal (or there are too many). */
+export function replayMoves(moves: readonly Entry[]): Chess | null {
+  if (moves.length > MAX_SAVED_MOVES) return null;
+  const chess = new Chess();
+  try {
+    for (const m of moves) chess.move({ from: m.from, to: m.to, ...(m.promotion ? { promotion: m.promotion } : {}) });
+  } catch {
+    return null;
+  }
+  return chess;
+}
+
+export const entriesOf = (chess: Chess): Entry[] => chess.history({ verbose: true }).map((m) => ({ from: m.from, to: m.to, ...(m.promotion ? { promotion: "q" as const } : {}) }));
+
+/**
+ * A saved game as read back from storage (text or already parsed), or null when it cannot be used: not a game, a level this age
+ * group cannot choose, an illegal move, or a game that is already over (a finished game is not resumed).
+ */
+export function readSavedGame(raw: unknown, allowedLevels: readonly number[] = LEVELS.map((l) => l.id)): SavedGame | null {
+  try {
+    const x = (typeof raw === "string" ? JSON.parse(raw) : raw) as Partial<SavedGame> | null;
+    if (!x || typeof x !== "object" || !Number.isInteger(x.level) || !allowedLevels.includes(x.level!) || (x.mine !== "w" && x.mine !== "b") || !Array.isArray(x.moves)) return null;
+    if (x.moves.length === 0 || x.moves.length > MAX_SAVED_MOVES) return null;
+    const moves: Entry[] = [];
+    for (const m of x.moves as unknown[]) {
+      const e = m as Partial<Entry> | null;
+      if (!e || typeof e !== "object" || typeof e.from !== "string" || typeof e.to !== "string" || !SQUARE.test(e.from) || !SQUARE.test(e.to)) return null;
+      if (e.promotion !== undefined && e.promotion !== "q") return null;
+      moves.push({ from: e.from, to: e.to, ...(e.promotion ? { promotion: "q" as const } : {}) });
+    }
+    const chess = replayMoves(moves);
+    if (!chess || gameOutcome(chess).over) return null;
+    return { level: x.level!, mine: x.mine, moves };
+  } catch {
+    return null;
+  }
+}
+
+// ---------------------------------------------------------------- hints that point at a piece
+// A hint never says where to move. Stage 1 is about safety: a king in check, or a piece that could be captured. Stage 2 points at ONE
+// piece worth thinking about (the piece the engine would move) and says nothing about where it goes or what it takes. There is no
+// penalty for asking and nothing is recorded: no score, no count.
+
+const VALUE = { p: 1, n: 3, b: 3, r: 5, q: 9, k: 100 } as const;
+const NAMES = { p: "pawn", n: "knight", b: "bishop", r: "rook", q: "queen", k: "king" } as const;
+const SQUARES = "abcdefgh".split("").flatMap((f) => "12345678".split("").map((r) => `${f}${r}`));
+
+export interface PieceHint {
+  stage: 1 | 2;
+  /** The square to mark on the board, or null when there is nothing to point at. */
+  square: string | null;
+  text: string;
+}
+
+/** The side's most valuable piece that could be captured for nothing, or captured by a cheaper piece. Kings are handled by "check". */
+function pieceInDanger(chess: Chess, side: Side): { square: string; type: keyof typeof NAMES } | null {
+  const foe = side === "w" ? "b" : "w";
+  let worst: { square: string; type: keyof typeof NAMES; value: number } | null = null;
+  for (const square of SQUARES) {
+    const piece = chess.get(square as never);
+    if (!piece || piece.color !== side || piece.type === "k") continue;
+    const attackers = chess.attackers(square as never, foe);
+    if (!attackers.length) continue;
+    const cheapest = Math.min(...attackers.map((a) => VALUE[chess.get(a as never)!.type]));
+    const defended = chess.attackers(square as never, side).length > 0;
+    if (defended && cheapest >= VALUE[piece.type]) continue; // a fair trade at worst
+    const value = VALUE[piece.type];
+    if (!worst || value > worst.value) worst = { square, type: piece.type, value };
+  }
+  return worst && { square: worst.square, type: worst.type };
+}
+
+/**
+ * A hint for the side to move (the child). Stage 1 looks for danger; stage 2 points at a piece to think about. Never throws, never
+ * names a destination, never changes the game.
+ */
+export function pieceHint(chess: Chess, side: Side, stage: 1 | 2, opts: { engine?: EngineFn; level?: number } = {}): PieceHint {
+  if (chess.isGameOver() || chess.turn() !== side) return { stage, square: null, text: "Hints are for your move." };
+  if (stage === 1) {
+    if (chess.inCheck()) {
+      const king = SQUARES.find((s) => {
+        const p = chess.get(s as never);
+        return p?.type === "k" && p.color === side;
+      })!;
+      return { stage, square: king, text: "Your king is in check! You can move it, block the attack, or capture the piece giving check." };
+    }
+    const danger = pieceInDanger(chess, side);
+    if (danger) return { stage, square: danger.square, text: `Your ${NAMES[danger.type]} on ${danger.square} could be captured. Can you keep it safe?` };
+    return { stage, square: null, text: "None of your pieces looks in danger. Press Hint again to think about what to do next." };
+  }
+  const idea = chooseReply(chess, opts.level ?? 3, { engine: opts.engine });
+  if (!idea || idea.source !== "engine") return { stage, square: null, text: "No clear idea this time. Look for a piece you can capture safely, or one that could attack something." };
+  const piece = chess.get(idea.from as never)!;
+  return { stage, square: idea.from, text: `Think about your ${NAMES[piece.type]} on ${idea.from}. What could it do?` };
+}
