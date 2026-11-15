@@ -50,7 +50,7 @@
       "options": [
         "Top to bottom, one at a time",
         "All at the same time",
-        "Bottom to top"
+        "From bottom to top, backwards"
       ],
       "answer": 0,
       "hints": [

@@ -45,8 +45,8 @@
       "q": "What does SELECT * FROM books WHERE year < 2000; return?",
       "options": [
         "All columns for books published before 2000",
-        "Only the book titles",
-        "Books published after 2000"
+        "Only the book titles, and nothing else at all",
+        "Every book published after the year 2000"
       ],
       "answer": 0,
       "hints": [

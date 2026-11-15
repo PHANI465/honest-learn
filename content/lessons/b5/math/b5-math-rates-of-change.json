@@ -41,8 +41,8 @@
       "q": "What does the derivative of a distance–time graph give?",
       "options": [
         "Speed (rate of change of distance)",
-        "Total distance",
-        "Time taken"
+        "The total distance that was travelled",
+        "The total time taken for the whole trip"
       ],
       "answer": 0,
       "hints": [

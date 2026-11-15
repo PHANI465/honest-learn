@@ -46,8 +46,8 @@
       "q": "Why test a model on data it hasn't seen?",
       "options": [
         "To check it works on new examples, not just memorised ones",
-        "To make training faster",
-        "Testing isn't needed"
+        "To make the training run much faster and use less data",
+        "Testing isn't needed, because the model is already trained"
       ],
       "answer": 0,
       "hints": [
@@ -61,8 +61,8 @@
       "q": "A hiring AI was trained on past hires who were mostly one group. What's the risk?",
       "options": [
         "It may unfairly favour that group",
-        "It will be perfectly fair",
-        "It can't make decisions"
+        "It will be perfectly fair to everyone",
+        "It can't make any decisions at all"
       ],
       "answer": 0,
       "hints": [
@@ -76,8 +76,8 @@
       "q": "A model scores 99% on its training data but only 60% on new test data. What is the most likely problem?",
       "options": [
         "Overfitting: it memorised the training examples instead of learning general patterns",
-        "The test data must be faulty, so 99% is its true accuracy",
-        "Nothing: a high training score proves the model works"
+        "The test data must be faulty, so the 99% training score is its true accuracy",
+        "Nothing is wrong: a very high training score proves that the model works well"
       ],
       "answer": 0,
       "hints": [

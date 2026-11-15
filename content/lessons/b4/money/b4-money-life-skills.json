@@ -45,8 +45,8 @@
       "q": "Why keep raw meat separate from salad?",
       "options": [
         "To avoid spreading harmful bacteria",
-        "To keep the salad warm",
-        "It doesn't matter"
+        "To keep the salad warm for longer",
+        "It doesn't matter if they touch"
       ],
       "answer": 0,
       "hints": [
@@ -75,8 +75,8 @@
       "q": "You have a big project due in two weeks. Which plan follows the lesson's time-management tips?",
       "options": [
         "Break it into smaller tasks, write them in a planner, and do the hardest parts when you have most energy",
-        "Wait until the night before, when the pressure will help you focus",
-        "Do only the easiest bits each day and leave the hardest part until the end"
+        "Wait until the night before, when the pressure will help you to focus and get it all done",
+        "Do only the easiest bits each day, and leave the hardest part of the project until the very end"
       ],
       "answer": 0,
       "hints": [

@@ -58,8 +58,8 @@
       "q": "Students who eat breakfast get better grades. What's the best conclusion from this alone?",
       "options": [
         "They're correlated; a confounder like home routine could explain it",
-        "Breakfast causes better grades",
-        "Grades cause breakfast"
+        "Breakfast causes better grades, so everyone should eat it",
+        "Better grades cause students to eat breakfast"
       ],
       "answer": 0,
       "hints": [
@@ -73,8 +73,8 @@
       "q": "Which study design best tests whether a new study app causes higher test scores?",
       "options": [
         "Randomly assign students to use it or not, then compare",
-        "Survey students who already use it",
-        "Ask the app's makers"
+        "Survey only the students who already use the app",
+        "Ask the people who made the app how well it works"
       ],
       "answer": 0,
       "hints": [
@@ -88,8 +88,8 @@
       "q": "Cities with more police officers have more crime. A likely explanation is…",
       "options": [
         "Reverse causation: high-crime cities hire more police",
-        "Police cause crime",
-        "It's impossible to explain"
+        "Police officers cause the extra crime in those cities",
+        "It is impossible to explain it in any way at all"
       ],
       "answer": 0,
       "hints": [

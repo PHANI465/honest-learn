@@ -55,8 +55,8 @@
       "q": "Why did many early civilisations grow near rivers?",
       "options": [
         "Rivers gave water and fertile soil for farming",
-        "Rivers were good for skiing",
-        "There were no other places"
+        "Rivers were good places for skiing in winter",
+        "There were no other places left to live in"
       ],
       "answer": 0,
       "hints": [
@@ -70,8 +70,8 @@
       "q": "Which civilisation is famous for planned cities with drains?",
       "options": [
         "The Indus Valley civilisation",
-        "The Maya",
-        "Ancient Greece"
+        "The Maya, in Central America",
+        "Ancient Greece and its cities"
       ],
       "answer": 0,
       "hints": [
@@ -85,8 +85,8 @@
       "q": "What was cuneiform?",
       "options": [
         "One of the first writing systems",
-        "A type of pyramid",
-        "A river in Egypt"
+        "A type of pyramid in Egypt",
+        "A river that runs through Egypt"
       ],
       "answer": 0,
       "hints": [

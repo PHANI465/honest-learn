@@ -42,7 +42,7 @@
       "options": [
         "A blog showing a coding project you built",
         "An angry rant about a teacher",
-        "Embarrassing party photos"
+        "Embarrassing party photos of friends"
       ],
       "answer": 0,
       "hints": [
@@ -71,8 +71,8 @@
       "q": "How often should you review your social media privacy settings?",
       "options": [
         "Regularly, because apps and your audience change over time",
-        "Only once, when you first sign up",
-        "Only if the app sends you a warning"
+        "Only once, on the day you first sign up for the app",
+        "Only when the app itself sends you a warning message"
       ],
       "answer": 0,
       "hints": [

@@ -50,8 +50,8 @@
       "q": "A politician says 'Crime doubled!' What's the first thing to check?",
       "options": [
         "The actual numbers, time period and source",
-        "Whether you like the politician",
-        "How loudly they said it"
+        "Whether you like the politician or not",
+        "How loudly the politician said it"
       ],
       "answer": 0,
       "hints": [

@@ -115,7 +115,7 @@ Severity: **H** high, **M** medium, **L** low. None of these is known to be expl
 Still open from earlier rounds, **not solvable in code** (owner tasks, see `docs/NEEDS_APPROVAL.md` and
 `docs/LAUNCH_CHECKLIST.md`): expert review of the 175 lessons, running the Hoot red team with a real API
 key, Postmark and firewall setup, translations, teacher mode, audio lessons, error tracking, app end to
-end tests, and rewording the 265 questions whose correct option is the longest.
+end tests, and rewording the 265 questions whose correct option is the longest (done 15 Nov 2026 for the 155 where the gap was a real cue; a reviewer still has to approve it, see `review/QUIZ_OPTION_CHANGES.md`).
 
 ## Part 3: UI design and motion
 

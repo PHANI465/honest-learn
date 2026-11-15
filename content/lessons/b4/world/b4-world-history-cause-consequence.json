@@ -50,8 +50,8 @@
       "q": "What was a consequence of the printing press?",
       "options": [
         "Books became cheaper and ideas spread faster",
-        "Writing was invented",
-        "Railways were built"
+        "Writing was invented for the first time",
+        "Railways were built across the country"
       ],
       "answer": 0,
       "hints": [
@@ -80,8 +80,8 @@
       "q": "Factories in the Industrial Revolution brought child labour and pollution, which led to new laws. How do the new laws fit into the history?",
       "options": [
         "They were a consequence of problems the Industrial Revolution created",
-        "They were a cause of the Industrial Revolution",
-        "They had nothing to do with the Industrial Revolution"
+        "They were one of the causes that started the Industrial Revolution",
+        "They had nothing at all to do with the Industrial Revolution or its factories"
       ],
       "answer": 0,
       "hints": [

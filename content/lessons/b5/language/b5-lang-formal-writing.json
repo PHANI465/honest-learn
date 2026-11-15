@@ -41,8 +41,8 @@
       "q": "Which is the best subject line for an email asking a teacher for an extension?",
       "options": [
         "Request for extension: History essay (Year 10)",
-        "hey",
-        "URGENT!!!!!"
+        "Hi, could I have a bit more time for the essay?",
+        "URGENT!!!! I NEED MORE TIME FOR MY ESSAY!!!"
       ],
       "answer": 0,
       "hints": [
@@ -56,8 +56,8 @@
       "q": "Which statement is strongest for an application?",
       "options": [
         "'I tutored 3 younger students weekly for a year and their grades improved.'",
-        "'I am very hardworking.'",
-        "'I like helping people.'"
+        "'I am a very hardworking person, and I am always on time for everything.'",
+        "'I really like helping other people, and I try to be kind to everyone.'"
       ],
       "answer": 0,
       "hints": [

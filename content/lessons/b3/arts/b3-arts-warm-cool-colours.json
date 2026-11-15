@@ -68,8 +68,8 @@
       "q": "What are complementary colours?",
       "options": [
         "Colours opposite each other on the colour wheel",
-        "Colours that are exactly the same",
-        "Only black and white"
+        "Colours that sit side by side on the colour wheel",
+        "Colours that are exactly the same as each other"
       ],
       "answer": 0,
       "hints": [

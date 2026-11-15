@@ -65,8 +65,8 @@
       "q": "When you borrow money, what usually happens?",
       "options": [
         "You pay back extra as interest",
-        "You pay back less",
-        "You never pay it back"
+        "You pay back less than you took",
+        "You never have to pay it back"
       ],
       "answer": 0,
       "hints": [

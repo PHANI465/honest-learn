@@ -55,11 +55,11 @@
     {
       "q": "How many ducks? 🦆🦆🦆🦆",
       "options": [
-        "3",
         "4",
+        "3",
         "1"
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
         "Point to each duck.",
         "Count: one, two, three… is there one more?",

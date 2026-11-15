@@ -58,8 +58,8 @@
       "q": "You find someone collapsed. What is the FIRST thing to check?",
       "options": [
         "That the area is safe for you",
-        "Their pulse",
-        "Their phone"
+        "Their pulse, straight away",
+        "Whether they have a phone"
       ],
       "answer": 0,
       "hints": [
@@ -88,8 +88,8 @@
       "q": "Someone is unresponsive but breathing normally. What should you do?",
       "options": [
         "Put them in the recovery position and keep checking breathing",
-        "Start chest compressions",
-        "Leave them to rest alone"
+        "Start chest compressions straight away and keep going until help comes",
+        "Leave them alone to rest and come back to check in an hour"
       ],
       "answer": 0,
       "hints": [

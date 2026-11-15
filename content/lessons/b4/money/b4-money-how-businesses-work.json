@@ -75,8 +75,8 @@
       "q": "A business raises its price a lot, and its sales drop sharply. Why can this happen?",
       "options": [
         "Fewer people will pay the higher price, and some switch to competitors",
-        "Higher prices always bring in more profit",
-        "Costs automatically go up whenever prices go up"
+        "Higher prices always bring in more profit, however many customers leave",
+        "Costs automatically go up whenever the shop raises its prices"
       ],
       "answer": 0,
       "hints": [

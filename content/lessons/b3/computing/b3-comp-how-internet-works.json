@@ -45,8 +45,8 @@
       "q": "What happens to a message sent over the internet?",
       "options": [
         "It's split into packets and put back together",
-        "It travels as one huge piece",
-        "It's posted by mail"
+        "It travels as one single huge piece of data",
+        "It's printed out and posted through the mail"
       ],
       "answer": 0,
       "hints": [

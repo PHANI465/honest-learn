@@ -50,8 +50,8 @@
       "q": "A video says 'Cats can fly!' What should you do?",
       "options": [
         "Check with a grown-up or a trusted source",
-        "Believe it",
-        "Try throwing a cat"
+        "Believe it and share it with all your friends",
+        "Try throwing a cat to see if it can fly"
       ],
       "answer": 0,
       "hints": [
@@ -65,8 +65,8 @@
       "q": "What is an AI helper like Hoot?",
       "options": [
         "A computer program that can make mistakes",
-        "A real person",
-        "A magic owl"
+        "A real person typing the answers from far away",
+        "A magic owl that knows everything"
       ],
       "answer": 0,
       "hints": [

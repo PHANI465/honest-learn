@@ -4,6 +4,7 @@ import { config } from "./config.ts";
 import { loadContent } from "./content.ts";
 import { loadHelplines } from "./tutor.ts";
 import { verifyPuzzle, type ChessPuzzle } from "./games/chess.ts";
+import { isStrictlyLongest, lengthCue } from "./option-length.ts";
 
 try {
   const { lessons, map, puzzles, resources, facts, spelling, chess } = loadContent(config.contentDir);
@@ -23,18 +24,20 @@ try {
       q.hints.forEach((h, k) => norm(h).includes(a) && leaks.push(`${l.id} Q${i + 1} hint ${k + 1} mentions "${q.options[q.answer]}"`));
     });
   }
-  // Reviewer aid: when the correct option is strictly the longest, children can guess it without reading the question.
+  // Reviewer aid: when the correct option is clearly the longest, children can guess it without reading the question (option-length.ts).
+  // Being longest by a letter or two is no cue, so only a clear gap is a warning; the number that are longest at all is only counted.
   const longest: string[] = [];
+  let questions = 0;
+  let longestAtAll = 0;
   const checkLongest = (id: string, label: string, options: string[], answer: number) => {
-    const len = (o: string) => [...o].length;
-    const best = Math.max(...options.map(len));
-    if (len(options[answer]!) === best && options.filter((o) => len(o) === best).length === 1) {
-      longest.push(`${id} ${label}: correct option is the strictly longest ("${options[answer]}")`);
-    }
+    questions++;
+    if (isStrictlyLongest(options, answer)) longestAtAll++;
+    const cue = lengthCue(options, answer);
+    if (cue) longest.push(`${id} ${label}: correct option is ${cue.gap} characters (${cue.ratio.toFixed(1)}x) longer than any wrong one ("${options[answer]}")`);
   };
   for (const l of lessons.values()) l.quiz.forEach((q, i) => checkLongest(l.id, `Q${i + 1}`, q.options, q.answer));
   for (const set of puzzles.values()) for (const p of set.puzzles) checkLongest(p.id, "puzzle", p.options, p.answer);
-  if (longest.length) console.log(`⚠️  Correct answer is the longest option (may be fine, but check the wrong options are as detailed):\n   ${longest.join("\n   ")}`);
+  if (longest.length) console.log(`⚠️  Correct answer is clearly the longest option (make the wrong options as detailed):\n   ${longest.join("\n   ")}`);
   if (leaks.length) console.log(`⚠️  Check these hints don't give the answer away (may be fine):\n   ${leaks.join("\n   ")}`);
   // Facts: every one already has a source (the schema requires it); also check ids match the band and text is not repeated.
   const factProblems: string[] = [];
@@ -61,7 +64,7 @@ try {
   for (const set of spelling.values()) {
     if (set.words.length < 120) console.log(`⚠️  Spelling list for ${set.band} has ${set.words.length} words (the target is at least 120).`);
   }
-  console.log(`Warnings: ${leaks.length} hint(s) may contain the answer; ${longest.length} question(s) where the correct option is strictly the longest.`);
+  console.log(`Warnings: ${leaks.length} hint(s) may contain the answer; ${longest.length} question(s) where the correct option is clearly the longest (${longestAtAll} of ${questions} are the longest by any margin).`);
   console.log(
     `OK — ${lessons.size} lessons (${byStatus.reviewed} reviewed, ${byStatus.draft} draft). ` +
       `Outcomes covered: ${covered.size}/${totalOutcomes}. ` +

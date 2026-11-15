@@ -41,8 +41,8 @@
       "q": "Why might an AI system be biased?",
       "options": [
         "It learned from unbalanced data",
-        "Computers have opinions",
-        "AI is always fair"
+        "Computers have their own opinions",
+        "AI is always completely fair"
       ],
       "answer": 0,
       "hints": [
@@ -56,8 +56,8 @@
       "q": "Which is an honest way to use AI for homework (where allowed)?",
       "options": [
         "Ask it to explain a concept, then do the work yourself",
-        "Copy its essay and hand it in",
-        "Hide that you used it"
+        "Copy its whole essay and hand it in as your own work",
+        "Hide the fact that you used it, and say nothing"
       ],
       "answer": 0,
       "hints": [

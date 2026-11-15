@@ -60,8 +60,8 @@
       "q": "A VAT/GST is a tax on…",
       "options": [
         "Spending on goods and services",
-        "Only income",
-        "Only houses"
+        "Only on income from work",
+        "Only on houses and other property"
       ],
       "answer": 0,
       "hints": [

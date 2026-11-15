@@ -45,8 +45,8 @@
       "q": "A friend wants to post a funny photo of you, and you say no. A good friend will…",
       "options": [
         "Respect your answer and not post it",
-        "Post it anyway",
-        "Post it later secretly"
+        "Post it anyway, since it's funny",
+        "Post it later, when you aren't looking"
       ],
       "answer": 0,
       "hints": [
@@ -61,7 +61,7 @@
       "options": [
         "Friends encouraging you to join a study group",
         "Friends daring you to skip school",
-        "Friends excluding someone"
+        "Friends leaving someone out on purpose"
       ],
       "answer": 0,
       "hints": [

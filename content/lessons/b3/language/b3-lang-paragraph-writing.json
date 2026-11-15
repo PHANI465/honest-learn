@@ -45,8 +45,8 @@
       "q": "Which is the best topic sentence for a paragraph about why dogs make good pets?",
       "options": [
         "Dogs make loyal and friendly pets.",
-        "My dog is called Max.",
-        "Some dogs have spots."
+        "My dog is called Max and is brown.",
+        "Some dogs have black spots on them."
       ],
       "answer": 0,
       "hints": [

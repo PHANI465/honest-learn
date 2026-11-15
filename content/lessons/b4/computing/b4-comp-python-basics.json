@@ -46,8 +46,8 @@
       "q": "What does this print? for n in [1, 2, 3]: print(n * 10)",
       "options": [
         "10, 20, 30 (each on a new line)",
-        "60",
-        "123"
+        "60, printed once on one line",
+        "123, printed on one line"
       ],
       "answer": 0,
       "hints": [

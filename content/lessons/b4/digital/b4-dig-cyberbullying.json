@@ -41,8 +41,8 @@
       "q": "Someone keeps sending you mean messages. What should you do?",
       "options": [
         "Save evidence, block, report and tell an adult",
-        "Send mean messages back",
-        "Delete everything and say nothing"
+        "Send mean messages back to get your own back",
+        "Delete everything and tell absolutely no one"
       ],
       "answer": 0,
       "hints": [
@@ -56,8 +56,8 @@
       "q": "You see a cruel post about a classmate. What helps most?",
       "options": [
         "Don't share it, check on them privately and report it",
-        "Like it so you fit in",
-        "Comment something funny"
+        "Like it so that you don't stand out from the group",
+        "Comment something funny so that everyone laughs"
       ],
       "answer": 0,
       "hints": [
@@ -71,8 +71,8 @@
       "q": "Which of these fits the lesson's definition of cyberbullying?",
       "options": [
         "Someone makes a fake account in a classmate's name and posts embarrassing things for weeks",
-        "A friend disagrees with your opinion once in a group chat",
-        "Someone forgets to reply to your message"
+        "A friend disagrees with your opinion once in a group chat, and then everyone moves on",
+        "Someone forgets to reply to your message because they were out all day with their family"
       ],
       "answer": 0,
       "hints": [

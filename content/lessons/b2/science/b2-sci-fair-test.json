@@ -49,8 +49,8 @@
       "q": "Testing which ball bounces highest, what should stay the SAME?",
       "options": [
         "The height you drop it from",
-        "The ball",
-        "Nothing"
+        "Which ball is being tested",
+        "Nothing, it can all change"
       ],
       "answer": 0,
       "hints": [
@@ -64,8 +64,8 @@
       "q": "What is a prediction?",
       "options": [
         "A smart guess before testing",
-        "The final answer",
-        "A kind of ball"
+        "The final answer after the test",
+        "A kind of ball you bounce"
       ],
       "answer": 0,
       "hints": [

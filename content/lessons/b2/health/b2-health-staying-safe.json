@@ -54,8 +54,8 @@
       "q": "Before crossing a road, you should…",
       "options": [
         "Stop, look both ways and listen",
-        "Run across fast",
-        "Close your eyes"
+        "Run across the road very fast",
+        "Close your eyes and cross"
       ],
       "answer": 0,
       "hints": [
@@ -69,8 +69,8 @@
       "q": "Your friend wants to swim in a river with no grown-up around. What should you do?",
       "options": [
         "Say no and tell a grown-up",
-        "Jump in first",
-        "Swim far out"
+        "Jump in first, you'll be fine",
+        "Swim far out and have fun"
       ],
       "answer": 0,
       "hints": [

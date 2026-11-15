@@ -46,8 +46,8 @@
       "q": "Why should you think before posting a photo online?",
       "options": [
         "It might stay online for a very long time",
-        "Photos disappear after a day",
-        "Nobody ever sees posts"
+        "Photos always disappear after a day",
+        "Nobody ever sees what you post"
       ],
       "answer": 0,
       "hints": [
@@ -61,8 +61,8 @@
       "q": "Why can an AI chatbot give a wrong answer?",
       "options": [
         "It predicts likely words and can make mistakes",
-        "It never makes mistakes",
-        "It's a real person guessing"
+        "It always knows the exact truth and never errs",
+        "It's a real person guessing the answers by hand"
       ],
       "answer": 0,
       "hints": [

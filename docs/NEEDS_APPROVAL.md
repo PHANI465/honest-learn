@@ -109,5 +109,5 @@ These were raised by the writers themselves as worth a reviewer's second look.
 - [ ] `b5-health-relationships-consent` Q3: consider tagging this lesson `body`.
 - [ ] `b5-world-philosophy-ethics` Q3, `b5-think-decisions-ethics` Q3: check the answers are unambiguous.
 - [ ] `b5-world-globalisation` Q3, `b5-world-citizenship` Q3 (🔒 politics): check for balance and straw-man distractors.
-- [ ] Several new questions have the correct option as the longest one (`b5-car-cv-interviews`, `b5-comp-machine-learning`, `b5-world-globalisation`, `b5-think-decisions-ethics`). Even out option lengths.
+- [x] ~~Correct option is the longest~~ done 15 Nov 2026 by rewording the wrong options of 155 quiz items (including those four lessons). **Needs a human check:** read [`review/QUIZ_OPTION_CHANGES.md`](review/QUIZ_OPTION_CHANGES.md) and confirm each new wrong option is still clearly wrong and suitable for the age group.
 - [ ] `b5-p13` (cube net described in words): would benefit from a diagram.

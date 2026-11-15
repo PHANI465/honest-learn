@@ -45,8 +45,8 @@
       "q": "How should you treat a small burn?",
       "options": [
         "Cool it under cool running water",
-        "Put butter on it",
-        "Put ice directly on it"
+        "Put butter all over it",
+        "Put ice directly onto the burn"
       ],
       "answer": 0,
       "hints": [
@@ -60,8 +60,8 @@
       "q": "When you call emergency services, what should you tell them?",
       "options": [
         "Where you are and what happened",
-        "Your favourite food",
-        "Nothing, just hang up"
+        "Your favourite food for dinner",
+        "Nothing, just hang up the phone"
       ],
       "answer": 0,
       "hints": [

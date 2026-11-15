@@ -45,8 +45,8 @@
       "q": "A game asks for your home address. What do you do?",
       "options": [
         "Ask a grown-up first",
-        "Type it in",
-        "Make one up"
+        "Type it straight in",
+        "Make up a pretend address"
       ],
       "answer": 0,
       "hints": [

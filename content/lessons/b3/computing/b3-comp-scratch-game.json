@@ -60,8 +60,8 @@
       "q": "Which block starts a script when the game begins?",
       "options": [
         "When green flag clicked",
-        "Move 10 steps",
-        "Change score by 1"
+        "Move 10 steps forwards",
+        "Change score by 1 point"
       ],
       "answer": 0,
       "hints": [

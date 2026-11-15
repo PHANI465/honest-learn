@@ -41,8 +41,8 @@
       "q": "What is a thesis statement?",
       "options": [
         "The essay's main claim, usually in the introduction",
-        "The last sentence of every paragraph",
-        "A list of sources"
+        "The last sentence of every single paragraph you write",
+        "A list of all the sources that you have used"
       ],
       "answer": 0,
       "hints": [
@@ -56,8 +56,8 @@
       "q": "Why address a counter-argument in an argument essay?",
       "options": [
         "It shows you've considered other views and strengthens your case",
-        "It weakens your argument",
-        "It makes the essay shorter"
+        "It weakens your argument and makes you lose marks in the exam",
+        "It makes the essay shorter, so it is easier to write"
       ],
       "answer": 0,
       "hints": [

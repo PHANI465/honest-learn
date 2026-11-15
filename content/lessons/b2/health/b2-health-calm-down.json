@@ -44,8 +44,8 @@
       "q": "You feel nervous before a race. Which tool helps?",
       "options": [
         "Slow 'flower and candle' breaths",
-        "Shouting at others",
-        "Hiding all day"
+        "Shouting loudly at other people",
+        "Hiding in your room all day long"
       ],
       "answer": 0,
       "hints": [
@@ -59,8 +59,8 @@
       "q": "Your brother broke your toy. You feel angry. What helps first?",
       "options": [
         "Say how you feel: 'I'm angry because…'",
-        "Break his toy",
-        "Pretend you're fine"
+        "Break his toy to get even",
+        "Pretend you're fine and say nothing"
       ],
       "answer": 0,
       "hints": [

@@ -51,8 +51,8 @@
       "q": "Why might your feed show increasingly extreme content?",
       "options": [
         "Algorithms reward engagement, and extreme content often gets more",
-        "Feeds are random",
-        "Your phone chooses your opinions"
+        "Feeds are completely random, so what you see is just down to chance",
+        "Your phone secretly chooses your opinions and shows you the extremes"
       ],
       "answer": 0,
       "hints": [
@@ -66,8 +66,8 @@
       "q": "Which is responsible AI use for a school report?",
       "options": [
         "Citing that you used AI and checking its facts",
-        "Pasting AI text without checking",
-        "Using AI to invent sources"
+        "Pasting in AI text without checking whether it is true",
+        "Using AI to invent sources that sound real enough"
       ],
       "answer": 0,
       "hints": [
@@ -82,7 +82,7 @@
       "options": [
         "Following reliable sources from a range of perspectives",
         "Liking more posts that match your views",
-        "Scrolling your feed for longer each day"
+        "Scrolling through your feed for longer each day"
       ],
       "answer": 0,
       "hints": [

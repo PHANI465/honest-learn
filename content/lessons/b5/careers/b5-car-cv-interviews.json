@@ -41,8 +41,8 @@
       "q": "Which CV line is strongest?",
       "options": [
         "'Led a team of 4 to build a school app used by 200 students'",
-        "'Responsible for things'",
-        "'Good at teamwork'"
+        "'Responsible for lots of different things in my last job'",
+        "'Good at teamwork and always works very hard on things'"
       ],
       "answer": 0,
       "hints": [
@@ -71,8 +71,8 @@
       "q": "At the end of an interview you're asked, 'Do you have any questions for us?' What's the best response?",
       "options": [
         "Ask one or two questions you prepared about the role or organisation",
-        "Say 'No, I think you've covered everything'",
-        "Ask what the organisation actually does"
+        "Say 'No thank you, I think you have covered everything already'",
+        "Ask what the organisation actually does, because you haven't looked it up"
       ],
       "answer": 0,
       "hints": [

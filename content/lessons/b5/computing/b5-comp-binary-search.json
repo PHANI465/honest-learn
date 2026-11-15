@@ -88,8 +88,8 @@
       "q": "Guessing a number from 1 to 100, which strategy finds it in the fewest guesses?",
       "options": [
         "Always guess the middle of the remaining range",
-        "Guess 1, 2, 3… in order",
-        "Guess randomly"
+        "Guess 1, 2, 3… in order until you're right",
+        "Guess randomly each time you try"
       ],
       "answer": 0,
       "hints": [

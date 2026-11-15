@@ -60,8 +60,8 @@
       "q": "A bar chart's y-axis starts at 95 instead of 0. Why might it mislead?",
       "options": [
         "Small differences look much bigger",
-        "It shows more data",
-        "It's always fine"
+        "It shows more data than it should",
+        "It's always fine, whatever the start"
       ],
       "answer": 0,
       "hints": [

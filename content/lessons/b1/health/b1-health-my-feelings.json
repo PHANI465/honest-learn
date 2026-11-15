@@ -44,8 +44,8 @@
       "q": "Your tower falls down and you feel cross. What can you do?",
       "options": [
         "Take a big breath 🌬️",
-        "Throw a toy",
-        "Hit someone"
+        "Throw a toy at the wall",
+        "Hit someone who is near"
       ],
       "answer": 0,
       "hints": [

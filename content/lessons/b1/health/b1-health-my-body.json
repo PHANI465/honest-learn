@@ -65,8 +65,8 @@
       "q": "Someone asks you to keep a secret that makes you feel bad. What do you do?",
       "options": [
         "Tell a grown-up you trust",
-        "Keep it forever",
-        "Hide"
+        "Keep it a secret forever",
+        "Hide away and say nothing"
       ],
       "answer": 0,
       "hints": [

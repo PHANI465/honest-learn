@@ -59,8 +59,8 @@
       "q": "An app is free and shows targeted ads. Why does it collect data about you?",
       "options": [
         "Advertisers pay more for precise targeting",
-        "It is required by law",
-        "To make the app load faster"
+        "It is required by law for every app maker",
+        "To make the app load a lot faster for you"
       ],
       "answer": 0,
       "hints": [

@@ -50,8 +50,8 @@
       "q": "A headline says 'Chocolate cures anxiety!' The study had 12 people and no control group. What's the best response?",
       "options": [
         "Treat it as weak evidence",
-        "Believe it",
-        "Ban chocolate"
+        "Believe it, it's a headline",
+        "Ban chocolate from the shops"
       ],
       "answer": 0,
       "hints": [
@@ -65,8 +65,8 @@
       "q": "What does 'double-blind' mean?",
       "options": [
         "Neither participants nor researchers know who gets the real treatment",
-        "Everyone wears blindfolds",
-        "The results are hidden forever"
+        "Everyone taking part in the study has to wear a blindfold during the test",
+        "The results are hidden away and never shown to anyone, even the researchers"
       ],
       "answer": 0,
       "hints": [
@@ -80,8 +80,8 @@
       "q": "Which gives the strongest evidence that a treatment works?",
       "options": [
         "A systematic review combining many well-designed studies",
-        "One study reported in a newspaper headline",
-        "A single experiment in mice"
+        "One single study that was reported in a newspaper headline",
+        "A single experiment that was only done on a few mice"
       ],
       "answer": 0,
       "hints": [

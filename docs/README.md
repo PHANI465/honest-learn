@@ -17,6 +17,7 @@
 | [DEPLOYMENT.md](DEPLOYMENT.md) | Settings, Vercel + Neon, app-store builds |
 | [PERSON_CHECKLIST.md](PERSON_CHECKLIST.md) | **Everything that needs a person**, in one ordered list (start here for what is left) |
 | [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) | Everything to finish before the public launch |
+| [review/QUIZ_OPTION_CHANGES.md](review/QUIZ_OPTION_CHANGES.md) | Before and after for the 155 quiz questions whose wrong options were reworded (for a reviewer) |
 | [SPELLING.md](SPELLING.md) | Daily spelling: the British or American setting, and how to add words that differ |
 | [SECURITY.md](SECURITY.md) | How families are protected; the latest security review |
 | [../THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) | Open source licences of everything in the app (generated; also in the app under Open source licences) |

@@ -46,8 +46,8 @@
       "q": "Which is a SMART goal?",
       "options": [
         "Finish a free online Spanish course and hold a 5-minute conversation by December",
-        "Get better at Spanish",
-        "Be fluent someday"
+        "Get a lot better at Spanish at some point in the next few years, if possible",
+        "Be fluent in Spanish someday, without a plan for how you will get there"
       ],
       "answer": 0,
       "hints": [
@@ -61,8 +61,8 @@
       "q": "Which statement about career paths is most accurate?",
       "options": [
         "There are many routes, including apprenticeships and vocational training",
-        "Only university leads to a good career",
-        "Your first job decides your whole career"
+        "Only a university degree leads to a good career, so everyone should go",
+        "Your first job decides your whole career for the rest of your life"
       ],
       "answer": 0,
       "hints": [

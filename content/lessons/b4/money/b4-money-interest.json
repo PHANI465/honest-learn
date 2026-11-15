@@ -69,8 +69,8 @@
       "q": "Why does compound interest grow faster than simple interest?",
       "options": [
         "You also earn interest on past interest",
-        "The bank adds a bonus",
-        "The rate goes up every year"
+        "The bank adds a bonus every year",
+        "The interest rate goes up every year"
       ],
       "answer": 0,
       "hints": [

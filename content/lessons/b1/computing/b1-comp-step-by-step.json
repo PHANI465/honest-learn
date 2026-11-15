@@ -60,8 +60,8 @@
       "q": "A robot is making a sandwich 🥪. What is the LAST step?",
       "options": [
         "Put the top bread on",
-        "Get the bread",
-        "Open the jam"
+        "Get the bread ready",
+        "Open the jam jar"
       ],
       "answer": 0,
       "hints": [

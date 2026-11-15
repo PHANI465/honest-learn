@@ -69,8 +69,8 @@
       "q": "Why is reusing one password on many sites risky?",
       "options": [
         "If one site leaks it, attackers try it everywhere",
-        "Websites don't allow it",
-        "It makes passwords too long"
+        "Websites do not allow people to reuse any passwords",
+        "It makes your passwords too long to ever remember"
       ],
       "answer": 0,
       "hints": [
@@ -84,8 +84,8 @@
       "q": "What makes 2FA protective?",
       "options": [
         "It needs something you have, not just something you know",
-        "It makes your password longer",
-        "It hides your username"
+        "It makes your password much longer and harder to guess",
+        "It hides your username so that nobody else can see it"
       ],
       "answer": 0,
       "hints": [

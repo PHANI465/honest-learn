@@ -66,8 +66,8 @@
       "q": "You can't solve a puzzle. What's a growth-mindset thought?",
       "options": [
         "'I can't do it YET, I'll try another way'",
-        "'I'm just bad at this'",
-        "'Puzzles are stupid'"
+        "'I'm just bad at this, so I'll stop'",
+        "'Puzzles are stupid, so I won't try'"
       ],
       "answer": 0,
       "hints": [

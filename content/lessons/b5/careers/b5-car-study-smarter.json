@@ -73,8 +73,8 @@
       "q": "Which is active recall?",
       "options": [
         "Answering practice questions without notes",
-        "Highlighting the textbook",
-        "Re-reading a chapter"
+        "Highlighting the textbook in colours",
+        "Re-reading a chapter a few times"
       ],
       "answer": 0,
       "hints": [
@@ -88,8 +88,8 @@
       "q": "Why does mixing problem types (interleaving) help?",
       "options": [
         "You practise choosing the right method",
-        "It makes sessions shorter",
-        "It avoids hard problems"
+        "It makes your study sessions shorter",
+        "It lets you avoid the hard problems"
       ],
       "answer": 0,
       "hints": [

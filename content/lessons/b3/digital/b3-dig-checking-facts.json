@@ -56,8 +56,8 @@
       "q": "A post makes you feel VERY angry and says 'Share before it's deleted!'. This is…",
       "options": [
         "A warning sign it might be misleading",
-        "Proof it's true",
-        "Definitely from a scientist"
+        "Proof that the post is true",
+        "Definitely written by a scientist"
       ],
       "answer": 0,
       "hints": [

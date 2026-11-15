@@ -68,8 +68,8 @@
       "q": "The equilibrium price is where…",
       "options": [
         "The amount buyers want equals the amount sellers offer",
-        "Prices are as high as possible",
-        "The government sets the price"
+        "Prices are as high as they can possibly be in the market",
+        "The government has fixed the price for every seller"
       ],
       "answer": 0,
       "hints": [
@@ -83,8 +83,8 @@
       "q": "A farmers' market has far too many tomatoes at the end of the day. Sellers will most likely…",
       "options": [
         "Lower prices to sell them",
-        "Raise prices",
-        "Do nothing"
+        "Raise prices even higher",
+        "Do nothing and just wait"
       ],
       "answer": 0,
       "hints": [

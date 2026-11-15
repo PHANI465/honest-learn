@@ -66,8 +66,8 @@
       "q": "What is a 'second-order consequence'?",
       "options": [
         "An effect that follows from the first effect",
-        "The second option on a list",
-        "A mistake"
+        "The second option on a list of choices",
+        "A mistake that someone makes twice"
       ],
       "answer": 0,
       "hints": [
@@ -81,8 +81,8 @@
       "q": "Two people disagree about the trolley problem. One says saving five lives instead of one is clearly better. The other says actively causing someone's death is wrong, whatever the result. What does this disagreement best show?",
       "options": [
         "People can reason from different principles, such as consequences or duties",
-        "One of them must have made a logical mistake",
-        "Ethical dilemmas always have one obvious right answer"
+        "One of the two people must have made a clear logical mistake in their thinking",
+        "Ethical dilemmas always have one obvious right answer that everyone can see"
       ],
       "answer": 0,
       "hints": [

@@ -68,8 +68,8 @@
       "q": "Which statement needs a citation?",
       "options": [
         "'Teen screen time rose 17% between 2019 and 2021.'",
-        "'Water is wet.'",
-        "'There are seven days in a week.'"
+        "'Water is wet, and everybody knows that it is.'",
+        "'There are seven days in every single week of the year.'"
       ],
       "answer": 0,
       "hints": [
@@ -83,8 +83,8 @@
       "q": "An AI tool gives you a source for your essay. What should you do?",
       "options": [
         "Check that the source exists and says what's claimed",
-        "Copy it straight in",
-        "Cite the AI as the original author"
+        "Copy it straight into your essay without a second look",
+        "Cite the AI as the original author of the source"
       ],
       "answer": 0,
       "hints": [

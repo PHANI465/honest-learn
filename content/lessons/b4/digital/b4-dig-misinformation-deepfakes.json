@@ -75,8 +75,8 @@
       "q": "Why does the lesson say to pause before sharing a post that makes you angry or shocked?",
       "options": [
         "Strong emotions push people to share before checking, which helps fakes spread",
-        "Posts that make people angry are always false",
-        "Platforms automatically delete posts that make people angry"
+        "Posts that make people angry are always false and should be ignored",
+        "Platforms automatically delete posts that make people angry or shocked"
       ],
       "answer": 0,
       "hints": [

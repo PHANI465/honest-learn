@@ -46,8 +46,8 @@
       "q": "What is 'steelmanning' an argument?",
       "options": [
         "Stating the other side's best version of their argument",
-        "Making their argument look silly",
-        "Ignoring it"
+        "Making their argument sound as silly as you possibly can",
+        "Ignoring their argument completely and hoping it goes away"
       ],
       "answer": 0,
       "hints": [
@@ -76,8 +76,8 @@
       "q": "Your town plans to close a road to cars and turn it into a park. Using the lesson's questions, what is a good first step before you decide your view?",
       "options": [
         "List who is affected (drivers, shop owners, families, cyclists) and what each might say",
-        "Decide based only on whether you personally use the road",
-        "Ask only people who already agree with you"
+        "Decide based only on whether you personally use that road, and then stop thinking about it",
+        "Ask only the people who already agree with you, so that you feel sure about your view"
       ],
       "answer": 0,
       "hints": [

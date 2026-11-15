@@ -45,8 +45,8 @@
       "q": "Why turn pan handles inward on the stove?",
       "options": [
         "So nobody knocks the pan over",
-        "It looks nicer",
-        "It cooks faster"
+        "It looks nicer on the stove top",
+        "It makes the food cook faster"
       ],
       "answer": 0,
       "hints": [
@@ -60,8 +60,8 @@
       "q": "What's a good first step in planning your afternoon?",
       "options": [
         "List what you must do and what you'd like to do",
-        "Start whatever you feel like",
-        "Do nothing"
+        "Start with whatever you feel like doing most",
+        "Do nothing and wait to see what happens"
       ],
       "answer": 0,
       "hints": [

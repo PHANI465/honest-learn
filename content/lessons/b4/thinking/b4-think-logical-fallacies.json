@@ -94,8 +94,8 @@
       "q": "'Either we cancel the school trip or someone will get lost.' Why is this weak?",
       "options": [
         "It ignores other options, like more supervision",
-        "It is too short",
-        "It mentions a trip"
+        "It is far too short to be a proper argument",
+        "It talks about a school trip, which is off topic"
       ],
       "answer": 0,
       "hints": [

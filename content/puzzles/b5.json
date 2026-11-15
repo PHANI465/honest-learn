@@ -43,8 +43,8 @@
       "q": "'All A are B' is true. Which statement MUST also be true?",
       "options": [
         "Anything that is not B is not A",
-        "All B are A",
-        "Some B are not A"
+        "Everything that is B must also be A",
+        "There must be some B that is not A"
       ],
       "answer": 0,
       "hints": [

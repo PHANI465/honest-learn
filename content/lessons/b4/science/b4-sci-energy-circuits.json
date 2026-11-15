@@ -75,8 +75,8 @@
       "q": "A light bulb in a circuit feels warm. What does this show about energy?",
       "options": [
         "Some energy is changed into heat (thermal energy), not destroyed",
-        "The bulb is creating extra energy",
-        "The energy disappears once it leaves the battery"
+        "The bulb is creating extra energy out of nothing at all",
+        "The energy simply disappears once it has left the battery"
       ],
       "answer": 0,
       "hints": [

@@ -79,7 +79,7 @@ checking easy; the writing rules are in `REVIEWER_GUIDE.md`).
 - [ ] **Spelling lists:** 637 words; check meanings and sentences, and the 32 words that differ between British and American spelling, which are new and written by Claude (`NEEDS_APPROVAL.md`, `SPELLING.md`).
 - [ ] **Chess and Sudoku lessons and the 32 chess puzzles:** a chess player checks the lessons' explanations (the positions were proven by code, the teaching was not).
 - [ ] **Free resources:** check each of the 27 websites (free, no ads aimed at children, right ages) and set `lastChecked`.
-- [ ] **Quiz fairness:** `npm run validate` warns about 265 questions where the correct option is the longest, so children can guess it. Reviewers should rebalance these.
+- [ ] **Quiz fairness:** the correct option was clearly the longest in 155 questions; Claude reworded their wrong options on 15 Nov 2026 (the correct options were not touched). **A reviewer should read `docs/review/QUIZ_OPTION_CHANGES.md`** and check that every new wrong option is still clearly wrong and suitable for the age group. `npm run validate` and a test now keep it from coming back.
 - [ ] **Wikipedia and video links:** run `node scripts/check-links.mjs`; videos need `scripts/check-videos.mjs --write` with a YouTube API key.
 
 ---
@@ -163,7 +163,7 @@ None of these needs a person's expertise, only a decision to start.
 | ~~Save an unfinished chess game; hints that point at a piece~~ **done 15 Nov 2026** | Against the computer. Open: try it on a real phone and with a real child (part 2); the chess *puzzles* have their own server hints | Sonnet, medium |
 | ~~Move a family between a phone and a server~~ **done 15 Nov 2026** | `POST /parent/import` and the transfer screen. Open: try it between a real phone and a real server (part 2) | Opus, high |
 | **A splash screen** | After you agree to the package (part 1) | Sonnet, low |
-| **Rebalance the 265 "longest correct option" quiz questions** | A reviewer must still approve the result | Haiku, low, with review |
+| ~~Rebalance the 265 "longest correct option" quiz questions~~ **done 15 Nov 2026** | 155 reworded, a validator rule and a test. Open: a reviewer must approve the new wrong options (part 3) | Haiku, low, with review |
 | ~~Offline caching of quick facts~~ **done 15 Nov 2026** | Facts a child has been shown are kept on the device. Open: try it on a real phone with the internet switched off (part 2) | Sonnet, medium |
 
 ---

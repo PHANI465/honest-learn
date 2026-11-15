@@ -42,8 +42,8 @@
       "q": "Which is the strongest argument for a school garden?",
       "options": [
         "It teaches science, and research shows gardening can improve wellbeing",
-        "Because I want one",
-        "Gardens are cool"
+        "Because I really want one, and all of my friends want one very much too",
+        "Gardens are cool, and cool things should always be built at every school"
       ],
       "answer": 0,
       "hints": [
@@ -57,8 +57,8 @@
       "q": "An advert shows a famous footballer eating a snack. What's the trick?",
       "options": [
         "Using a famous person to make you want it",
-        "Proving the snack is healthy",
-        "Showing the price"
+        "Proving that the snack is really healthy",
+        "Showing the price of the snack"
       ],
       "answer": 0,
       "hints": [

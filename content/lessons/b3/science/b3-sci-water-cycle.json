@@ -53,8 +53,8 @@
       "q": "What makes water evaporate from the ocean?",
       "options": [
         "Heat from the Sun",
-        "The Moon",
-        "Wind only"
+        "The pull of the Moon",
+        "Wind blowing alone"
       ],
       "answer": 0,
       "hints": [
@@ -68,8 +68,8 @@
       "q": "Clouds form when water vapour…",
       "options": [
         "Cools and condenses into droplets",
-        "Gets hotter",
-        "Turns into salt"
+        "Gets hotter and rises higher and higher",
+        "Turns into salt and falls into the sea"
       ],
       "answer": 0,
       "hints": [

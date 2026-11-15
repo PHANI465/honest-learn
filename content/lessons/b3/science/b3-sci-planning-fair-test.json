@@ -45,8 +45,8 @@
       "q": "Testing whether plants grow taller with more light, what must you keep the same?",
       "options": [
         "Water, soil and plant type",
-        "The amount of light",
-        "Nothing"
+        "How much light each gets",
+        "Nothing, it can all change"
       ],
       "answer": 0,
       "hints": [

@@ -46,7 +46,7 @@
       "options": [
         "Short sessions with breaks and self-testing",
         "One all-nighter before the exam",
-        "Re-reading notes ten times"
+        "Re-reading your notes ten times over"
       ],
       "answer": 0,
       "hints": [
@@ -60,8 +60,8 @@
       "q": "A friend says they feel hopeless about exams and can't cope. What should you do?",
       "options": [
         "Listen, take it seriously, and help them talk to a trusted adult",
-        "Tell them to stop being dramatic",
-        "Ignore it"
+        "Tell them to stop being so dramatic and just get on with revising",
+        "Ignore it and hope that it goes away by itself after the exams"
       ],
       "answer": 0,
       "hints": [
@@ -75,8 +75,8 @@
       "q": "Which statement about stress before exams matches the lesson?",
       "options": [
         "Some stress can help you focus, but too much makes it hard to think, sleep or eat",
-        "Any stress before an exam means something is wrong with you",
-        "The more stressed you feel, the better you'll perform"
+        "Any stress at all before an exam means that something is badly wrong with you",
+        "The more stressed you feel, the better you will perform in every exam you take"
       ],
       "answer": 0,
       "hints": [

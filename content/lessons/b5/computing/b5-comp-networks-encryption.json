@@ -55,8 +55,8 @@
       "q": "What does DNS do?",
       "options": [
         "Translates website names into IP addresses",
-        "Encrypts passwords",
-        "Blocks viruses"
+        "Encrypts your passwords so they stay safe online",
+        "Blocks viruses before they get onto the computer"
       ],
       "answer": 0,
       "hints": [

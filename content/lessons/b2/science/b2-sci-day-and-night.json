@@ -79,8 +79,8 @@
       "q": "How long does the Earth take to spin once?",
       "options": [
         "One day (about 24 hours)",
-        "One year",
-        "One hour"
+        "One year (about 365 days)",
+        "One hour (about 60 min)"
       ],
       "answer": 0,
       "hints": [

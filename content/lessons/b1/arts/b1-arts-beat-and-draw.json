@@ -50,8 +50,8 @@
       "q": "A steady beat in music is like…",
       "options": [
         "Your heartbeat 💓",
-        "A whisper",
-        "A sneeze"
+        "A quiet whisper 🤫",
+        "A big sneeze 🤧"
       ],
       "answer": 0,
       "hints": [
@@ -65,8 +65,8 @@
       "q": "Is there a wrong way to draw?",
       "options": [
         "No! Everyone draws in their own way",
-        "Yes, only one way",
-        "Only grown-ups can draw"
+        "Yes, there is only one right way",
+        "Only grown-ups are allowed to draw"
       ],
       "answer": 0,
       "hints": [

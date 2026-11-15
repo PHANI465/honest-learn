@@ -41,8 +41,8 @@
       "q": "Which is a PRIMARY source about a 1950s school?",
       "options": [
         "A photo taken in that school in 1955",
-        "A textbook written in 2020",
-        "A film made last year"
+        "A textbook written in the year 2020",
+        "A film that was made last year"
       ],
       "answer": 0,
       "hints": [
@@ -56,8 +56,8 @@
       "q": "Why should historians ask who made a source?",
       "options": [
         "The maker might have a point of view or bias",
-        "To know their favourite colour",
-        "It doesn't matter"
+        "To find out what the maker's favourite colour is",
+        "It doesn't matter at all who made the source"
       ],
       "answer": 0,
       "hints": [
