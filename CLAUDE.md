@@ -38,6 +38,7 @@ After changing content, run all four generators before committing (`bundle-conte
 - **Sensitive topics** (`religion`, `body`, `politics`) are hidden server-side until a parent unlocks them with the PIN. Teach descriptively and with multiple perspectives.
 - **Parent PIN** gates settings, sensitive topics, chat review, outside links (under 13), extra screen time, export/delete.
 - **No ads, no third-party analytics, no selling data, no streaks or leaderboards.**
+- **Licences:** code is Apache-2.0 (`LICENSE`), everything in `content/` is CC BY-SA 4.0 (`content/LICENSE`), copyright "The Honest Learn contributors" (`NOTICE`). New content must be original or come from a source that allows CC BY-SA 4.0 (public domain, CC0, CC BY, CC BY-SA), with its source and licence listed; never NonCommercial or NoDerivatives (a test fails). New dependencies must be permissive (`scripts/build-licences.mjs` fails otherwise).
 - New or edited content stays `"status": "draft"` until two human reviewers approve it.
 - Hoot replies pass a second safety/answer-leak check; `precheck()` in `server/src/tutor.ts` handles personal info and wellbeing messages before any AI call.
 - The server records opened hints (`hints_seen`); answers are revealed only after all three, in order. Never trust the app's `hintsUsed` alone.

@@ -2,6 +2,7 @@
   "name": "honest-learn",
   "private": true,
   "description": "Vercel project root: the web app is built from app/, the API function lives in api/ (code in server/). See docs/DEPLOYMENT.md.",
+  "license": "Apache-2.0",
   "type": "module",
   "engines": {
     "node": "22.x"

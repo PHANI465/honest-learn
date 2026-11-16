@@ -232,7 +232,7 @@ Honest Learn links to free learning websites and may show YouTube videos in priv
 ## Who owns what
 
 - Your family's information belongs to you. You can download it or delete it at any time.
-- Lessons, puzzles and the app are ours or our licensors'. [Lawyer: decide the content licence, for example a Creative Commons licence, and list third-party credits.] The free websites we list belong to their owners.
+- The app's code is licensed under the Apache License 2.0 and the lessons, quiz questions, facts, word lists and puzzles under Creative Commons Attribution-ShareAlike 4.0, as stated in the project's \`LICENSE\`, \`content/LICENSE\` and \`NOTICE\` files. Third-party software and fonts keep their own licences (see "Open source licences" in the app). [Lawyer: check this against the rest of these terms, and the organisation named as the rights holder.] The free websites we list belong to their owners.
 - If you send us feedback or a report, we may use it to improve Honest Learn.
 
 ## Reports and complaints

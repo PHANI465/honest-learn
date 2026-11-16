@@ -30,6 +30,7 @@ let behaviour: (req: IncomingMessage, res: ServerResponse) => void = (_req, res)
 };
 let server: Server;
 let port = 0;
+let connections = 0;
 before(async () => {
   server = createServer((req, res) => {
     let body = "";
@@ -39,6 +40,7 @@ before(async () => {
       behaviour(req, res);
     });
   });
+  server.on("connection", () => connections++);
   await new Promise<void>((ok) => server.listen(0, "127.0.0.1", ok));
   port = (server.address() as { port: number }).port;
 });
@@ -121,6 +123,15 @@ describe("what is sent, and what comes back", () => {
     const body = JSON.stringify({ m: "naïve café ✓ 🦉" });
     await ai.guardedFetch(true, to("127.0.0.1"))(url(), { method: "POST", body });
     assert.equal(seen[0]!.body, body);
+  });
+
+  test("every request gets its own connection: nothing is pooled by host name, and a closed pooled socket cannot fail a request", async () => {
+    seen = [];
+    const before = connections;
+    const f = ai.guardedFetch(true, to("127.0.0.1"));
+    for (let i = 0; i < 4; i++) assert.equal((await post(f)).status, 200);
+    assert.equal(connections - before, 4, "four requests, four connections");
+    assert.ok(seen.every((s) => s.headers.connection === "close"));
   });
 
   test("the status and headers come back, so an error answer is an error", async () => {

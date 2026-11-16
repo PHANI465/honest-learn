@@ -1,12 +1,14 @@
 # Third-party notices
 
+**Honest Learn itself:** the code is under the Apache License 2.0 (`LICENSE`) and the content (lessons, quiz questions, facts, word lists, puzzles) under Creative Commons Attribution-ShareAlike 4.0 (`content/LICENSE`); see `NOTICE`.
+
 Honest Learn includes the open source software and fonts listed here. Each is used under its own licence, reproduced below with the
 copyright notices of the packages that use it. **This file is generated** by `node scripts/build-licences.mjs` from the packages that are actually in the app's
 Android, iOS and website bundles (and the app's direct dependencies); it is shown in the app under *Open source licences*.
 
 67 packages and 2 fonts, under 10 licence wordings. Every one is on the permissive list in the script.
 
-**Not covered here:** the lesson content (written for this project; each lesson lists its own sources and their licences), Wikipedia text (shown with attribution under CC BY-SA), and the
+**Not covered here:** the lesson content (licensed as above; each lesson lists its own sources and their licences), Wikipedia text (shown with attribution under CC BY-SA), and the
 native libraries that React Native and Expo bring into the Android and iOS builds (for example networking and image libraries). Those are listed by the platforms' build tools once a
 real build exists; see `docs/PERSON_CHECKLIST.md`.
 

@@ -255,3 +255,11 @@ cd app && npm run typecheck
 4. After two reviews, set `"status": "reviewed"` and add both reviewers.
 
 Draft lessons are shown until launch (`LAUNCH=true` hides them unless `SHOW_DRAFTS=true`).
+
+## Licence
+
+- **Code** (`server/`, `app/`, `scripts/`, `api/`): [Apache License 2.0](LICENSE).
+- **Content** (everything in `content/`: lessons, quiz questions, facts, spelling lists, puzzles): [Creative Commons Attribution-ShareAlike 4.0](content/LICENSE). Credit "The Honest Learn contributors", say if you changed it, and share your version under the same licence.
+- **Third-party software and fonts** keep their own licences: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). See also [NOTICE](NOTICE).
+
+The licences give you the right to use the files, not a promise that the content is correct or suitable for a particular child: every lesson is a draft until two human reviewers approve it.

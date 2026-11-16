@@ -1,0 +1,22 @@
+Honest Learn
+Copyright 2026 The Honest Learn contributors
+
+This repository has two licences:
+
+  * The code (server/, app/, scripts/, api/ and the build files) is licensed under
+    the Apache License, Version 2.0. See LICENSE.
+
+  * The content (everything in content/: lessons, quiz questions, hints, quick facts,
+    spelling lists, puzzles, chess puzzles, the knowledge map, resource lists and
+    helplines) is licensed under the Creative Commons Attribution-ShareAlike 4.0
+    International licence (CC BY-SA 4.0). See content/LICENSE. To give credit, name
+    "The Honest Learn contributors", link to https://github.com/PHANI465/honest-learn,
+    say that you changed it if you did, and share your version under the same licence.
+
+Third-party software and fonts that Honest Learn includes are used under their own
+licences: see THIRD_PARTY_NOTICES.md (also shown in the app under "Open source
+licences"). Lessons and facts list their own sources and those sources' licences.
+
+All lessons are drafts until two human reviewers approve them (docs/NEEDS_APPROVAL.md).
+The licences give you the right to use the files; they are not a promise that the
+content is correct, complete or suitable for any particular child.

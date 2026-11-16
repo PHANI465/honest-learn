@@ -22,8 +22,11 @@ export default function Licences() {
         Honest Learn is built with free and open source software, and uses two free fonts on the website. Each piece is used under its own licence, shown below with its
         copyright notices. Thank you to everyone who made them.
       </P>
+      <P size={14}>
+        Honest Learn itself: the code is under the Apache License 2.0, and the lessons, quiz questions, facts and word lists are under Creative Commons Attribution-ShareAlike 4.0 (share and adapt them with credit, under the same licence).
+      </P>
       <P muted size={14}>
-        {packages} packages and {fonts} fonts, under {licenceTexts.length} licence wordings. Lesson texts are written for this project; each lesson lists its own sources. Wikipedia text is
+        {packages} packages and {fonts} fonts, under {licenceTexts.length} licence wordings. Each lesson lists its own sources and their licences. Wikipedia text is
         shown with attribution under its Creative Commons licence.
       </P>
 

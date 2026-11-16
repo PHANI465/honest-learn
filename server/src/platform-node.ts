@@ -14,6 +14,7 @@ interface NodeHttp {
       method: string;
       headers: Record<string, string>;
       signal?: AbortSignal;
+      agent?: false;
       lookup: (host: string, options: unknown, callback?: unknown) => void;
     },
     onResponse: (res: NodeIncoming) => void,
@@ -109,7 +110,9 @@ export function createNodePlatform(): Platform {
       new Headers(init.headers).forEach((value, key) => (headers[key] = value));
       headers["accept-encoding"] = "identity"; // the body is read as it arrives: nothing to decompress
       if (init.body !== undefined) headers["content-length"] = String(new TextEncoder().encode(init.body).length);
-      const req = (u.protocol === "https:" ? https : http).request(u, { method: init.method ?? "GET", headers, signal: init.signal, lookup }, (res) => {
+      // agent: false = a fresh connection for every request. Pooled connections are kept per host name and port, not per address, so a reused
+      // one could outlive the check that allowed it; and a pooled socket the server has just closed makes a request fail at random.
+      const req = (u.protocol === "https:" ? https : http).request(u, { method: init.method ?? "GET", headers, signal: init.signal, lookup, agent: false }, (res) => {
         const status = res.statusCode ?? 0;
         if (status >= 300 && status < 400) {
           res.resume();

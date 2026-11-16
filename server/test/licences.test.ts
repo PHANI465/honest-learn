@@ -65,3 +65,51 @@ describe("open source notices", () => {
     for (const n of ["js-chess-engine", "@noble/hashes", "@noble/ciphers", "hono", "zod"]) assert.equal(by(n).licence, "MIT", n);
   });
 });
+
+// ---------------------------------------------------------------- the project's own licences
+// Code: Apache-2.0 (LICENSE). Content: CC BY-SA 4.0 (content/LICENSE). Chosen by the owner on 15 Nov 2026; see docs/PERSON_CHECKLIST.md.
+describe("the project's own licences", () => {
+  const read = (p: string) => readFileSync(join(root, p), "utf8").replace(/\r\n/g, "\n");
+
+  test("LICENSE is the Apache License 2.0 as published, complete", () => {
+    const text = read("LICENSE");
+    assert.match(text, /^\s*Apache License\s+Version 2\.0, January 2004/);
+    assert.ok(text.includes("TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION"));
+    assert.ok(text.includes("END OF TERMS AND CONDITIONS"));
+    assert.ok(text.includes("APPENDIX: How to apply the Apache License to your work."));
+    assert.equal(Buffer.byteLength(text), 11358, "the official text is 11,358 bytes: it has been changed");
+  });
+
+  test("content/LICENSE is CC BY-SA 4.0 as published, complete", () => {
+    const text = read("content/LICENSE");
+    assert.ok(text.startsWith("Attribution-ShareAlike 4.0 International"));
+    assert.ok(text.replace(/\s+/g, " ").includes("Creative Commons Attribution-ShareAlike 4.0 International Public License"));
+    assert.ok(text.includes("Section 8 -- Interpretation."));
+    assert.ok(text.includes("Creative Commons may be contacted at creativecommons.org."));
+  });
+
+  test("every package.json says Apache-2.0", () => {
+    for (const p of ["package.json", "server/package.json", "app/package.json"]) assert.equal((JSON.parse(read(p)) as { license?: string }).license, "Apache-2.0", p);
+  });
+
+  test("NOTICE, the README and the notices file say which licence covers what", () => {
+    const notice = read("NOTICE");
+    for (const part of ["Copyright 2026 The Honest Learn contributors", "Apache License, Version 2.0", "CC BY-SA 4.0", "content/LICENSE", "THIRD_PARTY_NOTICES.md"]) assert.ok(notice.includes(part), `NOTICE: ${part}`);
+    const readme = read("README.md");
+    assert.ok(readme.includes("## Licence") && readme.includes("Apache License 2.0") && readme.includes("Creative Commons Attribution-ShareAlike 4.0"));
+    assert.ok(notices.includes("Honest Learn itself") && notices.includes("Apache License 2.0") && notices.includes("Attribution-ShareAlike 4.0"));
+    assert.ok(read("content/README.md").includes("CC BY-SA 4.0"));
+  });
+
+  test("no lesson, fact or word list names a source licence that cannot be combined with CC BY-SA (NonCommercial, NoDerivatives)", async () => {
+    const { config } = await import("../src/config.ts");
+    const { loadContent } = await import("../src/content.ts");
+    const content = loadContent(config.contentDir);
+    const names: { where: string; licence: string }[] = [];
+    for (const l of content.lessons.values()) for (const s of l.sources) names.push({ where: l.id, licence: s.license });
+    for (const set of content.spelling.values()) names.push({ where: `spelling ${set.band}`, licence: set.source.license });
+    const bad = names.filter((n) => /\b(NC|ND)\b|non-?commercial|no-?derivs|no derivatives/i.test(n.licence));
+    assert.deepEqual(bad, [], "content/ is CC BY-SA 4.0: a source that allows only non-commercial use or no changes cannot be used (see content/README.md)");
+    assert.ok(names.length > 200, `${names.length} source licences checked`);
+  });
+});

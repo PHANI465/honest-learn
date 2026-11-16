@@ -26,7 +26,7 @@ handover notes in `AGENT_TASKS.md`. Those documents have the detail; this page s
 
 Quick, and they unblock the rest.
 
-- [ ] **Project licence.** The repository has **no licence file** and no `license` field in any `package.json`. Everything about "compatible licences" (for example GPL software) depends on this. Decide, then add a `LICENSE`.
+- [x] ~~Project licence~~ **decided 15 Nov 2026 and added:** the **code** is under the **Apache License 2.0** (`LICENSE`, `"license": "Apache-2.0"` in the three `package.json` files) and the **content** (everything in `content/`) under **Creative Commons Attribution-ShareAlike 4.0** (`content/LICENSE`), with the copyright line "Copyright 2026 The Honest Learn contributors" (`NOTICE`). The licence texts are the official ones, unchanged. Content can therefore only use sources that allow CC BY-SA 4.0 (a test fails on a NonCommercial or NoDerivatives source). **Still for a lawyer or you:** whether "The Honest Learn contributors" is the right holder until there is an organisation, and a contributor agreement if outside people will contribute (a pull request is otherwise licensed under the project's licence by GitHub's terms).
 - [ ] **Does the project run a public server for families, or is the store app phone-only?** The store app asks on first run ("On this phone only" or "Connect to a server"). If no project server exists, the project collects nothing and the privacy forms say so. If one exists, it collects accounts, progress and chats. See `STORE_LISTING.md` section 4. This is the most important decision for the legal work.
 - [ ] **Apple category.** Kids Category only covers ages 5 and under, 6 to 8 and 9 to 11; the app serves 3 to 18. Kids Category, or a normal Education listing with an age rating? (`STORE_LISTING.md` decision 2.)
 - [ ] **Export compliance.** `ITSAppUsesNonExemptEncryption` is `false`, but standalone mode ships its own AES-GCM and scrypt code. Get the right answer before the first upload (`STORE_LISTING.md` decision 3).
@@ -98,7 +98,7 @@ A lawyer familiar with children's privacy (COPPA, GDPR and the UK Children's Cod
 - [ ] **Open-source notices.** Built 15 Nov 2026: an "Open source licences" screen (website footer, sign-up, welcome screen, parent area), `THIRD_PARTY_NOTICES.md` and the Manrope font licence, all generated from the packages that are really in the app (`node scripts/build-licences.mjs`; CI fails if stale or if a non-permissive licence appears). **For a lawyer to confirm:** is this enough? It does **not** yet list the native libraries React Native and Expo bring into the Android and iOS builds (networking, image and other libraries, several under Apache-2.0); those can only be listed once a real build exists, with the platform's licence tooling.
 - [ ] **Apple and donations:** read the current App Store guideline 3.2 before submitting; until the project is an approved nonprofit the donate button only opens a website from the parent area.
 - [ ] **Trademark search** for "Honest Learn" (USPTO, India IP office, EUIPO).
-- [ ] **Project licence** (part 1) reviewed.
+- [ ] **Project licence** (part 1) reviewed: Apache-2.0 for the code, CC BY-SA 4.0 for the content; check it against the terms of use and the privacy notice.
 
 ---
 
@@ -156,7 +156,7 @@ None of these needs a person's expertise, only a decision to start.
 | Task | Notes | Suggested model |
 |---|---|---|
 | ~~An "Open source licences" screen and a `NOTICE` file~~ **done 15 Nov 2026** | `THIRD_PARTY_NOTICES.md`, the screen, a CI guard. Open: the native libraries (part 4) | Sonnet, medium |
-| **Add the `LICENSE` file** | After you decide the licence (part 1) | Any |
+| ~~Add the `LICENSE` file~~ **done 15 Nov 2026** | `LICENSE`, `content/LICENSE`, `NOTICE`, README section, `license` fields, tests | Any |
 | **Fix the stale lines in `LAUNCH_CHECKLIST.md`** ("Built so far" stops at v0.3.0, and the README and `docs/README.md` said 220 outcomes instead of 262) | Docs only; the two README counts are fixed with this page | Haiku or Sonnet |
 | ~~Stop a family's AI address being re-pointed between the check and the request~~ (DNS rebinding) **done 15 Nov 2026** | The request connects only to the addresses that were checked. Open: try it with a real hosted model (part 2) | Opus, high |
 | ~~Show on the child side that Hoot is using a family's own, untested model~~ **done 15 Nov 2026** | A banner on the child's chat screen. Open: ask a real child whether the words are clear (part 2) | Sonnet, medium |

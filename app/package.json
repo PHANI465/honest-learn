@@ -1,6 +1,7 @@
 {
   "name": "honest-learn-app",
   "version": "1.0.0",
+  "license": "Apache-2.0",
   "main": "expo-router/entry",
   "dependencies": {
     "@expo/metro-runtime": "~58.0.17",
