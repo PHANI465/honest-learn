@@ -86,7 +86,7 @@ website (open it in Safari and choose *Add to Home Screen*).
 - ⬜ Check the app on a real phone on the home Wi-Fi with a server on your computer (nobody has done this yet: it was tested only in a browser and with unit tests).
 - ⬜ Create a Google Play developer account; complete the target-audience, data safety and content rating forms; upload an internal test build.
 - ⬜ Create an Apple Developer account if iPhone users are wanted; complete the Kids Category and privacy answers; test with TestFlight.
-- ⬜ Screenshots from a real phone and a feature graphic (the icons are the right size but are still Expo's placeholder picture, the launch screen is a placeholder badge, and the store text is drafted in `STORE_LISTING.md`).
+- ⬜ Screenshots from a real phone and a feature graphic (the icons and the launch screen use the book-with-a-sprout logo, and the store text is drafted in `STORE_LISTING.md`).
 - ⬜ Have the privacy notice and terms reviewed by a lawyer before any store submission.
 - ⬜ Decide whether the stores should offer the app before the content is reviewed. By the project's own rule, nothing is public-launch ready until humans approve the content.
 

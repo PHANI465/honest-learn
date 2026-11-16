@@ -26,6 +26,7 @@ node scripts/build-catalogue.mjs     # README "What's inside" (CI fails if stale
 node scripts/export-review-sheet.mjs # docs/review/*.csv (CI fails if stale)
 node scripts/build-knowledge-doc.mjs # docs/KNOWLEDGE_MAP.md (CI fails if stale)
 node scripts/bundle-content.mjs      # app/src/local/content-files.generated.ts, the phone app's content index (CI fails if stale)
+node scripts/make-icons.mjs          # redraws the logo (open book with a sprout) and every icon and the launch image from code; real artwork can replace the PNGs instead
 node scripts/build-licences.mjs      # open source notices (app screen + THIRD_PARTY_NOTICES.md); run after changing a dependency; fails on a non-permissive licence (CI)
 node scripts/check-doc-counts.mjs    # docs must agree with content counts (CI)
 node scripts/seed-demo.mjs           # demo family on a running local API; see docs/TRY_IT.md

@@ -84,7 +84,7 @@ Details and what is still unverified for each are in the handover notes in [`AGE
 - ⬜ **Apple Kids Category:** no third-party analytics or ads SDKs (none are used now; keep it that way); parental gate on links (✅ built); privacy "nutrition label"
 - ⬜ **Google Play Families policy:** target-audience declaration, Teacher Approved application (optional), Data safety form, AI-content reporting (✅ built)
 - ⬜ **Donations:** Apple only allows in-app donations for approved nonprofits. Until then, the donate button opens a website, and only from the PIN-protected parent area (✅ built that way). Check the current App Store guideline 3.2 before submitting
-- ⬜ App icon and logo (the files are Expo's placeholders), screenshots, store descriptions. Splash screen: built with a placeholder badge
+- ✅ App icon, logo and launch screen (the open book with a sprout, drawn by `scripts/make-icons.mjs`); ⬜ screenshots, a feature graphic, store descriptions
 - ✅ Build configuration checked 15 Nov 2026: Android asks only for `INTERNET`, iOS declares no tracking (privacy manifest), no unused Face ID text, `expo-doctor` 20 of 20. Store listing and form answers are drafted in [`STORE_LISTING.md`](STORE_LISTING.md); its section 2 lists seven decisions for the owner (including export compliance and public privacy and account-deletion pages)
 - ✅ `eas.json` has `preview` (APK) and `production` (AAB) profiles, and the phone app asks for a server address on first run (no address is baked in); see [`MOBILE.md`](MOBILE.md). ⬜ Developer accounts, signed builds and store forms still need a person
 
